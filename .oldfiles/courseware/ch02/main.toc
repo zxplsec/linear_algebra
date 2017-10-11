@@ -1,0 +1,11 @@
+\beamer@endinputifotherversion {3.36pt}
+\beamer@sectionintoc {1}{矩阵}{3}{0}{1}
+\beamer@sectionintoc {2}{矩阵的计算}{80}{0}{2}
+\beamer@subsectionintoc {2}{1}{矩阵的加法}{81}{0}{2}
+\beamer@subsectionintoc {2}{2}{矩阵的数乘}{86}{0}{2}
+\beamer@subsectionintoc {2}{3}{矩阵的乘法}{91}{0}{2}
+\beamer@subsectionintoc {2}{4}{一些特殊矩阵及其运算}{127}{0}{2}
+\beamer@sectionintoc {3}{矩阵的转置、对称矩阵}{170}{0}{3}
+\beamer@sectionintoc {4}{逆矩阵}{201}{0}{4}
+\beamer@sectionintoc {5}{矩阵的初等变换与初等矩阵}{276}{0}{5}
+\beamer@sectionintoc {6}{矩阵分块}{357}{0}{6}

@@ -1,0 +1,295 @@
+\subsection{正交变换法}
+
+\begin{frame}
+  
+    \begin{jielun}
+      对于实对称矩阵$\A$，存在正交阵$\QQ$，使得
+      $$
+      \QQ^{-1}\A\QQ=\Lambdabd,
+      $$
+      由于$\QQ^{-1}=\QQ^T$，故
+      $$
+      \QQ^{T}\A\QQ=\Lambdabd.
+      $$
+    \end{jielun}
+  
+\end{frame}
+
+\begin{frame}
+  
+    \begin{dingli}[主轴定理]
+      对于任一个$n$元二次型
+      $$
+      f(x_1,x_2,\cd,x_n)=\xx^T\A\xx,
+      $$
+      存在正交变换$\xx=\QQ\yy$($\QQ$为正交阵)，使得
+      $$
+      \xx^T\A\xx=\yy^T(\QQ^T\A\QQ)\yy=\lambda_1y_1^2+\lambda_2y_2^2+\cd+\lambda_ny_n^2,
+      $$
+      其中$\lambda_1,\lambda_2,\cd,\lambda_n$为$\A$的$n$个特征值，
+      $\QQ$的$n$个列向量$\alphabd_1,\alphabd_2,\cd,\alphabd_n$是$\A$对应于$\lambda_1,\lambda_2,\cd,\lambda_n$的标准正交特征向量。
+    \end{dingli}
+\end{frame}
+
+
+
+\begin{frame}
+\begin{tuilun}
+  任给二次型$f(\xx)=\xx^T\A\xx$，总有可逆变换$\xx=\C\zz$，使得$f(\C\zz)$为规范形。
+\end{tuilun}  \pause
+
+\begin{proof}
+  由上述定理可知，
+  $$
+  f(\QQ\yy)=\yy^T\Lambdabd\yy=\lambda_1y_1^2+\cd+\lambda_ny_n^2.
+  $$
+  设二次型$f$的秩为$r$，则特征值$\lambda_i$中恰有$r$个不为零，不妨设$\lambda_1,\cd,\lambda_r$不等于零，$\lambda_{r+1}=\cd=\lambda_n=0$，令
+  $$
+  \K=\diag(k_1,k_2,\cd,k_n), \quad k_i=\left\{
+    \begin{array}{ll}
+      1/sqrt{|\lambda_i|}, & i\le r,\\
+      1, & i>r,
+    \end{array}
+  \right.
+  $$
+  则$\K$可逆，变换$\yy=\K\zz$把$f(\QQ\yy)$化为
+  $$
+  f(\QQ\K\zz)=\zz^T\K^T\QQ^T\A\QQ\K\zz=\zz^T\K^T\Lambdabd\K\zz
+  $$
+  而
+  $$
+  \K^T\Lambdabd\K=\diag(\frac{\lambda_1}{|\lambda_1|},\cd,\frac{\lambda_r}{|\lambda_r|},0,\cd,0),
+  $$
+  记$\C=\QQ\K$，即知可逆变换$\xx=\C\zz$把$f$化为规范形。
+\end{proof}
+\end{frame}
+
+
+
+\begin{frame}
+  
+    \begin{li}
+      用正交变换法，将二次型
+      $$
+      f(x_1,x_2,x_3)=2x_1^2+5x_2^2+5x_3^2+4x_1x_2-4x_1x_3-8x_2x_3
+      $$
+      化为标准型。
+    \end{li} \pause
+    
+    \begin{jie}
+    对应矩阵为
+    $$
+    \A=\left(
+    \begin{array}{rrr}
+      2&2&-2\\
+      2&5&-4\\
+      -2&-4&5
+    \end{array}
+    \right)
+    $$
+    \pause
+    其特征多项式为
+    $$
+    |\lambda\II-\A|=(\lambda-1)^2(\lambda-10)
+    $$
+    得特征值$\lambda_{1,2}=1$和$\lambda_3=10$.
+    \end{jie}
+  
+\end{frame}
+
+
+\begin{frame}
+  
+    $$
+    \begin{array}{rl}
+      (\lambda_1\II-\A)\xx=\zero & \Rightarrow~~
+      \left(
+      \begin{array}{rrr}
+        -1&-2&2\\
+        -2&-4&4\\
+        2&4&-4
+      \end{array}
+      \right)\left(
+      \begin{array}{c}
+        x_1\\
+        x_2\\
+        x_3
+      \end{array}
+      \right)=\zero\\[0.3in] \pause
+      & \Rightarrow~~
+      \xx_1=(-2,1,0)^T, \quad
+      \xx_2=(2,0,1)^T. \\[0.2in]\pause
+      (\lambda_3\II-\A)\xx=\zero & \Rightarrow~~
+      \left(
+      \begin{array}{rrr}
+        8&-2&2\\
+        -2&5&4\\
+        2&4&5
+      \end{array}
+      \right)\left(
+      \begin{array}{c}
+        x_1\\
+        x_2\\
+        x_3
+      \end{array}
+      \right)=\zero\\[0.3in] \pause
+      & \Rightarrow~~
+      \xx_3=(1,2,-2)^T.
+    \end{array}
+    $$ \pause 
+
+    对$\xx_1,\xx_2$用施密特正交化方法得
+    $$
+    \xibd_1=\left(-\frac{2\sqrt{5}}5,\frac{2\sqrt{5}}5,0\right)^T,~~~~
+    \xibd_2=\left(\frac{2\sqrt{5}}{15},\frac{4\sqrt{5}}{15},\frac{\sqrt{5}}3\right)^T
+    $$
+    再将$\xx_3$单位化为
+    $$
+    \xibd_3=\left(\frac13,\frac23,-\frac23\right)^T
+    $$
+  
+\end{frame}
+
+
+\begin{frame}
+  
+    取正交矩阵
+    $$
+    \QQ=(\xibd_1,\xibd_2,\xibd_3)=\left(
+    \begin{array}{rrr}
+      \ds-\frac{2\sqrt{5}}5&\ds\frac{2\sqrt{5}}{15}&\ds\frac13\\[0.2cm]
+      \ds \frac{2\sqrt{5}}5&\ds\frac{4\sqrt{5}}{15}&\ds\frac23\\[0.2cm]
+      \ds 0&\ds\frac{\sqrt{5}}3&\ds-\frac23
+    \end{array}
+    \right)
+    $$
+    则
+    $$
+    \QQ^{-1}\A\QQ=\QQ^{T}\A\QQ=\mathrm{diag}(1,1,10).
+    $$ \pause 
+    令$\xx=(x_1,x_2,x_3)^T,\yy=(y_1,y_2,y_3)^T$，做正交变换$\xx=\QQ\yy$，原二次型就化成标准型
+    $$
+    \xx^T\A\xx=\yy^T(\QQ^T\A\QQ)\yy=y_1^2+y_2^2+10y_3^2.
+    $$
+  
+\end{frame}
+
+
+\begin{frame}
+  \begin{li}
+    对在自然坐标系$\{\epsilonbd_1,\epsilonbd_2,\epsilonbd_3\}$下的二次曲面
+    $$
+    2x_1^2+5x_2^2+5x_3^2+4x_1x_2-4x_1x_3-8x_2x_3=1
+    $$  \pause
+    若将坐标系$\{\epsilonbd_1,\epsilonbd_2,\epsilonbd_3\}$变换为另一直角坐标系
+    $$
+    \xibd_1=\left(
+    \begin{array}{r}
+      -\frac{2\sqrt{5}}5\\[0.2cm]
+       \frac{2\sqrt{5}}5\\[0.2cm]
+       0
+    \end{array}
+    \right), \quad
+    \xibd_2=\left(
+    \begin{array}{r}
+      \frac{2\sqrt{5}}{15}\\[0.2cm]
+      \frac{4\sqrt{5}}{15}\\[0.2cm]
+      \frac{\sqrt{5}}3
+    \end{array}
+    \right),\quad
+    \xibd_3=\left(
+    \begin{array}{r}
+      \frac13\\[0.2cm]
+      \frac23\\[0.2cm]
+      -\frac23
+    \end{array}
+    \right)
+    $$\pause
+    即
+    $$
+    (\xibd_1,\xibd_2,\xibd_3)=(\etabd_1,\etabd_2,\etabd_3)\left(
+    \begin{array}{rrr}
+      -\frac{2\sqrt{5}}5&\frac{2\sqrt{5}}{15}&\frac13\\[0.2cm]
+       \frac{2\sqrt{5}}5&\frac{4\sqrt{5}}{15}&\frac23\\[0.2cm]
+       0&\frac{\sqrt{5}}3&-\frac23
+    \end{array}
+    \right)
+    $$\pause
+    则在坐标系$\{\xibd_1,\xibd_2,\xibd_3\}$下，曲面方程为
+    $$
+    y_1^2+y_2^2+10y_3^2=1.
+    $$
+  \end{li}
+  
+\end{frame}
+
+
+\begin{frame}
+  
+    \begin{li}
+      将一般二次曲面方程
+      $$
+      x^2-2y^2+10z^2+28xy-8yz+20zx-26x+32y+28z-38=0
+      $$
+      化为标准方程。
+    \end{li}
+    \pause
+    \begin{jie}
+    二次型部分
+    $
+    \blue{x^2-2y^2+10z^2+28xy-8yz+20zx}
+    $
+    对应的矩阵为
+    $$
+    \left(
+    \begin{array}{rrr}
+      1&14&10\\
+      14&-2&-4\\
+      10&-4&10
+    \end{array}
+    \right)
+    $$
+    同前例，可得正交阵
+    $$
+    \QQ=\left(
+    \begin{array}{rrr}
+      \frac13&\frac23&\frac23\\[0.1in]
+      \frac23&\frac13&-\frac23\\[0.1in]
+      -\frac23&\frac23&-\frac13
+    \end{array}
+    \right)
+    $$
+    使得
+    $$
+    \QQ^T\A\QQ=\mathrm{diag}(9,18,-18).
+    $$
+    \end{jie}
+  
+\end{frame}
+
+\begin{frame}
+  
+    做正交变换$\xx=\QQ\yy,~\xx=(x,y,z)^T,~~\yy=(x^\prime,y^\prime,z^\prime)^T$，可得
+    $$
+    \xx^T\A\xx=\yy^T(\QQ^T\A\QQ)\yy=9{x^\prime}^2+18{y^\prime}^2-18{z^\prime}^2
+    $$\pause
+    将$\xx=\QQ\yy$代入原方程即得
+    $$
+    {x^\prime}^2+2{y^\prime}^2-2{z^\prime}^2-\frac23x^\prime+\frac43y^\prime-\frac{16}3z^\prime-\frac{28}9=0
+    $$\pause
+    配方得
+    $$
+    \left(x^\prime-\frac13\right)^2+2\left(y^\prime+\frac13\right)^2-2\left(z^\prime+\frac43\right)^2=1
+    $$\pause
+    再令
+    $$
+    x^{\prime\prime}=x^\prime-\frac13,~~
+    y^{\prime\prime}=y^\prime+\frac13,~~
+    z^{\prime\prime}=z^\prime+\frac43,
+    $$
+    代入上式得标准方程
+    $$
+    {x^{\prime\prime}}^2+2{y^{\prime\prime}}^2-2{z^{\prime\prime}}^2=1
+    $$
+  
+\end{frame}

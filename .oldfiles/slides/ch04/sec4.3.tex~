@@ -1,0 +1,61 @@
+\section{标准正交基}
+
+\begin{frame}\ft{\secname}
+
+\begin{dingli}
+  $\R^n$中两两正交且不含零向量的向量组（称为非零正交向量组）$\alphabd_1,\alphabd_2,\cd,\alphabd_s$是线性无关的。
+\end{dingli} \pause 
+\begin{proof}
+设
+$$
+k_1\alphabd_1+k_2\alphabd_2+\cd+k_s\alphabd_s=0,
+$$
+则
+$$
+(k_1\alphabd_1+k_2\alphabd_2+\cd+k_s\alphabd_s,\alpha_j)=0, \quad j=1,2,\cd,s,
+$$
+即
+$$
+k_j(\alphabd_j,\alphabd_j)=0, \quad j=1,2,\cd,s.
+$$
+由于$(\alphabd_j,\alphabd_j)>0$，故
+$$
+k_j=0, \quad j=1,2,\cd,s.
+$$
+因此，$\alphabd_1,\alphabd_2,\cd,\alphabd_s$线性无关。
+\end{proof}
+\end{frame}
+
+\begin{frame}\ft{\secname}
+
+\begin{dingyi}[标准正交基]
+  设$\alphabd_1,\alphabd_2,\cd,\alphabd_n\in \R^n$，若
+  $$
+  (\alphabd_i,\alphabd_j)=\delta_{ij}=\left\{
+    \begin{array}{ll}
+      1,& i=j,\\
+      0,& i\ne j.
+    \end{array}
+  \right. \quad i,j=1,2,\cd,n.
+  $$
+  则称$\{\alphabd_1,\alphabd_2,\cd,\alphabd_n\}$是$\R^n$中的一组标准正交基。
+\end{dingyi}
+
+\end{frame}
+
+\begin{frame}\ft{\secname}
+
+\begin{li}
+  设$B=(\alphabd_1,\alphabd_2,\cd,\alphabd_n)$是$\R^n$中的一组标准正交基，求$\R^n$中向量$\betabd$在基$B$下的坐标。
+\end{li}
+\begin{jie}
+$$
+\begin{array}{rl}
+  & \betabd=x_1\alphabd_1+x_2\alphabd_2+\cd+x_n\alphabd_n\\[0.1in]
+  \Longrightarrow&   (\betabd,\alphabd_j)=(x_1\alphabd_1+x_2\alphabd_2+\cd+x_n\alphabd_n,\alphabd_j)=x_j(\alphabd_j,\alphabd_j)\\[0.1in]
+  \Longrightarrow& \ds x_j =\frac{ (\betabd,\alphabd_j)}{(\alphabd_j,\alphabd_j)}
+\end{array}
+$$
+\end{jie}
+
+\end{frame}

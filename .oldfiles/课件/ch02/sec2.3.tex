@@ -1,0 +1,121 @@
+\section{矩阵的转置、对称矩阵}
+
+\begin{dingyi}[转置矩阵]
+  把一个$m\times n$矩阵
+  $$
+  \A = \left(
+    \begin{array}{cccc}
+      a_{11} & a_{12} & \cd & a_{1n} \\
+      a_{21} & a_{22} & \cd & a_{2n} \\
+      \vd   & \vd &  & \vd \\
+      a_{m1} & a_{m2} & \cd & a_{mn} 
+    \end{array}
+  \right)
+  $$
+  的行列互换得到的一个$n\times m$矩阵，称之为$\A$的\red{转置矩阵}，记为$\A^T$或$\A^\prime$，即
+  $$
+  \A^\prime = \left(
+    \begin{array}{cccc}
+      a_{11} & a_{21} & \cd & a_{m1} \\
+      a_{12} & a_{22} & \cd & a_{m2} \\
+      \vd   & \vd &  & \vd \\
+      a_{1n} & a_{2n} & \cd & a_{mn} 
+    \end{array}
+  \right).
+  $$  
+\end{dingyi}
+
+\begin{dingli}[矩阵转置的运算律]
+  \begin{itemize}
+  \item[(i)] $(\A^T)^T=\A$
+  \item[(ii)] $(\A+\B)^T=\A^T+\B^T$
+  \item[(iii)] $(k\A)^T= k\A^T$
+  \item[(iv)] $(\A\B)^T=\B^T\A^T$
+  \end{itemize}
+\end{dingli}
+
+\begin{proof}
+  只证(iv)。 设$\A=(a_{ij})_{m\times n}, \B=(b_{ij})_{n\times s}, \A^T=(a_{ij}^T)_{n\times m}, \B^T=(b_{ij}^T)_{s\times n}$，
+  注意到
+  $$a_{ij} = a_{ji}^T, b_{ij} = b_{ji}^T,$$  
+  有
+  $$
+  (\B^T\A^T)_{ji} = \sum_{k=1}^n b_{jk}^Ta_{ki}^T  = \sum_{k=1}^n a_{ik}b_{kj}  = (\A\B)_{ij}  = (\A\B)_{ji}^T,
+  $$ 
+  于是$(\A\B)^T=\B^T\A^T$.
+\end{proof}
+
+
+
+
+
+\begin{dingyi}[对称矩阵、反对称矩阵]
+  设
+  $$
+  \A = \left(
+    \begin{array}{cccc}
+      a_{11} & a_{12} & \cd & a_{1n} \\
+      a_{21} & a_{22} & \cd & a_{2n} \\
+      \vd   & \vd &  & \vd \\
+      a_{n1} & a_{n2} & \cd & a_{nn} 
+    \end{array}
+  \right)
+  $$
+  是一个$n$阶矩阵。
+  \begin{itemize}
+  \item[1]
+    如果
+    $$
+    a_{ij} = a_{ji},
+    $$
+    则称$\A$为\red{对称矩阵}；
+  \item[2]
+    如果
+    $$
+    a_{ij} = -a_{ji},
+    $$
+    则称$\A$为\red{反对称矩阵}。
+  \end{itemize}      
+\end{dingyi}
+
+\begin{zhu*}
+  关于对称矩阵与反对称矩阵，有如下性质：
+  \begin{enumerate}
+  \item $\A$为对称矩阵的充分必要条件是$\A^T=\A$；
+  \item $\A$为反对称矩阵的充分必要条件是$\A^T=-\A$；
+  \item 反对称矩阵的主对角元全为零。 
+  \item 奇数阶反对称矩阵的行列式为零。
+  \item 任何一个方阵都可表示成一个对称矩阵与一个反对称矩阵的和。
+  \item[]  设$\A$为一$n$阶方阵，则
+    $$
+    \A = \frac{\A+\A^T}2 + \frac{\A-\A^T}2
+    $$
+    容易验证$\frac{\A+\A^T}2$为对称阵，$\frac{\A-\A^T}2$为反对称阵。 
+  \item 对称矩阵的乘积不一定为对称矩阵。
+  \item[]  \red{若$\A$与$\B$均为对称矩阵，则$\A\B$对称的充分必要条件是$\A\B$可交换。}
+  \end{enumerate}
+\end{zhu*}
+
+\begin{li}
+  设$\A$是一个$m\times n$矩阵，则$\A^T\A$和$\A\A^T$都是对称矩阵。      
+\end{li}
+
+\begin{proof}
+  $$
+  \begin{array}{l}
+    (\A^T\A)^T  = \A^T(\A^T)^T  = \A^T \A, \quad
+    (\A\A^T)^T  = (\A^T)^T\A^T  = \A \A^T
+  \end{array}
+  $$
+\end{proof}
+
+\begin{li}
+  设$\A$为$n$阶反对称矩阵，$\B$为$n$阶对称矩阵，则$\A\B+\B\A$为$n$阶反对称矩阵。
+\end{li}
+\begin{proof}
+  $$
+  (\A\B+\B\A)^T =(\A\B)^T+(\B\A)^T  = \B^T\A^T+\A^T\B^T 
+  = \B(-\A) + (-\A^T)\B  = - (\A\B+\B\A).      
+  $$  
+\end{proof}% 
+

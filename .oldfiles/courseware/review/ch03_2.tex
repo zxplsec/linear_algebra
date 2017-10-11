@@ -1,0 +1,366 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{典型题型3~~（非齐次线性方程组）}
+
+\begin{frame}\ft{\subsecname}
+  \begin{scriptsize}
+    \begin{exampleblock}{$\bigstar\bigstar\bigstar\bigstar\bigstar$}
+      设有线性方程组
+      $$
+      \left\{
+      \begin{array}{rrrcr}
+        (1+\lambda)x_1&+x_2&+x_3&=&0\\[0.05in]
+        x_1&+(1+\lambda)x_2&+x_3&=&3\\[0.05in]
+        x_1&+x_2&+(1+\lambda)x_3&=&\lambda
+      \end{array}
+      \right.
+      $$
+      问$\lambda$取何值时，此方程组
+      \begin{itemize}
+      \item[(1)]有唯一解？
+      \item[(2)]无解？ 
+      \item[(3)]有无穷多解？ 并在有无穷多解时求其通解。
+      \end{itemize}
+    \end{exampleblock}
+    \pause\jiename
+    $$
+    |\A|=\left|
+    \begin{array}{ccc}
+      1+\lambda&1&1\\
+      1&1+\lambda&1\\
+      1&1&1+\lambda
+    \end{array}
+    \right| = (3+\lambda)\lambda^2.
+    $$
+    故当$\lambda\ne0$且$\lambda\ne-3$时，有唯一解。
+  \end{scriptsize}
+\end{frame}
+
+
+
+\begin{frame}\ft{\subsecname}
+  \begin{scriptsize}
+    当$\lambda=0$时，原方程组为
+    $$
+    \left\{
+    \begin{array}{l}
+      x_1+x_2+x_3=0,\\
+      x_1+x_2+x_3=3,\\
+      x_1+x_2+x_3=0      
+    \end{array}
+    \right.
+    $$
+    它为矛盾方程组，故无解。\pause \vspace{0.1in}
+
+    当$\lambda=-3$时，增广矩阵为
+    $$
+    \left(
+    \begin{array}{rrrr}
+      -2&1&1&\red{0}\\
+      1&-2&1&\red{3}\\
+      1&1&-2&\red{-3}
+    \end{array}
+    \right) \xlongrightarrow[]{\mbox{初等行变换}}
+    \left(
+    \begin{array}{rrrr}
+      1&0&-1&\red{-1}\\
+      0&1&-1&\red{-2}\\
+      0&0&0&\red{0}
+    \end{array}
+    \right)
+    $$ \pause 
+    得同解方程组为
+    $$
+    \left\{
+    \begin{array}{l}
+      x_1=x_3-1\\[0.05in]
+      x_2=x_3-2\\[0.05in]
+      x_3=x_3
+    \end{array}
+    \right.
+    $$ \pause 
+    通解为
+    $$
+    \left(
+    \begin{array}{c}
+      x_1\\x_2\\x_3
+    \end{array}
+    \right) = c\left(
+    \begin{array}{c}
+     1\\1\\1
+    \end{array}
+    \right)+\left(
+    \begin{array}{r}
+      -1\\-2\\0
+    \end{array}
+    \right) \quad c\in\mathbb R
+    $$
+  \end{scriptsize}
+\end{frame}
+
+
+
+
+\begin{frame}\ft{\subsecname}
+  \begin{scriptsize}
+    \begin{exampleblock}{例1（2005-2006第一学期）}
+      已知$\A\xx=\bb$，其中$\A=\left(
+      \begin{array}{ccc}
+        2-\lambda & 2 & -2\\
+        2 & 5-\lambda & -4\\
+        -2 & -4 & 5-\lambda
+      \end{array}
+      \right), \bb=\left(
+      \begin{array}{c}
+        1\\2\\-1-\lambda
+      \end{array}
+      \right)$，问$\lambda$为何值时，该方程组有唯一解、无解或无穷多解？并在有无穷多解时求其解。
+    \end{exampleblock}
+
+    \begin{exampleblock}{例2（2005-2006第二学期；2006-2007第二学期）}
+      设线性方程组$\left\{
+      \begin{array}{rcl}
+        \lambda x_1+x_2+x_3&=&0\\
+        x_1+\lambda_2+x_3&=&3\\
+        x_1+x_2+x_3&=&\lambda-1
+      \end{array}
+      \right.$，
+      问$\lambda$为何值时，此方程组有唯一解、无解或无穷多个解？并在无穷多解时求出其通解。
+    \end{exampleblock}
+  \end{scriptsize}
+\end{frame}
+
+
+\begin{frame}\ft{\subsecname}
+  \begin{scriptsize}
+    \begin{exampleblock}{例3（2006-2007第一学期）}
+      当$a,b$为何值时，方程组
+      $
+      \left(
+      \begin{array}{ccc}
+        1&1&2\\
+        1&0&1\\
+        5&3&a+8
+      \end{array}
+      \right)\left(
+      \begin{array}{c}
+        x_1\\x_2\\x_3
+      \end{array}
+      \right)=\left(
+      \begin{array}{c}
+        1\\2\\b+7
+      \end{array}
+      \right)
+      $
+      有唯一解、无解或无穷多解？在有解时，给出方程组的解。
+    \end{exampleblock}
+    
+    \begin{exampleblock}{例4（2007-2008第一学期，2010-2011第二学期）}
+      设线性方程组$\left\{
+      \begin{array}{rcl}
+        \lambda x_1+x_2+x_3&=&\lambda-3\\
+        x_1+\lambda x_2+x_3&=&-2\\
+        x_1+x_2+\lambda x_3&=&-2
+      \end{array}
+      \right.$，
+      问$\lambda$为何值时，此方程组有唯一解、无解或无穷多个解？并在无穷多解时求出其通解。
+    \end{exampleblock}
+  \end{scriptsize}
+\end{frame}
+
+
+
+\begin{frame}\ft{\subsecname}
+  \begin{scriptsize}
+    \begin{exampleblock}{例5（2008-2009第一学期）}
+      设线性方程组$\left(
+      \begin{array}{ccc}
+        1+\lambda&1&1\\
+        1&1+\lambda&1\\
+        1&1&\lambda
+      \end{array}
+      \right)\left(
+      \begin{array}{c}
+        x_1\\x_2\\x_3
+      \end{array}
+      \right)=\left(
+      \begin{array}{c}
+        1\\\lambda\\\lambda^2
+      \end{array}
+      \right)$，
+      问$\lambda$为何值时，此方程组有唯一解、无解或无穷多个解？并在无穷多解时求出其通解。
+    \end{exampleblock}
+    \begin{exampleblock}{例6（2009-2010第一学期）}
+      设线性方程组$\left(
+      \begin{array}{ccc}
+        2-\lambda&2&-2\\
+        2&5-\lambda&-4\\
+        -2&-4&5-\lambda
+      \end{array}
+      \right)\left(
+      \begin{array}{c}
+        x_1\\x_2\\x_3
+      \end{array}
+      \right)=\left(
+      \begin{array}{c}
+        1\\2 \\-1-\lambda
+      \end{array}
+      \right)$，
+      问$\lambda$为何值时，此方程组有唯一解、无解或无穷多个解？并在无穷多解时求出其通解。
+    \end{exampleblock}
+  \end{scriptsize}
+\end{frame}
+
+
+
+
+
+
+\begin{frame}\ft{\subsecname}
+  \begin{scriptsize}
+    \begin{exampleblock}{例7（2009-2010第一学期）}
+      设线性方程组$\left(
+      \begin{array}{ccc}
+        1&a&1\\
+        1&2a&1\\
+        1&1&b
+      \end{array}
+      \right)\left(
+      \begin{array}{c}
+        x_1\\x_2\\x_3
+      \end{array}
+      \right)=\left(
+      \begin{array}{c}
+        3\\4 \\4
+      \end{array}
+      \right)$，
+      问$a,b$为何值时，此方程组有唯一解、无解或无穷多个解？并在无穷多解时求出其通解。
+    \end{exampleblock}
+
+    \begin{exampleblock}{例8（2011-2012第一学期）}
+    已知线性方程组$\A\xx=\bb$存在两个不同的解，其中$$\A=\left(
+    \begin{array}{ccc}
+        2-\lambda&2&-2\\
+        2&5-\lambda&-4\\
+        -2&-4&5-\lambda
+      \end{array}
+    \right),\bb=\left(
+      \begin{array}{c}
+        1\\2\\-1-\lambda
+      \end{array}
+      \right).$$
+      就该方程组无解、有唯一解、有无穷多解诸情形，对$\lambda$进行讨论，并在无穷多解时求其通解。
+    \end{exampleblock}
+
+  \end{scriptsize}
+\end{frame}
+
+\begin{frame}\ft{\subsecname}
+  \begin{scriptsize}
+    \begin{exampleblock}{例9（2011-2012第二学期）}
+    已知线性方程组$\A\xx=\bb$，其中$\A=\left(
+    \begin{array}{rrrr}
+        1&1&1&3\\
+        2&1&3&5\\
+        3&2&a&7\\
+        1&-1&3&-1
+      \end{array}
+    \right),\bb=\left(
+      \begin{array}{c}
+        0\\1\\1\\b
+      \end{array}
+      \right).$
+      就该方程组无解、有唯一解、有无穷多解诸情形，对$a,b$进行讨论，并在无穷多解时求其通解。
+    \end{exampleblock}
+
+    \begin{exampleblock}{例10（2012-2013第二学期）}
+    已知线性方程组$\A\xx=\bb$，其中$\A=\left(
+    \begin{array}{ccc}
+        2&4&\lambda-5\\
+        2&5-\lambda&-4\\
+        2-\lambda&2&-2
+      \end{array}
+    \right),\bb=\left(
+      \begin{array}{c}
+        \lambda+1\\2\\1
+      \end{array}
+      \right).$
+     就该方程组无解、有唯一解、有无穷多解诸情形，对$\lambda$进行讨论，并在无穷多解时求其通解。         \end{exampleblock}
+
+\end{scriptsize}
+\end{frame}
+
+
+\begin{frame}\ft{\subsecname}
+  \begin{scriptsize}
+    \begin{exampleblock}{例11（2013-2014第一学期）}
+    已知线性方程组$\A\xx=\bb$，其中$$\A=\left(
+    \begin{array}{ccc}
+        1&a&a^2\\
+        1&a&ab\\
+        b&a^2&a^2b
+      \end{array}
+    \right),\bb=\left(
+      \begin{array}{c}
+        1\\a\\a^2b
+      \end{array}
+      \right).$$
+     就该方程组无解、有唯一解、有无穷多解诸情形，对$a,b$进行讨论，并在无穷多解时求其通解。    \end{exampleblock}
+
+  \end{scriptsize}
+\end{frame} 
+
+
+
+%% \begin{frame}\ft{\subsecname}
+%%   \begin{scriptsize}
+%%     \begin{exampleblock}{2006-2007第二学期}
+%%       已知$\A=\left(
+%%       \begin{array}{rrr}
+%%         1&1&2\\
+%%         -1&1&0\\
+%%         1&0&1
+%%       \end{array}
+%%       \right), \B=\left(
+%%       \begin{array}{rrr}
+%%         1&2&0\\
+%%         -1&0&-2\\
+%%         a&b&c
+%%       \end{array}
+%%       \right)$
+%%       \begin{itemize}
+%%       \item[1.] 问$a,b,c$为何值时，$\rr(\A,\B)=\rr(\A)$？
+%%       \item[2.] 求矩阵方程$\A\X=\B$的全部解？
+%%       \end{itemize}
+%%     \end{exampleblock}
+%%   \end{scriptsize}
+%% \end{frame}
+
+
+%% \begin{frame}\ft{\subsecname}
+%%   \begin{scriptsize}
+%%     \begin{exampleblock}{2006-2007第二学期}
+%%       设线性方程组$\left\{
+%%       \begin{array}{rcl}
+%%         x_1+2x_2-2x_3&=&0\\
+%%         2x_1-x_2+\lambda x_3&=&0\\
+%%         3x_1+x_2-x_3&=&0
+%%       \end{array}
+%%       \right.$的系数矩阵为$\A$，若$3$阶非零矩阵$\B$满足$\A\B=\zero$。
+%%       求$|\A|,|\B|,\lambda$。
+%%     \end{exampleblock}
+%%   \end{scriptsize}
+%% \end{frame}
+
+
+%% \begin{frame}\ft{\subsecname}
+%%   \begin{scriptsize}
+%%     \begin{exampleblock}{2006-2007第二学期}
+%%       设$\A$为$m\times n$矩阵，$\xx$为$n$维实向量，证明$\A^T\A\xx=\zero$与$\A\xx=\zero$同解。
+%%     \end{exampleblock}
+
+%%   \end{scriptsize}
+%% \end{frame}
+
+
+
+

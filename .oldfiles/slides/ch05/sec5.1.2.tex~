@@ -1,0 +1,103 @@
+\subsection{特征值与特征值的性质}
+
+\begin{frame}
+  \begin{footnotesize}
+    \begin{block}{定理1}
+      若$\xx_1$和$\xx_2$都是$\A$的对应于特征值$\lambda_0$的特征向量，则$k_1\xx_1+k_2\xx_2$也是$\A$的对应于特征值$\lambda_0$的特征向量（其中$k_1,k_2$为任意常数，但$k_1\xx_1+k_2\xx_2\ne 0$）。
+    \end{block}
+  \end{footnotesize}
+\end{frame}
+
+\begin{frame}
+  \begin{footnotesize}
+    \begin{block}{定理2}
+      设$n$阶矩阵$\A=(a_{ij})$的$n$个特征值为$\lambda_1,\lambda_2,\cd,\lambda_n$，则
+      \begin{itemize}
+      \item[(1)] $\ds \sum_{i=1}^n\lambda_i=\sum_{i=1}^na_{ii}$
+      \item[(2)] $\ds \prod_{i=1}^n\lambda_i=\det(\A)$         
+      \end{itemize}
+    \end{block}
+    \pause
+
+    \begin{itemize}
+    \item 当$\det(\A)\ne 0$，即$\A$为可逆矩阵时，其特征值全为非零数；
+    \item 奇异矩阵$\A$至少有一个零特征值。      
+    \end{itemize}
+  \end{footnotesize}
+\end{frame}
+
+\begin{frame}
+  \begin{footnotesize}
+    \begin{block}{定理3}
+      一个特征向量不能属于不同的特征值。
+    \end{block}
+    \pause \proofname
+    若$\xx$是$\A$的属于特征值$\lambda_1,\lambda_2(\lambda_1\ne\lambda_2)$的特征向量，
+    即有
+    $$
+    \A\xx=\lambda_1\xx, ~~ \A\xx=\lambda_2\xx
+    ~~\Rightarrow~~ (\lambda_1-\lambda_2)\xx=\zero
+    ~~\Rightarrow~~ \xx=\zero
+    $$
+    这与$\xx\ne\zero$矛盾。
+  \end{footnotesize}
+\end{frame}
+
+\begin{frame}
+  \begin{footnotesize}
+    \begin{block}{性质1}
+      \begin{table}
+        \caption{特征值与特征向量}
+        
+        \begin{tabular}{|c|c|c|}\hline
+          &特征值&特征向量\\\hline
+          \red{$\A$}&\red{$\lambda$}&\red{$\xx$}\\ \hline 
+          \hline 
+          $k\A$&$k\lambda$&$\xx$\\\hline
+          $\A^m$&$\lambda^m$&$\xx$\\\hline
+          $\A^{-1}$&$\lambda^{-1}$&$\xx$\\\hline
+        \end{tabular}
+      \end{table}
+    \end{block}
+  \end{footnotesize}
+\end{frame}
+
+\begin{frame}
+  \begin{footnotesize}
+    \begin{block}{性质2}
+      矩阵$\A$与$\A^T$的特征值相同。
+    \end{block}
+  \end{footnotesize}
+\end{frame}
+
+\begin{frame}
+  \begin{footnotesize}
+    \begin{block}{定理4}
+      设$\A=(a_{ij})$是$n$阶矩阵,若
+      \begin{itemize}
+      \item[(1)] $\ds \sum_{j=1}^n|a_{ij}|<1, ~~(i=1,2,\cd,n)$
+      \item[(2)] $\ds \sum_{i=1}^n|a_{ij}|<1, ~~(j=1,2,\cd,n)$
+      \end{itemize}
+      有一个成立，则$\A$的所有特征值的模都小于$1$。
+    \end{block}
+  \end{footnotesize}
+\end{frame}
+
+\begin{frame}
+  \begin{footnotesize}
+    \begin{exampleblock}{例1}
+      设$\A=\left(
+      \begin{array}{rrr}
+        1&-1&1\\
+        2&-2&2\\
+        -1&1&-1
+      \end{array}
+      \right)$
+      \begin{itemize}
+      \item[(i)]求$\A$的特征值与特征向量
+      \item[(ii)] 求可逆矩阵$\PP$，使得$\PP^{-1}\A\PP$为对角阵。 
+      \end{itemize}
+    \end{exampleblock}
+  \end{footnotesize}
+\end{frame}
+

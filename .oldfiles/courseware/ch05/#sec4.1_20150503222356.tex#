@@ -1,0 +1,193 @@
+\section{$\mathbb R^n$的基与向量关于基的坐标}
+
+\begin{frame}
+  \begin{footnotesize}
+    \begin{block}{定义}
+      设有序向量组$B=(\betabd_1,\betabd_2,\cd,\betabd_n)\subset\mathbb R^n$，如果$B$线性无关，
+      则$\mathbb R^n$中任一向量$\alphabd$均可由$B$线性表示，即
+      $$
+      \alphabd=a_1\betabd_1+a_2\betabd_2+\cd+a_n\betabd_n,
+      $$
+      称$B$为$\mathbb R^n$的一组基，有序数组$(a_1,a_2,\cd,a_n)$是向量$\alphabd$在基$B$下的坐标，记作
+      $$
+      \alphabd_B=(a_1,a_2,\cd,a_n)\mbox{~~或~~}\alphabd_B=(a_1,a_2,\cd,a_n)^T
+      $$
+      并称之为$\alphabd$的坐标向量。
+    \end{block}
+  \end{footnotesize}
+\end{frame}
+
+
+\begin{frame}
+  \begin{footnotesize}
+    \begin{block}{注}
+      \begin{itemize}
+      \item $\RRR^n$的基不是唯一的
+      \item 基本向量组
+        $$
+        \epsilonbd_i=(0,\cd,0,1,0,\cd,0), \quad i=1,2,\cd,n
+        $$
+        称为$\RRR^n$的自然基或标准基。
+      \item 本书对于向量及其坐标，采用列向量的形式，即
+        $$
+        \alphabd=(\betabd_1,\betabd_2,\cd,\betabd_n)\left(
+        \begin{array}{c}
+          a_1\\
+          a_2\\
+          \vd\\
+          a_n
+        \end{array}
+        \right)
+        $$
+      \end{itemize}
+    \end{block}
+  \end{footnotesize}
+\end{frame}
+
+
+\begin{frame}
+  \begin{footnotesize}
+    \begin{exampleblock}{例}
+      设$\RRR^n$的两组基为自然基$B_1$和$B_2=\{\betabd_1,\betabd_2,\cd,\betabd_n\}$，其中
+      \begin{equation}\label{twobase}
+      \begin{array}{lrrrrrrrrr}
+        \betabd_1&=(&1,&-1,& 0,&0,&\cd,&0,&0,&0)^T,\\[0.2cm]
+        \betabd_2&=(&0,& 1,&-1,&0,&\cd,&0,&0,&0)^T,\\[0.2cm]
+        &\vd&&&&&\\[0.2cm]
+        \betabd_{n-1}&=(&0,&0,&0,&0,&\cd,&0,&1,&-1)^T,\\[0.2cm]
+        \betabd_{n}&=(&0,&0,&0,&0,&\cd,&0,&0,&1)^T.
+      \end{array}
+      \end{equation}
+      求向量组$\alphabd=(a_1,a_2,\cd,a_n)^T$分别在两组基下的坐标。
+    \end{exampleblock}
+  \end{footnotesize}
+\end{frame}
+
+
+\begin{frame}
+  \begin{footnotesize}
+    \begin{block}{定理}
+      设$B=\{\alphabd_1,\alphabd_2,\cd,\alphabd_n\}$是$\RRR^n$的一组基，且
+      $$
+      \left\{
+      \begin{array}{l}
+        \etabd_1=a_{11}\alphabd_1+a_{21}\alphabd_2+\cd+a_{n1}\alphabd_n,\\[0.2cm]
+        \etabd_2=a_{12}\alphabd_1+a_{22}\alphabd_2+\cd+a_{n2}\alphabd_n,\\[0.2cm]
+        \cd\cd\\[0.2cm]
+        \etabd_n=a_{1n}\alphabd_1+a_{2n}\alphabd_2+\cd+a_{nn}\alphabd_n.
+      \end{array}
+      \right.
+      $$
+      则$\etabd_1,\etabd_2,\cd,\etabd_n$线性无关的充要条件是
+      $$
+      \mathrm{det}\A=\left|
+      \begin{array}{cccc}
+        a_{11}&a_{12}&\cd&a_{1n}\\
+        a_{21}&a_{22}&\cd&a_{2n}\\
+        \vd&\vd&&\vd\\
+        a_{n1}&a_{n2}&\cd&a_{nn}
+      \end{array}
+      \right|\ne 0.
+      $$
+    \end{block}
+  \end{footnotesize}
+\end{frame}
+
+
+\begin{frame}
+  \begin{footnotesize}
+    设$B_1=\{\alphabd_1,\alphabd_2,\cd,\alphabd_n\}$和$B_2=\{\etabd_1,\etabd_2,\cd,\etabd_n\}$是$\RRR^n$的两组基（分别称为旧基和新基），两者的关系为
+    $$
+    (\etabd_1,\etabd_2,\cd,\etabd_n)=(\alphabd_1,\alphabd_2,\cd,\alphabd_n)\left(
+    \begin{array}{cccc}
+      a_{11}&a_{12}&\cd&a_{1n}\\
+      a_{21}&a_{22}&\cd&a_{2n}\\
+      \vd&\vd&&\vd\\
+      a_{n1}&a_{n2}&\cd&a_{nn}
+    \end{array}
+    \right)
+    $$
+    简记为
+  \end{footnotesize}
+\end{frame}
+
+\begin{frame}
+  \begin{footnotesize}
+    
+  \end{footnotesize}
+\end{frame}
+
+
+\begin{frame}
+  \begin{footnotesize}
+    
+  \end{footnotesize}
+\end{frame}
+
+
+\begin{frame}
+  \begin{footnotesize}
+    
+  \end{footnotesize}
+\end{frame}
+
+
+\begin{frame}
+  \begin{footnotesize}
+    
+  \end{footnotesize}
+\end{frame}
+
+\begin{frame}
+  \begin{footnotesize}
+    
+  \end{footnotesize}
+\end{frame}
+
+
+\begin{frame}
+  \begin{footnotesize}
+    
+  \end{footnotesize}
+\end{frame}
+
+
+\begin{frame}
+  \begin{footnotesize}
+    
+  \end{footnotesize}
+\end{frame}
+
+
+\begin{frame}
+  \begin{footnotesize}
+    
+  \end{footnotesize}
+\end{frame}
+
+\begin{frame}
+  \begin{footnotesize}
+    
+  \end{footnotesize}
+\end{frame}
+
+
+\begin{frame}
+  \begin{footnotesize}
+    
+  \end{footnotesize}
+\end{frame}
+
+
+\begin{frame}
+  \begin{footnotesize}
+    
+  \end{footnotesize}
+\end{frame}
+
+
+\begin{frame}
+  \begin{footnotesize}
+    
+  \end{footnotesize}
+\end{frame}

@@ -1,0 +1,19 @@
+\ft{\secname}
+\begin{jie}
+  设
+  $$
+  A=\left(
+    \begin{array}{cccc}
+      2&*&\cd&*\\
+       &2&\cd&*\\
+       &&\dd&\vd\\
+       &&&2
+    \end{array}
+  \right)
+  $$
+  其中$*$为不全为零的任意常数，则
+  $$
+  |\A-\lambda\II|=(2-\lambda)^n,
+  $$
+  即$\lambda=2$为$\A$的$n$重特征根，而$\rank(\A-2\II)\ge 1$，故$(\A-2\II)\xx=0$的基础解系所含向量个数$\le n-1$个，即$\A$的线性无关的特征向量的个数$\le n-1$个，因此$\A$不与对角阵相似。
+\end{jie}

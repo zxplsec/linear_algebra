@@ -1,0 +1,160 @@
+\section{矩阵分块}
+
+\begin{frame}
+  \begin{center}
+  \begin{tikzpicture}
+    \matrix(A) [matrix of math nodes,nodes in empty cells,ampersand replacement=\&,left delimiter=(,right delimiter=)] {
+      a_{11} \& a_{12} \& a_{13}  \& a_{14} \\
+      a_{21} \& a_{22} \& a_{23}  \& a_{24} \\
+      a_{31} \& a_{32} \& a_{33}  \& a_{34} \\
+    };
+    \draw[red, dashed, very thick] (A-1-2.north east) -- (A-3-2.south east) (A-2-1.south west) -- (A-2-4.south east);;
+  \end{tikzpicture}
+    
+  \end{center}
+  记为
+  $$
+  \left(
+  \begin{array}{cc}
+    A_{11} &  A_{12}\\
+    A_{21} &  A_{22}
+  \end{array}
+  \right)
+  $$
+  其中
+  $$
+  \begin{array}{ll}
+  A_{11} = 
+  \left(
+  \begin{array}{cc}
+    a_{11} &  a_{12}\\
+    a_{21} &  a_{22}
+  \end{array}
+  \right),  &
+  A_{12} = 
+  \left(
+  \begin{array}{cc}
+    a_{13} &  a_{14}\\
+    a_{23} &  a_{24}
+  \end{array}
+  \right)\\ [0.3cm]
+  A_{21} = 
+  \left(
+  \begin{array}{cc}
+    a_{31} &  a_{32}
+  \end{array}
+  \right) , &
+  A_{22} = 
+  \left(
+  \begin{array}{cc}
+    a_{33} &  a_{34}
+  \end{array}
+  \right)    
+  \end{array}
+  $$
+  
+\end{frame}
+
+
+\begin{frame}
+  \begin{overprint}
+    \onslide<1->
+    \begin{center}
+      \blue{分块矩阵的运算}
+    \end{center}
+  \end{overprint}
+
+  \begin{overprint}
+    \onslide<1>
+    \begin{itemize}
+    \item[1] 
+      加法
+    \item[]
+      设A, B为同型矩阵，采用相同的分块法，有
+      $$
+      A = \left(
+      \begin{array}{ccc}
+        A_{11} & \cd & A_{1r} \\
+        \vd   &     & \vd   \\
+        A_{s1} & \cd & A_{sr}
+      \end{array}
+      \right), \ \ 
+      B = \left(
+      \begin{array}{ccc}
+        B_{11} & \cd & B_{1r} \\
+        \vd   &     & \vd   \\
+        B_{s1} & \cd & B_{sr}
+      \end{array}
+      \right),
+      $$
+      其中$A_{ij}$与$B_{ij}$为同型矩阵，则
+      $$
+      A = \left(
+      \begin{array}{ccc}
+        A_{11} + B_{11}  & \cd & A_{1r} + B_{1r} \\
+        \vd   &     & \vd   \\
+        A_{s1} + B_{s1}  & \cd & A_{sr} + B_{sr}
+      \end{array}
+      \right).
+      $$
+    \end{itemize}
+
+    \onslide<2>
+    \begin{itemize}
+    \item[2] 
+      数乘
+    \item[]
+      $$
+      \lambda A = \left(
+      \begin{array}{ccc}
+        \lambda A_{11} & \cd & \lambda A_{1r} \\
+        \vd   &     & \vd   \\
+        \lambda A_{s1} & \cd & \lambda A_{sr}
+      \end{array}
+      \right)
+      $$    
+    \end{itemize}
+
+
+    \onslide<3>
+    \begin{itemize}
+    \item[3] 
+      分块矩阵的乘法
+    \item[]
+      设A为$m\times l$矩阵, B为$l \times n$矩阵，
+      $$
+      A = \left(
+      \begin{array}{ccc}
+        A_{11} & \cd & A_{1t} \\
+        \vd   &     & \vd   \\
+        A_{s1} & \cd & A_{st}
+      \end{array}
+      \right), \ \ 
+      B = \left(
+      \begin{array}{ccc}
+        B_{11} & \cd & B_{1r} \\
+        \vd   &     & \vd   \\
+        B_{t1} & \cd & B_{tr}
+      \end{array}
+      \right),
+      $$
+      其中$A_{i1}, A_{i2}, \cd, A_{it}$的列数分别等于$B_{1j}, B_{2j}, \cd, B_{tj}$的行数，则
+      $$
+      A B = \left(
+      \begin{array}{ccc}
+        C_{11}   & \cd & C_{1r}  \\
+        \vd   &     & \vd   \\
+        C_{s1}   & \cd & C_{sr}
+      \end{array}
+      \right),
+      $$
+      其中
+      $$
+      C_{ij} = \sum_{k=1}^t A_{ik} B_{kj}.
+      $$
+    \end{itemize}
+
+
+  \end{overprint}
+
+\end{frame}

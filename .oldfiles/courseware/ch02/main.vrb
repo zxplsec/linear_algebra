@@ -1,0 +1,328 @@
+\begin {overprint}
+    \onslide<1-11>
+    \begin{center}
+      \blue{行列式的性质}\vspace{0.5cm}
+    \end{center}
+  \end{overprint}
+
+  \begin{overprint}
+    \onslide<1>
+    记
+    $$
+    D =  \left|
+    \begin{array}{cccc}
+      a_{11} & a_{12} & \cd & a_{1n}\\
+      a_{21} & a_{22} & \cd & a_{2n}\\
+      \vd & \vd&        & \vd \\
+      a_{n1} & a_{n2} & \cd & a_{nn}
+    \end{array}
+    \right|,  \ \
+    D^T =  \left|
+    \begin{array}{cccc}
+      a_{11} & a_{21} & \cd & a_{n1}\\
+      a_{12} & a_{22} & \cd & a_{n2}\\
+      \vd & \vd&        & \vd \\
+      a_{1n} & a_{2n} & \cd & a_{nn}
+    \end{array}
+    \right|
+    $$
+    %%%%
+    \onslide<2>
+    \begin{block}{性质1}
+      $D = D^T$
+    \end{block}
+    \proofname 记$D^T = \mathrm{det}(b_{ij})$，则$b_{ij}= a_{ji}$。由定义知
+    $$
+    \begin{array}{ll}
+      D^T & = \sum_{n!} (-1)^{\tau(p_1p_2\cd p_n)} b_{1p_1}b_{2p_2}\cd b_{np_n}\\[0.2cm]
+      &= \sum_{n!} (-1)^{\tau(p_1p_2\cd p_n)} a_{p_11}a_{p_22}\cd a_{p_nn} \\[0.2cm]
+      & = D.
+    \end{array}
+    $$
+    \qed
+
+    性质1表明，行列式的行与列具有相等地位，行列式的性质对行成立的对列也成立，反之亦然。
+
+    %%%%
+    \onslide<3>
+    \begin{block}{性质2}
+      互换行列式的两行（列），行列式变号。
+    \end{block}
+    \proofname    设$D_1 = \mathrm{det}(b_{ij})$是由$D = det(a_{ij})$对换$s, t$两行得到的，则
+    $$
+    \left \{
+    \begin{array}{l}
+      b_{ij} = a_{ij}, \ \ i \ne s, t, \ \ \forall j\\[0.2cm]
+      b_{sj} = a_{tj}, \ \ b_{tj} = a_{sj}, \ \ \forall j.
+    \end{array}
+    \right.
+    $$
+    $$
+    \begin{array}{ll}
+      D_1
+      &\disp = \sum_{n!} (-1)^{\tau(p_1\cd p_s \cd p_t \cd p_n)}
+      b_{1p_1}\cd b_{sp_s}\cd b_{tp_t}\cd b_{np_n}\\[0.2cm]
+      &\disp= \sum_{n!} (-1)^{\tau(p_1\cd p_s \cd p_t \cd p_n)}
+      a_{1p_1}\cd a_{tp_s}\cd a_{sp_t}\cd a_{np_n}\\[0.2cm]
+      &\disp= \sum_{n!} (-1)^{\tau(p_1\cd p_s \cd p_t \cd p_n)}
+      a_{1p_1}\cd a_{sp_t}\cd a_{tp_s}\cd a_{np_n}.
+    \end{array}
+    $$
+
+    %%%%
+    \onslide<4>
+    而$\tau(p_1\cd p_t \cd p_s \cd p_n) = \tau(p_1\cd p_s \cd p_t \cd p_n) \pm 1$,
+    所以
+    $$
+    D_1 = - \sum_{n!} (-1)^{\tau(p_1\cd p_t \cd p_s \cd p_n)}
+    a_{1p_1}\cd a_{sp_t}\cd a_{tp_s}\cd b_{np_n} = -D.
+    $$
+    \qed
+
+    \red{\textbf{记号}}
+    \begin{itemize}
+    \item $r_i$表示第$i$行， $c_i$表示第$i$列\\[0.2cm]
+    \item 交换$i, j$两行，记做\red{$\boxed{r_i \leftrightarrow r_j}$} \\[0.2cm]
+    \item 交换$i, j$两列，记做\red{$\boxed{c_i \leftrightarrow c_j}$}
+    \end{itemize}
+
+    如
+    $$
+    \left|
+    \begin{array}{cccc}
+      \red{1}   & \red{2}  & \red{3} \\
+      \blue{-1} & \blue{1} & \blue{0} \\
+      2  & 3 & 4
+    \end{array}
+    \right|
+    \xlongequal{r_1 \leftrightarrow r_2}
+    - \left|
+    \begin{array}{cccc}
+      \blue{-1} & \blue{1} & \blue{0} \\
+      \red{1}   & \red{2}  & \red{3} \\
+      2  & 3 & 4
+    \end{array}
+    \right|
+    $$
+
+    %%%%
+    \onslide<5>
+    \begin{block}{推论}
+      若行列式有两行（列）完全相同，则此行列式等于0。
+    \end{block}
+    \proofname    把这两行互换，有$D=-D$，故$D=0$。      \qed
+
+    \vspace{0.3cm}
+    如
+    $$
+    \left|
+    \begin{array}{cccc}
+      \red{1}   & \red{2}  & \red{3} \\
+      \blue{1} & \blue{2} & \blue{3} \\
+      2  & 3 & 4
+    \end{array}
+    \right| = 0
+    $$
+
+    %%%%
+    \onslide<6>
+    \begin{block}{性质3}
+      行列式的某一行（列）中所有的元素都乘以同一数$\lambda$，等于用数$\lambda$乘此行列式。
+    \end{block}
+    \proofname 由定义易证。\qed
+
+    \vspace{0.3cm}
+    \red{\textbf{记号}}
+    \begin{itemize}
+    \item
+      第$i$行（或列）乘以$\lambda$，记作\red{$\boxed{r_i\times \lambda}$}（或\red{$\boxed{c_i\times \lambda}$}）\\[.2cm]
+    \item
+      第$i$行（或列）提取公因子$\lambda$，记作\red{$\boxed{r_i\div \lambda}$}（或\red{$\boxed{c_i\div \lambda}$}）
+    \end{itemize}
+
+    如
+    $$
+    \left|
+    \begin{array}{cccc}
+      \red{2}   & \red{4}  & \red{6} \\
+      1 & 0 & -1\\
+      2& 3 & 4
+    \end{array}
+    \right| =
+    2 \left|
+    \begin{array}{cccc}
+      \red{1}   & \red{2}  & \red{3} \\
+      1 & 0 & -1\\
+      2 & 3 & 4
+    \end{array}
+    \right|
+    $$
+
+    %%%%
+    \onslide<7>
+    \begin{block}{推论}
+      若行列式的某行（列）中所有的元素全为$0$，则行列式的值为0。
+    \end{block}
+    \vspace{0.3cm}
+    如
+    $$
+    \left|
+    \begin{array}{ccc}
+      \red{0}   & \red{0}  & \red{0} \\
+      1 & 0 & -1\\
+      2& 3 & 4
+    \end{array}
+    \right| = 0
+    $$
+
+
+    %%%%
+    \onslide<8>
+    \begin{block}{性质4}
+      若行列式中有两行（列）元素成比例，则行列式的值为0。
+    \end{block}
+    $$
+    \vspace{0.3cm}
+    如
+    \left|
+    \begin{array}{ccc}
+      \red{2}   & \red{0}  & \red{-2} \\
+      \blue{1} & \blue{0} & \blue{-1}\\
+      2& 3 & 4
+    \end{array}
+    \right| = 0
+    $$
+
+    %%%%
+    \onslide<9>
+    \begin{block}{性质5}
+      若行列式的某一行（列）的元素都是两数之和，如
+      $$
+      D =  \left|
+      \begin{array}{cccccc}
+        a_{11}    & \cd & (a_{1j}+a_{1j}^{\prime})  & \cd & a_{1n}\\
+        a_{21}    & \cd & (a_{2j}+a_{2j}^{\prime})  & \cd & a_{2n}\\
+        \vd  &        & \vd                &        & \vd \\
+        a_{n1}    & \cd & (a_{nj}+a_{nj}^{\prime})  & \cd & a_{nn}
+      \end{array}
+      \right|
+      $$
+    则
+      $$
+      D =
+      \left|
+      \begin{array}{cccccc}
+        a_{11}  &   \cd & a_{1j}  & \cd & a_{1n}\\
+        a_{21}  &   \cd & a_{2j}  & \cd & a_{2n}\\
+        \vd &          & \vd   &        & \vd \\
+        a_{n1}  &   \cd & a_{nj}  & \cd & a_{nn}
+      \end{array}
+      \right|
+      +
+      \left|
+      \begin{array}{cccccc}
+        a_{11}    & \cd & a_{1j}^{\prime}  & \cd & a_{1n}\\
+        a_{21}    & \cd & a_{2j}^{\prime}  & \cd & a_{2n}\\
+        \vd   &        & \vd                &        & \vd \\
+        a_{n1}    & \cd & a_{nj}^{\prime}  & \cd & a_{nn}
+      \end{array}
+      \right|
+      $$
+    \end{block}
+
+    %%%%
+    \onslide<10>
+    \begin{itemize}
+    \item
+      性质5表明，当某一行（或列）的元素为两数之和时，行列式关于该行（或列）可分解为两个行列式。\\[0.4cm]
+    \item
+      若$n$阶行列式每个元素都表示成两数之和，则它可分解为$2^n$个行列式。如
+      $$
+      \begin{array}{ll}
+        \left|
+        \begin{array}{cc}
+          a+x & b+y \\
+          c+z & d+w
+        \end{array}
+        \right|
+        & =
+        \left|
+        \begin{array}{cc}
+          a & b+y \\
+          c & d+w
+        \end{array}
+        \right|
+        +
+        \left|
+        \begin{array}{cc}
+          x & b+y \\
+          z & d+w
+        \end{array}
+        \right|\\[0.4cm]
+        &=
+        \left|
+        \begin{array}{cc}
+          a & b \\
+          c & d
+        \end{array}
+        \right|
+        +
+        \left|
+        \begin{array}{cc}
+          a & y \\
+          c & w
+        \end{array}
+        \right|
+        +
+        \left|
+        \begin{array}{cc}
+          x & b \\
+          z & d
+        \end{array}
+        \right|
+        +
+        \left|
+        \begin{array}{cc}
+          x & y \\
+          z & w
+        \end{array}
+        \right|
+      \end{array}
+      $$
+    \end{itemize}
+
+    %%%%
+    \onslide<11>
+    \begin{block}{性质6}
+      把行列式的某一行（列）的各元素乘以同一数然后加到另一行（列）对应的元素上去，行列式的值不变。
+    \end{block}
+    如将数$\lambda$乘以第$j$列加到第$i$列上（记作\red{$\boxed{c_i+\lambda c_j}$}），有
+    $$
+    \begin{array}{ll}
+      &\left|
+      \begin{array}{ccccccc}
+        a_{11}  &   \cd & \red{a_{1i}}  & \cd & \blue{a_{1j}}    & \cd & a_{1n}\\
+        a_{21}  &   \cd & \red{a_{2i}}  & \cd & \blue{a_{2j}}    & \cd & a_{2n}\\
+        \vd &          & \vd &        & \vd   &        & \vd \\
+        a_{n1}  &   \cd & \red{a_{ni}}  & \cd & \blue{a_{nj}}    & \cd & a_{nn}
+      \end{array}
+      \right| \\[0.5cm]
+      \xlongequal{\red{c_i+\lambda c_j}} &
+      \left|
+      \begin{array}{ccccccc}
+        a_{11}  &   \cd & (\red{a_{1i}}+\lambda \blue{a_{1j}})  & \cd & \blue{a_{1j}}    & \cd & a_{1n}\\
+        a_{21}  &   \cd & (\red{a_{1i}}+\lambda \blue{a_{1j}})  & \cd & \blue{a_{2j}}    & \cd & a_{2n}\\
+        \vd &          & \vd &        & \vd   &        & \vd \\
+        a_{n1}  &   \cd & (\red{a_{1i}}+\lambda \blue{a_{1j}})  & \cd & \blue{a_{nj}}    & \cd & a_{nn}
+      \end{array}
+      \right|
+    \end{array}
+    $$
+
+    %%%%
+    \onslide<12>
+    \begin{block}{计算行列式常用的一种方法}
+      利用\red{$r_i+\lambda r_j$}把行列式化为上三角形行列式，从而求得行列式的值。
+    \end{block}
+
+  \end{overprint}

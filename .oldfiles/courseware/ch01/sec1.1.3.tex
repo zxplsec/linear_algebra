@@ -1,0 +1,237 @@
+\subsection{$n$阶行列式的定义}
+
+\begin{frame}
+  \begin{block}{定义}
+    由$n^2$个数$a_{ij}(i,j=1,2,\cdots,n)$组成的$n$阶行列式
+    \begin{equation}\label{Dn}
+      D = \left|
+      \begin{array}{cccc}
+        a_{11}  &  a_{12} & \cdots & a_{1n} \\
+        a_{21}  &  a_{22} & \cdots & a_{2n} \\
+        \vdots & \vdots & \ddots & \vdots\\  
+        a_{n1}  &  a_{n2} & \cdots & a_{nn} 
+      \end{array}
+      \right|
+    \end{equation}
+    是一个数。
+  \end{block}
+\end{frame}
+
+\begin{frame}
+  \begin{block}{定义（续）}
+    \begin{itemize}
+    \item 当$n=1$时，定义$D=|a_{11}|=a_{11}$；\pause 
+    \item 当$n\ge2$时，定义
+      \begin{equation}
+        D = a_{11} A_{11} + a_{12} A_{12} + \cdots + a_{1n} A_{1n},
+      \end{equation}
+      其中
+      $$A_{1j} = (-1)^{1+j} M_{1j}$$
+      而$M_{1j}$是$D$中划去第$1$行第$j$列后，按原顺序排成的$n-1$阶行列式，即
+      $$
+      M_{1j} =   \left|
+      \begin{array}{cccccc}
+        a_{21}  & \cdots&  a_{2,j-1}  &  a_{2,j+1}  & \cdots & a_{2n} \\
+        a_{31}  & \cdots&  a_{3,j-1}  &  a_{3,j+1}  & \cdots & a_{3n} \\
+        \vdots &       &  \vdots &  \vdots &  & \vdots\\  
+        a_{n1}  & \cdots&  a_{n,j-1}  &  a_{n,j+1}  & \cdots & a_{nn} 
+      \end{array}
+      \right| \quad (j = 1,2,\cdots, n),
+      $$
+      并称$M_{1j}$为$a_{1j}$的余子式，$A_{1j}$为$a_{1j}$的代数余子式.
+    \end{itemize}
+  \end{block}
+
+\end{frame}
+
+
+
+\begin{frame}
+
+  \begin{block}{注}
+    \begin{enumerate}
+    \item[1]
+      在$D$中，$a_{11},a_{22},\cdots,a_{nn}$所在的对角线称为行列式的\red{主对角线}，$a_{11},a_{22},\cdots,a_{nn}$称为\red{主对角元}。\\[0.1in]
+    \item[2]
+      行列式$D$是由$n^2$个元素构成的$n$次齐次多项式：\\[0.1in]
+      \begin{itemize}
+      \item 二阶行列式的展开式有$2!$项 \\[0.1in]
+      \item 三阶行列式的展开式有$3!$项 \\[0.1in]
+      \item $n$阶行列式的展开式有$n!$项，其中每一项都是不同行不同列的$n$个元素的乘积，带正号的项与带负号的项各占一半。
+      \end{itemize}
+
+    \end{enumerate}
+    
+  \end{block}
+\end{frame}
+
+
+\begin{frame}
+  \begin{exampleblock}{例}
+    证明：$n$阶下三角行列式
+    $$
+    D_n = \left|
+    \begin{array}{cccc}
+      a_{11}  &  0 & \cdots & 0 \\
+      a_{21}  &  a_{22} & \cdots & 0 \\
+      \vdots & \vdots & \ddots & \vdots\\  
+      a_{n1}  &  a_{n2} & \cdots & a_{nn} 
+    \end{array}
+    \right| = a_{11} a_{22} \cdots a_{nn}.
+    $$
+  \end{exampleblock} \pause 
+
+  \begin{block}{证明【数学归纳法】}
+    \begin{itemize}
+    \item 当$n=2$时，结论成立。\pause 
+    \item 假设结论对$n-1$阶下三角阵成立，则由定义
+      $$
+      \begin{array}{rcl}
+        \left|
+        \begin{array}{cccc}
+          a_{11}  &  0 & \cdots & 0 \\
+          a_{21}  &  a_{22} & \cdots & 0 \\
+          \vdots & \vdots & \ddots & \vdots\\  
+          a_{n1}  &  a_{n2} & \cdots & a_{nn} 
+        \end{array}
+        \right| &=& \pause a_{11} \cdot (-1)^{1+1} \left|
+        \begin{array}{cccc}
+          a_{22}  &  0 & \cdots & 0 \\
+          a_{31}  &  a_{33} & \cdots & 0 \\
+          \vdots & \vdots & \ddots & \vdots\\  
+          a_{n1}  &  a_{n2} & \cdots & a_{nn} 
+        \end{array}
+        \right| \\
+        &=& \pause a_{11} (a_{22} a_{33} \cdots a_{nn}). \quad \qed        
+      \end{array}
+      $$    
+    \end{itemize}
+  \end{block}
+
+\end{frame}
+
+\begin{frame}
+  $$
+  \begin{array}{l}
+    \left|
+    \begin{array}{cccc}
+      a_{11}  &  a_{12} & \cdots & a_{1n} \\
+      a_{21}  &  a_{22} & \cdots & a_{2n} \\
+      \vdots & \vdots & \ddots & \vdots\\  
+      a_{n1}  &  a_{n2} & \cdots & a_{nn} 
+    \end{array}
+    \right| = 
+    \left|
+    \begin{array}{cccc}
+      a_{11}  &  0 & \cdots & 0 \\
+      0  &  a_{22} & \cdots & a_{2n} \\
+      \vdots & \vdots & \ddots & \vdots\\  
+      0  &  a_{n2} & \cdots & a_{nn} 
+    \end{array}
+    \right|  \\[0.4in]
+    + \left|
+    \begin{array}{ccccc}
+      0  &  a_{12} & 0 & \cdots & 0 \\
+      a_{21} & 0  &  a_{23} & \cdots & a_{2n} \\
+      \vdots & \vdots & \vdots & \ddots & \vdots\\  
+      a_{n1}  & 0&  a_{n3} & \cdots & a_{nn} 
+    \end{array}
+    \right| + \cdots  \\[0.4in]
+    + 
+        \left|
+    \begin{array}{cccc}
+      0 & \cdots & 0 & a_{1n} \\
+      a_{21}  &   \cdots & a_{2,n-1} & 0 \\
+      \vdots &  \ddots & \vdots & \vdots\\  
+      a_{n1}  &   \cdots & a_{n,n-1} & 0
+    \end{array}
+    \right| 
+  \end{array}
+  $$
+\end{frame}
+
+
+\begin{frame}
+  同理可证
+  $$
+  \left|
+  \begin{array}{cccc}
+    a_{11}  &  0 & \cdots & 0 \\
+    0  &  a_{22} & \cdots & 0 \\
+    \vdots & \vdots & \ddots & \vdots\\  
+    0  &  0 & \cdots & a_{nn} 
+  \end{array}
+  \right| = a_{11}a_{22}\cdots a_{nn}
+  $$
+
+\end{frame}
+
+
+\begin{frame}
+  \begin{exampleblock}{例}
+    计算$n$阶行列式
+    $$
+    \left|
+    \begin{array}{ccccc}
+      0  &  0 & \cdots & 0 & a_n \\
+      0  &  0 & \cdots & a_{n-1} & * \\
+      \vdots & \vdots & & \vdots & \vdots\\  
+      0  &  a_2 & \cdots & * & * \\
+      a_1 & * & \cdots & * & *
+    \end{array}
+    \right| 
+    $$
+  \end{exampleblock} \pause 
+
+  \begin{block}{解}
+    由行列式定义，
+    $$
+    \begin{array}{rcl}
+      D_n &=& \left|
+      \begin{array}{ccccc}
+        0  &  0 & \cdots & 0 & a_n \\
+        0  &  0 & \cdots & a_{n-1} & * \\
+        \vdots & \vdots & & \vdots & \vdots\\  
+        0  &  a_2 & \cdots & * & * \\
+        a_1 & * & \cdots & * & *
+      \end{array}
+      \right| = \pause  (-1)^{1+n} a_n \left|
+      \begin{array}{cccc}
+        0  &  0 & \cdots &   a_{n-1} \\
+        \vdots & \vdots &  & \vdots\\  
+        0  &  a_2 & \cdots  & * \\
+        a_1 & * & \cdots  & *
+      \end{array} 
+      \right| \\
+      &=& \pause (-1)^{n-1} a_n D_{n-1}.      
+    \end{array}
+    $$
+  \end{block}
+
+\end{frame}
+
+
+\begin{frame}
+  \begin{block}{解（续）}
+    同理递推，
+    $$
+    \begin{array}{rcl}
+      D_n & =& (-1)^{n-1} a_n D_{n-1} \pause = (-1)^{n-1} a_n (-1)^{n-2} a_{n-1} D_{n-2} \\[0.1in]
+      && \cdots\cdots \\[0.2cm]
+      &=& \pause  (-1)^{(n-1)+(n-2)+\cdots+2+1} a_n a_{n-1} \cdots a_2 a_1 \\[0.1in]
+      &=& \pause (-1)^{\frac{n(n-1)}{2}} a_n a_{n-1} \cdots a_2 a_1.
+    \end{array}
+    $$
+
+  \end{block}
+
+  \pause 
+  例如，
+  $$
+  D_2 = -a_1a_2, \quad
+  D_3 = -a_1a_2a_3, \quad
+  D_4 = a_1a_2a_3a_4, \quad
+  D_5 = a_1a_2a_3a_4a_5.
+  $$
+
+\end{frame}

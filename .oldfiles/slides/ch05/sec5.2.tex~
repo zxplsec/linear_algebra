@@ -1,0 +1,9 @@
+\section{相似矩阵}
+
+\begin{dingyi}
+  设$\A,\B$为$n$阶矩阵，若存在可逆矩阵$\PP$，使得
+  $$
+  \PP^{-1}\A\PP=\B,
+  $$
+  则称\blue{$\B$是$\A$的相似矩阵，或$\A$与$\B$相似，记为$\A\sim \B$。}
+\end{dingyi}

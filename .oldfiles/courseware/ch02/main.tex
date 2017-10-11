@@ -1,0 +1,52 @@
+\documentclass[cjk]{beamer}
+\mode<presentation>{
+  %\usetheme{Warsaw}
+  \usetheme{CambridgeUS}
+  \usecolortheme{beaver}
+  \setbeamercovered{transparent}
+}
+\input{usepackage.tex}
+\input{definecolor.tex}
+\input{newcommand.tex}
+
+
+\begin{document}
+\begin{CJK}{UTF8}{gkai} 
+  \CJKtilde
+  \renewcommand{\proofname}{\vspace{0.2cm}\textbf{证明: \ }}
+  \newcommand{\jiename}{\vspace{0.2cm}\textbf{解: \ }}
+  
+  \renewcommand{\figurename}{图}  
+  \input{title.tex}
+  
+  
+  \begin{frame}
+    \titlepage
+  \end{frame}
+
+  \begin{frame}
+    \frametitle{目录}
+    \tableofcontents[currentsection]
+  \end{frame}
+
+  \AtBeginSection[]{
+    \begin{frame}[allowframebreaks]
+      \tableofcontents[currentsection]%,hideallsubsections]
+    \end{frame}
+  }
+  \AtBeginSubsection[]{
+    \begin{frame}[shrink]
+      \tableofcontents[sectionstyle=show/shaded,subsectionstyle=show/shaded/hide]
+    \end{frame}
+  }
+
+
+  \input{sec2.1.tex}
+  \input{sec2.2.tex}
+  \input{sec2.3.tex}
+  \input{sec2.4.tex}
+  \input{sec2.5.tex}
+  \input{sec2.6.tex}
+%  \input{sec2.7.tex}
+\end{CJK} 
+\end{document}

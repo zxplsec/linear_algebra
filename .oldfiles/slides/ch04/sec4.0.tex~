@@ -1,0 +1,100 @@
+\section{向量空间}
+
+\begin{dingyi}[向量空间]
+  设$V$是非空的$n$维向量集合，如果集合$V$对于向量的加法和数乘运算满足以下条件：
+  \begin{itemize}
+  \item[(1)] 对任意的$\alphabd,\betabd\in V$，有$\alphabd+\betabd\in V$；
+  \item[(2)] 对任意的$\alphabd\in V,\lambda \in \mathbb R$，有$\lambda\alphabd\in V$，
+  \end{itemize}
+  则称$V$为向量空间。
+\end{dingyi}
+定义中的(1)表示该集合中向量对加法运算封闭；(2)表示该集合中向量对数乘运算封闭。因此，向量空间也可表述为：\blue{对加法和数乘运算封闭的非空集合。}
+
+\begin{li}
+  设三维向量的全体
+  $$
+  \R^3=\{\alphabd=(x_1,x_2,x_3)^T|x_1,x_2,x_3\in\R\}
+  $$
+  以及三维向量集合
+  $$
+  V_1=\{\alphabd=(0,x_2,x_3)^T|x_2,x_3\in\R\}
+  $$
+  和
+  $$
+  V_2=\{\alphabd=(1,x_2,x_3)^T|x_2,x_3\in\R\}
+  $$
+  验证$\R^3, V_1$是向量空间，而$V_2$不是向量空间。
+  类似地，$n$维向量的全体$\R^n$也是一个向量空间。
+\end{li}
+
+\begin{li}
+  验证齐次线性方程组的全体
+  $$
+  S=\{x|Ax=0\}
+  $$
+  是向量空间。
+\end{li}
+\begin{jie}
+  因$0\in S$，$S$为非空集合，由齐次线性方程组解的性质知，对任意的$\xibd_1,\xibd_2\in S,\lambda \in R$，有$\xibd_1+\xibd_2\in S$且$\lambda \xibd_1\in S$，故$S$中的向量关于加法与数乘运算封闭，称这个向量空间为齐次线性方程组的解空间。 
+\end{jie}
+
+\begin{li}
+  验证非齐次线性方程组解的全体
+  $$
+  S=\{x|Ax=b, b\ne 0\}
+  $$
+  不是向量空间。
+\end{li}
+\begin{jie}
+  因对任意的$\etabd_1,\etabd_2\in S, \lambda\in \R$，有
+  $$
+  A(\etabd_1+\etabd_2)=A\etabd_1+A\etabd_2=b+b=2b,
+  $$
+  故$\etabd_1+\etabd_2\notin S$，即$S$关于向量的加法与数乘运算不封闭。
+\end{jie}
+
+\begin{li}
+  设$\alphabd,\betabd$是$n$维向量，验证集合
+  $$
+  V(\alphabd,\betabd)=\{\etabd=\lambda\alphabd+\mu\betabd|\lambda,\mu\in\R\}
+  $$
+  是向量空间。
+\end{li}
+\begin{jie}
+  因$0=0\alphabd+0\betabd\in V$，故$V$为非空集合。另外，对任意的$\etabd_1,\etabd_2\in V, k\in \R$，有
+  $$
+  \etabd_1=\lambda_1\alphabd+\mu_1\betabd, \quad
+  \etabd_2=\lambda_2\alphabd+\mu_2\betabd
+  $$
+  从而
+  $$
+  \begin{aligned}
+    \etabd_1+\etabd_2=(\lambda_1+\lambda_2)\alphabd+(\mu_1+\mu_2)\betabd\in V,\\
+    k\etabd_1=(k\lambda_1)\alphabd+(k\mu_1)\betabd\in V,
+  \end{aligned}
+  $$
+  称该向量空间为由向量$\alphabd,\betabd$生成的向量空间。
+\end{jie}
+
+\begin{dingyi}
+  由向量组$\alphabd_1,\alphabd_2,\cd,\alphabd_m$生成的向量空间可表示为
+  $$
+  V(\alphabd_1,\alphabd_2,\cd,\alphabd_m)=\{\lambda_1\alphabd_1+\lambda_2\alphabd_2+\cd+\lambda_m\alphabd_m|\lambda_1,\lambda_2,\cd,\lambda_m\in \R\}.
+  $$
+\end{dingyi}
+
+\begin{li}
+证明：等价的向量组生成的向量空间等价。
+\end{li}
+\begin{proof}
+  设向量组$\alphabd_1,\alphabd_2,\cd,\alphabd_m$与向量组$\betabd_1,\betabd_2,\cd,\betabd_m$等价，记
+  $$
+  \begin{aligned}
+    V_1=\{x=\lambda_1\alphabd_1+\lambda_2\alphabd_2+\cd+\lambda_m\alphabd_m|\lambda_1,\lambda_2,\cd,\lambda_m\in \R\},\\
+    V_2=\{x=\mu_1\betabd_1+\mu_2\betabd_2+\cd+\mu_m\betabd_m|\mu_1,\mu_2,\cd,\mu_m\in \R\},
+  \end{aligned}
+  $$
+  需证明$V_1=V_2$。
+
+  设$x\in V_1$，则$x$可由$\alphabd_1,\alphabd_2,\cd,\alphabd_m$线性表示。因$\alphabd_1,\alphabd_2,\cd,\alphabd_m$可由$\betabd_1,\betabd_2,\cd,\betabd_m$线性表示，故$x$可由$\betabd_1,\betabd_2,\cd,\betabd_m$线性表示，即$x\in V_2$，于是$V_1\subset V_2$。同理可证$V_2\subset V_1$。
+\end{proof}

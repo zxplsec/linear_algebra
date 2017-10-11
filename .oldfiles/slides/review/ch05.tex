@@ -1,0 +1,832 @@
+\section{特征值问题}
+\subsection{矩阵的特征值与特征向量~~相似矩阵}
+
+
+\begin{frame}[fragile]\ft{\subsecname}
+
+
+  \begin{dingyi}[特征值与特征向量]
+    设$\A$为复数域$\mathbb C$上的$n$阶矩阵，如果存在数$\lambda\in\mathbb C$和\red{非零}的$n$维向量$\xx$使得
+    $$
+    \A\xx=\lambda\xx
+    $$
+    则称$\lambda$为矩阵$\A$的\blue{\underline{特征值}}，$\xx$为$\A$的对应于特征值$\lambda$的\blue{\underline{特征向量}}。
+  \end{dingyi} 
+  
+  \begin{zhu}
+    \begin{itemize}
+  \item[(1)] 特征向量$\xx\ne\zero$；
+  \item[(2)] 特征值问题是对方针而言的。 
+  \end{itemize}
+  \end{zhu}
+\end{frame}
+
+
+\begin{frame}[fragile]
+
+  \begin{dingyi}[特征多项式、特征矩阵、特征方程]
+    设$n$阶矩阵$\A=(a_{ij})$，则
+    $$
+    f(\lambda)=\det(\A-\lambda\II)
+    =\left|
+      \begin{array}{cccc}
+                    a_{11}-\lambda&a_{12}&\cd&a_{1n}\\[0.2cm]
+                    a_{21}&a_{22}-\lambda&\cd&a_{2n}\\[0.2cm]
+                    \vd&\vd&&\vd\\[0.2cm]
+                    a_{n1}&a_{n2}&\cd&a_{nn}-\lambda
+                                                 \end{array}
+                                                                                  \right|
+                                                                                  $$
+                                                                                  称为矩阵$\A$的特征多项式，$\A-\lambda\II$称为$\A$的特征矩阵，$\det(\A-\lambda\II)=0$称为$\A$的特征方程。
+                                                                                  \end{dingyi}
+
+\end{frame}
+
+
+\begin{frame}[fragile]
+  \begin{li}
+    求矩阵
+    $$
+    \A=\left(
+      \begin{array}{rrr}
+        5&-1&-1\\
+        3&1&-1\\
+        4&-2&1
+      \end{array}
+    \right)
+    $$
+    的特征值与特征向量。
+  \end{li}
+\end{frame}
+
+\begin{frame}[fragile,allowframebreaks]
+  \begin{jie}
+    $$
+    \begin{array}{rl}
+      \det(\A-\lambda\II)
+      &=\left|
+        \begin{array}{rrr}
+          5-\lambda&-1&-1\\
+          3&1-\lambda&-1\\
+          4&-2&1-\lambda
+        \end{array}
+                \right| = \left|
+                \begin{array}{rrr}
+                  3-\lambda&-1&-1\\
+                  3-\lambda&1-\lambda&-1\\
+                  3-\lambda&-2&1-\lambda
+                \end{array}
+                                \right|\\[0.3in]
+      &= (3-\lambda)\left|
+        \begin{array}{rrr}
+          1&-1&-1\\
+          1&1-\lambda&-1\\
+          1&-2&1-\lambda
+        \end{array}
+                \right|= (3-\lambda)\left|
+                \begin{array}{rrr}
+                  1&-1&-1\\
+                  0&2-\lambda&0\\
+                  0&-1&2-\lambda
+                \end{array}
+                        \right|\\
+      &=(3-\lambda)(\lambda-2)^2=0
+    \end{array}
+    $$
+    故$\A$的特征值为$\lambda_1=3,~\lambda_2=2\mbox{（二重特征值）}$。
+
+    当$\lambda_1=3$时，由$(\A-\lambda\II)\xx=\zero$，即
+    $$
+    \left(
+      \begin{array}{rrr}
+        2&-1&-1\\
+        3&-2&-1\\
+        4&-2&-2
+      \end{array}
+    \right)
+    \left(
+      \begin{array}{c}
+        x_1\\
+        x_2\\
+        x_3
+      \end{array}
+    \right)=
+    \left(
+      \begin{array}{c}
+        0\\
+        0\\
+        0
+      \end{array}
+    \right)
+    $$
+    得其基础解系为$\xx_1=(1,1,1)^T$，因此$k_1\xx_1$（$k_1$为非零任意常数）是$\A$对应于$\lambda_1=3$的全部特征向量。
+    \vspace{0.1in}
+
+    当$\lambda_2=2$时，由$(\A-\lambda_2\II)\xx=\zero$，即
+    $$
+    \left(
+      \begin{array}{rrr}
+        3&-1&-1\\
+        3&-1&-1\\
+        4&-2&-1
+      \end{array}
+    \right)
+    \left(
+      \begin{array}{c}
+        x_1\\
+        x_2\\
+        x_3
+      \end{array}
+    \right)=
+    \left(
+      \begin{array}{c}
+        0\\
+        0\\
+        0
+      \end{array}
+    \right)
+    $$
+    得其基础解系为$\xx_2=(1,1,2)^T$，因此$k_2\xx_2$（$k_2$为非零任意常数）是$\A$对应于$\lambda_2=2$的全部特征向量。
+  \end{jie}
+
+\end{frame}
+
+
+
+
+\begin{frame}[fragile]
+\begin{dingli}
+  若$\xx_1$和$\xx_2$都是$\A$的对应于特征值$\lambda_0$的特征向量，则$k_1\xx_1+k_2\xx_2$也是$\A$的对应于特征值$\lambda_0$的特征向量（其中$k_1,k_2$为任意常数，但$k_1\xx_1+k_2\xx_2\ne 0$）。
+\end{dingli}
+\end{frame}
+
+
+\begin{frame}[fragile]
+ 在$(\A-\lambda\II)\xx=0$的解空间中，除零向量以外的全体解向量就是$\A$的属于特征值$\lambda$的全体特征向量。因此，$(\A-\lambda\II)\xx=0$的解空间也称为$\A$关于特征值$\lambda$的特征子空间，记作$V_\lambda$。$n$阶矩阵$\A$的特征子空间就是$n$维向量空间的子空间，其维数为
+ $$
+ dim V_\lambda = n - rank(\A-\lambda \II).
+ $$
+\end{frame}
+
+
+\begin{frame}[fragile]
+
+\begin{dingli}
+  设$n$阶矩阵$\A=(a_{ij})$的$n$个特征值为$\lambda_1,\lambda_2,\cd,\lambda_n$，则
+  \begin{itemize}
+  \item[(1)] $\ds \sum_{i=1}^n\lambda_i=\sum_{i=1}^na_{ii}$;
+  \item[(2)] $\ds \prod_{i=1}^n\lambda_i=\det(\A)$,         
+  \end{itemize}
+  其中$\sum_{i=1}^na_{ii}$是$\A$的主对角元之和，称为$\A$的迹(trace)，记为$tr(\A)$。
+\end{dingli}
+\end{frame}
+
+\begin{frame}
+  \begin{li}[\red{$\bigstar$}]
+    设矩阵
+    $\A=\left[
+      \begin{array}{rrr}
+        1&2&-3\\
+        -1&4&-3\\
+        1&a&5
+      \end{array}\right]
+    $的全部特征值之积为$24$. \begin{enumerate}
+    \item 求$a$的值；
+    \item 讨论$\A$能否对角化，若能，求一个可逆矩阵$\PP$使$\PP^{-1}\A\PP=\Lambdabd$为对角阵．
+    \end{enumerate}                  
+  \end{li}\pause
+  \begin{jie}
+    \begin{enumerate}
+    \item 因$|\A|=\lambda_1\lambda_2\lambda_3=24$，故$a=-2$；\pause
+    \item 由$|\A-\lambda\II|=\left|
+        \begin{array}{rrr}
+          1-\lambda&2&-3\\
+          -1&4-\lambda&-3\\
+          1&-2&5-\lambda
+        \end{array}\right|=(\lambda-2)^2(\lambda-6),
+      $故特征值为$\lambda_1=\lambda_2=2, \lambda_3=6$．当$\lambda_1=\lambda_2=2$时，$\rank(\A-2\II)=1$，这说明$\A$由$3$个线性无关的特征向量，故$\A$可对角化．
+    \end{enumerate}
+  \end{jie}
+\end{frame}
+
+\begin{frame}
+  当$\lambda=2$时，解方程组$(\A-2\II)\xx=0$，得基础解系
+  $$
+  \xx_1=(2,1,0)^T, ~~ \xx_2=(-3,0,1)^T,
+  $$
+  当$\lambda=6$时，解方程组$(\A-6\II)\xx=0$，得基础解系
+  $$
+  \xx_3=(1,1,-1)^T,
+  $$
+  取可逆矩阵$\PP=\left[
+      \begin{array}{rrr}
+        2&-3&1\\
+        1&0&1\\
+        0&1&-1
+      \end{array}\right]
+    $，使$\PP^{-1}\A\PP=\diag(2,2,6)$为对角阵．
+\end{frame}
+
+\begin{frame}[fragile]
+
+\begin{dingli}
+  一个特征向量不能属于不同的特征值。
+\end{dingli}
+
+\end{frame}
+
+\begin{frame}[fragile]
+
+
+
+\begin{xingzhi}
+  若$\lambda$是矩阵$\A$的特征值，$\xx$是$\A$属于$\lambda$的特征向量，则
+  \begin{itemize}
+  \item[(i)] $k\lambda$是$k\A$的特征值；
+  \item[(ii)] $\lambda^m$是$\A^m$的特征值；
+  \item[(iii)] 当$\A$可逆时，$\lambda^{-1}$是$\A^{-1}$的特征值；
+  \end{itemize}
+  且$\xx$仍是矩阵$k\A,\A^m,\A^{-1}$分别对应于$k\lambda,\lambda^m,\lambda^{-1}$的特征向量。
+\end{xingzhi}
+\end{frame}
+
+
+\begin{frame}[fragile]
+
+\begin{zhu*}
+  若$\lambda$是$\A$的特征值，则$\varphi(\lambda)$是$\varphi(\A)$的特征值，其中
+  $$
+  \begin{aligned}
+    \varphi(\lambda)=a_0+a_1\lambda+\cd+a_m\lambda^m,\\
+    \varphi(\A)=a_0\II+a_1\A+\cd+a_m\A^m.
+  \end{aligned}
+  $$
+\end{zhu*}
+\end{frame}
+
+\begin{frame}[fragile]
+
+\begin{li}
+  设$3$阶矩阵$\A$的特征值为$1,-1,2$，求$|\A^*+3\A-2\II|$.
+\end{li} \pause 
+\begin{jie}
+  因$\A$的特征值全不为零，故$\A$可逆，从而$\A^*=|\A|\A^{-1}$。又因$|\A|=\lambda_1\lambda_2\lambda_3=-2$，故
+  $$
+  \A^*+3\A-2\II=-2\A^{-1}+3\A-2\II.
+  $$
+  令$\varphi(\lambda)=-\frac2\lambda+3\lambda-2$，则$\varphi(\lambda)$为上述矩阵的特征值，分别为$\varphi(1)=-1,\varphi(-1)=-3,\varphi(2)=3$，于是
+  $$
+  |\A^*+3\A-2\II|=(-1)\cdot(-3)\cdot3=9.
+  $$
+\end{jie}
+\end{frame}
+
+\begin{frame}[fragile]
+
+\begin{xingzhi}
+  矩阵$\A$与$\A^T$的特征值相同。
+\end{xingzhi}
+
+
+\end{frame}
+
+\begin{frame}[fragile]
+
+
+\begin{li}
+  设$\A=\left(
+    \begin{array}{rrr}
+      1&-1&1\\
+      2&-2&2\\
+      -1&1&-1
+    \end{array}
+  \right)$
+  \begin{itemize}
+  \item[(i)]求$\A$的特征值与特征向量
+  \item[(ii)] 求可逆矩阵$\PP$，使得$\PP^{-1}\A\PP$为对角阵。 
+  \end{itemize}
+\end{li}
+\end{frame}
+
+\begin{frame}[fragile,allowframebreaks]
+
+\begin{jie}
+  由
+  $$
+  \begin{aligned}
+    |\A-\lambda\II|&=\left|
+      \begin{array}{rrr}
+        1-\lambda&-1&1\\
+        2&-2-\lambda&2\\
+        -1&1&-1-\lambda
+      \end{array}
+  \right|=\left|
+    \begin{array}{rrr}
+      1-\lambda&0&1\\
+        2&-\lambda&2\\
+        -1&-\lambda&-1-\lambda
+    \end{array}
+  \right|\\
+  &=\left|
+    \begin{array}{rrr}
+      1-\lambda&0&1\\
+      2&-\lambda&2\\
+      -3&0&-3-\lambda
+    \end{array}
+  \right|=-\lambda[(\lambda-1)(\lambda+3)+3]=-\lambda^2(\lambda+2),
+\end{aligned}
+$$
+知$\A$的特征值为$\lambda_1=\lambda_2=0$和$\lambda_3=-2$.
+
+当$\lambda_{1,2}=0$时，由$(\A-0\II)\xx=0$，即$\A\xx=0$得基础解系
+$$
+\xx_1=(1,1,0)^T, \quad \xx_2=(-1,0,1)^T,
+$$
+故$\A$对应于$\lambda_{1,2}=0$的全体特征向量为
+$$
+k_1\xx_1+k_2\xx_2=k_1(1,1,0)^T+k_2(-1,0,1)^T,
+$$
+其中$k_1,k_2$为不全为零的任意常数。
+
+
+当$\lambda_{3}=-2$时，由$(\A-\lambda_{3}\II)\xx=0$，即
+$$
+\left(
+  \begin{array}{rrr}
+    3&-1&1\\
+    2&0&2\\
+    -1&1&1
+  \end{array}
+\right)\left(
+  \begin{array}{c}
+    x_1\\x_2\\x_3
+  \end{array}
+\right)=\left(
+  \begin{array}{c}
+    0\\0\\0
+  \end{array}
+\right)
+$$得基础解系
+$$
+\xx_3=(-1,-2,1)^T,
+$$
+故$\A$对应于$\lambda_{3}=-2$的全体特征向量为
+$$
+k_3\xx_3=k_3(-1,-2,1)^T,
+$$
+其中$k_3$为非零的任意常数。
+
+
+将$\A\xx_i=\lambda_i\xx_i(i=1,2,3)$表示成
+$$
+\A(\xx_1,\xx_2,\xx_3)=(\xx_1,\xx_2,\xx_3)\left(
+  \begin{array}{ccc}
+    \lambda_1&&\\
+    &\lambda_2\\
+    &&\lambda_3\\
+  \end{array}
+\right)
+$$
+取
+$$
+\PP=(\xx_1,\xx_2,\xx_3)=\left(
+  \begin{array}{rrr}
+    1&-1&-1\\
+    1& 0&-2\\
+    0& 1& 1
+  \end{array}
+\right), \quad \Lambdabd=\left(
+  \begin{array}{rrr}
+    0&&\\
+     &0&\\
+     & &-2
+  \end{array}
+\right),
+$$
+则$\A\PP=\PP\Lambdabd$，且$|\PP|=2\ne 0$，故得
+$$
+\PP^{-1}\A\PP=\Lambdabd
+$$
+为对角阵。
+\end{jie}
+\end{frame}
+
+\begin{frame}[fragile]
+
+\begin{dingli}
+  设$\lambda_1,\lambda_2,\cd,\lambda_m$是方阵$\A$的$m$个特征值，$\xx_1,\xx_2,\cd,\xx_m$依次是与之对应的特征向量，若$\lambda_1,\lambda_2,\cd,\lambda_m$互不相等，则$\xx_1,\xx_2,\cd,\xx_m$线性无关。
+\end{dingli}
+\end{frame}
+
+
+\subsection{相似矩阵}
+
+\begin{frame}[fragile]\ft{\subsecname}
+\begin{dingyi}
+  设$\A,\B$为$n$阶矩阵，若存在可逆矩阵$\PP$，使得
+  $$
+  \PP^{-1}\A\PP=\B,
+  $$
+  则称\blue{$\B$是$\A$的相似矩阵，或$\A$与$\B$相似，记为$\A\sim \B$。对$\A$进行运算$\PP^{-1}\A\PP$称为对$\A$进行相似变化，可逆矩阵$\PP$称为把$\A$变成$\B$的相似变换矩阵。}
+\end{dingyi}
+\end{frame}
+
+\begin{frame}[fragile]\ft{\subsecname}
+\begin{dingli}
+若$\A\sim \B$，则$\A$与$\B$的特征多项式相同，从而$\A$与$\B$的特征值相同。
+\end{dingli}
+
+\begin{tuilun}
+  若$\A$与对角阵
+  $$
+  \Lambdabd=\left(
+    \begin{array}{cccc}
+      \lambda_1&&&\\
+               &\lambda_2&&\\
+               &&\dd&\\
+               &&&\lambda_n
+    \end{array}
+  \right)
+  $$
+  相似，则$\lambda_1,\lambda_2,\cd,\lambda_n$为$\A$的$n$个特征值。
+\end{tuilun}
+\end{frame}
+
+\subsection{矩阵可对角化的条件}
+\begin{frame}[fragile]\ft{\subsecname}
+矩阵可对角化，即矩阵与对角阵相似。    
+
+\begin{dingli}
+  $\mbox{矩阵可对角化} ~~\Longleftrightarrow~~
+  \mbox{$n$阶矩阵有$n$个线性无关的特征向量}$ 
+\end{dingli}
+\end{frame}
+
+\begin{frame}[fragile]\ft{\subsecname}
+
+
+\begin{dingli}
+  $\A$的属于不同特征值的特征向量是线性无关的。
+\end{dingli} 
+
+\begin{tuilun}
+  若$\A$有$n$个互不相同的特征值，则$\A$与对角阵相似。
+\end{tuilun}
+
+
+\end{frame}
+
+\begin{frame}[fragile]\ft{\subsecname}
+
+
+
+\begin{li}
+  设实对称矩阵
+  $$
+  \A=\left(
+    \begin{array}{rrrr}
+      1&-1&-1&-1\\
+      -1&1&-1&-1\\
+      -1&-1&1&-1\\
+      -1&-1&-1&1
+    \end{array}
+  \right)
+  $$
+  问$\A$是否可对角化？若可对角化，求对角阵$\Lambdabd$及可逆矩阵$\PP$使得$\PP^{-1}\A\PP=\Lambdabd$，再求$\A^k$。
+\end{li}
+\end{frame}
+
+\begin{frame}[fragile,allowframebreaks]\ft{\subsecname}
+\begin{jie}
+  由
+  $$
+  \begin{aligned}
+  |\A-\lambda\II|&=
+  \left|
+    \begin{array}{rrrr}
+      1-\lambda&-1&-1&-1\\
+      -1&1-\lambda&-1&-1\\
+      -1&-1&1-\lambda&-1\\
+      -1&-1&-1&1-\lambda
+    \end{array}
+  \right|\\
+  &=-(\lambda+2)
+  \left|
+    \begin{array}{rrrr}
+      1&-1&-1&-1\\
+      1&1-\lambda&-1&-1\\
+      1&-1&1-\lambda&-1\\
+      1&-1&-1&1-\lambda
+    \end{array}
+  \right|\\
+  &=-(\lambda+2)
+  \left|
+    \begin{array}{rrrr}
+      1&-1&-1&-1\\
+      0&2-\lambda&0&0\\
+      0&0&2-\lambda&0\\
+      0&0&0&2-\lambda
+    \end{array}
+  \right|=(\lambda+2)(\lambda-2)^3,
+  \end{aligned}
+  $$
+  故$\A$的特征值为$\lambda_1=-2$（单根），$\lambda_2=2$（三重根）。
+
+  由$(\A-\lambda_1\II)\xx=0$，即
+  $$
+  \left(
+    \begin{array}{rrrr}
+      3&-1&-1&-1\\
+      -1&3&-1&-1\\
+      -1&-1&3&-1\\
+      -1&-1&-1&3
+    \end{array}
+  \right)
+  \left(
+    \begin{array}{c}
+      x_1\\x_2\\x_3\\x_4
+    \end{array}
+  \right)=
+  \left(
+    \begin{array}{c}
+      0\\0\\0\\0
+    \end{array}
+  \right)
+  $$
+  得$\lambda_1$对应的特征向量为$\{k_1\xx_1|\xx_1=(1,1,1,1)^T, k_1\ne 0\}$。
+
+  由$(\A-\lambda_2\II)\xx=0$，即
+  $$
+  \left(
+    \begin{array}{rrrr}
+      -1&-1&-1&-1\\
+      -1&-1&-1&-1\\
+      -1&-1&-1&-1\\
+      -1&-1&-1&-1
+    \end{array}
+  \right)
+  \left(
+    \begin{array}{c}
+      x_1\\x_2\\x_3\\x_4
+    \end{array}
+  \right)=
+  \left(
+    \begin{array}{c}
+      0\\0\\0\\0
+    \end{array}
+  \right)
+  $$
+  得基础解系：
+  $$
+  \xx_{21}=(1,-1,0,0)^T, \quad
+  \xx_{22}=(1,0,-1,0)^T, \quad
+  \xx_{23}=(1,0,0,-1)^T.
+  $$
+
+  因$\A$有$4$个线性无关的特征向量，故$\A\sim \Lambdabd$。
+
+  取
+  $$
+  \PP=(\xx_1,\xx_{21},\xx_{22},\xx_{23})=
+  \left(
+    \begin{array}{rrrr}
+      1& 1& 1&-1\\
+      1&-1& 0& 0\\
+      1& 0&-1& 0\\
+      1& 0& 0&-1
+    \end{array}
+  \right),
+  $$
+  则
+  $$
+  \PP^{-1}\A\PP=\left(
+    \begin{array}{rrrr}
+      -2&&&\\
+        &2&&\\
+        &&2\\
+        &&&2
+    \end{array}
+  \right)=\Lambdabd.
+  $$
+  再由$\A=\PP\Lambdabd\PP^{-1}$得
+  $$
+  \begin{aligned}
+    &\A^k=(\PP\Lambdabd\PP^{-1})^k=\PP\Lambdabd^k\PP^{-1}\\
+    &=\left(
+    \begin{array}{rrrr}
+      1& 1& 1&-1\\
+      1&-1& 0& 0\\
+      1& 0&-1& 0\\
+      1& 0& 0&-1
+    \end{array}
+  \right)
+  \left(
+    \begin{array}{rrrr}
+      (-2)^k&&&\\
+        &2^k&&\\
+        &&2^k\\
+        &&&2^k
+    \end{array}
+  \right)
+  \frac14
+  \left(
+    \begin{array}{rrrr}
+      1& 1& 1& 1\\
+      1&-3& 1& 1\\
+      1& 1&-3& 1\\
+      1& 1& 1&-3
+    \end{array}
+  \right)\\
+  &=\left\{
+    \begin{array}{ll}
+      2^k \II_4, & k\mbox{ even}, \\
+      2^{k-1} \A, & k\mbox{ odd}.
+    \end{array}
+  \right.
+  \end{aligned}
+  $$
+\end{jie}
+
+\end{frame}
+
+\begin{frame}
+  \begin{li}[\red{$\bigstar$}]
+    设$\A$的特征值为$1,2,-3$，矩阵$\B=\A^3-7\A+5\E$，求$\B$．
+  \end{li} \pause
+  \begin{jie}
+    因$\A$的特征值互不相同，故存在可逆阵$\PP$使得$\PP^{-1}\A\PP=\Lambdabd=\left[
+      \begin{array}{rrr}
+        1&&\\
+        &2&\\
+        &&-3
+      \end{array}
+    \right]$. 而
+    $$
+    \PP^{-1}\B\PP=\PP^{-1}(\A^3-7\A+5\E)\PP=\Lambdabd^3-7\Lambdabd+5\E=-\E,
+    $$
+    故$\B=\PP(-\E)\PP^{-1}=\E$.
+  \end{jie}
+\end{frame}
+
+\begin{frame}
+  \begin{li}[\red{$\bigstar$}]
+    已知三阶矩阵$\A$的特征值为$-1,1,2, \B=\A^2+3\A-2\E$，求$\B$的特征值及行列式$|\B|$．
+  \end{li} \pause
+  \begin{proof}
+    设$\lambda$为$\A$的特征值，则$\varphi(\lambda)=\lambda^2+3\lambda-2$为$\B$的特征值，故$\B$的特征值分别为$-4,2,8$，从而$|\B|=(-4)\times2\times8=-64$.
+  \end{proof}
+\end{frame}
+
+\begin{frame}[fragile]\ft{\subsecname}
+\begin{li}
+  设
+  $$
+  \A=\left(
+    \begin{array}{ccc}
+      0&0&1\\
+      1&1&x\\
+      1&0&0
+    \end{array}
+  \right)
+  $$
+  问$x$为何值时，矩阵$\A$能对角化？
+\end{li}
+\end{frame}
+
+\begin{frame}[fragile]\ft{\subsecname}
+
+\begin{jie}
+  由
+  $$
+  |\A-\lambda\II|=
+  \left|
+    \begin{array}{ccc}
+      -\lambda&0&1\\
+      1&1-\lambda&x\\
+      1&0&-\lambda
+    \end{array}
+  \right|
+  =(1-\lambda)
+  \left|
+    \begin{array}{ccc}
+      -\lambda&1\\
+      1&-\lambda
+    \end{array}
+  \right|=-(\lambda-1)^2(\lambda+1),
+  $$
+  即$\lambda_1=-1,\lambda_2=\lambda_3=1$。
+
+  对应于单根$\lambda_1=-1$，可求得线性无关的特征向量恰有$1$个，故$\A$可对角化的充分必要条件是对应重根$\lambda_2=\lambda_3=1$，有$2$个线性无关的特征向量，即$(\A-\II)\xx=0$有两个线性无关的解，亦即$\A-\II$的秩$\rank(\A-\II)=1$。由
+  $$
+  \A-\II=\left(
+    \begin{array}{ccc}
+      -1&0&1\\
+      1&0&x\\
+      1&0&-1
+    \end{array}
+  \right)\sim \left(
+    \begin{array}{ccc}
+      1&0&-1\\
+      0&0&x+1\\
+      0&0&0
+    \end{array}
+  \right)
+  $$
+  欲使$\rank(\A-\II)=1$，须有$x+1=0$，即$x=-1$。因此当$x=-1$时，矩阵$\A$能对角化。
+\end{jie}
+
+\end{frame}
+
+\begin{frame}[fragile]\ft{\subsecname}
+
+\begin{li}
+  设$\A=(a_{ij})_{n\times n}$是主对角元全为$2$的上三角矩阵，且存在$a_{ij}\ne 0(i<j)$，问$\A$是否可对角化?
+\end{li}
+
+\end{frame}
+
+\begin{frame}[fragile]\ft{\subsecname}
+\begin{jie}
+  设
+  $$
+  A=\left(
+    \begin{array}{cccc}
+      2&*&\cd&*\\
+       &2&\cd&*\\
+       &&\dd&\vd\\
+       &&&2
+    \end{array}
+  \right)
+  $$
+  其中$*$为不全为零的任意常数，则
+  $$
+  |\A-\lambda\II|=(2-\lambda)^n,
+  $$
+  即$\lambda=2$为$\A$的$n$重特征根，而$\rank(\A-2\II)\ge 1$，故$(\A-2\II)\xx=0$的基础解系所含向量个数$\le n-1$个，即$\A$的线性无关的特征向量的个数$\le n-1$个，因此$\A$不与对角阵相似。
+\end{jie}
+\end{frame}
+
+\subsection{实对称矩阵的对角化}
+
+\begin{frame}
+  
+  \begin{dingli}
+    实对称矩阵$\A$的任一特征值都是实数。
+  \end{dingli}
+  
+  \begin{dingli}
+    实对称矩阵$\A$对应于不同特征值的特征向量是正交的。
+  \end{dingli}
+
+  \begin{dingli}
+  设$\A$为$n$阶对称阵，则必有正交阵$\QQ$，使得$\QQ^{-1}\A\QQ=\QQ^T\A\QQ=\Lambdabd$，其中$\Lambdabd$是以$\A$的$n$个特征值为对角元的对角阵。
+  \end{dingli}
+
+  \begin{tuilun}
+    设$\A$为$n$阶对称阵，$\lambda$为$\A$的特征方程的$k$重根，则矩阵$\A-\lambda\II$的秩$\rank(\A-\lambda\II)=n-k$，从而对应特征值$\lambda$恰有$k$个u线性无关的特征向量。
+  \end{tuilun} 
+\end{frame}
+
+\begin{frame}
+  \red{将对称阵$\A$对角化的步骤：}
+  \begin{enumerate}
+  \item 求出$\A$的全部互不相等的特征值$\lambda_1,\cd,\lambda_s$，它们的重数依次为$k_1,\cd,k_s(k_1+\cd+k_s=n)$；\\[0.1in]
+  \item 对每个$k_i$重特征值$\lambda_i$，求$(\A-\lambda_i\II)\xx=0$的基础解系，得$k_i$个线性无关的特征向量；\\[0.1in]
+  \item 再把它们正交化、单位化，得$k_i$个两两正交的单位特征向量。因$k_1+\cd+k_s=n$，故总共可得$n$个两两正交的单位特征向量；\\[0.1in]
+  \item 将这$n$个两两正交的单位特征向量构成正交阵$\QQ$，便有$\QQ^{-1}\A\QQ=\Lambdabd$。
+  \end{enumerate}
+\end{frame}
+
+\begin{frame}
+  \begin{li}[\red{$\bigstar$}]
+    设$3$阶实对称矩阵的三个特征值为$5,5,-4$，属于特征值$-4$的特征向量为$(1,1,-4)^T$，求$\A$．
+  \end{li} \pause
+  \begin{jie}
+    设$\A$属于特征值$\lambda=5$的特征向量为$\betabd_1,\betabd_2$，它们必与$(1,1,-4)^T$正交，即$x_1+x_2-4x_3=0$，可解得$\betabd_1=(1,-1,0)^T, \betabd_2=(2,2,1)^T$．利用施密特正交化过程得正交矩阵
+    $$
+    \QQ=\frac1{3\sqrt2}\left[
+      \begin{array}{rrr}
+        3&2\sqrt2&1\\
+        -3&2\sqrt2&1\\
+        0&\sqrt2&-4
+      \end{array}
+    \right]
+    $$
+    于是
+    $$
+    \A=\QQ\left[
+      \begin{array}{rrr}
+        5&&\\
+        &5&\\
+        &&-4
+      \end{array}
+    \right]\QQ^T=\frac12\left[
+      \begin{array}{rrr}
+        9&-1&4\\
+        -1&9&4\\
+         4&4&-6
+      \end{array}
+    \right]
+    $$
+  \end{jie}
+\end{frame}

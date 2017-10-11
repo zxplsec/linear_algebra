@@ -1,0 +1,774 @@
+%%%%%%%%%%%%%%5
+\section{行列式按行（列）展开}
+\begin{frame}
+  \begin{itemize}
+  \item 目的：\\[0.2cm]
+    将高阶行列式转换为低阶行列式，以简化行列式的计算
+  \end{itemize}
+\end{frame}
+
+\begin{frame}
+  \uncover<1->{
+    \begin{block}{余子式与代数余子式}
+      在$n$阶行列式中，把$a_{ij}$所在的第$i$行与第$j$列划去后，留下来的$n-1$阶行列式叫做$a_{ij}$的余子式，记为$M_{ij}$;
+      记
+      $$
+      A_{ij} = (-1)^{i+j} M_{ij}
+      $$
+      为$a_{ij}$的代数余子式。
+    \end{block}
+  }
+  \uncover<2->{
+    \vspace{0.2cm}
+    如
+    \begin{center}
+      \begin{tikzpicture}
+        \uncover<3->{
+          \matrix (D) [matrix of math nodes]  { 
+            D_4 = \\
+          };
+          \matrix(A) [right=2pt of D, matrix of math nodes,nodes in empty cells,
+            ampersand replacement=\&,left delimiter=|,right delimiter=|] {
+            a_{11} \& a_{12} \& a_{13}  \& a_{14} \\
+            a_{21} \& a_{22} \& a_{23}  \& a_{24} \\
+            a_{31} \& a_{32} \& a_{33}  \& a_{34} \\
+            a_{41} \& a_{42} \& a_{43}  \& a_{44} \\
+          };
+        }
+        \uncover<4->{
+          \draw[red, thick] (A-3-1.west) -- (A-3-4.east) (A-1-2.north) -- (A-4-2.south);
+        }
+      \end{tikzpicture}
+      \uncover<5->{
+        \begin{tikzpicture}
+          \matrix (M) [matrix of math nodes]  { 
+            M_{32} = \\
+          };
+          \matrix(MM) [right=2pt of M, matrix of math nodes,nodes in empty cells,
+            ampersand replacement=\&,left delimiter=|,right delimiter=|] {
+            a_{11} \& a_{13}  \& a_{14} \\
+            a_{21} \& a_{23}  \& a_{24} \\
+            a_{41} \& a_{43}  \& a_{44} \\
+          };
+        \end{tikzpicture}
+      }
+      \uncover<6->{
+        \begin{tikzpicture}
+          \matrix (A) [matrix of math nodes]  { 
+            A_{32} = (-1)^{3+2} M_{32} = - M_{32} \\
+          };
+        \end{tikzpicture}
+      }
+    \end{center}
+  }
+\end{frame}
+
+
+\begin{frame}
+  \begin{footnotesize}
+    \uncover<1->{
+      \begin{block}{引例}
+      一个$n$阶行列式，如果第$i$行所有元素除$(i,j)$元$a_{ij}$外都为0，
+      那么这个行列式等于$a_{ij}$与它的代数余子式的乘积，即
+      $$
+      D = a_{ij} A_{ij}.
+      $$
+    \end{block}
+    }
+    \uncover<2->{
+    \proofname
+    先证$(i,j)=(1,1)$的情形，此时
+    $$
+    D = 
+    \left|
+    \begin{array}{cccc}
+      a_{11} & 0      & \cd & 0 \\
+      a_{21} & a_{22} & \cd & 0 \\
+      \vd   & \vd    &     & \vd \\
+      a_{n1} & a_{n2} & \cd & a_{nn} 
+    \end{array}
+    \right|
+    $$
+    由前面结论可知，
+    $$
+    D = a_{11} M_{11},
+    $$
+    又$A_{11} = (-1)^{1+1} M_{11} = M_{11}$，
+    从而 $D = a_{11} A_{11}$。
+    }
+  \end{footnotesize}
+\end{frame}
+
+
+\begin{frame}
+  \begin{footnotesize}
+    \proofname(续) \\[0.2cm]
+    再证一般情形，此时
+    $$
+    D = 
+    \left|
+    \begin{array}{ccccc}
+      a_{11} & \cd    &  a_{1j} &  \cd & a_{1n} \\
+      \vd   &        &  \vd    &      & \vd \\
+       0    & \cd    &  a_{ij} &  \cd & 0 \\
+       \vd   &        &  \vd    &      & \vd \\ 
+      a_{n1} &        &  a_{nj} & \cd & a_{nn} 
+    \end{array}
+    \right|
+    $$
+    \begin{itemize}
+    \item 
+      把$D$的第$i$行依次与第$i-1$行、第$i-2$行、$\ldots$、第$1$行对调，$a_{ij}$调至$(1,j)$元，
+      调换次数为$i-1$。\\[0.2cm]
+    \item
+      再把第$j$列依次与第$j-1$列、第$j-2$列、$\ldots$、第$1$列对调，$a_{ij}$调至$(1,1)$元，
+      调换次数为$j-1$。\\[0.2cm]
+    \item
+      总之，经$i+j-2$次调换，$a_{ij}$调至$(1,1)$元，所得行列式$D_1= (-1)^{i+j-2}D = (-1)^{i+j}D$，
+      而$D_1$中$(1,1)$元的余子式就是$D$中$(i,j)$元的余子式$M_{ij}$。从而
+      $$
+      D = (-1)^{i+j}D_1 = (-1)^{i+j} a_{ij} M_{ij} = a_{ij} A_{ij}.
+      $$
+    \end{itemize}
+  \end{footnotesize}
+\end{frame}
+
+
+\begin{frame}
+  \begin{footnotesize}
+    \begin{block}{定理}
+      行列式等于它的任一行（列）的各元素与其对应的代数余子式乘积之和，即
+      $$
+      \red{D = a_{i1} A_{i1} + a_{i2} A_{i2} + \cdots + a_{in} A_{in}, \ \  i = 1, 2, \cdots, n,}
+      $$
+      或
+      $$
+      \red{D = a_{1j} A_{1j} + a_{2j} A_{2j} + \cdots + a_{nj} A_{nj}, \ \ j = 1, 2, \cdots, n.}
+      $$
+    \end{block}
+    \proofname
+    $$ 
+    \begin{array}{ll}
+      D & = 
+      \left|
+      \begin{array}{cccc}
+        a_{11}     &  a_{12} &  \cd & a_{1n} \\
+        \vd           &  \vd    &      & \vd \\
+        a_{i1}+0+\cd+0  & 0+ a_{i2}+ \cd + 0 &  \cd & 0 + \cd + 0 + a_{in} \\
+        \vd           &  \vd    &      & \vd \\ 
+        a_{n1}         &  a_{n2} & \cd & a_{nn} 
+      \end{array}
+      \right| \\[0.5cm]
+      & = 
+      \left|
+      \begin{array}{cccc}
+        a_{11}  &  a_{12} &  \cd & a_{1n} \\
+        \vd     &  \vd    &      & \vd \\
+        a_{i1}  &  0  &  \cd & 0  \\
+        \vd     &  \vd    &      & \vd \\ 
+        a_{n1}  &  a_{n2} & \cd & a_{nn} 
+      \end{array}
+      \right| + 
+      \left|
+      \begin{array}{ccccc}
+        a_{11}   &  a_{12} &  \cd & a_{1n} \\
+        \vd      &  \vd    &      & \vd \\
+        0        &  a_{i2}  &  \cd & 0  \\
+        \vd      &  \vd    &      & \vd \\ 
+        a_{n1}   &   a_{n2} & \cd & a_{nn} 
+      \end{array}
+      \right|
+      +
+      \left|
+      \begin{array}{cccc}
+        a_{11}  &  a_{12} &  \cd & a_{1n} \\
+        \vd     &  \vd    &      & \vd \\
+        0       &  0  &  \cd & a_{in}  \\
+        \vd     &  \vd    &      & \vd \\ 
+        a_{n1}  &  a_{n2} & \cd & a_{nn} 
+      \end{array}
+      \right|
+    \end{array}
+    $$
+  \end{footnotesize}
+\end{frame}
+
+
+\begin{frame}
+  \begin{footnotesize}
+    \proofname(续)\\[0.2cm]
+    由引理可知
+    $$
+    D = a_{i1} A_{i1} + a_{i2} A_{i2} + \cdots a_{in} A_{in}, \ \ i = 1, 2, \cdots, n.
+    $$
+    类似地，按列可证明
+    $$
+    D = a_{1j} A_{1j} + a_{2j} A_{2j} + \cdots a_{nj} A_{nj}, \ \ j = 1, 2, \cdots, n.
+    $$
+    \qed
+
+    该定理称为\red{行列式按行（列）展开法则}。 \\[0.3cm]
+    
+    利用这一法则并结合行列式的性质，可以简化行列式的性质。
+    
+  \end{footnotesize}
+\end{frame}
+
+
+\begin{frame}
+  \begin{footnotesize}
+    \uncover<1->{
+      \begin{exampleblock}{例}
+        计算
+        $$
+        D = \left|
+        \begin{array}{rrrr}
+          3  & 1 & -1 & 2  \\
+          -5 & 1 &  3 & -4 \\
+          2 & 0 &  1 & -1 \\
+          1 & -5 & 3 & -3 
+        \end{array}
+        \right|
+        $$
+      \end{exampleblock}
+    }
+    \vspace{0.3cm}
+    \textbf{解}：
+    $$
+    \begin{array}{ll}
+      D&  \xlongequal[c_4+c_3]{c_1-2c_3} \left|
+      \begin{array}{rrrr}
+        5  & 1 & -1 & 1  \\
+        -11 & 1 &  3 & -1 \\
+        0 & 0 &  1 & 0 \\
+        -5 & -5 & 3 & 0 
+      \end{array}
+      \right|\\[0.8cm]
+      & = (-1)^{3+3} \left|
+      \begin{array}{rrr}
+        5 & 1 & 1\\
+        -11 & 1 & -1 \\
+        -5 & -5 & 0
+      \end{array}
+      \right| 
+      \xlongequal{r_2+r_1}
+      \left|
+      \begin{array}{rrr}
+        5 & 1 & 1\\
+        -6 & 2 & 0 \\
+        -5 & -5 & 0
+      \end{array}
+      \right|\\[0.8cm]
+      & = (-1)^{1+3} \left|
+      \begin{array}{rr}
+        -6 &  2\\
+        -5 & -5
+      \end{array}
+      \right| = 40.
+    \end{array}
+    $$    
+  \end{footnotesize}
+\end{frame}
+
+
+\begin{frame}
+  \begin{footnotesize}
+    \uncover<1->{
+      \begin{exampleblock}{例}
+        计算行列式
+        $$
+        D_{20} = \left|
+        \begin{array}{rrrrrrr}
+          1   & 2    & 3    & \cd  & 18    & 19    &  20 \\ 
+          2   & 1    & 2    & \cd  & 17    & 18    &  19 \\
+          3   & 2    & 1    & \cd  & 16    & 17    &  18 \\
+          \vd & \vd  & \vd  & \cd  & \vd   & \vd   &  \vd \\
+          20  & 19   & 18   & \cd  & 3     & 2     &  1
+        \end{array}
+        \right|
+        $$
+      \end{exampleblock}
+    }
+    \uncover<2->{
+      \vspace{0.3cm}
+      \textbf{解:}
+      $$
+      \begin{array}{ll}
+        D_{20} &  \xlongequal[i=19,\cd,1]{c_{i+1}-c_i} \left|
+        \begin{array}{rrrrrrr}
+          1   & 1    & 1    & \cd  & 1    & 1    &  1 \\ 
+          2   & -1   & 1    & \cd  & 1    & 1    &  1 \\
+          3   & -1   & -1   & \cd  & 1    & 1    &  1 \\
+          \vd & \vd  & \vd  & \cd  & \vd  & \vd  &  \vd \\
+         % 19  & -1   & -1   & \cd  & -1   & -1   &  1 \\
+          20  & -1   & -1   & \cd  & -1   & -1   &  -1
+        \end{array}
+        \right| \\[0.5cm]
+        &\xlongequal[i=2,\cd,20]{r_i+r_1} \left|
+        \begin{array}{rrrrrrr}
+          1   & 1    & 1    & \cd  & 1    & 1    &  1 \\ 
+          3   & 0    & 2    & \cd  & 2    & 2    &  2 \\
+          4   & 0    & 0    & \cd  & 2    & 2    &  2 \\
+          \vd & \vd  & \vd  & \cd  & \vd  & \vd  &  \vd \\
+         % 20  & 0    & 0    & \cd  & 0    & 0    &  2\\
+          21  & 0    & 0    & \cd  & 0    & 0    &  0
+        \end{array}
+        \right|
+        = 21 \times (-1)^{20+1} \times 2^{18} = -21 \times 2^{18}.
+      \end{array}
+      $$
+    }
+    
+  \end{footnotesize}
+\end{frame}
+
+
+\begin{frame}
+  \begin{footnotesize}
+    \uncover<1->{
+      \begin{exampleblock}{例 }
+        计算元素为$a_{ij}=|i-j|$的$n$阶行列式
+      \end{exampleblock}
+    }
+    \uncover<2->{
+      \vspace{0.3cm}
+      \textbf{解:}
+      $$
+      \begin{array}{ll}
+        D_{n} & = \left|
+        \begin{array}{rrrrrrr}
+          0   & 1   & 2    & \cd & n-2  & n-1 \\ 
+          1   & 0   & 1    & \cd & n-3  & n-2 \\
+          %% 2   & 1   & 0    & \cd & n-4  & n-3 \\
+          \vd & \vd & \vd  &     & \vd  & \vd \\
+          n-2 & n-3 & n-4  & \cd & 0     & n-2 \\
+          n-1 & n-2 & n-3  & \cd & n-4  & 0 
+        \end{array}
+        \right| \\[0.5cm]
+        &\xlongequal[i=n-1,\cd,1]{c_{i+1}-c_i}
+        \left|
+        \begin{array}{rrrrrrr}
+          0   & 1   & 1    & \cd & 1  & 1 \\ 
+          1   & -1  & 1    & \cd & 1  & 1 \\
+          %% 2   & -1  & -1   & \cd & 1  & 1 \\
+          \vd & \vd & \vd  &     & \vd & \vd \\
+          n-2 & -1  & -1   & \cd & -1 & 1 \\
+          n-1 & -1  & -1   & \cd & -1 & -1 
+        \end{array}
+        \right| \\[0.5cm]
+        & \xlongequal[i=2,\cd,n]{r_{i}+r_1}
+        \left|
+        \begin{array}{rrrrrrr}
+          0   & 1   & 1   & \cd & 1   & 1   \\ 
+          1   & 0   & 2   & \cd & 2   & 2   \\
+          \vd & \vd & \vd &     & \vd & \vd \\
+          n-2 & 0   & 0  & \cd  & 0   & 2 \\
+          n-1 & 0   & 0  & \cd  & 0   & 0 
+        \end{array}
+        \right| = (-1)^{n-1}(n-1)2^{n-2}.
+      \end{array}
+      $$
+    }
+    
+  \end{footnotesize}
+\end{frame}
+
+
+
+\begin{frame}
+  \begin{footnotesize}
+    \uncover<1->{
+      \begin{exampleblock}{范德蒙德行列式}
+        证明范德蒙德(Vandermonde)行列式
+        $$
+        D_n = \left|
+        \begin{array}{cccc}
+          1        &  1        & \cd &    1     \\                    
+          x_1      &  x_2      & \cd &    x_n    \\ 
+          x_1^2    &  x_2^2     & \cd &   x_n^2   \\ 
+          \vd      &  \vd      &     &    \vd      \\
+          x_1^{n-1} & x_2^{n-1} &  \cd &  x_n^{n-1}
+        \end{array}
+        \right|
+        = \prod_{n \ge i \ge j \ge 1}(x_i-x_j).
+        $$
+      \end{exampleblock}
+    }
+    \uncover<2->{
+      \proofname
+      用数学归纳法证明。当$n=2$时，
+      $$
+      D_2 = \left|
+      \begin{array}{cc}
+        1 & 1 \\
+        x_1 & x_2
+      \end{array}
+      \right|
+      = x_2 - x_1 = \prod_{2 \ge i > j \ge 1} (x_i - x_j),
+      $$
+      结论成立。
+    }
+
+  \end{footnotesize}
+\end{frame}
+
+\begin{frame}
+  \begin{footnotesize}
+    \proofname(续) \\[0.2cm]
+    现假设结论对$n-1$阶范德蒙德行列式成立，以下证明结论对$n$阶范德蒙德行列式也成立。
+    $$
+    D_n \xlongequal[i=n,\cdots, 2]{\red{r_i - x_1 r_{i-1}}}\left|
+    \begin{array}{ccccc}  
+      1     & 1                    & 1                       & \cd   & 1    \\
+      0     & x_2 - x_1            & x_3 - x_1               &  \cd  & x_n - x_1 \\
+      0     & x_2(x_2 - x_1)       & x_3(x_3 - x_1)          &  \cd  & x_n(x_n - x_1)\\
+      \vd   & \vd                  & \vd                     &      & \vd   \\
+      0     & x_2^{n-2}(x_2-x_1)    & x_3^{n-2}(x_3 - x_1)    &  \cd  & x_n^{n-2}(x_n - x_1) 
+    \end{array}\right|
+    $$
+    按第1列展开，并把每列的公因子$(x_i-x_1)$提出，就有
+    $$
+    D_n = (x_2-x_1)(x_3-x_1)\cdots(x_n-x_1)\left|
+    \begin{array}{cccc}  
+      1            & 1          &  \cd  & 1 \\
+      x_2          & x_3         &  \cd  & x_n\\
+      \vd          & \vd         &      & \vd   \\
+      x_2^{n-2}     & x_3^{n-2}    &  \cd  & x_n^{n-2}
+    \end{array}\right|
+    $$
+    上式右端的行列式为$n-1$阶范德蒙德行列式，按归纳法假设，
+    它等于所有$(x_i-x_j)$因子的乘积($n\ge i \ge j \ge 2$)。故
+    $$
+    D_n = (x_2-x_1)(x_3-x_1)\cdots(x_n-x_1) \prod_{n\ge i \ge j \ge 2}(x_i - x_j)
+    = \prod_{n\ge i \ge j \ge 1}(x_i - x_j).
+    $$
+  \end{footnotesize}
+\end{frame}
+
+\begin{frame}
+  \begin{footnotesize}
+    \uncover<1->{
+      \begin{exampleblock}{例}
+        设$a,b,c$为互不相同的实数，证明：
+        $$
+        \left|
+        \begin{array}{ccc}
+          1   &   1   &   1\\
+          a   &   b   &   c\\
+          a^3 &   b^3 &   c^3
+        \end{array}
+        \right|=0
+        $$
+        的充要条件是$a+b+c=0$.
+      \end{exampleblock}
+    }
+    \uncover<2->{
+      \vspace{0.3cm}
+      \textbf{解：}考察范德蒙德行列式
+      $$
+      \begin{array}{ll}
+        D & = \left|
+        \begin{array}{cccc}
+          1   &   1   &   1   & 1\\
+          a   &   b   &   c   & y\\
+          a^2 &   b^2 &   c^2 & y^2\\
+          a^3 &   b^3 &   c^3 & y^3\\
+        \end{array}
+        \right|
+        = (a-b)(a-c)(b-c)(a-y)(b-y)(c-y) \\[0.8cm]
+        & = -(a-b)(a-c)(b-c)(a+b+c)y^2 + \cd 
+      \end{array}
+      $$
+      注意到行列式$
+      \left|
+      \begin{array}{cccc}
+        1   &   1   &   1  \\ 
+        a   &   b   &   c  \\
+        a^3 &   b^3 &   c^3\\
+      \end{array}
+      \right|
+      $为$y^2$的系数。
+    }      
+  \end{footnotesize}
+\end{frame}
+
+\begin{frame}
+  \begin{footnotesize}
+    \textbf{解：}(续)
+    于是
+    $$
+    \left|
+    \begin{array}{cccc}
+      1   &   1   &   1  \\ 
+      a   &   b   &   c  \\
+      a^3 &   b^3 &   c^3\\
+    \end{array}
+    \right|
+    = -(a-b)(a-c)(b-c)(a+b+c)
+    $$
+    于是结论得证。
+  \end{footnotesize}
+\end{frame}
+
+
+
+\begin{frame}
+  \begin{footnotesize}
+    \uncover<1->{
+      \begin{block}{推论}
+        行列式某一行（列）的元素与另一行（列）的对应元素的代数余子式乘积之和等于0，即
+        $$
+        a_{i1} A_{j1} + a_{i2} A_{j2} + \cdots + a_{in} A_{jn} = 0,  \ \ i \ne j,
+        $$
+        或
+        $$
+        a_{1i} A_{1j} + a_{2i} A_{2j} + \cdots + a_{ni} A_{nj} = 0,  \ \ i \ne j.
+        $$
+      \end{block}
+    }
+    \uncover<2->{
+      \proofname
+      把行列式$D=det(a_{ij})$按第$j$行展开，有
+      $$
+      a_{j1} A_{j1} + a_{j2} A_{j2} + \cd + a_{jn} A_{jn} = 
+      \left|
+      \begin{array}{ccc}
+        a_{11} & \cd & a_{1n} \\
+        \vd   &     & \vd \\
+        a_{i1} & \cd & a_{in} \\
+        \vd   &     & \vd \\
+        a_{j1} & \cd & a_{jn} \\
+        \vd   &     & \vd \\
+        a_{n1} & \cd & a_{nn}
+      \end{array}
+      \right|
+      $$
+    }
+
+  \end{footnotesize}
+\end{frame}
+
+
+
+\begin{frame}
+  \begin{footnotesize}
+    \proofname(续)
+    在上式中把$a_{jk}$换成$a_{ik}(k=1,\cdots,n)$得
+    \begin{center}
+      \begin{tikzpicture}
+        \matrix (M) [matrix of math nodes]  { 
+          a_{i1} A_{j1} + a_{i2} A_{j2} + \cdots + a_{in} A_{jn} = \\
+        };
+        \matrix(MM) [right=2pt of M, matrix of math nodes,nodes in empty cells,
+          ampersand replacement=\&,left delimiter=|,right delimiter=|] {
+          a_{11} \& \cd  \& a_{1n} \\
+          \vd   \&     \& \vd \\       
+          a_{i1} \& \cd  \& a_{in} \\
+          \vd   \&     \& \vd \\
+          a_{j1} \& \cd  \& a_{jn} \\
+          \vd   \&     \& \vd \\       
+          a_{n1} \& \cd  \& a_{nn} \\
+        };
+        \node[right=7pt  of MM-3-3, blue]  {第$i$行};
+        \node[right=7pt  of MM-5-3, blue]  {第$j$行}; 
+      \end{tikzpicture}
+    \end{center}
+    当$i\ne j$时，上式右端行列式中有两行对应元素相同，故行列式等于0，即得
+    $$
+    a_{i1} A_{j1} + a_{i2} A_{j2} + \cdots + a_{in} A_{jn} = 0, \ \ i\ne j.
+    $$
+    同理，按列可证
+    $$
+    a_{1i} A_{1j} + a_{2i} A_{2j} + \cdots + a_{ni} A_{nj} = 0, \ \ i\ne j.
+    $$
+
+  \end{footnotesize}
+\end{frame}
+
+
+\begin{frame}
+  \begin{footnotesize}
+    \begin{block}{代数余子式的性质}
+      $$
+      \sum_{k=1}^n a_{ki} A_{kj} = D \delta_{ij} = 
+      \left \{
+      \begin{array}{ll}
+        D, & \mbox{当}i=j, \\[0.3cm]
+        0, & \mbox{当}i\ne j;
+      \end{array}
+      \right.
+      $$
+      或
+      $$
+      \sum_{k=1}^n a_{ik} A_{jk} 
+      = D \delta_{ij} = 
+      \left \{
+      \begin{array}{ll}
+        D, & \mbox{当}i=j, \\[0.3cm]
+        0, & \mbox{当}i\ne j;
+      \end{array}
+      \right.
+      $$
+      其中
+      $$
+      \delta_{ij} = \left \{
+      \begin{array}{ll}
+        1, & \mbox{当}i=j, \\[0.3cm]
+        0, & \mbox{当}i\ne j.
+      \end{array}
+      \right.
+      $$
+    \end{block}
+  \end{footnotesize}
+\end{frame}
+
+
+\begin{frame}
+  \begin{footnotesize}
+    \begin{block}{结论}
+      $$
+      \left|
+      \begin{array}{ccc}
+        a_{11} & \cd & a_{1n} \\
+        \vd   &     & \vd \\
+        a_{i-1,1} & \cd & a_{i-1,n} \\
+        b_1   &  \cd   & b_n \\
+        a_{i+1,1} & \cd & a_{i+1,n} \\
+        \vd   &     & \vd \\
+        a_{n1} & \cd & a_{nn}
+      \end{array}
+      \right|
+      = b_1A_{i1} + b_2 A_{i2} + \cd + b_n A_{in} 
+      $$
+      及
+      $$
+      \left|
+      \begin{array}{ccccccc}
+        a_{11} & \cd & a_{1,j-1} & b_1 & a_{1,j+1} & \cd & a_{1n} \\
+        \vd   &      & \vd      & \vd & \vd      &     & \vd \\
+        a_{n1} & \cd & a_{n,j-1} & b_n & a_{n,j+1} & \cd & a_{nn} 
+      \end{array}
+      \right|
+      = b_1A_{1j} + b_2 A_{2j} + \cd + b_n A_{nj}. 
+      $$
+
+    \end{block}
+  \end{footnotesize}
+\end{frame}
+
+
+\begin{frame}
+  \begin{footnotesize}
+    \uncover<1->{
+      \begin{exampleblock}{例}
+        设
+        $$
+        D = \left|
+        \begin{array}{rrrr}
+          3    & -5  &  2 &  1 \\    
+          1    &  1  &  0 & -5 \\
+          -1   &  3  &  1 &  3 \\
+          2    & -4  & -1 & -3
+        \end{array}
+        \right|
+        $$
+        求$A_{11}+A_{12}+A_{13}+A_{14}$及$M_{11}+M_{21}+M_{31}+M_{41}$
+      \end{exampleblock}
+    }
+    \uncover<2->{
+      \vspace{0.3cm}
+      \textbf{解}：
+      $$
+      \begin{array}{ll}
+        A_{11}+A_{12}+A_{13}+A_{14} & = 
+        \left|
+        \begin{array}{rrrr}
+          \red{1} &  \red{1} & \red{1}   &  \red{1}\\
+          1    &  1 & 0   &  -5\\
+          -1   &  3 & 1   &  3\\
+          2    & -4 & -1  & -3
+        \end{array}
+        \right| \xlongequal[r_3-r_1]{r_4+r_3}
+        \left|
+        \begin{array}{rrrr}
+          1    &  1 & 1   &  1\\
+          1    &  1 & 0   &  -5\\
+          -2   &  2 & 0   &  2\\
+          1    & -1 & 0   &  0
+        \end{array}
+        \right| \\[0.8cm]
+        & = 
+        \left|
+        \begin{array}{rrrr}
+          1    &  1 &  -5\\
+          -2   &  2 &  2\\
+          1    & -1 &  0
+        \end{array}
+        \right|
+        \xlongequal{c_2+c_1}
+        \left|
+        \begin{array}{rrrr}
+          1    &  2 &  -5\\
+          -2   &  0 &  2\\
+          1    & 0 &  0
+        \end{array}
+        \right|\\[0.8cm]
+        & = \left|
+        \begin{array}{rrrr}
+           2 &  -5\\
+           0 &  2\\
+        \end{array}
+        \right| = 4.
+      \end{array}
+      $$
+    }
+    
+  \end{footnotesize}
+\end{frame}
+
+
+\begin{frame}
+  \begin{footnotesize}
+    \textbf{解：}（续）\\[0.2cm]
+    $$
+    \begin{array}{ll}
+      M_{11}+M_{21}+M_{31}+M_{41} &= A_{11}-A_{21}+A_{31}-A_{41} \\[0.3cm]
+      & = 
+      \left|
+      \begin{array}{rrrr}
+        \red{1}    & -5 & 2   &   1\\
+        \red{-1}   &  1 & 0   &  -5\\
+        \red{1}    &  3 & 1   &  3\\
+        \red{-1}   & -4 & -1  & -3
+      \end{array}
+      \right| \xlongequal{r_4+r_3}
+      \left|
+      \begin{array}{rrrr}
+        1    & -5 & 2   &   1\\
+        -1   &  1 & 0   &  -5\\
+        1    &  3 & 1   &  3\\
+        0    & -1 & 0   &  0
+      \end{array}
+      \right| \\[0.8cm]
+      & = -
+      \left|
+      \begin{array}{rrrr}
+        1    &  2 &  1\\
+        -1   &  0 &  -5\\
+        1    &  1 &  3
+      \end{array}
+      \right|
+      \xlongequal{r_1-2r_3}
+      \left|
+      \begin{array}{rrrr}
+        -1   &  0 &  -5\\
+        -1   &  0 &  -5\\
+        1    &  1 &  3
+      \end{array}
+      \right| = 0.
+    \end{array}
+    $$
+
+    
+  \end{footnotesize}
+\end{frame}

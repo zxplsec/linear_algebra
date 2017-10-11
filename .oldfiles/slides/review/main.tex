@@ -1,0 +1,60 @@
+% -*- coding: utf-8 -*-
+% !TEX program = xelatex
+
+\documentclass[9pt,notheorems]{beamer}
+
+\usetheme[style=beta]{epyt} % alpha, beta, delta, gamma, zeta
+\usepackage[UTF8,noindent]{ctex}
+\input{newcommand}
+\input{newtheorem}
+\input{usepackage}
+
+\newcommand{\mylead}[1]{\textcolor{acolor1}{#1}}
+\newcommand{\mybold}[1]{\textcolor{acolor2}{#1}}
+\newcommand{\mywarn}[1]{\textcolor{acolor3}{#1}}
+
+
+
+\begin{document}
+
+\title{线性代数}
+%\subtitle{第2章、矩阵}
+\subtitle{总复习}
+\author{张晓平}
+\institute{武汉大学数学与统计学院}
+
+
+\begin{frame}[plain]\transboxout
+\titlepage
+\end{frame}
+
+\begin{frame}[allowframebreaks]\transboxin
+\begin{center}
+\tableofcontents[hideallsubsections]
+\end{center}
+\end{frame}
+
+\AtBeginSection[]{
+  \begin{frame}[shrink]
+    \tableofcontents[currentsection,subsectionstyle=show/shaded/hide]%currentsection]%,sectionstyle=show/hide]
+  \end{frame}
+}
+\AtBeginSubsection[]{
+\begin{frame}[allowframebreaks]
+  \tableofcontents[currentsubsection,subsectionstyle=show/shaded/hide,subsubsectionstyle=show/shaded/hide]
+\end{frame}
+}
+% \AtBeginSubsubsection[]{
+% \begin{frame}[allowframebreaks]
+%   \tableofcontents[currentsubsubsection,subsubsectionstyle=show/shaded/hide]
+% \end{frame}
+% }
+
+
+\input{ch01}
+\input{ch02}
+\input{ch03}
+\input{ch04}
+\input{ch05}
+\input{ch06}
+\end{document}

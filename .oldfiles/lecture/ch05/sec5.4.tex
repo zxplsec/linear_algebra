@@ -1,0 +1,80 @@
+\section{实对称矩阵的对角化}
+
+
+
+\begin{dingyi}
+  元素为复数的矩阵和向量，称为复矩阵和复向量。
+\end{dingyi}
+
+\begin{dingyi}
+  设$a_{ij}$为复数，$\A=(a_{ij})_{m\times n},~\bar\A=(\bar a_{ij})_{m\times n}$，$\bar a_{ij}$是$a_{ij}$的共轭复数，则称$\bar \A$是$\A$的共轭矩阵。
+\end{dingyi}
+
+
+\begin{itemize}
+\item $\overline {\overline \A} = \A$
+\item ${\overline \A}^T = \overline{\A^T}$
+\item 当$\A$为实对称矩阵时，${\overline \A}^T = \overline{\A^T}$
+\end{itemize}
+
+
+
+
+
+\begin{itemize}
+\item $\overline{k\A}=\overline k ~\overline \A$
+\item $\overline{\A+\B}=\overline \A+\overline \B$
+\item $\overline{\A\B}=\overline \A\overline \B$
+\item $\overline{(\A\B)}^T=\overline \B^T \overline \A^T$
+\item $\overline{\A^{-1}}=(\overline \A)^{-1}$
+\item $\det \bar\A = \overline{\det \A}$
+\end{itemize}
+
+
+
+\subsection{实对称矩阵的特征值和特征向量}
+
+
+
+\begin{dingli}
+  实对称矩阵$\A$的任一特征值都是实数。
+\end{dingli}
+\begin{proof}
+$$
+\begin{array}{rl}
+  \A\xx = \lambda \xx
+  &~~\Longrightarrow~~
+    \overline{(\A\xx)}^T = \overline{\lambda \xx}^T\\[0.1in]
+  &~~\Longrightarrow~~
+    \overline{\xx}^T~\overline{\A}^T~\xx = \overline{\lambda} ~\overline{\xx}^T~\xx\\[0.1in]
+  &~~\Longrightarrow~~
+    \overline{\xx}^T~\A^T~\xx = \overline{\lambda} ~\overline{\xx}^T~\xx\\[0.1in]
+  &~~\Longrightarrow~~
+    \lambda \overline{\xx}^T~\xx = \overline{\lambda} ~\overline{\xx}^T~\xx\\[0.1in]
+  &~~\Longrightarrow~~
+    \lambda = \overline \lambda
+\end{array}
+$$
+\end{proof}
+
+
+
+
+
+
+\begin{dingli}
+  实对称矩阵$\A$对应于不同特征值的特征向量是正交的。
+\end{dingli}
+\begin{proof}
+设$\A\xx_1=\lambda_1\xx_1,~~\A\xx_1=\lambda_1\xx_1~ (\lambda_1\ne\lambda_2), ~~\A^T=\A$，则
+$$
+\lambda_1\xx_2^T\xx_1=\xx_2^T\A\xx_1=\xx_2^T\A^T\xx_1=(\A\xx_2)^T\xx_1=(\lambda_2\xx_2)^T\xx_1=\lambda_2\xx_2^T\xx_1
+$$
+由于$\lambda_1\ne\lambda_2$，所以
+$$
+\xx_2^T\xx_1=0.
+$$
+\end{proof}
+
+
+

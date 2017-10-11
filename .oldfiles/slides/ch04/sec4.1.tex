@@ -1,0 +1,228 @@
+\section{向量空间的基、维数与向量关于基的坐标}
+
+\begin{frame}\ft{\secname}
+
+\begin{dingyi}
+  设$V$是向量空间，如果
+  \begin{itemize}
+  \item[(1)] 在$V$中有$r$个向量$\alphabd_1,\cd,\alphabd_r$线性无关；
+  \item[(2)] $V$中任一向量$\alphabd$可由向量组$\alphabd_1,\cd,\alphabd_r$线性表示，
+  \end{itemize}
+  则称$\alphabd_1,\cd,\alphabd_r$是向量空间$V$的一组基，$r$称为向量空间$V$的维数，并称$V$为$r$维向量空间。
+\end{dingyi}
+\end{frame}
+
+\begin{frame}\ft{\secname}
+\begin{zhu}
+  只含一个零向量的集合$\{0\}$也是一个向量空间，该向量空间没有基，规定它的维数为$0$，并称之为$0$维向量空间。
+\end{zhu}
+
+\begin{zhu}
+  如果把向量空间$V$看做是一个向量组，则$V$的基就是它的一个极大无关组，$V$的维数就是向量组的秩。于是，$V$的基不唯一，但它的维数是唯一确定的。设$V$是$r$维向量空间，则$V$中任意$r$个线性无关的向量就是$V$的一个基。
+\end{zhu}
+\end{frame}
+
+\begin{frame}\ft{\secname}
+
+\begin{li}
+  在向量空间$\R^3$中，基本单位向量组
+  $$
+  \epsilonbd_1=(1,0,0)^T,~~
+  \epsilonbd_2=(0,1,0)^T,~~
+  \epsilonbd_3=(0,0,1)^T
+  $$
+  线性无关，且任一向量$\alphabd\in \R^3$可由$\epsilonbd_1,\epsilonbd_2,\epsilonbd_3$表示为
+  $$
+  \alphabd=x_1\epsilonbd_1+x_2\epsilonbd_2+x_3\epsilonbd_3.
+  $$
+  此时，$\R^3$可表示为
+  $$
+  \R^3=\{x=x_1\epsilonbd_1+x_2\epsilonbd_2+x_3\epsilonbd_3|x_1,x_2,x_3\in\R\}.
+  $$
+\end{li}
+
+\end{frame}
+
+\begin{frame}\ft{\secname}
+
+  事实上，在$\R^3$中，任一组向量$\alphabd_1,\alphabd_2,\alphabd_3$，只要它们线性无关，就构成$\R^3$的一组基。\pause 
+
+
+  例如，在$\R^3$中，向量组
+$$
+\epsilonbd_1=(1,0,0)^T,~~
+\epsilonbd_2=(1,1,0)^T,~~
+\epsilonbd_3=(1,1,1)^T
+$$
+线性无关，构成$\R^3$中的一组基。对任一向量$\alphabd\in \R^3$，
+$$
+\alphabd=(x_1-x_2)\alphabd_1+(x_2-x_3)\alphabd_2+x_3\alphabd_3.
+$$
+此时，
+$\R^3$可表示为
+$$
+\R^3=\{x=(x_1-x_2)\alphabd_1+(x_2-x_3)\alphabd_2+x_3\alphabd_3|x_1,x_2,x_3\in\R\}.
+$$
+
+\end{frame}
+
+\begin{frame}\ft{\secname}
+
+\begin{dingyi}
+  $\mathbb R^n$中任一向量$\alphabd$均可由线性无关向量组$\betabd_1,\betabd_2,\cd,\betabd_n$线性表示，即
+  $$
+  \alphabd=a_1\betabd_1+a_2\betabd_2+\cd+a_n\betabd_n,
+  $$
+  称$\betabd_1,\betabd_2,\cd,\betabd_n$为$\mathbb R^n$的一组基，有序数组$(a_1,a_2,\cd,a_n)$是向量$\alphabd$在基$\betabd_1,\betabd_2,\cd,\betabd_n$下的坐标，记作
+  $$
+  \alphabd_B=(a_1,a_2,\cd,a_n)\mbox{~~或~~}\alphabd_B=(a_1,a_2,\cd,a_n)^T
+  $$
+  并称之为$\alphabd$的坐标向量。
+\end{dingyi}
+\end{frame}
+
+\begin{frame}\ft{\secname}
+
+\begin{zhu}
+  \begin{itemize}
+  \item $\R^n$的基不是唯一的
+  \item 基本向量组
+    $$
+    \epsilonbd_i=(0,\cd,0,1,0,\cd,0), \quad i=1,2,\cd,n
+    $$
+    称为$\R^n$的自然基或标准基。
+  \item 一般来说，对于向量及其坐标，都采用列向量的形式，即
+    $$
+    \alphabd=(\betabd_1,\betabd_2,\cd,\betabd_n)\left(
+      \begin{array}{c}
+        a_1\\
+        a_2\\
+        \vd\\
+        a_n
+      \end{array}
+    \right)
+    $$
+  \end{itemize}
+\end{zhu}
+\end{frame}
+
+\begin{frame}\ft{\secname}
+
+\begin{li}
+  设$\R^n$的两组基为自然基$B_1$和$B_2=\{\betabd_1,\betabd_2,\cd,\betabd_n\}$，其中
+  \begin{equation}\label{twobase}
+    \begin{array}{lrrrrrrrrr}
+      \betabd_1&=(&1,&-1,& 0,&0,&\cd,&0,&0,&0)^T,\\[0.2cm]
+      \betabd_2&=(&0,& 1,&-1,&0,&\cd,&0,&0,&0)^T,\\[0.2cm]
+               &\vd&&&&&\\[0.2cm]
+      \betabd_{n-1}&=(&0,&0,&0,&0,&\cd,&0,&1,&-1)^T,\\[0.2cm]
+      \betabd_{n}&=(&0,&0,&0,&0,&\cd,&0,&0,&1)^T.
+    \end{array}
+  \end{equation}
+  求向量组$\alphabd=(a_1,a_2,\cd,a_n)^T$分别在两组基下的坐标。
+\end{li}
+
+\end{frame}
+
+\begin{frame}\ft{\secname}
+
+
+\begin{dingli}
+  设$\alphabd_1,\alphabd_2,\cd,\alphabd_n$是$\R^n$的一组基，且
+  $$
+  \left\{
+    \begin{array}{l}
+      \etabd_1=a_{11}\alphabd_1+a_{21}\alphabd_2+\cd+a_{n1}\alphabd_n,\\[0.2cm]
+      \etabd_2=a_{12}\alphabd_1+a_{22}\alphabd_2+\cd+a_{n2}\alphabd_n,\\[0.2cm]
+      \cd\cd\\[0.2cm]
+      \etabd_n=a_{1n}\alphabd_1+a_{2n}\alphabd_2+\cd+a_{nn}\alphabd_n.
+    \end{array}
+  \right.
+  $$
+  则$\etabd_1,\etabd_2,\cd,\etabd_n$线性无关的充要条件是
+  $$
+  \mathrm{det}\A=\left|
+    \begin{array}{cccc}
+      a_{11}&a_{12}&\cd&a_{1n}\\
+      a_{21}&a_{22}&\cd&a_{2n}\\
+      \vd&\vd&&\vd\\
+      a_{n1}&a_{n2}&\cd&a_{nn}
+    \end{array}
+  \right|\ne 0.
+  $$
+\end{dingli}
+\end{frame}
+
+\begin{frame}\ft{\secname}
+  \begin{dingyi}
+    设$\R^n$的两组基$B_1=\{\alphabd_1,\alphabd_2,\cd,\alphabd_n\}$和$B_2=\{\etabd_1,\etabd_2,\cd,\etabd_n\}$满足关系式
+    $$
+    (\etabd_1,\etabd_2,\cd,\etabd_n)=(\alphabd_1,\alphabd_2,\cd,\alphabd_n)\left(
+      \begin{array}{cccc}
+        a_{11}&a_{12}&\cd&a_{1n}\\
+        a_{21}&a_{22}&\cd&a_{2n}\\
+        \vd&\vd&&\vd\\
+        a_{n1}&a_{n2}&\cd&a_{nn}
+      \end{array}
+    \right)
+    $$
+    则矩阵
+    $$
+    \A=\left(
+      \begin{array}{cccc}
+        a_{11}&a_{12}&\cd&a_{1n}\\
+        a_{21}&a_{22}&\cd&a_{2n}\\
+        \vd&\vd&&\vd\\
+        a_{n1}&a_{n2}&\cd&a_{nn}
+      \end{array}
+    \right)
+    $$
+    称为\red{由旧基$B_1$到新基$B_2$的过渡矩阵}。
+  \end{dingyi}
+\end{frame}
+
+\begin{frame}\ft{\secname}
+
+\begin{dingli}
+  设$\alphabd$在两组基$B_1=\{\alphabd_1,\alphabd_2,\cd,\alphabd_n\}$与$B_2=\{\etabd_1,\etabd_2,\cd,\etabd_n\}$的坐标分别为
+  $$
+  \xx=(x_1,x_2,\cd,x_n)^T\mbox{~~和~~}\yy=(y_1,y_2,\cd,y_n)^T,
+  $$
+  由基$B_1$到$B_2$的过渡矩阵为$\A$，则
+  $$
+  \A\yy=\xx\mbox{~~或~~}\yy=\A^{-1}\xx
+  $$
+\end{dingli}
+
+\end{frame}
+
+\begin{frame}\ft{\secname}
+
+\begin{li}
+  已知$\R^3$的一组基为$B_2=\{\betabd_1,\betabd_2,\betabd_3\}$，其中
+  $$\betabd_1=(1,2,1)^T,\betabd_2=(1,-1,0)^T,\betabd_3=(1,0,-1)^T,$$
+  求自然基$B_1$到$B_2$的过渡矩阵。
+\end{li}
+\end{frame}
+
+\begin{frame}\ft{\secname}
+
+\begin{li}
+  已知$\R^3$的两组基为$B_1=\{\alphabd_1,\alphabd_2,\alphabd_3\}$和$B_2=\{\betabd_1,\betabd_2,\betabd_3\}$，
+  其中
+  $$
+  \begin{array}{lll}
+    \alphabd_1=(1,1,1)^T,&\alphabd_2=(0,1,1)^T,&\alphabd_3=(0,0,1)^T, \\[0.2cm]
+    \betabd_1=(1,0,1)^T,&\betabd_2=(0,1,-1)^T,&\betabd_3=(1,2,0)^T.  
+  \end{array}
+  $$
+  \begin{itemize}
+  \item[(1)] 求基$B_1$到$B_2$的过渡矩阵。
+  \item[(2)] 已知$\alpha$在基$B_1$的坐标为$(1,-2,-1)^T$，求$\alphabd$在基$B_2$下的坐标。
+  \end{itemize}
+  
+\end{li}
+
+\end{frame}
+
+

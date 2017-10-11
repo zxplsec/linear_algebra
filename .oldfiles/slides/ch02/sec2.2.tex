@@ -1,0 +1,831 @@
+\section{矩阵的计算}
+\subsection{矩阵的加法}
+\begin{dingyi}[矩阵的加法]
+  设有两个$m\times n$矩阵$\A=(a_{ij})$和$\B=(b_{ij})$，则矩阵$\A$与$\B$之和记为$\A+\B$，规定为
+  $$
+  \A + \B = 
+  \left(
+    \begin{array}{cccc}
+      a_{11} + b_{11}  & a_{12} + b_{12}  & \cd & a_{1n} + b_{1n}  \\[0.2cm]
+      a_{21} + b_{21}  & a_{22} + b_{22}  & \cd & a_{2n} + b_{2n}  \\[0.2cm]
+      \cd            & \cd            &     & \cd            \\[0.2cm]
+      a_{n1} + b_{n1}  & a_{n2} + b_{n2}  & \cd & a_{nn} + b_{nn}  
+    \end{array}
+  \right)
+  $$
+\end{dingyi}
+
+\begin{zhu*}
+  \red{只有当两个矩阵同型时才能进行加法运算。}
+\end{zhu*}
+
+矩阵加法的运算律：
+\begin{itemize}
+\item[(i)] $\A + \B = \B + \A$;
+\item[(ii)] $(\A + \B) + \C = \A + (\B + \C)$ 
+\end{itemize}
+
+设$\A = (a_{ij})$，称
+$$
+-\A = (-a_{ij}),
+$$
+为$\A$的负矩阵，显然有
+$$
+\A + (-\A) = \mathbf{0}.
+$$
+由此规定矩阵的减法为
+$$
+\A - \B = \A + (-\B).
+$$
+
+\subsection{矩阵的数乘}
+
+% 
+\begin{dingyi}[矩阵的数乘]
+  数$k$与矩阵$\A$的乘积记作$k \A$或$\A k$，规定为
+  $$
+  k \A = 
+  \left(
+    \begin{array}{cccc}
+      k a_{11}   & k a_{12}   & \cd & k a_{1n}  \\[0.2cm]
+      k a_{21}   & k a_{22}   & \cd & k a_{2n}  \\[0.2cm]
+      \cd     & \cd     &     & \cd    \\[0.2cm]
+      k a_{m1}   & k a_{m2}   & \cd & k a_{mn}  
+    \end{array}
+  \right)
+  $$
+\end{dingyi}
+
+\begin{zhu*}
+  \red{用数$k$乘一个矩阵，需要把数$k$乘矩阵的每一个元素，这与行列式的数乘性质不同。}
+\end{zhu*}
+
+矩阵数乘的运算律：
+\begin{itemize}
+\item[(i)] $(k l)\A =  k(l \A)$;
+\item[(ii)] $(k + l) \A  = k \A + l \A$;
+\item[(iii)] $k (\A + \B)  = k \A + k \B$
+\end{itemize}
+\purple{矩阵加法与矩阵数乘统称为矩阵的线性运算}
+
+\subsection{矩阵的乘法}
+
+
+设有两个线性变换
+\begin{equation}\label{lt1}
+  \left\{
+    \begin{array}{l}
+      y_1 = a_{11} x_1 + a_{12} x_2 + a_{13} x_3, \\[0.2cm]
+      y_2 = a_{21} x_1 + a_{22} x_2 + a_{23} x_3,
+    \end{array}
+  \right.
+\end{equation}
+\begin{equation}\label{lt2}
+  \left\{
+    \begin{array}{l}
+      x_1 = b_{11} t_1 + b_{12} t_2 , \\[0.2cm]
+      x_2 = b_{21} t_1 + b_{22} t_2 , \\[0.2cm]
+      x_3 = b_{31} t_1 + b_{32} t_2 , 
+    \end{array}
+  \right.
+\end{equation}
+
+若想求从$t_1, t_2$到$y_1, y_2$的线性变换，可将(\ref{lt2})代入(\ref{lt1})，便得
+\begin{equation}\label{lt3}
+  \left\{
+    \begin{array}{l}
+      y_1 = (a_{11}b_{11} + a_{12}b_{21} + a_{13}b_{31}) t_1 + (a_{11}b_{12} + a_{12}b_{22} + a_{13}b_{32})t_2, \\[0.2cm]
+      y_2 = (a_{21}b_{11} + a_{22}b_{21} + a_{23}b_{31}) t_1 + (a_{21}b_{12} + a_{22}b_{22} + a_{23}b_{32})t_2.
+    \end{array}
+  \right.
+\end{equation}
+\red{线性变换(\ref{lt3})可看成是先作线性变换(\ref{lt2})再作线性变换(\ref{lt1})的结果}。
+把线性变换（\ref{lt3}）叫做线性变换（\ref{lt1}）和（\ref{lt2}）的乘积，
+相应地把线性变换（\ref{lt3}）对应的矩阵定义为线性变换（\ref{lt1}）与（\ref{lt2}）所对应矩阵的乘积，即
+$$
+\begin{array}{ll}
+  & \left(
+    \begin{array}{lll}
+      a_{11} & a_{12} & a_{13}\\[0.1cm]
+      a_{21} & a_{22} & a_{23}
+    \end{array}
+                        \right)
+                        \left(
+                        \begin{array}{ll}
+                          b_{11} & b_{12} \\[0.1cm]
+                          b_{21} & b_{22} \\[0.1cm]
+                          b_{31} & b_{32} 
+                        \end{array}
+                                   \right) \\[0.8cm]
+  = & \left(
+      \begin{array}{cc}
+        a_{11}b_{11} + a_{12}b_{21} + a_{13}b_{31}  &  a_{11}b_{12} + a_{12}b_{22} + a_{13}b_{32} \\[0.1cm]
+        a_{21}b_{11} + a_{22}b_{21} + a_{23}b_{31}  &  a_{21}b_{12} + a_{22}b_{22} + a_{23}b_{32}
+      \end{array}
+                                                      \right)
+\end{array}
+$$
+\begin{dingyi}[矩阵乘法]
+  设$A$为$m\times n$矩阵，$B$为$n\times s$矩阵，即
+  $$
+  A = \left(
+    \begin{array}{cccc}
+      a_{11} & a_{12} & \cd & a_{1n}\\
+      a_{21} & a_{22} & \cd & a_{2n}\\
+      \vd   & \vd   &     & \vd \\
+      a_{m1} & a_{m2} & \cd & a_{mn}
+    \end{array}
+  \right), ~~
+  B = \left(
+    \begin{array}{cccc}
+      b_{11} & b_{12} & \cd & b_{1s}\\
+      b_{21} & b_{22} & \cd & b_{2s}\\
+      \vd   & \vd   &     & \vd \\
+      b_{n1} & b_{n2} & \cd & b_{ns}
+    \end{array}
+  \right)
+  $$
+  则$A$与$B$之乘积$AB$（记为$C=(c_{ij})$）为$m\times s$矩阵，且
+  $$
+  c_{ij} = c_{i1}b_{1j} + c_{i2}b_{2j} + \cd + c_{in}b_{nj} = \sum_{k=1}^na_{ik}b_{kj}.
+  $$
+\end{dingyi}
+\begin{zhu*}
+  两个矩阵$A$与$B$相乘有意义的前提是\red{$A$的列数等于$B$的行数}。
+\end{zhu*}
+% l' unite
+\newcommand{\myunit}{0.5 cm}
+\tikzset{
+  node style sp/.style={draw,circle,minimum size=\myunit},
+  node style ge/.style={circle,minimum size=\myunit},
+  arrow style mul/.style={draw,sloped,midway,fill=white},
+  arrow style plus/.style={midway,sloped,fill=white},
+}
+\begin{figure}[htbp]
+  \centering
+  \begin{tikzpicture}[scale=0.5,>=latex]
+    % les matrices
+    \matrix (A) [matrix of math nodes,%
+    nodes = {node style ge},%
+    ampersand replacement=\&,
+    left delimiter  = (,%
+    right delimiter = )] at (0,0)   {%
+      a_{11} \& a_{12} \& \ldots \& a_{1n}  \\
+      \blue{a_{21}}  \& \blue{a_{22}}; \& \ldots%
+      \& \blue{a_{2n}} \\
+      \vdots \& \vdots \& \ddots \& \vdots  \\
+      a_{m1} \& a_{m2} \& \ldots \& a_{mn}  \\
+    };
+    
+    % \node [draw,below=1pt] at (A.south) { 
+    % $A$ : \textcolor{red}{$n$ rows} $p$ columns};
+
+    \matrix (B) [matrix of math nodes,%
+    % nodes = {node style ge},%
+    ampersand replacement=\&,
+    left delimiter  = (,%
+    right delimiter =)] at (20*\myunit,18*\myunit){%
+      b_{11} \& \blue{b_{12}}%
+      \& \ldots \& b_{1s}  \\
+      b_{21} \& \blue{b_{22}}%
+      \& \ldots \& b_{2s}  \\
+      \vdots \& \vdots \& \ddots \& \vdots  \\
+      b_{n1} \& \blue{b_{n2}}%
+      \& \ldots \& b_{ns}  \\
+    };
+    
+    %% \node [draw,above=10pt] at (B.north) { 
+    %% $B$ : $p$ rows \textcolor{red}{$q$ columns}
+    %% };
+    %   matrice 
+    \matrix (C) [matrix of math nodes,%
+    nodes = {node style ge},%
+    ampersand replacement=\&,
+    left delimiter  = (,%
+    right delimiter = )] at (20*\myunit,0) {%
+      c_{11} \& c_{12} \& \ldots \& c_{1s} \\
+      c_{21} \& \red{c_{22}}%
+      \& \ldots \& c_{2s} \\
+      \vdots \& \vdots \& \ddots \& \vdots \\
+      c_{m1} \& c_{m2} \& \ldots \& c_{ms} \\
+    };
+    
+    % les fleches
+    \draw[<->,red](A-2-1) to[in=180,out=90]
+    node[arrow style mul] (x) {$a_{21}\times b_{12}$} (B-1-2);
+    
+    \draw[<->,red](A-2-2) to[in=180,out=90]
+    node[arrow style mul] (y) {$a_{22}\times b_{22}$} (B-2-2);
+    
+    \draw[<->,red](A-2-4) to[in=180,out=90]
+    node[arrow style mul] (z) {$a_{2n}\times b_{n2}$} (B-4-2);
+    
+    \draw[red,->] (x) to node[arrow style plus] {$+$} (y)%
+    to node[arrow style plus] {$+\raisebox{.5ex}{\ldots}+$} (z)%
+    to (C-2-2.north west);
+    
+    \draw[blue] (A-2-1.north) -- (C-2-2.north);
+    \draw[blue] (A-2-1.south) -- (C-2-2.south);
+
+    \draw[blue] (B-1-2.west)  -- (C-2-2.west);
+    \draw[blue] (B-1-2.east)  -- (C-2-2.east);
+
+    %% \node [draw,below=10pt] at (C.south) 
+    %% {$ C=A\times B$ : \textcolor{red}{$n$ rows}  \textcolor{red}{$q$ columns}};
+  \end{tikzpicture}
+  \caption{矩阵乘法示意图}
+\end{figure}
+
+
+
+
+\begin{li}
+  求矩阵
+  $
+  \A = \left(
+    \begin{array}{rrrr}
+      1&2&-1\\
+      -1&3&4\\
+      1&1&1
+    \end{array}
+  \right)
+  $
+  与
+  $
+  \B = \left(
+    \begin{array}{rrrr}
+      5&6\\
+      -5&-6\\
+      6&0
+    \end{array}
+  \right)
+  $
+  的乘积$\A\B$
+\end{li}
+\begin{jie}
+  $$
+  \begin{array}{cl}
+    \A\B & = \left(
+           \begin{array}{ccc}
+             1\times5 + 2\times(-5) + (-1)\times6 &
+                                                    1\times6 + 2\times(-6) + (-1)\times0 \\[0.1cm]
+             (-1)\times5 + 3\times(-5) +    4\times6 &
+                                                       (-1)\times6 + 3\times(-6) +    4\times0 \\[0.1cm]
+             1\times5 + 1\times(-5) +    1\times6 &
+                                                    1\times6 + 1\times(-6) +    1\times0 
+           \end{array}
+                                                    \right)  =\left(
+                                                    \begin{array}{rr}
+                                                      -11 & -6\\
+                                                      4 & -24\\
+                                                      6 & 0
+                                                    \end{array}
+                                                          \right)   
+  \end{array}
+  $$
+\end{jie}
+
+\begin{li}
+  设
+  $$
+  \A = \left(
+    \begin{array}{c}
+      a_1\\
+      a_2\\
+      \vd\\
+      a_n
+    \end{array}
+  \right), ~~
+  \B = \left(
+    \begin{array}{cccc}
+      b_1 & b_2 & \cd & b_n
+    \end{array}
+  \right)
+  $$
+  计算$\A\B$与$\B\A$.
+\end{li}
+\begin{jie}
+  $$
+  \A\B = \left(
+    \begin{array}{c}
+      a_1\\
+      a_2\\
+      \vd\\
+      a_n
+    \end{array}
+  \right)\left(
+    \begin{array}{cccc}
+      b_1 & b_2 & \cd & b_n
+    \end{array}
+  \right) 
+  = \left(
+    \begin{array}{cccc}
+      a_1b_1 & a_1b_2 & \cd & a_1b_n\\
+      a_2b_1 & a_2b_2 & \cd & a_2b_n\\
+      \vd & \vd & & \vd\\
+      a_nb_1 & a_nb_2 & \cd & a_nb_n
+    \end{array}
+  \right)
+  $$  
+  $$
+  \B\A = \left(
+    \begin{array}{cccc}
+      b_1 & b_2 & \cd & b_n
+    \end{array}
+  \right)\left(
+    \begin{array}{c}
+      a_1\\
+      a_2\\
+      \vd\\
+      a_n
+    \end{array}
+  \right)  
+  = a_1b_1+a_2b_2+\cd+a_nb_n.
+  $$
+\end{jie}
+
+\begin{li}
+  设
+  $$
+  \A = \left(
+    \begin{array}{cc}
+      a & a\\
+      -a & -a
+    \end{array}
+  \right), ~
+  \B = \left(
+    \begin{array}{cc}
+      b & -b\\
+      -b & b
+    \end{array}
+  \right),~
+  \C = \left(
+    \begin{array}{cc}
+      -1 & 1\\
+      1 & -1
+    \end{array}
+  \right)
+  $$
+  计算$\A\B, ~\A\C$和$\B\A$.
+\end{li}
+\begin{jie}
+  $$
+  \A\B = \A\C = \left(
+    \begin{array}{cc}
+      0 & 0\\
+      0 & 0
+    \end{array}
+  \right)
+  $$
+  $$
+  \B\A = \left(
+    \begin{array}{cc}
+      2ab & 2ab\\
+      -2ab & -2ab
+    \end{array}
+  \right)
+  $$      
+\end{jie}
+由以上例题可以看出一些结论： 
+\begin{itemize}
+\item[1] 矩阵乘法不满足交换律。
+\item[] 若$\A\B\ne\B\A$，则称\red{$\A$与$\B$不可交换}。
+\item[] 若$\A\B=\B\A$，则称\red{$\A$与$\B$可交换}。  
+\item[2] $\A\B=\zero ~\nRightarrow~ \A = \zero \mbox{或} \B = \zero$
+\item[]  $\A\ne\zero\mbox{且} \B\ne\zero ~\xLongrightarrow[]{\mbox{有可能}}~ \A \B= \zero$
+\item[3] 矩阵乘法不满足消去律，即当$\A\ne\zero$时，
+  $$
+  \A\B=\A\C ~\nRightarrow~ \B=\C
+  $$
+\item[]当$\A$为非奇异矩阵，即$|\A|\ne 0$时，
+  $$
+  \A\B=\zero ~\Rightarrow~ \B = \zero; ~~~
+  \A\B=\A\C ~\Rightarrow~ \B = \C.
+  $$
+\end{itemize}
+矩阵乘法的运算律：
+\begin{itemize}
+\item[(i)] 结合律
+\item[] $$ (\A\B)\C = \A(\B\C)$$
+\item[(ii)] 数乘结合律
+\item[] $$ k(\A\B) = (k\A)\B = \A(k\B)$$
+\item[(iii)] 左结合律
+\item[] $$ \A(\B+\C) = \A\B+\A\C$$
+\item[] 右结合律
+\item[] $$ (\B+\C)\A = \B\A+\C\A$$
+  
+\end{itemize}
+
+
+
+\subsection{一些特殊矩阵及其运算}
+
+% 
+\begin{dingyi}[单位矩阵与数量矩阵]
+  \begin{itemize}
+  \item[1] 主对角元全为1，其余元素全为零的$n$阶方阵，称为$n$阶\red{单位矩阵}，记为$\II_n, \II, \E$
+    $$
+    \II_n = \left(
+      \begin{array}{cccc}
+        1 & & &\\
+          & 1 & & \\
+          & & \dd & \\
+          & & & 1
+      \end{array}
+    \right)
+    $$ 
+  \item[2] 主对角元全为非零数$k$，其余元素全为零的$n$阶方阵，称为$n$阶\red{数量矩阵}，记为$k\II_n, k\II, k\E$
+    $$
+    k\II_n = \left(
+      \begin{array}{cccc}
+        k & & &\\
+          & k & & \\
+          & & \dd & \\
+          & & & k
+      \end{array}
+    \right)~(k\ne 0)
+    $$
+  \end{itemize}
+\end{dingyi}
+% 
+\begin{zhu*}
+  \begin{itemize}
+  \item[1] \red{单位阵在矩阵乘法中的作用相当于数$1$在数的乘法中的作用。}
+  \item[2] 一些等式：
+    $$
+    (k\II) \A = k(\II\A) = k\A, ~~
+    \A(k\II) = k(\A\II) = k\A.
+    $$
+  \end{itemize}
+\end{zhu*}
+
+\begin{dingyi}[对角矩阵]
+  非对角元皆为零的$n$阶方阵称为$n$阶\red{对角矩阵}，记作$\LLambda$，即
+  $$
+  \LLambda = \left(
+    \begin{array}{cccc}
+      \lambda_1 & & &\\
+                & \lambda_2 & & \\
+                & & \dd & \\
+                & & & \lambda_n
+    \end{array}
+  \right)
+  $$
+  或记作$\mathrm{diag}(\lambda_1,\lambda_2,\cd,\lambda_n)$.
+\end{dingyi}
+\begin{zhu*}
+  \begin{itemize}
+  \item[1] 用对角阵$\LLambda$左乘$\A$，就是用$\lambda_i(i=1,\cd,n)$乘$\A$中第$i$行的每个元素；
+    $$
+    \left(
+      \begin{array}{cccc}
+        \lambda_1 & & &\\
+                  & \lambda_2 & & \\
+                  & & \dd & \\
+                  & & & \lambda_n
+      \end{array}
+    \right)
+    \left(
+      \begin{array}{cccc}
+        a_{11} & a_{12} & \cd & a_{1n}\\
+        a_{21} & a_{22} & \cd & a_{2n}\\
+        \vd & \vd &  & \vd\\
+        a_{n1} & a_{n2} & \cd & a_{nn}
+      \end{array}
+    \right) = 
+    \left(
+      \begin{array}{cccc}
+        \lambda_1 a_{11} & \lambda_1a_{12} & \cd & \lambda_1a_{1n}\\
+        \lambda_2a_{21} & \lambda_2a_{22} & \cd & \lambda_2a_{2n}\\
+        \vd & \vd &  & \vd\\
+        \lambda_na_{n1} & \lambda_na_{n2} & \cd & \lambda_na_{nn}
+      \end{array}
+    \right)
+    $$         
+  \item[2] 用对角阵$\LLambda$右乘$\A$，就是用$\lambda_i(i=1,\cd,n)$乘$\A$中第$i$列的每个元素，即
+    $$
+    \left(
+      \begin{array}{cccc}
+        a_{11} & a_{12} & \cd & a_{1n}\\
+        a_{21} & a_{22} & \cd & a_{2n}\\
+        \vd & \vd &  & \vd\\
+        a_{n1} & a_{n2} & \cd & a_{nn}
+      \end{array}
+    \right)  
+    \left(
+      \begin{array}{cccc}
+        \lambda_1 & & &\\
+                  & \lambda_2 & & \\
+                  & & \dd & \\
+                  & & & \lambda_n
+      \end{array}
+    \right)
+    = 
+    \left(
+      \begin{array}{cccc}
+        \lambda_1a_{11} & \lambda_2a_{12} & \cd & \lambda_na_{1n}\\
+        \lambda_1a_{21} & \lambda_2a_{22} & \cd & \lambda_na_{2n}\\
+        \vd & \vd &  & \vd\\
+        \lambda_1a_{n1} & \lambda_2a_{n2} & \cd & \lambda_na_{nn}
+      \end{array}
+    \right)
+    $$
+  \end{itemize}
+\end{zhu*}
+
+% 
+\begin{dingyi}[三角矩阵]
+  \begin{itemize}
+  \item[1] 主对角线以上的元素全为零的$n$阶方阵称为\red{上三角矩阵}（$a_{ij}=0, ~i>j$）
+    $$
+    \left(
+      \begin{array}{cccc}
+        a_{11} & a_{12} & \cd & a_{1n} \\
+               & a_{22} & \cd & a_{2n} \\
+               &       & \dd & \vd   \\
+               &       &     & a_{nn}
+      \end{array}
+    \right)
+    $$
+  \item[2] 主对角线以下的元素全为零的$n$阶方阵称为\red{下三角矩阵}（$a_{ij}=0, ~i<j$）
+    $$
+    \left(
+      \begin{array}{cccc}
+        a_{11} &       &     &       \\
+        a_{21} & a_{22} &     &  \\
+        \vd   & \vd   & \dd &    \\
+        a_{n1} & a_{n2} & \cd & a_{nn}
+      \end{array}
+    \right)
+    $$
+  \end{itemize}
+\end{dingyi}
+\begin{li}
+  证明：两个上三角矩阵的乘积仍为上三角矩阵。
+\end{li}
+\begin{proof}
+  设
+  $$
+  \A = \left(
+    \begin{array}{cccc}
+      a_{11} & a_{12} & \cd & a_{1n} \\
+             & a_{22} & \cd & a_{2n} \\
+             &       & \dd & \vd   \\
+             &       &     & a_{nn}
+    \end{array}
+  \right), ~     \B = \left(
+    \begin{array}{cccc}
+      b_{11} & b_{12} & \cd & b_{1n} \\
+             & b_{22} & \cd & b_{2n} \\
+             &       & \dd & \vd   \\
+             &       &     & b_{nn}
+    \end{array}
+  \right)
+  $$
+  
+  令$\C = \A\B = (c_{ij})$，
+  则当$i>j$时，
+  $$
+  c_{ij} = \sum_{k=1}^n a_{ik}b_{kj}   
+  = \sum_{k=1}^{i-1} a_{ik}b_{kj}  + \sum_{k=i}^n a_{ik}b_{kj}  
+  = \sum_{k=1}^{i-1} \red{\underbrace{a_{ik}}_{\Downarrow\atop0}}b_{kj}  
+  + \sum_{k=i}^n a_{ik}\red{\underbrace{b_{kj}}_{\Downarrow\atop0}}  = 0.
+  $$
+\end{proof}
+
+\begin{zhu*}
+  两个下三角矩阵的乘积仍是下三角矩阵。
+\end{zhu*}
+
+设线性方程组
+$$
+\left\{
+  \begin{array}{c}
+    a_{11}x_1 + a_{12}x_2 + a_{1n}x_n = b_1, \\[0.2cm]
+    a_{21}x_1 + a_{22}x_2 + a_{2n}x_n = b_2, \\[0.2cm]
+    \vd \\[0.2cm]
+    a_{m1}x_1 + a_{m2}x_2 + a_{mn}x_n = b_m.
+  \end{array}
+\right.
+$$
+
+第$i$个方程可表示为
+$$
+\left(
+  \begin{array}{cccc}
+    a_{i1} & a_{i2} & \cd &  a_{in}
+  \end{array}
+\right)
+\left(
+  \begin{array}{c}
+    x_{1} \\
+    x_{2} \\
+    \cd   \\
+    x_{n}
+  \end{array}
+\right) = b_i, \quad i=1,2,\cd,n.
+$$ 
+因此上述线性方程组可表示为
+$$
+\underbrace{
+  \left(
+    \begin{array}{cccc}
+      a_{11} & a_{12} & \cd &  a_{1n} \\[0.1cm]
+      a_{21} & a_{22} & \cd &  a_{2n} \\[0.1cm]
+      \vd   & \vd   &     & \vd \\[0.1cm]
+      a_{n1} & a_{n2} & \cd &  a_{nn} \\[0.1cm]
+    \end{array}
+  \right)
+}_{\red{\A}}
+\underbrace{
+  \left(
+    \begin{array}{c}
+      x_{1} \\[0.1cm]
+      x_{2} \\[0.1cm]
+      \vd  \\[0.1cm]
+      x_{n}
+    \end{array}
+  \right)
+}_{\red{\xx}}
+=     
+\underbrace{
+  \left(
+    \begin{array}{c}
+      b_{1} \\[0.1cm]
+      b_{2} \\[0.1cm]
+      \vd  \\[0.1cm]
+      b_{n}
+    \end{array}
+  \right)
+}_{\red{\bb}},  
+\quad \red{\A\xx=\bb}.
+$$
+% 
+% 
+
+
+
+
+\begin{dingli}
+  设$\A,\B$是两个$n$阶方阵，则
+  $$
+  |\A\B| = |\A||\B|.
+  $$
+\end{dingli}
+\begin{proof}
+
+  设$\A=(a_{ij})_{n\times n}, ~\B=(b_{ij})_{n\times n}$，则
+  $$
+  \begin{aligned}
+    |\A||\B| =& \left|
+      \begin{array}{cccccccc}
+        a_{11} & a_{12} & \cd &  a_{1n} & 0 & 0 & \cd & 0\\
+        a_{21} & a_{22} & \cd &  a_{2n} & 0 & 0 & \cd & 0\\
+        \vd   & \vd   &     & \vd    & \vd & \vd & & \vd\\
+        a_{n1} & a_{n2} & \cd &  a_{nn} & 0 & 0 & \cd & 0\\
+        -1    & 0     & \cd &   0    & b_{11} & b_{12} & \cd & b_{1n} \\
+        0 & -1 & \cd & 0& b_{21} & b_{22} & \cd & b_{2n} \\
+        \vd&\vd & & \vd &  \vd  &\vd &  & \vd   \\
+        0 & 0 & \cd & -1 & b_{n1} & b_{n2} &\cd     & b_{nn}
+      \end{array}
+    \right|\\
+    \xlongequal[i=1,\cd,n]{r_1+a_{1i}r_{n+i}}&
+    \left|
+      \begin{array}{cccccccc}
+        0     & 0     & \cd &  0     & \red{c_{11}} & \red{c_{12}} & \red{\cd} & \red{c_{1n}}\\
+        a_{21} & a_{22} & \cd &  a_{2n} & 0 & 0 & \cd & 0\\
+        \vd   & \vd   &     & \vd    & \vd & \vd & & \vd\\
+        a_{n1} & a_{n2} & \cd &  a_{nn} & 0 & 0 & \cd & 0\\
+        -1    & 0     & \cd &   0    & b_{11} & b_{12} & \cd & b_{1n} \\
+        0 & -1 & \cd & 0& b_{21} & b_{22} & \cd & b_{2n} \\
+        \vd&\vd & & \vd &  \vd  &\vd &  & \vd   \\
+        0 & 0 & \cd & -1 & b_{n1} & b_{n2} &\cd     & b_{nn}
+      \end{array}
+    \right|
+  \end{aligned}
+  $$
+  
+  
+
+  
+  
+  仿照上述步骤，可将行列式的左上角元素全消为零，即得
+  $$
+  \begin{array}{rl}
+    |\A||\B| &  = \left|
+               \begin{array}{cc}
+                 \A & \zero\\
+                 -\II & \B
+               \end{array}
+                        \right|  = \left|
+                        \begin{array}{cc}
+                          \zero & \A\B \\
+                          -\II & \B
+                        \end{array}
+                                 \right| = (-1)^n\left|
+                                 \begin{array}{cc}
+                                   \A\B & \zero\\
+                                   \B   & -\II
+                                 \end{array}
+                                          \right| \\[0.2in]
+             &  = (-1)^n |\A\B||-\II_n|  = (-1)^n |\A\B|(-1)^n \\[0.1in]
+             &  = |\A\B|.  
+  \end{array}
+  $$
+\end{proof}  %
+
+\begin{li}
+  设
+  $$
+  \A = \left(
+    \begin{array}{cccc}
+      a_{11} & a_{12} & \cd & a_{1n} \\
+      a_{21} & a_{22} & \cd & a_{2n} \\
+      \vd   & \vd   &     & \vd   \\
+      a_{n1} & a_{n2} & \cd & a_{nn} \\
+    \end{array}
+  \right), ~~
+  \A^* = \left(
+    \begin{array}{cccc}
+      A_{11} & A_{21} & \cd & A_{n1} \\
+      A_{12} & A_{22} & \cd & A_{n2} \\
+      \vd   & \vd   &     & \vd   \\
+      A_{1n} & A_{2n} & \cd & A_{nn} \\
+    \end{array}
+  \right)
+  $$
+  其中$A_{ij}$是行列式$|\A|$中元素$a_{ij}$的代数余子式。
+  证明：\red{当$|\A|\ne 0$时，$|\A^*|=|\A|^{n-1}$}.      
+\end{li}
+\begin{proof}      
+  设$\A\A^*=\C=(c_{ij})$，其中
+  $$
+  c_{ij} = a_{i1}A_{j1} + a_{i2}A_{j2} + \cd + a_{in}A_{jn} = \delta_{ij}|\A|
+  $$
+  
+  于是
+  $$
+  \A\A^* = \left(
+    \begin{array}{cccc}
+      |\A|&&&\\
+          &|\A|&&\\
+          &&\dd&\\
+          &&&|\A|
+    \end{array}
+  \right) = |\A| \II_n,
+  $$ 
+  因此，
+  $$
+  |\A||\A^*| = |\A\A^*| = |\A|^n,
+  $$ 
+  由于$|\A|\ne 0$，故$|\A^*|=|\A|^{n-1}$.
+\end{proof}
+% 
+
+% 
+% 
+\begin{dingyi}[矩阵幂]
+  设$\A$是$n$阶矩阵，$k$个$\A$的连乘积称为$\A$的$k$次幂，记作$\A^k$，即
+  $$
+  \A^k = \underbrace{\A~ \A~ \cd ~\A}_{k}
+  $$
+\end{dingyi}
+% 
+矩阵幂的运算律：
+\begin{itemize}
+\item[1] 当$m,k$为正整数时，
+  $$
+  \A^m \A^k = \A^{m+k}, \quad
+  (\A^m)^k = \A^{mk}.
+  $$  
+\item[2]
+  当$\A\B$不可交换时，一般情况下，
+  $$
+  (\A\B)^k \ne \A^k\B^k 
+  $$  
+\item[3]
+  当$\A\B$可交换时，
+  $$
+  (\A\B)^k = \A^k\B^k =  \B^k\A^k. 
+  $$
+\end{itemize}
+
+% 
+\begin{dingyi}[矩阵多项式]
+  设$f(x)=a_kx^k+a_{k-1}x^{k-1}+\cd+a_1x+a_0$是$x$的$k$次多项式，$\A$是$n$阶矩阵，则
+  $$
+  f(\A)=a_k\A^k+a_{k-1}\A^{k-1}+\cd+a_1\A+a_0\II
+  $$
+  称为矩阵$\A$的$k$次多项式。
+\end{dingyi}
+% 
+\begin{zhu*}
+  \begin{itemize}
+  \item[1] 若$f(x), g(x)$为多项式，$\A,\B$皆是$n$阶矩阵，则
+    $$
+    f(\A)g(\A) = g(\A)f(\A).
+    $$
+  \item[2] 当$\A\B$不可交换时，一般
+    $$f(\A)g(\B)\ne g(\B)f(\A)$$
+  \end{itemize}
+\end{zhu*}

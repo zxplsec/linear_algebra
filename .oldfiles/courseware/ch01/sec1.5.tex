@@ -1,0 +1,3247 @@
+\section{习题}
+
+\begin{frame}
+  \begin{footnotesize}
+    \begin{exampleblock}{1}
+      $$
+      \left|
+      \begin{array}{rr}
+        a^2&ab\\
+        ab&b^2
+      \end{array}
+      \right|
+      $$
+    \end{exampleblock}
+    \pause 
+    \jiename
+    $$
+    \mbox{原式} = a^2b^2-(ab)(ab) = 0.
+    $$    
+  \end{footnotesize}
+\end{frame}
+
+
+\begin{frame}
+  \begin{footnotesize}
+    \begin{exampleblock}{2}
+      $$
+      \left|
+      \begin{array}{rr}
+        \cos \alpha& -\sin \alpha\\
+        \sin \alpha&  \cos \alpha
+      \end{array}
+      \right|
+      $$
+    \end{exampleblock}
+    \pause 
+    \jiename
+    $$
+    \mbox{原式} = \cos^2\alpha + \sin^2 \alpha= 1.
+    $$    
+  \end{footnotesize}
+\end{frame}
+
+\begin{frame}
+  \begin{footnotesize}
+    \begin{exampleblock}{3}
+      $$
+      \left|
+      \begin{array}{cc}
+        a+bi&b\\
+        2a&a-bi
+      \end{array}
+      \right|
+      $$      
+    \end{exampleblock}
+    \pause 
+    \jiename
+    $$
+    \mbox{原式} = (a+bi)(a-bi)-2ab = a^2+b^2-2ab=(a-b)^2.
+    $$ 
+  \end{footnotesize}
+\end{frame}
+
+
+\begin{frame}
+  \begin{footnotesize}
+    \begin{exampleblock}{4}
+      $$
+      \left|
+      \begin{array}{rrr}
+        3&2&-4\\
+        4&1&-2\\
+        5&2&-3
+      \end{array}
+      \right|
+      $$
+    \end{exampleblock}
+    \pause 
+    \jiename
+    \begin{center}
+      \begin{tikzpicture}               
+        \matrix(A) [matrix of math nodes,nodes in empty cells,ampersand replacement=\&,row sep=15pt,column sep=15pt] {
+          \&  3 \& 2 \& -4  \& \red{3} \& \red{2} \&\\
+          \&  4 \& 1 \& -2  \& \red{4} \& \red{1} \&\\
+          \&  5 \& 2 \& -3  \& \red{5} \& \red{2} \&\\
+          -   \&    -        \&   -        \&               \&   +         \&   +        \& +\\
+        };
+        \draw[] (A-1-2.center) -- (A-4-5.center);
+        \draw[] (A-1-3.center)  -- (A-4-6.center);
+        \draw[] (A-1-4.center) -- (A-4-7.center); 
+        \draw[dashed] (A-1-6.center) -- (A-4-3.center);
+        \draw[dashed] (A-1-5.center) -- (A-4-2.center);
+        \draw[dashed] (A-1-4.center) -- (A-4-1.center);
+        \draw (A-4-1.center) circle (0.2cm);
+        \draw (A-4-2.center) circle (0.2cm);
+        \draw (A-4-3.center) circle (0.2cm);
+        \draw (A-4-5.center) circle (0.2cm);
+        \draw (A-4-6.center) circle (0.2cm);
+        \draw (A-4-7.center) circle (0.2cm);
+
+      \end{tikzpicture}               
+    \end{center}
+    \pause 
+    $$
+    \begin{array}{rl}
+      \mbox{原式} &=
+      3\cdot1\cdot(-3)+2\cdot(-2)\cdot5+(-4)\cdot4\cdot2-(-4)\cdot1\cdot5-3\cdot(-2)\cdot2-2\cdot4\cdot(-3)\\[0.2cm]
+      &= -9-20-32+20+12+24 = -5.
+    \end{array}
+    $$    
+  \end{footnotesize}
+\end{frame}
+
+
+\begin{frame}
+  \begin{footnotesize}
+    \begin{exampleblock}{5}
+      $$
+      \left|
+      \begin{array}{rrr}
+        1&2&3\\
+        4&5&6\\
+        7&8&9
+      \end{array}
+      \right|
+      $$
+    \end{exampleblock}
+    \pause 
+    \jiename
+    $$
+    \mbox{原式} \xlongequal[r_2-r_1]{r_3-r_2}  \left|
+    \begin{array}{ccc}
+      1&2&3\\
+      3&3&3\\
+      3&3&3
+    \end{array}
+    \right|=0.
+    $$    
+  \end{footnotesize}
+\end{frame}
+
+
+\begin{frame}
+  \begin{footnotesize}
+    \begin{exampleblock}{6}
+      $$
+      \left|
+      \begin{array}{rrr}
+        2&2&1\\
+        4&1&-1\\
+        202&199&101
+      \end{array}
+      \right|
+      $$
+    \end{exampleblock}
+    \pause 
+    \jiename
+    $$
+    \begin{array}{rl}
+      \mbox{原式} & \xlongequal[]{c_1-c_2}  \left|
+      \begin{array}{rrr}
+        0&2&1\\
+        3&1&-1\\
+        3&199&101
+      \end{array}
+      \right| \xlongequal[]{r_3-r_2}  \left|
+      \begin{array}{rrr}
+        0&2&1\\
+        3&1&-1\\
+        0&198&102
+      \end{array}
+      \right| \\[0.2in]
+      & = (-1)^{2+1}\cdot 3 \cdot \left|
+      \begin{array}{rr}
+        2&1\\
+        198&102
+      \end{array}
+      \right| = -3 \cdot  (2\cdot 102-198)=-18.
+    \end{array}
+    $$    
+  \end{footnotesize}
+\end{frame}
+
+
+\begin{frame}
+  \begin{footnotesize}
+    \begin{exampleblock}{7}
+      $$
+      \left|
+      \begin{array}{ccc}
+        1&\omega&\omega^2\\
+        \omega^2&1&\omega\\
+        \omega&\omega^2&1
+      \end{array}
+      \right|, \quad \omega = -\frac12 + i \frac{\sqrt{3}}2
+      $$
+    \end{exampleblock}
+    \pause 
+    \jiename 注意到$\omega^3=1$，故
+    $$
+    \omega \left|
+    \begin{array}{ccc}
+      1&\omega&\omega^2\\
+      \omega^2&1&\omega\\
+      \omega&\omega^2&1
+    \end{array}
+    \right| = \left|
+    \begin{array}{ccc}
+      1&\omega&\omega^2\\
+      \omega^3&\omega&\omega^2\\
+      \omega&\omega^2&1
+    \end{array}
+    \right| = \left|
+    \begin{array}{ccc}
+      1&\omega&\omega^2\\
+      1&\omega&\omega^2\\
+      \omega&\omega^2&1
+    \end{array}
+    \right| = 0,
+    $$
+    从而
+    $$
+    \mbox{原式}=0.
+    $$
+  \end{footnotesize}
+\end{frame}
+
+
+\begin{frame}
+  \begin{footnotesize}
+    \begin{exampleblock}{8}
+      $$
+      \left|
+      \begin{array}{ccc}
+        1&x&x\\
+        x&2&x\\
+        x&x&3
+      \end{array}
+      \right|.
+      $$
+    \end{exampleblock}
+    \pause 
+    \jiename 
+    $$
+    \begin{array}{rl}
+      \mbox{原式} & \xlongequal[r_3-xr_1]{r_2-xr_1} \left|
+      \begin{array}{ccc}
+        1&x&x\\
+        0&2-x^2&x-x^2\\
+        0&x-x^2&3-x^2
+      \end{array}
+      \right| = \left|
+      \begin{array}{cc}
+        2-x^2&x-x^2\\
+        x-x^2&3-x^2
+      \end{array}
+      \right| \\[0.2in]
+      &= (2-x^2)(3-x^2)-(x-x^2)^2=2x^3-6x^2+6.      
+    \end{array}
+    $$
+  \end{footnotesize}
+\end{frame}
+
+\begin{frame}
+  \begin{footnotesize}
+    \begin{exampleblock}{9}
+      $$
+      \left|
+      \begin{array}{cccc}
+        0&0&0&4\\
+        0&0&4&3\\
+        0&4&3&2\\
+        4&3&2&1\\
+      \end{array}
+      \right|
+      $$
+    \end{exampleblock}
+    \pause 
+    \jiename 
+    $$
+    \begin{array}{rl}
+      \mbox{原式} & = (-1)^{1+4} \cdot 4 \cdot \left|
+      \begin{array}{cccc}
+        0&0&\red{4}\\
+        0&4&3\\
+        4&3&2\\
+      \end{array}
+      \right| \\[0.2in]
+      & = (-1)^{1+4} \cdot 4 \cdot (-1)^{1+3} \cdot 4 \cdot \left|
+      \begin{array}{cccc}
+        0&4\\
+        4&3\\
+      \end{array}
+      \right| \\[0.2in]
+      & = -4\cdot 4 \cdot (-16) = 256.
+    \end{array}
+    $$
+  \end{footnotesize}
+\end{frame}
+
+
+
+\begin{frame}
+  \begin{footnotesize}
+    \begin{exampleblock}{10}
+      $$
+      \left|
+      \begin{array}{cccccc}
+        0&0&\cd&0&1&0\\
+        0&0&\cd&2&0&0\\
+        \vd&\vd&&\vd&\vd&\vd\\
+        0&8&\cd&0&0&0\\
+        9&0&\cd&0&0&0\\
+        0&0&\cd&0&0&10\\
+      \end{array}
+      \right|
+      $$
+    \end{exampleblock}
+    \pause 
+    \jiename 
+    $$
+    \begin{array}{rl}
+      \mbox{原式} & = (-1)^{10+10} \cdot 10 \cdot \left|
+      \begin{array}{cccccc}
+        0&0&\cd&0&1\\
+        0&0&\cd&2&0\\
+        \vd&\vd&&\vd&\vd\\
+        0&8&\cd&0&0\\
+        9&0&\cd&0&0\\
+      \end{array}
+      \right| = 10 \cdot (-1)^{\frac{9\times 8}2} 9! = 10!
+    \end{array}
+    $$
+  \end{footnotesize}
+\end{frame}
+
+
+\begin{frame}
+  \begin{footnotesize}
+    \begin{exampleblock}{11}
+      $$
+      \left|
+      \begin{array}{rrrr}
+        1&1&1&1\\
+        1&-1&1&1\\
+        1&1&-1&1\\
+        1&1&1&-1\\
+      \end{array}
+      \right|
+      $$
+    \end{exampleblock}
+    \pause 
+    \jiename 
+    $$
+    \mbox{原式}  \xlongequal[i=2,3,4]{r_i-r_1} \left|
+    \begin{array}{rrrr}
+      1&1&1&1\\
+      0&-2&0&0\\
+      0&0&-2&0\\
+      0&0&0&-2
+    \end{array}
+    \right|  = (-2)^3 = -8.
+    $$
+  \end{footnotesize}
+\end{frame}
+
+
+\begin{frame}
+  \begin{footnotesize}
+    \begin{exampleblock}{12}
+      $$
+      \left|
+      \begin{array}{rrrr}
+        1&2&3&4\\
+        2&3&4&1\\
+        3&4&1&2\\
+        4&1&2&3\\
+      \end{array}
+      \right|
+      $$
+    \end{exampleblock}
+    \pause 
+    \jiename 
+    $$
+    \begin{array}{rl}
+      \mbox{原式}  & \xlongequal[i=4,3,2]{r_i-r_{i-1}} \left|
+      \begin{array}{rrrr}
+        1&2&3&4\\
+        1&1&1&-3\\
+        1&1&-3&1\\
+        1&-3&1&1\\
+      \end{array}
+      \right| \pause
+      \xlongequal[i=2,3,4]{c_i-c_1}  \left|
+      \begin{array}{rrrr}
+        1&1&2&3\\
+        1&0&0&-4\\
+        1&0&-4&0\\
+        1&-4&0&0\\
+      \end{array}
+      \right| \\[0.25in] 
+      & \pause \xlongequal[i=2,3,4]{c_i\div 4} 4^3 \left|
+      \begin{array}{rrrr}
+        1&\frac14&\frac24&\frac34\\
+        1&0&0&-1\\
+        1&0&-1&0\\
+        1&-1&0&0\\
+      \end{array}
+      \right| \pause
+      \xlongequal[]{c_1+c_2+c_3+c_4} 4^3 \left|
+      \begin{array}{rrrr}
+        1+\frac{1+2+3}4&\frac14&\frac24&\frac34\\
+        0&0&0&-1\\
+        0&0&-1&0\\
+        0&-1&0&0\\
+      \end{array}
+      \right| \\[0.25in] 
+      & \pause \ds =4^3 \frac{10}4 \left|
+      \begin{array}{rrrr}
+        0&0&-1\\
+        0&-1&0\\
+        -1&0&0\\
+      \end{array}
+      \right| = 160.
+    \end{array}
+    $$
+  \end{footnotesize}
+\end{frame}
+
+
+
+\begin{frame}
+  \begin{footnotesize}
+    \begin{exampleblock}{13}
+      $$
+      \left|
+      \begin{array}{rrrr}
+        5&0&4&2\\
+        1&-1&2&1\\
+        4&1&2&0\\
+        1&1&1&1\\
+      \end{array}
+      \right|
+      $$
+    \end{exampleblock}
+    \pause 
+    \jiename 
+    $$
+    \begin{array}{rl}
+      \mbox{原式}  & \xlongequal[r_4+r_2]{r_3+r_2}
+      \left|
+      \begin{array}{rrrr}
+        5&0&4&2\\
+        1&\red{-1}&2&1\\
+        5&0&4&1\\
+        2&0&3&2\\
+      \end{array}
+      \right| \pause = (-1)^{2+2}\cdot (-1)\cdot       \left|
+      \begin{array}{rrr}
+        5&4&2\\
+        5&4&1\\
+        2&3&2\\
+      \end{array}
+      \right| \\[0.25in]
+      & \pause \xlongequal[]{r_1-r_2}
+      -\left|
+      \begin{array}{rrr}
+        0&0&\red{1}\\
+        5&4&1\\
+        2&3&2\\
+      \end{array}
+      \right| \pause
+      = - (-1)^{1+3} \cdot 1 \cdot \left|
+      \begin{array}{rrr}
+        5&4\\
+        2&3
+      \end{array}
+      \right| = -7.
+    \end{array}
+    $$
+  \end{footnotesize}
+\end{frame}
+
+\begin{frame}
+  \begin{footnotesize}
+    \begin{exampleblock}{14}
+      $$
+      \left|
+      \begin{array}{rrrrr}
+        3&6&5&6&4\\
+        2&5&4&5&3\\
+        3&6&3&4&2\\
+        2&5&4&6&5\\
+        1&1&1&-1&-1
+      \end{array}
+      \right|
+      $$
+    \end{exampleblock}
+    \pause 
+    \jiename 
+    $$
+    \begin{array}{rl}
+      \mbox{原式}  & \pause \xlongequal[]{r_2 \leftrightarrow r_3}
+      -\left|
+      \begin{array}{rrrrr}
+        3&6&5&6&4\\
+        3&6&3&4&2\\
+        2&5&4&5&3\\
+        2&5&4&6&5\\
+        1&1&1&-1&-1
+      \end{array}
+      \right| \pause
+      \xlongequal[r_1-r_3]{r_2-r_1 \atop r_4-r_3} -\left|
+      \begin{array}{rrrrr}
+        1&1&1&1&1\\
+        0&0&-2&-2&-2\\
+        2&5&4&5&3\\
+        0&0&0&1&2\\
+        1&1&1&-1&-1
+      \end{array}
+      \right| \\[0.4in]
+      & \pause \xlongequal[r_5-r_1]{r_3-2r_1}  -\left|
+      \begin{array}{rrrrr}
+        1&1&1&1&1\\
+        0&0&-2&-2&-2\\
+        0&3&2&3&1\\
+        0&0&0&1&2\\
+        0&0&0&-2&-2
+      \end{array}
+      \right| \pause
+      \xlongequal[r_5+2r_4]{r_2\leftrightarrow r_3}  \left|
+      \begin{array}{rrrrr}
+        1&1&1&1&1\\
+        0&3&2&3&1\\
+        0&0&-2&-2&-2\\
+        0&0&0&1&2\\
+        0&0&0&0&2
+      \end{array}
+      \right|\\[0.4in]
+      & \pause = -12.
+    \end{array}
+    $$
+  \end{footnotesize}
+\end{frame}
+
+
+
+\begin{frame}
+  \begin{footnotesize}
+    \begin{exampleblock}{15}
+      $$
+      \left|
+      \begin{array}{rrrr}
+        1&2&0&0\\
+        3&4&0&0\\
+        0&0&-1&3\\
+        0&0&5&1\\
+      \end{array}
+      \right|
+      $$
+    \end{exampleblock}
+    \pause 
+    \jiename 
+    $$
+    \mbox{原式} = \left|
+    \begin{array}{cc}
+      1&2\\
+      3&4      
+    \end{array}
+    \right| \cdot
+    \left|
+    \begin{array}{rr}
+      -1&3\\
+      5&1      
+    \end{array}
+    \right| = (-2)\cdot(-16)=32.
+    $$
+  \end{footnotesize}
+\end{frame}
+
+
+\begin{frame}
+  \begin{footnotesize}
+    \begin{exampleblock}{16}
+      $$
+      \left|
+      \begin{array}{rrrrr}
+        1&2&3&4&5\\
+        6&7&8&9&10\\
+        0&0&0&1&3\\
+        0&0&0&2&4\\
+        0&1&0&1&1
+      \end{array}
+      \right|
+      $$
+    \end{exampleblock}
+    \pause 
+    \jiename 
+    $$
+    \begin{array}{rl}
+      \mbox{原式} & \pause \ds \xlongequal[]{r_3\leftrightarrow r_5}
+      -\left|
+      \begin{array}{rrrrr}
+        \red{1}&\red{2}&\red{3}&4&5\\
+        \red{6}&\red{7}&\red{8}&9&10\\
+        \red{0}&\red{1}&\red{0}&1&1\\
+        0&0&0&\blue{2}&\blue{4}\\
+        0&0&0&\blue{1}&\blue{3}
+      \end{array}
+      \right| \pause = -\left|
+      \begin{array}{rrr}
+        1&2&3\\
+        6&7&8\\
+        0&\red{1}&0\\
+      \end{array}
+      \right| \cdot \left|
+      \begin{array}{rr}
+        2&4\\
+        1&3\\
+      \end{array}
+      \right|\\[0.4in]
+      &\pause =-(-1)^{3+2} \cdot 1 \cdot \left|
+      \begin{array}{rrr}
+        1&3\\
+        6&8
+      \end{array}
+      \right| \cdot \left|
+      \begin{array}{rr}
+        2&4\\
+        1&3\\
+      \end{array}
+      \right| \\[0.2in]
+      &\pause =   (-10) \cdot 2 = -20.
+    \end{array}
+    $$
+  \end{footnotesize}
+\end{frame}
+
+\begin{frame}
+  \begin{footnotesize}
+    \begin{exampleblock}{17}
+      $$
+      \left|
+       \begin{array}{rrrrr}
+        0&0&1&-1&2\\
+        0&0&3&0&2\\
+        0&0&2&4&0\\
+        1&2&4&0&-1\\
+        3&1&2&5&8
+      \end{array}
+      \right|
+      $$
+    \end{exampleblock}
+    \pause 
+    \jiename 
+    $$
+    \begin{array}{rl}
+      \mbox{原式} &\pause
+      \xlongequal[c_2\leftrightarrow c_1]{c_3\leftrightarrow c_2}
+      \left|
+      \begin{array}{rrrrr}
+        1&0&0&-1&2\\
+        3&0&0&0&2\\
+        2&0&0&4&0\\
+        4&1&2&0&-1\\
+        2&3&1&5&8
+      \end{array}
+      \right|
+      \pause
+      \xlongequal[c_3\leftrightarrow c_2]{c_4\leftrightarrow c_3}
+      \left|
+      \begin{array}{rrrrr}
+        1&-1&0&0&2\\
+        3&0&0&0&2\\
+        2&4&0&0&0\\
+        4&0&1&2&-1\\
+        2&5&3&1&8
+      \end{array}
+      \right| \\[0.35in]
+      & \pause \xlongequal[c_4\leftrightarrow c_3]{c_5\leftrightarrow c_4}
+      \left|
+      \begin{array}{rrrrr}
+        1&-1& 2&0&0\\
+        3& 0& 2&0&0\\
+        2& 4& 0&0&0\\
+        4& 0&-1&1&2\\
+        2& 5& 8&3&1
+      \end{array}
+      \right| \pause = \left|
+      \begin{array}{rrrrr}
+        1&-1& 2\\
+        3& 0& 2\\
+        2& 4& 0
+      \end{array}
+      \right|\cdot \left|
+      \begin{array}{rr}
+        1&2\\
+        3&1
+      \end{array}
+      \right| \\[0.35in]
+      & \pause \xlongequal[]{r_2-r_1} \left|
+      \begin{array}{rrrrr}
+        1&-1& 2\\
+        2& 1& 0\\
+        2& 4& 0
+      \end{array}
+      \right| \left|
+      \begin{array}{rr}
+        1&2\\
+        3&1
+      \end{array}
+      \right| =   2  \left|
+      \begin{array}{rrrrr}
+        2& 1\\
+        2& 4
+      \end{array}
+      \right| \left|
+      \begin{array}{rr}
+        1&2\\
+        3&1
+      \end{array}
+      \right|  = 2 \cdot 6 \cdot (-5) = -60.
+    \end{array}
+    $$
+  \end{footnotesize}
+\end{frame}
+
+
+\begin{frame}
+  \begin{footnotesize}
+    \begin{exampleblock}{18}
+      $$
+      \left|
+      \begin{array}{cc}
+        *&\A\\
+        \B&\zero
+      \end{array}
+      \right|, \quad
+      \A = \left|
+      \begin{array}{ccc}
+        1&0&0\\
+        1&2&0\\
+        1&2&3
+      \end{array}
+      \right|, \quad
+      \B = \left|
+      \begin{array}{rrrrr}
+        &&&&-1\\
+        &&&-2&\\
+        &&-3&&\\
+        &-4&&&\\
+        -5&&&&
+      \end{array}
+      \right|
+      $$
+    \end{exampleblock}
+    \pause
+    \jiename   
+    $$
+    \begin{array}{rl}
+      \mbox{原式} &\pause= (-1)^{3\times 5}  \left|
+      \begin{array}{rr}
+        \A&*\\
+        \zero&\B
+      \end{array}
+      \right| \\[0.2in]
+      &\pause = (-1) \cdot  |\A|\cdot |\B| \\[0.1in]
+      &\pause= (-1) \cdot 1\cdot 2\cdot 3 \cdot (-1)^{\frac{5\times 4}2} (-1)(-2)(-3)(-4)(-5)\\[0.1in]
+      &\pause= 6\times 120 =720
+    \end{array}
+    $$
+  \end{footnotesize}
+\end{frame}
+
+\begin{frame}
+  \begin{footnotesize}
+    \begin{exampleblock}{19}
+      证明：
+      $$
+      \left|
+      \begin{array}{ccc}
+        a_1+b_1x & a_1x+b_1 & c_1\\
+        a_2+b_2x & a_2x+b_2 & c_2\\
+        a_3+b_3x & a_3x+b_3 & c_3        
+      \end{array}
+      \right| = (1-x^2) \left|
+      \begin{array}{ccc}
+        a_1&b_1&c_1\\
+        a_2&b_2&c_2\\
+        a_3&b_3&c_3
+      \end{array}
+      \right|
+      $$
+    \end{exampleblock}
+    \pause
+    \proofname
+    $$
+    \begin{array}{rl}
+      \mbox{左边} &\pause= \left|
+      \begin{array}{ccc}
+        a_1 & a_1x+b_1 & c_1\\
+        a_2 & a_2x+b_2 & c_2\\
+        a_3 & a_3x+b_3 & c_3        
+      \end{array}
+      \right| + \left|
+      \begin{array}{ccc}
+        b_1x & a_1x+b_1 & c_1\\
+        b_2x & a_2x+b_2 & c_2\\
+        b_3x & a_3x+b_3 & c_3        
+      \end{array}
+      \right|\\[0.2in]
+      &\pause= \left|
+      \begin{array}{ccc}
+        a_1 & a_1x+b_1 & c_1\\
+        a_2 & a_2x+b_2 & c_2\\
+        a_3 & a_3x+b_3 & c_3        
+      \end{array}
+      \right| + x\left|
+      \begin{array}{ccc}
+        b_1 & a_1x+b_1 & c_1\\
+        b_2 & a_2x+b_2 & c_2\\
+        b_3 & a_3x+b_3 & c_3        
+      \end{array}
+      \right|\\[0.2in]
+      &\pause= \left|
+      \begin{array}{ccc}
+        a_1 & a_1x & c_1\\
+        a_2 & a_2x & c_2\\
+        a_3 & a_3x & c_3        
+      \end{array}
+      \right| + \left|
+      \begin{array}{ccc}
+        a_1 & b_1 & c_1\\
+        a_2 & b_2 & c_2\\
+        a_3 & b_3 & c_3        
+      \end{array}
+      \right| +  x\left|
+      \begin{array}{ccc}
+        b_1 & a_1x & c_1\\
+        b_2 & a_2x & c_2\\
+        b_3 & a_3x & c_3        
+      \end{array}
+      \right| +  x\left|
+      \begin{array}{ccc}
+        b_1 & b_1 & c_1\\
+        b_2 & b_2 & c_2\\
+        b_3 & b_3 & c_3        
+      \end{array}
+      \right|\\[0.2in]
+      &\pause=  \left|
+      \begin{array}{ccc}
+        a_1 & b_1 & c_1\\
+        a_2 & b_2 & c_2\\
+        a_3 & b_3 & c_3        
+      \end{array}
+      \right| +  x\left|
+      \begin{array}{ccc}
+        b_1 & a_1x & c_1\\
+        b_2 & a_2x & c_2\\
+        b_3 & a_3x & c_3        
+      \end{array}
+      \right| \pause = (1-x^2)\left|
+      \begin{array}{ccc}
+        a_1 & b_1 & c_1\\
+        a_2 & b_2 & c_2\\
+        a_3 & b_3 & c_3        
+      \end{array}
+      \right| = \mbox{右边}
+    \end{array}
+    $$
+  \end{footnotesize}
+\end{frame}
+
+\begin{frame}
+  \begin{footnotesize}
+    \begin{exampleblock}{20}
+      证明：
+      $$
+      \left|
+      \begin{array}{cccc}
+        1+x&1&1&1\\
+        1&1-x&1&1\\
+        1&1&1+y&1\\
+        1&1&1&1-y
+      \end{array}
+      \right|=x^2y^2.
+      $$
+    \end{exampleblock}
+    \pause
+    \proofname
+    $$
+    \begin{array}{rl}
+      \mbox{左边} & \pause = \left|
+      \begin{array}{ccccc}
+        \red{1}&\red{1}&\red{1}&\red{1}&\red{1}\\
+        \red{0}&1+x&1&1&1\\
+        \red{0}&1&1-x&1&1\\
+        \red{0}&1&1&1+y&1\\
+        \red{0}&1&1&1&1-y
+      \end{array}
+      \right| \\[0.4in]
+      &\pause \xlongequal[i=2,3,4,5]{r_i-r_1} \left|
+      \begin{array}{ccccc}
+        \red{1}&\red{1}&\red{1}&\red{1}&\red{1}\\
+        \red{-1}&x&0&0&0\\
+        \red{-1}&0&-x&0&0\\
+        \red{-1}&0&0&y&0\\
+        \red{-1}&0&0&0&-y
+      \end{array}
+      \right|
+      \pause
+      \xlongequal[c_1+ c_4/y \atop c_1 -c_5/y ]{c_1+ c_2/x \atop c_1 -c_3/x } \left|
+      \begin{array}{ccccc}
+        \red{1}&\red{1}&\red{1}&\red{1}&\red{1}\\
+        \red{0}&x&0&0&0\\
+        \red{0}&0&-x&0&0\\
+        \red{0}&0&0&y&0\\
+        \red{0}&0&0&0&-y
+      \end{array}
+      \right| \\[0.4in]
+      &\pause = x^2y^2.
+    \end{array}
+    $$
+  \end{footnotesize}
+\end{frame}
+
+\begin{frame}
+  \begin{footnotesize}
+    \begin{exampleblock}{21}
+      证明：
+      $$
+      \left|
+      \begin{array}{ccc}
+        1   &   1   &   1\\
+        a   &   b   &   c\\
+        a^3 &   b^3 &   c^3
+      \end{array}
+      \right| = (a-b)(a-c)(b-c)(a+b+c).
+      $$
+    \end{exampleblock}
+    \pause
+    \proofname
+    考察范德蒙德行列式
+    $$
+    \left|
+    \begin{array}{cccc}
+      1   &   1   &   1   & \red{1}\\
+      a   &   b   &   c   & \red{y}\\
+      \red{a^2} &   \red{b^2} &   \red{c^2} & \purple{y^2}\\
+      a^3 &   b^3 &   c^3 & \red{y^3}\\
+    \end{array}
+    \right|
+    = (y-a)(y-b)(y-c)(c-a)(c-b)(b-a)
+    $$
+    \pause
+    等式两端均为关于$y$的多项式，比较$y^2$的系数，可知
+    $$
+    \left|
+    \begin{array}{cccc}
+      1   &   1   &   1  \\ 
+      a   &   b   &   c  \\
+      a^3 &   b^3 &   c^3\\
+    \end{array}
+    \right| = (a-b)(a-c)(b-c)(a+b+c)
+    $$
+
+  \end{footnotesize}
+\end{frame}
+
+\begin{frame}
+  \begin{footnotesize}
+    \begin{exampleblock}{22}
+      证明：
+      $$
+      \left|
+      \begin{array}{ccc}
+        1&a^2&a^3\\
+        1&b^2&b^3\\
+        1&c^2&c^3
+      \end{array}
+      \right| = (ab+bc+ca)\left|
+      \begin{array}{ccc}
+        1&a&a^2\\
+        1&b&b^2\\
+        1&c&c^2
+      \end{array}
+      \right|
+      $$
+    \end{exampleblock}
+    \pause
+    \proofname
+    考察范德蒙德行列式
+    $$
+    \left|
+    \begin{array}{cccc}      
+      1&\red{a}&a^2&a^3\\
+      1&\red{b}&b^2&b^3\\
+      1&\red{c}&c^2&c^3\\
+      \red{1}&\purple{y}&\red{y^2}&\red{y^3}
+    \end{array}
+    \right|
+    = (y-a)(y-b)(y-c)(c-a)(c-b)(b-a)
+    $$
+    \pause
+    等式两端均为关于$y$的多项式，比较$y$的系数，可知
+    $$
+    \left|
+    \begin{array}{cccc}
+      1   &   1   &   1  \\ 
+      a^2 &   b^2 &   c^2  \\
+      a^3 &   b^3 &   c^3\\
+    \end{array}
+    \right| = (a-b)(a-c)(b-c)(ab+bc+ca) = (ab+bc+ca)\left|
+    \begin{array}{ccc}
+      1&a&a^2\\
+      1&b&b^2\\
+      1&c&c^2
+    \end{array}
+    \right|
+    $$
+
+  \end{footnotesize}
+\end{frame}
+
+
+\begin{frame}
+  \begin{footnotesize}
+    \begin{exampleblock}{23}
+      计算
+      $$
+      \left|
+      \begin{array}{cccc}
+        1&0&2&a\\
+        2&0&b&0\\
+        3&c&4&5\\
+        d&0&0&0
+      \end{array}
+      \right|
+      $$
+    \end{exampleblock}
+    \pause
+    \jiename
+    $$
+    \begin{array}{rl}
+      \mbox{左边} & \pause \xlongequal[]{\mbox{按第4行展开}}
+      (-1)^{4+1} \cdot d \cdot \left|
+      \begin{array}{ccc}
+        0&2&a\\
+        0&b&0\\
+        c&4&5
+      \end{array}
+      \right| \\[0.4in]
+      & \pause \xlongequal[]{\mbox{按第2行展开}}
+      (-d) \cdot (-1)^{2+2} \cdot b \left|
+      \begin{array}{ccc}
+        0&a\\
+        c&5
+      \end{array}
+      \right| = abcd.
+    \end{array}
+    $$
+  \end{footnotesize}
+\end{frame}
+
+
+\begin{frame}
+  \begin{footnotesize}
+    \begin{exampleblock}{24}
+      计算
+      $$
+      \left|
+      \begin{array}{ccccc}
+        a&1&0&0\\
+       -1&b&1&0\\
+        0&-1&c&1\\
+        0&0&-1&d
+      \end{array}
+      \right|
+      $$
+    \end{exampleblock}
+    \pause
+    \jiename
+    $$
+    \begin{array}{rl}
+      \mbox{左边} & \pause \xlongequal[]{\mbox{按第1行展开}}
+      (-1)^{1+1} \cdot a \cdot \left|
+      \begin{array}{ccc}        
+        b&1&0\\
+        -1&c&1\\
+        0&-1&d
+      \end{array}
+      \right| + (-1)^{1+2} \cdot 1 \cdot\left|
+      \begin{array}{ccccc}
+        -1&1&0\\
+        0&c&1\\
+        0&-1&d
+      \end{array}
+      \right|
+      \\[0.4in]
+      & \pause = a \cdot \left|
+      \begin{array}{ccc}        
+        b&1&0\\
+        -1&c&1\\
+        0&-1&d
+      \end{array}
+      \right| +\left|
+      \begin{array}{ccccc}
+        c&1\\
+        -1&d
+      \end{array}
+      \right|\\[0.4in]
+      & \pause \xlongequal[]{\mbox{按第1行展开}}
+      a \cdot \left( b \cdot \left|
+      \begin{array}{ccc}
+        c&1\\
+        -1&d
+      \end{array}
+      \right| + (-1)^{1+2}\cdot 1 \cdot \left|
+      \begin{array}{cc}
+        -1&1\\
+        0& d
+      \end{array}
+      \right| \right) + (cd+1)\\[0.2in]
+      & \pause= a(b(cd+1)+d)+(cd+1) = (ab+1)(cd+1)+ad
+    \end{array}
+    $$
+  \end{footnotesize}
+\end{frame}
+
+\begin{frame}
+  \begin{footnotesize}
+    \begin{exampleblock}{25}
+      计算
+      $$
+      \left|
+      \begin{array}{cccc}
+        a^2&(a+1)^2&(a+2)^2&(a+3)^2\\[0.1cm]
+        b^2&(b+1)^2&(b+2)^2&(b+3)^2\\[0.1cm]
+        c^2&(c+1)^2&(c+2)^2&(c+3)^2\\[0.1cm]
+        d^2&(d+1)^2&(d+2)^2&(d+3)^2
+      \end{array}
+      \right|
+      $$
+    \end{exampleblock}
+    \pause
+    \jiename
+    $$
+    \begin{array}{rl}
+      \mbox{左边} & \pause \xlongequal[c_2-c_1]{c_4-c_3\atop c_3-c_2}
+      \left|
+      \begin{array}{cccc}
+        a^2&2a+1&2a+3&2a+5\\[0.1cm]
+        b^2&2b+1&2b+3&2b+5\\[0.1cm]
+        c^2&2c+1&2c+3&2c+5\\[0.1cm]
+        d^2&2d+1&2d+3&2d+5
+      \end{array}
+      \right|\\[0.4in]
+      &\pause \xlongequal[c_3-c_2]{c_4-c_3}
+      \left|
+      \begin{array}{cccc}
+        a^2&2a+1&2&2\\[0.1cm]
+        b^2&2b+1&2&2\\[0.1cm]
+        c^2&2c+1&2&2\\[0.1cm]
+        d^2&2d+1&2&2
+      \end{array}
+      \right| = 0.
+    \end{array}
+    $$
+  \end{footnotesize}
+\end{frame}
+
+\begin{frame}
+  \begin{footnotesize}
+    \begin{exampleblock}{26}
+      计算
+      $$
+      \left|
+      \begin{array}{cccc}
+        a&b&c&1\\
+        b&c&a&1\\
+        c&a&b&1\\
+        \frac{b+c}2&\frac{c+a}2&\frac{a+b}2&1        
+      \end{array}
+      \right|
+      $$
+    \end{exampleblock}
+    \pause
+    \jiename
+    $$
+    \mbox{原式} \pause \xlongequal[]{r_3+r_1+r_2}
+    \left|
+    \begin{array}{cccc}
+      a&b&a+b+c&1\\
+      b&c&a+b+c&1\\
+      c&a&a+b+c&1\\
+      \frac{b+c}2&\frac{c+a}2&a+b+c&1
+    \end{array}
+    \right| = 0 .
+    $$
+  \end{footnotesize}
+\end{frame}
+
+
+\begin{frame}
+  \begin{footnotesize}
+    \begin{exampleblock}{27}
+      计算
+      $$
+      \left|
+      \begin{array}{cccc}
+        a_1&0&0&b_1\\
+        0&a_2&b_2&0\\
+        0&b_3&a_3&0\\
+        b_4&0&0&a_4
+      \end{array}
+      \right|
+      $$
+    \end{exampleblock}
+    \pause
+    \jiename
+    $$
+    \begin{array}{rl}
+      \mbox{原式} &\pause\xlongequal[c_3\leftrightarrow c_2]{c_4\leftrightarrow c_3}
+      \left|
+      \begin{array}{cccc}
+        a_1&b_1&0  &  0\\
+        0  &0  &a_2&b_2\\
+        0  &0  &b_3&a_3\\
+        b_4&a_4&0  &  0
+      \end{array}
+      \right|\\[0.4in]
+      &\pause \xlongequal[r_3\leftrightarrow r_2]{r_4\leftrightarrow r_3}
+      \left|
+      \begin{array}{cccc}
+        a_1&b_1&0  &  0\\
+        b_4&a_4&0  &  0\\
+        0  &0  &a_2&b_2\\
+        0  &0  &b_3&a_3      
+      \end{array}
+      \right|
+      \pause  = (a_1a_4-b_1b_4)(a_2a_3-b_2b_3) .
+      
+    \end{array}
+    $$
+  \end{footnotesize}
+\end{frame}
+
+
+\begin{frame}
+  \begin{footnotesize}
+    \begin{exampleblock}{28}
+      计算
+      $$
+      \left|
+      \begin{array}{cccccc}
+        1&2&2&\cd&2&2\\
+        2&2&2&\cd&2&2\\
+        2&2&3&\cd&2&2\\
+        \vd&\vd&\vd&\dd&\vd&\vd\\
+        2&2&2&\cd&n-1&2\\
+        2&2&2&\cd&2&n        
+      \end{array}
+      \right|
+      $$
+    \end{exampleblock}
+    \pause
+    \jiename
+    $$
+    \begin{array}{rl}
+      \mbox{原式} &\pause = \left|
+      \begin{array}{ccccccc}
+        1&2&2&2&\cd&2&2\\
+        0&1&2&2&\cd&2&2\\
+        0&2&2&2&\cd&2&2\\
+        0&2&2&3&\cd&2&2\\
+        \vd&\vd&\vd&\vd&\dd&\vd&\vd\\
+        0&2&2&2&\cd&n-1&2\\
+        0&2&2&2&\cd&2&n        
+      \end{array}
+      \right| \pause = \left|
+      \begin{array}{ccccccc}
+        1&2&2&2&\cd&2&2\\
+        -1&-1&0&0&\cd&0&0\\
+        -1&0&0&0&\cd&0&0\\
+        -1&0&0&1&\cd&0&0\\
+        \vd&\vd&\vd&\vd&\dd&\vd&\vd\\
+        -1&0&0&0&\cd&n-3&0\\
+        -1&0&0&0&\cd&0&n-2        
+      \end{array}
+      \right|
+    \end{array}
+    $$
+  \end{footnotesize}
+\end{frame}
+
+\begin{frame}
+  \begin{footnotesize}
+    $$
+    \begin{array}{rl}
+      \mbox{原式} &= \left|
+      \begin{array}{ccccccc}
+        1&2&2&2&\cd&2&2\\
+        -1&-1&0&0&\cd&0&0\\
+        \red{-1}&0&0&0&\cd&0&0\\
+        -1&0&0&1&\cd&0&0\\
+        \vd&\vd&\vd&\vd&\dd&\vd&\vd\\
+        -1&0&0&0&\cd&n-3&0\\
+        -1&0&0&0&\cd&0&n-2        
+      \end{array}
+      \right| \\[0.6in]
+      &\pause =(-1)^{3+1} (-1)\left|
+      \begin{array}{ccccccc}
+        2&2&2&\cd&2&2\\
+        -1&0&0&\cd&0&0\\
+        0&0&1&\cd&0&0\\
+        \vd&\vd&\vd&\dd&\vd&\vd\\
+        0&0&0&\cd&n-3&0\\
+        0&0&0&\cd&0&n-2        
+      \end{array}
+      \right|
+      \\[0.2in]
+      &\pause = -2 (n-2)!
+    \end{array}
+    $$    
+  \end{footnotesize}
+\end{frame}
+
+
+\begin{frame}
+  \begin{footnotesize}
+    \begin{exampleblock}{29}
+      计算
+      $$
+      \left|
+      \begin{array}{ccccc}
+        1&1&1&\cd&1\\[0.1cm]
+        a&a-1&a-2&\cd&a-n\\[0.1cm]
+        a^2&(a-1)^2&(a-2)^2&\cd&(a-n)^2\\[0.1cm]
+        \vd&\vd&\vd&&\vd\\[0.1cm]
+        a^n&(a-1)^n&(a-2)^n&\cd&(a-n)^n      
+      \end{array}
+      \right|
+      $$      
+    \end{exampleblock}
+    \pause
+    \jiename
+    该行列式为范德蒙行列式，\pause 故
+    $$
+    \begin{array}{rl}
+      \mbox{原式} & = \prod_{n\ge i > j \ge 0} [(a-i)-(a-j)] \\[0.4cm]
+      &= \prod_{n\ge i > j \ge 0} (j-i) \\[0.4cm]
+      & = (-1)^{\frac{n(n+1)}2} \prod_{n\ge i > j \ge 0} (i-j) \\[0.4cm]
+      & = (-1)^{\frac{n(n+1)}2} \prod_{i=1}^n i!      
+    \end{array}
+    $$
+  \end{footnotesize}
+\end{frame}
+
+
+\begin{frame}
+  \begin{footnotesize}
+    \begin{exampleblock}{30}
+      计算
+      $$
+      \left|
+      \begin{array}{cccccc}
+        a_1^n&a_1^{n-1}b_1&a_1^{n-2}b_1^2&\cd&a_1b_1^{n-1}&b_1^n\\[0.1cm]
+        a_2^n&a_2^{n-1}b_2&a_2^{n-2}b_2^2&\cd&a_2b_2^{n-1}&b_2^n\\[0.1cm]
+        \vd&\vd&\vd&&\vd&\vd\\[0.1cm]
+        a_{n+1}^n&a_{n+1}^{n-1}b_{n+1}&a_{n+1}^{n-2}b_{n+1}^2&\cd&a_{n+1}b_{n+1}^{n-1}&b_{n+1}^n\\[0.1cm]
+      \end{array}
+      \right|
+      $$
+    \end{exampleblock}
+    \pause
+    \jiename
+    $$
+    \begin{array}{rl}
+      \mbox{原式} & \pause = a_1^n a_2^n \cd a_{n+1}^n \left|
+      \begin{array}{cccccc}
+        1&a_1^{-1}b_1&(a_1^{-1}b_1)^2&\cd&(a_1^{-1}b_1)^{n-1}&(a_1^{-1}b_1)^n\\[0.1cm]
+        1&a_2^{-1}b_2&(a_2^{-1}b_2)^2&\cd&(a_2^{-1}b_2)^{n-1}&(a_2^{-1}b_2)^n\\[0.1cm]
+        \vd&\vd&\vd&&\vd&\vd\\[0.1cm]
+        1&a_{n+1}^{-1}b_{n+1}&(a_{n+1}^{-1}b_{n+1})^2&\cd&(a_{n+1}^{-1}b_{n+1})^{n-1}&(a_{n+1}^{-1}b_{n+1})^n\\[0.1cm]
+      \end{array}
+      \right| \\[0.4in]
+      & \pause \ds = a_1^n a_2^n \cd a_{n+1}^n \prod_{n+1\ge i > j \ge 1} \left(\frac{b_i}{a_i}-\frac{b_j}{a_j}\right)
+      \\[0.2in]
+      & \pause \ds =   \prod_{n+1\ge i > j \ge 1} (b_ia_j-a_ib_j)
+    \end{array}
+    $$
+  \end{footnotesize}
+\end{frame}
+
+\begin{frame}
+  \begin{footnotesize}
+    \begin{exampleblock}{31}
+      用克拉默法则求
+      $$
+      \left\{
+      \begin{array}{rcrcrcrcrc}
+        5x_1&&&+&4x_3&+&2x_4&=&3,\\[0.1cm]
+        x_1&-&x_2&+&2x_3&+& x_4&=&1,\\[0.1cm]
+        4x_1&+&x_2&+&2x_3& & &=&1,\\[0.1cm]
+         x_1&+&x_2&+& x_3&+&x_4&=&0.
+      \end{array}
+      \right.
+      $$
+    \end{exampleblock}
+    \pause
+    \jiename
+    $$
+    \begin{array}{rl}
+      D &\pause = \left|
+      \begin{array}{rrrr}
+        5&0&4&2\\
+        1&-1&2&1\\
+        4&1&2&0\\
+        1&1&1&1
+      \end{array}
+      \right| = -7, \\[0.3in] \pause 
+      D_1 &\pause = \left|
+      \begin{array}{rrrr}
+        \red{3}&0&4&2\\
+        \red{1}&-1&2&1\\
+        \red{1}&1&2&0\\
+        \red{0}&1&1&1
+      \end{array}
+      \right| \pause\xlongequal[r_4+r_2]{r_3+r_2} \left|
+      \begin{array}{rrrr}
+        3&0&4&2\\
+        1&-1&2&1\\
+        2&0&4&1\\
+        1&0&3&2
+      \end{array}
+      \right| \pause=  (-1)^{2+2} (-1) \left|
+      \begin{array}{rrrr}
+        3&4&2\\
+        2&4&1\\
+        1&3&2
+      \end{array}
+      \right| \\[0.3in]
+      &\pause \xlongequal[r_3-2r_2]{r_1-2r_2}  - \left|
+      \begin{array}{rrrr}
+        -1&-4&0\\
+        2&4&1\\
+        -3&-5&0
+      \end{array}
+      \right| \pause = - (-1)^{2+3} \cdot  \left|
+      \begin{array}{rrrr}
+        -1&-4\\
+        -3&-5
+      \end{array}
+      \right| = -7,
+    \end{array}
+    $$
+  \end{footnotesize}
+\end{frame}
+
+\begin{frame}
+  \begin{footnotesize}
+    $$
+    \begin{array}{rl}
+      D_2 &=\left|
+      \begin{array}{rrrr}
+        5&\red{3}&4&2\\
+        1&\red{1}&2&1\\
+        4&\red{1}&2&0\\
+        1&\red{0}&1&1
+      \end{array}
+      \right| \pause
+      \xlongequal[c_4-c_1]{c_3-c_1}
+      \left|
+      \begin{array}{rrrr}
+        5&\red{3}&-1&-3\\
+        1&\red{1}& 1& 0\\
+        4&\red{1}&-2&-4\\
+        1&\red{0}& 0& 0
+      \end{array}
+      \right|
+      \pause
+      =  (-1)^{4+1} \cdot 
+      \left|
+      \begin{array}{rrrr}
+        3&-1&-3\\
+        1& 1& 0\\
+        1&-2&-4\\       
+      \end{array}
+      \right|  \\[0.3in]
+      &\pause \xlongequal[]{c_1-c_2}
+      -\left|
+      \begin{array}{rrrr}
+        4&-1&-3\\
+        0& 1& 0\\
+        3&-2&-4\\       
+      \end{array}
+      \right| \pause = -(-1)^{2+2} \cdot \left|
+      \begin{array}{rrrr}
+        4&-3\\
+        3&-4\\       
+      \end{array}
+      \right| = 7,   \\[0.4in] \pause  
+      D_3 & \pause = \left|
+      \begin{array}{rrrr}
+        5& 0&\red{3}&2\\
+        1&-1&\red{1}&1\\
+        4& 1&\red{1}&0\\
+        1& 1&\red{0}&1
+      \end{array}
+      \right| \pause
+      \xlongequal[r_4+r_2]{r_3+r_2}
+      \left|
+      \begin{array}{rrrr}
+        5& 0&3&2\\
+        1&-1&1&1\\
+        5& 0&2&1\\
+        2& 0&1&2
+      \end{array}
+      \right|
+      \pause
+      =  (-1)^{2+2}  (-1)   
+      \left|
+      \begin{array}{rrrr}
+        5&3&2\\
+        5&2&1\\
+        2&1&2
+      \end{array}
+      \right|  \\[0.3in]
+      &\pause \xlongequal[c_3-2c_2]{c_1-2c_2}
+      -\left|
+      \begin{array}{rrrr}
+        -1&3&-4\\
+         1&2&-3\\
+         0&1& 0
+      \end{array}
+      \right| \pause = -(-1)^{3+2} \cdot \left|
+      \begin{array}{rrrr}
+        -1&-4\\
+         1&-3\\       
+      \end{array}
+      \right| = 7
+    \end{array} 
+    $$
+  \end{footnotesize}
+\end{frame}
+
+
+\begin{frame}
+  \begin{footnotesize}
+    $$
+    \begin{array}{rl}
+      D_4 &= \left|
+      \begin{array}{rrrr}
+        5&0&4&\red{3}\\
+        1&-1&2&\red{1}\\
+        4&1&2&\red{1}\\
+        1&1&1&\red{0}\\
+      \end{array}
+      \right|
+      \pause
+      \xlongequal[r_4+r_2]{r_3+r_2}
+      \left|
+      \begin{array}{rrrrr}
+        5&0&4&{3}\\
+        1&-1&2&{1}\\
+        5&0&4&{2}\\
+        2&0&3&{1}\\
+      \end{array}
+      \right| \\[0.4in]
+      &\pause =  -   
+      \left|
+      \begin{array}{rrr}
+        5&4&{3}\\
+        5&4&{2}\\
+        2&3&{1}\\
+      \end{array}
+      \right| \pause\pause
+      \xlongequal[]{r_1-r_2}
+      -\left|
+      \begin{array}{rrr}
+        0&0&{1}\\
+        5&4&{2}\\
+        2&3&{1}\\
+      \end{array}\right| \pause
+      =
+      -\left|
+      \begin{array}{rrr}
+        5&4\\
+        2&3\\
+      \end{array}\right|
+      = -7.
+    \end{array}
+    $$ \pause
+    由克拉默法则可知，
+    $$
+    \begin{array}{lll}
+      \ds x_1 = \frac{D_1}D = 1, &
+      \ds x_2 = \frac{D_2}D = -1, \\[0.2in]
+      \ds x_3 = \frac{D_3}D = -1, &
+      \ds x_4 = \frac{D_4}D = 1.
+    \end{array}
+    $$
+  \end{footnotesize}
+\end{frame}
+
+
+
+\begin{frame}
+  \begin{footnotesize}
+    \begin{exampleblock}{32}
+      用克拉默法则求
+      $$
+      \left\{
+      \begin{array}{rcrcrcrcrcrc}
+        &&x_2&+&x_3&+&x_4&+&x_5=&1,\\[0.1cm]
+        x_1&&&+&x_3&+&x_4&+&x_5&=&2,\\[0.1cm]
+        x_1&+&x_2&&&+&x_4&+&x_5&=&3,\\[0.1cm]
+        x_1&+&x_2&+&x_3& & &+&x_5&=&4,\\[0.1cm]
+        x_1&+&x_2&+& x_3&+&x_4&&&=&5.
+      \end{array}
+      \right.
+      $$
+    \end{exampleblock}
+    \pause
+    \jiename
+    $$
+    \begin{array}{rl}
+      D &= \left|
+      \begin{array}{rrrrr}
+        0&1&1&1&1\\
+        1&0&1&1&1\\
+        1&1&0&1&1\\
+        1&1&1&0&1\\
+        1&1&1&1&0\\
+      \end{array}
+      \right|\pause
+      \xlongequal[r_1\div 4]{r_1+r_2+\cd+r_5}
+      4 \left|
+      \begin{array}{rrrrr}
+        1&1&1&1&1\\
+        1&0&1&1&1\\
+        1&1&0&1&1\\
+        1&1&1&0&1\\
+        1&1&1&1&0\\
+      \end{array}
+      \right| , \\[0.3in]
+      & \pause\xlongequal[i=2,\cd, 4]{r_i-r_1}
+      4 \left|
+      \begin{array}{rrrrr}
+        1&1&1&1&1\\
+        0&-1&0&0&0\\
+        0&0&-1&0&0\\
+        0&0&0&-1&0\\
+        0&0&0&0&-1\\
+      \end{array}
+      \right| = 4.
+    \end{array}
+    $$
+  \end{footnotesize}
+\end{frame}
+
+
+
+\begin{frame}
+  \begin{footnotesize}
+    $$
+    \begin{array}{rl}
+      D_1 &= \left|
+      \begin{array}{rrrrr}
+        \red{1}&1&1&1&1\\
+        \red{2}&0&1&1&1\\
+        \red{3}&1&0&1&1\\
+        \red{4}&1&1&0&1\\
+        \red{5}&1&1&1&0\\
+      \end{array}
+      \right| \pause
+      \xlongequal[r_5-r_1]{r_3-r_1\atop r_4-r_1}
+      \left|
+      \begin{array}{rrrrr}
+        {1}&\purple{1}&1&1&1\\
+        {2}&0&1&1&1\\
+        {2}&0&-1&0&0\\
+        {3}&0&0&-1&0\\
+        {4}&0&0&0&-1\\
+      \end{array}
+      \right| \\[0.4in]
+      &\pause =  (-1)^{1+2} \cdot    
+      \left|
+      \begin{array}{rrrr}
+        \red{2}&1&1&1\\
+        \red{2}&-1&0&0\\
+        \red{3}&0&-1&0\\
+        \red{4}&0&0&-1\\
+      \end{array}
+      \right| \pause
+      \xlongequal[]{r_1+r_2+r_3+r_4}
+      -\left|
+      \begin{array}{rrrr}
+        \purple{11}&0&0&0\\
+        {2}&-1&0&0\\
+        {3}&0&-1&0\\
+        {4}&0&0&-1\\
+      \end{array}\right| = 11,  \\[0.4in]
+      \pause D_2 &\pause = \left|
+      \begin{array}{rrrrr}
+        0&\red{1}&1&1&1\\
+        1&\red{2}&1&1&1\\
+        1&\red{3}&0&1&1\\
+        1&\red{4}&1&0&1\\
+        1&\red{5}&1&1&0\\
+      \end{array}
+      \right| \pause \xlongequal[r_5-r_2]{r_3-r_2\atop r_4-r_2}
+      \left|
+      \begin{array}{rrrrr}
+        0&\red{1}&1&1&1\\
+        \purple{1}&\red{2}&1&1&1\\
+        0&\red{1}&-1&0&0\\
+        0&\red{2}&0&-1&0\\
+        0&\red{3}&0&0&-1\\
+      \end{array}
+      \right| \\[0.4in]
+      &\pause =  (-1)^{2+1} \cdot    
+      \left|
+      \begin{array}{rrrr}
+        {1}&1&1&1\\
+        {1}&-1&0&0\\
+        {2}&0&-1&0\\
+        {3}&0&0&-1\\
+      \end{array}
+      \right| \pause
+      \xlongequal[]{r_1+r_2+r_3+r_4}
+      -\left|
+      \begin{array}{rrrr}
+        \purple{7}&0&0&0\\
+        {1}&-1&0&0\\
+        {2}&0&-1&0\\
+        {3}&0&0&-1\\
+      \end{array}\right| = 7.
+    \end{array}
+    $$
+  \end{footnotesize}
+\end{frame}
+
+
+\begin{frame}
+  \begin{footnotesize}
+    $$
+    \begin{array}{rl}
+      D_3 &= \left|
+      \begin{array}{rrrrr}
+        0&1&\red{1}&1&1\\
+        1&0&\red{2}&1&1\\
+        1&1&\red{3}&1&1\\
+        1&1&\red{4}&0&1\\
+        1&1&\red{5}&1&0\\
+      \end{array}
+      \right| \pause \xlongequal[r_5-r_3]{r_2-r_3\atop r_4-r_3}
+      \left|
+      \begin{array}{rrrrr}
+        0&1&{1}&1&1\\
+        0&-1&{-1}&0&0\\
+        \purple{1}&1&{1}&0&0\\
+        0&0&{1}&-1&0\\
+        0&0&{2}&0&-1\\
+      \end{array}
+      \right| \\[0.4in]
+      &\pause =  (-1)^{1+3} \cdot    
+      \left|
+      \begin{array}{rrrr}
+        1&{1}&1&1\\
+        -1&{-1}&0&0\\
+        0&{1}&-1&0\\
+        0&{2}&0&-1\\
+      \end{array}
+      \right| \pause 
+      \xlongequal[]{r_1+r_2+r_3+r_4}
+      \left|
+      \begin{array}{rrrr}
+        0&\purple{3}&0&0\\
+        -1&{-1}&0&0\\
+        0&{1}&-1&0\\
+        0&{2}&0&-1\\
+      \end{array}\right| = 3, \\[0.4in]
+      \pause D_4 & \pause = \left|
+      \begin{array}{rrrrr}
+        0&1&1&\red{1}&1\\
+        1&0&1&\red{2}&1\\
+        1&1&0&\red{3}&1\\
+        1&1&1&\red{4}&1\\
+        1&1&1&\red{5}&0\\
+      \end{array}
+      \right| \pause \xlongequal[r_5-r_4]{r_2-r_4\atop r_3-r_4}
+      \left|
+      \begin{array}{rrrrr}
+        0&1&1&{1}&1\\
+        0&-1&0&{-2}&0\\
+        0&0&-1&{-1}&0\\
+        \purple{1}&1&1&{4}&1\\
+        0&0&0&{1}&-1\\
+      \end{array}
+      \right| \\[0.4in]
+      &\pause =  (-1)^{4+1} \cdot    
+      \left|
+      \begin{array}{rrrr}
+        1&1&{1}&1\\
+        -1&0&{-2}&0\\
+        0&-1&{-1}&0\\
+        0&0&{1}&-1\\
+      \end{array}
+      \right| \pause 
+      \xlongequal[]{r_1+r_2+r_3+r_4}
+      -\left|
+      \begin{array}{rrrr}
+        0&0&\purple{-1}&0\\
+        -1&0&{-2}&0\\
+        0&-1&{-1}&0\\
+        0&0&{1}&-1\\
+       \end{array}\right| = -1.
+    \end{array}
+    $$
+  \end{footnotesize}
+\end{frame}
+
+
+\begin{frame}
+  \begin{footnotesize}
+    $$
+    \begin{array}{rl}
+      D_5 &= \left|
+      \begin{array}{rrrrr}
+        0&1&1&1&\red{1}\\
+        1&0&1&1&\red{2}\\
+        1&1&0&1&\red{3}\\
+        1&1&1&0&\red{4}\\
+        1&1&1&1&\red{5}\\
+      \end{array}
+      \right| \pause \xlongequal[r_4-r_5]{r_2-r_5\atop r_3-r_5}
+      \left|
+      \begin{array}{rrrrr}
+        0&1&1&1&{1}\\
+        0&-1&0&0&{-3}\\
+        0&0&-1&0&{-2}\\
+        0&0&0&-1&{-1}\\
+        \purple{1}&1&1&1&{5}\\
+      \end{array}
+      \right| \\[0.4in]
+      &\pause =  (-1)^{5+1} \cdot    
+      \left|
+      \begin{array}{rrrr}
+        1&1&1&{1}\\
+        -1&0&0&{-3}\\
+        0&-1&0&{-2}\\
+        0&0&-1&{-1}\\
+      \end{array}
+      \right|
+      \xlongequal[]{r_1+r_2+r_3+r_4}
+      \left|
+      \begin{array}{rrrr}
+        0&0&0&\purple{-5}\\
+        -1&0&0&{-3}\\
+        0&-1&0&{-2}\\
+        0&0&-1&{-1}\\
+      \end{array}\right| = -5.
+    \end{array}
+    $$
+    \pause
+    由克拉默法则可知，
+    $$
+    \begin{array}{lll}
+      \ds x_1 = \frac{D_1}D = \frac{11}4, &
+      \ds x_2 = \frac{D_2}D = \frac74, &
+      \ds x_3 = \frac{D_3}D = \frac34, \\[0.2in]
+      \ds x_4 = \frac{D_4}D = -\frac14, &
+      \ds x_5 = \frac{D_5}D = -\frac54.
+    \end{array}
+    $$
+  \end{footnotesize}
+\end{frame}
+
+\begin{frame}
+  \begin{footnotesize}
+    \begin{exampleblock}{33}
+      齐次线性方程组
+      $$
+      \left\{
+      \begin{array}{rcrcrcrcrc}
+        x_1&+& x_2&+& x_3&+&ax_4&=&0,\\[0.1cm]
+        x_1&+&2x_2&+& x_3&+& x_4&=&0,\\[0.1cm]
+        x_1&+& x_2&-&3x_3&+& x_4&=&0,\\[0.1cm]
+        x_1&+& x_2&+&ax_3&+&bx_4&=&0.
+      \end{array}
+      \right.
+      $$
+      有非零解时，$a,b$必须满足什么条件？
+    \end{exampleblock}
+    \pause 
+    \begin{block}{注}
+      齐次线性方程组有非零解的充分必要条件是\red{系数行列式为零}。
+    \end{block}
+    \pause
+    \jiename
+    $$
+    D = \left|
+    \begin{array}{cccc}
+      1&1&1&a\\
+      1&2&1&1\\
+      1&1&-3&1\\
+      1&1&a&b\\
+    \end{array}
+    \right| \pause \xlongequal[]{r_1\leftrightarrow r_3}
+    \left|
+    \begin{array}{cccc}
+      1&1&-3&1\\
+      1&2&1&1\\
+      1&1&1&a\\
+      1&1&a&b\\
+    \end{array}
+    \right| \pause \xlongequal[r_4-r_1]{r_2-r_1 \atop r_3-r_1}
+    \left|
+    \begin{array}{cccc}
+      1&1&-3&1\\
+      0&1&4&0\\
+      0&0&4&a-1\\
+      0&0&a+3&b-1\\
+    \end{array}
+    \right| = 0,
+    $$
+    \pause
+    即
+    $4(b-1)-(a-1)(a+3)=0$，也就是
+    \red{$(a-1)^2=4b$}.
+  \end{footnotesize}
+\end{frame}
+
+\begin{frame}
+  \begin{footnotesize}
+    \begin{exampleblock}{34}
+      求平面上过两点$(x_1,y_1)$和$(x_2,y_2)$的直线方程（用行列式表示）。
+    \end{exampleblock}
+    \pause
+    \jiename
+    直线方程的两点式为
+    $$
+    \frac{y-y_1}{x-x_1}=\frac{y_2-y_1}{x_2-x_1},
+    $$
+    \pause 
+    即
+    $$
+    (y-y_1)(x_2-x_1)=(x-x_1)(y_2-y_1)
+    $$
+    亦即
+    $$
+    x(y_1-y_2)+y(x_2-x_1)+x_1y_2-x_2y_1=0.
+    $$
+    \pause 
+    由行列式的按行展开可知，其行列式形式为
+    $$
+    \left|
+    \begin{array}{ccc}
+      x&y&1\\
+      x_1&y_1&1\\
+      x_2&y_2&1      
+    \end{array}
+    \right|=0.
+    $$
+  \end{footnotesize}
+\end{frame}
+
+
+\begin{frame}
+  \begin{footnotesize}
+    \begin{exampleblock}{35}
+      求三次多项式$f(x)=a_0+a_1x+a_2x^2+a_3x^3$，使得
+      $$
+      f(-1)=0,~~f(1)=4,~~f(2)=3,~~f(3)=16.
+      $$
+    \end{exampleblock}
+    \pause
+    \jiename
+    由条件可知，$f(x)$应满足线性方程组
+    $$
+    \left\{
+    \begin{array}{rcrcrcrcrcr}
+      a_0&+&(-1)a_1&+&(-1)^2a_2&+&(-1)^3a_3&=&0, \\[0.2cm]
+      a_0&+&    a_1&+&      a_2&+&      a_3&=&4, \\[0.2cm]
+      a_0&+&  2 a_1&+&( 2)^2a_2&+&( 2)^3a_3&=&3, \\[0.2cm]
+      a_0&+&  3 a_1&+&( 3)^2a_2&+&( 3)^3a_3&=&16.
+    \end{array}
+    \right.
+    $$
+    \pause
+    其系数行列式$D$为范德蒙行列式
+    $$
+    D = \left|
+    \begin{array}{cccc}
+      1& -1&(-1)^2&(-1)^3\\[0.1cm]
+      1&  1&   1^2&1^3\\[0.1cm]
+      1&  2&   2^2&2^3\\[0.1cm]
+      1&  3&   3^2&3^3
+    \end{array}
+    \right| 
+    = (3+1)(3-1)(3-2)(2+1)(2-1)(1+1) = 48.
+    $$
+  \end{footnotesize}
+\end{frame}
+
+\begin{frame}
+  \begin{footnotesize}
+    $$
+    \begin{array}{rl}
+      D_1 &= \left|
+      \begin{array}{cccc}
+        \red{0} & -1&   1&-1\\[0.1cm]
+        \red{4} &  1&   1&1\\[0.1cm]
+        \red{3} &  2&   4&8\\[0.1cm]
+        \red{16}&  3&   9&27
+      \end{array}
+      \right|\pause
+      \xlongequal[c_4+c_3]{c_2+c_3}
+      \left|
+      \begin{array}{cccc}
+        {0} &  0&   \purple{1}&0\\[0.1cm]
+        {4} &  2&   1&2\\[0.1cm]
+        {3} &  6&   4&12\\[0.1cm]
+        {16}& 12&   9&36
+      \end{array}
+      \right| \pause = \left|
+      \begin{array}{cccc}
+        {4} &  2&   2\\[0.1cm]
+        {3} &  6&   12\\[0.1cm]
+        {16}& 12&   36
+      \end{array}
+      \right| \\[0.4in]
+      &\pause\xlongequal[c_2-c_3]{c_1-2c_3}
+      \left|
+      \begin{array}{cccc}
+        {0} &  0&   \purple{2}\\[0.1cm]
+        {-9}& -6&   12\\[0.1cm]
+        {-8}& -24&   36
+      \end{array}
+      \right| = 48\times 7, \\[0.4in]
+      \pause D_2 & \pause= \left|
+      \begin{array}{cccc}
+          1&\red{0} &   1&-1\\[0.1cm]
+          1&\red{4} &   1&1\\[0.1cm]
+          1&\red{3} &   4&8\\[0.1cm]
+          1&\red{16}&   9&27
+      \end{array}
+      \right| \pause
+      \xlongequal[c_3+c_4]{c_1+c_4}
+      \left|
+      \begin{array}{cccc}
+        0&{0}  &   0&\purple{-1}\\[0.1cm]
+        2&{4}  &   2&1\\[0.1cm]
+        9&{3}  &   12&8\\[0.1cm]
+        28&{16}&   36&27
+      \end{array}
+      \right| \pause = -\left|
+      \begin{array}{cccc}
+        2&{4}  &   2\\[0.1cm]
+        9&{3}  &   12\\[0.1cm]
+        28&{16}&   36
+      \end{array}
+      \right| \\[0.4in]
+      &\pause \xlongequal[c_2-c_1]{c_2-2c_1}
+      \left|
+      \begin{array}{cccc}
+        \purple{2} &  0&   0\\[0.1cm]
+        {9}& -15&   3\\[0.1cm]
+        {28}& -40& 8
+      \end{array}
+      \right| = 0.
+    \end{array}
+    $$
+  \end{footnotesize}
+\end{frame}
+
+
+\begin{frame}
+  \begin{footnotesize}
+    $$
+    \begin{array}{rl}
+      D_3 &= \left|
+      \begin{array}{cccc}
+        1& -1&   \red{0} &-1\\[0.1cm]
+        1&  1&   \red{4} &1\\[0.1cm]
+        1&  2&   \red{3} &8\\[0.1cm]
+        1&  3&   \red{16}&27
+      \end{array}
+      \right| \pause
+      \xlongequal[c_4+c_1]{c_2+c_1}
+      \left|
+      \begin{array}{cccc}
+        \purple{1}&  0&   {0} &0\\[0.1cm]
+        1&  2&   {4} &2\\[0.1cm]
+        1&  3&   {3} &9\\[0.1cm]
+        1&  4&   {16}&28
+      \end{array}
+      \right|  \pause= \left|
+      \begin{array}{cccc}
+        2&   {4} &2\\[0.1cm]
+        3&   {3} &9\\[0.1cm]
+        4&   {16}&28
+      \end{array}
+      \right| \\[0.4in]
+      &\pause\xlongequal[c_2-c_1]{c_2-2c_1}
+      \left|
+      \begin{array}{cccc}
+        2&   {0} &0\\[0.1cm]
+        3&   {-3} &6\\[0.1cm]
+        4&   {8}&24
+      \end{array}
+      \right| = 48\times(-5), \\[0.4in]
+      \pause D_4 & \pause = \left|
+      \begin{array}{cccc}
+        1& -1 &1&\red{0} \\[0.1cm]
+        1&  1 &1&\red{4} \\[0.1cm]
+        1&  2 &4&\red{3} \\[0.1cm]
+        1&  3 &9&\red{16}
+      \end{array}
+      \right| \pause \xlongequal[c_3-c_1]{c_2+c_1}
+      \left|
+      \begin{array}{cccc}
+        1&  0 &0&{0} \\[0.1cm]
+        1&  2 &0&{4} \\[0.1cm]
+        1&  3 &3&{3} \\[0.1cm]
+        1&  4 &8&{16}
+      \end{array}
+      \right| \pause = -\left|
+      \begin{array}{cccc}
+        2 &{0}  &   4\\[0.1cm]
+        3 &{3}  &   3\\[0.1cm]
+        4 &{8}  &   16
+      \end{array}
+      \right| \\[0.4in]
+      &\pause \xlongequal[c_3-c_1]{c_2-2c_1}
+      \left|
+      \begin{array}{cccc}
+        2 &{0}  &   0\\[0.1cm]
+        3 &{3}  &   -3\\[0.1cm]
+        4 &{8}  &   4
+      \end{array}
+      \right| = 48\times 2.
+    \end{array}
+    $$
+  \end{footnotesize}
+\end{frame}
+
+\begin{frame}
+  \begin{footnotesize}
+    由克拉默法则可知
+    $$
+    x_1 = \frac{D_1}D = 7, ~~
+    x_2 = \frac{D_2}D = 0, ~~
+    x_3 = \frac{D_3}D = -5, ~~
+    x_4 = \frac{D_4}D = 2.
+    $$
+  \end{footnotesize}
+\end{frame}
+
+
+\begin{frame}
+  \begin{footnotesize}
+    \begin{exampleblock}{36}
+      证明恒等式
+      $$
+      \left|
+      \begin{array}{cccc}
+        1+a_1&1&\cd&1\\
+        1&1+a_2&\cd&1\\
+        \vd&&\vd&\vd\\
+        1&1&\cd&1+a_n\\        
+      \end{array}
+      \right| = \left(1 + \sum_{i=1}^n \frac1{a_i}\right) \prod_{i=1}^n a_i
+      $$
+    \end{exampleblock}
+    \pause
+    \textbf{证明1:}
+    $$
+    \begin{array}{rcl}
+      \mbox{左边}&=&\left|
+      \begin{array}{cccc}
+        1&1&\cd&1\\
+        1&1+a_2&\cd&1\\
+        \vd&&\vd&\vd\\
+        1&1&\cd&1+a_n\\        
+      \end{array}
+      \right|+\left|
+      \begin{array}{cccc}
+        a_1&1&\cd&1\\
+        0&1+a_2&\cd&1\\
+        \vd&&\vd&\vd\\
+        0&1&\cd&1+a_n\\        
+      \end{array}
+      \right|\\[0.4in]
+      &=&\left|
+      \begin{array}{cccc}
+        1&1&\cd&1\\
+        0&a_2&\cd&0\\
+        \vd&&\vd&\vd\\
+        0&0&\cd&a_n\\        
+      \end{array}
+      \right|+\left|
+      \begin{array}{cccc}
+        a_1&1&\cd&1\\
+        0&1+a_2&\cd&1\\
+        \vd&&\vd&\vd\\
+        0&1&\cd&1+a_n\\        
+      \end{array}
+      \right|
+    \end{array}
+    $$
+  \end{footnotesize}
+\end{frame}
+
+\begin{frame}
+  \begin{footnotesize}
+    $$
+    \begin{array}{rcl}
+      \mbox{左边}&=&a_2\cd a_n +a_1\left|
+      \begin{array}{cccc}
+        1+a_2&1&\cd&1\\
+        1&1+a_3&\cd&1\\
+        \vd&&\vd&\vd\\
+        1&1&\cd&1+a_n\\        
+      \end{array}
+      \right| \\[0.35in]
+      &=&a_2\cd a_n +a_1\left(\left|
+      \begin{array}{cccc}
+        1&1&\cd&1\\
+        1&1+a_3&\cd&1\\
+        \vd&&\vd&\vd\\
+        1&1&\cd&1+a_n\\        
+      \end{array}
+      \right|+\left|
+      \begin{array}{cccc}
+        a_2&1&\cd&1\\
+        0&1+a_3&\cd&1\\
+        \vd&&\vd&\vd\\
+        0&1&\cd&1+a_n\\        
+      \end{array}
+      \right|\right) \\[0.35in]
+      &=&a_2\cd a_n +a_1\left(\left|
+      \begin{array}{cccc}
+        1&1&\cd&1\\
+        0&a_3&\cd&0\\
+        \vd&&\vd&\vd\\
+        0&0&\cd&a_n\\        
+      \end{array}
+      \right|+\left|
+      \begin{array}{cccc}
+        a_2&1&\cd&1\\
+        0&1+a_3&\cd&1\\
+        \vd&&\vd&\vd\\
+        0&1&\cd&1+a_n\\        
+      \end{array}
+      \right|\right) \\[0.35in]
+      &=&a_2\cd a_n +a_1\left(a_3\cd a_n+a_2\left|
+      \begin{array}{cccc}
+        1+a_3&1&\cd&1\\
+        1&1+a_4&\cd&1\\
+        \vd&&\vd&\vd\\
+        1&1&\cd&1+a_n\\        
+      \end{array}
+      \right|\right) \\[0.2in]
+      &=& \cd = a_2\cd a_n + a_1a_3\cd a_n + \cd + a_1\cd a_{n-1} + a_1 \cd a_n.
+    \end{array}
+    $$
+  \end{footnotesize}
+\end{frame}
+
+\begin{frame}
+  \begin{footnotesize}
+    \textbf{证明2：}
+    $$
+    \begin{array}{rl}
+      \mbox{左边}&= \left|
+      \begin{array}{ccccc}
+        \red{1}&\red{1}&\red{1}&\red{1}&\red{1}\\
+        \red{0}&1+a_1&1&\cd&1\\
+        \red{0}&1&1+a_2&\cd&1\\
+        \red{\vd}&\vd&&\vd&\vd\\
+        \red{0}&1&1&\cd&1+a_n\\        
+      \end{array}
+      \right| \xlongequal[i=2,\cd,n+1]{r_i-r_1}
+      \left|
+      \begin{array}{ccccc}
+        \red{1}&\red{1}&\red{1}&\red{1}&\red{1}\\
+        \red{-1}&a_1&0&\cd&0\\
+        \red{-1}&0&a_2&\cd&0\\
+        \red{\vd}&\vd&&\vd&\vd\\
+        \red{-1}&0&0&\cd&a_n\\        
+      \end{array}
+      \right|\\[0.5in]
+      &\ds \xlongequal[]{\ds r_1+\sum_{i=1}^n\frac1{a_i}r_{i+1}}
+      \left|
+      \begin{array}{ccccc}
+        \red{1+\sum_{i=1}^n \frac1{a_i}}&0&0&\cd&0\\
+        \red{-1}&a_1&0&\cd&0\\
+        \red{-1}&0&a_2&\cd&0\\
+        \red{\vd}&\vd&&\vd&\vd\\
+        \red{-1}&0&0&\cd&a_n\\        
+      \end{array}
+      \right| = \left(1+\sum_{i=1}^n \frac1{a_i}\right)\prod_{i=1}^n a_i.
+    \end{array}
+    $$
+  \end{footnotesize}
+\end{frame}
+
+
+\begin{frame}
+  \begin{footnotesize}
+    \begin{exampleblock}{37}
+      $$
+      \left|
+      \begin{array}{cccccc}
+        x&-1&0&\cd&0&0\\
+        0&x&-1&\cd&0&0\\
+        \vd&\vd&\vd&&\vd&\vd\\
+        0&0&0&\cd&x&-1\\
+        a_n&a_{n-1}&a_{n-2}&\cd&a_2&x+a_1
+      \end{array}
+      \right| = x^n+\sum_{k=1}^n a_k x^{n-k}.
+      $$      
+    \end{exampleblock}
+    \pause
+    \proofname
+    记行列式为$D_n$，则
+    $$
+    \begin{array}{rcl}
+      D_n &=& xD_{n-1} + (-1)^{n+1}a_n \left|
+      \begin{array}{cccccc}
+        -1&0&\cd&0&0\\
+        x&-1&\cd&0&0\\
+        \vd&\vd&&\vd&\vd\\
+        0&0&\cd&x&-1\\
+      \end{array}
+      \right| = xD_{n-1} +a_n.
+    \end{array}
+    $$
+  \end{footnotesize}
+\end{frame}
+
+\begin{frame}
+  \begin{footnotesize}
+    于是
+    $$
+    \begin{array}{rcll}
+      D_n&=&xD_{n-1} +a_n,&\\[0.2cm]
+      D_{n-1}&=&xD_{n-2} +a_{n-1},&\red{\cd\cd \times  x}\\[0.2cm]
+      D_{n-2}&=&xD_{n-3} +a_{n-2},&\red{\cd\cd \times x^2}\\[0.2cm]
+      &\cd& &\\[0.2cm]
+      D_{2}&=&xD_{1} +a_{2}. & \red{\cd\cd  \times x^{n-2}}
+    \end{array}
+    $$
+    \pause 
+    所以
+    $$
+    \begin{array}{rcl}
+      D_n &=& a_n+a_{n-1}x+\cd+a_2x^{n-2} + x^{n-1} D_1\\[0.1cm]
+      &=& a_n+a_{n-1}x+\cd+a_2x^{n-2} + x^{n-1} (x+a_1) = \mbox{右边}
+    \end{array}
+    $$
+  \end{footnotesize}
+\end{frame}
+
+\begin{frame}
+  \begin{footnotesize}
+    \begin{exampleblock}{38}
+      证明
+      $$
+      \left|
+      \begin{array}{cccccc}
+        a_1&-1&0&\cd&0&0\\
+        a_2&x&-1&\cd&0&0\\
+        a_3&0&x&\cd&0&0\\
+        \vd&\vd&\vd &&\vd&\vd\\
+        a_{n-1}&0&0&\cd&x&-1\\
+        a_{n}&0&0&\cd&0&x        
+      \end{array}
+      \right|
+      = \sum_{k=1}^n a_k x^{n-k}
+      $$
+    \end{exampleblock}
+    \pause
+    \proofname
+    记行列式为$D_n$
+    $$
+    \begin{array}{rcl}
+      D_n &=& (-1)^{n+1} a_n       \left|
+      \begin{array}{cccccc}
+        -1&0&\cd&0&0\\
+        x&-1&\cd&0&0\\
+        0&x&\cd&0&0\\
+        \vd&\vd &&\vd&\vd\\
+        0&0&\cd&x&-1
+      \end{array}
+      \right|
+      + (-1)^{2n} x       \left|
+      \begin{array}{cccccc}
+        a_1&-1&0&\cd&0\\
+        a_2&x&-1&\cd&0\\
+        a_3&0&x&\cd&0\\
+        \vd&\vd&\vd &&\vd\\
+        a_{n-1}&0&0&\cd&x\\
+      \end{array}
+      \right| \\[0.4in]
+      &=& a_n + x D_{n-1}.
+    \end{array}
+    $$
+  \end{footnotesize}
+\end{frame}
+
+\begin{frame}
+  \begin{footnotesize}
+    于是
+    $$
+    \begin{array}{rcll}
+      D_n&=&xD_{n-1} +a_n,&\\[0.2cm]
+      D_{n-1}&=&xD_{n-2} +a_{n-1},&\red{\cd\cd \times  x}\\[0.2cm]
+      D_{n-2}&=&xD_{n-3} +a_{n-2},&\red{\cd\cd \times x^2}\\[0.2cm]
+      &\cd& &\\[0.2cm]
+      D_{2}&=&xD_{1} +a_{2}. & \red{\cd\cd  \times x^{n-2}}
+    \end{array}
+    $$
+    \pause 
+    所以
+    $$
+    \begin{array}{rcl}
+      D_n &=& a_n+a_{n-1}x+\cd+a_2x^{n-2} + x^{n-1} D_1\\[0.1cm]
+      &=& a_n+a_{n-1}x+\cd+a_2x^{n-2} + x^{n-1} a_1 = \mbox{右边}
+    \end{array}
+    $$
+  \end{footnotesize}
+\end{frame}
+
+
+\begin{frame}
+  \begin{footnotesize}
+    \begin{exampleblock}{39}
+      $$
+      \left|
+      \begin{array}{ccccc}
+        \cos\theta&1&&&\\
+        1&2\cos\theta&1&&\\
+        &\dd&\dd&\dd&\\
+        &&1&2\cos\theta&1\\
+        &&&1&2\cos\theta
+      \end{array}
+      \right|
+      = \cos n \theta
+      $$
+    \end{exampleblock}
+    \pause
+    \proofname
+    $$
+    \begin{array}{rcl}
+      D_n &=& (-1)^{n+(n-1)} \left|
+      \begin{array}{cccccc}
+        \cos\theta&1&&&&\\
+        1&2\cos\theta&1&&&\\
+        &\dd&\dd&\dd&&\\
+        &&1&2\cos\theta&1&\\
+        &&&1&2\cos\theta&\\
+        &&&&1&1
+      \end{array}
+      \right|_{n-1} + 2\cos\theta D_{n-1}\\[0.4in]    
+      &=& -  D_{n-2} + 2\cos\theta D_{n-1}.    
+    \end{array}
+    $$
+  \end{footnotesize}
+\end{frame}
+
+\begin{frame}
+  \begin{footnotesize}
+    用数学归纳法证明。
+    \begin{itemize}
+    \item[$1^o$] 当$n=1$时，结论显然成立。
+    \item[$2^o$] 假设结论对阶数$\le n-1$的行列式成立，则由上式可知
+      $$
+      \begin{array}{rcl}
+        D_n &=& -D_{n-2} + 2\cos\theta D_{n-1} \\[0.2cm]
+        &=& -\cos (n-2)\theta + 2\cos\theta\cos(n-1)\theta\\[0.2cm]
+        &=& -\cos (n-2)\theta + \cos (n-2)\theta \cos n \theta\\[0.2cm]
+        &=& \cos n\theta.
+      \end{array}      
+      $$
+    \end{itemize}
+  \end{footnotesize}
+\end{frame}
+
+
+\begin{frame}
+  \begin{footnotesize}
+    \begin{exampleblock}{40}
+      计算
+      $$
+      \left|
+      \begin{array}{rrrr}
+        \ds \frac13 & -\ds \frac52 & \ds \frac25 & \ds \frac32\\[0.3cm]
+        3&-12&\ds \frac{21}5&15\\[0.3cm]
+        \ds \frac23&-\ds \frac92&\ds \frac45&\ds \frac52\\[0.3cm]
+        -\ds \frac17&\ds \frac27&-\ds \frac17&\ds \frac37        
+      \end{array}
+      \right|
+      $$
+    \end{exampleblock}
+    \pause
+    \jiename
+    $$
+    \begin{array}{rcl}
+      \mbox{原式}
+      &= & \ds 
+      \frac1{30} \times \frac35 \times \frac1{30} \times \frac17 \times 
+      \left|
+      \begin{array}{rrrr}
+        10 & -75 & 12 & 45\\
+        5&-20&7&25\\
+        20&-135&24&75\\
+        -1&2&-1&3        
+      \end{array}
+      \right|
+      \\[0.4in]
+      &\xlongequal[r_4+3\times r_1]{r_2+2\times r_1\atop r_3-r_1}&
+      \ds 
+      \frac1{35\times 300}\times
+      \left|
+      \begin{array}{rrrr}
+        10 & -55 & 2 & 75\\
+        5&-10&2&40\\
+        20&-95&4&135\\
+        -1&0&0&0        
+      \end{array}
+      \right|
+    \end{array}
+    $$
+  \end{footnotesize}
+\end{frame}
+
+\begin{frame}
+  \begin{footnotesize}
+    $$
+    \begin{array}{rl}
+      \mbox{原式}
+      &= 
+      \ds 
+      \frac1{35\times 300}\times
+      \left|
+      \begin{array}{rrrr}
+        -55&2&75\\
+        -10&2&40\\
+        -95&4&135\\
+      \end{array}
+      \right|\\[0.3in]
+      &\xlongequal[r_3-2r_1]{r_2-r_1}
+      \ds 
+      \frac1{35\times 300}\times
+      \left|
+      \begin{array}{rrrr}
+        -55&2&75\\
+         40&0&-35\\
+         15&0&-15\\
+      \end{array}
+      \right|\\[0.3in]
+      & \ds = \frac{-2}{35\times 300}\times
+      \left|
+      \begin{array}{rrrr}
+        40&-35\\
+        15&-15\\
+      \end{array}
+      \right| = \frac{-2}{35\times 300}\times 15 \times (-45+35) = \frac1{35}. 
+    \end{array}
+    $$    
+  \end{footnotesize}
+\end{frame}
+
+\begin{frame}
+  \begin{footnotesize}
+    \begin{exampleblock}{41}
+      计算
+      $$
+      \left|
+      \begin{array}{rrrrr}
+        1&1&\cd&1&-n\\
+        1&1&\cd&-n&1\\
+        \vd&\vd&&\vd&\vd\\
+        1&-n&\cd&1&1\\
+        -n&1&\cd&1&1
+      \end{array}
+      \right|
+      $$
+    \end{exampleblock}
+    \pause
+    \jiename
+    $$
+    \begin{array}{rl}
+      \mbox{原式}&\xlongequal[]{r_1+r_2+\cd+r_n}
+      \left|
+      \begin{array}{rrrrr}
+        -1&1&\cd&1&-n\\
+        -1&1&\cd&-n&1\\
+        \vd&\vd&&\vd&\vd\\
+        -1&-n&\cd&1&1\\
+        -1&1&\cd&1&1
+      \end{array}
+      \right| \\[0.4in]
+      & \xlongequal[i=2,\cd,n]{r_i-r_1}
+      \left|
+      \begin{array}{rrrrr}
+        -1&1&\cd&1&-n\\
+        0&0&\cd&-n-1&1+n\\
+        \vd&\vd&&\vd&\vd\\
+        0&-n-1&\cd&0&1+n\\
+        0&0&\cd&0&1+n
+      \end{array}
+      \right|
+    \end{array}
+    $$
+  \end{footnotesize}
+\end{frame}
+
+
+\begin{frame}
+  \begin{footnotesize}
+    $$
+    \begin{array}{rl}
+      \mbox{原式}&=
+      -\left|
+      \begin{array}{rrrrr}
+        0&\cd&-n-1&1+n\\
+        \vd&&\vd&\vd\\
+        -n-1&\cd&0&1+n\\
+        0&\cd&0&1+n
+      \end{array}
+      \right|_{n-1}\\[0.4in]
+      & = -(n+1)\left|
+      \begin{array}{rrrrr}
+        0&\cd&-n-1\\
+        \vd&&\vd&\\
+        -n-1&\cd&0\\
+      \end{array}
+      \right|_{n-2} \\[0.2in]
+      &\ds = -(n+1)(-1)^{\frac{(n-2)(n-3)}2}(-n-1)^{n-2}\\[0.1in]
+      &\ds = (-1)^{\frac{(n-2)(n-3)}2+(n-1)}(n+1)^{n-1}\\[0.1in]
+      &\ds = (-1)^{\frac{n^2-5n+6+2n-2}2}(n+1)^{n-1}\\[0.1in]
+      &\ds = (-1)^{\frac{n^2-3n+4}2}(n+1)^{n-1}\\[0.1in]
+      &\ds = (-1)^{\frac{n^2+n-4n+4}2}(n+1)^{n-1}\\[0.1in]
+      &\ds = (-1)^{\frac{n^2+n}2}(n+1)^{n-1}.
+    \end{array}
+    $$    
+  \end{footnotesize}
+\end{frame}
+
+
+\begin{frame}
+  \begin{footnotesize}
+    \begin{exampleblock}{42}
+      计算
+      $$
+      \left|
+      \begin{array}{ccccc}
+        a_1+\lambda_1&a_2&a_3&\cd&a_n\\
+        a_1&a_2+\lambda_2&a_3&\cd&a_n\\
+        a_1&a_2&a_3+\lambda_3&\cd&a_n\\
+        \vd&\vd&\vd&&\vd\\
+        a_1&a_2&a_3&\cd&a_n+\lambda_n\\
+      \end{array}
+      \right|
+      $$
+    \end{exampleblock}
+    \pause
+    \jiename
+    $$
+    \begin{array}{rl}
+      \mbox{原式}&=      \left|
+      \begin{array}{cccccc}
+        1&a_1&a_2&a_3&\cd&a_n\\
+        0&a_1+\lambda_1&a_2&a_3&\cd&a_n\\
+        0&a_1&a_2+\lambda_2&a_3&\cd&a_n\\
+        0&a_1&a_2&a_3+\lambda_3&\cd&a_n\\
+        \vd&\vd&\vd&\vd&&\vd\\
+        0&a_1&a_2&a_3&\cd&a_n+\lambda_n\\
+      \end{array}
+      \right|
+    \end{array}
+    $$
+  \end{footnotesize}
+\end{frame}
+
+\begin{frame}
+  \begin{footnotesize}
+    $$
+    \begin{array}{rl}
+      \mbox{原式}&=      \left|
+      \begin{array}{cccccc}
+        1&a_1&a_2&a_3&\cd&a_n\\
+        0&a_1+\lambda_1&a_2&a_3&\cd&a_n\\
+        0&a_1&a_2+\lambda_2&a_3&\cd&a_n\\
+        0&a_1&a_2&a_3+\lambda_3&\cd&a_n\\
+        \vd&\vd&\vd&\vd&&\vd\\
+        0&a_1&a_2&a_3&\cd&a_n+\lambda_n\\
+      \end{array}
+      \right|_{n+1}\\[0.4in]
+      &=      \left|
+      \begin{array}{cccccc}
+        1&a_1&a_2&a_3&\cd&a_n\\
+        -1&\lambda_1&0&0&\cd&0\\
+        -1&0&\lambda_2&0&\cd&0\\
+        -1&0&0&\lambda_3&\cd&0\\
+        \vd&\vd&\vd&\vd&&\vd\\
+        -1&0&0&0&\cd&\lambda_n\\
+      \end{array}
+      \right|_{n+1}\\[0.4in]
+      &\ds =      \left|
+      \begin{array}{cccccc}
+        1+\sum_{i=1}^n\frac{a_i}{\lambda_i}&0&0&0&\cd&0\\
+        -1&\lambda_1&0&0&\cd&0\\
+        -1&0&\lambda_2&0&\cd&0\\
+        -1&0&0&\lambda_3&\cd&0\\
+        \vd&\vd&\vd&\vd&&\vd\\
+        -1&0&0&0&\cd&\lambda_n\\
+      \end{array}
+      \right|_{n+1} = \left(1+\sum_{i=1}^n\frac{a_i}{\lambda_i}\right)\prod_{i=1}^n
+      a_i.
+    \end{array}
+    $$
+  \end{footnotesize}
+\end{frame}
+
+\begin{frame}
+  \begin{footnotesize}
+    \begin{exampleblock}{43}
+        计算
+        $$
+        D = \left |
+        \begin{array}{cccccc}
+          1 &  2 &  3 & \cd &  n-1 & n\\
+          2 &  3 &  4 & \cd &   n  & 1\\
+          3 &  4 &  5 & \cd &   1  & 2\\
+          \vd& \vd& \vd&     & \vd  & \vd \\
+          n &  1 &  2 & \cd & n-2  & n-1
+        \end{array}
+        \right|
+        $$
+    \end{exampleblock}
+    \pause
+    \jiename
+    $$
+    \begin{array}{ll}
+      D_n & \pause \disp 
+      \xlongequal[i=n,\cdots,2]{r_i-r_{i-1}} \pause
+      \left|
+      \begin{array}{cccccc}
+        1   &  2 &  3 & \cd &  n-1 & n\\
+        1   &  1 &  1 & \cd &   1  & 1-n \\
+        1   &  1 &  1 & \cd &  1-n  & 1\\
+        \vd & \vd & \vd&     & \vd  & \vd \\
+        1   & 1-n &  1 & \cd &   1   & 1
+      \end{array}
+      \right| \\[1.0cm]
+      & \pause\disp 
+      \xlongequal[i=2,\cdots,n]{c_i-c_1} \pause
+      \left|
+      \begin{array}{cccccc}
+        1   &  1 &  2 & \cd &  n-2 & n-1\\
+        1   &  0 &  0 & \cd &   0  & -n \\
+        1   &  0 &  0 & \cd &  -n  & 0\\
+        \vd & \vd & \vd&     & \vd  & \vd \\
+        1   & -n &  0 & \cd &   0   & 0
+      \end{array}
+      \right|
+    \end{array}
+    $$
+
+  \end{footnotesize}
+\end{frame}
+
+
+\begin{frame}
+  \begin{footnotesize}
+    $$
+    \begin{array}{ll}
+      D_n & \disp = \left|
+      \begin{array}{cccccc}
+        1   &  1 &  2 & \cd &  n-2 & n-1\\
+        1   &  0 &  0 & \cd &   0  & -n \\
+        1   &  0 &  0 & \cd &  -n  & 0\\
+        \vd & \vd & \vd&     & \vd  & \vd \\
+        1   & -n &  0 & \cd &   0   & 0
+      \end{array}
+      \right| \\[1.0cm]
+      & \pause \disp \xlongequal[i=2,\cd,n]{c_i\div n} n^{n-1} \pause
+      \left|
+      \begin{array}{cccccc}
+        1   &  \frac 1n & \frac 2n & \cd &  \frac{n-2}n & \frac{n-1}n\\
+        1   &  0 &  0 & \cd &   0  & -1 \\
+        1   &  0 &  0 & \cd &  -1  & 0\\
+        \vd & \vd & \vd&     & \vd  & \vd \\
+        1   & -1 &  0 & \cd &   0   & 0
+      \end{array}
+      \right|\\[1.0cm]
+      &\pause \disp \xlongequal{c_1+c_2+\cd+c_n} \pause
+      n^{n-1} \left|
+      \begin{array}{cccccc}
+        1+\sum_{i-1}^{n-1}\frac in   &  \frac 1n & \frac 2n & \cd &  \frac{n-2}n & \frac{n-1}n\\
+        0   &  0 &  0 & \cd &   0  & -1 \\
+        0   &  0 &  0 & \cd &  -1  & 0\\
+        \vd & \vd & \vd&     & \vd  & \vd \\
+        0   & -1 &  0 & \cd &   0   & 0
+      \end{array}       
+      \right|\\[0.8cm]
+      & \pause \disp= n^{n-1} \left[ 1 + \frac 1n \frac {n(n-1)}2\right] 
+      (-1)^{\frac{(n-1)(n-2)}2}(-1)^{n-1} \pause= (-1)^{\frac{(n-1)n}2} \frac{n+1}2 n^{n-1}.
+    \end{array}
+    $$
+
+  \end{footnotesize}
+\end{frame}
+
+
+\begin{frame}
+  \begin{footnotesize}
+    \begin{exampleblock}{44}
+      证明
+      $$
+      \left|
+      \begin{array}{ccccc}
+        1&1&1&\cd&1\\
+        x_1&x_2&x_3&\cd&x_n\\
+        x_1^2&x_2^2&x_3^2&\cd&x_n^2\\
+        \vd&\vd&\vd&&\vd\\
+        x_1^{n-2}&x_2^{n-2}&x_3^{n-2}&\cd&x_n^{n-2}\\
+        x_1^{n}&x_2^{n}&x_3^{n}&\cd&x_n^{n}\\
+      \end{array}
+      \right| = \sum_{i=1}^{n}x_i \prod_{1\le j < i \le n}(x_i-x_j).
+      $$
+    \end{exampleblock}
+    \pause
+    \proofname
+    考察行列式
+    $$
+    \left|
+    \begin{array}{cccccc}
+      1&1&1&\cd&1&\red{1}\\
+      x_1&x_2&x_3&\cd&x_n&\red{y}\\
+      x_1^2&x_2^2&x_3^2&\cd&x_n^2&\red{y^2}\\
+      \vd&\vd&\vd&&\vd&\red{\vd}\\
+      x_1^{n-2}&x_2^{n-2}&x_3^{n-2}&\cd&x_n^{n-2}&\red{y^{n-2}}\\
+      \red{x_1^{n-1}}&\red{x_2^{n-1}}&\red{x_3^{n-1}}&\red{\cd}&\red{x_n^{n-1}}&\red{y^{n-1}}\\
+      x_1^{n}&x_2^{n}&x_3^{n}&\cd&x_n^{n}&y^n\\
+    \end{array}
+    \right| = \prod_{i=1}^n(y-x_i) \prod_{1\le j < i \le n} (x_i-x_j)
+    $$
+    等式两端均为关于$y$的多项式，比较$y^{n-1}$的系数便得结论。
+  \end{footnotesize}
+\end{frame}
+
+\begin{frame}
+  \begin{footnotesize}
+    \begin{exampleblock}{45}
+      用数学归纳法证明：
+      $$
+      \frac{d}{dt} \left|
+      \begin{array}{cccc}
+        a_{11}(t)&a_{12}(t)&\cd&a_{1n}(t)\\[0.1cm]
+        a_{21}(t)&a_{22}(t)&\cd&a_{2n}(t)\\[0.1cm]
+        \vd&\vd&&\vd\\[0.1cm]
+        a_{n1}(t)&a_{n2}(t)&\cd&a_{nn}(t)
+      \end{array}
+      \right| = \sum_{j=1}^n\left|
+      \begin{array}{ccccc}
+        a_{11}(t)&\cd&\frac{d}{dt} a_{1j}(t)&\cd&a_{1n}(t)\\[0.1cm]
+        a_{21}(t)&\cd&\frac{d}{dt} a_{2j}(t)&\cd&a_{2n}(t)\\[0.1cm]
+        \vd&&\vd&&\vd\\[0.1cm]
+        a_{n1}(t)&\cd&\frac{d}{dt} a_{nj}(t)&\cd&a_{nn}(t)
+      \end{array}
+      \right|
+      $$
+    \end{exampleblock}
+  \end{footnotesize}
+\end{frame}
+
+\begin{frame}
+  \begin{footnotesize}
+    \begin{itemize}
+    \item[$1^o$] 当$n=1$时，结论显然成立。
+    \item[$2^o$] 假设结论对阶数$\le n-1$的行列式成立，考虑阶数为$n$的行列式，对第一列展开得
+      $$
+      \begin{array}{rcl}
+        D &=& a_{11}A_{11} +  a_{21}A_{21} + \cd + a_{n1}A_{n1}, \\[0.1cm]
+        D^\prime &=& a_{11}^\prime A_{11} +  a_{21}^\prime A_{21} + \cd + a_{n1}^\prime A_{n1} + \\[0.1cm]
+        && a_{11}A_{11}^\prime +  a_{21}A_{21}^\prime + \cd + a_{n1}A_{n1}^\prime,      
+      \end{array}
+      $$
+      
+      其中
+      $$
+      a_{11}^\prime(t) A_{11}(t) +  a_{21}^\prime(t) A_{21}(t)
+      + \cd + a_{n1}^\prime(t) A_{n1}(t)
+      = 
+      \left|
+      \begin{array}{cccc}
+        a_{11}^\prime(t)&a_{12}(t)&\cd&a_{1n}(t)\\[0.1cm]
+        a_{21}^\prime(t)&a_{22}(t)&\cd&a_{2n}(t)\\[0.1cm]
+        \vd&\vd&&\vd\\[0.1cm]
+        a_{n1}^\prime(t)&a_{n2}(t)&\cd&a_{nn}(t)
+      \end{array}
+      \right| 
+      $$
+    \end{itemize}
+  \end{footnotesize}
+\end{frame}
+
+\begin{frame}
+  \begin{footnotesize}
+    $$
+    \begin{array}{c}
+       a_{11}A_{11}^\prime +  a_{21}A_{21}^\prime + \cd + a_{n1}A_{n1}^\prime
+       =a_{11} \sum_{j=2}^n \left|
+      \begin{array}{ccccc}
+        a_{22}(t)&\cd&a_{2j}^\prime(t)&\cd&a_{2n}(t)\\[0.1cm]
+        a_{32}(t)&\cd&a_{3j}^\prime(t)&\cd&a_{3n}(t)\\[0.1cm]
+        \vd&&\vd&&\vd\\[0.1cm]
+        a_{n2}(t)&\cd&a_{nj}^\prime(t)&\cd&a_{nn}(t)
+      \end{array}
+      \right| \\[0.3in]
+      -  a_{21}\sum_{j=2}^n \left|
+      \begin{array}{ccccc}
+        a_{12}(t)&\cd&a_{1j}^\prime(t)&\cd&a_{1n}(t)\\[0.1cm]
+        a_{32}(t)&\cd&a_{3j}^\prime(t)&\cd&a_{3n}(t)\\[0.1cm]
+        \vd&&\vd&&\vd\\[0.1cm]
+        a_{n2}(t)&\cd&a_{nj}^\prime(t)&\cd&a_{nn}(t)
+      \end{array}
+      \right| + \cd \\[0.3in]
+      + (-1)^{n+1}a_{n1}\sum_{j=2}^n \left|
+      \begin{array}{ccccc}
+        a_{12}(t)&\cd&a_{1j}^\prime(t)&\cd&a_{1n}(t)\\[0.1cm]
+        a_{22}(t)&\cd&a_{2j}^\prime(t)&\cd&a_{2n}(t)\\[0.1cm]
+        \vd&&\vd&&\vd\\[0.1cm]
+        a_{n-1,2}(t)&\cd&a_{n-1,j}^\prime(t)&\cd&a_{n-1,n}(t)
+      \end{array}
+      \right| \\[0.3in]
+      = \sum_{j=2}^n \left|
+      \begin{array}{cccccc}
+        a_{12}(t)& a_{12}(t)&\cd&a_{1j}^\prime(t)&\cd&a_{1n}(t)\\[0.1cm]
+        a_{21}(t)& a_{22}(t)&\cd&a_{2j}^\prime(t)&\cd&a_{2n}(t)\\[0.1cm]
+        \vd&\vd&&\vd&&\vd\\[0.1cm]
+        a_{n1}(t)& a_{n2}(t)&\cd&a_{n,j}^\prime(t)&\cd&a_{nn}(t)
+      \end{array}
+      \right|
+    \end{array}
+    $$
+  \end{footnotesize}
+\end{frame}
+
+
+\begin{frame}
+  \begin{footnotesize}
+    \begin{exampleblock}{46}
+      设3个点$P_1(x_1,y_1),P_2(x_2,y_2),P_3(x_3,y_3)$不在一条直线上，求过点$P_1,P_2,P_3$的圆的方程。
+    \end{exampleblock}
+    \pause
+    \jiename
+    圆的一般方程为
+    $$
+    a(x^2+y^2)+bx+cy+d=0, \quad a\ne 0
+    $$
+    因$P_1,P_2,P_3$在圆上，故
+    $$
+    \left\{
+    \begin{array}{l}
+      a(x^2+y^2)+bx+cy+d=0,\\[0.1cm]
+      a(x_1^2+y_1^2)+bx_1+cy_1+d=0,\\[0.1cm]
+      a(x_2^2+y_2^2)+bx_2+cy_2+d=0,\\[0.1cm]
+      a(x_3^2+y_3^2)+bx_3+cy_3+d=0,      
+    \end{array}
+    \right.
+    $$
+    该齐次线性方程组有非零解的充分必要条件是系数行列式为零，即
+    $$
+    \left|
+    \begin{array}{cccc}
+      x^2+y^2 & x & y & 1\\
+      x_1^2+y_1^2 & x_1 & y_1 & 1\\
+      x_2^2+y_2^2 & x_2 & y_2 & 1\\
+      x_3^2+y_3^2 & x_3 & y_3 & 1
+    \end{array}
+    \right| = 0.
+    $$
+  \end{footnotesize}
+\end{frame}
+
+\begin{frame}
+  \begin{footnotesize}
+    \begin{exampleblock}{47}
+      求使3点$(x_1,y_1), (x_2,y_2), (x_3,y_3)$位于一直线上的充分必要条件。
+    \end{exampleblock}
+    \pause
+    \jiename
+    三点位于一直线上的充分必要条件是
+    $$
+    \frac{y_1-y_2}{x_1-x_2}=\frac{y_1-y_3}{x_1-x_3},
+    $$
+    即
+    $$
+    (x_1-x_3)(y_1-y_2)=(x_1-x_2)(y_1-y_3)
+    $$
+    亦即
+    $$
+    x_1(y_2-y_3)-x_2(y_1-y_3)+x_3(y_1-y_2)=0
+    $$
+    其行列式形式为
+    $$
+    \left|
+    \begin{array}{ccc}
+      x_1&y_1&1\\
+      x_2&y_2&1\\
+      x_3&y_3&1
+    \end{array}
+    \right|=0.
+    $$
+  \end{footnotesize}
+\end{frame}
+
+\begin{frame}
+  \begin{footnotesize}
+    \begin{exampleblock}{48}
+      求过3点$(1,1,1), ~(2,3,-1), ~(3,-1,-1)$的平面方程。
+    \end{exampleblock}
+    \pause
+    \jiename
+    平面方程为
+    $$
+    ax+by+cz+d=0,
+    $$
+    因3点位于平面上，故
+    $$
+    \left\{
+    \begin{array}{r}
+      ax+by+cz+d=0,\\
+      a+b+c+d=0, \\
+      2a+3b-c+d=0, \\
+      3a-b-c+d=0
+    \end{array}
+    \right.
+    $$
+    该齐次线性方程组有非零解，故其系数行列式为零，即
+    $$
+    \left|
+    \begin{array}{rrrr}
+      x&y&z&1\\
+      1&1&1&1\\
+      2&3&-1&1\\
+      3&-1&-1&1
+    \end{array}
+    \right|=0.
+    $$
+    即
+    $$
+    -8 x - 2y -6z +16=0.
+    $$
+    亦即
+    $$
+    4x+y+3z-8=0.
+    $$
+  \end{footnotesize}
+\end{frame}
+
+
+\begin{frame}
+  \begin{footnotesize}
+    \begin{exampleblock}{49}
+      求过点$(1,1,1), (1,1,-1), (1,-1,1), (-1,0,0)$的球面方程，并求其中心与半径。
+    \end{exampleblock}
+    \pause
+    \jiename
+    球面的一般方程为
+    $$
+    a(x^2+y^2+z^2)+bx+cy+dz+e=0.
+    $$
+    过该四点的球面方程为
+    $$
+    \left|
+    \begin{array}{rrrrr}
+      x^2+y^2+z^2&x&y&z&1\\[0.1cm]
+      1^2+1^2+1^2&1&1&1&1\\[0.1cm]
+      1^2+1^2+(-1)^2&1&1&-1&1\\[0.1cm]
+      1^2+(-1)^2+1^2&1&-1&1&1\\[0.1cm]
+      (-1)^2+0^2+0^2&-1&0&0&1
+    \end{array}
+    \right| = 0 \Rightarrow
+    \left|
+    \begin{array}{rrrrr}
+      x^2+y^2+z^2&x&y&z&1\\[0.1cm]
+      3&1&1&1&1\\[0.1cm]
+      3&1&1&-1&1\\[0.1cm]
+      3&1&-1&1&1\\[0.1cm]
+      1&-1&0&0&1
+    \end{array}
+    \right| = 0
+    $$
+    \pause 
+    按第一行展开可知
+    $$
+    -8(x^2+y^2+z^2) + 8x +16=0,
+    $$
+    即
+    $$
+    x^2+y^2+z^2-x-2=0, \quad \Rightarrow
+    (x-\frac12)^2+y^2+z^2=(\frac32)^2
+    $$
+    圆心为$(\frac12, 0, 0)$，半径为$\frac32$.
+  \end{footnotesize}
+\end{frame}
+
+
+\begin{frame}
+  \begin{footnotesize}
+    \begin{exampleblock}{50}
+      已知$a^2\ne b^2$，证明方程组
+      $$
+      \left\{
+      \begin{array}{ccccccccccc}
+        ax_1&&&&+&&&&bx_{2n}&=&1\\
+        &ax_2&&&+&&&bx_{2n-1}&&=&1\\
+        &&\dd&&&&\id&&&&\\
+        &&&ax_n&+&bx_{n+1}&&&&=&1\\
+        &&&bx_n&+&ax_{n+1}&&&&=&1\\
+        &&\id&&&&\dd&&&&\\
+        &bx_2&&&+&&&ax_{2n-1}&&=&1\\
+        bx_1&&&&+&&&&ax_{2n}&=&1\\
+      \end{array}
+      \right.
+      $$
+      有唯一解，并求解。
+    \end{exampleblock}
+    \pause
+    \jiename
+    其系数行列式为
+    $
+    D_{2n} = \left|
+    \begin{array}{cccccc}
+      a &     & & & & b \\
+      & \dd & & & \id & \\
+      &   & a & b &  & \\
+      &   & b & a &  &  \\
+      & \id & & & \dd & \\
+      b &     & & & & a
+    \end{array}
+    \right|
+    $
+  \end{footnotesize}
+\end{frame}
+
+\begin{frame}
+  \begin{footnotesize}
+    把$D_{2n}$中的第$2n$行依次与第$2n-1$行、$\ldots$、第2行对调（共$2n-2$次相邻对换），
+    再把第$2n$列依次与第$2n-1$列、$\ldots$、第2列对调，得
+    $$
+    D_{2n} = \left|
+    \begin{array}{cccccccc}
+      a & b &   &      & & & &  \\
+      b & a &   & & &  & &\\
+        &   & a & & &  & & b \\
+      &   &   & \dd &  &  & \id &   \\
+      &   &   &     & a& b& & \\
+      &   &   &     & b& a& & \\
+      &   &   & \id &  &  & \dd &   \\
+      &   & b & & &  & & a
+    \end{array}
+    \right|
+    $$
+    于是
+    $$
+    \begin{array}{ll}
+      D_{2n} & = D_2 D_{2(n-1)}  \\[0.4cm]
+      & = (a^2-b^2)D_{2(n-1)} 
+        = (a^2-b^2)^2 D_{2(n-2)}\\[0.4cm]
+      & = \cdots 
+       = (a^2-b^2)^{n-1}D_{2} \\[0.4cm]
+      & = (a^2-b^2)^n.      
+    \end{array}
+    $$
+  \end{footnotesize}
+\end{frame}
+
+
+\begin{frame}
+  \begin{footnotesize}
+    $$
+    \begin{array}{rcl}
+      D_{2n}^{(1)} &=& \left|
+      \begin{array}{cccccccc}
+        \red{1}&&&&&&&\red{b} \\
+        1&a&&&&&b& \\
+        &&\dd&&&\id&& \\
+        1&&&a&b&&& \\
+        1&&&b&a&&&  \\
+        &&\id&&&\dd&& \\
+        1&b&&&&&a&\\
+        1&&&&&&&a\\
+      \end{array}
+      \right| \\[0.5in]
+      &=&
+      \left|
+      \begin{array}{cccccccc}        
+        a&&&&&b& \\
+        &\dd&&&\id&& \\
+        &&a&b&&& \\
+        &&b&a&&&  \\
+        &\id&&&\dd&& \\
+        b&&&&&a&\\
+        &&&&&&\red{a}\\
+      \end{array}
+      \right| + (-1)^{1+2n} b \left|
+      \begin{array}{cccccccc}
+        1&a&&&&&b \\
+        &&\dd&&&\id& \\
+        1&&&a&b&& \\
+        1&&&b&a&&  \\
+        &&\id&&&\dd& \\
+        1&b&&&&&a\\
+        \red{1}&&&&&&\\
+      \end{array}
+      \right| \\[0.5in]
+      &=&
+      a D_{2(n-1)} - (-1)^{(2n-1)+1} b D_{2(n-1)} \\[0.2in]
+      &=& (a-b) (a^2-b^2)^{n-1}.
+    \end{array}
+    $$
+  \end{footnotesize}
+\end{frame}
+
+
+\begin{frame}
+  \begin{footnotesize}    
+    同理可证
+    $$
+    D_{2n}^{(i)} = (a-b) (a^2-b^2)^{n-1}, \quad i = 2, \cd, 2n.
+    $$
+    于是
+    $$
+    x_i = \frac{D_{2n}^{(i)}}{D_{2n}} = \frac{(a-b) (a^2-b^2)^{n-1}}{(a^2-b^2)^{n}}
+    = \frac1{a+b}, \quad  i=1,\cd,2n.
+    $$
+  \end{footnotesize}
+\end{frame}

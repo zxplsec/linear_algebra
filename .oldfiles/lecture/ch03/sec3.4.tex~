@@ -1,0 +1,495 @@
+\section{齐次线性方程组有非零解的条件及解的结构}
+
+设$\mathbf A$为$m\times n$矩阵，考察以$\A$为系数矩阵的齐次线性方程组
+\begin{equation}\label{ax0}
+  \A\xx=\zero.
+\end{equation}    
+
+若将$\A$按列分块为
+$$
+\A = (\alphabd_1,~\alphabd_2,~\cd,~\alphabd_n),
+$$
+齐次方程组(\ref{ax0})可表示为
+$$
+x_1\alphabd_1+x_2\alphabd_2+\cd+x_n\alphabd_n=\zero.
+$$
+
+齐次方程组(\ref{ax0})有\blue{非零解}的充分必要条件是$\alphabd_1,~\alphabd_2,~\cd,~\alphabd_n$\blue{线性相关}，即
+$$
+\RR(\A) = \RR(\alphabd_1,~\alphabd_2,~\cd,~\alphabd_n) < n.
+$$
+
+
+
+
+
+\begin{block}{定理3.4.1}
+  设$\A$为$m\times n$矩阵，则
+  $$
+  \blue{\underline{\A\xx=\zero\mbox{有非零解}}} ~~\Longleftrightarrow~~
+  \blue{\underline{\RR(\A)<n}}.$$
+\end{block}
+
+
+
+
+
+\begin{block}{定理3.4.1的等价命题}
+  设$\A$为$m\times n$矩阵，则
+  $$
+  \blue{\underline{\A\xx=\zero\mbox{只有零解}}} ~~\Longleftrightarrow~~
+  \blue{\underline{\RR(\A)=n=\A\mbox{的列数}}}.
+  $$
+\end{block}
+
+
+
+
+
+\begin{exampleblock}{例1}
+  设$\A$为$n$阶矩阵，证明：存在$n\times s$矩阵$\B\ne \zero$，使得$\A\B=\zero$的充分必要条件是
+  $$
+  |\A|=0.
+  $$      
+\end{exampleblock}
+
+\proofname
+$|\A|=0~~\Longleftrightarrow~~\A\xx=\zero$有非零解。 下证
+$$
+\purple{\mbox{存在}n\times s\mbox{矩阵}\B\ne 0\mbox{使得}\A\B=\zero
+  ~~\Longleftrightarrow~~\A\xx=\zero\mbox{有非零解}}.
+$$     
+\begin{itemize}
+\item[($\red{\Longrightarrow}$)]
+  设$\A\B=\zero$，则$\B$的解向量为$\A\xx=\zero$的解。又$\B\ne\zero$，则$\B$至少有一个非零列向量，
+  从而$\A\xx=\zero$至少有一个非零解。\\[0.2in]  
+\item[($\red{\Longleftarrow}$)]
+  设$\A\xx=\zero$有非零解，任取一个非零解$\betabd$，令
+  $$
+  \B=(\betabd,~\zero,~\cd,~\zero)
+  $$
+  则$\B\ne\zero$，且$\A\B=\zero$。
+\end{itemize}
+
+
+
+
+
+
+\begin{block}{定理3.4.2}
+  若$\xx_1,~\xx_2$为齐次线性方程组$\A\xx=\zero$的两个解，则
+  $$
+  k_1\xx_1+k_2\xx_2\quad(k_1,~k_2\mbox{为任意常数})
+  $$
+  也是它的解。
+\end{block}
+
+\proofname
+因为
+$$
+\A(\red{k_1\xx_1+k_2\xx_2}) = k_1\A\xx_1+k_2\A\xx_2 = k_1\zero+k_2\zero=\zero,
+$$
+故$k_1\xx_1+k_2\xx_2$也为$\A\xx=\zero$的解。
+
+
+
+
+
+\begin{block}{定义(基础解系)}
+  设$\xx_1,~\xx_2,~\cd,~\xx_p$为$\A\xx=\zero$的解向量，若
+  \begin{itemize}
+  \item[(1)] $\xx_1,~\xx_2,~\cd,~\xx_p$线性无关
+  \item[(2)] $\A\xx=\zero$的任一解向量可由$\xx_1,~\xx_2,~\cd,~\xx_p$线性表示。
+  \end{itemize}
+  则称$\xx_1,~\xx_2,~\cd,~\xx_p$为$\A\xx=\zero$的一个\blue{\underline{基础解系}}。
+\end{block}
+
+
+\begin{block}{注}
+  \begin{itemize}
+  \item[(1)] 基础解系即全部解向量的\blue{极大无关组}。\\[0.1in]  
+  \item[(2)] 找到了基础解系，就找到了齐次线性方程组的全部解：
+    $$
+    k_1\xx_1+k_2\xx_2+\cd+k_p\xx_p \quad(k_1,k_2,\cd,k_p\mbox{为任意常数}).
+    $$ 
+  \item[(3)] 基础解系\blue{不唯一}。
+  \end{itemize}
+\end{block}
+
+
+
+
+
+\begin{exampleblock}{例}
+  求方程组
+  $$
+  x+y+z=0
+  $$
+  的全部解。
+\end{exampleblock}
+
+\jiename
+\begin{itemize}
+\item[(1)] 选取$y,z$为自由未知量，则
+  $$
+  \left\{
+    \begin{array}{cccccc}
+      x&=&-&y&-&z\\
+      y&=&&y&&\\
+      z&=&&&&z
+    \end{array}
+  \right.
+  $$
+  则方程组的全部解为
+  $$
+  \left(
+    \begin{array}{r}
+      x\\y\\z
+    \end{array}
+  \right) = c_1      \left(
+    \begin{array}{r}
+      -1\\1\\0
+    \end{array}
+  \right) + c_2      \left(
+    \begin{array}{r}
+      -1\\0\\1
+    \end{array}
+  \right) \quad (c_1,c_2\mbox{为任意常数})
+  $$
+\end{itemize}
+
+
+
+
+
+\begin{itemize}
+\item[(2)] 选取$x,z$为自由未知量，则
+  $$
+  \left\{
+    \begin{array}{cccccc}
+      x&=&&x&&\\
+      y&=&-&x&-&z\\
+      z&=&&&&z
+    \end{array}
+  \right.
+  $$
+  则方程组的全部解为
+  $$
+  \left(
+    \begin{array}{r}
+      x\\y\\z
+    \end{array}
+  \right) = c_1      \left(
+    \begin{array}{r}
+      1\\-1\\0
+    \end{array}
+  \right) + c_2      \left(
+    \begin{array}{r}
+      0\\-1\\1
+    \end{array}
+  \right) \quad (c_1,c_2\mbox{为任意常数})
+  $$  
+\item[(3)] 选取$x,y$为自由未知量，则
+  $$
+  \left\{
+    \begin{array}{cccccc}
+      x&=&&x&&\\
+      y&=&&&&y\\
+      z&=&-&x&-&y
+    \end{array}
+  \right.
+  $$
+  则方程组的全部解为
+  $$
+  \left(
+    \begin{array}{r}
+      x\\y\\z
+    \end{array}
+  \right) = c_1      \left(
+    \begin{array}{r}
+      1\\0\\-1
+    \end{array}
+  \right) + c_2      \left(
+    \begin{array}{r}
+      0\\1\\-1
+    \end{array}
+  \right) \quad (c_1,c_2\mbox{为任意常数})
+  $$
+\end{itemize}
+
+
+
+
+
+
+三个不同的基础解系为
+$$
+\left\{
+  \left(
+    \begin{array}{r}
+      -1\\1\\0
+    \end{array}
+  \right),~~
+  \left(
+    \begin{array}{r}
+      -1\\0\\1
+    \end{array}
+  \right)
+\right\},
+$$
+$$
+\left\{
+  \left(
+    \begin{array}{r}
+      1\\-1\\0
+    \end{array}
+  \right),~~
+  \left(
+    \begin{array}{r}
+      0\\-1\\1
+    \end{array}
+  \right)
+\right\},
+$$
+$$
+\left\{
+  \left(
+    \begin{array}{r}
+      1\\0\\-1
+    \end{array}
+  \right),~~
+  \left(
+    \begin{array}{r}
+      0\\1\\-1
+    \end{array}
+  \right)
+\right\}.
+$$
+
+
+
+
+
+\begin{block}{定理3.4.3}
+  设$\A$为$m\times n$矩阵，若$\RR(\A)=r<n$，则齐次线性方程组$\A\xx=\zero$存在基础解系，
+  且基础解系含$n-r$个解向量。
+\end{block}
+ 
+\begin{block}{注}
+  \begin{itemize}
+  \item $r$为$\A$的秩，也是$\A$的行阶梯形矩阵的非零行行数，是非自由未知量的个数。 
+  \item $n$为未知量的个数，故$n-r$为自由未知量的个数。 有多少自由未知量，基础解系里就对应有多少个向量。
+  \end{itemize}
+\end{block}
+
+
+
+
+
+\begin{exampleblock}{例2}
+  求齐次线性方程组$\A\xx=\zero$的基础解系，其中
+  $$
+  \A = \left(
+    \begin{array}{rrrr}
+      1&-8&10&2\\
+      2&4&5&-1\\
+      3&8&6&-2
+    \end{array}
+  \right).
+  $$
+\end{exampleblock}
+
+\jiename
+$$
+\begin{array}{l}
+  \left(
+  \begin{array}{rrrr}
+    1&-8&10&2\\
+    2&4&5&-1\\
+    3&8&6&-2
+  \end{array}
+           \right) \xlongrightarrow[r_3-3r_1]{r_2-2r_1}
+           \left(
+           \begin{array}{rrrr}
+             1&-8&10&2\\
+             0&20&-15&-5\\
+             0&32&24&-8
+           \end{array}
+                      \right)\\[0.3in]
+  \xlongrightarrow[r_2\div4]{r_3\div8}
+  \left(
+  \begin{array}{rrrr}
+    1&-8&10&2\\
+    0&4&-3&-1\\
+    0&4&-3&-1
+  \end{array}
+            \right) \xlongrightarrow[r_1+2r_2]{r_3-r_2}
+            \left(
+            \begin{array}{rrrr}
+              1&0&4&0\\
+              0&4&-3&-1\\
+              0&0&0&0
+            \end{array}
+                     \right) \\[0.3in]
+  \xlongrightarrow[]{r_2\div4}
+  \left(
+  \begin{array}{rrrr}
+    1&0&4&0\\
+    0&1&-3/4&-1/4\\
+    0&0&0&0
+  \end{array}
+           \right)
+\end{array}
+$$
+
+
+
+
+
+原方程等价于
+$$\left\{
+  \begin{array}{rcrcrc}
+    x_1&=&-4&x_3&&\\[0.1in]
+    x_2&=&\frac34&x_3&+\frac14&x_4
+  \end{array}
+\right.  \Leftrightarrow
+\left\{
+  \begin{array}{rcrcrc}
+    x_1&=&-4&x_3&&\\[0.1in]
+    x_2&=&\frac34&x_3&+\frac14&x_4\\[0.1in]
+    x_3&=&&x_3&&\\[0.1in]
+    x_4&=&&&&x_4      
+  \end{array}
+\right.
+$$
+
+基础解系为
+$$
+\xibd_1 = \left(
+  \begin{array}{r}
+    -4\\[0.1in]
+    \frac34\\[0.1in]
+    1\\[0.1in]
+    0
+  \end{array}
+\right), \quad \xibd_2 = \left(
+  \begin{array}{r}
+    0\\[0.1in]
+    \frac14\\[0.1in]
+    0\\[0.1in]
+    1
+  \end{array}
+\right)
+$$
+
+
+
+
+
+\begin{exampleblock}{例3}
+  求齐次线性方程组
+  $$
+  nx_1+(n-1)x_2+\cd+2x_{n-1}+x_n=0
+  $$
+  的基础解系。      
+\end{exampleblock}
+
+\jiename
+原方程等价于$x_n=-nx_1-(n-1)x_2-\cd-2x_{n-1}$， 即
+$$
+\left\{
+  \begin{array}{rcrrrr}
+    x_1&=&x_1&&&\\
+    x_2&=&&x_2&&\\
+       &\vd&&&&\\
+    x_{n-1}&=&&&&x_{n-1}\\      
+    x_n&=&-nx_1&-(n-1)x_2&\cd&-2x_{n-1}
+  \end{array}    
+\right.
+$$
+
+基础解系为
+$$
+(\xibd_1,\xibd_2,\cd,\xibd_{n-1})=\left(
+  \begin{array}{rrrr}
+    1&0&\cd&0\\
+    0&1&\cd&0\\
+    \vd&\vd&&\vd\\
+    0&0&\cd&1\\
+    -n&-n+1&\cd&-2
+  \end{array}
+\right)
+$$
+
+
+
+
+
+\begin{exampleblock}{例3}
+  设$\A$与$\B$分别为$m\times n$和$n\times s$矩阵，且$\A\B=\zero$。证明：
+  $$
+  \RR(\A)+\RR(\B)\le n.
+  $$
+\end{exampleblock}
+
+\proofname
+由$\A\B=\zero$知，$\B$的列向量是$\A\xx=\zero$的解。
+故$\B$的列向量组的秩，不超过$\A\xx=\zero$的基础解系的秩，即
+$$
+\RR(\B) \le n-\RR(\A),
+$$
+即
+$$
+\RR(\A)+\RR(\B)\le n.
+$$
+
+
+
+
+
+\begin{exampleblock}{例}
+  设$n$元齐次线性方程组$\A\xx=\zero$与$\B\xx=\zero$同解，证明
+  $$
+  \RR(\A)=\RR(\B).
+  $$
+\end{exampleblock}
+
+\jiename
+$\A\xx=\zero$与$\B\xx=\zero$同解，故它们有相同的基础解系，而基础解系包含的向量个数相等，即
+$$
+n-\RR(\A)=n-\RR(\B),
+$$
+从而
+$$
+\RR(\A)=\RR(\B).
+$$
+
+
+
+
+
+\begin{exampleblock}{例4}
+  设$\A$为$m\times n$实矩阵，证明$\RR(\A^T\A)=\RR(\A)$。    
+\end{exampleblock}
+
+\jiename
+只需证明$\A\xx=\zero$与$(\A^T\A)\xx=\zero$同解。
+ \vspace{0.1in}
+
+\begin{itemize}
+\item[(1)] 若$\xx$满足$\A\xx=\zero$，则有$(\A^T\A)\xx=\A^T(\A\xx)=\zero$。 
+\item[(2)] 若$\xx$满足$\A^T\A\xx=\zero$，则
+  $$
+  \xx^T\A^T\A\xx=\zero,
+  $$
+  即
+  $$
+  (\A\xx)^T\A\xx=\zero,
+  $$
+  故$\A\xx=\zero$。
+\end{itemize}
+
+
+
+
+

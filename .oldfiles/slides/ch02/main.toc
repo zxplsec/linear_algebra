@@ -1,0 +1,10 @@
+\beamer@sectionintoc {1}{矩阵的定义}{3}{0}{1}
+\beamer@sectionintoc {2}{矩阵的计算}{27}{0}{2}
+\beamer@subsectionintoc {2}{1}{矩阵的加法}{29}{0}{2}
+\beamer@subsectionintoc {2}{2}{矩阵的数乘}{31}{0}{2}
+\beamer@subsectionintoc {2}{3}{矩阵的乘法}{33}{0}{2}
+\beamer@subsectionintoc {2}{4}{一些特殊矩阵及其运算}{42}{0}{2}
+\beamer@sectionintoc {3}{矩阵的转置、对称矩阵}{53}{0}{3}
+\beamer@sectionintoc {4}{逆矩阵}{59}{0}{4}
+\beamer@sectionintoc {5}{矩阵的初等变换与初等矩阵}{75}{0}{5}
+\beamer@sectionintoc {6}{矩阵分块}{152}{0}{6}

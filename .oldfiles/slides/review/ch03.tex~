@@ -1,0 +1,983 @@
+%%%%%
+\section{$n$维向量及其线性相关性}
+
+\begin{frame}
+考察三元齐次线性方程组
+\begin{equation}\label{ls}
+  \left\{
+  \begin{array}{l}
+    a_{11}x_1+a_{12}x_2+a_{13}x_3=0,\\[0.1in]
+    a_{21}x_1+a_{22}x_2+a_{23}x_3=0,\\[0.1in]
+    a_{31}x_1+a_{32}x_2+a_{33}x_3=0
+  \end{array}
+  \right.
+\end{equation}
+我们用向量工具给出其几何解释。 记
+$$
+\ii = \left(
+\begin{array}{ccc}
+  1&
+  0&
+  0
+\end{array}
+\right), ~~
+\jj = \left(
+\begin{array}{ccc}
+  0&
+  1&
+  0
+\end{array}
+\right), ~~
+\kk = \left(
+\begin{array}{ccc}
+  0&
+  0&
+  1
+\end{array}
+\right),
+$$
+则
+$$
+\alphabd_i = \left(
+\begin{array}{ccc}
+  a_{i1}&
+  a_{i2}&
+  a_{i3}
+\end{array}
+\right) = a_{i1} \ii + a_{i2} \jj + a_{i3} \kk, \quad i=1,2,3,
+$$
+且
+$$
+\xx = \left(
+\begin{array}{ccc}
+  x_1&
+  x_2&
+  x_3
+\end{array}
+\right) = x_1\ii + x_2\jj + x_3\kk
+$$
+\end{frame}
+
+\begin{frame}
+\begin{dingyi}[向量的内积]
+  两个向量$\uu=(u_1,u_2,u_3), ~~\vv=(v_1,v_2,v_3)$的内积定义为
+  $$
+  (\uu,\vv)=u_1v_1+u_2v_2+u_3v_3.
+  $$
+\end{dingyi}
+
+\begin{dingyi}[向量的垂直]
+  两个向量$\uu=(u_1,u_2,u_3), ~~\vv=(v_1,v_2,v_3)$垂直的充分必要条件是
+  $$
+  (\uu,\vv)=0.
+  $$
+\end{dingyi}
+\end{frame}
+
+\begin{frame}
+由以上方程组可看出，解向量$\xx$与$\alphabd_1,\alphabd_2,\alphabd_3$都垂直。 故
+\begin{itemize}
+\item[(1)] 若$\alphabd_1,\alphabd_2,\alphabd_3$不共面，只有零向量与三者都垂直，即线性方程组(\ref{ls})只有零解；
+\item[(2)] 若$\alphabd_1,\alphabd_2,\alphabd_3$共面但不共线，则与该平面垂直的向量都是线性方程组(\ref{ls})的解，
+  故(\ref{ls})有无穷多个彼此平行的解向量；
+\item[(3)] 若$\alphabd_1,\alphabd_2,\alphabd_3$共线，则过原点且与该直线垂直的平面上的全体向量都是(\ref{ls})的解向量，
+  此时任一解向量均可表示为
+  $$
+  \xx = k_1 \xx^{(1)} + k_2 \xx^{(2)},
+  $$
+  其中$\xx^{(1)}, \xx^{(2)}$为(\ref{ls})的某两个不共线的非零解向量，$k_1,k_2$为任意常数。
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\begin{dingyi}[$n$维向量]
+  数域$F$上的$n$个数$a_1,a_2,\cd,a_n$构成的有序数组称为数域$F$上的一个$n$维向量，记为
+  \begin{equation}\label{vec}
+    \alphabd = (a_1, a_2, \cd, a_n)
+  \end{equation}
+  其中$a_i$称为$\alphabd$的第$i$个分量。
+\end{dingyi}
+\end{frame}
+
+\begin{frame}
+\begin{itemize}
+\item 形如(\ref{vec})的向量称为\red{行向量}；
+\item 形如
+  $$
+  \alphabd = (a_1, a_2, \cd, a_n)^T = \left(
+  \begin{array}{c}
+    a_1\\
+    a_2\\
+    \vd\\
+    a_n
+  \end{array}
+  \right)
+  $$
+  的向量称为\red{列向量}。
+\end{itemize}
+数域$F$上全体$n$维向量组成的集合，记作$F^n$。 设$\alphabd\in F^n$，则
+\begin{itemize}
+\item 当$F$取为$\mathbb R$时，$\alphabd$为实向量；
+\item 当$F$取为$\mathbb C$时，$\alphabd$为复向量。
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\begin{dingyi}{向量运算}
+  设$\alphabd=(a_1,a_2,\cd,a_n),~~\betabd=(b_1,b_2,\cd,b_n)\in F^n$，$k\in F$，定义
+  \begin{enumerate}
+  \item[(i)]
+    $\alphabd=\betabd$当且仅当$a_i=b_i(i=1,2,\cd,n)$；
+  \item[(ii)] 向量加法
+    $$
+    \alphabd+\betabd=(a_1+b_1,a_2+b_2,\cd,a_n+b_n)
+    $$
+  \item[(iii)] 向量数乘
+    $$
+    k\alphabd=(ka_1,ka_2,\cd,ka_n)
+    $$
+  \end{enumerate}
+\end{dingyi}
+
+\begin{itemize}
+\item 在(iii)中取$k=-1$，得
+  $$
+  (-1)\alphabd = (-a_1,-a_2,\cd,-a_n)
+  $$
+  右端的向量称为$\alphabd$的负向量，记为$-\alphabd$. 
+\item 向量的减法定义为
+  $$
+  \betabd-\alphabd = \betabd + (-\alphabd)
+  $$
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\begin{dingyi}[向量的8条运算规则]
+  设$\alphabd,\betabd,\gammabd\in F^n, 1,k,l\in F$，则
+  \begin{itemize}
+  \item[(1)] $\alphabd+\betabd=\betabd+\alphabd$
+  \item[(2)] $(\alphabd+\betabd)+\gammabd=\alphabd+(\betabd+\gammabd)$
+  \item[(3)] 对任一向量$\alphabd$，有$\alphabd+\zero=\alphabd$
+  \item[(4)] 对任一向量$\alphabd$，存在负向量$-\alphabd$，使得$\alphabd+(-\alphabd)=\zero$
+  \item[(5)] $1\alphabd=\alphabd$
+  \item[(6)] $k(l\alphabd)=(kl)\alphabd$
+  \item[(7)] $k(\alphabd+\betabd)=k\alphabd+k\betabd$
+  \item[(8)] $(k+l)\alphabd=k\alphabd+l\alphabd$
+  \end{itemize}
+\end{dingyi}
+\end{frame}
+
+\begin{frame}
+\begin{dingyi}[向量空间]
+  数域$F$上的$n$维向量，在其中定义了上述加法与数乘运算，就称之为$F$上的$n$维向量空间，仍记为$F^n$。
+  当$F=\mathbb R$时，叫做$n$维实向量空间，记作$\mathbb R^n$。
+\end{dingyi}
+\end{frame}
+
+\begin{frame}
+\begin{dingyi}[线性表示]
+  设$\alphabd_i\in F^n, k_i \in F (i=1,2,\cd,m)$，则向量
+  $$
+  \sum_{i=1}^m k_i\alphabd_i = k_1\alphabd_1 + k_2\alphabd_2+\cd + k_m\alphabd_m
+  $$
+  称为向量组$\alphabd_1,\alphabd_2,\cd,\alphabd_m$在数域$F$上的一个\red{线性组合}。  如果记
+  $$\betabd=\sum_{i=1}^m k_i\alphabd_i,$$
+  则称$\betabd$可由$\alphabd_1,\alphabd_2,\cd,\alphabd_m$\red{线性表示}（或\red{线性表出}）。
+\end{dingyi}
+\end{frame}
+
+\begin{frame}
+设有线性方程组$\A\xx=\bb$，其中$\A$为$m\times n$矩阵。记
+$$\A=(\alphabd_1,\alphabd_2,\cd,\alphabd_n),$$
+即
+$$
+(\alphabd_1,\alphabd_2,\cd,\alphabd_n) \left(
+\begin{array}{c}
+  x_1\\
+  x_2\\
+  \vd\\
+  x_n
+\end{array}
+\right)=\bb
+$$
+于是线性方程组可等价的表述为
+$$
+x_1\alphabd_1+x_2\alphabd_2+\cd+x_n\alphabd_n=\bb
+$$
+\end{frame}
+
+\begin{frame}
+\begin{zhu*}
+  向量$\bb$可由$\alphabd_1,\alphabd_2,\cd,\alphabd_n$线性表示，等价于方程组
+  $$
+  x_1\alphabd_1+x_2\alphabd_2+\cd+x_n\alphabd_n=\bb
+  $$
+  有解。
+\end{zhu*}
+\end{frame}
+
+\begin{frame}
+\begin{dingyi}[线性相关与线性无关]
+  若对$m$个向量$\alphabd_1,\alphabd_2,\cd,\alphabd_m\in F^n$，有$m$个不全为零的数$k_1,k_2,\cd,k_m\in F$，使
+  \begin{equation}\label{def1}
+    k_1\alphabd_1 + k_2\alphabd_2+\cd + k_m\alphabd_m = \zero        
+  \end{equation}
+  成立，则称\red{$\alphabd_1,\alphabd_2,\cd,\alphabd_m$线性相关}；
+  否则，称\red{$\alphabd_1,\alphabd_2,\cd,\alphabd_m$线性无关}。
+\end{dingyi}
+\end{frame}
+
+\begin{frame}
+\begin{zhu*}
+  向量组$\alphabd_1,\alphabd_2,\cd,\alphabd_m$线性无关，指的是
+  \begin{itemize}
+  \item 没有不全为零的数$k_1,k_2,\cd,k_m$使(\ref{def1})成立 ；
+  \item 只有当$k_1,k_2,\cd,k_m$全为零时，才使(\ref{def1})成立 ；
+  \item 若(\ref{def1})成立，则$k_1,k_2,\cd,k_m$必须全为零。
+  \end{itemize}
+\end{zhu*}
+\end{frame}
+
+
+\begin{frame}
+\begin{dingli}
+  以下两组等价关系成立:
+  \begin{itemize}
+  \item  向量组$\alphabd_1,\alphabd_2,\cd,\alphabd_m$线性相关，等价于齐次方程组
+    $$
+    x_1\alphabd_1+x_2\alphabd_2+\cd+x_m\alphabd_m=\zero
+    $$
+    有非零解。
+  \item  向量组$\alphabd_1,\alphabd_2,\cd,\alphabd_m$线性无关，等价于齐次方程组
+    $$
+    x_1\alphabd_1+x_2\alphabd_2+\cd+x_m\alphabd_m=\zero
+    $$
+    只有零解。
+  \end{itemize}
+\end{dingli}
+\end{frame}
+
+\begin{frame}
+对于只含有一个向量$\alphabd$的向量组，若存在不为零的数$k$使得
+$$
+k \alphabd = \zero,
+$$
+则
+$$
+\Rightarrow \alphabd = \frac1k \zero = \zero
+$$  
+若$\alphabd\ne \zero$，要使
+$$
+k \alphabd = \zero,
+$$
+必须$k=0$.
+\end{frame}
+
+\begin{frame}
+\begin{itemize}
+\item 当$\alphabd=\zero$时，向量组$\alphabd$线性相关
+\item 当$\alphabd\ne \zero$时，向量组$\alphabd$线性无关
+\end{itemize}
+\end{frame}
+
+
+
+
+\begin{frame}
+\begin{dingli}
+  向量组$\alphabd_1,\alphabd_2,\cd,\alphabd_m(m\ge 2)$线性相关的充分必要条件是$\alphabd_1,\alphabd_2,\cd,\alphabd_m$中\red{至少有一个向量}可由其余$m-1$个向量线性表出。
+\end{dingli}
+\pause 
+\begin{proof}
+\red{($\Rightarrow$)} \quad
+若向量组$\alphabd_1,\alphabd_2,\cd,\alphabd_m(m\ge 2)$线性相关，则必存在不全为零的数$k_1,k_2,\cd,k_m$使得
+$$
+k_1\alphabd_1 + k_2\alphabd_2+\cd + k_m\alphabd_m = \zero,
+$$  \pause 
+不妨设$k_1\ne 0$，则
+$$
+\alphabd_1 =  -\frac{k_2}{k_1}\alphabd_2-\cd - \frac{k_m}{k_1}\alphabd_m，
+$$
+必要性得证。
+\vspace{0.1in} \pause 
+
+\red{($\Leftarrow$)} \quad
+不妨设$\alphabd_1$可由$\alphabd_2,\cd,\alphabd_m$线性表示，即
+$$
+\alphabd_1 = l_2\alphabd_2+\cd+l_m\alphabd_m    
+$$  \pause 
+于是有
+$$
+\alphabd_1 - l_2\alphabd_2-\cd-l_m\alphabd_m=\zero,
+$$  
+显然$1,-l_2,\cd,-l_m$不全为零，故$\alphabd_1,\alphabd_2,\cd,\alphabd_m$线性相关。
+\end{proof}
+\end{frame}
+
+\begin{frame}
+证明向量组$\alphabd_1,\alphabd_2,\cd,\alphabd_m$线性无关的基本方法为：
+说明齐次方程组
+$$
+x_1\alphabd_1+x_2\alphabd_2+\cd+x_m\alphabd_m=\zero
+$$
+只有零解。
+也常常表述为：设
+$$
+x_1\alphabd_1+x_2\alphabd_2+\cd+x_m\alphabd_m=\zero
+$$
+然后说明上式成立，只能有唯一选择：
+$$
+x_1=x_2=\cd=x_m=0.
+$$
+\end{frame}
+
+\begin{frame}
+\begin{li}
+  设$n$维向量$\ee_i=(0,\cd,0,1,0,\cd,0)$，则$\ee_1,\ee_2,\cd,\ee_n$线性无关。
+\end{li} \pause
+
+\begin{jie}
+  设存在$k_1,k_2,\cd,k_n$使得
+$$
+k_1\ee_1+k_2\ee_2+\cd+k_n\ee_n=\zero,
+$$
+即
+$$
+(k_1,k_2,\cd,k_n)=\zero,
+$$
+则必有$k_1=k_2=\cd=k_n=0$，故$\ee_1,\ee_2,\cd,\ee_n$线性无关。
+\end{jie}
+\end{frame}
+
+
+\begin{frame}
+\begin{zhu*}
+  $n$维向量$\ee_1,\ee_2,\cd,\ee_n$称为\red{基本向量}。$F^n$中任何向量$\alphabd=(a_1,a_2,\cd,a_n)$都可以由$\ee_1,\ee_2,\cd,\ee_n$线性表示，即
+  $$
+  \alphabd = a_1\ee_1+a_2\ee_2+\cd+a_n\ee_n.
+  $$
+\end{zhu*}
+\end{frame}
+
+\begin{frame}
+\begin{li}
+  包含零向量的向量组是线性相关的。
+\end{li}\pause 
+\begin{jie}
+设该向量组为$\alphabd_1,\alphabd_2,\cd,\alphabd_m$，其中$\alphabd_1=\zero$。则存在$m$个不全为零的数$1,0,\cd,0$使得
+$$
+1 \alphabd_1+0\alphabd_2+\cd+0\alphabd_m=\zero,
+$$
+故该向量组线性相关。
+\end{jie}
+\end{frame}
+
+\begin{frame}
+\begin{zhu*}
+  \begin{itemize}
+  \item 单个向量$\alphabd$线性相关，当且仅当$\alphabd$为零向量；
+  \item 单个向量$\alphabd$线性无关，当且仅当$\alphabd$为非零向量。        
+  \end{itemize}
+\end{zhu*}
+\end{frame}
+
+\begin{frame}
+\begin{li}
+  如果向量组$\alphabd_1,\alphabd_2,\cd,\alphabd_m$中有一部分向量线性相关，则整个向量组也线性相关。
+\end{li}
+\pause 
+\begin{proof}
+不妨设$\alphabd_1,\alphabd_2,\cd,\alphabd_r(r<m)$线性相关，则存在$r$个不全为零的数$k_1,k_2,\cd,k_r$使得
+$$
+k_1\alphabd_1+k_2\alphabd_2+\cd+k_r\alphabd_r=\zero,
+$$
+从而有$m$个不全为零的数$k_1,k_2,\cd,k_r,0,\cd,0$，使得
+$$
+k_1\alphabd_1+k_2\alphabd_2+\cd+k_r\alphabd_r+0\alphabd_{r+1}+\cd+0\alphabd_m=\zero,
+$$
+故$\alphabd_1,\alphabd_2,\cd,\alphabd_m$线性相关。
+\end{proof}
+\end{frame}
+
+\begin{frame}
+\begin{zhu*}
+  \begin{itemize}
+  \item 如果$\alphabd_1,\alphabd_2,\cd,\alphabd_m$线性无关，则其中任一部分向量组也线性无关。              
+  \item     \red{部分相关，则整体相关；整体无关，则部分无关。}
+  \end{itemize}
+  
+\end{zhu*}
+
+
+\begin{zhu*}
+  该定理不能理解为：\blue{线性相关的向量组中，每一个向量都能由其余向量线性表示。}  
+
+  如$\alphabd_1=(0,1), ~~\alphabd_2=(0,-2), ~~\alphabd_3=(1,1)$线性相关(因为$\alphabd_1,~~\alphabd_2$线性相关)，
+  但$\alphabd_3$不能由$\alphabd_1,~~\alphabd_2$线性表示。 
+\end{zhu*}
+\end{frame}
+
+\begin{frame}
+\begin{dingli}
+  设$\alphabd_1,\alphabd_2,\cd,\alphabd_r\in F^n$，其中
+  $$
+  \begin{aligned}
+    \alphabd_1 = (a_{11},~a_{21},~\cd,~a_{n1})^T,~
+    \alphabd_2 = (a_{12},~a_{22},~\cd,~a_{n2})^T,~\\
+    \cd,~
+    \alphabd_r = (a_{1r},~a_{2r},~\cd,~a_{nr})^T,
+  \end{aligned}
+  $$
+  则向量组$\alphabd_1,\alphabd_2,\cd,\alphabd_r$线性相关的充分必要条件是齐次线性方程组
+  \begin{equation}\label{ax}
+    \A \xx = \zero
+  \end{equation}
+  有非零解，其中
+  $$
+  \A = (\alphabd_1,~\alphabd_2,~\cd,~\alphabd_r) = \left(
+    \begin{array}{cccc}
+      a_{11}&a_{12}&\cd&a_{1r}\\[0.05in]
+      a_{21}&a_{22}&\cd&a_{2r}\\[0.05in]
+      \vd&\vd&&\vd\\[0.05in]
+      a_{n1}&a_{n2}&\cd&a_{nr}.
+    \end{array}\right), \xx = \left(
+    \begin{array}{c}
+      x_1\\[0.05in]
+      x_2\\[0.05in]
+      \vd\\[0.05in]
+      x_r
+    \end{array}
+  \right)
+  $$
+\end{dingli}
+\end{frame}  
+
+\begin{frame}
+\begin{proof}
+设
+\begin{equation}\label{th3.1}
+  x_1 \alphabd_1 + x_2 \alphabd_2 + \cd + x_r \alphabd_r = \zero,      
+\end{equation}
+即
+$$
+x_1 \left(
+  \begin{array}{c}
+    a_{11}\\
+    a_{21}\\
+    \vd \\
+    a_{n1}
+  \end{array}
+\right) + x_2 \left(
+  \begin{array}{c}
+    a_{12}\\
+    a_{22}\\
+    \vd \\
+    a_{n2} 
+  \end{array}
+\right)+ \cd + x_r \left(
+  \begin{array}{c}
+    a_{1r}\\
+    a_{2r}\\
+    \vd \\
+    a_{nr}
+  \end{array}
+\right) = \zero.
+$$
+此即齐次线性方程组(\ref{ax})。
+
+\begin{itemize}
+\item[\red{($\Rightarrow$)}]     若向量组$\alphabd_1,\alphabd_2,\cd,\alphabd_r$线性相关，
+  则必有不全为零的数$x_1,x_2,\cd,x_r$使得(\ref{th3.1})成立，
+  即齐次线性方程组(\ref{ax})有非零解。  
+\item[\red{($\Leftarrow$)}]     若方程组(\ref{ax})有非零解，就是说有不全为零的数$x_1,x_2,\cd,x_r$使得(\ref{th3.1})成立，故向量组$\alphabd_1,\alphabd_2,\cd,\alphabd_r$线性相关。
+
+\end{itemize}
+\end{proof}
+\end{frame}
+
+\begin{frame}
+\begin{jielun}
+  对于齐次线性方程组，如果
+  $$
+  \red{\mbox{未知量个数} ~~>~~ \mbox{方程个数},}
+  $$
+  则它必有无穷多解，从而必有非零解。
+\end{jielun}   
+
+\end{frame}
+
+
+
+
+\begin{frame}
+\begin{dingli}
+  任意$n+1$个$n$维向量都是线性相关的。
+\end{dingli}
+\pause
+\begin{proof}
+对向量组$\alphabd_1,\alphabd_2,\cd,\alphabd_n,\alphabd_{n+1}\in F^n$，设
+$$
+x_1 \alphabd_1 + x_2 \alphabd_2 + \cd + x_n \alphabd_n + x_{n+1} \alphabd_{n+1} = \zero,  
+$$
+注意到此齐次线性方程组中，未知量个数为$n+1$，而方程个数为$n$，故方程组一定有无穷多个解，从而必有非零解。
+得证$\alphabd_1,\alphabd_2,\cd,\alphabd_n,\alphabd_{n+1}$线性相关。
+\end{proof}
+\end{frame}
+
+\begin{frame}
+\begin{zhu*}
+  \begin{itemize}
+  \item    向量个数$~>~$向量维数 $~~\red{\Rightarrow}~~$ 向量组必线性相关。 
+  \item     在$\mathbb R^n$中，任意一组线性无关的向量最多只能含$n$个向量。
+  \end{itemize}
+\end{zhu*}
+\end{frame}
+
+\begin{frame}
+\begin{dingli}
+  若向量组$\alphabd_1,\alphabd_2,\cd,\alphabd_r$线性无关，而$\red{\betabd},\alphabd_1,\alphabd_2,\cd,\alphabd_r$线性相关，则$\red{\betabd}$可由$\alphabd_1,\alphabd_2,\cd,\alphabd_r$线性表示，并且表示法惟一。
+\end{dingli} 
+\end{frame}
+
+\begin{frame}
+\begin{proof}
+因为$\betabd,\alphabd_1,\alphabd_2,\cd,\alphabd_r$线性相关，故存在不全为零的数$k,k_1,k_2,\cd,k_r$使得
+$$
+k\betabd + k_1\alphabd_1+k_2\alphabd_2+\cd+k_r\alphabd_r=\zero,
+$$
+其中$k\ne 0 $ \red{(若$k=0$，则由$\alphabd_1,\alphabd_2,\cd,\alphabd_r$线性无关可知$k_1,k_2,\cd,k_r$全为零，这与$k,k_1,k_2,\cd,k_r$不全为零矛盾)}。  
+于是$\betabd$可由$\alphabd_1,\alphabd_2,\cd,\alphabd_r$线性表示为
+$$
+\betabd=-\frac{k_1}k\alphabd_1-\frac{k_2}k\alphabd_2-\cd-\frac{k_r}k\alphabd_r.
+$$ \pause 
+
+\red{再证唯一性} \quad 设有两种表示法
+$$
+\betabd=l_1\alphabd_1+l_2\alphabd_2+\cd+l_r\alphabd_r,\quad
+\betabd=h_1\alphabd_1+h_2\alphabd_2+\cd+h_r\alphabd_r.
+$$ 
+于是
+$$
+(l_1-h_1)\alphabd_1+(l_2-h_2)\alphabd_2+\cd+(l_r-h_r)\alphabd_1=\zero,
+$$ 
+由$\alphabd_1,\alphabd_2,\cd,\alphabd_r$线性无关可知
+\red{$l_i-h_i=0, \quad \mbox{即} l_i=h_i.$}
+故$\betabd$由$\alphabd_1,\alphabd_2,\cd,\alphabd_r$线性表示的表示法惟一。
+\end{proof}
+\end{frame}
+
+\begin{frame}
+\begin{tuilun}
+  如果$F^n$中的$n$个向量$\alphabd_1,\alphabd_2,\cd,\alphabd_n$线性无关，则$F^n$中的任一向量$\alphabd$可由$\alphabd_1,\alphabd_2,\cd,\alphabd_n$线性表示，且表示法惟一。
+\end{tuilun}\pause 
+\begin{proof}
+由"任意$n+1$个$n$维向量线性相关''知，$\alphabd,\alphabd_1,\alphabd_2,\cd,\alphabd_n$线性相关，由前述定理可得结论成立。
+\end{proof}
+\end{frame}
+
+\begin{frame}
+\begin{li}
+  设$\alphabd_1=(1,-1,1),\alphabd_2=(1,2,0),\alphabd_3=(1,0,3),\alphabd_4=(2,-3,7)$.  问：
+  \begin{itemize}
+  \item[(1)]$\alphabd_1,\alphabd_2,\alphabd_3$是否线性相关？
+  \item[(2)]$\alphabd_4$可否由$\alphabd_1,\alphabd_2,\alphabd_3$线性表示？如能表示求出其表示式。
+  \end{itemize}
+\end{li} \pause 
+\begin{jie}
+\begin{itemize}
+\item[(1)]    考察
+  $
+  \A = (\alphabd_1^T, \alphabd_2^T, \alphabd_3^T) = \left(
+  \begin{array}{rrr}
+    1&1&1\\
+    -1&2&0\\
+    1&0&3
+  \end{array}
+  \right). 
+  $ \quad
+  由$|\A|=7$可知$\A$可逆，故$\A\xx=\zero$只有零解，从而$\alphabd_1,\alphabd_2,\alphabd_3$线性无关。  \pause 
+\item[(2)] 根据推论，$\alphabd_4$可由$\alphabd_1,\alphabd_2,\alphabd_3$线性表示，且表示法惟一。  设
+  $$
+  x_1\alphabd_1+x_2\alphabd_2+x_3\alphabd_3=\alphabd_4   \Rightarrow
+  x_1\alphabd_1^T+x_2\alphabd_2^T+x_3\alphabd_3^T=\alphabd_4^T       
+  $$
+  即$$
+  \left(
+  \begin{array}{ccc}
+    \alphabd_1^T &\alphabd_2^T& \alphabd_3^T  
+  \end{array}
+  \right) \left(
+  \begin{array}{c}
+    x_1\\
+    x_2\\
+    x_3
+  \end{array}
+  \right)= 
+  \left(
+  \begin{array}{rrr}
+    1&1&1\\
+    -1&2&0\\
+    1&0&3
+  \end{array}
+  \right) \left(
+  \begin{array}{c}
+    x_1\\
+    x_2\\
+    x_3
+  \end{array}
+  \right) =  \left(
+  \begin{array}{r}
+    2\\
+    -3\\
+    7
+  \end{array}
+  \right)
+  $$  
+  解此方程组得惟一解$x_1=1,x_2=-1,x_3=2$，故
+  $
+  \red{\alphabd_4=\alphabd_1-\alphabd_2+2\alphabd_3.}
+  $
+\end{itemize}
+\end{jie}
+\end{frame}
+
+\begin{frame}
+\begin{li}
+  设向量组$\alphabd_1,\alphabd_2,\alphabd_3$线性无关，又$\betabd=\alphabd_1+\alphabd_2+2\alphabd_3$，
+  $\betabd_2=\alphabd_1-\alphabd_2$，$\betabd_3=\alphabd_1+\alphabd_3$，证明$\betabd_1,\betabd_2,\betabd_3$线性相关。       
+\end{li} \pause 
+\begin{jie}
+设有数$x_1,x_2,x_3$使得
+\begin{equation}\label{li5}
+  x_1\betabd_1+x_2\betabd_2+x_3\betabd_3=\zero
+\end{equation}    
+即
+$$
+x_1(\alphabd_1+\alphabd_2+2\alphabd_3)+x_2(\alphabd_1-2\alphabd_2)+x_3(\alphabd_1+\alphabd_3)=\zero
+$$
+亦即
+$$
+(x_1+x_2)\alphabd_1+(x_1-2x_2)\alphabd_2+(x_1+x_3)\alphabd_3=\zero
+$$
+因为$\alphabd_1,\alphabd_2,\alphabd_3$线性无关，故
+$$
+\left\{
+\begin{array}{rcrcrcrcr}
+  x_1&+&x_2&&&=&0\\
+  x_1&-&x_2&&&=&0\\
+  2x_1&&&+&x_3&=&0.
+\end{array}
+\right.
+$$
+求解该方程组可得非零解$(-1,-1,2)$。因此，有不全为零的数$x_1,x_2,x_3$使得(\ref{li5})成立，从而$\betabd_1,\betabd_2,\betabd_3$线性相关。
+\end{jie}
+\end{frame}
+
+\begin{frame}
+\begin{li}
+  证明：$\alphabd_1+\alphabd_2,\alphabd_2+\alphabd_3,\alphabd_3+\alphabd_1$线性无关的充要条件是$\alphabd_1,\alphabd_2,\alphabd_3$线性无关。
+\end{li}
+\begin{proof}
+\red{($\Rightarrow$)} \quad
+假设$\alphabd_1,\alphabd_2,\alphabd_3$线性相关，则有不全为零的数$x_1+x_2,x_2+x_3,x_3+x_1$使得
+$$
+(x_1+x_2)\alphabd_1+(x_2+x_3)\alphabd_2+(x_3+x_1)\alphabd_3=\zero
+$$
+即
+$$
+x_1(\alphabd_1+\alphabd_2)+x_2(\alphabd_2+\alphabd_3)+x_3(\alphabd_3+\alphabd_1)=\zero
+$$
+\pause 
+\red{($\Leftarrow$)} \quad
+设有$x_1,x_2,x_3$使得
+\begin{equation}\label{li6-1}
+  x_1(\alphabd_1+\alphabd_2)+x_2(\alphabd_2+\alphabd_3)+x_3(\alphabd_3+\alphabd_1)=\zero
+\end{equation}
+即
+$$
+(x_1+x_3)\alphabd_1+(x_1+x_2)\alphabd_2+(x_2+x_3)\alphabd_3=\zero
+$$
+因为$\alphabd_1,\alphabd_2,\alphabd_3$线性无关，故
+$$
+x_1+x_3=0, \quad x_1+x_2=0, \quad x_2+x_3=0,
+$$
+该方程组只有零解。这说明若使(\ref{li6-1})，必有$x_1=x_2=x_3=0$，从而$\alphabd_1+\alphabd_2,\alphabd_2+\alphabd_3,\alphabd_3+\alphabd_1$线性无关。
+\end{proof}
+\end{frame}
+
+\begin{frame}
+\begin{dingli}
+  如果一组$n$维向量$\alphabd_1,\alphabd_2,\cd,\alphabd_s$线性无关，那么把这些向量各任意添加$m$个分量所得的向量(\red{$n+m$维})组$\alphabd^*_1,\alphabd^*_2,\cd,\alphabd^*_s$也线性无关。亦即
+    $$
+\left(
+\begin{array}{c}
+  a_{11}\\
+  a_{21}\\
+  \vd\\
+  a_{n1}\\
+\end{array}
+\right)
+\cd,
+\left(
+\begin{array}{c}
+  a_{1s}\\
+  a_{2s}\\
+  \vd\\
+  a_{ns}\\
+\end{array}
+\right) \mbox{线性无关}  ~~~\blue{\Rightarrow}~~~
+\left(
+\begin{array}{c}
+  a_{11}\\
+  a_{21}\\
+  \vd\\
+  a_{n1}\\
+  \red{a_{n+1,1}}\\
+  \vd\\
+  \red{a_{n+m,1}}
+\end{array}
+\right),
+\cd,
+\left(
+\begin{array}{c}
+  a_{1s}\\
+  a_{2s}\\
+  \vd\\
+  a_{ns}\\
+  \red{a_{n+1,s}}\\
+  \vd\\
+  \red{a_{n+m,s}}
+\end{array}
+\right) \mbox{线性无关}
+$$
+\end{dingli}
+\end{frame}
+
+\begin{frame}
+  \begin{dingli}
+    如果$\alphabd_1,\alphabd_2,\cd,\alphabd_s$线性相关，那么它们各去掉相同的若干个分量所得到的新向量也线性相关，亦即
+  $$  
+\left(
+\begin{array}{c}
+  a_{11}\\
+  a_{21}\\
+  \vd\\
+  a_{n1}\\
+  \red{a_{n+1,1}}\\
+  \vd\\
+  \red{a_{n+m,1}}
+\end{array}
+\right),
+\cd,
+\left(
+\begin{array}{c}
+  a_{1s}\\
+  a_{2s}\\
+  \vd\\
+  a_{ns}\\
+  \red{a_{n+1,s}}\\
+  \vd\\
+  \red{a_{n+m,s}}
+\end{array}
+\right) \mbox{线性相关}  ~~~\blue{\Rightarrow}~~~
+\left(
+\begin{array}{c}
+  a_{11}\\
+  a_{21}\\
+  \vd\\
+  a_{n1}\\
+\end{array}
+\right)
+\cd,
+\left(
+\begin{array}{c}
+  a_{1s}\\
+  a_{2s}\\
+  \vd\\
+  a_{ns}\\
+\end{array}
+\right) \mbox{线性相关}
+$$
+\end{dingli}
+\end{frame}
+
+\begin{frame}[allowframebreaks]
+\begin{proof}
+以上两定理互为逆否命题，故只需证明第一个。 
+设向量组$\alphabd_1,\alphabd_2,\cd,\alphabd_s$线性无关，则方程组
+$$
+x_1\alphabd_1+x_2\alphabd_2+\cd+x_s\alphabd_s=\zero
+$$
+只有零解。 设$\alphabd_i=(a_{1i},a_{2i},\cd,a_{ni})^T,~~ i=1,2,\cd,s$，即
+\begin{equation}\label{ls_ns}
+  \left\{
+  \begin{array}{rcrcrcrcr}
+    a_{11}x_1&+&a_{12}x_2&+&\cd&+&a_{1s}x_s&=&0,\\[0.05in]
+    a_{21}x_1&+&a_{22}x_2&+&\cd&+&a_{2s}x_s&=&0,\\[0.05in]
+    &&&&\cd&&&&\\[0.05in]
+    a_{n1}x_1&+&a_{n2}x_2&+&\cd&+&a_{ns}x_s&=&0.
+  \end{array}
+  \right.
+\end{equation}
+只有零解。
+
+
+不妨设每个向量增加了一个分量，即
+$$
+\alphabd_i^*= (a_{1i},a_{2i},\cd,a_{ni},\red{a_{n+1,i}})^T, ~~ ii=1,2,\cd,s.
+$$ 
+设
+$$
+x_1\alphabd_1^*+x_2\alphabd_2^*+\cd+x_s\alphabd_s^*=\zero
+$$
+即
+\begin{equation}\label{ls_ns1}
+  \left\{
+  \begin{array}{rcrcrcrcr}
+    a_{11}x_1&+&a_{12}x_2&+&\cd&+&a_{1s}x_s&=&0,\\[0.05in]
+    a_{21}x_1&+&a_{22}x_2&+&\cd&+&a_{2s}x_s&=&0,\\[0.05in]
+    &&&&\cd&&&&\\[0.05in]
+    a_{n1}x_1&+&a_{n2}x_2&+&\cd&+&a_{ns}x_s&=&0,\\[0.05in]
+    \red{a_{n+1,1}x_1}&\red{+}&\red{a_{n+1,2}x_2}&\red{+}&\red{\cd}&\red{+}&\red{a_{n+1,s}x_s}&\red{=}&\red{0}.
+  \end{array}
+  \right.
+\end{equation}
+方程组(\ref{ls_ns1})的解全是方程组(\ref{ls_ns})的解。 而方程组(\ref{ls_ns})只有零解，故方程组(\ref{ls_ns1})也只有零解。故向量组$\alphabd^*_1,\alphabd^*_2,\cd,\alphabd^*_s$线性无关。
+\end{proof}
+\end{frame}
+
+\begin{frame}
+\begin{tuilun}
+  设向量组线性相关，若增加的分量全为零，则得到的新向量组也线性相关。
+\end{tuilun}
+\pause 
+\begin{proof}
+设$\alphabd_1,\alphabd_2,\cd,\alphabd_s$线性相关，把这些向量各任意添加$m$个全为零的分量，
+所得到的新向量组记为$\alphabd^*_1,\alphabd^*_2,\cd,\alphabd^*_s$。 
+此时方程组
+$$
+x_1\alphabd_1+x_2\alphabd_2+\cd+x_s\alphabd_s=\zero
+$$ 
+与方程组
+$$
+x_1\alphabd_1^*+x_2\alphabd_2^*+\cd+x_s\alphabd_s^*=\zero
+$$
+完全相同。所以新向量组$\alphabd^*_1,\alphabd^*_2,\cd,\alphabd^*_s$也线性相关。
+\end{proof}
+\end{frame}
+
+\begin{frame}
+\purple{对应位置全为零的向量，不影响向量组的线性相关性。}
+
+如
+$$  
+\left(
+\begin{array}{c}
+  a_{11}\\
+  0\\
+  a_{21}\\
+  \vd\\
+  a_{n1}\\
+  0\\
+  \vd\\
+  0
+\end{array}
+\right),
+\cd,
+\left(
+\begin{array}{c}
+  a_{1s}\\
+  0\\
+  a_{2s}\\
+  \vd\\
+  a_{ns}\\
+  0\\
+  \vd\\
+  0
+\end{array}
+\right) \mbox{~~与~~}
+\left(
+\begin{array}{c}
+  a_{11}\\
+  a_{21}\\
+  \vd\\
+  a_{n1}\\
+\end{array}
+\right),
+\cd,
+\left(
+\begin{array}{c}
+  a_{1s}\\
+  a_{2s}\\
+  \vd\\
+  a_{ns}\\
+\end{array}
+\right) 
+$$
+线性相关性一致。
+\end{frame}
+
+\begin{frame}
+\begin{li}
+  考察以下向量组的线性相关性：
+  $$
+  \left(
+  \begin{array}{c}
+    1\\
+    0\\
+    0\\
+    2\\
+    5
+  \end{array}
+  \right), \quad
+  \left(
+  \begin{array}{c}
+    0\\
+    1\\
+    0\\
+    6\\
+    9
+  \end{array}
+  \right), \quad
+  \left(
+  \begin{array}{c}
+    0\\
+    0\\
+    1\\
+    4\\
+    3
+  \end{array}
+  \right)
+  $$
+\end{li} \pause 
+\begin{jie}
+去掉最后两个分量所得的向量组
+$$
+\left(
+\begin{array}{c}
+  1\\
+  0\\
+  0
+\end{array}
+\right), \quad
+\left(
+\begin{array}{c}
+  0\\
+  1\\
+  0
+\end{array}
+\right), \quad
+\left(
+\begin{array}{c}
+  0\\
+  0\\
+  1
+\end{array}
+\right)
+$$
+线性无关，故原向量组线性无关。
+\end{jie}
+\end{frame}
+
+

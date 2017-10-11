@@ -1,0 +1,108 @@
+\subsection{$\RRR^n$中向量的内积，欧式空间}
+\begin{frame}
+  \begin{footnotesize}
+    \begin{block}{定义}
+      在$\RRR^n$中，对于$\alphabd=(a_1,a_2,\cd,a_n)^T$和$\betabd=(b_1,b_2,\cd,b_n)^T$，规定$\alphabd$和$\betabd$的内积为
+      $$
+      (\alphabd,\betabd)=a_1b_1+a_2b_2+\cd+a_nb_n.
+      $$
+    \end{block}
+    当$\alphabd$和$\betabd$为列向量时，
+    $$
+    (\alphabd,\betabd)=\alphabd^T\betabd=\betabd^T\alphabd.
+    $$
+  \end{footnotesize}
+\end{frame}
+
+\begin{frame}
+  \begin{footnotesize}
+    \begin{block}{内积的运算性质}
+      对于$\alphabd,\betabd,\gammabd\in\RRR^n$和$k\in\RRR$，
+      \begin{itemize}
+      \item[(i)]   $(\alphabd,\betabd)=(\betabd,\alphabd)$
+      \item[(ii)]  $(\alphabd+\betabd,\gammabd)=(\alphabd,\gammabd)+(\betabd,\gammabd)$
+      \item[(iii)] $(k\alphabd,\betabd)=k(\alphabd,\betabd)$
+      \item[(iv)]  $(\alphabd,\alphabd)\ge0$， 等号成立当且仅当$\alphabd=\zero$.
+      \end{itemize}
+    \end{block}
+    \pause
+    \begin{block}{定义（向量长度）}
+      向量$\alphabd$的长度定义为
+      $$
+      \|\alphabd\|=\sqrt{(\alphabd,\alphabd)}
+      $$
+    \end{block}
+  \end{footnotesize}
+\end{frame}
+
+
+\begin{frame}
+  \begin{footnotesize}
+    \begin{block}{定理（柯西-施瓦茨(Cauchy-Schwarz)不等式）}
+      $$
+      |(\alphabd,\betabd)|\le\|\alphabd\|\|\betabd\|
+      $$
+    \end{block}
+    \pause 
+    \proofname
+    $\forall t \in \RRR$，有
+    $$
+    (\alphabd+t\betabd,\alphabd+t\betabd) \ge 0
+    $$
+    即
+    $$
+    (\betabd,\betabd)t^2+2(\alphabd,\betabd)t+(\alphabd,\alphabd)\ge0
+    $$
+    此为关于$t$的二次函数，由一元二次方程理论可知
+    $$
+    \Delta = b^2-4ac = 4 (\alphabd,\betabd)^2-4(\alphabd,\alphabd)(\betabd,\betabd)\le 0
+    $$
+  \end{footnotesize}
+\end{frame}
+
+
+\begin{frame}
+  \begin{footnotesize}
+    \begin{block}{定理（三角不等式）}
+      $$
+      \|\alphabd+\betabd\|\le\|\alphabd\|+\|\betabd\|.
+      $$
+    \end{block}
+  \end{footnotesize}
+\end{frame}
+
+
+\begin{frame}
+  \begin{footnotesize}
+    \begin{block}{定义（欧几里得空间）}
+      定义了内积运算的$n$维实向量空间，称为$n$维欧几里得空间（简称欧氏空间），仍记为$\RRR^n$。
+    \end{block}
+  \end{footnotesize}
+\end{frame}
+
+\begin{frame}
+  \begin{footnotesize}
+    
+  \end{footnotesize}
+\end{frame}
+
+
+\begin{frame}
+  \begin{footnotesize}
+    
+  \end{footnotesize}
+\end{frame}
+
+
+\begin{frame}
+  \begin{footnotesize}
+    
+  \end{footnotesize}
+\end{frame}
+
+
+\begin{frame}
+  \begin{footnotesize}
+    
+  \end{footnotesize}
+\end{frame}

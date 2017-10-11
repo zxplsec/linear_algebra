@@ -1,0 +1,192 @@
+\subsection{配方法}
+
+
+\begin{frame}
+  \begin{footnotesize}
+    \begin{exampleblock}{例}
+      用配方法把三元二次型
+      $$
+      f(x_1,x_2,x_3)=2x_1^2+3x_2^2+x_3^2+4x_1x_2-4x_1x_3-8x_2x_3
+      $$
+      化为标准型。
+    \end{exampleblock}
+    \pause\jiename
+    先按$x_1^2$和含$x_1$的混合项配成完全平方，即
+    $$
+    \begin{array}{rl}
+      f(x_1,x_2,x_3)&=2[x_1^2+2x_1(x_2-x_3)+(x_2-x_3)^2]-2(x_2-x_3)^2+3x_2^2+x_3^2-8x_2x_3\\[0.1in]
+      &=2(x_1+x_2-x_3)^2+x_2^2-x_3^2-4x_2x_3
+    \end{array}
+    $$\pause
+    再按$x_2^2-4x_2x_3$配成完全平方，得
+    $$
+    f(x_1,x_2,x_3)=2(x_1+x_2-x_3)^2+(x_2-2x_3)^2-5x_3^2.
+    $$
+    \pause
+    令
+    $$
+    \left\{
+    \begin{array}{rcrcrcr}
+      y_1&=&x_1&+&x_2&-&x_3\\
+      y_2&=& &&x_2&-&2x_3\\
+      y_3&=&&&&&x_3
+    \end{array}
+    \right. \pause ~~\Longrightarrow~~
+    \left(
+    \begin{array}{c}
+      x_1\\
+      x_2\\
+      x_3
+    \end{array}
+    \right)=
+    \left(
+    \begin{array}{rrr}
+      1&-1&-1\\
+      0&1&2\\
+      0&0&1
+    \end{array}
+    \right)
+    \left(
+    \begin{array}{c}
+      y_1\\
+      y_2\\
+      y_3
+    \end{array}
+    \right)
+    $$ \pause 
+    则
+    $$
+    f(x_1,x_2,x_3)=2y_1^2+y_2^2-5y_3^2.
+    $$
+  \end{footnotesize}
+\end{frame}
+
+
+\begin{frame}
+  \begin{footnotesize}
+    \begin{exampleblock}{例}
+      用配方法化二次型
+      $$
+      f(x_1,x_2,x_3)=2x_1x_2+4x_1x_3
+      $$
+      为标准型。
+    \end{exampleblock}
+    \pause\jiename
+    对$x_1x_2$利用平方差公式，令
+    $$
+    \left\{
+    \begin{array}{l}
+      x_1=y_1+y_2\\
+      x_2=y_1-y_2\\
+      x_3=y_3
+    \end{array}
+    \right.
+    $$
+    则
+    $$
+    f(x_1,x_2,x_3)=2(y_1+y_2)(y_1-y_2)+4(y_1+y_2)y_3=2y_1^2-2y_2^2+4y_1y_3+4y_2y_3
+    $$
+    \pause
+    先对含$y_1$的项配完全平方，得
+    $$
+    f(x_1,x_2,x_3)=2(y_1^2+2y_1y_3+y_3^2)-2y_2^2-2y_3^2+4y_2y_3
+    $$
+    再对含$y_2$的项配完全平方，得
+    $$
+    f(x_1,x_2,x_3)=2(y_1+y_3)^2-2(y_2-y_3)^2
+    $$
+  \end{footnotesize}
+\end{frame}
+
+\begin{frame}
+  \begin{footnotesize}
+    令
+    $$
+    \left\{
+    \begin{array}{l}
+      z_1=y_1+y_3\\
+      z_2=y_2-y_3\\
+      z_3=y_3
+    \end{array}
+    \right. ~~\Longleftrightarrow~~
+    \left\{
+    \begin{array}{l}
+      y_1=z_1-z_3\\
+      y_2=z_2+z_3\\
+      y_3=z_3
+    \end{array}
+    \right.
+    $$
+    则
+    $$
+    f(x_1,x_2,x_3)=2z_1^2-2z_2^2.
+    $$\pause
+    坐标变换记为
+    $$
+    \xx=\C_1\yy, \quad  \yy=\C_2\zz, \quad \xx=\C_1\C_2\zz=\C\zz
+    $$
+    其中
+    $$
+    \begin{array}{c}
+      \C_1=\left(
+      \begin{array}{rrr}
+        1&1&0\\
+        1&-1&0\\
+        0&0&1
+      \end{array}
+      \right),
+      \quad\C_2=\left(
+      \begin{array}{rrr}
+        1&0&-1\\
+        0&1&1\\
+        0&0&1
+      \end{array}
+      \right)
+      \\[0.4in]
+      \C=\C_1\C_2=\left(
+      \begin{array}{rrr}
+        1&1&0\\
+        1&-1&-2\\
+        0&0&1
+      \end{array}
+      \right)      
+    \end{array}
+    $$
+  \end{footnotesize}
+\end{frame}
+
+\begin{frame}
+  \begin{footnotesize}
+    \begin{table}
+      \caption{}
+      \begin{tabular}{|c|c|}\hline
+        二次型&对应矩阵\\\hline
+        $2x_1x_2+4x_1x_3$ & $\A=\left(
+        \begin{array}{ccc}
+          0&1&2\\
+          1&0&0\\
+          2&0&0
+        \end{array}
+        \right)$\\\hline
+        $2z_1^2-2z_2^2$ & $\Lambdabd=\left(
+        \begin{array}{ccc}
+          2&&\\
+          &-2&\\
+          &&0
+        \end{array}
+        \right)$ \\\hline
+      \end{tabular}      
+    \end{table}
+    易验证
+    $$
+    \C^T\A\C=\diag(2,-2,0)    
+    $$
+  \end{footnotesize}
+\end{frame}
+
+\begin{frame}
+  \begin{footnotesize}
+    任何$n$元二次型都可用配方法化为标准型，相应的变换矩阵为主对角元为1的上三角阵和对角块矩阵，或者是这两类矩阵的乘积。
+  \end{footnotesize}
+\end{frame}
+

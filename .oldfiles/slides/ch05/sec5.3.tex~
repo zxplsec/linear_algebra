@@ -1,0 +1,379 @@
+\section{矩阵可对角化的条件}
+\begin{frame}[fragile]\ft{\secname}
+矩阵可对角化，即矩阵与对角阵相似。    
+\end{frame}
+
+\begin{frame}[fragile]\ft{\secname}
+
+\begin{dingli}
+  $\mbox{矩阵可对角化} ~~\Longleftrightarrow~~
+  \mbox{$n$阶矩阵有$n$个线性无关的特征向量}$ 
+\end{dingli}
+\end{frame}
+
+\begin{frame}[fragile]\ft{\secname}
+\begin{proof}
+\begin{itemize}
+\item[\blue{($\Rightarrow$)}] 设
+  $$
+  \PP^{-1}\A\PP=\Lambdabd  ~~\Longrightarrow~~
+  \A\PP=\PP\Lambdabd
+  $$
+  将$\PP$按列分块，即
+  $
+  \PP=(\xx_1,~\xx_2,~\cd,~\xx_n),
+  $
+  则
+  $$
+  \A(\xx_1,~\xx_2,~\cd,~\xx_n)=(\xx_1,~\xx_2,~\cd,~\xx_n)\left(
+    \begin{array}{cccc}
+      \lambda_1&&&\\
+               &\lambda_2&&\\
+               &&\dd&\\
+               &&&\lambda_n
+    \end{array}
+  \right)
+  $$
+  于是
+  $$
+  \A\xx_i=\lambda_i\xx_i\quad(i=1,2,\cd,n).
+  $$
+  故$\xx_1,~\xx_2,~\cd,~\xx_n$是$\A$分别对应于$\lambda_1,~\lambda_2,~\cd,~\lambda_n$的特征向量。由于$\PP$可逆，所以它们是线性无关的。
+  \item[\blue{($\Leftarrow$)}] 上述步骤显然可逆，故充分性也成立。
+\end{itemize}
+\end{proof}
+
+
+
+
+
+\end{frame}
+
+\begin{frame}[fragile]\ft{\secname}
+
+若$\A$与$\Lambdabd$相似，则$\Lambdabd$的主对角元都是$\A$的特征值。
+若不计$\lambda_k$的排列次序，则$\Lambdabd$是唯一的，称$\Lambdabd$为$\A$的相似标准型。
+
+
+
+
+\end{frame}
+
+\begin{frame}[fragile]\ft{\secname}
+
+
+\begin{dingli}
+  $\A$的属于不同特征值的特征向量是线性无关的。
+\end{dingli} 
+\end{frame}
+
+\begin{frame}[fragile,allowframebreaks]\ft{\secname}
+
+  \begin{proof}
+设$\A$的$m$个互不相同的特征值为$\lambda_1,\lambda_2,\cd,\lambda_m$，其相应的特征向量为$\xx_1,~\xx_2,~\cd,~\xx_m$.
+对$m$做数学归纳法。
+\begin{itemize}
+\item[$1^o$] 当$m=1$时，结论显然成立。
+\item[$2^o$] 设$k$个不同特征值$\lambda_1,\lambda_2,\cd,\lambda_k$的特征向量$\xx_1,~\xx_2,~\cd,~\xx_k$。下面考虑$k+1$个不同特征值的特征向量。
+  
+  设
+  $$
+  \begin{array}{rc}
+    & a_1\xx_1+a_2\xx_2+\cd+a_k\xx_k+a_{k+1}\xx_{k+1}=\zero\qquad(1)\\[0.1cm]
+    \Longrightarrow&
+                     \A(a_1\xx_1+a_2\xx_2+\cd+a_k\xx_k+a_{k+1}\xx_{k+1})=\zero\\[0.1cm]
+    \Longrightarrow& 
+                     a_1\lambda_1\xx_1+a_2\lambda_2\xx_2+\cd+a_k\lambda_k\xx_k+a_{k+1}\lambda_{k+1}\xx_{k+1}=\zero\quad(2)\\[0.1cm]
+    \Longrightarrow&
+                                              a_1(\lambda_{k+1}-\lambda_1)\xx_1+a_2(\lambda_{k+1}-\lambda_2)\xx_2+\cd+a_k(\lambda_{k+1}-\lambda_k)\xx_k=\zero\\[0.1cm]
+    \Longrightarrow&
+                     a_i(\lambda_{k+1}-\lambda_i)=0, ~~i=1,2,\cd,k\\[0.1cm]
+    \Longrightarrow&
+                     a_i=0, ~~i=1,2,\cd,k\\[0.1cm]
+    \Longrightarrow&
+                     a_{k+1}\xx_{k+1}=0\\[0.1cm]
+    \Longrightarrow&
+                     a_{k+1}=0\\[0.1cm]
+    \Longrightarrow&
+                     \xx_1,~\xx_2,~\cd,~\xx_k,~~\xx_{k+1}\mbox{线性无关}
+  \end{array}
+  $$
+\end{itemize}
+\end{proof}
+
+
+\end{frame}
+
+\begin{frame}[fragile]\ft{\secname}
+
+
+
+\begin{tuilun}
+  若$\A$有$n$个互不相同的特征值，则$\A$与对角阵相似。
+\end{tuilun}
+
+
+\end{frame}
+
+\begin{frame}[fragile]\ft{\secname}
+
+
+
+\begin{li}
+  设实对称矩阵
+  $$
+  \A=\left(
+    \begin{array}{rrrr}
+      1&-1&-1&-1\\
+      -1&1&-1&-1\\
+      -1&-1&1&-1\\
+      -1&-1&-1&1
+    \end{array}
+  \right)
+  $$
+  问$\A$是否可对角化？若可对角化，求对角阵$\Lambdabd$及可逆矩阵$\PP$使得$\PP^{-1}\A\PP=\Lambdabd$，再求$\A^k$。
+\end{li}
+\end{frame}
+
+\begin{frame}[fragile,allowframebreaks]\ft{\secname}
+\begin{jie}
+  由
+  $$
+  \begin{aligned}
+  |\A-\lambda\II|&=
+  \left|
+    \begin{array}{rrrr}
+      1-\lambda&-1&-1&-1\\
+      -1&1-\lambda&-1&-1\\
+      -1&-1&1-\lambda&-1\\
+      -1&-1&-1&1-\lambda
+    \end{array}
+  \right|\\
+  &=-(\lambda+2)
+  \left|
+    \begin{array}{rrrr}
+      1&-1&-1&-1\\
+      1&1-\lambda&-1&-1\\
+      1&-1&1-\lambda&-1\\
+      1&-1&-1&1-\lambda
+    \end{array}
+  \right|\\
+  &=-(\lambda+2)
+  \left|
+    \begin{array}{rrrr}
+      1&-1&-1&-1\\
+      0&2-\lambda&0&0\\
+      0&0&2-\lambda&0\\
+      0&0&0&2-\lambda
+    \end{array}
+  \right|=(\lambda+2)(\lambda-2)^3,
+  \end{aligned}
+  $$
+  故$\A$的特征值为$\lambda_1=-2$（单根），$\lambda_2=2$（三重根）。
+
+  由$(\A-\lambda_1\II)\xx=0$，即
+  $$
+  \left(
+    \begin{array}{rrrr}
+      3&-1&-1&-1\\
+      -1&3&-1&-1\\
+      -1&-1&3&-1\\
+      -1&-1&-1&3
+    \end{array}
+  \right)
+  \left(
+    \begin{array}{c}
+      x_1\\x_2\\x_3\\x_4
+    \end{array}
+  \right)=
+  \left(
+    \begin{array}{c}
+      0\\0\\0\\0
+    \end{array}
+  \right)
+  $$
+  得$\lambda_1$对应的特征向量为$\{k_1\xx_1|\xx_1=(1,1,1,1)^T, k_1\ne 0\}$。
+
+  由$(\A-\lambda_2\II)\xx=0$，即
+  $$
+  \left(
+    \begin{array}{rrrr}
+      -1&-1&-1&-1\\
+      -1&-1&-1&-1\\
+      -1&-1&-1&-1\\
+      -1&-1&-1&-1
+    \end{array}
+  \right)
+  \left(
+    \begin{array}{c}
+      x_1\\x_2\\x_3\\x_4
+    \end{array}
+  \right)=
+  \left(
+    \begin{array}{c}
+      0\\0\\0\\0
+    \end{array}
+  \right)
+  $$
+  得基础解系：
+  $$
+  \xx_{21}=(1,-1,0,0)^T, \quad
+  \xx_{22}=(1,0,-1,0)^T, \quad
+  \xx_{23}=(1,0,0,-1)^T.
+  $$
+
+  因$\A$有$4$个线性无关的特征向量，故$\A\sim \Lambdabd$。
+
+  取
+  $$
+  \PP=(\xx_1,\xx_{21},\xx_{22},\xx_{23})=
+  \left(
+    \begin{array}{rrrr}
+      1& 1& 1&-1\\
+      1&-1& 0& 0\\
+      1& 0&-1& 0\\
+      1& 0& 0&-1
+    \end{array}
+  \right),
+  $$
+  则
+  $$
+  \PP^{-1}\A\PP=\left(
+    \begin{array}{rrrr}
+      -2&&&\\
+        &2&&\\
+        &&2\\
+        &&&2
+    \end{array}
+  \right)=\Lambdabd.
+  $$
+  再由$\A=\PP\Lambdabd\PP^{-1}$得
+  $$
+  \begin{aligned}
+    \A^k&=(\PP\Lambdabd\PP^{-1})^k=\PP\Lambdabd^k\PP^{-1}\\
+    &=\left(
+    \begin{array}{rrrr}
+      1& 1& 1&-1\\
+      1&-1& 0& 0\\
+      1& 0&-1& 0\\
+      1& 0& 0&-1
+    \end{array}
+  \right)
+  \left(
+    \begin{array}{rrrr}
+      (-2)^k&&&\\
+        &2^k&&\\
+        &&2^k\\
+        &&&2^k
+    \end{array}
+  \right)
+  \frac14
+  \left(
+    \begin{array}{rrrr}
+      1& 1& 1& 1\\
+      1&-3& 1& 1\\
+      1& 1&-3& 1\\
+      1& 1& 1&-3
+    \end{array}
+  \right)\\
+  &=\left\{
+    \begin{array}{ll}
+      2^k \II_4, & k\mbox{ even}, \\
+      2^{k-1} \A, & k\mbox{ odd}.
+    \end{array}
+  \right.
+  \end{aligned}
+  $$
+\end{jie}
+
+\end{frame}
+
+\begin{frame}[fragile]\ft{\secname}
+
+\begin{li}
+  设
+  $$
+  \A=\left(
+    \begin{array}{ccc}
+      0&0&1\\
+      1&1&x\\
+      1&0&0
+    \end{array}
+  \right)
+  $$
+  问$x$为何值时，矩阵$\A$能对角化？
+\end{li}
+\end{frame}
+
+\begin{frame}[fragile]\ft{\secname}
+
+\begin{jie}
+  由
+  $$
+  |\A-\lambda\II|=
+  \left|
+    \begin{array}{ccc}
+      -\lambda&0&1\\
+      1&1-\lambda&x\\
+      1&0&-\lambda
+    \end{array}
+  \right|
+  =(1-\lambda)
+  \left|
+    \begin{array}{ccc}
+      -\lambda&1\\
+      1&-\lambda
+    \end{array}
+  \right|=-(\lambda-1)^2(\lambda+1),
+  $$
+  即$\lambda_1=-1,\lambda_2=\lambda_3=1$。
+
+  对应于单根$\lambda_1=-1$，可求得线性无关的特征向量恰有$1$个，故$\A$可对角化的充分必要条件是对应重根$\lambda_2=\lambda_3=1$，有$2$个线性无关的特征向量，即$(\A-\II)\xx=0$有两个线性无关的解，亦即$\A-\II$的秩$\rank(\A-\II)=1$。由
+  $$
+  \A-\II=\left(
+    \begin{array}{ccc}
+      -1&0&1\\
+      1&0&x\\
+      1&0&-1
+    \end{array}
+  \right)\sim \left(
+    \begin{array}{ccc}
+      1&0&-1\\
+      0&0&x+1\\
+      0&0&0
+    \end{array}
+  \right)
+  $$
+  欲使$\rank(\A-\II)=1$，须有$x+1=0$，即$x=-1$。因此当$x=-1$时，矩阵$\A$能对角化。
+\end{jie}
+
+\end{frame}
+
+\begin{frame}[fragile]\ft{\secname}
+
+\begin{li}
+  设$\A=(a_{ij})_{n\times n}$是主对角元全为$2$的上三角矩阵，且存在$a_{ij}\ne 0(i<j)$，问$\A$是否可对角化?
+\end{li}
+
+\end{frame}
+
+\begin{frame}[fragile]\ft{\secname}
+\begin{jie}
+  设
+  $$
+  A=\left(
+    \begin{array}{cccc}
+      2&*&\cd&*\\
+       &2&\cd&*\\
+       &&\dd&\vd\\
+       &&&2
+    \end{array}
+  \right)
+  $$
+  其中$*$为不全为零的任意常数，则
+  $$
+  |\A-\lambda\II|=(2-\lambda)^n,
+  $$
+  即$\lambda=2$为$\A$的$n$重特征根，而$\rank(\A-2\II)\ge 1$，故$(\A-2\II)\xx=0$的基础解系所含向量个数$\le n-1$个，即$\A$的线性无关的特征向量的个数$\le n-1$个，因此$\A$不与对角阵相似。
+\end{jie}
+\end{frame}

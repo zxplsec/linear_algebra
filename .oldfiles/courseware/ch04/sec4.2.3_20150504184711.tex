@@ -1,0 +1,90 @@
+\subsection{施密特（Schmidt）正交化方法}
+\begin{frame}
+  \begin{footnotesize}
+    \begin{block}{目标}
+      从一组线性无关的向量$\alphabd_1,\alphabd_2,\cd,\alphabd_n$出发，构造一组标准正交向量组。
+    \end{block}
+  \end{footnotesize}
+\end{frame}
+
+
+\begin{frame}
+  \begin{footnotesize}
+    \begin{block}{施密特（Schmidt）正交化过程}
+      给定$\RRR^n$中的线性无关组$\alphabd_1,\alphabd_2,\cd,\alphabd_n$，
+      \begin{itemize}
+      \item[(1)] 取$\betabd_1=\alphabd_1$
+      \item[(2)] 令$\betabd_2=\alphabd_2+k_{21}\betabd_1$，
+        $$
+        \begin{array}{rl}
+          &0=(\betabd_1,\betabd_2)=(\betabd_1,\alphabd_2+k_{21}\betabd_1)=(\betabd_1,\alphabd_2)+k_{21}(\betabd_1,\betabd_1)\\[0.2cm]
+          \Longrightarrow& \ds k_{21}=-\frac{(\betabd_1,\alphabd_2)}{(\betabd_1,\betabd_1)}
+        \end{array}
+        $$
+      \item[(3)] 令$\betabd_3=\alphabd_3+k_{31}\betabd_1+k_{32}\betabd_2$，
+        $$
+        \begin{array}{rl}
+          &0=(\betabd_1,\betabd_3)=(\betabd_1,\alphabd_3+k_{31}\betabd_1+k_{32}\betabd_2)=(\betabd_1,\alphabd_3)+k_{31}(\betabd_1,\betabd_1)\\[0.2cm]
+          \Longrightarrow& \ds k_{31}=-\frac{(\betabd_1,\alphabd_3)}{(\betabd_1,\betabd_1)}\\[0.4cm]
+          &0=(\betabd_2,\betabd_3)=(\betabd_2,\alphabd_3+k_{31}\betabd_1+k_{32}\betabd_2)=(\betabd_2,\alphabd_3)+k_{32}(\betabd_2,\betabd_2)\\[0.2cm]
+          \Longrightarrow& \ds k_{32}=-\frac{(\betabd_2,\alphabd_3)}{(\betabd_2,\betabd_2)}
+        \end{array}
+        $$
+      \end{itemize}
+    \end{block}
+
+  \end{footnotesize}
+\end{frame}
+
+
+\begin{frame}
+  \begin{footnotesize}
+    \begin{block}{施密特（Schmidt）正交化过程}
+      
+      \begin{itemize}
+      \item[(4)] 继续以上步骤，假设已经求出两两正交的非零向量$\betabd_1,\betabd_2,\cd,\betabd_{j-1}$，
+        取
+        $$\betabd_j=\alphabd_j+k_{j1}\betabd_1+k_{j2}\betabd_2+\cd++k_{j,j-1}\betabd_{j-1},
+        $$
+        $$
+        \begin{array}{rl}
+          & \betabd_j \perp \betabd_i\quad (i=1,2,\cd,j-1)\\[0.2cm]
+          \Longrightarrow &(\betabd_j,\betabd_i)=0 \quad (i=1,2,\cd,j-1)\\[0.2cm]
+          \Longrightarrow &(\alphabd_j+k_{ji}\betabd_i,\betabd_i)=0 \quad (i=1,2,\cd,j-1)\\[0.4cm]
+          \Longrightarrow& \ds k_{ji}=-\frac{(\alphabd_j,\betabd_i)}{(\betabd_i,\betabd_i)}
+        \end{array}
+        $$
+      \item[(3)] 令$\betabd_3=\alphabd_3+k_{31}\betabd_1+k_{32}\betabd_2$，
+        $$
+        \begin{array}{rl}
+          &0=(\betabd_1,\betabd_3)=(\betabd_1,\alphabd_3+k_{31}\betabd_1+k_{32}\betabd_2)=(\betabd_1,\alphabd_3)+k_{31}(\betabd_1,\betabd_1)\\[0.2cm]
+          \Longrightarrow& \ds k_{31}=-\frac{(\betabd_1,\alphabd_3)}{(\betabd_1,\betabd_1)}\\[0.4cm]
+          &0=(\betabd_2,\betabd_3)=(\betabd_2,\alphabd_3+k_{31}\betabd_1+k_{32}\betabd_2)=(\betabd_2,\alphabd_3)+k_{32}(\betabd_2,\betabd_2)\\[0.2cm]
+          \Longrightarrow& \ds k_{32}=-\frac{(\betabd_2,\alphabd_3)}{(\betabd_2,\betabd_2)}
+        \end{array}
+        $$
+      \end{itemize}
+    \end{block}
+  \end{footnotesize}
+\end{frame}
+
+
+\begin{frame}
+  \begin{footnotesize}
+    
+  \end{footnotesize}
+\end{frame}
+
+
+\begin{frame}
+  \begin{footnotesize}
+    
+  \end{footnotesize}
+\end{frame}
+
+
+\begin{frame}
+  \begin{footnotesize}
+    
+  \end{footnotesize}
+\end{frame}

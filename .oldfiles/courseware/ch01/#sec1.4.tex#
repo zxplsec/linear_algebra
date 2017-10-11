@@ -1,0 +1,432 @@
+%%%%%%%%%%%%
+\section{克莱姆法则}
+
+\begin{frame}
+  \begin{footnotesize}
+    考察$n$元一次方程组
+    \begin{equation}\label{ls}
+      \left\{
+      \begin{array}{l}
+        a_{11}x_1 + a_{12}x_2 + \cdots + a_{1n}x_n = b_1, \\[0.3cm]
+        a_{21}x_1 + a_{22}x_2 + \cdots + a_{2n}x_n = b_2, \\[0.3cm]
+        \cd \\[0.2cm]
+        a_{n1}x_1 + a_{n2}x_2 + \cdots + a_{nn}x_n = b_n.
+      \end{array}
+      \right.
+    \end{equation}
+    与二、三元线性方程组相类似，它的解可以用$n$阶行列式表示。
+  \end{footnotesize}
+\end{frame}
+
+
+\begin{frame}
+  \begin{footnotesize}
+    \begin{block}{克莱姆法则}
+      如果线性方程组(\ref{ls})的系数行列式不等于0，即
+      $$
+      D = \left|
+      \begin{array}{ccc}
+        a_{11}  & \cd  & a_{1n} \\
+        \vd    &      & \vd  \\
+        a_{n1}  & \cd  & a_{nn}
+      \end{array}
+      \right|\ne 0
+      $$
+      则方程组(\ref{ls})存在唯一解
+      $$
+      x_1 = \frac{D_1}D, \ x_2 = \frac{D_2} D, \ \cdots, \ x_n = \frac{D_n}D,
+      $$
+      其中
+      \begin{center}
+        \begin{tikzpicture}
+          \matrix (M) [matrix of math nodes]  { 
+            D_j = \\
+          };
+          \matrix(MM) [right=2pt of M, matrix of math nodes,nodes in empty cells,
+            ampersand replacement=\&,left delimiter=|,right delimiter=|] {
+            a_{11} \& \cd \& a_{1,j-1} \&  b_1 \& a_{1, j+1} \& \cd \& a_{1n} \\
+            \vd   \&     \& \& \vd \& \vd \& \vd \& \& \vd\\       
+            a_{n1} \& \cd \&  a_{n,j-1} \&  b_n \& a_{n, j+1} \& \cd \& a_{nn} \\
+          };
+          \node[below=7pt  of MM-3-4, blue]  {第$j$列};
+        \end{tikzpicture}
+      \end{center}
+    \end{block}
+  \end{footnotesize}
+\end{frame}
+
+\begin{frame}
+  \begin{footnotesize}
+    \proofname
+    \red{先证存在性}: 
+    将$x_i=\frac{D_i}D$代入第$i$个方程，则有
+    $$
+    \begin{array}{cl}
+      & a_{i1}x_1 +\cd + a_{ii}x_i + \cd + a_{in}x_n \\[0.3cm]
+      & \pause=  \disp \frac1D(a_{i1}\red{D_1} +\cd + a_{ii}\blue{D_i} + \cd + a_{in}\purple{D_n}) \\[0.3cm]
+      & \pause=  \disp \frac1D \left[
+        a_{i1}\red{(b_1 A_{11}+ \cd + b_nA_{n1})}
+        +\cd+ a_{ii}\blue{(b_1 A_{1i} + \cd + b_nA_{ni})}  \right. \\[0.2cm]
+     & \pause \left. \ \ \ \ \ \
+        + \cd + a_{in}\purple{(b_1 A_{1n}+ \cd + b_nA_{nn})} \right]\\[0.3cm]
+     &\pause =  \disp \frac1D \left[
+        b_1(a_{i1} A_{11}+ a_{i2} A_{12}  \cd + a_{in}A_{1n}) 
+        +\cd + b_i(a_{i1} A_{i1}+ a_{i2} A_{i2}  \cd + a_{in}A_{in})   \right. \\[0.2cm]
+        & \pause \left. \ \ \ \ \ \ + \cd+ b_n(a_{i1} A_{n1}+ a_{i2} A_{n2}  \cd + a_{in}A_{nn}) \right] \\[0.3cm]
+      &\pause =  \disp \frac 1D b_{i} D = b_i.
+    \end{array}
+    $$
+  \end{footnotesize}
+\end{frame}
+
+\begin{frame} 
+  \begin{footnotesize}
+    \proofname\textbf{［续］}\\
+    \red{再证唯一性}:设还有一组解$\purple{y_i, i = 1, 2, \cd, n}$，以下证明$\purple{y_i =D_i/D}$。
+    \pause 现构造一个新行列式
+    $$
+    \begin{array}{rcl}
+      y_1D &\pause = &\pause \left|
+      \begin{array}{cccc}
+        a_{11}y_1 & a_{12}    &  \cd   &   a_{1n}      \\[0.1cm] 
+        a_{21}y_1 & a_{22}    &  \cd   &   a_{2n}      \\[0.1cm] 
+        \vd    &    \vd     &        &     \vd      \\[0.1cm] 
+        a_{n1}y_1 & a_{n2}    &  \cd   &   a_{nn}      
+      \end{array}
+      \right| \\[0.4in]
+      & \pause\xlongequal{c_1 + y_2 c_2 + \cd + y_n c_n} &\pause
+      \left|
+      \begin{array}{cccc}
+        \sum_{k=1}^n a_{1k}y_k & a_{12}    &  \cd   &   a_{1n}      \\[0.1cm] 
+        \sum_{k=1}^n a_{2k}y_k & a_{22}    &  \cd   &   a_{2n}      \\[0.1cm] 
+        \vd    &    \vd     &        &     \vd      \\[0.1cm] 
+        \sum_{k=1}^n a_{2k}y_k & a_{n2}    &  \cd   &   a_{nn}      
+      \end{array}
+      \right|  \\[0.4in]
+      & \pause=&\pause \left|
+      \begin{array}{cccc}
+       b_1 & a_{12}    &  \cd   &   a_{1n}      \\[0.1cm] 
+       b_2 & a_{22}    &  \cd   &   a_{2n}      \\[0.1cm] 
+       \vd    &    \vd     &        &     \vd      \\[0.1cm] 
+       b_n & a_{n2}    &  \cd   &   a_{nn}      
+      \end{array}
+      \right| \pause = D_1
+    \end{array}
+    $$\pause
+    所以$y_1 = D_1/D$。\pause同理可证$y_i=D_i/D, i = 2, \cd, n$。
+  \end{footnotesize}
+\end{frame}
+
+
+\begin{frame}
+  \begin{footnotesize}
+    \uncover<1->{
+      \begin{exampleblock}{例}
+        \setlength{\arraycolsep}{1.0pt}
+        $$\left\{
+        \begin{array}{rcrcrcrcr}
+          2x_1 &+ & x_2 &- & 5x_3&+ & x_4 &= & 8, \\[0.2cm]
+          x_1 &- & 3x_2&  &     &- & 6x_4& = & 9, \\[0.2cm]
+          &  & x_2 &- & x_3 &+ & 2x_4 &= & -5, \\[0.2cm]
+          x_1 &+ & 4x_2&-& 7x_3 &+& 6x_4 &= & 0.
+        \end{array}
+        \right.
+        $$
+      \end{exampleblock}
+    }
+    \uncover<2->{
+      \vspace{0.3cm}
+      \textbf{解：}
+      $$
+      \begin{array}{ll}
+        D &= \left|
+        \begin{array}{rrrr}
+          2 &  1 & -5 &  1\\
+          1 & -3 &  0 & -6\\
+          0 &  2 & -1 &  2\\
+          1 &  4 & -7 &  6
+        \end{array}
+        \right|
+        \xlongequal[r_4-r_2]{r_1-2r_2}
+        \left|
+        \begin{array}{rrrr}
+          0 &  7 & -5 & 13\\
+          1 & -3 &  0 & -6\\
+          0 &  2 & -1 &  2\\
+          0 &  7 & -7 & 12
+        \end{array}
+        \right|\\[0.8cm]
+        & = - \left|
+        \begin{array}{rrr}
+          7  & -5 & 13\\
+          2  & -1 &  2\\
+          7  & -7 & 12
+        \end{array}
+        \right|
+        \xlongequal[c_3+2c_2]{c_1+2c_2}
+        - \left|
+        \begin{array}{rrr}
+          -3  & -5 &  3\\
+          0  & -1 &  0\\
+          -7 & -7 & -2
+        \end{array}
+        \right|\\[0.8cm]
+        & =\left| 
+        \begin{array}{rr}
+          -3 &  3\\
+          -7 & -2
+        \end{array}
+        \right| = 27.
+      \end{array}
+      $$
+    }
+  \end{footnotesize}
+\end{frame}
+
+
+\begin{frame}
+  \begin{footnotesize}
+    \textbf{解：}(续)
+    $$
+    \begin{array}{ll}
+      D_1 = \left|
+      \begin{array}{rrrr}
+        \red{8}  &  1 & -5 &  1\\
+        \red{9}  & -3 &  0 & -6\\
+        \red{-5} &  2 & -1 &  2\\
+        \red{0}  &  4 & -7 &  6
+      \end{array}
+      \right|= 81, &
+      D_2 = \left|
+      \begin{array}{rrrr}
+        2 & \red{8}  & -5 &  1\\
+        1 & \red{9}  &  0 & -6\\
+        0 & \red{-5} & -1 &  2\\
+        1 & \red{0}  & -7 &  6
+      \end{array}
+      \right|=-108,\\[0.8cm]
+      D_3 = \left|
+      \begin{array}{rrrr}
+        2  &  1 & \red{8}  &  1\\
+        1  & -3 & \red{9}  & -6\\
+        0  &  2 & \red{-5} &  2\\
+        1  &  4 & \red{0}  &  6
+      \end{array}
+      \right|= -27, &
+      D_4 = \left|
+      \begin{array}{rrrr}
+        2 &  1 & -5 & \red{8} \\
+        1 & -3 &  0 & \red{9} \\
+        0 &  2 & -1 & \red{-5}\\
+        1 &  4 & -7 & \red{0} 
+      \end{array}
+      \right|= 27
+    \end{array}
+    $$
+    于是得
+    $$
+    x_1 = \frac{D_1}D = 3,  \ \ 
+    x_2 = \frac{D_2}D = -4, \ \ 
+    x_3 = \frac{D_3}D = -1, \ \ 
+    x_4 = \frac{D_4}D = 1.
+    $$
+  \end{footnotesize}
+\end{frame}
+
+
+\begin{frame}
+  \begin{footnotesize}
+    \uncover<1->{
+      \begin{exampleblock}{例}
+        设曲线$y=a_0+a_1x + a_2 x^2 + a_3 x^3$通过四点$(1,3), (2,4), (3,3), (4,-3)$，
+        求系数$a_0,a_1,a_2,a_3$。
+      \end{exampleblock}
+    }
+    \uncover<2->{
+      \vspace{0.3cm}
+      \textbf{解：}依题意可得线性方程组
+
+      $$
+      \setlength{\arraycolsep}{1.0pt}
+      \left\{
+      \begin{array}{rcrcrcrcr}
+        a_0 & + &  a_1 & + &  a_2 & + &   a_3 & = & 3, \\[0.2cm]
+        a_0 & + & 2a_1 & + & 4a_2 & + &  8a_3 & = & 4, \\[0.2cm]
+        a_0 & + & 3a_1 & + & 9a_3 & + & 27a_3 & = & 3, \\[0.2cm]
+        a_0 & + & 4a_1 & + &16a_4 & + & 64a_3 & = & 3,
+      \end{array}
+      \right.
+      $$
+      其系数行列式为
+      $$
+      D = \left|
+      \begin{array}{rrrr}
+        1 & 1 &  1 &  1 \\
+        1 & 2 &  4 &  8 \\
+        1 & 3 &  9 & 27 \\
+        1 & 4 & 16 & 64
+      \end{array}
+      \right|
+      $$
+      是一个范德蒙德行列式，其值为
+      $$ 
+      D = 1\cdot 2 \cdot 3 \cdot 1 \cdot 2 \cdot 1 = 12
+      $$
+    }
+
+  \end{footnotesize}
+\end{frame}
+
+
+\begin{frame}
+  \begin{footnotesize}
+    \textbf{解：}(续)
+    $$
+    \begin{array}{ll}
+      D_1 = \left|
+      \begin{array}{rrrr}
+        \red{3}  &  1 &  1 &  1\\
+        \red{4}  &  2 &  4 &  8\\
+        \red{3}  &  3 &  9 & 27\\
+        \red{-3} &  4 & 16 & 64
+      \end{array}
+      \right|= 36, &
+      D_2 = \left|
+      \begin{array}{rrrr}
+        1 & \red{3}  & 1  &  1\\
+        1 & \red{4}  & 4  &  8\\
+        1 & \red{3}  & 8  &  27\\
+        1 & \red{-3} & 16 &  64
+      \end{array}
+      \right|=-18,\\[0.8cm]
+      D_3 = \left|
+      \begin{array}{rrrr}
+        1 & 1 & \red{3}  &  1 \\
+        1 & 2 & \red{4}  &  8 \\
+        1 & 3 & \red{3}  & 27 \\
+        1 & 4 & \red{-3} & 64
+      \end{array}
+      \right|= 24, &
+      D_4 = \left|
+      \begin{array}{rrrr}
+        1 & 1 &  1 & \red{3} \\
+        1 & 2 &  4 & \red{4} \\
+        1 & 3 &  9 & \red{3} \\
+        1 & 4 & 16 & \red{-3}
+      \end{array}
+      \right|= -6.
+    \end{array}
+    $$
+    于是得
+    $$
+    a_0 = \frac{D_1}D = 3,  \ \ 
+    a_1 = \frac{D_2}D = -3/2, \ \ 
+    a_2 = \frac{D_3}D = 2, \ \ 
+    a_3 = \frac{D_4}D = -1/2.
+    $$
+    即曲线方程为
+    $$
+    y = 3 - \frac 32 x + 2 x^2 - \frac 12 x^3.
+    $$
+  \end{footnotesize}
+  
+\end{frame}
+
+
+\begin{frame}
+  \begin{footnotesize}
+    \begin{block}{定理}
+      如果线性方程组(\ref{ls})的系数行列式$D\ne 0$，则(\ref{ls})一定有解，且解是惟一的。
+    \end{block}
+
+    \begin{block}{定理}
+      如果线性方程组(\ref{ls})无解或有两个不同的解，则它的系数行列式必为0。
+    \end{block}
+
+    \vspace{0.3cm}
+    \textbf{说明：} \\
+    \begin{itemize}
+    \item 
+      线性方程组(\ref{ls})右端的常数项$b_1,b_2,\cd, b_n$不全为0时，
+      线性方程组(\ref{ls})叫做\red{非齐次线性方程组}\\[0.2cm]
+      当$b_1,b_2,\cd, b_n$全为0时，
+      线性方程组(\ref{ls})叫做\red{齐次线性方程组}。
+    \end{itemize}
+
+  \end{footnotesize}
+\end{frame}
+
+
+\begin{frame}
+  \begin{footnotesize}
+    \begin{block}{齐次线性方程组}
+      对于齐次线性方程组
+      \begin{equation}\label{ls0}
+        \left\{
+        \begin{array}{l}
+          a_{11}x_1 + a_{12}x_2 + \cdots + a_{1n}x_n = 0, \\[0.3cm]
+          a_{21}x_1 + a_{22}x_2 + \cdots + a_{2n}x_n = 0, \\[0.3cm]
+          \cd \\[0.2cm]
+          a_{n1}x_1 + a_{n2}x_2 + \cdots + a_{nn}x_n = 0.
+        \end{array}
+        \right.
+      \end{equation}
+      一定有零解，但不一定有非零解。
+    \end{block}
+  \end{footnotesize}
+\end{frame}
+
+\begin{frame}
+  \begin{footnotesize}
+    \begin{block}{定理}
+      如果齐次线性方程组(\ref{ls0})的系数行列式$D\ne 0$，则它没有非零解。
+    \end{block}
+
+    \vspace{1.0cm}
+    
+    \begin{block}{定理}
+      如果齐次线性方程组(\ref{ls0})有非零解，则它的系数行列式必为0。
+    \end{block}
+    
+  \end{footnotesize}
+\end{frame}
+
+
+\begin{frame}
+  \begin{footnotesize}
+    \uncover<1->{
+      当$\lambda$为何值时，齐次线性方程组
+      $$
+      \left\{
+      \begin{array}{rcrcrcr}
+        (5-\lambda) x & + &           2 y & + & 2           z & = & 0, \\
+        2           x & + & (6-\lambda) y &   &               & = & 0, \\
+        2           x &   &               & + & (4-\lambda) z & = & 0.
+      \end{array}
+      \right.
+      $$
+      有非零解？
+    }
+
+    \uncover<2->{
+      \vspace{0.3cm}
+      \textbf{解：}由上述定理可知，若所给齐次线性方程组有非零解，则其系数行列式$D=0$。
+      而
+      $$
+      \begin{array}{ll}
+        D & = \left|
+        \begin{array}{ccc}
+          5-\lambda & 2         & 2  \\
+          2         & 6-\lambda & 0  \\
+          2         & 0         & 4-\lambda
+        \end{array}
+        \right| \\[0.8cm]
+        & = (5-\lambda)(6-\lambda)(4-\lambda) - 4(4-\lambda) - 4(6-\lambda)\\[0.3cm]
+        & = (5-\lambda)(2-\lambda)(8-\lambda),
+      \end{array}
+      $$
+      故$\lambda=2$、$\lambda=5$或$\lambda=8$。
+    }
+
+  \end{footnotesize}
+\end{frame}

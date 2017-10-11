@@ -1,0 +1,2 @@
+\beamer@endinputifotherversion {3.20pt}
+\beamer@sectionintoc {1}{正定二次型和正定矩阵}{3}{0}{1}

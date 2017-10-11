@@ -1,0 +1,43 @@
+\section{行列式}
+
+\subsection{行列式的性质}
+
+\begin{frame}
+  \begin{xingzhi}
+    互换行列式的行与列，值不变，即
+    \begin{equation}
+      \left|
+        \begin{array}{cccc}
+          a_{11}  &  a_{12} & \cdots & a_{1n} \\
+          a_{21}  &  a_{22} & \cdots & a_{2n} \\
+          \vdots & \vdots & \ddots & \vdots\\  
+          a_{n1}  &  a_{n2} & \cdots & a_{nn} 
+        \end{array}
+      \right|
+      =
+      \left|
+        \begin{array}{cccc}
+          a_{11}  &  a_{21} & \cdots & a_{n1} \\
+          a_{12}  &  a_{22} & \cdots & a_{n2} \\
+          \vdots & \vdots & \ddots & \vdots\\  
+          a_{1n}  &  a_{2n} & \cdots & a_{nn} 
+        \end{array}
+      \right|
+    \end{equation}
+  \end{xingzhi}
+\end{frame}
+
+\begin{frame}
+  \begin{xingzhi}
+    行列式对任一行按下式展开，其值相等，即
+    $$
+    D = a_{i1} A_{i1} + a_{i2} A_{i2} + \cdots + a_{in}A_{in} = \sum_{j=1}^n a_{ij} A_{ij}, \quad
+    i = 1, 2, \cdots, n,
+    $$
+    其中
+    $$
+    A_{ij} = (-1)^{i+j} M_{ij}
+    $$
+    而$M_{ij}$为$a_{ij}$的余子式，$A_{ij}$为$a_{ij}$的代数余子式.
+  \end{xingzhi}
+\end{frame}

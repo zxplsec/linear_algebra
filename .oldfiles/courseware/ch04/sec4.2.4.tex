@@ -1,0 +1,90 @@
+\subsection{正交矩阵及其性质}
+\begin{frame}
+  \begin{footnotesize}
+    \begin{block}{定义}
+      设$\A\in\RRR^{n\times n}$，如果
+      $$
+      \A^T\A=\II
+      $$
+      则称$\A$为正交矩阵。
+    \end{block}
+  \end{footnotesize}
+\end{frame}
+
+
+\begin{frame}
+  \begin{footnotesize}
+    \begin{block}{定理}
+      $$
+      \A\mbox{为}\mbox{正交矩阵}
+      ~~\Longleftrightarrow~~
+      \A\mbox{的列向量组为一组标准正交基。}
+      $$
+    \end{block}
+    \pause
+    \proofname
+    将$\A$按列分块为$(\alphabd_1,\alphabd_2,\cd,\alphabd_n)$，则
+    $$
+    \A^T\A = \left(
+    \begin{array}{c}
+      \alphabd_1^T\\
+      \alphabd_2^T\\
+      \vd\\
+      \alphabd_n^T
+    \end{array}
+    \right) (\alphabd_1,\alphabd_2,\cd,\alphabd_n) = \left(
+    \begin{array}{cccc}
+      \alphabd_1^T\alphabd_1&\alphabd_1^T\alphabd_2&\cd&\alphabd_1^T\alphabd_n\\
+      \alphabd_2^T\alphabd_1&\alphabd_2^T\alphabd_2&\cd&\alphabd_2^T\alphabd_n\\
+      \vd&\vd&&\vd\\
+      \alphabd_n^T\alphabd_1&\alphabd_n^T\alphabd_2&\cd&\alphabd_n^T\alphabd_n
+    \end{array}
+    \right)
+    $$
+    \pause 
+    因此
+    $$
+    \begin{array}{rl}
+      \A^T\A=\II &~~\Longleftrightarrow~~
+      \left\{
+      \begin{array}{ll}
+        \alphabd_i^T\alphabd_i=1,  &i=1,2,\cd,n\\[0.2cm]
+        \alphabd_i^T\alphabd_j=0,  &j\ne i, ~~i,j=1,2,\cd,n
+      \end{array}
+      \right.\\[0.3in]
+      &~~\Longleftrightarrow~~
+      \A\mbox{的列向量组为一组标准正交基。}
+    \end{array}
+    $$
+  \end{footnotesize}
+\end{frame}
+
+
+\begin{frame}
+  \begin{footnotesize}
+    \begin{block}{定理}
+      设$\A,\B$皆为$n$阶正交矩阵，则
+      \begin{itemize}
+      \item[(1)] $|\A|=1\mbox{~或~} -1$
+      \item[(2)] $\A^{-1}=\A^T$
+      \item[(3)] $\A^T$也是正交矩阵
+      \item[(4)] $\A\B$也是正交矩阵
+      \end{itemize}
+    \end{block}
+  \end{footnotesize}
+\end{frame}
+
+\begin{frame}
+  \begin{footnotesize}
+    \begin{block}{定理}
+      若列向量$\xx,\yy\in\RRR^n$在$n$阶正交矩阵$\A$的作用下变换为$\A\xx,\A\yy\in\RRR^n$，则向量的内积、长度与向量间的夹角都保持不变，即
+      $$
+      \begin{array}{c}
+        (\A\xx,\A\yy)=(\xx,\yy),\\[0.1in]
+        \|\A\xx\|=\|\xx\|, ~~\|\A\yy\|=\|\yy\|, \\[0.1in]
+        <\A\xx,\A\yy>=<\xx,\yy>.
+      \end{array}
+      $$
+    \end{block}
+  \end{footnotesize}
+\end{frame}

@@ -1,0 +1,78 @@
+\section{全排列与逆序数}
+%%%%%
+
+\begin{frame}
+  \begin{overprint}
+    \onslide<1->
+    \begin{center}
+      \blue{全排列与逆序数}\vspace{0.3cm}
+    \end{center}
+  \end{overprint}
+  
+  \begin{overprint}
+    %%%%
+    \onslide<1>
+    \begin{exampleblock}{引例}
+      用1、2、3三个数，可以组成多少个没有重复数字的三位数？
+    \end{exampleblock}
+    利用乘法原理可知，这样的三位数有$3\times2\times1=3!=6$个。
+    
+    \begin{block}{全排列}
+      把$n$个不同的元素排成一列，叫做这$n$个元素的全排列。$n$个不同元素的所有排列的种数，用$P_n$表示。
+    \end{block}
+    \begin{center}
+      \red{$\boxed{P_n=n!}$}      
+    \end{center}
+    %%%%
+    \onslide<2>
+    \begin{block}{逆序数}
+      在一个排列中，如果一对数的前后位置与大小顺序相反，即前面的数大于后面的数，则称它们为一个逆序。
+      一个排列中逆序的总数称为该排列的逆序数。
+    \end{block}
+    \begin{itemize}
+    \item  \blue{举例}\\[0.2cm]
+      $2431$中，$21, 43, 41, 31$为逆序，逆序为4。\\[0.4cm]
+    \item
+      逆序数为奇数的排列叫奇排列，
+      逆序数为偶数的排列叫偶排列。
+    \end{itemize}
+    %%%%
+    \onslide<3>
+    \shadowbox{逆序数的计算}
+    
+    \vspace{0.2cm}
+    设$p_1p_2\cdots p_n$为一个排列
+    \begin{itemize}
+    \item
+      定义该排列中某个元素$p_i$的逆序数为：
+      \red{在$p_1p_2\cdots p_{i-1}$中比$p_i$大的个数，记为$t_i$。} \\[0.4cm]
+    \item
+      该排列的逆序数为
+      $$
+      \tau(p_1p_2\cdots p_n) = t_1 + t_2 + \cdots t_n.
+      $$
+    \end{itemize}
+    
+  \end{overprint}
+
+
+\end{frame}
+
+
+\begin{frame}
+  \uncover<1->{
+    \begin{block}{例4}
+      计算$32514$与$n, n-1, n-2, \cdots, 2, 1$的逆序数。      
+    \end{block}
+  }
+
+  \uncover<2->{
+    解： 
+    $$
+    \begin{array}{l}
+      \tau(32514) = 0 + 1+ 0 + 3 + 1  = 5\\[0.2cm]
+      \tau(n, n-1, n-2, \cdots, 2, 1) = 0 + 1 + 2 + \cdots + (n-1) = \frac{n(n-1)}2.
+    \end{array}
+    $$
+  }
+\end{frame}

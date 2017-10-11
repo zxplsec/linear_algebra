@@ -1,0 +1,491 @@
+\section{第四章~~向量空间与线性变换}
+
+\begin{frame}\ft{基与坐标}
+  \begin{footnotesize}
+    \begin{block}{定义（$\mathbb R^n$的基与向量关于基的坐标）}
+      设有序向量组$B=(\betabd_1,\betabd_2,\cd,\betabd_n)\subset\mathbb R^n$，如果$B$线性无关，
+      则$\mathbb R^n$中任一向量$\alphabd$均可由$B$线性表示，即
+      $$
+      \alphabd=a_1\betabd_1+a_2\betabd_2+\cd+a_n\betabd_n,
+      $$
+      称$B$为$\mathbb R^n$的一组基，有序数组$(a_1,a_2,\cd,a_n)$是向量$\alphabd$在基$B$下的坐标，记作
+      $$
+      \alphabd_B=(a_1,a_2,\cd,a_n)\mbox{~~或~~}\alphabd_B=(a_1,a_2,\cd,a_n)^T
+      $$
+      并称之为$\alphabd$的坐标向量。
+    \end{block}
+  \end{footnotesize}
+\end{frame}
+
+
+\begin{frame}\ft{基与坐标}
+  \begin{footnotesize}
+    \begin{block}{注}
+      \begin{itemize}
+      \item $\RRR^n$的基不是唯一的
+      \item 基本向量组
+        $$
+        \epsilonbd_i=(0,\cd,0,1,0,\cd,0), \quad i=1,2,\cd,n
+        $$
+        称为$\RRR^n$的自然基或标准基。
+      \item 本书对于向量及其坐标，采用列向量的形式，即
+        $$
+        \alphabd=(\betabd_1,\betabd_2,\cd,\betabd_n)\left(
+        \begin{array}{c}
+          a_1\\
+          a_2\\
+          \vd\\
+          a_n
+        \end{array}
+        \right)
+        $$
+      \end{itemize}
+    \end{block}
+  \end{footnotesize}
+\end{frame}
+
+
+
+
+\begin{frame}\ft{基与坐标}
+  \begin{footnotesize}
+    \begin{block}{定理}
+      设$B=\{\alphabd_1,\alphabd_2,\cd,\alphabd_n\}$是$\RRR^n$的一组基，且
+      $$
+      \left\{
+      \begin{array}{l}
+        \etabd_1=a_{11}\alphabd_1+a_{21}\alphabd_2+\cd+a_{n1}\alphabd_n,\\[0.2cm]
+        \etabd_2=a_{12}\alphabd_1+a_{22}\alphabd_2+\cd+a_{n2}\alphabd_n,\\[0.2cm]
+        \cd\cd\\[0.2cm]
+        \etabd_n=a_{1n}\alphabd_1+a_{2n}\alphabd_2+\cd+a_{nn}\alphabd_n.
+      \end{array}
+      \right.
+      $$
+      则$\etabd_1,\etabd_2,\cd,\etabd_n$线性无关的充要条件是
+      $$
+      \mathrm{det}\A=\left|
+      \begin{array}{cccc}
+        a_{11}&a_{12}&\cd&a_{1n}\\
+        a_{21}&a_{22}&\cd&a_{2n}\\
+        \vd&\vd&&\vd\\
+        a_{n1}&a_{n2}&\cd&a_{nn}
+      \end{array}
+      \right|\ne 0.
+      $$
+    \end{block}
+  \end{footnotesize}
+\end{frame}
+
+
+\begin{frame}\ft{基与坐标}
+  \begin{footnotesize}
+    设$\RRR^n$的两组基$B_1=\{\alphabd_1,\alphabd_2,\cd,\alphabd_n\}$和$B_2=\{\etabd_1,\etabd_2,\cd,\etabd_n\}$满足关系式
+    $$\red{
+    (\etabd_1,\etabd_2,\cd,\etabd_n)=(\alphabd_1,\alphabd_2,\cd,\alphabd_n)\left(
+    \begin{array}{cccc}
+      a_{11}&a_{12}&\cd&a_{1n}\\
+      a_{21}&a_{22}&\cd&a_{2n}\\
+      \vd&\vd&&\vd\\
+      a_{n1}&a_{n2}&\cd&a_{nn}
+    \end{array}
+    \right)}
+    $$
+    则矩阵
+    $$\blue{
+    \A=\left(
+    \begin{array}{cccc}
+      a_{11}&a_{12}&\cd&a_{1n}\\
+      a_{21}&a_{22}&\cd&a_{2n}\\
+      \vd&\vd&&\vd\\
+      a_{n1}&a_{n2}&\cd&a_{nn}
+    \end{array}
+    \right)}
+    $$
+    称为\purple{由旧基$B_1$到新基$B_2$的过渡矩阵}。
+  \end{footnotesize}
+\end{frame}
+
+\begin{frame}\ft{基与坐标}
+  \begin{footnotesize}
+    \begin{block}{定理}
+      设$\alphabd$在两组基$B_1=\{\alphabd_1,\alphabd_2,\cd,\alphabd_n\}$与$B_2=\{\etabd_1,\etabd_2,\cd,\etabd_n\}$的坐标分别为
+      $$
+      \xx=(x_1,x_2,\cd,x_n)^T\mbox{~~和~~}\yy=(y_1,y_2,\cd,y_n)^T
+      $$
+      基$B_1$到$B_2$的过渡矩阵为$\A$，则
+      $$\red{
+      \A\yy=\xx\mbox{~~或~~}\yy=\A^{-1}\xx
+      }
+      $$
+    \end{block}
+  \end{footnotesize}
+\end{frame}
+
+
+\begin{frame}\ft{基与坐标}
+  \begin{footnotesize}
+    \begin{exampleblock}{例1}
+      已知$\RRR^3$的一组基为$B_2=\{\betabd_1,\betabd_2,\betabd_3\}$，其中
+      $$\betabd_1=(1,2,1)^T,\betabd_2=(1,-1,0)^T,\betabd_3=(1,0,-1)^T,$$
+      求自然基$B_1$到$B_2$的过渡矩阵。
+    \end{exampleblock}
+  \end{footnotesize}
+\end{frame}
+
+
+\begin{frame}\ft{基与坐标}
+  \begin{footnotesize}
+    \begin{exampleblock}{例2}
+      已知$\RRR^3$的两组基为$B_1=\{\alphabd_1,\alphabd_2,\alphabd_3\}$和$B_2=\{\betabd_1,\betabd_2,\betabd_3\}$，
+      其中
+      $$
+      \begin{array}{lll}
+        \alphabd_1=(1,1,1)^T,&\alphabd_2=(0,1,1)^T,&\alphabd_3=(0,0,1)^T, \\[0.2cm]
+        \betabd_1=(1,0,1)^T,&\betabd_2=(0,1,-1)^T,&\betabd_3=(1,2,0)^T.  
+      \end{array}
+      $$
+      \begin{itemize}
+      \item[(1)] 求基$B_1$到$B_2$的过渡矩阵。
+      \item[(2)] 已知$\alpha$在基$B_1$的坐标为$(1,-2,-1)^T$，求$\alphabd$在基$B_2$下的坐标。
+      \end{itemize}
+      
+    \end{exampleblock}
+  \end{footnotesize}
+\end{frame}
+
+
+
+\begin{frame}\ft{内积}
+  \begin{footnotesize}
+    \begin{block}{定义（内积）}
+      在$\RRR^n$中，对于$\alphabd=(a_1,a_2,\cd,a_n)^T$和$\betabd=(b_1,b_2,\cd,b_n)^T$，规定$\alphabd$和$\betabd$的内积为 
+      $$
+      (\alphabd,\betabd)=a_1b_1+a_2b_2+\cd+a_nb_n.
+      $$
+    \end{block}
+    当$\alphabd$和$\betabd$为列向量时，
+    $$
+    (\alphabd,\betabd)=\alphabd^T\betabd=\betabd^T\alphabd.
+    $$
+  \end{footnotesize}
+\end{frame}
+
+\begin{frame}\ft{内积}
+  \begin{footnotesize}
+    \begin{block}{内积的运算性质}
+      对于$\alphabd,\betabd,\gammabd\in\RRR^n$和$k\in\RRR$，
+      \begin{itemize}
+      \item[(i)]   $(\alphabd,\betabd)=(\betabd,\alphabd)$
+      \item[(ii)]  $(\alphabd+\betabd,\gammabd)=(\alphabd,\gammabd)+(\betabd,\gammabd)$
+      \item[(iii)] $(k\alphabd,\betabd)=k(\alphabd,\betabd)$
+      \item[(iv)]  $(\alphabd,\alphabd)\ge0$， 等号成立当且仅当$\alphabd=\zero$.
+      \end{itemize}
+    \end{block}
+    \pause
+    \begin{block}{定义（向量长度）}
+      向量$\alphabd$的长度定义为
+      $$
+      \|\alphabd\|=\sqrt{(\alphabd,\alphabd)}
+      $$
+    \end{block}
+  \end{footnotesize}
+\end{frame}
+
+
+\begin{frame}\ft{内积}
+  \begin{footnotesize}
+    \begin{block}{定理（柯西-施瓦茨(Cauchy-Schwarz)不等式）}
+      $$
+      |(\alphabd,\betabd)|\le\|\alphabd\|\|\betabd\|
+      $$
+    \end{block}
+  
+%  \end{footnotesize}
+%\end{frame}
+%
+%\begin{frame}
+%  \begin{footnotesize}
+    \begin{block}{定义（向量之间的夹角）}
+    向量$\alphabd,\betabd$之间的夹角定义为
+    $$
+    <\alphabd,\betabd>=\arccos\frac{(\alphabd,\betabd)}{\|\alphabd\|\|\betabd\||}
+    $$
+    \end{block}
+ 
+    \begin{block}{定理}
+    $$\alphabd\perp\betabd ~~\Longleftrightarrow~~
+   (\alphabd,\betabd)=0
+    $$
+    \end{block}
+
+
+%  \end{footnotesize}
+%\end{frame}
+%
+%
+%
+%\begin{frame}
+%  \begin{footnotesize}
+    \begin{block}{定理（三角不等式）}
+      $$
+      \|\alphabd+\betabd\|\le\|\alphabd\|+\|\betabd\|.
+      $$
+    \end{block}
+   
+  \end{footnotesize}
+\end{frame}
+
+
+
+\begin{frame}\ft{标准正交基}
+  \begin{footnotesize}
+    \begin{block}{定理}
+      $\RRR^n$中两两正交且不含零向量的向量组$\alphabd_1,\alphabd_2,\cd,\alphabd_s$是线性无关的。
+    \end{block}
+    
+%  \end{footnotesize}
+%\end{frame}
+%
+%
+%\begin{frame}\ft{标准正交基}
+%  \begin{footnotesize}
+    \begin{block}{定义（标准正交基）}
+      设$\alphabd_1,\alphabd_2,\cd,\alphabd_n\in \RRR^n$，若
+      $$
+      (\alphabd_i,\alphabd_j)=\delta_{ij}=\left\{
+      \begin{array}{ll}
+        1,& i=j,\\
+        0,& i\ne j.
+      \end{array}
+      \right. \quad i,j=1,2,\cd,n.
+      $$
+      则称$\{\alphabd_1,\alphabd_2,\cd,\alphabd_n\}$是$\RRR^n$中的一组标准正交基。
+    \end{block}
+  \end{footnotesize}
+\end{frame}
+
+
+\begin{frame}\ft{标准正交基}
+  \begin{footnotesize}
+    \begin{exampleblock}{例1}
+      设$B=(\alphabd_1,\alphabd_2,\cd,\alphabd_n)$是$\RRR^n$中的一组标准正交基，求$\RRR^n$中向量$\betabd$在基$B$下的坐标。
+    \end{exampleblock}
+    \jiename
+    $$
+    \begin{array}{rl}
+    & \betabd=x_1\alphabd_1+x_2\alphabd_2+\cd+x_n\alphabd_n\\[0.1in]
+    \Longrightarrow&   (\betabd,\alphabd_j)=(x_1\alphabd_1+x_2\alphabd_2+\cd+x_n\alphabd_n,\alphabd_j)=x_j(\alphabd_j,\alphabd_j)\\[0.1in]
+     \Longrightarrow& \ds x_j =  (\betabd,\alphabd_j) 
+    \end{array}
+     $$
+    
+  \end{footnotesize}
+\end{frame}
+
+
+\begin{frame}\ft{施密特正交化过程}
+  \begin{footnotesize}
+    \begin{block}{目标}
+      从线性无关的向量组$\alphabd_1,\alphabd_2,\cd,\alphabd_m$出发，构造\red{标准正交向量组}。
+    \end{block}
+  \end{footnotesize}
+\end{frame}
+
+
+\begin{frame}\ft{施密特正交化过程}
+  \begin{footnotesize}
+    \begin{block}{施密特（Schmidt）正交化过程}
+      给定$\RRR^n$中的线性无关组$\alphabd_1,\alphabd_2,\cd,\alphabd_m$， \pause
+      \begin{itemize}
+      \item[(1)] $$\betabd_1=\alphabd_1$$
+      \item[(2)] 
+        $$
+        \betabd_2=\alphabd_2-\frac{(\alphabd_2,\betabd_1)}{(\betabd_1,\betabd_1)}\betabd_1
+        $$
+      \item[(3)] 
+        $$
+        \betabd_3=\alphabd_3-\frac{(\alphabd_3,\betabd_1)}{(\betabd_1,\betabd_1)}\betabd_1
+        -\frac{(\alphabd_3,\betabd_2)}{(\betabd_2,\betabd_2)}\betabd_2
+        $$
+       \item[(4)]  $$\cd\cd$$
+      \item[(5)] 
+        $$
+        \betabd_m=\alphabd_m-\frac{(\alphabd_m,\betabd_1)}{(\betabd_1,\betabd_1)}\betabd_1
+        -\frac{(\alphabd_m,\betabd_2)}{(\betabd_2,\betabd_2)}\betabd_2
+        -\cd
+        -\frac{(\alphabd_m,\betabd_{m-1})}{(\betabd_{m-1},\betabd_{m-1})}\betabd_{m-1}.
+        $$
+      \end{itemize}
+      则$\betabd_1,\betabd_2,\cd,\betabd_m$两两正交。
+    \end{block}
+  \end{footnotesize}
+\end{frame}
+
+
+\begin{frame}\ft{施密特正交化过程}
+  \begin{footnotesize}
+    \begin{block}{施密特（Schmidt）正交化过程}
+      \begin{itemize}
+      \item[(5)] 单位化
+        $$
+        \betabd_1, \betabd_2, \cd, \betabd_m \xlongrightarrow[]{\ds \eta_j=\frac{\betabd_j}{\|\betabd_j\|}}
+        \etabd_1, \etabd_2, \cd, \etabd_m
+        $$
+      \end{itemize}
+    \end{block}
+  \end{footnotesize}
+\end{frame}
+
+
+\begin{frame}\ft{施密特正交化过程}
+  \begin{footnotesize}
+    \begin{exampleblock}{例}
+      已知$B=\{\alphabd_1,\alphabd_2,\alphabd_3\}$是$\RRR^3$的一组基，其中
+      $$
+      \alphabd_1=(1,-1,0)^T,~~
+      \alphabd_2=(1,0,1)^T,~~
+      \alphabd_3=(1,-1,1)^T.
+      $$
+      试用施密特正交化方法，由$B$构造$\RRR^3$的一组标准正交基。
+    \end{exampleblock}
+    \pause\jiename
+    $$
+    \begin{array}{rl}
+      \betabd_1&=\alphabd_1=(1,-1,0)^T, \\[0.2cm]\pause
+      \betabd_2&\ds=\alphabd_2-\frac{(\alphabd_2,\betabd_1)}{(\betabd_1,\betabd_1)}\betabd_1\\[0.4cm]\pause
+      &\ds=(1,0,1)^T-\frac12(1,-1,0)^T=\left(\frac12,\frac12,1\right),\\[0.4cm]\pause
+      \betabd_3&\ds=\alphabd_3-\frac{(\alphabd_3,\betabd_1)}{(\betabd_1,\betabd_1)}\betabd_1
+      -\frac{(\alphabd_3,\betabd_2)}{(\betabd_2,\betabd_2)}\betabd_2\\[0.4cm]\pause
+      &\ds=(1,-1,1)^T-\frac23\left(\frac12,\frac12,1\right)^T-\frac22(1,-1,0)^T=\left(-\frac13,-\frac13,\frac13\right).
+    \end{array}
+    $$
+  \end{footnotesize}
+\end{frame}
+
+
+\begin{frame}\ft{施密特正交化过程}
+  \begin{footnotesize}
+    $$
+    \begin{array}{rl}
+      \etabd_1&\ds =\frac{\betabd_1}{\|\betabd_1\|}=\left(\frac1{\sqrt{2}},-\frac1{\sqrt{2}},0\right),\\[0.4cm]
+      \etabd_2&\ds =\frac{\betabd_2}{\|\betabd_2\|}=\left(\frac1{\sqrt{6}},\frac1{\sqrt{6}},\frac2{\sqrt{6}}\right),\\[0.4cm]
+      \etabd_3&\ds =\frac{\betabd_3}{\|\betabd_3\|}=\left(-\frac1{\sqrt{3}},-\frac1{\sqrt{3}},\frac1{\sqrt{3}}\right).
+    \end{array}
+    $$
+  \end{footnotesize}
+\end{frame}
+
+
+
+\begin{frame}\ft{正交矩阵}
+  \begin{footnotesize}
+    \begin{block}{定义}
+      设$\A\in\RRR^{n\times n}$，如果
+      $$
+      \A^T\A=\II
+      $$
+      则称$\A$为正交矩阵。
+    \end{block}
+%  \end{footnotesize}
+%\end{frame}
+%
+%
+%\begin{frame}\ft{正交矩阵}
+%  \begin{footnotesize}
+    \begin{block}{定理}
+      $$
+      \A\mbox{为}\mbox{正交矩阵}
+      ~~\Longleftrightarrow~~
+      \A\mbox{的列向量组为一组标准正交基。}
+      $$
+    \end{block}
+    
+  \end{footnotesize}
+\end{frame}
+
+
+\begin{frame}\ft{正交矩阵}
+  \begin{footnotesize}
+    \begin{block}{定理}
+      设$\A,\B$皆为$n$阶正交矩阵，则
+      \begin{itemize}
+      \item[(1)] $|\A|=1\mbox{~或~} -1$
+      \item[(2)] $\A^{-1}=\A^T$
+      \item[(3)] $\A^T$也是正交矩阵
+      \item[(4)] $\A\B$也是正交矩阵
+      \end{itemize}
+    \end{block}
+%  \end{footnotesize}
+%\end{frame}
+%
+%\begin{frame}\ft{正交矩阵}
+%  \begin{footnotesize}
+    \begin{block}{定理}
+      若列向量$\xx,\yy\in\RRR^n$在$n$阶正交矩阵$\A$的作用下变换为$\A\xx,\A\yy\in\RRR^n$，则向量的内积、长度与向量间的夹角都保持不变.
+    \end{block}
+  \end{footnotesize}
+\end{frame}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{往年试题}
+
+\begin{frame}
+   \begin{footnotesize}
+
+    \begin{exampleblock}{13-14上}
+      在$\RR^4$中，已知
+$$
+\begin{aligned}
+\alphabd_1=\left(
+\begin{array}{c}
+1\\0\\0\\0
+\end{array}
+\right),
+\alphabd_2=\left(
+\begin{array}{c}
+1\\2\\0\\0
+\end{array}
+\right),
+\alphabd_3=\left(
+\begin{array}{c}
+1\\1\\1\\0
+\end{array}
+\right),
+\alphabd_4=\left(
+\begin{array}{c}
+1\\1\\1\\1
+\end{array}
+\right);\\
+\betabd_1=\left(
+\begin{array}{c}
+1\\-1\\a\\1
+\end{array}
+\right),
+\betabd_2=\left(
+\begin{array}{c}
+-1\\1\\2-a\\1
+\end{array}
+\right),
+\betabd_3=\left(
+\begin{array}{c}
+-1\\1\\0\\0
+\end{array}
+\right),
+\betabd_4=\left(
+\begin{array}{c}
+1\\0\\0\\0
+\end{array}
+\right)
+\end{aligned}
+$$
+\begin{itemize}
+\item[1] 求$a$使得$\betabd_1,\betabd_2,\betabd_3,\betabd_4$为$\RR^4$的基；
+\item[2] 求由基$\alphabd_1,\alphabd_2,\alphabd_3,\alphabd_4$到基$\betabd_1,\betabd_2,\betabd_3,\betabd_4$的过渡矩阵$\PP$.
+\end{itemize}•
+    \end{exampleblock}
+
+  
+  \end{footnotesize}
+\end{frame}
+

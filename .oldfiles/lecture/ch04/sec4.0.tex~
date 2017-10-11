@@ -1,0 +1,11 @@
+\section{向量空间}
+
+\begin{dingyi}[向量空间]
+  设$V$是非空的$n$维向量集合，如果集合$V$对于向量的加法和数乘运算满足以下条件：
+  \begin{itemize}
+  \item[(1)] 对任意的$\alphabd,\betabd\in V$，有$\alphabd+\betabd\in V$；
+  \item[(2)] 对任意的$\alphabd\in V,lambda \in \mathbb R$，有$\lambda\alphabd\in V$，
+  \end{itemize}
+  则称$V$为向量空间。
+\end{dingyi}
+定义中的(1)表示该集合中向量对加法运算封闭；(2)表示该集合中向量对数乘运算封闭。因此，向量空间也可表述为：\blue{对加法和数乘运算封闭的非空集合。}

@@ -1,0 +1,34 @@
+\beamer@endinputifotherversion {3.36pt}
+\beamer@sectionintoc {1}{行列式}{3}{0}{1}
+\beamer@subsectionintoc {1}{1}{行列式的性质}{4}{0}{1}
+\beamer@subsectionintoc {1}{2}{行列式的计算}{12}{0}{1}
+\beamer@subsectionintoc {1}{3}{克莱姆法则}{32}{0}{1}
+\beamer@sectionintoc {2}{矩阵}{35}{0}{2}
+\beamer@subsectionintoc {2}{1}{矩阵的定义}{36}{0}{2}
+\beamer@subsectionintoc {2}{2}{矩阵的加法、数乘及乘法}{41}{0}{2}
+\beamer@subsectionintoc {2}{3}{矩阵的转置}{60}{0}{2}
+\beamer@subsectionintoc {2}{4}{矩阵的逆}{66}{0}{2}
+\beamer@subsectionintoc {2}{5}{矩阵的初等变换与初等矩阵}{81}{0}{2}
+\beamer@sectionintoc {3}{向量的线性相关性及线性方程组的解}{111}{0}{3}
+\beamer@subsectionintoc {3}{1}{$n$维向量及其线性相关性}{112}{0}{3}
+\beamer@subsectionintoc {3}{2}{向量组的秩及其极大线性无关组}{139}{0}{3}
+\beamer@subsectionintoc {3}{3}{矩阵的秩}{151}{0}{3}
+\beamer@subsectionintoc {3}{4}{齐次线性方程组有非零解的条件及解的结构}{184}{0}{3}
+\beamer@subsectionintoc {3}{5}{非齐次线性方程组有解的条件及解的结构}{202}{0}{3}
+\beamer@sectionintoc {4}{向量空间}{216}{0}{4}
+\beamer@subsectionintoc {4}{1}{向量空间的基、维数与向量关于基的坐标}{217}{0}{4}
+\beamer@subsectionintoc {4}{2}{$\mathbb R^n$中向量的内积，欧式空间}{232}{0}{4}
+\beamer@subsectionintoc {4}{3}{标准正交基}{239}{0}{4}
+\beamer@subsectionintoc {4}{4}{施密特（Schmidt）正交化方法}{244}{0}{4}
+\beamer@subsectionintoc {4}{5}{正交矩阵及其性质}{254}{0}{4}
+\beamer@sectionintoc {5}{特征值问题}{262}{0}{5}
+\beamer@subsectionintoc {5}{1}{矩阵的特征值与特征向量\nobreakspace {}\nobreakspace {}相似矩阵}{263}{0}{5}
+\beamer@subsectionintoc {5}{2}{相似矩阵}{287}{0}{5}
+\beamer@subsectionintoc {5}{3}{矩阵可对角化的条件}{290}{0}{5}
+\beamer@subsectionintoc {5}{4}{实对称矩阵的对角化}{306}{0}{5}
+\beamer@sectionintoc {6}{二次型}{311}{0}{6}
+\beamer@subsectionintoc {6}{1}{二次型的定义与矩阵表示}{312}{0}{6}
+\beamer@subsectionintoc {6}{2}{化二次型为标准型}{322}{0}{6}
+\beamer@subsubsectionintoc {6}{2}{1}{正交变换法}{325}{0}{6}
+\beamer@subsubsectionintoc {6}{2}{2}{配方法}{338}{0}{6}
+\beamer@subsectionintoc {6}{3}{正定二次型和正定矩阵}{351}{0}{6}

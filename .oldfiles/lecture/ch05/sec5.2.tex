@@ -1,0 +1,43 @@
+\section{相似矩阵}
+
+\begin{dingyi}
+  设$\A,\B$为$n$阶矩阵，若存在可逆矩阵$\PP$，使得
+  $$
+  \PP^{-1}\A\PP=\B,
+  $$
+  则称\blue{$\B$是$\A$的相似矩阵，或$\A$与$\B$相似，记为$\A\sim \B$。对$\A$进行运算$\PP^{-1}\A\PP$称为对$\A$进行相似变化，可逆矩阵$\PP$称为把$\A$变成$\B$的相似变换矩阵。}
+\end{dingyi}
+
+\begin{dingli}
+若$\A\sim \B$，则$\A$与$\B$的u特征多项式相同，从而$\A$与$\B$的特征值相同。
+\end{dingli}
+\begin{proof}
+  因$\A\sim\B$，即有可逆阵$\PP$使得$\PP^{-1}\A\PP=\B$。故
+  $$
+  |B-\lambda \II|=|\PP^{-1}\A\PP-\PP^{-1}(\lambda \II)\PP|=|\PP^{-1}(\A-\lambda \II)\PP|=|\PP^{-1}||\A-\lambda \II||\PP|=|\A-\lambda \II|.
+  $$
+\end{proof}
+
+\begin{tuilun}
+  若$\A$与对角阵
+  $$
+  \Lambdabd=\left(
+    \begin{array}{cccc}
+      \lambda_1&&&\\
+               &\lambda_2&&\\
+               &&\dd&\\
+               &&&\lambda_n
+    \end{array}
+  \right)
+  $$
+  相似，则$\lambda_1,\lambda_2,\cd,\lambda_n$为$\A$的$n$个特征值。
+\end{tuilun}
+
+% 对$n$阶矩阵$\A$，寻求相似变换矩阵$\PP$，使得$\PP^{-1}\A\PP=\Lambdabd$为对角阵，称为\blue{把方阵$\A$对角化}。
+
+% 假设已经找到可逆矩阵$\PP$，使$\PP^{-1}\A\PP=\Lambdabd$为对角阵，以下讨论$\PP$应满足什么关系。
+
+% 把$\PP$表示列向量分块
+% $$
+% \PP=()
+% $$

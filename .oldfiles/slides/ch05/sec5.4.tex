@@ -1,0 +1,76 @@
+\section{实对称矩阵的对角化}
+
+\begin{frame}
+  
+  \begin{li}
+    实对称矩阵$\A$的任一特征值都是实数。
+  \end{li}
+  \begin{proof}
+    $$
+    \begin{array}{rl}
+      \A\xx = \lambda \xx
+      &~~\Longrightarrow~~
+        \overline{(\A\xx)}^T = \overline{\lambda \xx}^T\\[0.1in]
+      &~~\Longrightarrow~~
+        \overline{\xx}^T~\overline{\A}^T~\xx = \overline{\lambda} ~\overline{\xx}^T~\xx\\[0.1in]
+      &~~\Longrightarrow~~
+        \overline{\xx}^T~\A^T~\xx = \overline{\lambda} ~\overline{\xx}^T~\xx\\[0.1in]
+      &~~\Longrightarrow~~
+        \lambda \overline{\xx}^T~\xx = \overline{\lambda} ~\overline{\xx}^T~\xx\\[0.1in]
+      &~~\Longrightarrow~~
+        \lambda = \overline \lambda
+    \end{array}
+    $$
+
+  \end{proof}
+  
+\end{frame}
+
+
+\begin{frame}
+  
+  \begin{li}
+    实对称矩阵$\A$对应于不同特征值的特征向量是正交的。
+  \end{li}
+  \begin{proof}
+  设$\A\xx_1=\lambda_1\xx_1,~~\A\xx_1=\lambda_1\xx_1~ (\lambda_1\ne\lambda_2), ~~\A^T=\A$，则
+  $$
+  \lambda_1\xx_2^T\xx_1=\xx_2^T\A\xx_1=\xx_2^T\A^T\xx_1=(\A\xx_2)^T\xx_1=(\lambda_2\xx_2)^T\xx_1=\lambda_2\xx_2^T\xx_1
+  $$\pause
+  由于$\lambda_1\ne\lambda_2$，所以
+  $$
+  \xx_2^T\xx_1=0.
+  $$
+  \end{proof}
+  
+\end{frame}
+
+
+\begin{frame}
+  \begin{dingli}
+  设$\A$为$n$阶对称阵，则必有正交阵$\QQ$，使得$\QQ^{-1}\A\QQ=\QQ^T\A\QQ=\Lambdabd$，其中$\Lambdabd$是以$\A$的$n$个特征值为对角元的对角阵。
+  \end{dingli}
+\end{frame}
+
+
+\begin{frame}
+\begin{tuilun}
+  设$\A$为$n$阶对称阵，$\lambda$为$\A$的特征方程的$k$重根，则矩阵$\A-\lambda\II$的秩$\rank(\A-\lambda\II)=n-k$，从而对应特征值$\lambda$恰有$k$个u线性无关的特征向量。
+\end{tuilun} \pause
+
+\begin{proof}
+  
+  由上述定理知，
+  对称阵$\A$与对角阵$\Lambdabd=\diag(\lambda_1,\cd,\lambda_n)$相似，从而$\A-\lambda\II$与$\Lambdabd-\lambda\II=\diag(\lambda_1-\lambda,\cd,\lambda_n-\lambda)$相似。当$\lambda$是$\A$的$k$重特征根时，对角阵$\Lambdabd-\lambda\II$的对角元恰有$k$个等于$0$，于是$\rank(\Lambdabd-\lambda\II)=n-k$。而$\rank(\A-\lambda\II)=\rank(\Lambdabd-\lambda\II)$，故$\rank(\A-\lambda\II)=n-k$。
+\end{proof}
+\end{frame}
+
+\begin{frame}
+  将对称阵$\A$对角化的步骤：
+  \begin{enumerate}
+  \item 求出$\A$的全部互不相等的特征值$\lambda_1,\cd,\lambda_s$，它们的重数依次为$k_1,\cd,k_s(k_1+\cd+k_s=n)$；\\[0.1in]
+  \item 对每个$k_i$重特征值$\lambda_i$，求$(\A-\lambda_i\II)\xx=0$的基础解系，得$k_i$个线性无关的特征向量；\\[0.1in]
+  \item 再把它们正交化、单位化，得$k_i$个两两正交的单位特征向量。因$k_1+\cd+k_s=n$，故总共可得$n$个两两正交的单位特征向量；\\[0.1in]
+  \item 将这$n$个两两正交的单位特征向量构成正交阵$\QQ$，便有$\QQ^{-1}\A\QQ=\Lambdabd$。
+  \end{enumerate}
+\end{frame}

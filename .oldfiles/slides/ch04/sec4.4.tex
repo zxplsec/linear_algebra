@@ -1,0 +1,108 @@
+\section{施密特（Schmidt）正交化方法}
+
+\begin{frame}\ft{\secname}
+本小节的目标是： 从一组线性无关的向量$\alphabd_1,\alphabd_2,\cd,\alphabd_m$出发，构造一组标准正交向量组。
+\end{frame}
+
+
+\begin{frame}[allowframebreaks]\ft{\secname}
+
+  给定$\R^n$中的线性无关组$\alphabd_1,\alphabd_2,\cd,\alphabd_m$， 
+  \begin{itemize}
+  \item[(1)] 取$\betabd_1=\alphabd_1$；\\[0.3in]
+  \item[(2)] 令$\betabd_2=\alphabd_2+k_{21}\betabd_1$，
+    $$
+    \begin{array}{rl}
+      &\betabd_2\perp\betabd_1\\[0.2cm]
+      \Longrightarrow&(\betabd_1,\betabd_2)=0\\[0.2cm] 
+      \Longrightarrow& \ds k_{21}=-\frac{(\alphabd_2,\betabd_1)}{(\betabd_1,\betabd_1)} 
+    \end{array}
+    $$
+    故
+    $$
+    \betabd_2=\alphabd_2-\frac{(\alphabd_2,\betabd_1)}{(\betabd_1,\betabd_1)}\betabd_1
+    $$
+  \item[(3)] 令$\betabd_3=\alphabd_3+k_{31}\betabd_1+k_{32}\betabd_2$，
+    $$
+    \begin{array}{rll}
+      &\betabd_3\perp\betabd_i, & (i=1,2)\\[0.2cm] 
+      \Longrightarrow&(\betabd_3,\betabd_i)=0, & (i=1,2)\\[0.2cm] 
+      \Longrightarrow& \ds k_{3i}=-\frac{(\alphabd_3,\betabd_i)}{(\betabd_i,\betabd_i)} & (i=1,2) 
+    \end{array}
+    $$
+    故
+    $$
+    \betabd_3=\alphabd_3-\frac{(\alphabd_3,\betabd_1)}{(\betabd_1,\betabd_1)}\betabd_1
+    -\frac{(\alphabd_3,\betabd_2)}{(\betabd_2,\betabd_2)}\betabd_2
+    $$ \\[1in]
+  \item[(4)] 继续以上步骤，假设已经求出两两正交的非零向量$\betabd_1,\betabd_2,\cd,\betabd_{j-1}$，
+    取
+    $$
+    \betabd_j=\alphabd_j+k_{j1}\betabd_1+k_{j2}\betabd_2+\cd++k_{j,j-1}\betabd_{j-1},
+    $$
+    $$
+    \begin{array}{rl}
+      & \betabd_j \perp \betabd_i\quad (i=1,2,\cd,j-1)\\[0.4cm] 
+      \Longrightarrow &(\betabd_j,\betabd_i)=0 \quad (i=1,2,\cd,j-1)\\[0.4cm] 
+      \Longrightarrow &(\alphabd_j+k_{ji}\betabd_i,\betabd_i)=0 \quad (i=1,2,\cd,j-1)\\[0.4cm] 
+      \Longrightarrow& \ds k_{ji}=-\frac{(\alphabd_j,\betabd_i)}{(\betabd_i,\betabd_i)} 
+    \end{array}
+    $$
+    故
+    $$
+    \betabd_j=\alphabd_j-\frac{(\alphabd_j,\betabd_1)}{(\betabd_1,\betabd_1)}\betabd_1
+    -\frac{(\alphabd_j,\betabd_2)}{(\betabd_2,\betabd_2)}\betabd_2
+    -\cd
+    -\frac{(\alphabd_j,\betabd_{j-1})}{(\betabd_{j-1},\betabd_{j-1})}\betabd_{j-1}.
+    $$
+  \item[(5)] 单位化
+    $$
+    \betabd_1, \betabd_2, \cd, \betabd_m \xlongrightarrow[]{\ds \eta_j=\frac{\betabd_j}{\|\betabd_j\|}}
+    \etabd_1, \etabd_2, \cd, \etabd_m
+    $$
+  \end{itemize}
+
+\end{frame}
+
+
+\begin{frame}[allowframebreaks]\ft{\secname}
+
+\begin{li}
+  已知$B=\{\alphabd_1,\alphabd_2,\alphabd_3\}$是$\R^3$的一组基，其中
+  $$
+  \alphabd_1=(1,-1,0)^T,~~
+  \alphabd_2=(1,0,1)^T,~~
+  \alphabd_3=(1,-1,1)^T.
+  $$
+  试用施密特正交化方法，由$B$构造$\R^3$的一组标准正交基。
+\end{li}
+\end{frame}
+
+
+\begin{frame}[allowframebreaks]\ft{\secname}
+
+  \begin{jie}
+    1、正交化过程：
+$$
+\begin{array}{rl}
+  \betabd_1&=\alphabd_1=(1,-1,0)^T, \\[0.2cm]
+  \betabd_2&\ds=\alphabd_2-\frac{(\alphabd_2,\betabd_1)}{(\betabd_1,\betabd_1)}\betabd_1\\[0.4cm]
+           &\ds=(1,0,1)^T-\frac12(1,-1,0)^T=\left(\frac12,\frac12,1\right),\\[0.4cm]
+  \betabd_3&\ds=\alphabd_3-\frac{(\alphabd_3,\betabd_1)}{(\betabd_1,\betabd_1)}\betabd_1
+             -\frac{(\alphabd_3,\betabd_2)}{(\betabd_2,\betabd_2)}\betabd_2\\[0.4cm]
+           &\ds=(1,-1,1)^T-\frac23\left(\frac12,\frac12,1\right)^T-\frac22(1,-1,0)^T=\left(-\frac13,-\frac13,\frac13\right).
+\end{array}
+$$
+
+
+2、单位化过程:
+$$
+\begin{array}{rl}
+  \etabd_1&\ds =\frac{\betabd_1}{\|\betabd_1\|}=\left(\frac1{\sqrt{2}},-\frac1{\sqrt{2}},0\right),\\[0.4cm]
+  \etabd_2&\ds =\frac{\betabd_2}{\|\betabd_2\|}=\left(\frac1{\sqrt{6}},\frac1{\sqrt{6}},\frac2{\sqrt{6}}\right),\\[0.4cm]
+  \etabd_3&\ds =\frac{\betabd_2}{\|\betabd_2\|}=\left(-\frac1{\sqrt{3}},-\frac1{\sqrt{3}},\frac1{\sqrt{3}}\right).
+\end{array}
+$$
+\end{jie}
+
+\end{frame}

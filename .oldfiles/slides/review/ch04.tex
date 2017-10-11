@@ -1,0 +1,532 @@
+\section{向量空间}
+
+\subsection{向量空间的基、维数与向量关于基的坐标}
+
+\begin{frame}\ft{\subsecname}
+
+\begin{dingyi}
+  设$V$是向量空间，如果
+  \begin{itemize}
+  \item[(1)] 在$V$中有$r$个向量$\alphabd_1,\cd,\alphabd_r$线性无关；
+  \item[(2)] $V$中任一向量$\alphabd$可由向量组$\alphabd_1,\cd,\alphabd_r$线性表示，
+  \end{itemize}
+  则称$\alphabd_1,\cd,\alphabd_r$是向量空间$V$的一组基，$r$称为向量空间$V$的维数，并称$V$为$r$维向量空间。
+\end{dingyi}
+\end{frame}
+
+\begin{frame}\ft{\subsecname}
+\begin{zhu}
+  只含一个零向量的集合$\{0\}$也是一个向量空间，该向量空间没有基，规定它的维数为$0$，并称之为$0$维向量空间。
+\end{zhu}
+
+\begin{zhu}
+  如果把向量空间$V$看做是一个向量组，则$V$的基就是它的一个极大无关组，$V$的维数就是向量组的秩。于是，$V$的基不唯一，但它的维数是唯一确定的。设$V$是$r$维向量空间，则$V$中任意$r$个线性无关的向量就是$V$的一个基。
+\end{zhu}
+\end{frame}
+
+\begin{frame}\ft{\subsecname}
+
+\begin{li}
+  在向量空间$\R^3$中，基本单位向量组
+  $$
+  \epsilonbd_1=(1,0,0)^T,~~
+  \epsilonbd_2=(0,1,0)^T,~~
+  \epsilonbd_3=(0,0,1)^T
+  $$
+  线性无关，且任一向量$\alphabd\in \R^3$可由$\epsilonbd_1,\epsilonbd_2,\epsilonbd_3$表示为
+  $$
+  \alphabd=x_1\epsilonbd_1+x_2\epsilonbd_2+x_3\epsilonbd_3.
+  $$
+  此时，$\R^3$可表示为
+  $$
+  \R^3=\{x=x_1\epsilonbd_1+x_2\epsilonbd_2+x_3\epsilonbd_3|x_1,x_2,x_3\in\R\}.
+  $$
+\end{li}
+
+\end{frame}
+
+\begin{frame}\ft{\subsecname}
+
+  事实上，在$\R^3$中，任一组向量$\alphabd_1,\alphabd_2,\alphabd_3$，只要它们线性无关，就构成$\R^3$的一组基。\pause 
+
+
+  例如，在$\R^3$中，向量组
+$$
+\epsilonbd_1=(1,0,0)^T,~~
+\epsilonbd_2=(1,1,0)^T,~~
+\epsilonbd_3=(1,1,1)^T
+$$
+线性无关，构成$\R^3$中的一组基。对任一向量$\alphabd\in \R^3$，
+$$
+\alphabd=(x_1-x_2)\alphabd_1+(x_2-x_3)\alphabd_2+x_3\alphabd_3.
+$$
+此时，
+$\R^3$可表示为
+$$
+\R^3=\{x=(x_1-x_2)\alphabd_1+(x_2-x_3)\alphabd_2+x_3\alphabd_3|x_1,x_2,x_3\in\R\}.
+$$
+
+\end{frame}
+
+\begin{frame}\ft{\subsecname}
+
+\begin{dingyi}
+  $\mathbb R^n$中任一向量$\alphabd$均可由线性无关向量组$\betabd_1,\betabd_2,\cd,\betabd_n$线性表示，即
+  $$
+  \alphabd=a_1\betabd_1+a_2\betabd_2+\cd+a_n\betabd_n,
+  $$
+  称$\betabd_1,\betabd_2,\cd,\betabd_n$为$\mathbb R^n$的一组基，有序数组$(a_1,a_2,\cd,a_n)$是向量$\alphabd$在基$\betabd_1,\betabd_2,\cd,\betabd_n$下的坐标，记作
+  $$
+  \alphabd_B=(a_1,a_2,\cd,a_n)\mbox{~~或~~}\alphabd_B=(a_1,a_2,\cd,a_n)^T
+  $$
+  并称之为$\alphabd$的坐标向量。
+\end{dingyi}
+\end{frame}
+
+\begin{frame}\ft{\subsecname}
+
+\begin{zhu}
+  \begin{itemize}
+  \item $\R^n$的基不是唯一的
+  \item 基本向量组
+    $$
+    \epsilonbd_i=(0,\cd,0,1,0,\cd,0), \quad i=1,2,\cd,n
+    $$
+    称为$\R^n$的自然基或标准基。
+  \item 一般来说，对于向量及其坐标，都采用列向量的形式，即
+    $$
+    \alphabd=(\betabd_1,\betabd_2,\cd,\betabd_n)\left(
+      \begin{array}{c}
+        a_1\\
+        a_2\\
+        \vd\\
+        a_n
+      \end{array}
+    \right)
+    $$
+  \end{itemize}
+\end{zhu}
+\end{frame}
+
+\begin{frame}\ft{\subsecname}
+
+\begin{li}
+  设$\R^n$的两组基为自然基$B_1$和$B_2=\{\betabd_1,\betabd_2,\cd,\betabd_n\}$，其中
+  \begin{equation}\label{twobase}
+    \begin{array}{lrrrrrrrrr}
+      \betabd_1&=(&1,&-1,& 0,&0,&\cd,&0,&0,&0)^T,\\[0.2cm]
+      \betabd_2&=(&0,& 1,&-1,&0,&\cd,&0,&0,&0)^T,\\[0.2cm]
+               &\vd&&&&&\\[0.2cm]
+      \betabd_{n-1}&=(&0,&0,&0,&0,&\cd,&0,&1,&-1)^T,\\[0.2cm]
+      \betabd_{n}&=(&0,&0,&0,&0,&\cd,&0,&0,&1)^T.
+    \end{array}
+  \end{equation}
+  求向量组$\alphabd=(a_1,a_2,\cd,a_n)^T$分别在两组基下的坐标。
+\end{li}
+
+\end{frame}
+
+\begin{frame}\ft{\subsecname}
+
+
+\begin{dingli}
+  设$\alphabd_1,\alphabd_2,\cd,\alphabd_n$是$\R^n$的一组基，且
+  $$
+  \left\{
+    \begin{array}{l}
+      \etabd_1=a_{11}\alphabd_1+a_{21}\alphabd_2+\cd+a_{n1}\alphabd_n,\\[0.2cm]
+      \etabd_2=a_{12}\alphabd_1+a_{22}\alphabd_2+\cd+a_{n2}\alphabd_n,\\[0.2cm]
+      \cd\cd\\[0.2cm]
+      \etabd_n=a_{1n}\alphabd_1+a_{2n}\alphabd_2+\cd+a_{nn}\alphabd_n.
+    \end{array}
+  \right.
+  $$
+  则$\etabd_1,\etabd_2,\cd,\etabd_n$线性无关的充要条件是
+  $$
+  \mathrm{det}\A=\left|
+    \begin{array}{cccc}
+      a_{11}&a_{12}&\cd&a_{1n}\\
+      a_{21}&a_{22}&\cd&a_{2n}\\
+      \vd&\vd&&\vd\\
+      a_{n1}&a_{n2}&\cd&a_{nn}
+    \end{array}
+  \right|\ne 0.
+  $$
+\end{dingli}
+\end{frame}
+
+\begin{frame}\ft{\subsecname}
+  \begin{dingyi}
+    设$\R^n$的两组基$B_1=\{\alphabd_1,\alphabd_2,\cd,\alphabd_n\}$和$B_2=\{\etabd_1,\etabd_2,\cd,\etabd_n\}$满足关系式
+    $$
+    (\etabd_1,\etabd_2,\cd,\etabd_n)=(\alphabd_1,\alphabd_2,\cd,\alphabd_n)\left(
+      \begin{array}{cccc}
+        a_{11}&a_{12}&\cd&a_{1n}\\
+        a_{21}&a_{22}&\cd&a_{2n}\\
+        \vd&\vd&&\vd\\
+        a_{n1}&a_{n2}&\cd&a_{nn}
+      \end{array}
+    \right)
+    $$
+    则矩阵
+    $$
+    \A=\left(
+      \begin{array}{cccc}
+        a_{11}&a_{12}&\cd&a_{1n}\\
+        a_{21}&a_{22}&\cd&a_{2n}\\
+        \vd&\vd&&\vd\\
+        a_{n1}&a_{n2}&\cd&a_{nn}
+      \end{array}
+    \right)
+    $$
+    称为\red{由旧基$B_1$到新基$B_2$的过渡矩阵}。
+  \end{dingyi}
+\end{frame}
+
+\begin{frame}\ft{\subsecname}
+
+\begin{dingli}
+  设$\alphabd$在两组基$B_1=\{\alphabd_1,\alphabd_2,\cd,\alphabd_n\}$与$B_2=\{\etabd_1,\etabd_2,\cd,\etabd_n\}$的坐标分别为
+  $$
+  \xx=(x_1,x_2,\cd,x_n)^T\mbox{~~和~~}\yy=(y_1,y_2,\cd,y_n)^T,
+  $$
+  由基$B_1$到$B_2$的过渡矩阵为$\A$，则
+  $$
+  \A\yy=\xx\mbox{~~或~~}\yy=\A^{-1}\xx
+  $$
+\end{dingli}
+
+\end{frame}
+
+\begin{frame}\ft{\subsecname}
+
+\begin{li}
+  已知$\R^3$的一组基为$B_2=\{\betabd_1,\betabd_2,\betabd_3\}$，其中
+  $$\betabd_1=(1,2,1)^T,\betabd_2=(1,-1,0)^T,\betabd_3=(1,0,-1)^T,$$
+  求自然基$B_1$到$B_2$的过渡矩阵。
+\end{li}
+\end{frame}
+
+\begin{frame}\ft{\subsecname}
+
+\begin{li}
+  已知$\R^3$的两组基为$B_1=\{\alphabd_1,\alphabd_2,\alphabd_3\}$和$B_2=\{\betabd_1,\betabd_2,\betabd_3\}$，
+  其中
+  $$
+  \begin{array}{lll}
+    \alphabd_1=(1,1,1)^T,&\alphabd_2=(0,1,1)^T,&\alphabd_3=(0,0,1)^T, \\[0.2cm]
+    \betabd_1=(1,0,1)^T,&\betabd_2=(0,1,-1)^T,&\betabd_3=(1,2,0)^T.  
+  \end{array}
+  $$
+  \begin{itemize}
+  \item[(1)] 求基$B_1$到$B_2$的过渡矩阵。
+  \item[(2)] 已知$\alpha$在基$B_1$的坐标为$(1,-2,-1)^T$，求$\alphabd$在基$B_2$下的坐标。
+  \end{itemize}
+  
+\end{li}
+
+\end{frame}
+
+\subsection{$\R^n$中向量的内积，欧式空间}
+\begin{frame}\ft{\subsecname}
+\begin{dingyi}
+  在$\R^n$中，对于$\alphabd=(a_1,a_2,\cd,a_n)^T$和$\betabd=(b_1,b_2,\cd,b_n)^T$，规定$\alphabd$和$\betabd$的内积为
+  $$
+  (\alphabd,\betabd)=a_1b_1+a_2b_2+\cd+a_nb_n.
+  $$
+\end{dingyi}
+当$\alphabd$和$\betabd$为列向量时，
+$$
+(\alphabd,\betabd)=\alphabd^T\betabd=\betabd^T\alphabd.
+$$
+\end{frame}
+
+\begin{frame}\ft{\subsecname}
+
+\begin{xingzhi}[内积的运算性质]
+  对于$\alphabd,\betabd,\gammabd\in\R^n$和$k\in\R$，
+  \begin{itemize}
+  \item[(i)]   $(\alphabd,\betabd)=(\betabd,\alphabd)$
+  \item[(ii)]  $(\alphabd+\betabd,\gammabd)=(\alphabd,\gammabd)+(\betabd,\gammabd)$
+  \item[(iii)] $(k\alphabd,\betabd)=k(\alphabd,\betabd)$
+  \item[(iv)]  $(\alphabd,\alphabd)\ge0$， 等号成立当且仅当$\alphabd=\zero$.
+  \end{itemize}
+\end{xingzhi}
+
+\end{frame}
+
+\begin{frame}\ft{\subsecname}
+
+\begin{dingyi}[向量长度]
+  向量$\alphabd$的长度定义为
+  $$
+  \|\alphabd\|=\sqrt{(\alphabd,\alphabd)}
+  $$
+\end{dingyi}
+
+\begin{dingli}[柯西-施瓦茨(Cauchy-Schwarz)不等式]
+  $$
+  |(\alphabd,\betabd)|\le\|\alphabd\|\|\betabd\|
+  $$
+\end{dingli}
+\end{frame}
+
+\begin{frame}\ft{\subsecname}
+
+\begin{dingyi}[向量之间的夹角]
+  向量$\alphabd,\betabd$之间的夹角定义为
+  $$
+  <\alphabd,\betabd>=\arccos\frac{(\alphabd,\betabd)}{\|\alphabd\|\|\betabd\||}
+  $$
+\end{dingyi}
+
+\begin{dingli}
+  $$\alphabd\perp\betabd ~~\Longleftrightarrow~~
+  (\alphabd,\betabd)=0
+  $$
+\end{dingli}
+
+\begin{zhu}
+零向量与任何向量的内积为零，从而零向量与任何向量正交。
+\end{zhu}
+\end{frame}
+
+\begin{frame}\ft{\subsecname}
+
+\begin{dingli}[三角不等式]
+  $$
+  \|\alphabd+\betabd\|\le\|\alphabd\|+\|\betabd\|.
+  $$
+\end{dingli}
+\begin{zhu}
+当$\alphabd\perp\betabd$时，$\|\alphabd+\betabd\|^2=\|\alphabd\|^2+\|\betabd\|^2$。
+\end{zhu}
+
+\begin{dingyi}[欧几里得空间]
+  定义了内积运算的$n$维实向量空间，称为$n$维欧几里得空间（简称欧氏空间），仍记为$\R^n$。
+\end{dingyi}
+\end{frame}
+
+\subsection{标准正交基}
+
+\begin{frame}\ft{\subsecname}
+
+\begin{dingli}
+  $\R^n$中两两正交且不含零向量的向量组（称为非零正交向量组）$\alphabd_1,\alphabd_2,\cd,\alphabd_s$是线性无关的。
+\end{dingli} 
+\end{frame}
+
+\begin{frame}\ft{\subsecname}
+
+\begin{dingyi}[标准正交基]
+  设$\alphabd_1,\alphabd_2,\cd,\alphabd_n\in \R^n$，若
+  $$
+  (\alphabd_i,\alphabd_j)=\delta_{ij}=\left\{
+    \begin{array}{ll}
+      1,& i=j,\\
+      0,& i\ne j.
+    \end{array}
+  \right. \quad i,j=1,2,\cd,n.
+  $$
+  则称$\{\alphabd_1,\alphabd_2,\cd,\alphabd_n\}$是$\R^n$中的一组标准正交基。
+\end{dingyi}
+
+\end{frame}
+
+\begin{frame}\ft{\subsecname}
+
+\begin{li}
+  设$B=(\alphabd_1,\alphabd_2,\cd,\alphabd_n)$是$\R^n$中的一组标准正交基，求$\R^n$中向量$\betabd$在基$B$下的坐标。
+\end{li}
+\begin{jie}
+$$
+\begin{array}{rl}
+  & \betabd=x_1\alphabd_1+x_2\alphabd_2+\cd+x_n\alphabd_n\\[0.1in]
+  \Longrightarrow&   (\betabd,\alphabd_j)=(x_1\alphabd_1+x_2\alphabd_2+\cd+x_n\alphabd_n,\alphabd_j)=x_j(\alphabd_j,\alphabd_j)\\[0.1in]
+  \Longrightarrow& \ds x_j =\frac{ (\betabd,\alphabd_j)}{(\alphabd_j,\alphabd_j)} = (\betabd,\alphabd_j).
+\end{array}
+$$
+\end{jie}
+
+\end{frame}
+
+\subsection{施密特（Schmidt）正交化方法}
+
+\begin{frame}\ft{\subsecname}
+本小节的目标是： 从一组线性无关的向量$\alphabd_1,\alphabd_2,\cd,\alphabd_m$出发，构造一组标准正交向量组。
+\end{frame}
+
+
+\begin{frame}[allowframebreaks]\ft{\subsecname}
+
+  给定$\R^n$中的线性无关组$\alphabd_1,\alphabd_2,\cd,\alphabd_m$， 
+  \begin{itemize}
+  \item[(1)] 取$\betabd_1=\alphabd_1$；\\[0.3in]
+  \item[(2)] 令$\betabd_2=\alphabd_2+k_{21}\betabd_1$，
+    $$
+    \begin{array}{rl}
+      &\betabd_2\perp\betabd_1\\[0.2cm]
+      \Longrightarrow&(\betabd_1,\betabd_2)=0\\[0.2cm] 
+      \Longrightarrow& \ds k_{21}=-\frac{(\alphabd_2,\betabd_1)}{(\betabd_1,\betabd_1)} 
+    \end{array}
+    $$
+    故
+    $$
+    \betabd_2=\alphabd_2-\frac{(\alphabd_2,\betabd_1)}{(\betabd_1,\betabd_1)}\betabd_1
+    $$
+  \item[(3)] 令$\betabd_3=\alphabd_3+k_{31}\betabd_1+k_{32}\betabd_2$，
+    $$
+    \begin{array}{rll}
+      &\betabd_3\perp\betabd_i, & (i=1,2)\\[0.2cm] 
+      \Longrightarrow&(\betabd_3,\betabd_i)=0, & (i=1,2)\\[0.2cm] 
+      \Longrightarrow& \ds k_{3i}=-\frac{(\alphabd_3,\betabd_i)}{(\betabd_i,\betabd_i)} & (i=1,2) 
+    \end{array}
+    $$
+    故
+    $$
+    \betabd_3=\alphabd_3-\frac{(\alphabd_3,\betabd_1)}{(\betabd_1,\betabd_1)}\betabd_1
+    -\frac{(\alphabd_3,\betabd_2)}{(\betabd_2,\betabd_2)}\betabd_2
+    $$ \\[1in]
+  \item[(4)] 继续以上步骤，假设已经求出两两正交的非零向量$\betabd_1,\betabd_2,\cd,\betabd_{j-1}$，
+    取
+    $$
+    \betabd_j=\alphabd_j+k_{j1}\betabd_1+k_{j2}\betabd_2+\cd++k_{j,j-1}\betabd_{j-1},
+    $$
+    $$
+    \begin{array}{rl}
+      & \betabd_j \perp \betabd_i\quad (i=1,2,\cd,j-1)\\[0.4cm] 
+      \Longrightarrow &(\betabd_j,\betabd_i)=0 \quad (i=1,2,\cd,j-1)\\[0.4cm] 
+      \Longrightarrow &(\alphabd_j+k_{ji}\betabd_i,\betabd_i)=0 \quad (i=1,2,\cd,j-1)\\[0.4cm] 
+      \Longrightarrow& \ds k_{ji}=-\frac{(\alphabd_j,\betabd_i)}{(\betabd_i,\betabd_i)} 
+    \end{array}
+    $$
+    故
+    $$
+    \betabd_j=\alphabd_j-\frac{(\alphabd_j,\betabd_1)}{(\betabd_1,\betabd_1)}\betabd_1
+    -\frac{(\alphabd_j,\betabd_2)}{(\betabd_2,\betabd_2)}\betabd_2
+    -\cd
+    -\frac{(\alphabd_j,\betabd_{j-1})}{(\betabd_{j-1},\betabd_{j-1})}\betabd_{j-1}.
+    $$
+  \item[(5)] 单位化
+    $$
+    \betabd_1, \betabd_2, \cd, \betabd_m \xlongrightarrow[]{\ds \eta_j=\frac{\betabd_j}{\|\betabd_j\|}}
+    \etabd_1, \etabd_2, \cd, \etabd_m
+    $$
+  \end{itemize}
+
+\end{frame}
+
+
+\begin{frame}[allowframebreaks]\ft{\subsecname}
+
+\begin{li}
+  已知$B=\{\alphabd_1,\alphabd_2,\alphabd_3\}$是$\R^3$的一组基，其中
+  $$
+  \alphabd_1=(1,-1,0)^T,~~
+  \alphabd_2=(1,0,1)^T,~~
+  \alphabd_3=(1,-1,1)^T.
+  $$
+  试用施密特正交化方法，由$B$构造$\R^3$的一组标准正交基。
+\end{li}
+\end{frame}
+
+
+\begin{frame}[allowframebreaks]\ft{\subsecname}
+
+  \begin{jie}
+    1、正交化过程：
+$$
+\begin{array}{rl}
+  \betabd_1&=\alphabd_1=(1,-1,0)^T, \\[0.2cm]
+  \betabd_2&\ds=\alphabd_2-\frac{(\alphabd_2,\betabd_1)}{(\betabd_1,\betabd_1)}\betabd_1\\[0.4cm]
+           &\ds=(1,0,1)^T-\frac12(1,-1,0)^T=\left(\frac12,\frac12,1\right),\\[0.4cm]
+  \betabd_3&\ds=\alphabd_3-\frac{(\alphabd_3,\betabd_1)}{(\betabd_1,\betabd_1)}\betabd_1
+             -\frac{(\alphabd_3,\betabd_2)}{(\betabd_2,\betabd_2)}\betabd_2\\[0.4cm]
+           &\ds=(1,-1,1)^T-\frac23\left(\frac12,\frac12,1\right)^T-\frac22(1,-1,0)^T=\left(-\frac13,-\frac13,\frac13\right).
+\end{array}
+$$
+
+
+2、单位化过程:
+$$
+\begin{array}{rl}
+  \etabd_1&\ds =\frac{\betabd_1}{\|\betabd_1\|}=\left(\frac1{\sqrt{2}},-\frac1{\sqrt{2}},0\right),\\[0.4cm]
+  \etabd_2&\ds =\frac{\betabd_2}{\|\betabd_2\|}=\left(\frac1{\sqrt{6}},\frac1{\sqrt{6}},\frac2{\sqrt{6}}\right),\\[0.4cm]
+  \etabd_3&\ds =\frac{\betabd_2}{\|\betabd_2\|}=\left(-\frac1{\sqrt{3}},-\frac1{\sqrt{3}},\frac1{\sqrt{3}}\right).
+\end{array}
+$$
+\end{jie}
+
+\end{frame}
+
+
+\subsection{正交矩阵及其性质}
+
+\begin{frame}\ft{\subsecname}
+\begin{dingyi}
+  设$\A\in\R^{n\times n}$，如果
+  $$
+  \A^T\A=\II
+  $$
+  则称$\A$为正交矩阵。
+\end{dingyi}
+\end{frame}
+
+\begin{frame}\ft{\subsecname}
+\begin{dingli}
+  $$
+  \A\mbox{为}\mbox{正交矩阵}
+  ~~\Longleftrightarrow~~
+  \A\mbox{的列向量组为一组标准正交基。}
+  $$
+\end{dingli} 
+\end{frame}
+
+\begin{frame}\ft{\subsecname}
+
+\begin{dingli}
+  设$\A,\B$皆为$n$阶正交矩阵，则
+  \begin{itemize}
+  \item[(1)] $|\A|=1\mbox{~或~} -1$
+  \item[(2)] $\A^{-1}=\A^T$
+  \item[(3)] $\A^T$也是正交矩阵
+  \item[(4)] $\A\B$也是正交矩阵
+  \end{itemize}
+\end{dingli}
+\end{frame}
+
+\begin{frame}\ft{\subsecname}
+
+
+\begin{dingli}
+  若列向量$\xx,\yy\in\R^n$在$n$阶正交矩阵$\A$的作用下变换为$\A\xx,\A\yy\in\R^n$，则向量的内积、长度与向量间的夹角都保持不变，即
+  $$
+  \begin{array}{c}
+    (\A\xx,\A\yy)=(\xx,\yy),\\[0.1in]
+    \|\A\xx\|=\|\xx\|, ~~\|\A\yy\|=\|\yy\|, \\[0.1in]
+    \langle\A\xx,\A\yy\rangle=\langle\xx,\yy\rangle.
+  \end{array}
+  $$
+\end{dingli}
+\end{frame}
+
+\begin{frame}
+\begin{li}[\red{$\bigstar$}]
+  给正交矩阵$\A$的某一行（或某一列）乘以$-1$后所得的矩阵$\B$是否仍为正交矩阵？
+\end{li}\pause
+\begin{jie}
+  设$\A=(a_{ij})$为正交矩阵，给第$i$行乘以$-1$后得$\B=\left[
+    \begin{array}{rrr}
+      a_{11}&\cd&a_{1n}\\
+      \vd& &\vd\\
+      -a_{i1}&\cd&-a_{in}\\
+      \vd&&\vd\\
+      a_{n1}&\cd&a_{nn}
+    \end{array}
+  \right]$,
+  
+  因$a_{k1}^2+\cd+a_{kn}^2=1 ~~\forall k$，故当$k=i$时，$(-a_{i1})^2+\cd+(-a_{in})^2=1$
+
+  因$a_{k1}a_{p1}+\cd+a_{kn}a_{pn}=1(k\ne p)$，故当$k=i$时，$(-a_{i1}a_{p1})+\cd+(-a_{in}a_{pn})=0$，于是$\B$为正交矩阵．
+\end{jie}
+\end{frame}

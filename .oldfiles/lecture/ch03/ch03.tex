@@ -1,0 +1,70 @@
+\documentclass[10pt,a4paper%,twoside,openright,titlepage,fleqn,%
+% headinclude,footinclude,BCOR5mm,%
+% numbers=noenddot,cleardoublepage=empty,%
+tablecaptionabove]{article}
+
+\usepackage{geometry}
+\geometry{left=2.5cm,right=2.5cm,top=2.5cm,bottom=2.5cm}
+\usepackage{subfigure}
+\usepackage{amsmath,amssymb,amsthm}
+
+%% -----------------设置数学公式字体-------------------------
+%% Font style 1
+%% \newcommand\ibinom[2]{\genfrac\lbrace\rbrace{0pt}{}{#1}{#2}}
+%% \usepackage{bm}
+
+%% Font style 2
+%% \newcommand\ibinom[2]{\genfrac\lbrace\rbrace{0pt}{}{#1}{#2}} 
+%% \usepackage[boldsans]{ccfonts} 
+%% \usepackage{bm} 
+
+%% Font style 3
+\newcommand\ibinom[2]{\genfrac\lbrace\rbrace{0pt}{}{#1}{#2}}
+\usepackage[euler-digits]{eulervm}
+\usepackage{bm}
+
+%% Font style 4
+%% \usepackage{fourier}
+%% \newcommand\ibinom[2]{\genfrac\lbrace\rbrace{0pt}{}{#1}{#2}}
+%% \usepackage{bm}
+
+%% Font style 5
+%% \newcommand\ibinom[2]{\genfrac\lbrace\rbrace{0pt}{}{#1}{#2}}
+%% \usepackage{mathptmx}
+%% \usepackage{bm} 
+
+
+%% %% Font style 6
+%% \newcommand\ibinom[2]{\genfrac\lbrace\rbrace{0pt}{}{#1}{#2}}
+%% \usepackage{txfonts}
+%% \usepackage{bm}
+%% -----------------------------------------------------------
+\input{usepackage}
+\input{newcommand}
+\begin{document}
+
+\begin{CJK}{UTF8}{gkai}
+  \pagenumbering{roman}
+  \pagestyle{plain}
+  \pagenumbering{arabic}
+  
+  \renewcommand{\proofname}{\textbf{证明}}
+  \renewcommand{\figurename}{\textbf{图}}
+
+  \input{newtheorem}
+
+  \title{第3讲、向量组}
+  % \author{张晓平}
+  % \date{}           % Activate to display a given date or no date
+  \maketitle
+
+  \input{sec3.1}
+  % \input{sec3.2}
+  % \input{sec3.3}
+  % \input{sec3.4}
+  % \input{sec3.5}
+
+
+\end{CJK}
+\end{document}
+

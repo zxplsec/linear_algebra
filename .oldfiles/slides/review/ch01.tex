@@ -1,0 +1,659 @@
+\section{行列式}
+
+\subsection{行列式的性质}
+
+\begin{frame}
+  \begin{xingzhi}
+    互换行列式的行与列，值不变，即
+    \begin{equation}
+      \left|
+        \begin{array}{cccc}
+          a_{11}  &  a_{12} & \cdots & a_{1n} \\
+          a_{21}  &  a_{22} & \cdots & a_{2n} \\
+          \vdots & \vdots & \ddots & \vdots\\  
+          a_{n1}  &  a_{n2} & \cdots & a_{nn} 
+        \end{array}
+      \right|
+      =
+      \left|
+        \begin{array}{cccc}
+          a_{11}  &  a_{21} & \cdots & a_{n1} \\
+          a_{12}  &  a_{22} & \cdots & a_{n2} \\
+          \vdots & \vdots & \ddots & \vdots\\  
+          a_{1n}  &  a_{2n} & \cdots & a_{nn} 
+        \end{array}
+      \right|
+    \end{equation}
+  \end{xingzhi}
+\end{frame}
+
+\begin{frame}
+  \begin{xingzhi}
+    行列式对任一行按下式展开，其值相等，即
+    $$
+    D = a_{i1} A_{i1} + a_{i2} A_{i2} + \cdots + a_{in}A_{in} = \sum_{j=1}^n a_{ij} A_{ij}, \quad
+    i = 1, 2, \cdots, n,
+    $$
+    其中
+    $$
+    A_{ij} = (-1)^{i+j} M_{ij}
+    $$
+    而$M_{ij}$为$a_{ij}$的余子式，$A_{ij}$为$a_{ij}$的代数余子式.
+  \end{xingzhi}
+\end{frame}
+
+\begin{frame}
+  \begin{xingzhi}[线性性质]
+    \begin{itemize}
+    \item[1] 行列式的某一行（列）中所有的元素都乘以同一个数$k$，等于用数$k$乘以此行列式，即
+      \begin{equation}\label{xz3-1}
+        \left|
+          \begin{array}{ccccc}
+            a_{11}  & a_{12} & \cdots & a_{1n} \\
+            \vdots & \vdots     &        & \vdots \\
+            ka_{i1}  & ka_{i2} & \cdots & ka_{in} \\
+            \vdots & \vdots     &        & \vdots \\
+            a_{n1}  & a_{n2} & \cdots & a_{nn}
+          \end{array}
+        \right| = k
+        \left|
+          \begin{array}{ccccc}
+            a_{11}  & a_{12} & \cdots & a_{1n} \\
+            \vdots & \vdots     &        & \vdots \\
+            a_{i1}  & a_{i2} & \cdots & a_{in} \\
+            \vdots & \vdots     &        & \vdots \\
+            a_{n1}  & a_{n2} & \cdots & a_{nn}
+          \end{array}
+        \right|
+      \end{equation}
+    \item[2] 若行列式的某一行（列）的元素都是两数之和，如       \begin{equation}\label{xz3-2}
+        \begin{array}{rcl}
+          \left|
+          \begin{array}{ccccc}
+            a_{11} & \cdots & a_{1j}+b_{1j} & \cdots & a_{1n} \\
+            a_{21} & \cdots & a_{2j}+b_{2j} & \cdots & a_{2n} \\
+            \vdots&        & \vdots      &        & \vdots \\
+            a_{n1} & \cdots & a_{nj}+b_{nj} & \cdots & a_{nn}
+          \end{array}
+                                                       \right| & = & \left|
+                                                                     \begin{array}{ccccc}
+                                                                       a_{11} & \cdots & a_{1j} & \cdots & a_{1n} \\
+                                                                       a_{21} & \cdots & a_{2j} & \cdots & a_{2n} \\
+                                                                       \vdots&        & \vdots      &        & \vdots \\
+                                                                       a_{n1} & \cdots & a_{nj} & \cdots & a_{nn}
+                                                                     \end{array}
+                                                                                                           \right| +
+                                                                                                           \left|
+                                                                                                           \begin{array}{ccccc}
+                                                                                                             a_{11} & \cdots & b_{1j} & \cdots & a_{1n} \\
+                                                                                                             a_{21} & \cdots & b_{2j} & \cdots & a_{2n} \\
+                                                                                                             \vdots&        & \vdots      &        & \vdots \\
+                                                                                                             a_{n1} & \cdots & b_{nj} & \cdots & a_{nn}
+                                                                                                           \end{array}
+                                                                                                                                                 \right|          
+        \end{array}
+      \end{equation}
+    \end{itemize}
+  \end{xingzhi}  
+\end{frame}
+
+\begin{frame}
+  \begin{xingzhi}
+    若行列式有两行（列）完全相同，其值为$0$.
+  \end{xingzhi}
+
+  \begin{tuilun}
+    若行列式中有两行（列）元素成比例，则行列式的值为$0$.
+  \end{tuilun}
+\end{frame}
+
+\begin{frame}
+  \begin{xingzhi}
+    把行列式的某一行（列）的各元素乘以同一个数然后加到另一行（列）对应的元素上去，行列式的值不变。
+  \end{xingzhi}
+\end{frame}
+
+\begin{frame}
+  \begin{xingzhi}
+    互换行列式的两行（列），行列式变号。
+  \end{xingzhi}
+\end{frame}
+
+\begin{frame}
+  \begin{xingzhi}
+    行列式某一行的元素乘以另一行对应元素的代数余子式之和等于$0$，即
+    $$
+    \sum_{k=1}^n a_{ik} A_{jk}  = 0 \quad (i\ne j).
+    $$
+  \end{xingzhi}
+
+  \begin{jielun}
+    \begin{itemize}
+    \item 对行列式$D$按行展开，有
+      $$
+      \sum_{k=1} a_{ik} A_{jk} = \delta_{ij} D,
+      $$
+      其中$\delta_{ij}$为克罗内克（Kronecker）记号，表示为
+      $$
+      \delta_{ij} = \left\{
+        \begin{array}{ll}
+          1 & i=j,\\
+          0 & i\ne j.
+        \end{array}
+      \right.
+      $$
+    \item 对行列式$D$按列展开，有
+      $$
+      \sum_{k=1} a_{ki} A_{kj} = \delta_{ij} D,
+      $$
+    \end{itemize}
+  \end{jielun}
+\end{frame}
+
+
+\subsection{行列式的计算}
+
+\begin{frame}
+  1、有些行列式需要用''后一行减前一行''的处理方式.
+  \begin{li}
+    计算
+    $$
+    D = \left |
+      \begin{array}{cccccc}
+        1 &  2 &  3 & \cd &  n-1 & n\\
+        2 &  3 &  4 & \cd &   n  & 1\\
+        3 &  4 &  5 & \cd &   1  & 2\\
+        \vd& \vd& \vd&     & \vd  & \vd \\
+        n &  1 &  2 & \cd & n-2  & n-1
+      \end{array}
+    \right|
+    $$
+  \end{li}
+  \begin{jie}
+    $$
+    \begin{aligned}
+      D_n &   
+      \xlongequal[i=n,\cdots,2]{r_i-r_{i-1}} 
+      \left|
+        \begin{array}{cccccc}
+          1   &  2 &  3 & \cd &  n-1 & n\\
+          1   &  1 &  1 & \cd &   1  & 1-n \\
+          1   &  1 &  1 & \cd &  1-n  & 1\\
+          \vd & \vd & \vd&     & \vd  & \vd \\
+          1   & 1-n &  1 & \cd &   1   & 1
+        \end{array}
+      \right|    \end{aligned}
+    $$
+  \end{jie}
+\end{frame}
+\begin{frame}
+  $$
+  \begin{aligned}
+    &  
+    \xlongequal[i=2,\cdots,n]{c_i-c_1} 
+    \left|
+      \begin{array}{cccccc}
+        1   &  1 &  2 & \cd &  n-2 & n-1\\
+        1   &  0 &  0 & \cd &   0  & -n \\
+        1   &  0 &  0 & \cd &  -n  & 0\\
+        \vd & \vd & \vd&     & \vd  & \vd \\
+        1   & -n &  0 & \cd &   0   & 0
+      \end{array}
+    \right|\\
+    &   \xlongequal[i=2,\cd,n]{c_i\div n} n^{n-1} 
+    \left|
+      \begin{array}{cccccc}
+        1   &  \frac 1n & \frac 2n & \cd &  \frac{n-2}n & \frac{n-1}n\\
+        1   &  0 &  0 & \cd &   0  & -1 \\
+        1   &  0 &  0 & \cd &  -1  & 0\\
+        \vd & \vd & \vd&     & \vd  & \vd \\
+        1   & -1 &  0 & \cd &   0   & 0
+      \end{array}
+    \right|
+  \end{aligned}
+  $$
+\end{frame}
+\begin{frame}
+  $$
+  \begin{aligned}
+    &  \xlongequal{c_1+c_2+\cd+c_n} 
+    n^{n-1} \left|
+      \begin{array}{cccccc}
+        1+\sum_{i-1}^{n-1}\frac in   &  \frac 1n & \frac 2n & \cd &  \frac{n-2}n & \frac{n-1}n\\
+        0   &  0 &  0 & \cd &   0  & -1 \\
+        0   &  0 &  0 & \cd &  -1  & 0\\
+        \vd & \vd & \vd&     & \vd  & \vd \\
+        0   & -1 &  0 & \cd &   0   & 0
+      \end{array}       
+    \right|\\
+    &  = n^{n-1} \left[ 1 + \frac 1n \frac {n(n-1)}2\right] 
+    (-1)^{\frac{(n-1)(n-2)}2}(-1)^{n-1} = (-1)^{\frac{(n-1)n}2} \frac{n+1}2 n^{n-1}.
+  \end{aligned}
+  $$
+\end{frame}
+
+\begin{frame}
+  类似地,还有
+  \begin{li}
+    计算行列式
+    $$
+    D_{20} = \left|
+      \begin{array}{rrrrrrr}
+        1   & 2    & 3    & \cd  & 18    & 19    &  20 \\ 
+        2   & 1    & 2    & \cd  & 17    & 18    &  19 \\
+        3   & 2    & 1    & \cd  & 16    & 17    &  18 \\
+        \vd & \vd  & \vd  & \cd  & \vd   & \vd   &  \vd \\
+        20  & 19   & 18   & \cd  & 3     & 2     &  1
+      \end{array}
+    \right|
+    $$    
+  \end{li}
+
+  \begin{li}
+    计算元素为$a_{ij}=|i-j|$的$n$阶行列式，即
+    $$
+    D_{n}   =   \left|
+      \begin{array}{rrrrrrr}
+        0   & 1   & 2    & \cd & n-2  & n-1 \\ 
+        1   & 0   & 1    & \cd & n-3  & n-2 \\
+        %% 2   & 1   & 0    & \cd & n-4  & n-3 \\
+        \vd & \vd & \vd  &     & \vd  & \vd \\
+        n-2 & n-3 & n-4  & \cd & 0     & 1 \\
+        n-1 & n-2 & n-3  & \cd & 1  & 0 
+      \end{array}
+    \right|
+    $$
+    
+  \end{li}
+
+\end{frame}
+
+\begin{frame}
+  2、爪形行列式的计算
+  \begin{center}
+    \begin{tikzpicture}
+      \matrix(A) [matrix of math nodes,nodes in empty cells,ampersand replacement=\&,left delimiter=|,right delimiter=|] {
+        a_{11} \& a_{12} \& a_{13} \& \cd \& a_{1n} \\
+        a_{21} \& a_{22} \& 0     \& \cd \&  0    \\
+        a_{31} \&  0    \& a_{33} \& \cd \&  0    \\
+        \vd  \&  \vd  \&  \vd  \&     \&  \vd  \\
+        a_{n1} \&  0    \& 0 \& \cd \& a_{nn} \\
+      };
+      \draw[red] (A-1-1.center) -- (A-1-5.center) (A-1-1.center) -- (A-5-1.center) (A-1-1.center) -- (A-5-5.center);
+    \end{tikzpicture}
+  \end{center}
+  其解法固定，即从第二行开始，每行依次乘一个系数然后加到第一行，使得第一行除第一个元素外都为零，从而得到一个下三角行列式。
+\end{frame}
+
+\begin{frame}
+  类似的方式还可用于求解如下形式的“爪型行列式”
+  \begin{figure}[htbp]
+    \centering
+    \subfigure[]{
+      \begin{tikzpicture}[scale=2]
+        \matrix(B) [matrix of math nodes,nodes in empty cells,ampersand replacement=\&,left delimiter=|,right delimiter=|] {
+          \&  \& \\
+          \&  \& \\
+          \&  \& \\ 
+        };
+        \draw[red] (B-1-3.north east) -- (B-1-1.north west) 
+        (B-1-3.north east) -- (B-3-1.south west) 
+        (B-1-3.north east) -- (B-3-3.south east);
+      \end{tikzpicture}
+    }
+    \subfigure[]{
+      \begin{tikzpicture}[scale=2]
+        \matrix(B) [matrix of math nodes,nodes in empty cells,ampersand replacement=\&,left delimiter=|,right delimiter=|] {
+          \&  \& \\
+          \&  \& \\
+          \&  \& \\
+        };
+        \draw[red]
+        (B-3-1.south west) -- (B-1-1.north west) 
+        (B-3-1.south west) -- (B-1-3.north east) 
+        (B-3-1.south west) -- (B-3-3.south east);
+      \end{tikzpicture}
+    }
+    \subfigure[]{
+      \begin{tikzpicture}[scale=2]
+        \matrix(B) [matrix of math nodes,nodes in empty cells,ampersand replacement=\&,left delimiter=|,right delimiter=|] {
+          \&  \& \\
+          \&  \& \\
+          \&  \& \\
+        };
+        \draw[red]
+        (B-3-3.south east) -- (B-1-1.north west) 
+        (B-3-3.south east) -- (B-1-3.north east) 
+        (B-3-3.south east) -- (B-3-1.south west);
+      \end{tikzpicture}
+    }      
+  \end{figure}
+\end{frame}
+
+\begin{frame}
+  \begin{li}
+    计算
+    $$
+    D= \left|
+      \begin{array}{ccccc}
+        1 &  2  & 3   &\cd & n   \\
+        2 &  2  & 0   &\cd & 0  \\
+        3 &  0  & 3   &\cd & 0  \\
+        \vd & \vd  \vd  &    & \\
+        n &  0  & 0   &\cd & n
+      \end{array}
+    \right|
+    $$
+  \end{li}
+  \begin{jie}
+    $$
+    \begin{aligned}
+      D  \xlongequal[i=2,\cd,n]{r_1-r_i} 
+      \left|
+        \begin{array}{ccccc}
+          1-\sum_{i=2}^n i &  0  & 0   &\cd & 0   \\
+          2 &  2  & 0   &\cd & 0  \\
+          3 &  0  & 3   &\cd & 0  \\
+          \vd & \vd & \vd  &    &\vd  \\
+          n &  0  & 0   &\cd & n
+        \end{array}
+      \right|
+      =  (1-\sum_{i=2}^n i) \cdot 2 \cdot 3 \cdot \cd \cdot n\\
+      =  \left[2-\frac{(n+1)n}2\right] n!
+    \end{aligned}
+    $$
+  \end{jie}
+\end{frame}
+
+\begin{frame}
+  \begin{li}
+    $$
+    \left|
+      \begin{array}{ccccc}
+        1 & 1 & \cd & 1 & 1 \\
+        0 & 0 & \cd & 2 & 1 \\
+        \vd & \vd & & \vd & \vd \\
+        0 & n-1 & \cd & 0 & 1 \\
+        n & 0 & \cd & 0 & 1
+      \end{array}
+    \right|  = (-1)^{\frac{n(n-1)}2} n! \left(1-\sum_{i=2}^n\frac1i\right)
+    $$
+  \end{li}
+\end{frame}
+
+\begin{frame}
+  \begin{li}[$\bigstar$]
+    设$a_0a_1\cd a_n\ne 0$，证明
+    $$\left|
+      \begin{array}{ccccc}
+        a_0&1&1&\cd&1\\
+        1&a_1&0&\cd&0\\
+        1&0&a_2&\cd&0\\
+        \vd&\vd&\vd&\dd&\vd\\
+        1&0&0&\cd&a_n
+      \end{array}
+    \right|=a_1a_2\cd a_n(a_0-\sum_{i=1}^n\frac1{a_i}).
+    $$ 
+  \end{li}
+  \pause
+  \begin{jie}
+    $$
+    \mbox{原式}\xlongequal[i=2,3,\cd,n+1]{r_1 + r_i \times (-\frac1{a_{i-1}}) }\left|
+      \begin{array}{ccccc}
+        a_0-\sum_{i=1}^n\frac1{a_i}&0&0&\cd&0\\
+        1&a_1&0&\cd&0\\
+        1&0&a_2&\cd&0\\
+        \vd&\vd&\vd&\dd&\vd\\
+        1&0&0&\cd&a_n
+      \end{array}
+    \right|=a_1a_2\cd a_n(a_0-\sum_{i=1}^n\frac1{a_i}).
+    $$
+  \end{jie}
+\end{frame}
+
+\begin{frame}
+  3、“升阶法”的应用
+  \begin{li}
+    计算$n$阶行列式
+    $$
+    \left|
+      \begin{array}{cccc}
+        x & a & \cd & a \\
+        a & x & \cd & a \\
+        \vd & \vd & & \vd \\
+        a & a &  \cd & x 
+      \end{array}
+    \right|=\left[x+(n-1)a\right](x-a)^{n-1}
+    $$
+  \end{li}
+  一些常见形式
+  $$
+  \left|
+    \begin{array}{cccc}
+      0  &  1  & \cd & 1   \\
+      1  &  0  & \cd & 1   \\
+      \vd& \vd &     & \vd \\
+      1  &  1  & \cd & 0 
+    \end{array}
+  \right|, \quad
+  \left|
+    \begin{array}{cccc}
+      1  &  a  & \cd & a   \\
+      a  &  1  & \cd & a   \\
+      \vd& \vd &     & \vd \\
+      a  &  a  & \cd & 1
+    \end{array}
+  \right|,\quad 
+  \left|
+    \begin{array}{cccc}
+      1+\lambda  &  1  & \cd & 1   \\
+      1  &  1+\lambda  & \cd & 1   \\
+      \vd& \vd &     & \vd \\
+      1  &  1  & \cd & 1+\lambda 
+    \end{array}
+  \right| 
+  $$
+
+\end{frame}
+
+\begin{frame}
+  \begin{li}
+    $$
+    \left|
+      \begin{array}{cccc}
+        x_1 &  a  & \cd & a   \\
+        a   & x_2 & \cd & a   \\
+        \vd & \vd &     & \vd \\
+        a   &  a  & \cd & x_n
+      \end{array}
+    \right|=   \left(1+\sum_{i=1}^n \frac{a}{x_i-a}\right)\prod_{i=1}^n(x_i-a)
+    $$
+  \end{li}
+  常见形式
+  $$
+  \left|
+    \begin{array}{cccc}
+      1+a &  1  & \cd & 1   \\
+      2   & 2+a & \cd & 2  \\
+      \vd & \vd &     & \vd \\
+      n   &  n  & \cd & n+a
+    \end{array}
+  \right|  = \left(a+ \frac{n(n+1)}2\right)a^{n-1}
+  $$
+
+\end{frame}
+
+\begin{frame}
+  \begin{li}
+    $$
+    \left|
+      \begin{array}{cccc}
+        x_1 & a_1  & \cd & a_n   \\
+        a_1 & x_2 & \cd  & a_n   \\
+        \vd & \vd &     & \vd \\
+        a_1 & a_2  & \cd & x_n
+      \end{array}
+    \right|=  \left(1+\sum_{i=1}^n \frac{a_i}{x_i-a_i}\right)\prod_{i=1}^n(x_i-a_i)
+    $$      
+  \end{li}
+  常见形式
+  $$
+  \left|
+    \begin{array}{cccc}
+      a_1+b & a_1   & \cd & a_n   \\
+      a_1   & a_2+b & \cd  & a_n   \\
+      \vd   & \vd  &     & \vd \\
+      a_1   & a_2   & \cd & a_n+b
+    \end{array}
+  \right|  = b^{n-1}\left(\sum_{i=1}^na_i+b\right)
+  $$ 
+\end{frame}
+
+\begin{frame}
+  4、分块下三角行列式的计算
+  $$
+  \begin{aligned}
+    \left|
+      \begin{array}{cccccc}
+        a_{11} & \cd & a_{1k} &    &    &   \\
+        \vd    &     &  \vd  &    &    &   \\
+        a_{k1} & \cd & a_{kk} &    &    &   \\
+        c_{11} & \cd & c_{1k} & b_{11}&  \cd & b_{1n}   \\
+        \vd    &     & \vd   & \vd  &    & \vd \\
+        c_{n1} & \cd & c_{nk} & b_{n1}&  \cd & b_{nn}
+      \end{array}
+    \right| = \left|
+      \begin{array}{ccc}
+        a_{11} & \cd & a_{1k} \\
+        \vd    &     &  \vd  \\
+        a_{k1} & \cd & a_{kk} \\
+      \end{array}
+    \right|\cdot \left|
+      \begin{array}{ccc}
+        b_{11} & \cd & b_{1n} \\
+        \vd    &     &  \vd  \\
+        b_{n1} & \cd & b_{nn} \\
+      \end{array}
+    \right|.
+  \end{aligned}
+  $$
+\end{frame}
+
+\begin{frame}
+  5、辐射型行列式的计算
+  $$
+  D_{2n} = \left|
+    \begin{array}{cccccc}
+      a &     & & & & b \\
+        & \dd & & & \id & \\
+        &   & a & b &  & \\
+        &   & c & d &  &  \\
+        & \id & & & \dd & \\
+      c &     & & & & d
+    \end{array}
+  \right|=(ad-bc)^n.
+  $$
+
+\end{frame}
+
+\begin{frame}
+  6、范德蒙德行列式
+  $$
+  D_n = \left|
+    \begin{array}{cccc}
+      1        &  1        & \cd &    1     \\                    
+      x_1      &  x_2      & \cd &    x_n    \\ 
+      x_1^2    &  x_2^2     & \cd &   x_n^2   \\ 
+      \vd      &  \vd      &     &    \vd      \\
+      x_1^{n-1} & x_2^{n-1} &  \cd &  x_n^{n-1}
+    \end{array}
+  \right|
+  = \prod_{n \ge i > j \ge 1}(x_i-x_j).
+  $$
+\end{frame}
+
+\begin{frame}
+  \begin{li}
+    设$a,b,c$为互不相同的实数，证明：
+    $$
+    \left|
+      \begin{array}{ccc}
+        1   &   1   &   1\\
+        a   &   b   &   c\\
+        a^3 &   b^3 &   c^3
+      \end{array}
+    \right|=0
+    $$
+    的充要条件是$a+b+c=0$.
+  \end{li}
+\end{frame}
+
+
+\begin{frame}
+  \begin{li}[$\bigstar$]
+    解关于$x$的方程$D(x)=
+    \left|
+      \begin{array}{cccc}
+        1&1&2&3\\
+        1&2-x^2&2&3\\
+        2&3&1&5\\
+        2&3&1&9-x^2
+      \end{array}
+    \right|=0.
+    $
+  \end{li}
+  \pause
+  \begin{jie}
+    由于$D(\pm1)=0$和$D(\pm2)=0$，而$D(x)$中$x$的最高次数为$4$，故
+    $$
+    D(x)=A(x+1)(x-1)(x+2)(x-2)=0
+    $$
+    的解为$x_1=1,x_2=-1,x_3=2,x_4=-2$.
+  \end{jie}
+\end{frame}
+\subsection{克莱姆法则}
+\begin{frame}[allowframebreaks]
+
+\begin{dingli}[克莱姆法则]
+  如果线性方程组
+  \begin{equation}\label{ls}
+    \left\{
+      \begin{array}{l}
+        a_{11}x_1 + a_{12}x_2 + \cdots + a_{1n}x_n = b_1, \\[0.3cm]
+        a_{21}x_1 + a_{22}x_2 + \cdots + a_{2n}x_n = b_2, \\[0.3cm]
+        \cd \\[0.2cm]
+        a_{n1}x_1 + a_{n2}x_2 + \cdots + a_{nn}x_n = b_n.
+      \end{array}
+    \right.
+  \end{equation}
+  的系数行列式不等于0，即
+  $$
+  D = \left|
+    \begin{array}{ccc}
+      a_{11}  & \cd  & a_{1n} \\
+      \vd    &      & \vd  \\
+      a_{n1}  & \cd  & a_{nn}
+    \end{array}
+  \right|\ne 0
+  $$
+  则该方程组存在唯一解
+  $$
+  x_1 = \frac{D_1}D, \ x_2 = \frac{D_2} D, \ \cdots, \ x_n = \frac{D_n}D,
+  $$
+  其中
+  \begin{center}
+    \begin{tikzpicture}
+      \matrix (M) [matrix of math nodes]  { 
+        D_j = \\
+      };
+      \matrix(MM) [right=2pt of M, matrix of math nodes,nodes in empty cells,
+      ampersand replacement=\&,left delimiter=|,right delimiter=|] {
+        a_{11} \& \cd \& a_{1,j-1} \&  b_1 \& a_{1, j+1} \& \cd \& a_{1n} \\
+        \vd   \&     \& \& \vd \& \vd \&  \&  \vd\\       
+        a_{n1} \& \cd \&  a_{n,j-1} \&  b_n \& a_{n, j+1} \& \cd \& a_{nn} \\
+      };
+      \node[below=7pt  of MM-3-4, blue]  {第$j$列};
+    \end{tikzpicture}
+  \end{center}
+\end{dingli}
+\end{frame}

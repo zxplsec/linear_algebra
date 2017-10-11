@@ -1,0 +1,330 @@
+\section{二次型的定义与矩阵表示\quad 合同矩阵}
+
+\begin{frame}
+  
+  \begin{dingyi}[二次型]
+    $n$元变量$x_1,x_2,\cd,x_n$的二次齐次多项式
+    \begin{equation}\label{qf}
+    \begin{array}{rcccccccc}
+      f(x_1,x_2,\cd,x_n) &=& \\[0.1in]
+      a_{11}x_1^2&+&2a_{12}x_1x_2&+&2a_{13}x_1x_3&+&\cd&+&2a_{1n}x_1x_n\\[0.1in]
+                         &+&a_{22}x_2^2&+&2a_{23}x_2x_3&+&\cd&+&2a_{2n}x_2x_n\\[0.1in]
+                         &&&&\cd&&\cd\\[0.1in]
+                         &&&&&&&+&a_{nn}x_n^2
+    \end{array}
+    \end{equation}
+    当系数属于数域$F$时，称为数域$F$上的一个\blue{\underline{$n$元二次型}}。
+  \end{dingyi}
+  
+\end{frame}
+
+
+\begin{frame}[allowframebreaks]
+  设$a_{ij}=a_{ji}$，则
+  $$
+  \begin{array}{l}
+    f(x_1,x_2,\cd,x_n) =  \\[0.1in]
+    \begin{array}{rcccccccccc}
+      &a_{11}x_1^2&+&a_{12}x_1x_2&+&a_{13}x_1x_3&+&\cd&+&a_{1n}x_1x_n\\[0.1in]
+      +&a_{21}x_2x_1&+&a_{22}x_2^2&+&a_{23}x_2x_3&+&\cd&+&a_{2n}x_2x_n\\[0.1in]
+      &\cd&&\cd&&\cd&&\cd\\[0.1in]
+      +&a_{n1}x_nx_1&+&a_{n2}x_nx_2&+&a_{n3}x_2x_3&+&\cd&+&a_{nn}x_n^2
+    \end{array} \\[0.5in] 
+    \ds
+    \blue{= \sum_{i=1}^nx_i(a_{i1}x_1+a_{i2}x_2+\cd+a_{in}x_n)
+    = \sum_{i=1}^nx_i\sum_{j=1}^n a_{ij}x_{ij}
+    = \sum_{i=1}^n\sum_{j=1}^na_{ij}x_ix_j}\\[0.2in] 
+    % \ds = (x_1,x_2,\cd,x_n)\left(
+    % \begin{array}{c}
+    %   a_{11}x_1+a_{12}x_2+\cd+a_{1n}x_n\\
+    %   a_{21}x_1+a_{22}x_2+\cd+a_{2n}x_n\\
+    %   \vd\\
+    %   a_{n1}x_1+a_{n2}x_2+\cd+a_{nn}x_n
+    % \end{array}
+    % \right)\\[0.3in]
+    \ds = (x_1,x_2,\cd,x_n)\left(
+    \begin{array}{cccc}
+      a_{11}&a_{12}&\cd&a_{1n}\\
+      a_{21}&a_{22}&\cd&a_{2n}\\
+      \vd&\vd&&\vd\\
+      a_{n1}&a_{n2}&\cd&a_{nn}\\
+    \end{array}
+    \right)\left(
+    \begin{array}{c}
+      x_1\\
+      x_2\\
+      \vd\\
+      x_n
+    \end{array}\right)  = \xx^T\A\xx
+  \end{array}
+  $$
+  
+\end{frame}
+
+
+\begin{frame}
+  
+  \begin{itemize}
+  \item
+    对于任意一个二次型，总可以写成对称形式
+    $$
+    f(x_1,x_2,\cd,x_n)=\xx^T\A\xx
+    $$
+    其中$\A$为对称矩阵。\\[0.1in]\pause
+  \item
+    若$\A,\B$为对称矩阵，且
+    $$
+    f(x_1,x_2,\cd,x_n)=\xx^T\A\xx=\xx^T\B\xx
+    $$
+    则必有$\A=\B$。\\[0.1in]\pause
+  \item 二次型和它的矩阵是相互唯一确定的，因此研究二次型的性质就转化为研究对称矩阵$\A$所具有的性质。\\[0.1in]\pause
+  \item \blue{对于二次型$f=\xx^T\A\xx$，对称阵$\A$称为二次型$f$的矩阵，$f$称为对称阵$\A$的二次型，而$\A$的秩称为二次型$f$的秩。}
+  \end{itemize}
+
+  
+\end{frame}
+
+\begin{frame}
+  
+  \begin{li}
+    设$f(x_1,x_2,x_3,x_4)=2x_1^2+x_1x_2+2x_1x_3+4x_2x_4+x_3^2+5x_4^2$，则它的矩阵为
+    $$
+    \A=\left(
+      \begin{array}{cccc}
+        2&\frac12&1&0\\[0.2cm]
+        \frac12&0&0&2\\[0.2cm]
+        1&0&1&0\\[0.2cm]
+        0&2&0&5
+      \end{array}
+    \right)
+    $$
+  \end{li}
+  
+\end{frame}
+
+\begin{frame}
+  
+  对于二次型，我们讨论的主要问题是：寻求可逆的线性变换
+  \begin{equation}\label{lt}
+  \left\{
+    \begin{aligned}
+      x_1=c_{11}y_1+c_{12}y_2+\cd+c_{1n}y_n,\\
+      x_2=c_{12}y_1+c_{22}y_2+\cd+c_{2n}y_n,\\
+      \cd\cd\cd\\
+      x_n=c_{n1}y_1+c_{n2}y_2+\cd+c_{nn}y_n
+    \end{aligned}
+  \right.
+  \end{equation}
+  使得二次型只含平方项。也就是用\eqref{lt}代入\eqref{qf}，能使
+  $$
+  f=\lambda_1y_1^2+\lambda_2y_2^2+\cd+\lambda_ny_n^2.
+  $$
+  这种只含平方项的二次型，称为\blue{二次型的标准形}。
+\end{frame}
+
+\begin{frame}
+  若标准形的系数$\lambda_1,\lambda_2,\cd,\lambda_n$只在$1,-1,0$中取值，也就是用\eqref{lt}代入\eqref{qf}，能使
+  $$
+  f=y_1^2+\cd+y_p^2-y_{p+1}^2-\cd-y_r^2.
+  $$
+  则称上式为\blue{二次型的规范形}。
+\end{frame}
+
+\begin{frame}
+  
+  设$\C=(c_{ij})$，则可逆变换\eqref{lt}可记为
+  $$
+  \xx=\C\yy
+  $$
+  从而
+  $$
+  \blue{f=\xx^T\A\xx=\yy^T(\C^T\A\C)\yy.}
+  $$ 
+\end{frame}
+
+\begin{frame}
+  
+  把一般的二次型$f(x_1,x_2,\cd,x_n)$化为$y_1,y_2,\cd,y_n$的纯平方项之代数和的基本方法是做坐标变换
+  $$
+  \xx=\C\yy \mbox{~~~~~($\C$为可逆矩阵)}
+  $$
+  使得
+  $$
+  \xx^T\A\xx=\yy^T\C^T\A\C\yy=d_1y_1^2+\cd+d_ny_n^2.
+  $$
+  \pause \vspace{0.1in}
+
+  \blue{从矩阵的角度来说，就是对于一个实对称矩阵$\A$，寻找一个可逆矩阵，使得$\C^T\A\C$称为对角形。}
+  
+\end{frame}
+
+
+
+% \begin{frame}
+  
+%   设$\alphabd$在两组基$\{\epsilonbd_1,\epsilonbd_2,\cd,\epsilonbd_n\}$和$\{\etabd_1,\etabd_2,\cd,\etabd_n\}$下的坐标向量分别为
+%   $$
+%   \xx=(x_1,x_2,\cd,x_n)^T\mbox{~~和~~}\yy=(y_1,y_2,\cd,y_n)^T
+%   $$
+%   又
+%   $$
+%   (\etabd_1,\etabd_2,\cd,\etabd_n)=(\epsilonbd_1,\epsilonbd_2,\cd,\epsilonbd_n)\C
+%   $$
+%   故
+%   $$
+%   \xx=\C\yy
+%   $$
+%   从而
+%   $$
+%   f(\alphabd)=\xx^T\A\xx=\yy^T(\C^T\A\C)\yy
+%   $$ \pause
+
+
+%   \blue{
+%     二次型$f(\alphabd)$在两组基$\{\epsilonbd_1,\epsilonbd_2,\cd,\epsilonbd_n\}$和$\{\etabd_1,\etabd_2,\cd,\etabd_n\}$下所对应的矩阵分别为
+%     $$
+%     \A \mbox{~~和~~} \C^T\A\C     
+%     $$
+%   }
+  
+% \end{frame}
+
+
+% \begin{frame}
+  
+%   \begin{li}
+%     设$\alphabd$在自然基$\{\epsilonbd_1,\epsilonbd_2\}$下的坐标$(x_1,x_2)^T$满足方程
+%     \begin{equation}\label{li2-1}
+%       5x_1^2+5x_2^2-6x_1x_2=4.
+%     \end{equation}      
+%     将$\epsilonbd_1,\epsilonbd_2$逆时针旋转$\pi/4$变为$\etabd_1,\etabd_2$      
+%   \end{li}
+%   \pause 
+%   $$
+%   (\etabd_1,\etabd_2)=(\epsilonbd_1,\epsilonbd_2)\left(
+%     \begin{array}{rr}
+%       \cos \pi/4&-\sin \pi/4\\
+%       \sin\pi/4&\cos\pi/4
+%     \end{array}
+%   \right)
+%   $$
+%   则$\alphabd$在基$\{\etabd_1,\etabd_2\}$下的坐标$(y_1,y_2)^T$满足
+%   $$
+%   \xx=\left(
+%     \begin{array}{c}
+%       x_1\\
+%       x_2
+%     \end{array}
+%   \right)=\left(
+%     \begin{array}{rr}
+%       \cos \pi/4&-\sin \pi/4\\
+%       \sin\pi/4&\cos\pi/4
+%     \end{array}
+%   \right)\left(
+%     \begin{array}{c}
+%       y_1\\
+%       y_2
+%     \end{array}
+%   \right)=\C\yy
+%   $$\pause 
+%   (\ref{li2-1})的矩阵形式为
+%   $$
+%   \xx^T\A\xx=(x_1,x_2)\left(
+%     \begin{array}{rr}
+%       5&-3\\
+%       -3&5
+%     \end{array}
+%   \right)\left(
+%     \begin{array}{c}
+%       x_1\\
+%       x_2
+%     \end{array}
+%   \right)=4
+%   $$
+
+  
+% \end{frame}
+
+
+% \begin{frame}
+  
+%   $$
+%   \begin{array}{rl}
+%     \xx^T\A\xx& =\yy^T\C^T\A\C\yy\\[0.1in]
+%               & =(y_1,y_2)\left(
+%                 \begin{array}{rr}
+%                   \frac{\sqrt{2}}2&\frac{\sqrt{2}}2\\[0.2cm]
+%                   -\frac{\sqrt{2}}2&\frac{\sqrt{2}}2
+%                 \end{array}
+%                                      \right)\left(
+%                                      \begin{array}{rr}
+%                                        5&-3\\
+%                                        -3&5
+%                                      \end{array}
+%                                            \right)\left(
+%                                            \begin{array}{rr}
+%                                              \frac{\sqrt{2}}2&-\frac{\sqrt{2}}2\\[0.2cm]
+%                                              \frac{\sqrt{2}}2&\frac{\sqrt{2}}2
+%                                            \end{array}
+%                                                                \right)\left(
+%                                                                \begin{array}{c}
+%                                                                  y_1\\
+%                                                                  y_2
+%                                                                \end{array}
+%     \right)\\[0.2in]
+%               & =(y_1,y_2)\left(
+%                 \begin{array}{rr}
+%                   2&0\\
+%                   0&8
+%                 \end{array}
+%                      \right)\left(
+%                      \begin{array}{c}
+%                        y_1\\
+%                        y_2
+%                      \end{array}
+%     \right)  \\[0.2in]
+%               &= 2y_1^2+8y_2^2=4.      
+%   \end{array}
+%   $$ \pause
+%   此时，方程(\ref{li2-1})化成了在基$\{\etabd_1,\etabd_2\}$的坐标系下的标准方程，其图形是一个椭圆。
+
+  
+% \end{frame}
+
+
+
+\begin{frame}
+  
+  \begin{dingyi}[矩阵的合同]
+    对于两个矩阵$\A$和$\B$，若存在可逆矩阵$\C$，使得
+    $$
+    \C^T\A\C=\B,
+    $$
+    就称$\A$合同于$\B$，记作$\A\simeq\B$。
+  \end{dingyi}
+  
+\end{frame}
+
+\begin{frame}
+  显然，\blue{若$\A$为对称阵，则$\B=\C^T\A\C$也是对称阵，且$\rank(\B)=\rank(\A)$。}
+  \pause \vspace{.1in}
+
+  事实上，
+  $$
+  \B^T = (\C^T\A\C)^T = \C^T\A^T\C = \C^T\A\C = \B,
+  $$
+  即$\B$为对称阵。又因为$\B=\C^T\A\C$，而$\C$可逆，从而$\C^T$也可逆，由矩阵秩的性质可知$\rank(\B)=\rank(\A)$。
+\end{frame}
+
+\begin{frame}
+  \begin{jielun}
+
+    经过可逆变换$\xx=\C\yy$后，二次型$f$的矩阵由$\A$变为与$\A$合同的矩阵$\C^T\A\C$，且二次型的秩不变。
+  \end{jielun}
+\end{frame}
+
+
+
+
+
+

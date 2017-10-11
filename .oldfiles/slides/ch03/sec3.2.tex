@@ -1,0 +1,175 @@
+\section{向量组的秩及其极大线性无关组}
+
+\begin{frame}
+\begin{dingyi}[向量组的秩]
+  向量组$\alphabd_1,\alphabd_2,\cd,\alphabd_s$中，若
+  \begin{itemize}
+  \item 存在$r$个\blue{\underline{线性无关}}的向量，
+  \item 且其中\blue{\underline{任一向量}}可由这$r$个线性无关的向量线性表示, 
+  \end{itemize}
+  则数$r$称为\red{向量组的秩(rank)}，记作
+  $$
+  \rank(\alphabd_1,\alphabd_2,\cd,\alphabd_s)=r
+  $$
+  或
+  $$
+  \mathrm{rank}(\alphabd_1,\alphabd_2,\cd,\alphabd_s)=r
+  $$
+\end{dingyi}
+
+\end{frame}
+
+\begin{frame}
+\begin{itemize}
+\item 若$\alphabd_1,\alphabd_2,\cd,\alphabd_s$线性无关，
+  则$\rank(\alphabd_1,\alphabd_2,\cd,\alphabd_s)=s$；
+\item 只含零向量的向量组的秩为零。
+\item 只含一个非零向量的向量组的秩为1。
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\begin{dingyi}
+  若向量组$B:~\betabd_1,\betabd_2,\cd,\betabd_t$中每个向量可由向量组$A:~\alphabd_1,\alphabd_2,\cd,\alphabd_s$线性表示，
+  就称\red{向量组$B:~\betabd_1,\betabd_2,\cd,\betabd_t$可由向量组$A:~\alphabd_1,\alphabd_2,\cd,\alphabd_s$线性表示}。 
+  \vspace{0.1in}
+  
+  如果两个向量组可以互相线性表示，则称这两个向量组是\red{等价}的。
+\end{dingyi}
+\end{frame}
+
+\begin{frame}
+向量组的线性表示，具备
+\begin{itemize}
+\item \red{自反性}
+\item[]向量组自己可以由自己线性表示  
+\item \red{传递性}
+\item[] 设向量组$A$可以被向量组$B$线性表示，向量组$B$又可以被向量组$C$线性表示，
+  则向量组$A$可以被向量组$C$线性表示  
+\item \red{不具备对称性}
+\item[] 向量组$A$可以被向量组$B$线性表示，不一定有向量组$B$又可以被向量组$A$线性表示。  
+\item[] \blue{如}：部分组总是可以由整体线性表示，但反之不成立
+\end{itemize} 
+\end{frame}
+
+\begin{frame}
+向量组的等价，具备
+\begin{itemize}
+\item \red{自反性}
+\item[] 任一向量组和自身等价  
+\item \red{对称性}
+\item[] 向量组$A$与向量组$B$等价，当然向量组$B$与向量组$A$等价  
+\item \red{传递性}
+\item[] 设向量组$A$与向量组$B$等价，向量组$B$与向量组$C$等价，
+  则向量组$A$与向量组$C$等价
+\end{itemize} 
+\end{frame}
+
+\begin{frame}
+\begin{dingli}
+  若向量组$\blue{B:~\betabd_1,\betabd_2,\cd,\betabd_t}$可由向量组$\blue{A:~\alphabd_1,\alphabd_2,\cd,\alphabd_s}$线性表示，且$\blue{t>s}$，
+  则$\blue{B:~\betabd_1,\betabd_2,\cd,\betabd_t}$线性相关。
+\end{dingli}
+\pause 
+\begin{proof}
+设
+$
+\ds \betabd_j=\sum_{i=1}^sk_{ij}\alphabd_i, \quad j=1,2,\cd,t.~~
+$  
+欲证$\betabd_1,\betabd_2,\cd,\betabd_t$线性相关，只需证：存在不全为零的数$x_1,x_2,\cd,x_t$使得
+\begin{equation}\label{thm4-1}
+  x_1\betabd_1+x_2\betabd_2+\cd+x_t\betabd_t=\zero,
+\end{equation}     
+即
+$$
+\sum_{j=1}^t x_j \betabd_j = \sum_{j=1}^t x_j\left(\sum_{i=1}^sk_{ij}\alphabd_i\right)
+= \sum_{i=1}^s\left(\sum_{j=1}^t k_{ij} x_j \right)  \alphabd_i = \zero.
+$$  
+当其中$\alphabd_1,\alphabd_2,\cd,\alphabd_s$的系数
+\begin{equation}\label{thm4-2}
+  \sum_{j=1}^tk_{ij}x_j = 0, \quad i=1,2,\cd,s
+\end{equation}
+时，(\ref{thm4-1})显然成立。 
+注意到\blue{齐次线性方程组(\ref{thm4-2})含$t$个未知量，$s$个方程，而$t>s$}，故(\ref{thm4-2})有非零解。 即有不全为零的$x_1,x_2,\cd,x_t$使得(\ref{thm4-1})成立，故$\betabd_1,\betabd_2,\cd,\betabd_t$线性相关。
+\end{proof}
+\end{frame}
+
+\begin{frame}
+\begin{tuilun}
+  若向量组$\blue{B:~\betabd_1,\betabd_2,\cd,\betabd_t}$可由向量组$\blue{A:~\alphabd_1,\alphabd_2,\cd,\alphabd_s}$线性表示，
+  且$\blue{B:~\betabd_1,\betabd_2,\cd,\betabd_t}$线性无关，则
+  $$\red{t\le s}.$$
+\end{tuilun}
+\end{frame}
+
+\begin{frame}
+\begin{tuilun}
+  若$\blue{\rank(\alphabd_1,\alphabd_2,\cd,\alphabd_s)=r}$，
+  则$\blue{\alphabd_1,\alphabd_2,\cd,\alphabd_s}$中任何$r+1$个向量都是线性相关的。
+\end{tuilun}
+\pause  
+\begin{proof}
+不妨设$\alphabd_1,\alphabd_2,\cd,\alphabd_r$是$\alphabd_1,\alphabd_2,\cd,\alphabd_s$中的$r$个线性无关的向量，由于该向量组中任一个向量可由$\alphabd_1,\alphabd_2,\cd,\alphabd_r$线性表示，由定理3.2.1可知，其中任意$r+1$个向量都线性相关。
+\end{proof}
+\end{frame}
+
+\begin{frame}
+\begin{dingyi}[向量组的秩的等价定义 \& 极大线性无关组]
+  设有向量组$\alphabd_1,\alphabd_2,\cd,\alphabd_s$。
+  如果能从其中选出$r$个向量$\alphabd_1,\alphabd_2,\cd,\alphabd_{\red{r}}$，满足
+  \begin{itemize}
+  \item 向量组$\alphabd_1,\alphabd_2,\cd,\alphabd_{\red{r}}$线性无关；
+  \item 向量组$\alphabd_1,\alphabd_2,\cd,\alphabd_s$中任意$r+1$个向量都线性相关，
+  \end{itemize}
+  则称向量组$\alphabd_1,\alphabd_2,\cd,\alphabd_{\red{r}}$为原向量组的一个\red{极大线性无关组}，简称\red{极大无关组}。 
+  \vspace{0.1in}
+
+  \blue{\underline{极大线性无关组所含向量的个数$\red{r}$}}，称为原向量组的\red{秩}。
+\end{dingyi}
+\end{frame}
+
+\begin{frame}
+\begin{zhu}
+  \begin{itemize}
+  \item   秩为$r$的向量组中，任一个线性无关的部分组最多含有$r$个向量；
+  \item 一般情况下，极大无关组不惟一；
+  \item 不同的极大无关组所含向量个数相同；
+  \item 极大无关组与原向量组是等价的;
+  \item 极大无关组是原向量组的\red{全权代表}。
+  \end{itemize}
+\end{zhu}
+\end{frame}
+
+\begin{frame}
+\begin{tuilun}
+  设$\blue{\rank(\alphabd_1,\alphabd_2,\cd,\alphabd_s)=p,~~\rank(\betabd_1,\betabd_2,\cd,\betabd_t)=r}$，
+  如果向量组$\blue{B:~\betabd_1,\betabd_2,\cd,\betabd_t}$可由$\blue{A:~\alphabd_1,\alphabd_2,\cd,\alphabd_s}$线性表示，则
+  $$\red{r\le p.}$$
+\end{tuilun}
+\pause 
+\begin{proof}
+不妨设$\alphabd_1,\alphabd_2,\cd,\alphabd_p$与$\betabd_1,\betabd_2,\cd,\betabd_r$分别为两个向量组的极大线性无关组。  
+$$
+\begin{array}{rl}
+  (1) & \betabd_1,\betabd_2,\cd,\betabd_r\mbox{等价于}\betabd_1,\betabd_2,\cd,\betabd_t\\[0.1in]
+  \Rightarrow & 
+                \blue{\betabd_1,\betabd_2,\cd,\betabd_r\mbox{可由}\betabd_1,\betabd_2,\cd,\betabd_t\mbox{线性表示}} \\[0.1in]  
+  (2) & \blue{\betabd_1,\betabd_2,\cd,\betabd_t\mbox{可由}\alphabd_1,\alphabd_2,\cd,\alphabd_s\mbox{线性表示}}\\[0.1in]  
+  (3)& \alphabd_1,\alphabd_2,\cd,\alphabd_s\mbox{等价于}\alphabd_1,\alphabd_2,\cd,\alphabd_p\\[0.1in]
+  \Rightarrow & \blue{\alphabd_1,\alphabd_2,\cd,\alphabd_s\mbox{可由}\alphabd_1,\alphabd_2,\cd,\alphabd_p\mbox{线性表示}} \\[0.1in]  
+  \red{\Longrightarrow} &
+                          \red{\betabd_1,\betabd_2,\cd,\betabd_t\mbox{可由} \alphabd_1,\alphabd_2,\cd,\alphabd_p\mbox{线性表示}}
+\end{array}    
+$$  
+由上述推论可知$r\le p$。
+\end{proof}
+\end{frame}
+ 
+
+\begin{frame}
+\begin{tuilun}
+  \red{等价向量组的秩相等}。
+\end{tuilun}
+\end{frame}
+
+

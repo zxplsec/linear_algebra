@@ -1,0 +1,298 @@
+\section{正定二次型和正定矩阵}
+
+\begin{frame}
+  二次型的标准形是不唯一的，但标准形中所含项数（即二次型的秩）是确定的。不仅如此，在限定变换为实变换时，标准形中正系数的个数是不变的，从而负系数的个数也是不变的。
+\end{frame}
+
+\begin{frame}
+  \begin{dingli}[惯性定理]
+    设有二次型$f=\xx^T\A\xx$，它的秩为$r$，有两个可逆变换
+    $$
+    \xx = \C\yy, \quad \xx = \QQ \zz,
+    $$
+    使得
+    $$
+    \begin{aligned}
+      f & = k_1y_1^2+k_2y_2^2+\cd+k_ry_r^2, ~~ k_i\ne 0, \\[0.1in]
+      f & = \lambda_1y_1^2+\lambda_2y_2^2+\cd+\lambda_ry_r^2, ~~ \lambda_i\ne 0,
+    \end{aligned}
+    $$
+    则$k_1,k_2,\cd,k_r$中正数的个数与$\lambda_1,\lambda_2,\cd,\lambda_r$中正数的个数相等。
+  \end{dingli}
+\end{frame}
+
+\begin{frame}
+  二次型的标准形中，正系数的个数称为二次型的\blue{正惯性指数}，负系数的个数称为\blue{负惯性指数}。若二次型$f$的正惯性指数为$p$，秩为$r$，则$f$的规范形便可确定为
+  $$
+  f=y_1^2+\cd+y_p^2-y_{p+1}^2-\cd-y_r^2.
+  $$
+\end{frame}
+
+\begin{frame}
+  
+    \begin{dingyi}
+      如果对于任意的非零向量$\xx=(x_1,x_2,\cd,x_n)^T$，恒有
+      $$
+      \xx^T\A\xx=\sum_{i=1}^n\sum_{j=1}^na_{ij}x_ix_j>0,
+      $$
+      就称$\xx^T\A\xx$为正定二次型，称$\A$为正定矩阵。
+    \end{dingyi}
+    \pause\vspace{0.1in}
+
+    
+    注：正定矩阵是针对对称矩阵而言的。
+    
+  
+\end{frame}
+
+\begin{frame}
+  
+    \begin{jielun}
+      二次型$f(y_1,y_2,\cd,y_n)=d_1y_1^2+d_2y_2^2+\cd+d_ny_n^2$正定
+      $~~~\Longleftrightarrow~~~d_i>0~~(i=1,2,\cd,n)$
+    \end{jielun}\pause
+
+    \begin{proof}
+    \begin{itemize}
+    \item[$\Leftarrow$] 显然 \pause
+    \item[$\Rightarrow$] 设$d_i\le 0$，取$y_i=1, y_j=0(j\ne i)$，代入二次型，得
+      $$
+      f(0,\cd,0,1,0,\cd,0)=d_i\le 0
+      $$
+      这与二次型$f(y_1,y_2,\cd,y_n)$正定矛盾。
+    \end{itemize}
+    \end{proof}
+  
+\end{frame}
+
+
+\begin{frame}
+  
+  \begin{jielun}
+      一个二次型$\xx^T\A\xx$，经过非退化线性变换$\xx=\C\yy$，化为$\yy^T(\C^T\A\C)\yy$，其正定性保持不变。即当
+      $$\xx^T\A\xx~~~\xLongleftrightarrow[]{\ds \xx=\C\yy}~~~\yy^T(\C^T\A\C)\yy\quad (\C\mbox{可逆})$$
+      时，等式两端的二次型有相同的正定性。
+    \end{jielun}\pause
+
+    \begin{proof}
+    $\forall \yy=(y_1,y_2,\cd,y_n)\ne\zero$，由于$\xx=\C\yy(\C\mbox{可逆})$，则$\xx\ne \zero$。若$\xx^T\A\xx$正定，则$\xx^T\A\xx>0$。
+    从而有：$\forall \yy\ne\zero$，
+    $$
+    \yy^T(\C^T\A\C)\yy=\xx^T\A\xx>0
+    $$
+    故$\yy^T(\C^T\A\C)\yy$是正定二次型。\pause 反之亦然。
+    \end{proof}
+  
+\end{frame}
+
+
+\begin{frame}
+  
+    \begin{dingli}
+      若$\A$是$n$阶实对称矩阵，则以下命题等价：
+      \begin{itemize}
+      \item[(1)]$\xx^T\A\xx$是正定二次型（$\A$是正定矩阵）；
+      \item[(2)]$\A$的正惯性指数为$n$，即$\A\simeq\II$；
+      \item[(3)]存在可逆矩阵$\PP$使得$\A=\PP^T\PP$；
+      \item[(4)]$\A$的$n$个特征值$\lambda_1,\lambda_2,\cd,\lambda_n$全大于零。
+      \end{itemize}
+    \end{dingli}
+  
+\end{frame}
+
+\begin{frame}
+  \begin{proof}[(1)$\Rightarrow$(2)]
+    对$\A$，存在可逆阵$\C$，使得
+    $$
+    \C^T\A\C=\diag(d_1,d_2,\cd,d_n).
+    $$
+    设$\A$的正惯性指数$<n$，则至少存在一个$d_i\le 0$。做变换$\xx=\C\yy$，则
+    $$
+    \xx^T\A\xx=\yy^T(\C^T\A\C)\yy=d_1y_1^2+d_2y_2^2+\cd+d_ny_n^2
+    $$
+    不恒大于零，与命题(1)矛盾。故$\A$的正惯性指数为$n$。
+  \end{proof}
+\end{frame}
+
+\begin{frame}
+  \begin{proof}[(2)$\Rightarrow$(3)]
+    由$\C^T\A\C=\II$得$\A=(\C^T)^{-1}\C^{-1}=(\C^{-1})^T\C^{-1}$，取$\PP=\C^{-1}$，则有$\A=\PP^{T}\PP$。
+  \end{proof}
+\end{frame}
+
+\begin{frame}
+  \begin{proof}[(3)$\Rightarrow$(4)]
+    设$\A\xx=\lambda\xx$，即$(\PP^{T}\PP)\xx=\lambda\xx$，于是
+    $$
+    \xx^T\PP^{T}\PP\xx=\lambda\xx^T\xx
+    $$
+    即
+    $$
+    (\PP\xx,\PP\xx)=\lambda(\xx,\xx)
+    $$
+    因特征向量$\xx\ne 0$，从而$\PP\xx\ne 0$，故
+    $$
+    \lambda = \frac{(\PP\xx,\PP\xx)}{(\xx,\xx)}>0.
+    $$
+  \end{proof}
+\end{frame}
+
+\begin{frame}
+  \begin{proof}[(4)$\Rightarrow$(1)]
+    对于实对称矩阵$\A$，存在正交矩阵$\QQ$，使得
+    $$
+    \QQ^T\A\QQ=\diag(\lambda_1,\lambda_2,\cd,\lambda_n),
+    $$
+    做正交变换$\xx=\QQ\yy$得
+    $$
+    \xx^T\A\xx=\lambda_1y_1^2+\lambda_2y_2^2+\cd+\lambda_ny_n^2.
+    $$
+    由于特征值$\lambda_1,\lambda_2,\cd,\lambda_n$都大于零，故$\xx^T\A\xx$正定。
+  \end{proof}
+\end{frame}
+
+
+\begin{frame}
+  
+    \begin{li}
+      $\A\mbox{正定} ~~\Longrightarrow~~ \A^{-1}\mbox{正定}$
+    \end{li}
+    \pause 
+    \begin{proof}
+      设$\lambda$为$\A$的任一特征值，因$\A$正定，故$\lambda>0$。而$\lambda^{-1}$为$\A^{-1}$的特征值，显然大于零，故$\A^{-1}$正定。
+    \end{proof}
+\end{frame}
+
+
+\begin{frame}
+  
+    \begin{li}
+      判断二次型
+      $$
+      f(x_1,x_2,x_3)=x_1^2+2x_2^2+3x_3^2+2x_1x_2-2x_2x_3
+      $$
+      是否为正定二次型。
+    \end{li}
+    \begin{jie}
+      用配方法得
+      $$
+      \begin{aligned}
+        f&=(x_1^2+2x_1x_2+x_2^2)+(x_2^2-2x_2x_3+x_3^2)+2x_3^2\\
+        &=(x_1+x_2)^2+(x_2-x_3)^2+2x_3^2\ge 0.
+      \end{aligned}
+      $$
+      等号成立的充要条件是
+      $$
+      \left\{
+        \begin{aligned}
+          x_1+x_2=0,\\
+          x_2-x_3=0,\\
+          x_3=0,
+        \end{aligned}
+      \right.
+      $$
+      即$x_1=x_2=x_3=0$，故$f$正定。
+    \end{jie}
+\end{frame}
+
+\begin{frame}
+  
+    \begin{li}
+      判断二次型
+      $$
+      f(x_1,x_2,x_3)=3x_1^2+x_2^2+3x_3^2-4x_1x_2-4x_1x_3+4x_2x_3
+      $$
+      是否为正定二次型。
+    \end{li}
+    \begin{jie}
+      任何二次型都可用配方法判断正定性，但此题配方时系数较为复杂，可考虑用特征值判定。
+    \end{jie}
+\end{frame}
+
+\begin{frame}
+  
+    \begin{dingli}
+      $$
+      \A\mbox{正定}~~\Longrightarrow~~
+      a_{ii}>0(i=1,2,\cd,n) \mbox{~~且~~}
+      |\A|>0
+      $$
+    \end{dingli}
+    \pause
+    \begin{jie}
+      因
+      $$
+      \xx^T\A\xx=\sum_{i=1}^n\sum_{j=1}^na_{ij}x_ix_j
+      $$
+      正定，取$\xx=(0,\cd,0,1,0,\cd,0)^T\ne 0$（其中第$i$个分量$x_i=1$），则必有
+      $$
+      \xx^T\A\xx=a_{ii}x_i^2=a_{ii}>0, \quad i=1,2,\cd,n.
+      $$ \vspace{0.1in}
+
+      因$\A$正定，故$\A$的所有特征值均大于零，即得$|\A|=\lambda_1\lambda_2\cd\lambda_n>0$。
+    \end{jie}
+\end{frame}
+
+\begin{frame}
+  \begin{dingyi}
+    设$A=(a_{ij})$，则
+    $$
+    \det~ \A_k = \left|
+      \begin{array}{cccc}
+        a_{11}&a_{12}&\cd&a_{1k}\\
+        a_{21}&a_{22}&\cd&a_{2k}\\
+        \vd&\vd&&\vd\\
+        a_{k1}&a_{k2}&\cd&a_{kk}\\
+      \end{array}   
+    \right|
+    $$
+    称为$n$阶矩阵$\A$的$k$阶顺序主子式。当$k$取$1,2,\cd,n$时，就得$\A$的$n$个顺序主子式。
+  \end{dingyi}
+  \end{frame}
+
+\begin{frame}
+
+    \begin{dingli}
+      $$
+     \begin{aligned}
+       \A\mbox{正定} ~~\Longleftrightarrow~~ \A\mbox{的各阶顺序主子式全为正。}\\        \A\mbox{负定} ~~\Longleftrightarrow~~ \A\mbox{的奇数阶顺序主子式全为负，偶数阶顺序主子式全为正。}\\       
+     \end{aligned}
+     $$
+    \end{dingli}
+
+\end{frame}
+
+\begin{frame}
+\begin{li}
+  判断二次型$f=-5x^2-6y^2-4z^2+4xy+4xz$的正定性。
+\end{li}
+\pause
+\begin{jie}
+  $f$的矩阵为
+  $$
+  \A=\left(
+    \begin{array}{rrr}
+      -5&2&2\\
+      2&-6&0\\
+      2&0&-4\\
+    \end{array}
+  \right)
+  $$
+  因
+  $$
+  a_{11}=-5<0, ~~\left|
+    \begin{array}{rr}
+      -5&2\\
+      2&-6
+    \end{array}
+  \right|=26>0, ~~\left|
+    \begin{array}{rrr}
+      -5&2&2\\
+      2&-6&0\\
+      2&0&-4\\
+    \end{array}
+  \right|=-80<0
+  $$
+  故$f$负定。
+\end{jie}
+\end{frame}

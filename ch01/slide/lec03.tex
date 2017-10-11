@@ -1,0 +1,1003 @@
+\section{行列式的计算}
+\begin{frame}
+
+\begin{testexample}
+  计算
+  $$
+  D = \left|
+    \begin{array}{rrrr}
+      3   &  1  &  -1  &  2 \\
+      -5  &  1  &   3  & -4 \\
+      2   &  0  &   1  & -1 \\
+      1   & -5  &   3  &  -3 
+    \end{array}
+  \right|
+  $$
+\end{testexample} \pause
+\begin{jie}
+  $$
+  \begin{array}{ll}
+    D&  \xlongequal[c_4+c_3]{c_1-2c_3}  \left|
+       \begin{array}{rrrr}
+         5  & 1 & -1 & 1  \\
+         -11 & 1 &  3 & -1 \\
+         0 & 0 &  1 & 0 \\
+         -5 & -5 & 3 & 0 
+       \end{array}
+                       \right|\\[0.8cm]
+     & = (-1)^{3+3} \left| 
+       \begin{array}{rrr}
+         5 & 1 & 1\\
+         -11 & 1 & -1 \\
+         -5 & -5 & 0
+       \end{array}
+                   \right| 
+                   \xlongequal{r_2+r_1}
+                   \left|
+                   \begin{array}{rrr}
+                     5 & 1 & 1\\
+                     -6 & 2 & 0 \\
+                     -5 & -5 & 0
+                   \end{array}
+                               \right|\\[0.8cm]
+     &  = (-1)^{1+3} \left|
+       \begin{array}{rr}
+         -6 &  2\\
+         -5 & -5
+       \end{array}
+              \right| = 40.
+  \end{array}
+  $$    
+\end{jie}
+%
+\end{frame}
+
+\begin{frame}
+\begin{testexample}
+  计算
+  $$
+  D = \left |
+    \begin{array}{cccc}
+      a &    b &       c &           d  \\
+      a &  a+b &   a+b+c &     a+b+c+d  \\
+      a & 2a+b & 3a+2b+c &  4a+3b+2c+d  \\
+      a & 3a+b & 6a+3b+c & 10a+6b+3c+d   
+    \end{array}
+  \right|
+  $$
+\end{testexample}\pause 
+
+\begin{jie}
+  $$
+  \begin{array}{ll}
+    D &  \ds \xlongequal[r_2-r_1]{r_4-r_3\atop r_3-r_2}
+        \left |
+        \begin{array}{cccc}
+          a &    b &     c &         d  \\
+          0 &    a &   a+b &     a+b+c  \\
+          0 &    a &  2a+b &   3a+2b+c  \\
+          0 &    a &  3a+b &   6a+3b+c   
+        \end{array}\right| \xlongequal[r_3-r_2]{r_4-r_3}\left |
+                             \begin{array}{cccc}
+                               a &    b &     c &         d  \\
+                               0 &    a &   a+b &     a+b+c  \\
+                               0 &    0 &     a &      2a+b  \\
+                               0 &    0 &     a &      3a+b   
+                             \end{array}
+                                                  \right|
+    \\[1.0cm]
+      &  \ds \xlongequal{r_4-r_3} \left |
+        \begin{array}{cccc}
+          a &    b &     c &         d  \\
+          0 &    a &   a+b &     a+b+c  \\
+          0 &    0 &     a &      2a+b  \\
+          0 &    0 &     0 &         a   
+        \end{array}
+                             \right| = a^4.      
+  \end{array}
+  $$
+\end{jie}
+%
+\end{frame}
+
+\begin{frame}
+\begin{testexample}
+  计算
+  $$
+  D = \left |
+    \begin{array}{cccccc}
+      1 &  2 &  3 & \cd &  n-1 & n\\
+      2 &  3 &  4 & \cd &   n  & 1\\
+      3 &  4 &  5 & \cd &   1  & 2\\
+      \vd& \vd& \vd&     & \vd  & \vd \\
+      n &  1 &  2 & \cd & n-2  & n-1
+    \end{array}
+  \right|
+  $$
+\end{testexample}
+\end{frame}
+
+\begin{frame}
+\begin{jie}
+  $$
+  \begin{aligned}
+    &D_n    
+    \xlongequal[i=n,\cdots,2]{r_i-r_{i-1}} 
+    \left|
+      \begin{array}{cccccc}
+        1   &  2 &  3 & \cd &  n-1 & n\\
+        1   &  1 &  1 & \cd &   1  & 1-n \\
+        1   &  1 &  1 & \cd &  1-n  & 1\\
+        \vd & \vd & \vd&     & \vd  & \vd \\
+        1   & 1-n &  1 & \cd &   1   & 1
+      \end{array}
+    \right|\\
+    &  
+    \xlongequal[i=2,\cdots,n]{c_i-c_1} 
+    \left|
+      \begin{array}{cccccc}
+        1   &  1 &  2 & \cd &  n-2 & n-1\\
+        1   &  0 &  0 & \cd &   0  & -n \\
+        1   &  0 &  0 & \cd &  -n  & 0\\
+        \vd & \vd & \vd&     & \vd  & \vd \\
+        1   & -n &  0 & \cd &   0   & 0
+      \end{array}
+    \right| \xlongequal[i=2,\cd,n]{c_i\div n} n^{n-1} 
+    \left|
+      \begin{array}{cccccc}
+        1   &  \frac 1n & \frac 2n & \cd &  \frac{n-2}n & \frac{n-1}n\\
+        1   &  0 &  0 & \cd &   0  & -1 \\
+        1   &  0 &  0 & \cd &  -1  & 0\\
+        \vd & \vd & \vd&     & \vd  & \vd \\
+        1   & -1 &  0 & \cd &   0   & 0
+      \end{array}
+    \right|\\
+    &  \xlongequal{c_1+c_2+\cd+c_n} 
+    n^{n-1} \left|
+      \begin{array}{cccccc}
+        1+\sum_{i-1}^{n-1}\frac in   &  \frac 1n & \frac 2n & \cd &  \frac{n-2}n & \frac{n-1}n\\
+        0   &  0 &  0 & \cd &   0  & -1 \\
+        0   &  0 &  0 & \cd &  -1  & 0\\
+        \vd & \vd & \vd&     & \vd  & \vd \\
+        0   & -1 &  0 & \cd &   0   & 0
+      \end{array}       
+    \right|\\
+    &  = n^{n-1} \left[ 1 + \frac 1n \frac {n(n-1)}2\right] 
+    (-1)^{\frac{(n-1)(n-2)}2}(-1)^{n-1} = (-1)^{\frac{(n-1)n}2} \frac{n+1}2 n^{n-1}.
+  \end{aligned}
+  $$
+\end{jie}
+%
+\end{frame}
+
+\begin{frame}
+\begin{testexample}
+  计算行列式
+  $$
+  D_{20} = \left|
+    \begin{array}{rrrrrrr}
+      1   & 2    & 3    & \cd  & 18    & 19    &  20 \\ 
+      2   & 1    & 2    & \cd  & 17    & 18    &  19 \\
+      3   & 2    & 1    & \cd  & 16    & 17    &  18 \\
+      \vd & \vd  & \vd  & \cd  & \vd   & \vd   &  \vd \\
+      20  & 19   & 18   & \cd  & 3     & 2     &  1
+    \end{array}
+  \right|
+  $$    
+\end{testexample} \pause 
+\begin{jie}
+  $$
+  \begin{aligned}
+    D_{20} &   \xlongequal[i=19,\cd,1]{c_{i+1}-c_i} 
+             \left|
+             \begin{array}{rrrrrrr}
+               1   & 1    & 1    & \cd  & 1    & 1    &  1 \\ 
+               2   & -1   & 1    & \cd  & 1    & 1    &  1 \\
+               3   & -1   & -1   & \cd  & 1    & 1    &  1 \\
+               \vd & \vd  & \vd  & \cd  & \vd  & \vd  &  \vd \\
+               % 19  & -1   & -1   & \cd  & -1   & -1   &  1 \\
+               20  & -1   & -1   & \cd  & -1   & -1   &  -1
+             \end{array}
+                                                        \right| \\ 
+           & \xlongequal[i=2,\cd,20]{r_i+r_1} 
+             \left|
+             \begin{array}{rrrrrrr}
+               1   & 1    & 1    & \cd  & 1    & 1    &  1 \\ 
+               3   & 0    & 2    & \cd  & 2    & 2    &  2 \\
+               4   & 0    & 0    & \cd  & 2    & 2    &  2 \\
+               \vd & \vd  & \vd  & \cd  & \vd  & \vd  &  \vd \\
+               % 20  & 0    & 0    & \cd  & 0    & 0    &  2\\
+               21  & 0    & 0    & \cd  & 0    & 0    &  0
+             \end{array}
+                                                        \right|
+                                                        = 21 \times (-1)^{20+1} \times 2^{18} = -21 \times 2^{18}.
+  \end{aligned}
+  $$
+
+\end{jie}
+%
+\end{frame}
+
+\begin{frame}
+\begin{testexample}
+  计算元素为$a_{ij}=|i-j|$的$n$阶行列式。
+\end{testexample} \pause 
+\begin{jie}
+  $$
+  \begin{aligned}
+    D_{n} &  =   \left|
+      \begin{array}{rrrrrrr}
+        0   & 1   & 2    & \cd & n-2  & n-1 \\ 
+        1   & 0   & 1    & \cd & n-3  & n-2 \\
+        %% 2   & 1   & 0    & \cd & n-4  & n-3 \\
+        \vd & \vd & \vd  &     & \vd  & \vd \\
+        n-2 & n-3 & n-4  & \cd & 0     & 1 \\
+        n-1 & n-2 & n-3  & \cd & 1  & 0 
+      \end{array}
+    \right| \\
+    &   \xlongequal[i=n-1,\cd,1]{c_{i+1}-c_i}   
+    \left|
+      \begin{array}{rrrrrrr}
+        0   & 1   & 1    & \cd & 1  & 1 \\ 
+        1   & -1  & 1    & \cd & 1  & 1 \\
+        %% 2   & -1  & -1   & \cd & 1  & 1 \\
+        \vd & \vd & \vd  &     & \vd & \vd \\
+        n-2 & -1  & -1   & \cd & -1 & 1 \\
+        n-1 & -1  & -1   & \cd & -1 & -1 
+      \end{array}
+    \right| \\
+    & \xlongequal[i=2,\cd,n]{r_{i}+r_1}  
+    \left|
+      \begin{array}{rrrrrrr}
+        0   & 1   & 1   & \cd & 1   & 1   \\ 
+        1   & 0   & 2   & \cd & 2   & 2   \\
+        \vd & \vd & \vd &     & \vd & \vd \\
+        n-2 & 0   & 0  & \cd  & 0   & 2 \\
+        n-1 & 0   & 0  & \cd  & 0   & 0 
+      \end{array}
+    \right| = (-1)^{n-1}(n-1)2^{n-2}.
+  \end{aligned}
+  $$
+\end{jie}
+%
+\end{frame}
+
+\begin{frame}
+\begin{testexample}
+  计算
+  $$
+  D= \left|
+    \begin{array}{ccccc}
+      1 &  2  & 3   &\cd & n   \\
+      2 &  2  & 0   &\cd & 0  \\
+      3 &  0  & 3   &\cd & 0  \\
+      \vd & \vd  \vd  &    & \\
+      n &  0  & 0   &\cd & n
+    \end{array}
+  \right|
+  $$
+\end{testexample} \pause 
+\begin{jie}
+  $$
+  \begin{aligned}
+    D & \xlongequal[i=2,\cd,n]{r_1-r_i} & 
+    \left|
+      \begin{array}{ccccc}
+        1-\sum_{i=2}^n i &  0  & 0   &\cd & 0   \\
+        2 &  2  & 0   &\cd & 0  \\
+        3 &  0  & 3   &\cd & 0  \\
+        \vd & \vd & \vd  &    &\vd  \\
+        n &  0  & 0   &\cd & n
+      \end{array}
+    \right|
+    =  \left(1-\sum_{i=2}^n i\right) \cdot 2 \cdot 3 \cdot \cd \cdot n
+    =  \left[2-\frac{(n+1)n}2\right] n!
+  \end{aligned}
+  $$
+\end{jie}
+
+\end{frame}
+
+\begin{frame}
+如何计算“爪形”行列式
+\begin{figure}
+  \centering
+  \begin{tikzpicture}
+    \matrix(A) [matrix of math nodes,nodes in empty cells,ampersand replacement=\&,left delimiter=|,right delimiter=|] {
+    a_{11} \& a_{12} \& a_{13} \& \cd \& a_{1n} \\
+    a_{21} \& a_{22} \& 0     \& \cd \&  0    \\
+    a_{31} \&  0    \& a_{33} \& \cd \&  0    \\
+    \vd  \&  \vd  \&  \vd  \&     \&  \vd  \\
+    a_{n1} \&  0    \& 0 \& \cd \& a_{nn} \\
+  };
+    \draw[red] (A-1-1.center) -- (A-1-5.center) (A-1-1.center) -- (A-5-1.center) (A-1-1.center) -- (A-5-5.center);
+  \end{tikzpicture}
+\end{figure}
+其解法固定，即从第二行开始，每行依次乘一个系数然后加到第一行，使得第一行除第一个元素外都为零，从而得到一个下三角行列式。
+\end{frame}
+
+\begin{frame}
+请自行验证以下行列式（假定$a_i \ne 0$）
+$$
+D_{n+1} = 
+\left|
+\begin{array}{ccccc}
+a_0 &  1  & 1   &\cd & 1   \\
+1   & a_1 & 0   &\cd & 0  \\
+1   & 0   & a_2 &\cd & 0  \\
+\vd & \vd  \vd  &    & \\
+1   & 0   & 0   &\cd & a_n
+\end{array}
+\right|  = \left(a_0 - \sum_{i=1}^n \frac1{a_i}\right) a_1 a_2 \cd a_n.
+$$
+%
+\end{frame}
+
+\begin{frame}
+类似的方式还可用于求解如下形式的“爪型行列式”
+\begin{figure}[htbp]
+  \centering
+  \subfigure[]{
+  \begin{tikzpicture}[scale=3]
+    \matrix(B) [matrix of math nodes,nodes in empty cells,ampersand replacement=\&,left delimiter=|,right delimiter=|] {
+    \&  \& \\
+    \&  \& \\
+    \&  \& \\ 
+  };
+    \draw[red] (B-1-3.north east) -- (B-1-1.north west) 
+    (B-1-3.north east) -- (B-3-1.south west) 
+    (B-1-3.north east) -- (B-3-3.south east);
+  \end{tikzpicture}
+}
+  \subfigure[]{
+  \begin{tikzpicture}[scale=3]
+    \matrix(B) [matrix of math nodes,nodes in empty cells,ampersand replacement=\&,left delimiter=|,right delimiter=|] {
+    \&  \& \\
+    \&  \& \\
+    \&  \& \\
+  };
+    \draw[red]
+    (B-3-1.south west) -- (B-1-1.north west) 
+    (B-3-1.south west) -- (B-1-3.north east) 
+    (B-3-1.south west) -- (B-3-3.south east);
+  \end{tikzpicture}
+}
+  \subfigure[]{
+  \begin{tikzpicture}[scale=3]
+    \matrix(B) [matrix of math nodes,nodes in empty cells,ampersand replacement=\&,left delimiter=|,right delimiter=|] {
+    \&  \& \\
+    \&  \& \\
+    \&  \& \\
+  };
+    \draw[red]
+    (B-3-3.south east) -- (B-1-1.north west) 
+    (B-3-3.south east) -- (B-1-3.north east) 
+    (B-3-3.south east) -- (B-3-1.south west);
+  \end{tikzpicture}
+}      
+\end{figure}
+\end{frame}
+
+\begin{frame}
+\begin{testexample}
+  $$
+  \left|
+    \begin{array}{ccccc}
+      1 & 1 & \cd & 1 & 1 \\
+      0 & 0 & \cd & 2 & 1 \\
+      \vd & \vd & & \vd & \vd \\
+      0 & n-1 & \cd & 0 & 1 \\
+      n & 0 & \cd & 0 & 1
+    \end{array}
+  \right|  = (-1)^{\frac{n(n-1)}2} n! \left(1-\sum_{i=2}^n\frac1i\right)
+  $$
+\end{testexample}
+\end{frame}
+
+\begin{frame}
+\begin{testexample}
+  计算$n$阶行列式
+  $$
+  D_n = \left|
+    \begin{array}{cccc}
+      x & a & \cd & a \\
+      a & x & \cd & a \\
+      \vd & \vd & & \vd \\
+      a & a &  \cd & x 
+    \end{array}
+  \right|
+  $$
+\end{testexample}
+\end{frame}
+
+\begin{frame}
+ 
+\blue{解法1}
+  $$
+  \begin{aligned}
+    D_n  
+    &  \xlongequal{c_1+c_2+\cd +c_n}
+    \left|
+      \begin{array}{cccc}
+        x+(n-1)a & a     & \cd & a \\
+        x+(n-1)a & x     & \cd & a \\
+        \vd &      \vd &  & \vd \\
+        x+(n-1)a & a     & \cd & x 
+      \end{array}
+    \right|  \\
+    &  \xlongequal{c_1\div [x+(n-1)a] } 
+    \left[x+(n-1)a\right]\left|
+      \begin{array}{cccc}
+        1 & a     & \cd & a \\
+        1 & x     & \cd & a \\
+        \vd   & \vd &  & \vd \\
+        1 & a     & \cd & x 
+      \end{array}
+    \right|  \\
+    &  \xlongequal[i = 2, \cd, n]{r_i - r_1} 
+    \left[x+(n-1)a\right]\left|
+      \begin{array}{cccc}
+        1 & a   & \cd & 0 \\
+        0 & x-a & \cd & 0 \\
+        \vd  & \vd &  & \vd \\
+        0 & 0   & \cd & x-a 
+      \end{array}
+    \right| \\
+    & =  \left[x+(n-1)a\right](x-a)^{n-1}.
+  \end{aligned}
+  $$
+
+\end{frame}
+
+\begin{frame}
+
+\blue{解法2}：
+  $$
+  \begin{aligned}
+    D_n 
+    &  \xlongequal[i=2,\cd, n]{r_i - r_1} 
+    \left|
+      \begin{array}{ccccc}
+        x   & a   & a    & \cd & a \\
+        a-x & x-a & 0    & \cd & 0 \\
+        a-x & 0   & x-a  & \cd & 0 \\
+        \vd & \vd  & \vd &  & \vd \\
+        a-x & 0   & 0    & \cd & x-a 
+      \end{array}
+    \right| \\
+    & \xlongequal[i=2,\cd,n]{c_1+c_i} 
+    \left|
+      \begin{array}{ccccc}
+        x+(n-1)a & a   & a    & \cd & a \\
+        0    & x-a & 0    & \cd & 0 \\
+        0    & 0   & x-a  & \cd & 0 \\
+        \vd & \vd  & \vd &  & \vd \\
+        0    & 0   & 0    & \cd & x-a 
+      \end{array}
+    \right|   \\
+    &  =   \left[x+(n-1)a\right](x-a)^{n-1}.
+  \end{aligned}
+  $$
+\end{frame}
+
+\begin{frame}
+
+\blue{解法3}
+ 
+  $$
+  D_n = \left|
+    \begin{array}{ccccc}
+      \red{1}   & \red{a}  & \red{a}  & \red{\cd} & \red{a}   \\
+      \red{0}   & x  & a  & \cd & a   \\
+      \red{0}   & a  & x  & \cd & a   \\
+      \red{\vd} &\vd &\vd &     & \vd \\
+      \red{0}   & a  & a  & \cd & x 
+    \end{array}
+  \right|_{n+1} 
+  \xlongequal[i=2,\cdots,n+1]{r_i-r_1} 
+  \left|
+    \begin{array}{ccccc}
+      \red{1}    & \red{a}  & \red{a} & \red{\cd} & \red{a}   \\
+      \red{-1}   & x-a      &  0      & \cd & 0   \\
+      \red{-1}   & 0        &  x-a    & \cd & 0   \\
+      \red{\vd}  &\vd       & \vd     &     & \vd \\
+      \red{-1}   & 0        &   0     & \cd & x-a 
+    \end{array}
+  \right|_{n+1}
+  $$
+  \begin{itemize}
+  \item
+    若$x=a$，则$D_n=0$。 
+  \item 
+    若$x\ne a$，则
+    $$
+    \begin{array}{rcl}
+      D_n &  \xlongequal[j=2,\cd,n+1]{c_1+ \frac1{x-a}c_j} & 
+                                                             \left|
+                                                             \begin{array}{ccccc}
+                                                               \red{1+\frac{a}{x-a}n}   & \red{a}  & \red{a}  & \red{\cd} & \red{a}   \\
+                                                               \red{0}   & x-a  & 0  & \cd & 0   \\
+                                                               \red{0}   & 0  & x-a  & \cd & 0   \\
+                                                               \red{\vd} &\vd &\vd &     & \vd \\
+                                                               \red{0}   & 0  & 0  & \cd & x-a
+                                                             \end{array}
+                                                                                           \right|_{n+1} \\[0.5in]
+          &  = &   \left[x+(n-1)a\right](x-a)^{n-1}.
+    \end{array}
+    $$
+  \end{itemize}
+\end{frame}
+
+\begin{frame}
+
+\blue{解法4}：
+  $$
+  \begin{array}{ll}
+    D_n &  = \left|
+          \begin{array}{cccc}
+            x-a  & a  & \cd & a   \\
+            0    & x  & \cd & a   \\
+            \vd  &\vd &     & \vd \\
+            0    & a  & \cd & x 
+          \end{array}
+                              \right|
+                              +\left|
+                              \begin{array}{cccc}
+                                a   & a  & \cd & a   \\
+                                a   & x  & \cd & a   \\
+                                \vd &\vd &     & \vd \\
+                                a   & a  & \cd & x 
+                              \end{array}
+                                                 \right| \\[1.0cm]
+        & = (x-a) D_{n-1} + a(x-a)^{n-1}.
+  \end{array}
+  $$ 
+  于是
+  $$
+  \left\{
+    \begin{array}{rcl}
+      D_n           &=& (x-a)D_{n-1} + a(x-a)^{n-1} \\[0.2cm]
+      (x-a)D_{n-1}      &=& (x-a)^2D_{n-2} + a(x-a)^{n-1} \\[0.2cm]
+      \cd           && \\ [0.2cm]
+      (x-a)^{n-4}D_4 &=& (x-a)^{n-3}D_{3} + a(x-a)^{n-1}\\ [0.2cm]
+      (x-a)^{n-3}D_3 &=& (x-a)^{n-2}D_{2} + a(x-a)^{n-1}
+    \end{array}
+  \right.
+  $$ 
+  因此
+  $$
+  D_n = (x-a)^{n-2}(x^2-a^2) + (n-2)a(x-a)^{n-1} = [x+(n-1)a](x-a)^{n-1}.      
+  $$
+ 
+\end{frame}
+
+\begin{frame}
+ 
+  该行列式经常以不同方式出现，如
+  \begin{itemize}
+  \item
+    $$
+    \left|
+      \begin{array}{cccc}
+        0  &  1  & \cd & 1   \\
+        1  &  0  & \cd & 1   \\
+        \vd& \vd &     & \vd \\
+        1  &  1  & \cd & 0 
+      \end{array}
+    \right|   = (-1)^{n-1}(n-1)
+    $$ 
+  \item
+    $$
+    \left|
+      \begin{array}{cccc}
+        1  &  a  & \cd & a   \\
+        a  &  1  & \cd & a   \\
+        \vd& \vd &     & \vd \\
+        a  &  a  & \cd & 1
+      \end{array}
+    \right| 
+    = [1+(n-1)a](1-a)^{n-1}
+    $$ 
+  \item
+    $$
+    \left|
+      \begin{array}{cccc}
+        1+\lambda  &  1  & \cd & 1   \\
+        1  &  1+\lambda  & \cd & 1   \\
+        \vd& \vd &     & \vd \\
+        1  &  1  & \cd & 1+\lambda 
+      \end{array}
+    \right| 
+    = (\lambda+n)\lambda^{n-1}
+    $$
+  \end{itemize}
+\end{frame}
+
+\begin{frame}
+
+  升阶法适用于求以下形式的行列式：
+  $$
+  \blue{\left|
+    \begin{array}{cccc}
+      x_1 &  a  & \cd & a   \\
+      a   & x_2 & \cd & a   \\
+      \vd & \vd &     & \vd \\
+      a   &  a  & \cd & x_n
+    \end{array}
+  \right|}=   \left(1+\sum_{i=1}^n \frac{a}{x_i-a}\right)\prod_{i=1}^n(x_i-a)
+  $$
+  或
+  $$
+  \blue{\left|
+    \begin{array}{cccc}
+      x_1 & a_1  & \cd & a_n   \\
+      a_1 & x_2 & \cd  & a_n   \\
+      \vd & \vd &     & \vd \\
+      a_1 & a_2  & \cd & x_n
+    \end{array}
+  \right|}=  \left(1+\sum_{i=1}^n \frac{a_i}{x_i-a_i}\right)\prod_{i=1}^n(x_i-a_i).
+  $$      
+ 
+\end{frame}
+
+\begin{frame} 
+\begin{zhu}
+  几种常见形式：
+  $$
+  \left|
+    \begin{array}{cccc}
+      1+a &  1  & \cd & 1   \\
+      2   & 2+a & \cd & 2  \\
+      \vd & \vd &     & \vd \\
+      n   &  n  & \cd & n+a
+    \end{array}
+  \right|  = \left[a+ \frac{n(n+1)}2\right]a^{n-1}
+  $$
+  或
+  $$
+  \left|
+    \begin{array}{cccc}
+      a_1+b & a_1   & \cd & a_n   \\
+      a_1   & a_2+b & \cd  & a_n   \\
+      \vd   & \vd  &     & \vd \\
+      a_1   & a_2   & \cd & a_n+b
+    \end{array}
+  \right|  = b^{n-1}(\sum_{i=1}^na_i+b)
+  $$      
+
+\end{zhu}
+%
+\end{frame}
+
+\begin{frame} 
+\begin{testexample}
+  设
+  $$
+  \begin{aligned}
+    D &= \left|
+      \begin{array}{cccccc}
+        a_{11} & \cd & a_{1k} &    &    &   \\
+        \vd    &     &  \vd  &    &    &   \\
+        a_{k1} & \cd & a_{kk} &    &    &   \\
+        c_{11} & \cd & c_{1k} & b_{11}&  \cd & b_{1n}   \\
+        \vd    &     & \vd   & \vd  &    & \vd \\
+        c_{n1} & \cd & c_{nk} & b_{n1}&  \cd & b_{nn}
+      \end{array}
+    \right|, \\
+    D_1 &%= det(a_{ij}) 
+    = \left|
+      \begin{array}{ccc}
+        a_{11} & \cd & a_{1k} \\
+        \vd    &     &  \vd  \\
+        a_{k1} & \cd & a_{kk} \\
+      \end{array}
+    \right|, \\
+    D_2 & %= det(b_{ij}) 
+    = \left|
+      \begin{array}{ccc}
+        b_{11} & \cd & b_{1n} \\
+        \vd    &     &  \vd  \\
+        b_{n1} & \cd & b_{nn} \\
+      \end{array}
+    \right|.
+  \end{aligned}
+  $$
+  证明：$D=D_1D_2$.
+\end{testexample}
+\end{frame}
+
+\begin{frame} 
+\begin{proof}
+  对$D_1$做运算$r_i+\lambda r_j$将它转化成下三角行列式，设为
+  $$
+  D_1 =  \left|
+    \begin{array}{ccc}
+      p_{11} &       & \\
+      \vd    & \dd  &  \\
+      p_{k1} & \cd   & p_{kk} 
+    \end{array}
+  \right| = p_{11} \cd p_{kk}.
+  $$ 
+  对$D_2$做运算$c_i+\lambda c_j$将它转化成下三角行列式，设为
+  $$
+  D_2 =  \left|
+    \begin{array}{ccc}
+      q_{11} & \cd  &  q_{1n}\\
+             & \dd  &  \vd \\
+             &      & q_{nn} \\
+    \end{array}
+  \right| = q_{11}\cd q_{nn}.
+  $$  
+  于是，对$D$的前$k$行做运算$r_i+\lambda r_j$，对其后$n$列做运算$c_i+\lambda c_j$，把$D$转化为
+  $$
+  D = \left|
+    \begin{array}{cccccc}
+      p_{11} &      &  &    &    &   \\
+      \vd    & \dd    &   &    &    &   \\
+      p_{k1} & \cd & p_{kk} &    &    &   \\
+      c_{11} & \cd & c_{1k} & q_{11}&  &    \\
+      \vd    &     & \vd   & \vd  &  \dd  &  \\
+      c_{n1} & \cd & c_{nk} & q_{n1}&  \cd & q_{nn}
+    \end{array}
+  \right|
+  $$  
+  故$D = p_{11}\cdots p_{kk} q_{11}\cdots q_{nn} = D_1 D_2$.
+\end{proof}
+%
+\end{frame}
+
+\begin{frame} 
+\begin{testexample}
+  计算$2n$阶行列式
+  $$
+  D_{2n} = \left|
+    \begin{array}{cccccc}
+      a &     & & & & b \\
+        & \dd & & & \id & \\
+        &   & a & b &  & \\
+        &   & c & d &  &  \\
+        & \id & & & \dd & \\
+      c &     & & & & d
+    \end{array}
+  \right|
+  $$
+\end{testexample}
+%
+\end{frame}
+
+\begin{frame} 
+\begin{jie}
+  把$D_{2n}$中的第$2n$行依次与第$2n-1$行、$\ldots$、第2行对调（共$2n-2$次相邻对换），
+  在把第$2n$列依次与第$2n-1$列、$\ldots$、第2列对调，得
+  $$
+  D_{2n} = \left|
+    \begin{array}{cccccccc}
+      a & b & 0 &      & & & &0 \\
+      c & d & 0 & & &  & &\\
+      0 & 0 & a & & &  & & b \\
+        &   &   & \dd &  &  & \id &   \\
+        &   &   &     & a& b& & \\
+        &   &   &     & c& d& & \\
+        &   &   & \id &  &  & \dd &   \\
+      0 & 0 & c & & &  & & d
+    \end{array}
+  \right|
+  $$
+  故
+  $$
+  \begin{aligned}
+    D_{2n} & = D_2 D_{2(n-1)}  \\
+    &= (ad-bc)D_{2(n-1)} \\
+    &= (ad-bc)^2 D_{2(n-2)}\\
+    &= \cdots \\
+    &= (ad-bc)^{n-1}D_{2} \\
+    &= (ad-bc)^n.      
+  \end{aligned}
+  $$
+\end{jie}
+%
+\end{frame}
+
+\begin{frame}
+\begin{testexample}
+  证明：范德蒙德(Vandermonde)行列式
+  $$
+  D_n = \left|
+    \begin{array}{cccc}
+      1        &  1        & \cd &    1     \\                    
+      x_1      &  x_2      & \cd &    x_n    \\ 
+      x_1^2    &  x_2^2     & \cd &   x_n^2   \\ 
+      \vd      &  \vd      &     &    \vd      \\
+      x_1^{n-1} & x_2^{n-1} &  \cd &  x_n^{n-1}
+    \end{array}
+  \right|
+  = \prod_{n \ge i > j \ge 1}(x_i-x_j).
+  $$
+\end{testexample}
+\end{frame}
+
+\begin{frame}
+\begin{proof}
+  用数学归纳法证明。当$n=2$时，
+  $$
+  D_2 = \left|
+    \begin{array}{cc}
+      1 & 1 \\
+      x_1 & x_2
+    \end{array}
+  \right|
+  = x_2 - x_1 = \prod_{2 \ge i > j \ge 1} (x_i - x_j),
+  $$
+  结论成立。 \pause
+  现假设结论对$n-1$阶范德蒙德行列式成立，以下证明结论对$n$阶范德蒙德行列式也成立。 
+  $$
+  D_n \xlongequal[i=n,\cdots, 2]{\red{r_i - x_1 r_{i-1}}}\left|
+    \begin{array}{ccccc}  
+      1     & 1                    & 1                       & \cd   & 1    \\
+      0     & x_2 - x_1            & x_3 - x_1               &  \cd  & x_n - x_1 \\
+      0     & x_2(x_2 - x_1)       & x_3(x_3 - x_1)          &  \cd  & x_n(x_n - x_1)\\
+      \vd   & \vd                  & \vd                     &      & \vd   \\
+      0     & x_2^{n-2}(x_2-x_1)    & x_3^{n-2}(x_3 - x_1)    &  \cd  & x_n^{n-2}(x_n - x_1) 
+    \end{array}\right|
+  $$  \pause
+  按第1列展开，并把每列的公因子$(x_i-x_1)$提出，就有
+  $$
+  D_n = (x_2-x_1)(x_3-x_1)\cdots(x_n-x_1)\left|
+    \begin{array}{cccc}  
+      1            & 1          &  \cd  & 1 \\
+      x_2          & x_3         &  \cd  & x_n\\
+      \vd          & \vd         &      & \vd   \\
+      x_2^{n-2}     & x_3^{n-2}    &  \cd  & x_n^{n-2}
+    \end{array}\right|
+  $$ \pause
+  上式右端的行列式为$n-1$阶范德蒙德行列式，按归纳法假设，
+  它等于所有$(x_i-x_j)$因子的乘积($n\ge i \ge j \ge 2$)。故
+  $$
+  D_n = (x_2-x_1)(x_3-x_1)\cdots(x_n-x_1) \prod_{n\ge i > j \ge 2}(x_i - x_j)
+  = \prod_{n\ge i > j \ge 1}(x_i - x_j).
+  $$
+\end{proof}
+%
+\end{frame}
+
+\begin{frame}
+\begin{testexample}
+  设$a,b,c$为互不相同的实数，证明：
+  $$
+  \left|
+    \begin{array}{ccc}
+      1   &   1   &   1\\
+      a   &   b   &   c\\
+      a^3 &   b^3 &   c^3
+    \end{array}
+  \right|=0
+  $$
+  的充要条件是$a+b+c=0$.
+\end{testexample}
+\end{frame}
+
+\begin{frame}
+\begin{proof}
+  考察范德蒙德行列式
+  $$
+  \begin{array}{ll}
+    D & = \left|
+        \begin{array}{cccc}
+          1   &   1   &   1   & 1\\
+          a   &   b   &   c   & y\\
+          a^2 &   b^2 &   c^2 & y^2\\
+          a^3 &   b^3 &   c^3 & y^3\\
+        \end{array}
+    \right|
+    = (a-b)(a-c)(b-c)(a-y)(b-y)(c-y) 
+  \end{array}
+  $$
+  
+  注意到行列式$D$可看成是关于$y$的多项式，比较包含$y^2$的项：
+  $$
+  \cd - \left|
+    \begin{array}{cccc}
+      1   &   1   &   1  \\ 
+      a   &   b   &   c  \\
+      a^3 &   b^3 &   c^3\\
+    \end{array}
+  \right| y^2 + \cd = 
+  \cd -(a-b)(a-c)(b-c)(a+b+c)y^2 + \cd 
+  $$
+  于是
+  $$
+  (a-b)(a-c)(b-c)(a+b+c) = \left|
+    \begin{array}{cccc}
+      1   &   1   &   1  \\ 
+      a   &   b   &   c  \\
+      a^3 &   b^3 &   c^3\\
+    \end{array}
+  \right|
+  = 0
+  $$
+  而$a,b,c$互不相同，故$a+b+c=0$.
+\end{proof}
+%
+\end{frame}
+
+\begin{frame}
+\begin{testexample}
+  计算三对角行列式
+  $$
+  D_n = \left|
+    \begin{array}{cccccc}
+      a & b & &&&\\
+      c&a&b&&&\\
+        &c&a&b&&\\
+        &&\dd&\dd&\dd&\\
+        &&&c&a&b\\
+        &&&&c&a
+    \end{array}
+  \right|
+  $$
+\end{testexample}
+\end{frame}
+
+\begin{frame}
+\begin{jie}
+  对$D_n$按第一行展开
+  $$
+  D_n =  aD_{n-1} + (-1)^{1+2} b \left|
+    \begin{array}{cccccc}
+      c&b&&&&\\
+      0&a&b&&&\\
+      0&c&a&b&&\\
+      \vd&\vd&\dd&\dd&\dd&\\
+      0&0&\cd&c&a&b\\
+      0&0&\cd&0&c&a
+    \end{array}
+  \right|  = a D_{n-1} - bc D_{n-2},
+  $$
+  其中$D_1=a, \quad D_2=a^2-bc$.
+  将　
+  $$D_n = a D_{n-1} - bc D_{n-2}$$
+  改写成 
+  $$
+  D_n - k D_{n-1} = l(D_{n-1} - k D_{n-2})
+  $$ 
+  这里
+  $$
+  k+l=a, \quad kl = bc.
+  $$    
+\end{jie}
+\end{frame}
+
+\begin{frame}
+  令$\Delta_n = D_n-kD_{n-1}$，它满足
+  $$
+  \left\{
+    \begin{array}{l}
+      \Delta_n = l\Delta_{n-1},  \\[0.05in] 
+      \Delta_2 = D_2-kD_1 = a^2-bc - ka = (a-k)a-kl=la-lk=l^2.
+    \end{array}    
+  \right.
+  $$ 
+  由此可知
+  $$
+  \Delta_n = l^{n-2} \Delta_2 = l^2, 
+  $$
+  即
+  $$
+  \begin{array}{rl}
+    D_n &  = l^n  + k D_{n-1}  = l^n  + k (l^{n-1}  + k D_{n-2}) 
+          = l^n  + k l^{n-1}  + k^2 D_{n-2} \\[0.1in]
+        & =  l^n  + k l^{n-1}  + k^2 (l^{n-2}  + k D_{n-3} )
+          = l^n  + k l^{n-1}  + k^2 l^{n-2}  + k^3 D_{n-3} \\[0.1in]
+        & = \cd  =  l^n  + k l^{n-1}  + k^2 l^{n-2}  + \cd + k^{n-2}l^2 + k^{n-1} D_1
+  \end{array}
+  $$ 
+
+  而$D_1 = a = k+l$，故
+  $$
+  \red{
+    D_n = l^n  + k l^{n-1}  + k^2 l^{n-2}  + \cd + k^{n-2}l^2 + k^{n-1}l + k^n.
+  }
+  $$
+
+
+\end{frame}

@@ -1,0 +1,235 @@
+%%%%%
+\section{$n$阶行列式的定义}
+
+
+
+\begin{frame}
+
+  \begin{overprint}
+    \onslide<1-2>
+    \begin{center}
+      \blue{$n$阶行列式的定义}\vspace{0.5cm}
+    \end{center}
+  \end{overprint}
+  
+  \begin{overprint}
+    \onslide<1>
+    \begin{block}{$n$阶行列式}
+      由$n^2$个数组成的$n$行$n$列的$n$阶行列式定义如下
+      \begin{footnotesize}
+        $$
+        \left|
+        \begin{array}{ccccc}
+          a_{11} & a_{12} & \cd & a_{1n} \\[0.2cm]
+          a_{21} & a_{22} & \cd & a_{2n} \\[0.2cm]
+          \vd   &  \vd  &     & \vd   \\[0.2cm]
+          a_{n1} & a_{n2} & \cd & a_{nn} 
+        \end{array}
+        \right|
+        = \sum_{n!} (-1)^{\tau(p_1p_2\cdots p_n)} a_{1p_1}a_{2p_2}\cd a_{np_n}.
+        $$
+      \end{footnotesize}
+    \end{block}
+
+    \begin{itemize}
+    \item \red{$\disp \sum_{n!}--$} 对所有$n$阶排列$p_1p_2\cdots p_n$的种数进行相加，共有$P_n=n!$项\\[0.3cm]
+    \item \red{$\tau(p_1p_2\cdots p_n)--$} $n$阶排列$p_1p_2\cdots p_n$的逆序数 \\[0.3cm]
+    \item 记为\red{$D_n$} 或 \red{$\mathrm{det}(a_{ij})$} \\[0.3cm]
+    \end{itemize}
+    
+    %%%
+    \onslide<2>
+
+    \blue{注意} \\
+    \begin{itemize}
+    \item 
+      $n$阶行列式的定义具有与三阶行列式类似的特征。\\[0.3cm]
+    \item
+      定义一阶行列式($n=1$)为
+      $$
+      |a_{11}|=a_{11}
+      $$
+      （注意不要与绝对值符号相混淆）。
+    \end{itemize}
+  \end{overprint}
+\end{frame}
+
+\begin{frame}
+    %%%
+  \uncover<1->{
+    \begin{exampleblock}{例5}
+      在六阶行列式中，项$a_{23}a_{31}a_{42}a_{56}a_{14}a_{65}$应带哪种符号？
+    \end{exampleblock}
+  }
+  
+  \uncover<2->{
+    \vspace{0.5cm}
+    \textbf{解}： 重新排序为$a_{14}a_{23}a_{31}a_{42}a_{56}a_{65}$，而
+    $$
+    \tau(431265) = 0 + 1 + 2 + 2 + 0 + 1 = 6,
+    $$
+    故符号为正。
+  }
+\end{frame}
+
+\begin{frame}
+    %%%
+  \uncover<1->{
+    \begin{exampleblock}{例6}
+      \begin{footnotesize}
+        证明
+        $$
+        \left|
+        \begin{array}{cccc}
+          \lambda_1 &&&\\
+          &\lambda_2&&\\
+          &&\dd& \\
+          &&&\lambda_n
+        \end{array}
+        \right| = \lambda_1\cdots\lambda_n, \ \ 
+        \left|
+        \begin{array}{cccc}
+	  &&&\lambda_1 \\
+          && \lambda_2&\\
+          &  \dd      && \\
+          \lambda_n   &&&
+        \end{array}
+        \right| = (-1)^{\frac{n(n-1)}2}\lambda_1\cdots\lambda_n        
+        $$
+      \end{footnotesize}
+    \end{exampleblock}
+  }
+  
+  \uncover<2->{
+    \begin{footnotesize}
+      \proofname
+      第一式显然成立，下证第二式。记$\lambda_i = a_{i,n-i+1}$，则
+      $$
+      \begin{array}{ll}
+        \left|
+        \begin{array}{cccc}
+	  &&&\lambda_1 \\
+          && \lambda_2&\\
+          &  \dd      && \\
+          \lambda_n   &&&
+        \end{array}
+        \right| 
+        &= 
+        \left|
+        \begin{array}{cccc}
+	  &&&a_{1n} \\
+          &&a_{2,n-1}&\\
+          &  \dd   && \\
+          a_{n1}    &&&
+        \end{array}
+        \right| \\[0.5cm]
+        & =(-1)^{\tau(n\cdot(n-1)\cdot \cdots \cdot 1)} a_{1n}a_{2,n-1}\cdots a_{n1}\\[0.2cm]
+        & =(-1)^{\frac{n(n-1)}2}\lambda_1\cdots\lambda_n        
+      \end{array}
+      $$
+    \end{footnotesize}      
+  }
+\end{frame}
+
+
+\begin{frame}
+  \uncover<1->{
+    \begin{exampleblock}{例7}
+      \begin{footnotesize}
+        证明
+        $$
+        \left|
+        \begin{array}{cccc}
+          a_{11}&&&\\
+          a_{21}&a_{22}&&\\
+          \vd&\vd&\dd& \\
+          a_{n1}&a_{n2}&\cd&a_{nn}
+        \end{array}
+        \right| =a_{11}\cdots a_{nn}
+        $$
+      \end{footnotesize}
+    \end{exampleblock}
+  }
+  \uncover<2->{
+    \begin{footnotesize}
+      \proofname
+      注意当$j>i$时，$a_{ij}=0$，故$D$中可能不为0的元素$a_{ip_i}$的下标满足$p_i\le i$，即\red{$p_1\le 1, p_2 \le 2, \cdots, p_n \le n$}。\\[0.3cm]
+      在所有排列$p_1p_2\cdots p_n$中，能满足上述关系的排列只有一个自然排列$12\cdots n$，所以$D$中可能不为0的项只有
+      $$
+      (-1)^{\tau(12\cdots n)} a_{11} a_{22} \cdots a_{nn} = a_{11} a_{22} \cdots a_{nn}.
+      $$
+    \end{footnotesize}
+  }
+\end{frame}
+
+
+
+\begin{frame}
+  类似地,
+  \begin{footnotesize}
+    $$
+    \left|
+    \begin{array}{cccc}
+      a_{11} & a_{12} & \cd & a_{1n}\\
+            & a_{22} &     & a_{2n}\\
+            &       & \dd & \vd  \\
+            &       &     &a_{nn}
+    \end{array}
+    \right| =a_{11}\cdots a_{nn}
+    $$
+  \end{footnotesize}
+\end{frame}
+
+\begin{frame}
+  \uncover<1->{
+    \begin{exampleblock}{例8}
+      \begin{footnotesize}
+        证明
+        $$
+        \left|
+        \begin{array}{cccc}
+          a_{11} & 0     & \cd & 0     \\
+          a_{21} & a_{22} & \cd & a_{2n} \\
+          \vd   &\vd    & \dd & \vd   \\
+          a_{n1} & a_{n2} & \cd & a_{nn}
+        \end{array}
+        \right| =a_{11}
+        \left|
+        \begin{array}{ccc}
+           a_{22} & \cd & a_{2n} \\
+           \vd   & \dd & \vd   \\
+           a_{n2} & \cd & a_{nn}
+        \end{array}
+        \right|
+        $$
+      \end{footnotesize}
+    \end{exampleblock}
+  }
+  \uncover<2->{
+    \proofname
+    \begin{footnotesize}
+    由定义
+    $$
+    D = \sum_{n!} (-1)^{\tau(p_1p_2\cdots p_n)} a_{1p_1}a_{2p_2}\cd a_{np_n}
+    $$
+    可知,只有当$p_1$取为1，$a_{11}a_{2p_2}\cd a_{np_n}$才有可能不为0，这些可能不为0的项有$(n-1)!$。
+    当$p_1$取为1时，$p_2\cdots p_n$只能在$2, \cdots, n$中取值，又$\tau(1p_2\cdots p_n) = \tau(p_2\cdots p_n)$，故
+    $$
+    \begin{array}{ll}
+    D & \disp = \sum_{(n-1)!} (-1)^{\tau(1p_2\cdots p_n)} a_{11}a_{2p_2}\cd a_{np_n} \\[0.4cm]
+      & \disp = a_{11} \sum_{(n-1)!} (-1)^{\tau(p_2\cdots p_n)} a_{2p_2}\cd a_{np_n} \\[0.4cm]
+      & \disp = 
+        a_{11}
+        \left|
+        \begin{array}{ccc}
+           a_{22} & \cd & a_{2n} \\
+           \vd   & \dd & \vd   \\
+           a_{n2} & \cd & a_{nn}
+        \end{array}
+        \right|
+    \end{array}
+    $$
+      
+    \end{footnotesize}
+  }
+\end{frame}

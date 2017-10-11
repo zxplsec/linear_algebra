@@ -1,0 +1,1843 @@
+\section{向量的线性相关性及线性方程组的解}
+%%%%% 
+\subsection{$n$维向量及其线性相关性}
+
+
+\begin{frame}
+  \begin{dingyi}[向量空间]
+    数域$\R$上的$n$维向量，在其中定义了上述加法与数乘运算，就称之为$\R$上的$n$维向量空间，仍记为$\R^n$。
+  \end{dingyi}
+\end{frame}
+
+\begin{frame}
+  \begin{dingyi}[线性表示]
+    设$\alphabd_i\in \R^n, k_i \in \R (i=1,2,\cd,m)$，则向量
+    $$
+    \sum_{i=1}^m k_i\alphabd_i = k_1\alphabd_1 + k_2\alphabd_2+\cd + k_m\alphabd_m
+    $$
+    称为向量组$\alphabd_1,\alphabd_2,\cd,\alphabd_m$在数域$\R$上的一个\red{线性组合}。  如果记
+    $$\betabd=\sum_{i=1}^m k_i\alphabd_i,$$
+    则称$\betabd$可由$\alphabd_1,\alphabd_2,\cd,\alphabd_m$\red{线性表示}（或\red{线性表出}）。
+  \end{dingyi}
+\end{frame}
+
+\begin{frame}
+  设有线性方程组$\A\xx=\bb$，其中$\A$为$m\times n$矩阵。记
+  $$\A=(\alphabd_1,\alphabd_2,\cd,\alphabd_n),$$
+  即
+  $$
+  (\alphabd_1,\alphabd_2,\cd,\alphabd_n) \left(
+    \begin{array}{c}
+      x_1\\
+      x_2\\
+      \vd\\
+      x_n
+    \end{array}
+  \right)=\bb
+  $$
+  于是线性方程组可等价的表述为
+  $$
+  x_1\alphabd_1+x_2\alphabd_2+\cd+x_n\alphabd_n=\bb
+  $$
+\end{frame}
+
+\begin{frame}
+  \begin{zhu*}
+    向量$\bb$可由$\alphabd_1,\alphabd_2,\cd,\alphabd_n$线性表示，等价于方程组
+    $$
+    x_1\alphabd_1+x_2\alphabd_2+\cd+x_n\alphabd_n=\bb
+    $$
+    有解。
+  \end{zhu*}
+\end{frame}
+
+\begin{frame}
+  \begin{dingyi}[线性相关与线性无关]
+    若对$m$个向量$\alphabd_1,\alphabd_2,\cd,\alphabd_m\in \R^n$，有$m$个不全为零的数$k_1,k_2,\cd,k_m\in \R$，使
+    \begin{equation}\label{def1}
+      k_1\alphabd_1 + k_2\alphabd_2+\cd + k_m\alphabd_m = \zero        
+    \end{equation}
+    成立，则称\red{$\alphabd_1,\alphabd_2,\cd,\alphabd_m$线性相关}；
+    否则，称\red{$\alphabd_1,\alphabd_2,\cd,\alphabd_m$线性无关}。
+  \end{dingyi}
+\end{frame}
+
+\begin{frame}
+  \begin{zhu*}
+    向量组$\alphabd_1,\alphabd_2,\cd,\alphabd_m$线性无关，指的是
+    \begin{itemize}
+    \item 没有不全为零的数$k_1,k_2,\cd,k_m$使(\ref{def1})成立 ；\\[0.1in]
+    \item 只有当$k_1,k_2,\cd,k_m$全为零时，才使(\ref{def1})成立 ；\\[0.1in]
+    \item 若(\ref{def1})成立，则$k_1,k_2,\cd,k_m$必须全为零。
+    \end{itemize}
+  \end{zhu*}
+\end{frame}
+
+
+\begin{frame}
+  \begin{dingli}
+    以下两组等价关系成立:
+    \begin{itemize}
+    \item  向量组$\alphabd_1,\alphabd_2,\cd,\alphabd_m$线性相关，等价于齐次方程组
+      $$
+      x_1\alphabd_1+x_2\alphabd_2+\cd+x_m\alphabd_m=\zero
+      $$
+      有非零解。
+    \item  向量组$\alphabd_1,\alphabd_2,\cd,\alphabd_m$线性无关，等价于齐次方程组
+      $$
+      x_1\alphabd_1+x_2\alphabd_2+\cd+x_m\alphabd_m=\zero
+      $$
+      只有零解。
+    \end{itemize}
+  \end{dingli}
+\end{frame}
+
+\begin{frame}
+  \begin{li}[$\bigstar$]
+    下列命题是否正确？如正确，请证明，若不正确请举反例：\blue{向量组$a_1,a_2,\cd,a_s(s\ge 2)$线性无关的充分必要条件是存在一组不全为零的常数$k_1,k_2,\cd,k_s$使得$k_1a_1+k_2a_2+\cd+k_sa_s\ne 0$.}
+  \end{li}
+  \pause
+  \begin{jie}
+    不正确。如$a_1=(1,2,3), a_2=(2,4,6)$，存在$k_1=k_2=1\ne 0$使得$k_1a_1+k_2a_2\ne0$，但$a_1,a_2$线性相关。
+  \end{jie}
+\end{frame}
+
+
+\begin{frame}
+  \blue{证明向量组$\alphabd_1,\alphabd_2,\cd,\alphabd_m$线性无关}的基本方法为：
+
+  设
+  $$
+  x_1\alphabd_1+x_2\alphabd_2+\cd+x_m\alphabd_m=\zero
+  $$
+  然后说明上式成立，只能有唯一选择：
+  $$
+  x_1=x_2=\cd=x_m=0.
+  $$
+\end{frame}
+
+
+\begin{frame}
+  对于只含一个向量的向量组，
+  \begin{itemize}
+  \item 当$\alphabd=\zero$时，向量组$\alphabd$线性相关
+  \item 当$\alphabd\ne \zero$时，向量组$\alphabd$线性无关
+  \end{itemize}
+\end{frame}
+
+
+
+
+\begin{frame}
+  \begin{dingli}
+    向量组$\alphabd_1,\alphabd_2,\cd,\alphabd_m(m\ge 2)$线性相关的充分必要条件是$\alphabd_1,\alphabd_2,\cd,\alphabd_m$中\red{至少有一个向量}可由其余$m-1$个向量线性表出。
+  \end{dingli}
+
+\end{frame}
+
+
+
+
+\begin{frame}
+  \begin{jielun}
+    如果向量组$\alphabd_1,\alphabd_2,\cd,\alphabd_m$中有一部分向量线性相关，则整个向量组也线性相关。
+  \end{jielun}
+
+  \begin{zhu*}
+    \begin{itemize}
+    \item 如果$\alphabd_1,\alphabd_2,\cd,\alphabd_m$线性无关，则其中任一部分向量组也线性无关。              
+    \item     \red{部分相关，则整体相关；整体无关，则部分无关。}
+    \end{itemize}
+    
+  \end{zhu*}
+
+
+\end{frame}
+
+\begin{frame}
+  \begin{dingli}
+    设$\alphabd_1,\alphabd_2,\cd,\alphabd_r\in \R^n$，其中
+    $$
+    \begin{aligned}
+      \alphabd_1 &= (a_{11},~a_{21},~\cd,~a_{n1})^T,\\
+      \alphabd_2 &= (a_{12},~a_{22},~\cd,~a_{n2})^T,\\
+      &\cd,\\
+      \alphabd_r &= (a_{1r},~a_{2r},~\cd,~a_{nr})^T,
+    \end{aligned}
+    $$
+    则向量组$\alphabd_1,\alphabd_2,\cd,\alphabd_r$线性相关的充分必要条件是齐次线性方程组
+    \begin{equation}\label{ax}
+      \A \xx = \zero
+    \end{equation}
+    有非零解，其中
+    $$
+    \A = (\alphabd_1,~\alphabd_2,~\cd,~\alphabd_r) = \left(
+      \begin{array}{cccc}
+        a_{11}&a_{12}&\cd&a_{1r}\\[0.05in]
+        a_{21}&a_{22}&\cd&a_{2r}\\[0.05in]
+        \vd&\vd&&\vd\\[0.05in]
+        a_{n1}&a_{n2}&\cd&a_{nr}.
+      \end{array}\right), \xx = \left(
+      \begin{array}{c}
+        x_1\\[0.05in]
+        x_2\\[0.05in]
+        \vd\\[0.05in]
+        x_r
+      \end{array}
+    \right)
+    $$
+  \end{dingli}
+\end{frame}  
+
+
+\begin{frame}
+  \begin{jielun}
+    对于齐次线性方程组，如果
+    $$
+    \red{\mbox{未知量个数} ~~>~~ \mbox{方程个数},}
+    $$
+    则它必有无穷多解，从而必有非零解。
+  \end{jielun}   
+
+\end{frame}
+
+
+
+
+\begin{frame}
+  \begin{dingli}
+    任意$n+1$个$n$维向量都是线性相关的。
+  \end{dingli}
+
+  \begin{zhu*}
+    \begin{itemize}
+    \item    向量个数$~>~$向量维数 $~~\red{\Rightarrow}~~$ 向量组必线性相关。 
+    \item     在$\mathbb R^n$中，任意一组线性无关的向量最多只能含$n$个向量。
+    \end{itemize}
+  \end{zhu*}
+\end{frame}
+
+\begin{frame}
+  \begin{dingli}
+    若向量组$\alphabd_1,\alphabd_2,\cd,\alphabd_r$线性无关，而$\red{\betabd},\alphabd_1,\alphabd_2,\cd,\alphabd_r$线性相关，则$\red{\betabd}$可由$\alphabd_1,\alphabd_2,\cd,\alphabd_r$线性表示，并且表示法惟一。
+  \end{dingli} \vspace{0.1in}
+
+  \begin{tuilun}
+    如果$\R^n$中的$n$个向量$\alphabd_1,\alphabd_2,\cd,\alphabd_n$线性无关，则$\R^n$中的任一向量$\alphabd$可由$\alphabd_1,\alphabd_2,\cd,\alphabd_n$线性表示，且表示法惟一。
+  \end{tuilun}
+\end{frame}
+
+\begin{frame}
+  \begin{li}
+    设$\alphabd_1=(1,-1,1),\alphabd_2=(1,2,0),\alphabd_3=(1,0,3),\alphabd_4=(2,-3,7)$.  问：
+    \begin{itemize}
+    \item[(1)]$\alphabd_1,\alphabd_2,\alphabd_3$是否线性相关？
+    \item[(2)]$\alphabd_4$可否由$\alphabd_1,\alphabd_2,\alphabd_3$线性表示？如能表示求出其表示式。
+    \end{itemize}
+  \end{li}
+  % \pause 
+  % \begin{jie}
+  %   \begin{itemize}
+  %   \item[(1)]    考察
+  %     $
+  %     \A = (\alphabd_1^T, \alphabd_2^T, \alphabd_3^T) = \left(
+  %       \begin{array}{rrr}
+  %         1&1&1\\
+  %         -1&2&0\\
+  %         1&0&3
+  %       \end{array}
+  %     \right). 
+  %     $ \quad
+  %     由$|\A|=7$可知$\A$可逆，故$\A\xx=\zero$只有零解，从而$\alphabd_1,\alphabd_2,\alphabd_3$线性无关。  \pause 
+  %   \item[(2)] 根据推论，$\alphabd_4$可由$\alphabd_1,\alphabd_2,\alphabd_3$线性表示，且表示法惟一。  设
+  %     $$
+  %     x_1\alphabd_1+x_2\alphabd_2+x_3\alphabd_3=\alphabd_4   \Rightarrow
+  %     x_1\alphabd_1^T+x_2\alphabd_2^T+x_3\alphabd_3^T=\alphabd_4^T       
+  %     $$
+  %     即$$
+  %     \left(
+  %       \begin{array}{ccc}
+  %         \alphabd_1^T &\alphabd_2^T& \alphabd_3^T  
+  %       \end{array}
+  %     \right) \left(
+  %       \begin{array}{c}
+  %         x_1\\
+  %         x_2\\
+  %         x_3
+  %       \end{array}
+  %     \right)= 
+  %     \left(
+  %       \begin{array}{rrr}
+  %         1&1&1\\
+  %         -1&2&0\\
+  %         1&0&3
+  %       \end{array}
+  %     \right) \left(
+  %       \begin{array}{c}
+  %         x_1\\
+  %         x_2\\
+  %         x_3
+  %       \end{array}
+  %     \right) =  \left(
+  %       \begin{array}{r}
+  %         2\\
+  %         -3\\
+  %         7
+  %       \end{array}
+  %     \right)
+  %     $$  
+  %     解此方程组得惟一解$x_1=1,x_2=-1,x_3=2$，故
+  %     $
+  %     \red{\alphabd_4=\alphabd_1-\alphabd_2+2\alphabd_3.}
+  %     $
+  %   \end{itemize}
+  % \end{jie}
+\end{frame}
+
+\begin{frame}
+  \begin{li}
+    设向量组$\alphabd_1,\alphabd_2,\alphabd_3$线性无关，又$\betabd=\alphabd_1+\alphabd_2+2\alphabd_3$，
+    $\betabd_2=\alphabd_1-\alphabd_2$，$\betabd_3=\alphabd_1+\alphabd_3$，证明$\betabd_1,\betabd_2,\betabd_3$线性相关。       
+  \end{li}
+  % \pause 
+  % \begin{jie}
+  %   设有数$x_1,x_2,x_3$使得
+  %   \begin{equation}\label{li5}
+  %     x_1\betabd_1+x_2\betabd_2+x_3\betabd_3=\zero
+  %   \end{equation}    
+  %   即
+  %   $$
+  %   x_1(\alphabd_1+\alphabd_2+2\alphabd_3)+x_2(\alphabd_1-2\alphabd_2)+x_3(\alphabd_1+\alphabd_3)=\zero
+  %   $$
+  %   亦即
+  %   $$
+  %   (x_1+x_2)\alphabd_1+(x_1-2x_2)\alphabd_2+(x_1+x_3)\alphabd_3=\zero
+  %   $$
+  %   因为$\alphabd_1,\alphabd_2,\alphabd_3$线性无关，故
+  %   $$
+  %   \left\{
+  %     \begin{array}{rcrcrcrcr}
+  %       x_1&+&x_2&&&=&0\\
+  %       x_1&-&x_2&&&=&0\\
+  %       2x_1&&&+&x_3&=&0.
+  %     \end{array}
+  %   \right.
+  %   $$
+  %   求解该方程组可得非零解$(-1,-1,2)$。因此，有不全为零的数$x_1,x_2,x_3$使得(\ref{li5})成立，从而$\betabd_1,\betabd_2,\betabd_3$线性相关。
+  % \end{jie}
+\end{frame}
+
+\begin{frame}
+  \begin{li}
+    证明：$\alphabd_1+\alphabd_2,\alphabd_2+\alphabd_3,\alphabd_3+\alphabd_1$线性无关的充要条件是$\alphabd_1,\alphabd_2,\alphabd_3$线性无关。
+  \end{li}
+  % \begin{proof}
+  %   \red{($\Rightarrow$)} \quad
+  %   假设$\alphabd_1,\alphabd_2,\alphabd_3$线性相关，则有不全为零的数$x_1+x_2,x_2+x_3,x_3+x_1$使得
+  %   $$
+  %   (x_1+x_2)\alphabd_1+(x_2+x_3)\alphabd_2+(x_3+x_1)\alphabd_3=\zero
+  %   $$
+  %   即
+  %   $$
+  %   x_1(\alphabd_1+\alphabd_2)+x_2(\alphabd_2+\alphabd_3)+x_3(\alphabd_3+\alphabd_1)=\zero
+  %   $$
+  %   \pause 
+  %   \red{($\Leftarrow$)} \quad
+  %   设有$x_1,x_2,x_3$使得
+  %   \begin{equation}\label{li6-1}
+  %     x_1(\alphabd_1+\alphabd_2)+x_2(\alphabd_2+\alphabd_3)+x_3(\alphabd_3+\alphabd_1)=\zero
+  %   \end{equation}
+  %   即
+  %   $$
+  %   (x_1+x_3)\alphabd_1+(x_1+x_2)\alphabd_2+(x_2+x_3)\alphabd_3=\zero
+  %   $$
+  %   因为$\alphabd_1,\alphabd_2,\alphabd_3$线性无关，故
+  %   $$
+  %   x_1+x_3=0, \quad x_1+x_2=0, \quad x_2+x_3=0,
+  %   $$
+  %   该方程组只有零解。这说明若使(\ref{li6-1})，必有$x_1=x_2=x_3=0$，从而$\alphabd_1+\alphabd_2,\alphabd_2+\alphabd_3,\alphabd_3+\alphabd_1$线性无关。
+  % \end{proof}
+\end{frame}
+
+\begin{frame}
+  \begin{dingli}
+    如果一组$n$维向量$\alphabd_1,\alphabd_2,\cd,\alphabd_s$线性无关，那么把这些向量各任意添加$m$个分量所得的向量(\red{$n+m$维})组$\alphabd^*_1,\alphabd^*_2,\cd,\alphabd^*_s$也线性无关。亦即
+    $$
+    \left(
+      \begin{array}{c}
+        a_{11}\\
+        a_{21}\\
+        \vd\\
+        a_{n1}\\
+      \end{array}
+    \right)
+    \cd,
+    \left(
+      \begin{array}{c}
+        a_{1s}\\
+        a_{2s}\\
+        \vd\\
+        a_{ns}\\
+      \end{array}
+    \right) \mbox{线性无关}  ~~~\blue{\Rightarrow}~~~
+    \left(
+      \begin{array}{c}
+        a_{11}\\
+        a_{21}\\
+        \vd\\
+        a_{n1}\\
+        \red{a_{n+1,1}}\\
+        \vd\\
+        \red{a_{n+m,1}}
+      \end{array}
+    \right),
+    \cd,
+    \left(
+      \begin{array}{c}
+        a_{1s}\\
+        a_{2s}\\
+        \vd\\
+        a_{ns}\\
+        \red{a_{n+1,s}}\\
+        \vd\\
+        \red{a_{n+m,s}}
+      \end{array}
+    \right) \mbox{线性无关}
+    $$
+  \end{dingli}
+\end{frame}
+
+\begin{frame}
+  \begin{dingli}
+    如果$\alphabd_1,\alphabd_2,\cd,\alphabd_s$线性相关，那么它们各去掉相同的若干个分量所得到的新向量也线性相关，亦即
+    $$  
+    \left(
+      \begin{array}{c}
+        a_{11}\\
+        a_{21}\\
+        \vd\\
+        a_{n1}\\
+        \red{a_{n+1,1}}\\
+        \vd\\
+        \red{a_{n+m,1}}
+      \end{array}
+    \right),
+    \cd,
+    \left(
+      \begin{array}{c}
+        a_{1s}\\
+        a_{2s}\\
+        \vd\\
+        a_{ns}\\
+        \red{a_{n+1,s}}\\
+        \vd\\
+        \red{a_{n+m,s}}
+      \end{array}
+    \right) \mbox{线性相关}  ~~~\blue{\Rightarrow}~~~
+    \left(
+      \begin{array}{c}
+        a_{11}\\
+        a_{21}\\
+        \vd\\
+        a_{n1}\\
+      \end{array}
+    \right)
+    \cd,
+    \left(
+      \begin{array}{c}
+        a_{1s}\\
+        a_{2s}\\
+        \vd\\
+        a_{ns}\\
+      \end{array}
+    \right) \mbox{线性相关}
+    $$
+  \end{dingli}
+\end{frame}
+
+
+\begin{frame}
+  \begin{tuilun}
+    设向量组线性相关，若增加的分量全为零，则得到的新向量组也线性相关。
+  \end{tuilun}
+
+  \purple{对应位置全为零的向量，不影响向量组的线性相关性。}
+
+  如
+  $$  
+  \left(
+    \begin{array}{c}
+      a_{11}\\
+      0\\
+      a_{21}\\
+      \vd\\
+      a_{n1}\\
+      0\\
+      \vd\\
+      0
+    \end{array}
+  \right),
+  \cd,
+  \left(
+    \begin{array}{c}
+      a_{1s}\\
+      0\\
+      a_{2s}\\
+      \vd\\
+      a_{ns}\\
+      0\\
+      \vd\\
+      0
+    \end{array}
+  \right) \mbox{~~与~~}
+  \left(
+    \begin{array}{c}
+      a_{11}\\
+      a_{21}\\
+      \vd\\
+      a_{n1}\\
+    \end{array}
+  \right),
+  \cd,
+  \left(
+    \begin{array}{c}
+      a_{1s}\\
+      a_{2s}\\
+      \vd\\
+      a_{ns}\\
+    \end{array}
+  \right) 
+  $$
+  线性相关性一致。
+\end{frame}
+
+\begin{frame}
+  \begin{li}
+    考察以下向量组的线性相关性：
+    $$
+    \left(
+      \begin{array}{c}
+        1\\
+        0\\
+        0\\
+        2\\
+        5
+      \end{array}
+    \right), \quad
+    \left(
+      \begin{array}{c}
+        0\\
+        1\\
+        0\\
+        6\\
+        9
+      \end{array}
+    \right), \quad
+    \left(
+      \begin{array}{c}
+        0\\
+        0\\
+        1\\
+        4\\
+        3
+      \end{array}
+    \right)
+    $$
+  \end{li} \pause 
+  \begin{jie}
+    去掉最后两个分量所得的向量组
+    $$
+    \left(
+      \begin{array}{c}
+        1\\
+        0\\
+        0
+      \end{array}
+    \right), \quad
+    \left(
+      \begin{array}{c}
+        0\\
+        1\\
+        0
+      \end{array}
+    \right), \quad
+    \left(
+      \begin{array}{c}
+        0\\
+        0\\
+        1
+      \end{array}
+    \right)
+    $$
+    线性无关，故原向量组线性无关。
+  \end{jie}
+\end{frame}
+
+
+\subsection{向量组的秩及其极大线性无关组}
+
+\begin{frame}
+  \begin{dingyi}[向量组的秩]
+    向量组$\alphabd_1,\alphabd_2,\cd,\alphabd_s$中，若
+    \begin{itemize}
+    \item 存在$r$个\blue{\underline{线性无关}}的向量，
+    \item 且其中\blue{\underline{任一向量}}可由这$r$个线性无关的向量线性表示, 
+    \end{itemize}
+    则数$r$称为\red{向量组的秩(rank)}，记作
+    $$
+    \rank(\alphabd_1,\alphabd_2,\cd,\alphabd_s)=r
+    $$
+    或
+    $$
+    \mathrm{rank}(\alphabd_1,\alphabd_2,\cd,\alphabd_s)=r
+    $$
+  \end{dingyi}
+
+\end{frame}
+
+\begin{frame}
+  \begin{itemize}
+  \item 若$\alphabd_1,\alphabd_2,\cd,\alphabd_s$线性无关，
+    则$\rank(\alphabd_1,\alphabd_2,\cd,\alphabd_s)=s$；
+  \item 只含零向量的向量组的秩为零。
+  \item 只含一个非零向量的向量组的秩为1。
+  \end{itemize}
+\end{frame}
+
+\begin{frame}
+  \begin{dingyi}
+    若向量组$B:~\betabd_1,\betabd_2,\cd,\betabd_t$中每个向量可由向量组$A:~\alphabd_1,\alphabd_2,\cd,\alphabd_s$线性表示，
+    就称\red{向量组$B:~\betabd_1,\betabd_2,\cd,\betabd_t$可由向量组$A:~\alphabd_1,\alphabd_2,\cd,\alphabd_s$线性表示}。 
+    \vspace{0.1in}
+    
+    如果两个向量组可以互相线性表示，则称这两个向量组是\red{等价}的。
+  \end{dingyi}
+\end{frame}
+
+\begin{frame}
+  \begin{li}
+    设向量$\betabd$可由向量组$\alphabd_1,\cd,\alphabd_r$线性表出，但不能由$\alphabd_1,\cd,\alphabd_{r-1}$线性表出，证明：向量组$U: \alphabd_1,\cd,\alphabd_r$与向量组$V: \alphabd_1,\cd,\alphabd_{r-1},\betabd$等价。
+  \end{li}
+  \pause
+  \begin{proof}
+    由已知条件知$V$可由$U$线性表出，而$\alphabd_1,\cd,\alphabd_{r-1}$可由$V$线性表出，故只需证明$\alphabd_r$可由$V$线性表出。设
+    $$
+    \betabd=k_1\alphabd_1+\cd+k_{r-1}\alphabd_{r-1}+k_r\alphabd_r
+    $$
+    则$k_r\ne 0$.
+    否则$\betabd$可由$\alphabd_1,\cd,\alphabd_{r-1}$线性表出，与已知矛盾，故$k_r\ne 0$。 于是
+    $$
+    \alphabd_r=-\frac1{k_r}(\betabd-k_1\alphabd_1-\cd-k_{r-1}\alphabd_{r-1})
+    $$
+    即$\alphabd_r$可由$V$线性表出。
+  \end{proof}
+\end{frame}
+
+
+\begin{frame}
+  \begin{dingli}
+    若向量组$\blue{B:~\betabd_1,\betabd_2,\cd,\betabd_t}$可由向量组$\blue{A:~\alphabd_1,\alphabd_2,\cd,\alphabd_s}$线性表示，且$\blue{t>s}$，
+    则$\blue{B:~\betabd_1,\betabd_2,\cd,\betabd_t}$线性相关。
+  \end{dingli}
+
+\end{frame}
+
+\begin{frame}
+  \begin{dingyi}[向量组的秩的等价定义 \& 极大线性无关组]
+    设有向量组$\alphabd_1,\alphabd_2,\cd,\alphabd_s$。
+    如果能从其中选出$r$个向量$\alphabd_1,\alphabd_2,\cd,\alphabd_{\red{r}}$，满足
+    \begin{itemize}
+    \item 向量组$\alphabd_1,\alphabd_2,\cd,\alphabd_{\red{r}}$线性无关；
+    \item 向量组$\alphabd_1,\alphabd_2,\cd,\alphabd_s$中任意$r+1$个向量都线性相关，
+    \end{itemize}
+    则称向量组$\alphabd_1,\alphabd_2,\cd,\alphabd_{\red{r}}$为原向量组的一个\red{极大线性无关组}，简称\red{极大无关组}。 
+    \vspace{0.1in}
+
+    \blue{\underline{极大线性无关组所含向量的个数$\red{r}$}}，称为原向量组的\red{秩}。
+  \end{dingyi}
+\end{frame}
+
+\begin{frame}
+  \begin{zhu}
+    \begin{itemize}
+    \item   秩为$r$的向量组中，任一个线性无关的部分组最多含有$r$个向量；
+    \item 一般情况下，极大无关组不惟一；
+    \item 不同的极大无关组所含向量个数相同；
+    \item 极大无关组与原向量组是等价的;
+    \item 极大无关组是原向量组的\red{全权代表}。
+    \end{itemize}
+  \end{zhu}
+\end{frame}
+
+\begin{frame}
+  \begin{tuilun}
+    设$\blue{\rank(\alphabd_1,\alphabd_2,\cd,\alphabd_s)=p,~~\rank(\betabd_1,\betabd_2,\cd,\betabd_t)=r}$，
+    如果向量组$\blue{B:~\betabd_1,\betabd_2,\cd,\betabd_t}$可由$\blue{A:~\alphabd_1,\alphabd_2,\cd,\alphabd_s}$线性表示，则
+    $$\red{r\le p.}$$
+  \end{tuilun}
+
+\end{frame}
+
+
+\begin{frame}
+  \begin{tuilun}
+    \red{等价向量组的秩相等}。
+  \end{tuilun}
+\end{frame}
+
+\subsection{矩阵的秩}
+\begin{frame}
+  \begin{dingyi}[行秩 \& 列秩]
+    \begin{itemize}
+    \item
+      对于矩阵$\A$，把它的每一行称为$\A$的一个\red{行向量}。
+      把$\A$的行向量组的秩，称为矩阵$\A$的\red{行秩}。
+    \item
+      对于矩阵$\A$，把它的每一列称为$\A$的一个\red{列向量}。
+      把$\A$的列向量组的秩，称为矩阵$\A$的\red{列秩}。
+    \end{itemize}      
+  \end{dingyi}    
+  对于$m\times n$阶矩阵$\A$，
+  \begin{itemize}
+  \item $\A$的行秩$~\le~ m$；
+  \item $\A$的列秩$~\le~ n$。
+  \end{itemize}
+\end{frame}
+
+\begin{frame}
+  \begin{dingyi}[阶梯形矩阵]
+    若矩阵$\A$满足
+    \begin{itemize}
+    \item[(1)] 零行在最下方；
+    \item[(2)] 非零行首元的列标号随行标号的增加而严格递增，
+    \end{itemize}
+    则称$\A$为\red{阶梯形矩阵}。
+  \end{dingyi}
+
+  \begin{li*}
+    $$
+    \left(
+      \begin{array}{rrrr}
+        2&0&2&1\\
+        0&5&2&-2\\
+        0&0&3&2\\
+        0&0&0&0
+      \end{array}
+    \right)
+    $$
+  \end{li*}
+\end{frame}
+
+
+\begin{frame}
+  \begin{dingyi}{行简化阶梯形矩阵}
+    若矩阵$\A$满足
+    \begin{itemize}
+    \item[(1)] 它是阶梯形矩阵；
+    \item[(2)] 非零行首元所在的列除了非零行首元外，其余元素全为零，
+    \end{itemize}
+    则称$\A$为\red{行简化阶梯形矩阵}。
+  \end{dingyi}
+
+  \begin{li*}
+    $$
+    \left(
+      \begin{array}{rrrr}
+        2&0&0&1\\
+        0&5&0&-2\\
+        0&0&3&2\\
+        0&0&0&0
+      \end{array}
+    \right)
+    $$
+  \end{li*}
+\end{frame}
+
+\begin{frame}
+  \begin{dingyi}{行简化阶梯形矩阵}
+    若矩阵$\A$满足
+    \begin{itemize}
+    \item[(1)] 它是行简化阶梯形矩阵；
+    \item[(2)] 非零行首元全为$1$，
+    \end{itemize}
+    则称$\A$为\red{行最简阶梯形矩阵}。
+  \end{dingyi}
+
+  \begin{li*}
+    $$
+    \left(
+      \begin{array}{rrrr}
+        1&0&0&1\\
+        0&1&0&-2\\
+        0&0&1&2\\
+        0&0&0&0
+      \end{array}
+    \right)
+    $$
+  \end{li*}
+\end{frame}
+
+
+
+\begin{frame}
+  阶梯形矩阵
+  \begin{figure}
+    \centering
+    \begin{tikzpicture}
+      \matrix (M) [matrix of math nodes]  { 
+        \A = \\
+      };
+      \matrix(MM) [right=.1in of M, matrix of math nodes,nodes in empty cells,
+      column sep=3ex,row sep=1ex,ampersand replacement=\&,left delimiter=(,right delimiter=)] {
+        a_{11} \& a_{12} \& a_{13}  \& a_{14} \& a_{15}\\
+        0 \& 0 \& a_{23}  \& a_{24} \& a_{25}\\
+        0 \& 0 \& 0  \& a_{34} \& a_{35}\\
+        0 \& 0 \& 0  \& 0 \& 0\\
+      };
+      \draw[thick,red,dashed] (MM-2-1.north west)--(MM-2-2.north east)
+      --(MM-3-2.north east)--(MM-3-3.north east)
+      --(MM-4-3.north east)--(MM-4-5.north east);
+    \end{tikzpicture}
+  \end{figure}
+  其中$a_{11}\ne0, a_{23}\ne 0, a_{34}\ne 0$。
+  \red{验证$\A$的行秩$=3$，列秩$=3$}。
+\end{frame}
+
+
+\begin{frame}
+  \begin{jielun}
+    阶梯形矩阵的行秩等于列秩，其值等于阶梯形矩阵的非零行的行数。
+  \end{jielun}
+\end{frame}
+
+\begin{frame}
+  \begin{dingli}
+    初等行变换不改变矩阵的行秩和列秩。
+  \end{dingli}
+  \begin{dingli}
+    初等变换不改变矩阵的行秩与列秩。
+  \end{dingli}
+
+\end{frame}
+
+\begin{frame}
+  \begin{li}[$\bigstar$]
+    设向量组
+    $$
+    \alphabd_1=\left(
+      \begin{array}{r}
+        -1\\-1\\0\\0
+      \end{array}
+    \right),~~ \alphabd_2=\left(
+      \begin{array}{r}
+        1\\2\\1\\-1
+      \end{array}
+    \right),~~ \alphabd_3=\left(
+      \begin{array}{r}
+        0\\1\\1\\-1
+      \end{array}
+    \right),~~ \alphabd_4=\left(
+      \begin{array}{r}
+        1\\3\\2\\1
+      \end{array}
+    \right),~~ \alphabd_5=\left(
+      \begin{array}{r}
+        2\\6\\4\\-1
+      \end{array}
+    \right)
+    $$
+    求向量组的秩及其一个极大无关组，并将其余向量用该极大无关组线性表示。
+  \end{li}
+\end{frame}
+
+\begin{frame}[allowframebreaks]
+  \begin{jie}
+    作矩阵$\A=(\alphabd_1,\alphabd_2,\alphabd_3,\alphabd_4,\alphabd_5)$，由
+    $$
+    \begin{array}{rl}
+      \A &= \left(
+           \begin{array}{rrrrr}
+             -1&1&0&1&2\\
+             -1&2&1&3&6\\
+             0&1&1&2&4\\
+             0&-1&-1&1&-1
+           \end{array}
+                        \right) \xlongrightarrow[r_2+r_1]{ r_1\times(-1)}
+                        \left(
+                        \begin{array}{rrrrr}
+                          1&-1&0&-1&-2\\
+                          0&1&1&2&4\\
+                          0&1&1&2&4\\
+                          0&-1&-1&1&-1
+                        \end{array}
+                                     \right)\\[0.4in]
+         &\xlongrightarrow[r_4+r_2]{r_3- r_2}
+           \left(
+           \begin{array}{rrrrr}
+             1&-1&0&-1&-2\\
+             0&1&1&2&4\\
+             0&0&0&0&0\\
+             0&0&0&3&3
+           \end{array}
+                      \right) \xlongrightarrow[r_3\leftrightarrow r_4]{r_4\div 3}
+                      \left(
+                      \begin{array}{rrrrr}
+                        1&-1&0&-1&-2\\
+                        0&1&1&2&4\\
+                        0&0&0&1&1\\
+                        0&0&0&0&0
+                      \end{array}
+                                 \right)
+    \end{array}
+    $$
+
+    $$
+    \begin{array}{rl}
+      & \xlongrightarrow[r_2 -2 r_3]{r_1+r_3}
+        \left(
+        \begin{array}{rrrrr}
+          1&-1&0&0&-1\\
+          0&1&1&0&2\\
+          0&0&0&1&1\\
+          0&0&0&0&0
+        \end{array}
+                   \right) \xlongrightarrow[]{r_1+r_2}
+                   \left(
+                   \begin{array}{rrrrr}
+                     1&0&1&0&1\\
+                     0&1&1&0&2\\
+                     0&0&0&1&1\\
+                     0&0&0&0&0
+                   \end{array}
+                              \right) = \B
+    \end{array}
+    $$
+    将最后一个阶梯矩阵$\B$记为$(\betabd_1,\betabd_2,\betabd_3,\betabd_4,\betabd_5)$
+
+    易知$\betabd_1,\betabd_2,\betabd_4$为$\B$的列向量组的一个极大无关组，故$\alphabd_1,\alphabd_2,\alphabd_4$也为$\A$的列向量组的一个极大无关组，故
+    $$
+    \rank(\alphabd_1,\alphabd_2,\alphabd_3,\alphabd_4,\alphabd_5)=3,
+    $$
+    且
+    $$
+    \begin{array}{l}
+      \alphabd_3=\alphabd_1+\alphabd_2,\\
+      \alphabd_5=\alphabd_1+2\alphabd_2+\alphabd_4,\\
+    \end{array}
+    $$
+  \end{jie}
+\end{frame}
+
+
+\begin{frame}
+  \begin{dingli}
+    矩阵的行秩等于其列秩。
+  \end{dingli}
+  \begin{dingyi}[矩阵的秩]
+    矩阵的行秩或列秩的数值，称为\red{矩阵的秩}。记作
+    $$
+    \rank(\A)  \quad \mbox{或}  \quad
+    \mathrm{rank} (\A)
+    $$
+  \end{dingyi}
+
+  \begin{dingyi}[满秩矩阵]
+    对于$n$阶方阵，若
+    $$
+    \rank(\A) = n,
+    $$
+    则称$\A$为\red{满秩矩阵}。
+  \end{dingyi}
+\end{frame}
+
+\begin{frame}
+  \begin{dingli}
+    对于$n$阶方阵，下列表述等价：
+    \begin{itemize}
+    \item[(1)] $\A$为满秩矩阵。
+    \item[(2)] $\A$为可逆矩阵。
+    \item[(3)] $\A$为非奇异矩阵。
+    \item[(4)] $\det(\A)\ne 0$。
+    \end{itemize}
+  \end{dingli} 
+\end{frame}
+
+\begin{frame}
+  \begin{dingyi}[子式与主子式]
+    对矩阵$\A=(a_{ij})_{m\times n}$，任意挑选$k$行($i_1,i_2,\cd,i_k$行)与$k$列($j_1,j_2,\cd,j_k$列)，
+    其交点上的$k^2$个元素按原顺序排成的$k$阶行列式
+    \begin{equation}\label{subdet}
+      \left|
+        \begin{array}{cccc}
+          a_{i_1j_1} & a_{i_1j_2} & \cd & a_{i_1j_k}\\
+          a_{i_2j_1} & a_{i_2j_2} & \cd & a_{i_2j_k}\\
+          \vd & \vd && \vd\\
+          a_{i_kj_1} & a_{i_kj_2} & \cd & a_{i_kj_k}\\
+        \end{array}
+      \right|
+    \end{equation}
+    称为$\A$的\red{$k$阶子行列式}，简称$\A$的\red{$k$阶子式}。 
+    \begin{itemize}
+    \item 当(\ref{subdet})等于零时，称为\red{$k$阶零子式};
+    \item 当(\ref{subdet})不等于零时，称为\red{$k$阶非零子式};
+    \item 当(\ref{subdet})的$j_1=i_1,~j_2=i_2,~\cd,~j_k=i_k$，称为$\A$的\red{$k$阶主子式}。
+    \end{itemize}
+  \end{dingyi}
+\end{frame}
+
+\begin{frame}
+  \begin{zhu*}
+    \blue{若$\A$存在$r$阶非零子式，而所有$r+1$阶子式(如果有)都等于零，则矩阵$\A$的非零子式的最高阶数为$r$。}
+  \end{zhu*}
+  事实上，由行列式的按行展开可知，若所有$r+1$阶子式都等于零，可得到所有更高阶的子式都等于零。
+
+\end{frame}
+
+
+\begin{frame}
+  \begin{dingli}
+    $\rank(\A)=r$的充分必要条件是$\A$的非零子式的最高阶数为$r$。
+  \end{dingli} 
+\end{frame}
+
+\begin{frame}
+  关于矩阵的秩的基本结论
+  \begin{itemize}
+  \item[(1)]  $\red{\rank(\A)=\A\mbox{的行秩}=\A\mbox{的列秩}=\A\mbox{的非零子式的最高阶数}}$
+  \item[(2)]  \red{初等变换不改变矩阵的秩}
+  \end{itemize}
+\end{frame}
+
+\begin{frame}
+  \begin{xingzhi}
+    $$
+    \red{\max\{\rank(\A),~\rank(\B)\}~~\le~~ \rank(\A,~\B) ~~\le~~ \rank(\A) + \rank(\B).}
+    $$
+    特别地，当$\B=\bb$为非零向量时，有
+    $$
+    \red{\rank(\A)~~\le~~\rank(\A,~\bb)~~\le~~\rank(\A)+1.}
+    $$
+  \end{xingzhi}
+\end{frame}
+
+\begin{frame}
+  $$
+  \rank(\A,\bb) = \left\{
+    \begin{array}{ll}
+      \rank(\A) & \Longleftrightarrow~~ \bb\mbox{可以被}\A\mbox{的列向量线性表示}\\[0.1in]
+      \rank(\A)+1 & \Longleftrightarrow~~ \bb\mbox{不能被}\A\mbox{的列向量线性表示}
+    \end{array}
+  \right.
+  $$
+\end{frame}
+
+
+
+\begin{frame}
+  设$$\A=\left(
+    \begin{array}{cc}
+      1&0\\
+      0&1\\
+      0&0
+    \end{array}
+  \right),~~
+  \bb_1=\left(
+    \begin{array}{cc}
+      1\\
+      2\\
+      0
+    \end{array}
+  \right), ~~
+  \bb_2=\left(
+    \begin{array}{cc}
+      0\\
+      0\\
+      1
+    \end{array}
+  \right)  
+  $$
+  \begin{itemize}
+  \item[(1)] 因
+    $$
+    (\A,~\bb_1) = \left(
+      \begin{array}{ccc}
+        1&0&\red{1}\\
+        0&1&\red{2}\\
+        0&0&\red{0}
+      \end{array}
+    \right) \xlongrightarrow[]{c_3-(c_1+2c_2)}
+    \left(
+      \begin{array}{ccc}
+        1&0&\red{0}\\
+        0&1&\red{0}\\
+        0&0&\red{0}
+      \end{array}
+    \right) = (\A, \zero),
+    $$
+    故$\rank(\A,\bb_1)=\rank(\A,\zero)=\rank(\A)$，从而$\bb_1$可由$\A$的列向量线性表示。\\[0.1in]  
+  \item[(2)] 因
+    $$
+    (\A,~\bb_2) = \left(
+      \begin{array}{ccc}
+        1&0&\red{0}\\
+        0&1&\red{0}\\
+        0&0&\red{1}
+      \end{array}
+    \right),
+    $$
+    故$\rank(\A,\bb)=\rank(\A)+1$，
+    从而$\bb$不能由$\A$的列向量线性表示。  
+  \end{itemize}
+\end{frame}
+
+
+\begin{frame}
+  \begin{zhu*}
+    \begin{itemize}
+    \item 不等式
+      $$
+      \min\{\rank(\A),~\rank(\B)\} ~~\le~~ \rank(\A,~\B)
+      $$
+      意味着：在$\A$的右侧添加新的列，只有可能使得秩在原来的基础上得到增加；当$\B$的列向量能被$\A$的列向量线性表示时，等号成立。\\[0.1in]  \pause 
+    \item 不等式
+      $$
+      \rank(\A,~\B) ~~\le~~ \rank(\A)+\rank(\B)
+      $$
+      意味着：对$(\A,~\B)$，有可能$\A$的列向量与$\B$的列向量出现线性相关，合并为$(\A,~\B)$的秩一般会比$\rank(\A)+\rank(\B)$要小。
+    \end{itemize}
+  \end{zhu*}
+\end{frame}
+
+
+\begin{frame}
+  \begin{xingzhi}
+    $$
+    \red{\rank(\A+\B) \le \rank(\A)+\rank(\B).}
+    $$
+  \end{xingzhi}
+
+  \begin{zhu*}
+    将矩阵$\A$和$\B$合并、相加，只可能使得秩减小。
+  \end{zhu*}
+
+\end{frame}
+
+\begin{frame}
+  \begin{xingzhi}
+    $$
+    \red{\rank(\A\B) \le \min(\rank(\A),~\rank(\B)).}
+    $$
+  \end{xingzhi}
+
+
+  \red{该性质告诉我们，对一个向量组进行线性组合，可能会使向量组的秩减小。}
+\end{frame}
+
+\begin{frame}
+  \begin{xingzhi}
+    设$\A$为$m\times n$矩阵，$\PP,\QQ$分别为$m$阶、$n$阶可逆矩阵，则
+    $$
+    \rank(\A) = \rank(\PP\A) = \rank(\A\QQ)  = \rank(\PP\A\QQ).
+    $$
+  \end{xingzhi}
+\end{frame}
+
+\begin{frame}
+  \begin{li}
+    设$\A$是$m\times n$矩阵，且$m<n$，证明：$|\A^T\A|=0$.
+  \end{li}
+  \vspace{.1in}\pause 
+
+  \begin{jie}
+    由于$\rank(\A)=\rank(\A^T)\le \min\{m,n\}<n$，根据性质2，有
+    $$
+    \rank(\A^T\A) \le \min\{\rank(\A^T),~\rank(\A)\} < n,
+    $$
+    而$\A^T\A$为$n$阶矩阵，故$|\A^T\A|=0$。
+  \end{jie}
+\end{frame}
+
+
+
+
+\begin{frame}
+  \begin{dingli}
+    若$\A$为$m\times n$矩阵，且$\rank(\A)=r$，则一定存在可逆的$m$阶矩阵$\PP$和$n$阶矩阵$\QQ$使得
+    $$
+    \PP\A\QQ=\left(
+      \begin{array}{cc}
+        \II_r&\zero\\
+        \zero&\zero
+      \end{array}
+    \right)_{m\times n} = \U.
+    $$
+  \end{dingli}
+\end{frame}
+
+
+\begin{frame}
+  \begin{li}[$\bigstar$]
+    设
+    $$
+    \begin{aligned}
+      \alphabd_1=(1,3,1,2), &~\alphabd_2=(2,5,3,3), \\
+      \alphabd_3=(0,1,-1,a),& ~\alphabd_4=(3,10,k,4),
+    \end{aligned}
+    $$
+    试求向量组$\alphabd_1,~\alphabd_2,~\alphabd_3,~\alphabd_4$的秩，并将$\alphabd_4$用$\alphabd_1,~\alphabd_2,~\alphabd_3$线性表示。
+  \end{li}
+\end{frame}
+
+\begin{frame}[allowframebreaks]
+  \begin{jie}
+    将4个向量按列排成一个矩阵$\A$，做初等变换将其化为阶梯形矩阵$\U$，即
+    $$
+    \A=\left(
+      \begin{array}{rrrr}
+        1&2&0&3\\
+        3&5&1&10\\
+        1&3&-1&k\\
+        2&3&a&4
+      \end{array}
+    \right) \xlongrightarrow[]{\mbox{初等行变换}}
+    \left(
+      \begin{array}{rrcc}
+        1&2&0&3\\
+        0&-1&1&1\\
+        0&0&a-1&-3\\
+        0&0&0&k-2
+      \end{array}
+    \right)
+    $$
+    \begin{itemize}
+    \item[(1)] 当$a=1$或$k=2$时，$\U$只有3个非零行，故
+      $$
+      \red{\rank(\alphabd_1,\alphabd_2,\alphabd_3,\alphabd_4)=\rank(\A)=3.}
+      $$ 
+    \item[(2)]  当$a\ne1$且$k\ne2$时，
+      $\red{\rank(\alphabd_1,\alphabd_2,\alphabd_3,\alphabd_4)=\rank(\A)=4.}$
+    \item[(3)] 当$k=2$且$a\ne1$时，$\alphabd_4$可由$\alphabd_1,~\alphabd_2,~\alphabd_3$线性表示，
+      且
+      $$
+      \alphabd_4=-\frac{1+5a}{1-a}\alphabd_1+\frac{2+a}{1-a}\alphabd_2+\frac{3}{1-a}\alphabd_3.
+      $$
+    \item[(4)]  当$k\ne2$或$a=1$时，$\alphabd_4$不能由$\alphabd_1,~\alphabd_2,~\alphabd_3$线性表示。
+    \end{itemize}
+  \end{jie}
+\end{frame}
+
+\begin{frame}
+  \begin{li}
+    设
+    $$
+    \A=\left(
+      \begin{array}{rrr}
+        1&2&1\\
+        2&2&-2\\
+        -1&t&5\\
+        1&0&-3
+      \end{array}
+    \right)
+    $$
+    已知$\rank(\A)=2$，求$t$。
+  \end{li}\pause 
+  \begin{jie}
+    $$
+    \A \xlongrightarrow[]{\mbox{初等行变换}} \left(
+      \begin{array}{ccr}
+        1&2&1\\
+        0&-2&-4\\
+        0&2+t&6\\
+        0&0&0
+      \end{array}
+    \right)=\B
+    $$ 
+    由于$\rank(\B)=\rank(\A)$，故$\B$中第2、3行必须成比例，即
+    $$
+    \frac{-2}{2+t}=\frac{-4}6,
+    $$
+    即得$t=1$。
+  \end{jie}
+\end{frame}
+
+
+\subsection{齐次线性方程组有非零解的条件及解的结构}
+\begin{frame}
+  设$\A$为$m\times n$矩阵，考察以$\A$为系数矩阵的齐次线性方程组
+  \begin{equation}\label{ax0}
+    \A\xx=\zero.
+  \end{equation}    
+  若将$\A$按列分块为
+  $$
+  \A = (\alphabd_1,~\alphabd_2,~\cd,~\alphabd_n),
+  $$
+  齐次方程组(\ref{ax0})可表示为
+  $$
+  x_1\alphabd_1+x_2\alphabd_2+\cd+x_n\alphabd_n=\zero.
+  $$
+  而齐次方程组(\ref{ax0})有\blue{非零解}的充分必要条件是$\alphabd_1,~\alphabd_2,~\cd,~\alphabd_n$\blue{线性相关}，即
+  $$
+  \rank(\A) = \rank(\alphabd_1,~\alphabd_2,~\cd,~\alphabd_n) < n.
+  $$
+\end{frame}
+
+
+\begin{frame}
+  \begin{dingli}
+    设$\A$为$m\times n$矩阵，则
+    $$
+    \blue{\underline{\A\xx=\zero\mbox{有非零解}}} ~~\Longleftrightarrow~~
+    \blue{\underline{\rank(\A)<n}}.$$
+  \end{dingli}
+
+
+  \begin{dingli}[定理1的等价命题]
+    设$\A$为$m\times n$矩阵，则
+    $$
+    \blue{\underline{\A\xx=\zero\mbox{只有零解}}} ~~\Longleftrightarrow~~
+    \blue{\underline{\rank(\A)=n=\A\mbox{的列数}}}.
+    $$
+  \end{dingli}
+\end{frame}
+
+
+
+\begin{frame}
+  \begin{dingyi}[基础解系]
+    设$\xx_1,~\xx_2,~\cd,~\xx_p$为$\A\xx=\zero$的解向量，若
+    \begin{itemize}
+    \item[(1)] $\xx_1,~\xx_2,~\cd,~\xx_p$线性无关；
+    \item[(2)] $\A\xx=\zero$的任一解向量可由$\xx_1,~\xx_2,~\cd,~\xx_p$线性表示。
+    \end{itemize}
+    则称$\xx_1,~\xx_2,~\cd,~\xx_p$为$\A\xx=\zero$的一个\blue{\underline{基础解系}}。
+  \end{dingyi}
+\end{frame}
+
+\begin{frame}
+  \begin{zhu*}
+    关于基础解系，请注意以下几点：
+    \begin{itemize}
+    \item[(1)] 基础解系即全部解向量的\blue{极大无关组}。\\[0.1in]  
+    \item[(2)] 找到了基础解系，就找到了齐次线性方程组的全部解：
+      $$
+      k_1\xx_1+k_2\xx_2+\cd+k_p\xx_p \quad(k_1,k_2,\cd,k_p\mbox{为任意常数}).
+      $$ 
+    \item[(3)] 基础解系\blue{不唯一}。
+    \end{itemize}
+  \end{zhu*}
+\end{frame}
+
+
+
+
+\begin{frame}
+  \begin{dingli}
+    设$\A$为$m\times n$矩阵，若$\rank(\A)=r<n$，则齐次线性方程组$\A\xx=\zero$存在基础解系，
+    且基础解系含$n-r$个解向量。
+  \end{dingli}
+
+  \begin{zhu*}
+    注意以下两点：
+    \begin{itemize}
+    \item $r$为$\A$的秩，也是$\A$的行阶梯形矩阵的非零行行数，是非自由未知量的个数。 
+    \item $n$为未知量的个数，故$n-r$为自由未知量的个数。 有多少自由未知量，基础解系里就对应有多少个向量。
+    \end{itemize}
+  \end{zhu*}
+\end{frame}
+
+\begin{frame}
+  \begin{li}[$\bigstar$]
+    求齐次线性方程组$\A\xx=\zero$的基础解系，其中
+    $$
+    \A = \left(
+      \begin{array}{rrrr}
+        1&-8&10&2\\
+        2&4&5&-1\\
+        3&8&6&-2
+      \end{array}
+    \right).
+    $$
+  \end{li} 
+\end{frame}
+
+\begin{frame}[allowframebreaks]
+  \begin{jie}
+    $$
+    \begin{array}{l}
+      \left(
+      \begin{array}{rrrr}
+        1&-8&10&2\\
+        2&4&5&-1\\
+        3&8&6&-2
+      \end{array}
+               \right) \xlongrightarrow[r_3-3r_1]{r_2-2r_1}
+               \left(
+               \begin{array}{rrrr}
+                 1&-8&10&2\\
+                 0&20&-15&-5\\
+                 0&32&24&-8
+               \end{array}
+                          \right)\\[0.3in]
+      \xlongrightarrow[r_2\div4]{r_3\div8}
+      \left(
+      \begin{array}{rrrr}
+        1&-8&10&2\\
+        0&4&-3&-1\\
+        0&4&-3&-1
+      \end{array}
+                \right) \xlongrightarrow[r_1+2r_2]{r_3-r_2}
+                \left(
+                \begin{array}{rrrr}
+                  1&0&4&0\\
+                  0&4&-3&-1\\
+                  0&0&0&0
+                \end{array}
+                         \right) \\[0.3in]
+      \xlongrightarrow[]{r_2\div4}
+      \left(
+      \begin{array}{rrrr}
+        1&0&4&0\\
+        0&1&-3/4&-1/4\\
+        0&0&0&0
+      \end{array}
+               \right)
+    \end{array}
+    $$
+    原方程等价于
+    $$\left\{
+      \begin{array}{rcrcrc}
+        x_1&=&-4&x_3&&\\[0.1in]
+        x_2&=&\frac34&x_3&+\frac14&x_4
+      \end{array}
+    \right.  \Leftrightarrow
+    \left\{
+      \begin{array}{rcrcrc}
+        x_1&=&-4&x_3&&\\[0.1in]
+        x_2&=&\frac34&x_3&+\frac14&x_4\\[0.1in]
+        x_3&=&&x_3&&\\[0.1in]
+        x_4&=&&&&x_4      
+      \end{array}
+    \right.
+    $$
+    基础解系为
+    $$
+    \xibd_1 = \left(
+      \begin{array}{r}
+        -4\\[0.1in]
+        \frac34\\[0.1in]
+        1\\[0.1in]
+        0
+      \end{array}
+    \right), \quad \xibd_2 = \left(
+      \begin{array}{r}
+        0\\[0.1in]
+        \frac14\\[0.1in]
+        0\\[0.1in]
+        1
+      \end{array}
+    \right)
+    $$
+  \end{jie}
+\end{frame}
+
+\begin{frame}
+  \begin{li}[$\bigstar$]
+    求齐次线性方程组
+    $$
+    nx_1+(n-1)x_2+\cd+2x_{n-1}+x_n=0
+    $$
+    的基础解系。      
+  \end{li}
+  \pause 
+  \begin{jie}
+    原方程等价于$x_n=-nx_1-(n-1)x_2-\cd-2x_{n-1}$， 即
+    $$
+    \left\{
+      \begin{array}{rcrrrr}
+        x_1&=&x_1&&&\\
+        x_2&=&&x_2&&\\
+           &\vd&&&&\\
+        x_{n-1}&=&&&&x_{n-1}\\      
+        x_n&=&-nx_1&-(n-1)x_2&\cd&-2x_{n-1}
+      \end{array}    
+    \right.
+    $$
+    基础解系为
+    $$
+    (\xibd_1,\xibd_2,\cd,\xibd_{n-1})=\left(
+      \begin{array}{rrrr}
+        1&0&\cd&0\\
+        0&1&\cd&0\\
+        \vd&\vd&&\vd\\
+        0&0&\cd&1\\
+        -n&-n+1&\cd&-2
+      \end{array}
+    \right)
+    $$
+  \end{jie}
+\end{frame}
+
+\begin{frame}
+  \begin{li}
+    设$\A$与$\B$分别为$m\times n$和$n\times s$矩阵，且$\A\B=\zero$。证明：
+    $$
+    \rank(\A)+\rank(\B)\le n.
+    $$
+  \end{li}
+  \pause 
+  \begin{proof}
+    由$\A\B=\zero$知，$\B$的列向量是$\A\xx=\zero$的解。
+    故$\B$的列向量组的秩，不超过$\A\xx=\zero$的基础解系的秩，即
+    $$
+    \rank(\B) \le n-\rank(\A),
+    $$
+    即
+    $$
+    \rank(\A)+\rank(\B)\le n.
+    $$
+  \end{proof}
+\end{frame}
+
+\begin{frame}
+
+  \begin{li}
+    设$n$元齐次线性方程组$\A\xx=\zero$与$\B\xx=\zero$同解，证明
+    $$
+    \rank(\A)=\rank(\B).
+    $$
+  \end{li}
+  \pause 
+  \begin{jie}
+    $\A\xx=\zero$与$\B\xx=\zero$同解，故它们有相同的基础解系，而基础解系包含的向量个数相等，即
+    $$
+    n-\rank(\A)=n-\rank(\B),
+    $$
+    从而
+    $$
+    \rank(\A)=\rank(\B).
+    $$
+  \end{jie}
+\end{frame}
+
+
+\begin{frame}
+  \begin{li}
+    设$\A$为$m\times n$实矩阵，证明$\rank(\A^T\A)=\rank(\A)$。    
+  \end{li}
+  \pause 
+  \begin{proof}
+    只需证明$\A\xx=\zero$与$(\A^T\A)\xx=\zero$同解。
+    \begin{itemize}
+    \item[(1)] 若$\xx$满足$\A\xx=\zero$，则有$(\A^T\A)\xx=\A^T(\A\xx)=\zero$。 
+    \item[(2)] 若$\xx$满足$\A^T\A\xx=\zero$，则
+      $$
+      \xx^T\A^T\A\xx=\zero,
+      $$
+      即
+      $$
+      (\A\xx)^T\A\xx=\zero,
+      $$
+      故$\A\xx=\zero$。
+    \end{itemize}
+  \end{proof}
+\end{frame}
+
+
+\subsection{非齐次线性方程组有解的条件及解的结构}
+\begin{frame}
+  \begin{dingli}
+    对于非齐次线性方程组$\A\xx=\bb$，以下命题等价：
+    \begin{itemize}
+    \item[(i)] $\A\xx=\bb$有解；
+    \item[(ii)] $\bb$可由$\A$的列向量组线性表示；
+    \item[(iii)] $\rank(\A,\bb)=\rank(\A)$。
+    \end{itemize}
+  \end{dingli}
+\end{frame}
+
+
+\begin{frame}
+  \begin{zhu*}
+    \blue{$\rank(\A,\bb)=\rank(\A)+1$会导致矛盾方程的出现。}
+  \end{zhu*}
+  记$\rank(\A)=r$，若$\rank(\A,\bb)=\rank(\A)+1$，则增广矩阵$(\A,\bb)$经过初等行变换所得的行最简阶梯形矩阵形如
+  \begin{center}
+    \begin{tikzpicture}
+      \matrix(MM) [matrix of math nodes,nodes in empty cells,ampersand replacement=\&,left delimiter=(,right delimiter=)] {
+        1\&\cd\&0\&c_{1,r+1}\&\cd\&c_{1n}\&\&d_1\\        
+        \vd\&\&\vd\&\vd\&\&\vd\&\&\vd\\
+        0\&\cd\&1\&c_{r,r+1}\&\cd\&c_{rn}\&\&d_r\\
+        0\&\cd\&0\&0\&\cd\&0\&\&\red{d_{r+1}}\\
+        0\&\cd\&0\&0\&\cd\&0\&\&0\\        
+        \vd\&\&\vd\&\vd\&\&\vd\&\&\vd\\
+        0\&\cd\&0\&0\&\cd\&0\&\&0\\
+      };  
+      \draw[thick,dashed] (MM-1-7.north)--(MM-7-7.south);
+    \end{tikzpicture}
+  \end{center}
+  其中$d_{r+1}\ne 0$（否则$\rank(\A,\bb)=r$）。这意味着出现了矛盾方程
+  $$
+  0 = \red{d_{r+1}}.
+  $$    
+\end{frame}
+
+\begin{frame}
+  \begin{tuilun}
+    $$
+    \A\xx=\bb\mbox{有唯一解} ~~\Longleftrightarrow~~
+    \rank(\A,\bb)=\rank(\A)=\A\mbox{的列数}.
+    $$
+  \end{tuilun}
+  \begin{center}
+    \begin{tikzpicture}
+      \matrix(MM) [matrix of math nodes,nodes in empty cells,ampersand replacement=\&,left delimiter=(,right delimiter=)] {
+        1\&\cd\&0\&\&d_1\\        
+        \vd\&\&\vd\&\&\vd\\
+        0\&\cd\&1\&\&d_r\\
+        0\&\cd\&0\&\&0\\
+        0\&\cd\&0\&\&0\\
+        \vd\&\&\vd\&\&\vd\\
+        0\&\cd\&0\&\&0\\
+      };  
+      \draw[thick,dashed] (MM-1-4.north)--(MM-7-4.south);
+    \end{tikzpicture}
+  \end{center}
+\end{frame}
+
+
+\begin{frame}
+  \begin{dingli}
+    若$\A\xx=\bb$有解，则其通解为
+    $$
+    \xx=\xx_0+\widetilde {\xx}
+    $$
+    其中$\xx_0$是$\A\xx=\bb$的一个特解，而
+    $$
+    \widetilde{\xx}=k_1\xx_1+k_2\xx_2+\cd+k_p\xx_p
+    $$
+    为$\A\xx=\zero$的通解。
+  \end{dingli}
+
+\end{frame}
+
+
+\begin{frame}
+  \begin{zhu*}
+    “$\A\xx=\bb$的通解” =  “$\A\xx=\zero$的通解” + “$\A\xx=\bb$的特解”
+  \end{zhu*}
+\end{frame}
+
+\begin{frame}
+  \begin{li}[$\bigstar$]
+    求非齐次线性方程组$\A\xx=\bb$的一般解，其中增广矩阵为
+    $$
+    (\A,\bb) = \left(
+      \begin{array}{rrrrr}
+        1&-1&-1& 1&\red{0}\\
+        1&-1& 1&-3&\red{1}\\
+        1&-1&-2& 3&\red{-\frac12}
+      \end{array}
+    \right)
+    $$
+  \end{li}
+\end{frame}
+
+\begin{frame}[allowframebreaks]
+  \begin{jie}
+    $$
+    \begin{array}{rl}
+      \left(
+      \begin{array}{rrrrr}
+        1&-1&-1& 1&\red{0}\\
+        1&-1& 1&-3&\red{1}\\
+        1&-1&-2& 3&\red{-\frac12}
+      \end{array}
+                    \right)
+                    \xlongrightarrow[r_3-r_1]{r_2-r_1} &
+                                                         \left(
+                                                         \begin{array}{rrrrr}
+                                                           1&-1&-1& 1&\red{0}\\
+                                                           0& 0& 2&-4&\red{1}\\
+                                                           0& 0&-1& 2&\red{-\frac12}
+                                                         \end{array}
+                                                                       \right) \\[0.4in]
+      \xlongrightarrow[r_2\div2]{r_1-r_3,r_3+\frac12r_2} &
+                                                           \left(
+                                                           \begin{array}{rrrrr}
+                                                             1&-1&-1& 1&\red{0}\\
+                                                             0& 0& 1&-2&\red{\frac12}\\
+                                                             0& 0& 0& 0&\red{0}
+                                                           \end{array}
+                                                                         \right)\\[0.4in]
+      \xlongrightarrow[r_2\div2]{r_1+r_2} &
+                                            \left(
+                                            \begin{array}{rrrrr}
+                                              1&-1& 0&-1&\red{\frac12}\\
+                                              0& 0& 1&-2&\red{\frac12}\\
+                                              0& 0& 0& 0&\red{0}
+                                            \end{array}
+                                                          \right)
+    \end{array}
+    $$
+    同解方程为
+    $$
+    \left\{
+      \begin{array}{rcrcrcr}
+        x_1&=&x_2&+&x_4&+&\frac12\\[0.1in]
+        x_3&=&&&2x_4&+&\frac12
+      \end{array}
+    \right.
+    $$
+    亦即
+    $$
+    \left\{
+      \begin{array}{rcrcrcr}
+        x_1&=&x_2&+&x_4&+&\frac12\\[0.1in]
+        x_2&=&x_2&&&&\\[0.1in]
+        x_3&=&&&2x_4&+&\frac12\\[0.1in]
+        x_4&=&&&x_4&&
+      \end{array}
+    \right.
+    $$
+    故通解为
+    $$
+    \left(
+      \begin{array}{c}
+        x_1\\x_2\\x_3\\x_4
+      \end{array}
+    \right) = c_1    \left(
+      \begin{array}{c}
+        1\\1\\0\\0
+      \end{array}
+    \right)+c_2    \left(
+      \begin{array}{c}
+        1\\0\\2\\1
+      \end{array}
+    \right)+    \left(
+      \begin{array}{c}
+        1/2\\0\\1/2\\0
+      \end{array}
+    \right) \quad c_1,c_2\in\mathbb R
+    $$
+  \end{jie}
+\end{frame}
+
+\begin{frame}
+  \begin{li}[$\bigstar$]
+    设有线性方程组
+    $$
+    \left\{
+      \begin{array}{rrrcr}
+        (1+\lambda)x_1&+x_2&+x_3&=&0\\[0.05in]
+        x_1&+(1+\lambda)x_2&+x_3&=&3\\[0.05in]
+        x_1&+x_2&+(1+\lambda)x_3&=&\lambda
+      \end{array}
+    \right.
+    $$
+    问$\lambda$取何值时，此方程组
+    \begin{itemize}
+    \item[(1)]有唯一解？
+    \item[(2)]无解？ 
+    \item[(3)]有无穷多解？ 并在有无穷多解时求其通解。
+    \end{itemize}
+  \end{li}
+\end{frame}
+
+\begin{frame}[allowframebreaks]
+  \begin{jie}
+    $$
+    |\A|=\left|
+      \begin{array}{ccc}
+        1+\lambda&1&1\\
+        1&1+\lambda&1\\
+        1&1&1+\lambda
+      \end{array}
+    \right| = (3+\lambda)\lambda^2.
+    $$
+    故当$\lambda\ne0$且$\lambda\ne-3$时，有唯一解。
+    当$\lambda=0$时，原方程组为
+    $$
+    \left\{
+      \begin{array}{l}
+        x_1+x_2+x_3=0,\\
+        x_1+x_2+x_3=3,\\
+        x_1+x_2+x_3=0      
+      \end{array}
+    \right.
+    $$
+    它为矛盾方程组，故无解。 \vspace{0.1in}
+
+    当$\lambda=-3$时，增广矩阵为
+    $$
+    \left(
+      \begin{array}{rrrr}
+        -2&1&1&\red{0}\\
+        1&-2&1&\red{3}\\
+        1&1&-2&\red{-3}
+      \end{array}
+    \right) \xlongrightarrow[]{\mbox{初等行变换}}
+    \left(
+      \begin{array}{rrrr}
+        1&0&-1&\red{-1}\\
+        0&1&-1&\red{-2}\\
+        0&0&0&\red{0}
+      \end{array}
+    \right)
+    $$
+    得同解方程组为
+    $$
+    \left\{
+      \begin{array}{l}
+        x_1=x_3-1\\[0.05in]
+        x_2=x_3-2\\[0.05in]
+        x_3=x_3
+      \end{array}
+    \right.
+    $$
+    通解为
+    $$
+    \left(
+      \begin{array}{c}
+        x_1\\x_2\\x_3
+      \end{array}
+    \right) = c\left(
+      \begin{array}{c}
+        1\\1\\1
+      \end{array}
+    \right)+\left(
+      \begin{array}{r}
+        -1\\-2\\0
+      \end{array}
+    \right) \quad c\in\mathbb R
+    $$
+  \end{jie}
+\end{frame}
+
+
+
+
+\begin{frame}
+  \begin{li}
+    设四元齐次线性方程组
+    $$
+    (I):\left\{
+      \begin{array}{l}
+        x_1+x_2=0,\\
+        x_2-x_4=0;
+      \end{array}
+    \right. \quad
+    (II):\left\{
+      \begin{array}{l}
+        x_1-x_2+x_3=0,\\
+        x_2-x_3+x_4=0.
+      \end{array}
+    \right.
+    $$
+    求
+    \begin{itemize}
+    \item[(1)] 方程组$(I)$与$(II)$的基础解系
+    \item[(2)] 方程组$(I)$与$(II)$的公共解        
+    \end{itemize}
+  \end{li}
+\end{frame}
+

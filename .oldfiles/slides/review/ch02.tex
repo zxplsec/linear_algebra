@@ -1,0 +1,2421 @@
+\section{矩阵}
+\subsection{矩阵的定义}
+
+\begin{frame}
+  对于一般的线性方程组
+  $$
+  \left\{
+    \begin{array}{c}
+      a_{11}x_1 + a_{12}x_2 + \cd + a_{1n}x_n = b_1\\[0.2cm]
+      a_{21}x_1 + a_{22}x_2 + \cd + a_{2n}x_n = b_2\\[0.2cm]
+      \vd\\[0.2cm]
+      a_{m1}x_1 + a_{m2}x_2 + \cd + a_{mn}x_n = b_m
+    \end{array}
+  \right.
+  $$
+
+  其增广矩阵为
+  \begin{figure}[htbp]
+    \centering
+    \begin{tikzpicture}
+      \matrix(MM) [matrix of math nodes,nodes in empty cells,
+      column sep=1ex,row sep=.5ex,ampersand replacement=\&,left delimiter=(,right delimiter=)] {
+        a_{11} \&  a_{12} \&  \cd \& a_{1n} \& \&  b_1\\
+        a_{21} \&  a_{22} \&  \cd \& a_{2n} \& \&  b_2\\
+        \vd   \&  \vd   \&      \&  \vd  \& \& \vd \\
+        a_{m1} \&  a_{m2} \&  \cd \& a_{mn} \& \&  b_m\\
+      };
+      \draw[dashed] (MM-1-5.north) -- (MM-4-5);        
+    \end{tikzpicture}      
+  \end{figure}
+\end{frame}
+
+\begin{frame}
+  \begin{small}
+    对于以上增广矩阵，总是可以经过一系列的变换将其化成
+    \begin{figure}[htbp]
+      \centering
+      \begin{tikzpicture}
+        \matrix(MM) [matrix of math nodes,nodes in empty cells,
+        column sep=0.6ex,row sep=.5ex,ampersand replacement=\&,left delimiter=(,right delimiter=)] {
+          a_{11} \&  a_{12} \&  \cd \& a_{1n} \& \&  b_1\\
+          a_{21} \&  a_{22} \&  \cd \& a_{2n} \& \&  b_2\\
+          \vd   \&  \vd   \&      \&  \vd  \& \& \vd \\
+          a_{m1} \&  a_{m2} \&  \cd \& a_{mn} \& \&  b_m\\
+        };
+        \draw[dashed] (MM-1-5.north) -- (MM-4-5);
+        
+        \matrix (M2) [right=.05in of MM,matrix of math nodes]  { 
+          \Rightarrow\\
+        };
+        
+        \matrix(MM) [right=.05in of M2,matrix of math nodes,nodes in empty cells,
+        column sep=0.6ex,row sep=.5ex,ampersand replacement=\&,left delimiter=(,right delimiter=)] {
+          c_{11} \&   0 \& \cd \&  0 \& c_{1,r+1} \& \cd \& c_{1n} \& \& d_1\\
+          0   \& c_{22} \& \cd \&  0 \& c_{2,r+1} \& \cd \& c_{2n} \& \& d_2\\
+          \vd \& \vd \& \dd \&\vd \& \vd     \&     \& \vd   \& \& \vd\\
+          0   \&  0  \& \cd \& c_{rr} \& c_{r,r+1} \& \cd \& c_{rn} \& \& d_r\\
+          0   \&  0  \& \cd \& 0 \& 0 \& \cd \& 0 \&  \& d_{r+1}\\
+          0   \&  0  \& \cd \& 0 \& 0 \& \cd \& 0 \&  \& 0\\          
+          \vd \& \vd \& \dd \&\vd \& \vd     \&     \& \vd   \& \& \vd\\
+          0   \&  0  \& \cd \& 0 \& 0 \& \cd \& 0 \&  \& 0\\
+        };
+        \draw[dashed] (MM-1-8.north) -- (MM-8-8);
+        \filldraw[opacity=0.5,red!50] (MM-5-9) circle (0.3cm);
+      \end{tikzpicture}      
+    \end{figure}
+    其中$c_{ii}=1~(i=1,2,\cd,r)$。
+  \end{small}
+
+\end{frame}
+
+\begin{frame}
+对应线性方程组解的情况如下：   
+\begin{itemize}
+\item[1] 线性方程组有解$ \Leftrightarrow \red{d_{r+1}=0}$；\\[0.3cm]
+\item[2] 在有解的情况下：
+  \begin{itemize}
+  \item 当$r=n$时，有唯一解$x_1=d_1,~x_2=d_2,~\cd,~x_n=d_n$；
+  \item 当$r<n$时，有无穷多解
+    $$
+    \left\{
+      \begin{array}{ccl}
+        x_1 &=& d_1 - c_{1,r+1}k_1 - \cd - c_{1n}k_{n-r}, \\[0.1cm]
+        x_2 &=& d_2 - c_{2,r+1}k_1 - \cd - c_{2n}k_{n-r}, \\[0.1cm]
+        \vd & & \vd \\[0.1cm]
+        x_r &=& d_r - c_{r,r+1}k_1 - \cd - c_{rn}k_{n-r}, \\[0.1cm]
+        x_{r+1} &=& k_1, \\[0.1cm]
+        \vd && \vd \\[0.1cm]
+        x_{n} &=& k_{n-r},
+      \end{array}
+    \right.
+    $$
+    其中$k_1,k_2,\cd,k_{n-r}$为任意常数。
+  \end{itemize}
+  \end{itemize}
+\end{frame}
+
+\subsection{矩阵的加法、数乘及乘法}
+
+\begin{frame}
+  \begin{dingyi}[矩阵的加法]
+  设有两个$m\times n$矩阵$\A=(a_{ij})$和$\B=(b_{ij})$，则矩阵$\A$与$\B$之和记为$\A+\B$，规定为
+  $$
+  \A + \B = 
+  \left(
+    \begin{array}{cccc}
+      a_{11} + b_{11}  & a_{12} + b_{12}  & \cd & a_{1n} + b_{1n}  \\[0.2cm]
+      a_{21} + b_{21}  & a_{22} + b_{22}  & \cd & a_{2n} + b_{2n}  \\[0.2cm]
+      \cd            & \cd            &     & \cd            \\[0.2cm]
+      a_{n1} + b_{n1}  & a_{n2} + b_{n2}  & \cd & a_{nn} + b_{nn}  
+    \end{array}
+  \right)
+  $$
+\end{dingyi}
+
+\begin{zhu*}
+  \red{只有当两个矩阵同型时才能进行加法运算。}
+\end{zhu*}
+\end{frame}
+
+\begin{frame}
+\begin{dingyi}[矩阵的数乘]
+  数$k$与矩阵$\A$的乘积记作$k \A$或$\A k$，规定为
+  $$
+  k \A = 
+  \left(
+    \begin{array}{cccc}
+      k a_{11}   & k a_{12}   & \cd & k a_{1n}  \\[0.2cm]
+      k a_{21}   & k a_{22}   & \cd & k a_{2n}  \\[0.2cm]
+      \cd     & \cd     &     & \cd    \\[0.2cm]
+      k a_{m1}   & k a_{m2}   & \cd & k a_{mn}  
+    \end{array}
+  \right)
+  $$
+\end{dingyi}
+
+\begin{zhu*}
+  \red{用数$k$乘一个矩阵，需要把数$k$乘矩阵的每一个元素，这与行列式的数乘性质不同。}
+\end{zhu*}
+\end{frame}
+
+\begin{frame}
+\begin{dingyi}[矩阵乘法]
+  设$A$为$m\times n$矩阵，$B$为$n\times s$矩阵，即
+  $$
+  A = \left(
+    \begin{array}{cccc}
+      a_{11} & a_{12} & \cd & a_{1n}\\
+      a_{21} & a_{22} & \cd & a_{2n}\\
+      \vd   & \vd   &     & \vd \\
+      a_{m1} & a_{m2} & \cd & a_{mn}
+    \end{array}
+  \right), ~~
+  B = \left(
+    \begin{array}{cccc}
+      b_{11} & b_{12} & \cd & b_{1s}\\
+      b_{21} & b_{22} & \cd & b_{2s}\\
+      \vd   & \vd   &     & \vd \\
+      b_{n1} & b_{n2} & \cd & b_{ns}
+    \end{array}
+  \right)
+  $$
+  则$A$与$B$之乘积$AB$（记为$C=(c_{ij})$）为$m\times s$矩阵，且
+  $$
+  c_{ij} = c_{i1}b_{1j} + c_{i2}b_{2j} + \cd + c_{in}b_{nj} = \sum_{k=1}^na_{ik}b_{kj}.
+  $$
+\end{dingyi}
+\begin{zhu*}
+  两个矩阵$A$与$B$相乘有意义的前提是\red{$A$的列数等于$B$的行数}。
+\end{zhu*}
+\end{frame}
+
+\begin{frame}
+\begin{li}
+  设
+  $$
+  \A = \left(
+    \begin{array}{c}
+      a_1\\
+      a_2\\
+      \vd\\
+      a_n
+    \end{array}
+  \right), ~~
+  \B = \left(
+    \begin{array}{cccc}
+      b_1 & b_2 & \cd & b_n
+    \end{array}
+  \right)
+  $$
+  计算$\A\B$与$\B\A$.
+\end{li}
+\begin{jie}
+  $$
+  \A\B = \left(
+    \begin{array}{c}
+      a_1\\
+      a_2\\
+      \vd\\
+      a_n
+    \end{array}
+  \right)\left(
+    \begin{array}{cccc}
+      b_1 & b_2 & \cd & b_n
+    \end{array}
+  \right) 
+  = \left(
+    \begin{array}{cccc}
+      a_1b_1 & a_1b_2 & \cd & a_1b_n\\
+      a_2b_1 & a_2b_2 & \cd & a_2b_n\\
+      \vd & \vd & & \vd\\
+      a_nb_1 & a_nb_2 & \cd & a_nb_n
+    \end{array}
+  \right)
+  $$  
+  $$
+  \B\A = \left(
+    \begin{array}{cccc}
+      b_1 & b_2 & \cd & b_n
+    \end{array}
+  \right)\left(
+    \begin{array}{c}
+      a_1\\
+      a_2\\
+      \vd\\
+      a_n
+    \end{array}
+  \right)  
+  = a_1b_1+a_2b_2+\cd+a_nb_n.
+  $$
+\end{jie}
+\end{frame}
+
+\begin{frame}
+ 矩阵乘法不满足交换律。
+\begin{itemize}
+\item 若$\A\B\ne\B\A$，则称\red{$\A$与$\B$不可交换}。
+\item 若$\A\B=\B\A$，则称\red{$\A$与$\B$可交换}。  
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+  \begin{li}[$\bigstar$]
+    已知矩阵$\left[
+    \begin{array}{ccc}
+      1&2&3\\
+      a_1&a_2&a_3\\
+      b_1&b_2&b_3
+    \end{array}\right]
+    $与$\left[
+    \begin{array}{ccc}
+      0&1&0\\
+      0&0&1\\
+      1&0&0
+    \end{array}\right]
+    $可交换。试求$$
+    \left|
+    \begin{array}{ccc}
+      1&2&3\\
+      a_1&a_2&a_3\\
+      b_1&b_2&b_3
+    \end{array}
+    \right|.
+    $$
+  \end{li}
+  \pause
+  \begin{jie}
+    由两矩阵可交换知$a_2=b_3=1, b_1=a_3=2, a_1=b_2=3$. 于是所求行列式为
+    $$
+    \left|
+    \begin{array}{ccc}
+      1&2&3\\
+      3&1&2\\
+      2&3&1
+    \end{array}
+    \right|=6\left|
+    \begin{array}{ccc}
+      1&2&3\\
+      1&1&2\\
+      1&3&1
+    \end{array}
+    \right|=6\left|
+    \begin{array}{ccc}
+      1&2&3\\
+      0&-1&-1\\
+      0&1&-2
+    \end{array}
+    \right|=18.
+    $$
+    
+  \end{jie}
+\end{frame}
+
+\begin{frame}
+\begin{dingyi}[单位矩阵与数量矩阵]
+  \begin{itemize}
+  \item[1] 主对角元全为1，其余元素全为零的$n$阶方阵，称为$n$阶\red{单位矩阵}，记为$\II_n, \II, \E$
+    $$
+    \II_n = \left(
+      \begin{array}{cccc}
+        1 & & &\\
+          & 1 & & \\
+          & & \dd & \\
+          & & & 1
+      \end{array}
+    \right)
+    $$ 
+  \item[2] 主对角元全为非零数$k$，其余元素全为零的$n$阶方阵，称为$n$阶\red{数量矩阵}，记为$k\II_n, k\II, k\E$
+    $$
+    k\II_n = \left(
+      \begin{array}{cccc}
+        k & & &\\
+          & k & & \\
+          & & \dd & \\
+          & & & k
+      \end{array}
+    \right)~(k\ne 0)
+    $$
+  \end{itemize}
+\end{dingyi}
+\end{frame}
+
+\begin{frame}
+\begin{dingyi}[对角矩阵]
+  非对角元皆为零的$n$阶方阵称为$n$阶\red{对角矩阵}，记作$\Lambdabd$，即
+  $$
+  \Lambdabd = \left(
+    \begin{array}{cccc}
+      \lambda_1 & & &\\
+                & \lambda_2 & & \\
+                & & \dd & \\
+                & & & \lambda_n
+    \end{array}
+  \right)
+  $$
+  或记作$\mathrm{diag}(\lambda_1,\lambda_2,\cd,\lambda_n)$.
+\end{dingyi}
+\end{frame}
+
+\begin{frame}
+\begin{zhu*}
+  \begin{itemize}
+  \item[1] 用对角阵$\Lambdabd$左乘$\A$，就是用$\lambda_i(i=1,\cd,n)$乘$\A$中第$i$行的每个元素；
+    \begin{footnotesize}
+    $$
+    \left(
+      \begin{array}{cccc}
+        \lambda_1 & & &\\
+                  & \lambda_2 & & \\
+                  & & \dd & \\
+                  & & & \lambda_n
+      \end{array}
+    \right)
+    \left(
+      \begin{array}{cccc}
+        a_{11} & a_{12} & \cd & a_{1n}\\
+        a_{21} & a_{22} & \cd & a_{2n}\\
+        \vd & \vd &  & \vd\\
+        a_{n1} & a_{n2} & \cd & a_{nn}
+      \end{array}
+    \right) = 
+    \left(
+      \begin{array}{cccc}
+        \lambda_1 a_{11} & \lambda_1a_{12} & \cd & \lambda_1a_{1n}\\
+        \lambda_2a_{21} & \lambda_2a_{22} & \cd & \lambda_2a_{2n}\\
+        \vd & \vd &  & \vd\\
+        \lambda_na_{n1} & \lambda_na_{n2} & \cd & \lambda_na_{nn}
+      \end{array}
+    \right)
+    $$
+  \end{footnotesize} \vspace{.1in}
+  
+  \item[2] 用对角阵$\Lambdabd$右乘$\A$，就是用$\lambda_i(i=1,\cd,n)$乘$\A$中第$i$列的每个元素，即
+    \begin{footnotesize}
+    $$
+    \left(
+      \begin{array}{cccc}
+        a_{11} & a_{12} & \cd & a_{1n}\\
+        a_{21} & a_{22} & \cd & a_{2n}\\
+        \vd & \vd &  & \vd\\
+        a_{n1} & a_{n2} & \cd & a_{nn}
+      \end{array}
+    \right)  
+    \left(
+      \begin{array}{cccc}
+        \lambda_1 & & &\\
+                  & \lambda_2 & & \\
+                  & & \dd & \\
+                  & & & \lambda_n
+      \end{array}
+    \right)
+    = 
+    \left(
+      \begin{array}{cccc}
+        \lambda_1a_{11} & \lambda_2a_{12} & \cd & \lambda_na_{1n}\\
+        \lambda_1a_{21} & \lambda_2a_{22} & \cd & \lambda_na_{2n}\\
+        \vd & \vd &  & \vd\\
+        \lambda_1a_{n1} & \lambda_2a_{n2} & \cd & \lambda_na_{nn}
+      \end{array}
+    \right)
+    $$
+    \end{footnotesize}
+  \end{itemize}
+\end{zhu*}
+
+\end{frame}
+
+\begin{frame}
+\begin{dingyi}[三角矩阵]
+  \begin{itemize}
+  \item[1] 主对角线以上的元素全为零的$n$阶方阵称为\red{上三角矩阵}（$a_{ij}=0, ~i>j$）
+    $$
+    \left(
+      \begin{array}{cccc}
+        a_{11} & a_{12} & \cd & a_{1n} \\
+               & a_{22} & \cd & a_{2n} \\
+               &       & \dd & \vd   \\
+               &       &     & a_{nn}
+      \end{array}
+    \right)
+    $$
+  \item[2] 主对角线以下的元素全为零的$n$阶方阵称为\red{下三角矩阵}（$a_{ij}=0, ~i<j$）
+    $$
+    \left(
+      \begin{array}{cccc}
+        a_{11} &       &     &       \\
+        a_{21} & a_{22} &     &  \\
+        \vd   & \vd   & \dd &    \\
+        a_{n1} & a_{n2} & \cd & a_{nn}
+      \end{array}
+    \right)
+    $$
+  \end{itemize}
+\end{dingyi}
+\end{frame}
+
+\begin{frame}
+\begin{jielun}
+  两个上三角矩阵的乘积仍为上三角矩阵；两个下三角矩阵的乘积仍为下三角矩阵。
+\end{jielun}
+\end{frame}
+
+\begin{frame}
+\begin{dingli}
+  设$\A,\B$是两个$n$阶方阵，则
+  $$
+  |\A\B| = |\A||\B|.
+  $$
+\end{dingli}
+\end{frame}
+
+\begin{frame}
+\begin{li}
+  设$A=\left[
+    \begin{array}{rrr}
+      1&0&0\\
+      -1&3&0\\
+      5&4&2
+    \end{array}
+  \right]$，求$|(4E-A)^T(4E-A)|$.
+\end{li}
+\pause
+\begin{jie}
+  因$|(4E-A)^T(4E-A)|=|(4E-A)^T||(4E-A)|=|4E-A|^2$，而
+  $$
+  |4E-A|=\left|
+    \begin{array}{rrr}
+      3&0&0\\
+      1&1&0\\
+      -5&-4&2
+    \end{array}
+  \right|=6,
+  $$
+  故$|(4E-A)^T(4E-A)|=36.$
+\end{jie}
+\end{frame}
+
+\begin{frame}
+\begin{dingyi}[矩阵幂]
+  设$\A$是$n$阶矩阵，$k$个$\A$的连乘积称为$\A$的$k$次幂，记作$\A^k$，即
+  $$
+  \A^k = \underbrace{\A~ \A~ \cd ~\A}_{k}
+  $$
+\end{dingyi}
+
+矩阵幂的运算律：
+\begin{itemize}
+\item[1] 当$m,k$为正整数时，
+  $$
+  \A^m \A^k = \A^{m+k}, \quad
+  (\A^m)^k = \A^{mk}.
+  $$  
+\item[2]
+  当$\A\B$不可交换时，一般情况下，
+  $$
+  (\A\B)^k \ne \A^k\B^k 
+  $$  
+\item[3]
+  当$\A\B$可交换时，
+  $$
+  (\A\B)^k = \A^k\B^k =  \B^k\A^k. 
+  $$
+\end{itemize}
+
+\end{frame}
+
+\begin{frame}
+\begin{dingyi}[矩阵多项式]
+  设$f(x)=a_kx^k+a_{k-1}x^{k-1}+\cd+a_1x+a_0$是$x$的$k$次多项式，$\A$是$n$阶矩阵，则
+  $$
+  f(\A)=a_k\A^k+a_{k-1}\A^{k-1}+\cd+a_1\A+a_0\II
+  $$
+  称为矩阵$\A$的$k$次多项式。
+\end{dingyi}
+% 
+\begin{zhu*}
+  \begin{itemize}
+  \item[1] 若$f(x), g(x)$为多项式，$\A,\B$皆是$n$阶矩阵，则
+    $$
+    f(\A)g(\A) = g(\A)f(\A).
+    $$
+  \item[2] 当$\A\B$不可交换时，一般
+    $$f(\A)g(\B)\ne g(\B)f(\A)$$
+  \end{itemize}
+\end{zhu*}
+\end{frame}
+
+\subsection{矩阵的转置}
+
+\begin{frame}
+  \begin{dingyi}[转置矩阵]
+  把一个$m\times n$矩阵
+  $$
+  \A = \left(
+    \begin{array}{cccc}
+      a_{11} & a_{12} & \cd & a_{1n} \\
+      a_{21} & a_{22} & \cd & a_{2n} \\
+      \vd   & \vd &  & \vd \\
+      a_{m1} & a_{m2} & \cd & a_{mn} 
+    \end{array}
+  \right)
+  $$
+  的行列互换得到的一个$n\times m$矩阵，称之为$\A$的\red{转置矩阵}，记为$\A^T$或$\A^\prime$，即
+  $$
+  \A^\prime = \left(
+    \begin{array}{cccc}
+      a_{11} & a_{21} & \cd & a_{m1} \\
+      a_{12} & a_{22} & \cd & a_{m2} \\
+      \vd   & \vd &  & \vd \\
+      a_{1n} & a_{2n} & \cd & a_{mn} 
+    \end{array}
+  \right).
+  $$  
+\end{dingyi}
+\end{frame}
+
+\begin{frame}
+\begin{dingli}[矩阵转置的运算律]
+  \begin{itemize}
+  \item[(i)] $(\A^T)^T=\A$
+  \item[(ii)] $(\A+\B)^T=\A^T+\B^T$
+  \item[(iii)] $(k\A)^T= k\A^T$
+  \item[(iv)] $(\A\B)^T=\B^T\A^T$
+  \end{itemize}
+\end{dingli}
+\end{frame}
+
+\begin{frame}
+\begin{dingyi}[对称矩阵、反对称矩阵]
+  设
+  $$
+  \A = \left(
+    \begin{array}{cccc}
+      a_{11} & a_{12} & \cd & a_{1n} \\
+      a_{21} & a_{22} & \cd & a_{2n} \\
+      \vd   & \vd &  & \vd \\
+      a_{n1} & a_{n2} & \cd & a_{nn} 
+    \end{array}
+  \right)
+  $$
+  是一个$n$阶矩阵。
+  \begin{itemize}
+  \item[1]
+    如果
+    $$
+    a_{ij} = a_{ji},
+    $$
+    则称$\A$为\red{对称矩阵}；
+  \item[2]
+    如果
+    $$
+    a_{ij} = -a_{ji},
+    $$
+    则称$\A$为\red{反对称矩阵}。
+  \end{itemize}      
+\end{dingyi}
+\end{frame}
+
+\begin{frame}
+\begin{zhu*}
+  关于对称矩阵与反对称矩阵，有如下性质：
+  \begin{enumerate}
+  \item $\A$为对称矩阵的充分必要条件是$\A^T=\A$；
+  \item $\A$为反对称矩阵的充分必要条件是$\A^T=-\A$；
+  \item 反对称矩阵的主对角元全为零。 
+  \item 奇数阶反对称矩阵的行列式为零。
+  \item 任何一个方阵都可表示成一个对称矩阵与一个反对称矩阵的和。
+  \item[]  设$\A$为一$n$阶方阵，则
+    $$
+    \A = \frac{\A+\A^T}2 + \frac{\A-\A^T}2
+    $$
+    容易验证$\frac{\A+\A^T}2$为对称阵，$\frac{\A-\A^T}2$为反对称阵。 
+  \item 对称矩阵的乘积不一定为对称矩阵。
+  \item[]  \red{若$\A$与$\B$均为对称矩阵，则$\A\B$对称的充分必要条件是$\A\B$可交换。}
+  \end{enumerate}
+\end{zhu*}
+\end{frame}
+
+
+\subsection{矩阵的逆}
+\begin{frame}
+\begin{dingyi}[逆矩阵]
+  对于$n$阶矩阵$\A$，如果有一个$n$阶矩阵$\B$，使
+  $$
+  \red{
+    \A\B = \B\A = \II.
+  }
+  $$
+  则称$\A$是\red{可逆}的，并把$\B$称为$\A$的\red{逆矩阵}。
+\end{dingyi}
+\end{frame}
+
+\begin{frame}
+\begin{dingli}
+  若$\A$可逆，则$\A$的逆阵惟一。
+\end{dingli}
+
+\begin{dingli}
+  若$\A$可逆，则$|\A|\ne 0$.
+\end{dingli}
+
+\end{frame}
+
+\begin{frame}
+\begin{dingyi}{代数余子式矩阵，伴随矩阵}
+  设$\A=(a_{ij})_{n\times n}$，$A_{ij}$为行列式$|\A|$中元素$a_{ij}$的代数余子式，称
+  $$
+  \mathrm{coef}~ \A = (A_{ij})_{n\times n}
+  $$
+  为$\A$的\red{代数余子式矩阵}，并称$\mathrm{coef}~ \A$的转置矩阵为$\A$的\red{伴随矩阵}，记为$\A^*$，
+  即
+  $$\red{
+    \A^* = (\mathrm{coef}~\A)^T = \left(
+      \begin{array}{cccc}
+        A_{11} & A_{21} & \cd & A_{n1} \\
+        A_{12} & A_{22} & \cd & A_{n2} \\
+        \vd   & \vd   &     & \vd   \\
+        A_{1n} & A_{2n} & \cd & A_{nn} \\
+      \end{array}
+    \right)
+  }
+  $$
+\end{dingyi}
+\end{frame}
+
+\begin{frame}
+\begin{dingli}
+  若$|\A|\ne 0$，则$\A$可逆，且
+  $$
+  \A^{-1} = \frac1{|\A|} \A^*
+  $$
+\end{dingli}
+\end{frame}
+
+\begin{frame}
+\begin{dingyi}[奇异阵与非奇异阵]
+  当$|\A|=0$时，$\A$称为\red{奇异矩阵}，否则称为\red{非奇异矩阵}。
+\end{dingyi}
+
+\begin{zhu*}
+  \red{可逆矩阵就是非奇异矩阵。}
+\end{zhu*}
+
+\end{frame}
+
+\begin{frame}
+
+\begin{dingli}可逆矩阵有如下运算规律：
+  \begin{enumerate}
+  \item[1] 若$\A$可逆，则$\A^{-1}$亦可逆，且
+    \red{$(\A^{-1})^{-1}=\A.$}\\[.1in]
+  \item[2] 若$\A$可逆，$k\ne 0$，则$k\A$可逆，且
+    \red{$(k\A)^{-1}= k^{-1}A^{-1}.$}\\[.1in]
+  \item[3] 若$\A, ~\B$为同阶矩阵且均可逆，则$\A\B$可逆，且
+    \red{$(\A\B)^{-1} = \B^{-1}\A^{-1}.$}\\[.1in]
+  \item[] 若$\A_1,\A_2,\cd,\A_m$皆可逆，则
+    \red{$
+    (\A_1\A_2\cd\A_m)^{-1}=\A_m^{-1}\cd\A_2^{-1}\A_1^{-1}.
+    $}\\[.1in]
+  \item[4] 若$\A$可逆，则$\A^T$亦可逆，且
+    \red{$(\A^T)^{-1}=(\A^{-1})^T.$ }\\[.1in]
+  \item[5] 若$\A$可逆，则
+    \red{$|\A^{-1}|=|\A|^{-1}.$}\\[.1in]
+  \end{enumerate}
+\end{dingli}
+\end{frame}
+
+\begin{frame}
+  \begin{li}[$\bigstar$]
+    设$A=\left[
+      \begin{array}{rrr}
+        1&2&-1\\
+        -2&1&3\\
+        0&5&1
+      \end{array}
+    \right]$，问$A$是否可逆？如可逆求$A^{-1}$，如不可逆，求$A$的伴随矩阵$A^*$.
+  \end{li}
+  \pause
+  \begin{jie}
+    因$$|A|=\left|
+      \begin{array}{rrr}
+        1&2&-1\\
+        -2&1&3\\
+        0&5&1
+      \end{array}
+    \right|=0,$$
+    故$A$不可逆。而
+    $$A^*=\left|
+      \begin{array}{rrr}
+        -14&-7&7\\
+        2&1&-1\\
+        -10&-5&5
+      \end{array}
+    \right|.$$
+  \end{jie}
+\end{frame}
+
+\begin{frame}
+\begin{li}
+设$\A$与$\B$可交换，且$\A$可逆，$\A^*$为$\A$的伴随矩阵，试证明$\A^*$与$\B$可交换。
+\end{li}
+\pause
+\begin{proof}
+  由$\A^*=|\A|\A^{-1}, \A\B=\B\A$可得$\A^{-1}B=\B\A^{-1}$，故$\A^{*}B=\B\A^{*}.$
+\end{proof}
+\end{frame}
+
+\begin{frame}
+  \begin{li}
+  设方阵$\A$满足方程
+  $$
+  \A^2 - 3\A - 10 \II = \zero,
+  $$
+  证明：$\A, \A-4\II$都可逆，并求它们的逆矩阵。      
+\end{li} \pause
+\begin{proof}
+$$
+\A^2-3\A-10\II=\zero ~\Rightarrow~ \A(\A-3\II) = 10\II 
+~\Rightarrow~ \A\left[\frac1{10}(\A-3\II)\right] = \II
+$$  
+故$\A$可逆，且\red{$\ds \A^{-1} = \frac1{10}(\A-3\II)$}.\pause 
+
+$$
+\A^2-3\A-10\II=\zero ~\Rightarrow~ (\A+\II)(\A-4\II) = 6\II 
+~\Rightarrow~ \frac1{6}(\A+\II)(\A-4\II) = \II
+$$     
+故$\A-4\II$可逆，且\red{$\ds (\A-4\II)^{-1} = \frac1{6}(\A+\II)$}.
+\end{proof}
+\end{frame}
+
+
+\subsection{矩阵的初等变换与初等矩阵}
+
+
+
+\begin{frame}
+
+\begin{dingyi}[初等矩阵]
+  将单位矩阵$\II$做一次初等变换所得的矩阵称为\textcolor{acolor3}{初等矩阵}。
+  对应于$3$类初等行、列变换，有$3$种类型的初等矩阵。
+\end{dingyi}
+\end{frame}
+
+
+\begin{frame}
+以下介绍三种初等矩阵：
+\begin{enumerate}
+\item 初等对调矩阵；
+\item 初等倍乘矩阵；
+\item 初等倍加矩阵。
+\end{enumerate}
+\end{frame}
+
+
+\begin{frame}
+1、 对调$\II$的两行或两列（\textcolor{acolor3}{初等对调矩阵}）
+  \begin{figure}[htbp]
+    \centering
+    \begin{tikzpicture}[scale=0.8]
+      \matrix (M) [matrix of math nodes]  { 
+        \E_{ij} = \\
+      };
+      \matrix(MM) [right=2pt of M, matrix of math nodes,nodes in empty cells, ampersand replacement=\&,left delimiter=(,right delimiter=)] {
+        1 \&     \&   \&   \&     \&   \&   \& \& \\
+        \& \dd \&   \&   \&     \&   \&   \& \& \\
+        \&     \& 0 \&   \& \cd \&   \& 1 \& \& \\
+        \&     \&   \& 1 \&     \&   \&   \& \& \\
+        \&     \&\vd\&   \& \dd \&   \&\vd\& \& \\
+        \&     \&   \&   \&     \& 1 \&   \& \& \\
+        \&     \& 1 \&   \& \cd \&   \& 0 \& \& \\
+        \&     \&   \&   \&     \&   \&   \& \dd \& \\
+        \&     \&   \&   \&     \&   \&   \& \& 1\\
+      };
+      \node[right=16pt  of MM-3-9, blue]  {第$i$行};
+      \node[right=16pt  of MM-7-9, blue]  {第$j$行};
+      \node[below=5pt  of MM-9-3, blue]  {第$i$列};
+      \node[below=5pt  of MM-9-7, blue]  {第$j$列};
+    \end{tikzpicture}
+  \end{figure}
+\end{frame}
+
+
+\begin{frame}
+a、用$m$阶初等矩阵$\E_{ij}$左乘$\A=(a_{ij})_{m\times n}$，得
+    \begin{figure}[htbp]
+      \centering
+      \begin{tikzpicture}
+        \matrix (M) [matrix of math nodes]  { 
+          \E_{ij}\A = \\
+        };
+        \matrix(MM) [right=2pt of M, matrix of math nodes,nodes in empty cells,
+        ampersand replacement=\&,left delimiter=(,right delimiter=)] {
+          a_{11} \& a_{12}    \& \cd   \&  a_{1n} \\
+          \vd   \& \vd      \&   \&  \vd \\          
+          a_{j1} \& a_{j2}    \& \cd  \&  a_{jn} \\
+          \vd   \& \vd      \&   \&  \vd \\
+          a_{i1} \& a_{i2}    \& \cd   \&  a_{in} \\
+          \vd   \& \vd      \&   \&  \vd \\
+          a_{m1} \& a_{m2}    \& \cd  \&  a_{mn} \\
+        };
+        \node[right=12pt  of MM-3-4, blue]  {第$i$行};
+        \node[right=12pt  of MM-5-4, blue]  {第$j$行};
+      \end{tikzpicture}
+    \end{figure}
+    相当于
+    \textcolor{acolor3}{把$\A$的第$i$行与第$j$行对调（$r_i \leftrightarrow r_j$）.}
+\end{frame}
+
+
+\begin{frame}
+b、用$n$阶初等矩阵$\E_{ij}$右乘$\A$，得
+    \begin{figure}[htbp]
+      \centering
+      \begin{tikzpicture}
+        \matrix (M) [matrix of math nodes]  { 
+          \A \E_{ij}= \\
+        };
+        \matrix(MM) [right=2pt of M, matrix of math nodes,nodes in empty cells,
+        ampersand replacement=\&,left delimiter=(,right delimiter=)] {
+          a_{11} \& \cd \&a_{1j}    \& \cd \&a_{1i}    \& \cd  \&  a_{1n} \\
+          a_{21} \& \cd \&a_{2j}    \& \cd \&a_{2i}    \& \cd  \&  a_{jn} \\
+          \vd    \&     \&\vd       \&     \&\vd       \&      \&  \vd \\
+          a_{m1} \& \cd \&a_{mj}    \& \cd \&a_{mi}    \& \cd  \&  a_{mn} \\
+        };
+        \node[below=12pt  of MM-4-3, blue]  {第$i$列};
+        \node[below=12pt  of MM-4-5, blue]  {第$j$列};
+      \end{tikzpicture}
+    \end{figure}
+
+    相当于\textcolor{acolor3}{把$\A$的第$i$列与第$j$列对调（$c_i \leftrightarrow c_j$）.}
+\end{frame}
+
+
+\begin{frame}
+2、 以非零常数$k$乘$\II$的某行或某列（\textcolor{acolor3}{初等倍乘矩阵}）
+\begin{figure}[htbp]
+  \centering
+    \begin{tikzpicture}
+      \matrix (M) [matrix of math nodes]  { 
+        \E_{i}(k) = \\
+      };
+      \matrix(MM) [right=2pt of M, matrix of math nodes,nodes in empty cells,
+      ampersand replacement=\&,left delimiter=(,right delimiter=)] {
+        1 \&     \&   \&   \&     \&   \& \\
+        \& \dd \&   \&   \&     \&   \& \\
+        \&     \& 1 \&   \&     \&   \& \\
+        \&     \&   \& k \&     \&   \& \\
+        \&     \&   \&   \& 1   \&   \& \\
+        \&     \&   \&   \&     \& \dd \& \\
+        \&     \&   \&   \&     \&   \& 1\\
+      };
+      \node[right=12pt  of MM-4-7, blue]  {第$i$行};
+      \node[below=12pt  of MM-7-4, blue]  {第$i$列};
+    \end{tikzpicture}
+  \end{figure}
+\end{frame}
+
+
+\begin{frame}
+a、以$m$阶初等矩阵$\E_i(k)$左乘$\A$，得
+    \begin{figure}[htbp]
+      \centering
+      \begin{tikzpicture}
+        \matrix (M) [matrix of math nodes]  { 
+          \E_{i}(k)\A = \\
+        };
+        \matrix(MM) [right=2pt of M, matrix of math nodes,nodes in empty cells,
+        ampersand replacement=\&,left delimiter=(,right delimiter=)] {
+          a_{11} \& a_{12}    \& \cd   \&  a_{1n} \\
+          \vd   \& \vd      \&   \&  \vd \\          
+          ka_{i1} \& ka_{i2}    \& \cd  \&  ka_{in} \\
+          \vd   \& \vd      \&   \&  \vd \\
+          a_{m1} \& a_{m2}    \& \cd  \&  a_{mn} \\
+        };
+        \node[right=12pt  of MM-3-4, blue]  {第$i$行};
+      \end{tikzpicture}
+    \end{figure} 
+  相当于\textcolor{acolor3}{以数$k$乘$\A$的第$i$行（$r_i\times k$）}；
+\end{frame}
+
+
+\begin{frame}
+b、 以$n$阶初等矩阵$\E_i(k)$右乘$\A$，得
+    \begin{figure}[htbp]
+      \centering
+      \begin{tikzpicture}
+        \matrix (M) [matrix of math nodes]  { 
+          \A \E_{i}(k)= \\
+        };
+        \matrix(MM) [right=2pt of M, matrix of math nodes,nodes in empty cells,
+        ampersand replacement=\&,left delimiter=(,right delimiter=)] {
+          a_{11} \& \cd \&ka_{1i}      \& \cd  \&  a_{1n} \\
+          a_{21} \& \cd \&ka_{2i}      \& \cd  \&  a_{jn} \\
+          \vd    \&     \&\vd         \&      \&  \vd \\
+          a_{m1} \& \cd \&ka_{mi}      \& \cd  \&  a_{mn} \\
+        };
+        \node[below=12pt  of MM-4-3, blue]  {第$i$列};
+      \end{tikzpicture}
+    \end{figure}
+    
+  相当于\textcolor{acolor3}{以数$k$乘$\A$的第$i$列（$c_i\times k$）}。
+\end{frame}
+
+
+\begin{frame}
+3、将非零常数$k$乘$\II$的某行再加到另一行上（\textcolor{acolor3}{初等倍加矩阵}）
+\begin{figure}[htbp]
+  \centering
+  \begin{tikzpicture}
+    \matrix (M) [matrix of math nodes]  { 
+      \E_{ij}(k) = \\
+    };
+    \matrix(MM) [right=2pt of M, matrix of math nodes,nodes in empty cells,
+    ampersand replacement=\&,left delimiter=(,right delimiter=)] {
+      1 \&     \&   \&   \&     \&   \& \\
+      \& \dd \&   \&   \&     \&   \& \\
+      \&     \& 1 \&\cd\& k    \&   \& \\
+      \&     \&   \&\dd\& \vd  \&   \& \\
+      \&     \&   \&   \& 1   \&   \& \\
+      \&     \&   \&   \&     \& \dd \& \\
+      \&     \&   \&   \&     \&   \& 1\\
+    };
+    \node[right=12pt  of MM-3-7, blue]  {第$i$行};
+    \node[right=12pt  of MM-5-7, blue]  {第$j$行};
+  \end{tikzpicture}
+\end{figure} 
+\end{frame}
+
+
+\begin{frame}
+a、 以$m$阶初等矩阵$\E_{ij}(k)$左乘$\A$，得
+    \begin{figure}[htbp]
+      \centering
+      \begin{tikzpicture}
+        \matrix (M) [matrix of math nodes]  { 
+          \E_{ij}\A = \\
+        };
+        \matrix(MM) [right=2pt of M, matrix of math nodes,nodes in empty cells,
+        ampersand replacement=\&,left delimiter=(,right delimiter=)] {
+          a_{11} \& a_{12}    \& \cd   \&  a_{1n} \\
+          \vd   \& \vd      \&   \&  \vd \\          
+          a_{i1}+ka_{j1} \& a_{i2}+ka_{j2}    \& \cd  \&  a_{in}+ka_{jn} \\
+          \vd   \& \vd      \&   \&  \vd \\
+          a_{j1} \& a_{j2}    \& \cd   \&  a_{jn} \\
+          \vd   \& \vd      \&   \&  \vd \\
+          a_{m1} \& a_{m2}    \& \cd  \&  a_{mn} \\
+        };
+        \node[right=12pt  of MM-3-4, blue]  {第$i$行};
+        \node[right=28pt  of MM-5-4, blue]  {第$j$行};
+      \end{tikzpicture}
+    \end{figure}
+  相当于\textcolor{acolor3}{把$\A$的第$j$行乘以数$k$加到第$i$行上（$r_i+r_j\times k$）}；
+\end{frame}
+
+
+\begin{frame}
+b、 以$n$阶初等矩阵$\E_{ij}(k)$右乘$\A$，得
+    \begin{figure}[htbp]
+      \centering
+      \begin{tikzpicture}
+        \matrix (M) [matrix of math nodes]  { 
+          \A \E_{ij}= \\
+        };
+        \matrix(MM) [right=2pt of M, matrix of math nodes,nodes in empty cells,
+        ampersand replacement=\&,left delimiter=(,right delimiter=)] {
+          a_{11} \& \cd \&a_{1i}    \& \cd \&a_{1j}+ka_{1i}  \& \cd  \&  a_{1n} \\
+          a_{21} \& \cd \&a_{2i}    \& \cd \&a_{2j}+ka_{2i}    \& \cd  \&  a_{jn} \\
+          \vd    \&     \&\vd       \&     \&\vd       \&      \&  \vd \\
+          a_{m1} \& \cd \&a_{mi}    \& \cd \&a_{mj}+ka_{mi}    \& \cd  \&  a_{mn} \\
+        };
+        \node[below=12pt  of MM-4-3, blue]  {第$i$列};
+        \node[below=12pt  of MM-4-5, blue]  {第$j$列};
+      \end{tikzpicture}
+    \end{figure}
+
+  相当于\textcolor{acolor3}{把$\A$的第$i$列乘以数$k$加到第$j$列上（$c_j+c_i\times k$）}。
+ 
+\end{frame}
+
+
+\begin{frame}
+%
+\begin{dingli}
+  设$\A$为一个$m\times n$矩阵，
+  \begin{itemize}
+  \item 
+    对$\A$施行一次初等行变换，相当于在$\A$的左边乘以相应的$m$阶初等矩阵；
+  \item
+    对$\A$施行一次初等列变换，相当于在$\A$的右边乘以相应的$n$阶初等矩阵。
+  \end{itemize}
+\end{dingli}
+\end{frame}
+
+
+
+
+\begin{frame}
+由初等变换可逆，可知初等矩阵可逆。  
+\begin{itemize}
+\item[(i)] 由\textcolor{acolor1}{变换$r_i\leftrightarrow r_j$的逆变换为其本身}可知
+  $$
+  \textcolor{acolor3}{\E_{ij}^{-1} = \E_{ij}}
+  $$ 
+\item[(ii)] 由\textcolor{acolor1}{变换$r_i\times k$的逆变换为$\ds r_i\div k$}可知
+  $$
+  \textcolor{acolor3}{\E_{i}(k)^{-1} = \E_{i}(k^{-1})}
+  $$ 
+\item[(iii)] 由\textcolor{acolor1}{变换$r_i+r_j\times k$的逆变换为$\ds r_i-r_j\times k$}可知
+  $$
+  \textcolor{acolor3}{\E_{ij}(k)^{-1} = \E_{ij}(-k)}
+  $$ 
+\end{itemize}
+\end{frame}
+
+
+\begin{frame}
+以上结论也可总结为
+  $$ \textcolor{acolor3}{
+    \E_{ij}\E_{ij}=\II, \quad
+    \E_{i}(k)\E_{i}(k^{-1}) = \II, \quad
+    \E_{ij}(k)\E_{ij}(-k) = \II.
+  }
+  $$      
+\end{frame}
+
+\begin{frame}
+  \begin{li}[$\bigstar$]
+    设$A=\left[
+      \begin{array}{rrrr}
+        3&-1&1&-1\\
+        1&-2&-2&1\\
+        -2&3&-3&1
+      \end{array}
+    \right], B=\left[
+      \begin{array}{rrrr}
+        4&2&2\\
+        2&3&1\\
+        1&2&1\\
+        3&3&2
+      \end{array}
+    \right], C=\left[
+      \begin{array}{rrrr}
+        -2&3&1\\
+        1&-2&3\\
+        3&1&-2
+      \end{array}
+    \right]$，求$(AB+2C)E(2,3)$，其中$E(2,3)$是交换单位矩阵的2,3行（列）所得的三阶初等方阵。
+  \end{li}
+  \pause
+  \begin{jie}
+    经计算$$
+    AB+2C=\left[
+      \begin{array}{rrrr}
+        1&5&4\\
+        2&-9&6\\
+        4&4&-6
+      \end{array}
+    \right]
+    $$
+    故
+    $$
+    (AB+2C)E(2,3)=\left[
+      \begin{array}{rrrr}
+        1&4&5\\
+        2&6&-9\\
+        4&-6&4
+      \end{array}
+    \right]
+    $$
+  \end{jie}
+\end{frame}
+
+
+
+ 
+
+\begin{frame}
+ 
+\begin{dingli}
+  可逆矩阵可以经过若干次初等行变换化为单位矩阵。
+\end{dingli}
+
+\begin{tuilun}
+  可逆矩阵$\A$可以表示为若干个初等矩阵的乘积。
+\end{tuilun}
+
+\begin{tuilun}
+  如果对可逆矩阵$\A$与同阶单位矩阵$\II$做同样的初等行变换，那么当$\A$变为单位阵时，
+  $\II$就变为$\A^{-1}$，即
+  $$\textcolor{acolor3}{
+    \left(
+      \begin{array}{cc}
+        \A & \II
+      \end{array}
+    \right) \xrightarrow[]{\mbox{初等行变换}} \left(
+      \begin{array}{cc}
+        \II & \A^{-1}
+      \end{array}
+    \right)
+  } 
+  $$
+  同理，
+$$\textcolor{acolor3}{
+  \left(
+    \begin{array}{c}
+      \A\\
+      \II
+    \end{array}
+  \right) \xrightarrow[]{\mbox{初等列变换}} \left(
+    \begin{array}{c}
+      \II \\
+      \A^{-1}
+    \end{array}
+  \right)
+} 
+$$
+\end{tuilun}
+\pause
+
+\begin{zhu}
+\textcolor{acolor1}{该推论给出了求可逆矩阵的逆的一种有效方法，请大家熟练掌握。}
+\end{zhu}
+\end{frame}
+
+
+\begin{frame}
+\begin{li}
+  求$
+  \A=\left(
+    \begin{array}{rrr}
+      0&2&-1\\
+      1&1&2\\
+      -1&-1&-1
+    \end{array}
+  \right)
+  $
+  的逆矩阵。
+\end{li}
+\end{frame}
+
+
+\begin{frame}
+\begin{jie}
+
+$$
+\begin{aligned}
+&\left(
+  \begin{array}{c|c}
+    \A & \II
+  \end{array}
+\right)=\left(
+  \begin{array}{rrr|rrr}
+    0 &  2 & -1 &  1 & 0 & 0\\
+    1 &  1 &  2 &  0 & 1 & 0\\
+    -1 & -1 & -1 &  0 & 0 & 1\\              
+  \end{array}
+\right) \\ 
+&\xrightarrow[]{r_1\leftrightarrow r_2}\left(
+  \begin{array}{rrr|rrr}
+    1 &  1 &  2 &  0 & 1 & 0\\
+    0 &  2 & -1 &  1 & 0 & 0\\
+    -1 & -1 & -1 &  0 & 0 & 1\\          
+  \end{array}
+\right) 
+\xrightarrow[]{r_3+ r_1}\left(
+  \begin{array}{rrr|rrr}
+    1 &  1 &  2 & 0 & 1 & 0\\
+    0 &  2 & -1 & 1 & 0 & 0\\
+    0 &  0 &  1 & 0 & 1 & 1\\          
+  \end{array}
+\right)\\
+&\xrightarrow[r_2+r_3]{r_1+ r_3\times(-2)}\left(
+  \begin{array}{rrr|rrr}
+    1 &  1 &  0  & 0 &-1 &-2\\
+    0 &  2 &  0  & 1 & 1 & 1\\
+    0 &  0 &  1  & 0 & 1 & 1\\    
+  \end{array}
+\right)\\
+&\xrightarrow[r_2\times \frac12]{r_1+ r_2\times(-\frac12)}\left(
+  \begin{array}{rrr|rrr}
+    1 &  0 &  0  & -\frac12 &-\frac32 &-\frac52\\[.1in]
+    0 &  1 &  0  & \frac12 & \frac12 & \frac12 \\[.1in]
+    0 &  0 &  1  & 0 & 1 & 1                   
+  \end{array}
+\right)    
+\end{aligned}
+$$
+\end{jie}
+\end{frame}
+
+
+\begin{frame}
+\begin{li}
+  已知$\A\B\A^T=2\B\A^T+\II$，求$\B$，其中$
+  \A = \left(
+    \begin{array}{ccc}
+      1&0&0\\
+      0&1&2\\
+      0&0&1
+    \end{array}
+  \right)
+  $
+\end{li}
+\end{frame}
+
+
+\begin{frame}
+\begin{jie}
+$$
+\A\B\A^T=2\B\A^T+\II ~~ \Rightarrow ~~ (\A-2\II)\B\A^T=\II 
+~~ \Rightarrow ~~ \B\A^T = (\A-2\II)^{-1}
+$$
+
+故
+$$
+\B = (\A-2\II)^{-1} (\A^T)^{-1}  = [\A^T(\A-2\II)]^{-1} 
+=(\A^T\A-2\A^T)^{-1}
+$$
+而
+$$
+\A^T\A-2\A^T = \left(
+  \begin{array}{rrr}
+    -1&0&0\\
+    0&-1&2\\
+    0&-2&3
+  \end{array}
+\right)
+$$ 
+可求得
+$$
+\B = \left(
+  \begin{array}{rrr}
+    -1&0&0\\
+    0&3&-2\\
+    0&2&-1
+  \end{array}
+\right)
+$$
+\end{jie}
+\end{frame}
+
+
+\begin{frame}
+
+\begin{tuilun}
+  对于$n$个未知数$n$个方程的线性方程组
+  $
+  \A\xx=\bb,
+  $
+  如果增广矩阵
+  $$
+  \textcolor{acolor3}{(\A,~\bb)~~\overset{r}{\sim}~~(\II,\xx)},
+  $$
+  则$\A$可逆，且$\xx=\A^{-1}\bb$为惟一解。  
+\end{tuilun}
+\end{frame}
+
+
+\begin{frame}
+\begin{li}
+  设
+  $$
+  \A = \left(
+    \begin{array}{rrr}
+      2&1&-3\\
+      1&2&-3\\
+      -1&3&2
+    \end{array}
+  \right),
+  ~~
+  \bb_1=\left(
+    \begin{array}{r}
+      1\\
+      2\\
+      -2
+    \end{array}
+  \right),
+  ~~
+  \bb_2=\left(
+    \begin{array}{r}
+      -1\\
+      0\\
+      5
+    \end{array}
+  \right),
+  $$
+  求$\A\xx=\bb_1$与$\A\xx=\bb_2$的解。
+\end{li}
+\end{frame}
+
+
+\begin{frame}
+\begin{jie}
+  $$
+  \begin{aligned}
+    & (\A~~\textcolor{acolor3}{\bb_1}~~\textcolor{acolor3}{\bb_2})
+    = \left(
+      \begin{array}{rrrrr}
+        2 & 1 & 3 &\textcolor{acolor3}{ 1} & \textcolor{acolor3}{-1}\\
+        1 & 2 &-2 &\textcolor{acolor3}{ 2} & \textcolor{acolor3}{ 0}\\
+        -1 & 3 & 2 &\textcolor{acolor3}{-2} & \textcolor{acolor3}{ 5}        
+      \end{array}\right) \\ 
+      & \overset{{r_1\leftrightarrow r_2 \atop r_2-2r_1}\atop  r_3+r_1}{\sim}
+                               \left(
+                               \begin{array}{rrrrr}
+                                 1 & 2 &-2 & \textcolor{acolor3}{ 2} & \textcolor{acolor3}{ 0}\\
+                                 0 &-3 & 1 & \textcolor{acolor3}{-3} & \textcolor{acolor3}{-1}\\
+                                 0 & 5 & 0 & \textcolor{acolor3}{ 0} & \textcolor{acolor3}{ 5}        
+                               \end{array}
+                                                        \right) \\ 
+    & \overset{{r_3\leftrightarrow r_2 \atop r_2\div5}\atop  r_3+3r_2}{\sim}
+      \left(
+      \begin{array}{rrrrr}
+        1 & 2 &-2 &\textcolor{acolor3}{ 2} &  \textcolor{acolor3}{0}\\
+        0 & 1 & 0 &\textcolor{acolor3}{ 0} &  \textcolor{acolor3}{1}\\
+        0 & 0 & 1 &\textcolor{acolor3}{-3} &  \textcolor{acolor3}{2}        
+      \end{array}
+                              \right)   \overset{r_1-2r_2+2r_3}{\sim}
+                              \left(
+                              \begin{array}{rrrrr}
+                                1 & 0 & 0 & \textcolor{acolor3}{-4} & \textcolor{acolor3}{2}\\
+                                0 & 1 & 0 & \textcolor{acolor3}{0} &  \textcolor{acolor3}{1}\\
+                                0 & 0 & 1 & \textcolor{acolor3}{-3} &  \textcolor{acolor3}{2}        
+                              \end{array}
+                                                       \right) 
+  \end{aligned}
+  $$
+\end{jie}
+
+\end{frame}
+
+
+\begin{frame}
+
+\begin{li}[$\bigstar$]
+  求解矩阵方程$\A\XX=\A+\XX$，其中
+  $
+  \A = \left(
+    \begin{array}{ccc}
+      2&2&0\\
+      2&1&3\\
+      0&1&0
+    \end{array}
+  \right)
+  $
+\end{li}
+\end{frame}
+
+
+\begin{frame}
+\begin{jie}
+原方程等价于
+$$
+(\A-\II)\XX=\A
+$$
+
+而
+$$
+\begin{aligned}
+&  (\A-\II ~~\textcolor{acolor3}{\A}) =\left(
+                       \begin{array}{rrrrrr}
+                         1&2& 0&\textcolor{acolor3}{2}&\textcolor{acolor3}{2}&\textcolor{acolor3}{0}\\
+                         2&0& 3&\textcolor{acolor3}{2}&\textcolor{acolor3}{1}&\textcolor{acolor3}{3}\\
+                         0&1&-1&\textcolor{acolor3}{0}&\textcolor{acolor3}{1}&\textcolor{acolor3}{0}
+                       \end{array}
+                                                 \right)\\
+                                                 &\overset{r_2-2r_1\atop r_2\leftrightarrow r_3}{\sim}
+                                                 \left(
+                                                 \begin{array}{rrrrrr}
+                                                   1& 2& 0&\textcolor{acolor3}{ 2}&\textcolor{acolor3}{ 2}&\textcolor{acolor3}{0}\\
+                                                   0& 1&-1&\textcolor{acolor3}{ 0}&\textcolor{acolor3}{ 1}&\textcolor{acolor3}{0}\\
+                                                   0&-4& 3&\textcolor{acolor3}{-2}&\textcolor{acolor3}{-3}&\textcolor{acolor3}{3}
+                                                 \end{array}
+                                                                              \right)     
+                       \overset{r_3+4r_2\atop r_3\div(-1)}{\sim}
+                       \left(
+                       \begin{array}{rrrrrr}
+                         1&2& 0&\textcolor{acolor3}{2}&\textcolor{acolor3}{ 2}&\textcolor{acolor3}{ 0}\\
+                         0&1&-1&\textcolor{acolor3}{0}&\textcolor{acolor3}{ 1}&\textcolor{acolor3}{ 0}\\
+                         0&0& 1&\textcolor{acolor3}{2}&\textcolor{acolor3}{-1}&\textcolor{acolor3}{-3}
+                       \end{array}
+                                                  \right) \\ 
+                     &  
+                       \overset{r_3+4r_2\atop r_3\div(-1)}{\sim}
+                       \left(
+                       \begin{array}{rrrrrr}
+                         1&0&0&\textcolor{acolor3}{-2}&\textcolor{acolor3}{2}&\textcolor{acolor3}{6}\\
+                         0&1&0&\textcolor{acolor3}{2}&\textcolor{acolor3}{0}&\textcolor{acolor3}{-3}\\
+                         0&0&1&\textcolor{acolor3}{2}&\textcolor{acolor3}{-1}&\textcolor{acolor3}{-3}
+                       \end{array}
+                                                 \right)
+\end{aligned}
+$$
+\end{jie}
+\end{frame}
+
+\begin{frame}
+
+\begin{li}[$\bigstar$]
+  求解矩阵方程$\A\XX=\B+\XX$，其中
+  $$
+  \A = \left(
+    \begin{array}{ccc}
+      1&1&1\\
+      1&1&1\\
+      -3&2&1
+    \end{array}
+  \right), \B = \left(
+    \begin{array}{ccc}
+      1&3&1\\
+      2&-1&1\\
+      -3&1&-1
+    \end{array}
+  \right),
+  $$
+  求$\XX$。
+\end{li}
+\end{frame}
+
+
+% \subsection{矩阵分块*}
+% \begin{frame}
+% 矩阵
+% \begin{figure}[htbp]
+%   \centering
+%   \begin{tikzpicture}
+%     \matrix(A) [matrix of math nodes,nodes in empty cells,ampersand replacement=\&,left delimiter=(,right delimiter=)] {
+%       a_{11} \& a_{12} \& a_{13}  \& a_{14} \\
+%       a_{21} \& a_{22} \& a_{23}  \& a_{24} \\
+%       a_{31} \& a_{32} \& a_{33}  \& a_{34} \\
+%     };
+%     \draw[red, dashed, very thick] (A-1-2.north east) -- (A-3-2.south east) (A-2-1.south west) -- (A-2-4.south east);;
+%   \end{tikzpicture}
+% \end{figure}
+% 可记为
+% $$
+% \left(
+%   \begin{array}{cc}
+%     \A_{11} &  \A_{12}\\
+%     \A_{21} &  \A_{22}
+%   \end{array}
+% \right)
+% $$
+% 其中
+% $$
+% \begin{array}{ll}
+%   \A_{11} = 
+%   \left(
+%   \begin{array}{cc}
+%     a_{11} &  a_{12}\\
+%     a_{21} &  a_{22}
+%   \end{array} \right),
+%            &
+%              \A_{12} = 
+%              \left(
+%              \begin{array}{cc}
+%                a_{13} &  a_{14}\\
+%                a_{23} &  a_{24}
+%              \end{array}
+%                         \right)\\ [0.3cm]
+%   \A_{21} = 
+%   \left(
+%   \begin{array}{cc}
+%     a_{31} &  a_{32}
+%   \end{array}\right) ,
+%            &
+%              \A_{22} = 
+%              \left(
+%              \begin{array}{cc}
+%                a_{33} &  a_{34}
+%              \end{array}
+%                         \right)    
+% \end{array}
+% $$
+% \end{frame}
+
+% \begin{frame}
+% \begin{dingyi}[矩阵的按行分块]
+%   $$
+%   \A = \left(
+%     \begin{array}{cccc}
+%       a_{11} & a_{12} & \cd & a_{1n}\\
+%       a_{21} & a_{22} & \cd & a_{2n}\\
+%       \vd & \vd & & \vd \\
+%       a_{m1} & a_{m2} & \cd & a_{mn}
+%     \end{array}
+%   \right)
+%   = \left(
+%     \begin{array}{c}
+%       \aa_1\\
+%       \aa_2\\
+%       \vd \\
+%       \aa_m
+%     \end{array}
+%   \right)
+%   $$
+%   其中
+%   $$
+%   \aa_i = (a_{i1}, ~a_{i2}, ~\cd, ~a_{in})
+%   $$
+% \end{dingyi}
+% \end{frame}
+
+% \begin{frame}
+% \begin{dingyi}[矩阵的按列分块]
+%   $$
+%   \B = \left(
+%     \begin{array}{cccc}
+%       b_{11} & b_{12} & \cd & b_{1s}\\
+%       b_{21} & b_{22} & \cd & b_{2s}\\
+%       \vd & \vd & & \vd \\
+%       b_{n1} & b_{n2} & \cd & b_{ns}
+%     \end{array}
+%   \right)
+%   = \left(
+%     \begin{array}{c}
+%       \bb_1, ~ \bb_2, ~ \cd, \bb_s
+%     \end{array}
+%   \right)
+%   $$
+%   其中
+%   $$
+%   \bb_j = \left(
+%     \begin{array}{c}
+%       b_{1j}\\
+%       b_{2j}\\
+%       \vd\\
+%       b_{nj}
+%     \end{array}
+%   \right)
+%   $$
+% \end{dingyi}
+% \end{frame}
+
+% \begin{frame}
+% 当$n$阶矩阵$\A$中非零元素都集中在主对角线附近，有时可分块成如下\textcolor{acolor3}{对角块矩阵}
+% $$
+% \A = \left(
+%   \begin{array}{cccc}
+%     \A_1 & & &\\
+%     &\A_2&&\\
+%     &&\dd&\\
+%     &&&\A_m
+%   \end{array}
+% \right)
+% $$
+% 其中$\A_i$为$r_i$阶方阵($i=1,2,\cd,m$)，且
+% $$
+% \sum_{i=1}^m r_i = n.
+% $$
+
+% \end{frame}
+
+% \begin{frame}
+% 如
+% \begin{figure}
+%   \centering
+%   \begin{tikzpicture}       
+%     [column 1/.style={anchor=base east},
+%     column 2/.style={anchor=base east},
+%     column 3/.style={anchor=base east},
+%     column 4/.style={anchor=base east},
+%     column 5/.style={anchor=base east},
+%     column 6/.style={anchor=base east}]
+%     \matrix(A) [matrix of math nodes,nodes in empty cells,ampersand replacement=\&,left delimiter=(,right delimiter=)] {
+%     0 \& -1 \& 0 \& 0 \& 0 \& 0\\
+%     1 \&  2 \& 0 \& 0 \& 0 \& 0\\
+%     0 \&  0 \& 1 \&-1 \& 0 \& 0\\
+%     0 \&  0 \&-1 \& 1 \& 2 \& 0\\
+%     0 \&  0 \& 0 \& 2 \&-2 \& 0\\
+%     0 \&  0 \& 0 \& 0 \& 0 \& 3\\
+%   };
+%     \draw[red, dashed, very thick] 
+%     (A-1-2.north east) -- (A-6-2.south east)
+%     (A-1-5.north east) -- (A-6-5.south east) 
+%     (A-2-1.south west) -- (A-2-6.south east)
+%     (A-5-1.south west) -- (A-5-6.south east);
+
+%   \end{tikzpicture}
+% \end{figure}
+
+% \end{frame}
+
+% \begin{frame}
+
+
+
+% \begin{dingyi}[分块矩阵的加法]
+%   设$\A, \B$为同型矩阵，采用相同的分块法，有
+%   $$
+%   \A = \left(
+%     \begin{array}{ccc}
+%       \A_{11} & \cd & \A_{1r} \\
+%       \vd   &     & \vd   \\
+%       \A_{s1} & \cd & \A_{sr}
+%     \end{array}
+%   \right), \ \ 
+%   \B = \left(
+%     \begin{array}{ccc}
+%       \B_{11} & \cd & \B_{1r} \\
+%       \vd   &     & \vd   \\
+%       \B_{s1} & \cd & \B_{sr}
+%     \end{array}
+%   \right),
+%   $$
+%   其中$\A_{ij}$与$\B_{ij}$为同型矩阵，则
+%   $$
+%   A = \left(
+%     \begin{array}{ccc}
+%       \A_{11} + \B_{11}  & \cd & \A_{1r} + \B_{1r} \\
+%       \vd   &     & \vd   \\
+%       \A_{s1} + \B_{s1}  & \cd & \A_{sr} + \B_{sr}
+%     \end{array}
+%   \right).
+%   $$
+% \end{dingyi}
+% \end{frame}
+
+% \begin{frame}
+
+% \begin{dingyi}[分块矩阵的数乘]
+%   $$
+%   \lambda \A = \left(
+%     \begin{array}{ccc}
+%       \lambda \A_{11} & \cd & \lambda \A_{1r} \\
+%       \vd   &     & \vd   \\
+%       \lambda \A_{s1} & \cd & \lambda \A_{sr}
+%     \end{array}
+%   \right)
+%   $$    
+% \end{dingyi}
+% \end{frame}
+
+% \begin{frame}
+
+% \begin{dingyi}[分块矩阵的乘法]
+%   设$\A$为$m\times n$矩阵, $\B$为$n \times s$矩阵，
+%   $$
+%   \A = \left(
+%     \begin{array}{ccc}
+%       \A_{11} & \cd & \A_{1s} \\
+%       \vd   &     & \vd   \\
+%       \A_{r1} & \cd & \A_{rs}
+%     \end{array}
+%   \right), \ \ 
+%   \B = \left(
+%     \begin{array}{ccc}
+%       \B_{11} & \cd & \B_{1t} \\
+%       \vd   &     & \vd   \\
+%       \B_{s1} & \cd & \B_{st}
+%     \end{array}
+%   \right),
+%   $$
+%   其中\textcolor{acolor3}{$\A_{i1}, \A_{i2}, \cd, A_{is}$的列数分别等于$\B_{1j}, \B_{2j}, \cd, \B_{sj}$的行数}，则
+%   $$
+%   \A \B = \left(
+%     \begin{array}{ccc}
+%       \C_{11}   & \cd & \C_{1t}  \\
+%       \vd   &     & \vd   \\
+%       \C_{r1}   & \cd & \C_{rt}
+%     \end{array}
+%   \right),
+%   $$
+%   其中
+%   $$
+%   \C_{ij} = \sum_{k=1}^s \A_{ik} \B_{kj}.
+%   $$
+% \end{dingyi}
+% \end{frame}
+
+% \begin{frame}
+
+
+% \begin{li} 
+%   用分块矩阵的乘法计算$\A\B$，其中
+%   $$
+%   \A = \left(
+%     \begin{array}{rrrrr}
+%       1&0&0&0&0\\
+%       0&1&0&0&0\\
+%       -1&2&1&0&0\\
+%       1&1&0&1&0\\
+%       -2&0&0&0&1
+%     \end{array}
+%   \right), \quad
+%   \B = \left(
+%     \begin{array}{rrrrr}
+%       3&2&0&1&0\\
+%       1&3&0&0&1\\
+%       -1&0&0&0&0\\
+%       0&-1&0&0&0\\
+%       0&0&-1&0&0
+%     \end{array}
+%   \right)
+%   $$
+% \end{li}
+% \end{frame}
+
+% \begin{frame}
+% \begin{center}
+%   \begin{tikzpicture}       
+%     [column 1/.style={anchor=base east},
+%     column 2/.style={anchor=base east},
+%     column 3/.style={anchor=base east},
+%     column 4/.style={anchor=base east},
+%     column 5/.style={anchor=base east}]
+%     \matrix(A1) [matrix of math nodes]{
+%     \A = \\
+%   };
+%   \matrix(A2) [right=.1in of A1,matrix of math nodes,nodes in empty cells,inner sep=0.2cm,ampersand replacement=\&,left delimiter=(,right delimiter=)] {
+%     1 \& 0 \& 0 \& 0 \& 0 \\
+%     0 \& 1 \& 0 \& 0 \& 0 \\
+%     -1 \& 2 \& 1 \& 0 \& 0 \\
+%     1 \& 1 \& 0 \& 1 \& 0 \\
+%     -2 \& 0 \& 0 \& 0 \& 1 \\
+%   };
+%     \draw[red, dashed, very thick] 
+%     (A2-1-2.north east) -- (A2-5-2.south east)
+%     (A2-2-1.south west) -- (A2-2-5.south east);
+%     \matrix(A3) [right=.1in of A2,matrix of math nodes]{
+%     = \\
+%   };
+%     \matrix(A4) [right=.1in of A3,matrix of math nodes,nodes in empty cells,inner sep=0.2cm,ampersand replacement=\&,left delimiter=(,right delimiter=)] {
+%     \II_2 \& \zero_{2\times 3} \\
+%     \A_1 \& \II_3\\
+%   };
+%   \end{tikzpicture}
+% \end{center}
+
+
+% \begin{center}
+%   \begin{tikzpicture}       
+%     [column 1/.style={anchor=base east},
+%     column 2/.style={anchor=base east},
+%     column 3/.style={anchor=base east},
+%     column 4/.style={anchor=base east},
+%     column 5/.style={anchor=base east}]
+%     \matrix(A1) [matrix of math nodes]{
+%     \B = \\
+%   };
+%     \matrix(A2) [right=.1in of A1,matrix of math nodes,nodes in empty cells,inner sep=0.2cm,ampersand replacement=\&,left delimiter=(,right delimiter=)] {
+%     3\&2\&0\&1\&0\\
+%     1\&3\&0\&0\&1\\
+%     -1\&0\&0\&0\&0\\
+%     0\&-1\&0\&0\&0\\
+%     0\&0\&-1\&0\&0\\
+%   };
+%     \draw[red, dashed, very thick] 
+%     (A2-1-3.north east) -- (A2-5-3.south east)
+%     (A2-2-1.south west) -- (A2-2-5.south east);
+%     \matrix(A3) [right=.1in of A2,matrix of math nodes]{
+%     = \\
+%   };
+%     \matrix(A4) [right=.1in of A3,matrix of math nodes,nodes in empty cells,inner sep=0.2cm,ampersand replacement=\&,left delimiter=(,right delimiter=)] {
+%     \B_1 \& \II_2 \\
+%     -\II_3 \& \zero_{3\times 2}\\
+%   };
+%   \end{tikzpicture}
+% \end{center}
+% \end{frame}
+
+% \begin{frame}
+% 则
+% $$
+% \A\B = \left(
+%   \begin{array}{cc}
+%     \II_2 & \zero\\
+%     \A_1 & \II_3
+%   \end{array}
+% \right)\left(
+%   \begin{array}{cc}
+%     \B_1 & \II_2\\
+%     -\II_3 & \zero
+%   \end{array}
+% \right) = \left(
+%   \begin{array}{cc}
+%     \B_1 & \II_2\\
+%     \A_1\B_1-\II_3 & \A_1
+%   \end{array}
+% \right)
+% $$
+% 其中
+% $$
+% \A_1\B_1-\II_3 = \left(
+%   \begin{array}{rr}
+%     -1&2\\
+%     1&1\\
+%     -2&0
+%   \end{array}
+% \right)\left(
+%   \begin{array}{rrr}
+%     3&2&0\\
+%     1&3&0
+%   \end{array}
+% \right)-\left(
+%   \begin{array}{ccc}
+%     1&0&0\\
+%     0&1&0\\
+%     0&0&1
+%   \end{array}
+% \right)=\left(
+%   \begin{array}{rrr}
+%     -2&4&0\\
+%     4&4&0\\
+%     -6&-4&-1
+%   \end{array}
+% \right)
+% $$
+% \end{frame}
+
+% \begin{frame}
+
+% \begin{li}
+%   设$\A$为$m\times n$矩阵，$\B$为$n\times s$矩阵，$\B$按列分块成$1\times s$分块矩阵，
+%   将$\A$看成$1\times 1$分块矩阵，则
+%   $$
+%   \A\B=\A(\bb_1,\bb_2,\cd,\bb_s)=(\A\bb_1,\A\bb_2,\cd,\A\bb_s)      
+%   $$
+%   若已知$\A\B=0$，则显然
+%   $$
+%   \A\bb_j=0, \quad j=1,2,\cd,s.
+%   $$
+%   因此，$\B$的每一列$\bb_j$都是线性方程组$\A\xx=0$的解。
+% \end{li}    
+% \end{frame}
+
+% \begin{frame}
+% \begin{li}
+%   设$\A^T\A=\zero$，证明$\A=\zero$.
+% \end{li}
+
+% \begin{proof}
+% 设$\A=(a_{ij})_{m\times n}$，把$\A$用列向量表示为$\A=(\aa_1, ~\aa_2,~\cd,~\aa_n)$，则
+% $$
+% \A^T\A = \left(
+%   \begin{array}{c}
+%     \aa_1^T\\
+%     \aa_2^T\\
+%     \cd \\
+%     \aa_n^T
+%   \end{array}
+% \right) (\aa_1, ~\aa_2,~\cd,~\aa_n) = \left(
+%   \begin{array}{cccc}
+%     \aa_1^T\aa_1 & \aa_1^T\aa_2 & \cd & \aa_1^T\aa_n\\
+%     \aa_2^T\aa_1 & \aa_2^T\aa_2 & \cd & \aa_2^T\aa_n\\
+%     \vd & \vd & & \vd \\
+%     \aa_n^T\aa_1 & \aa_n^T\aa_2 & \cd & \aa_n^T\aa_n
+%   \end{array}
+% \right)
+% $$
+
+% 因为$\A^T\A=\zero$，故
+% $$
+% \aa_i^T \aa_j = 0, \quad i,j=1,2,\cd,n.
+% $$
+
+% 特别地，有
+% $$
+% \aa_j^T \aa_j = 0, \quad j=1,2,\cd,n,
+% $$
+% 即
+% $$
+% a_{1j}^2+a_{2j}^2+\cd+a_{mj}^2=0  ~\Rightarrow~ a_{1j}=a_{2j}=\cd=a_{mj}=0 ~\Rightarrow~ \A = \zero.
+% $$
+% \end{proof}
+% \end{frame}
+
+% \begin{frame}
+
+% \begin{li}
+%   若$n$阶矩阵$\C,\D$可以分块成同型对角块矩阵，即
+%   $$
+%   \C = \left(
+%     \begin{array}{cccc}
+%       \C_1&&&\\
+%       &\C_2&&\\
+%       &&\cd&\\
+%       &&&\C_m
+%     \end{array}
+%   \right),\quad
+%   \D = \left(
+%     \begin{array}{cccc}
+%       \D_1&&&\\
+%       &\D_2&&\\
+%       &&\cd&\\
+%       &&&\D_m
+%     \end{array}
+%   \right)
+%   $$
+%   其中$\C_i$和$\D_i$为同阶方阵（$i=1,2,\cd,m$），则
+%   $$
+%   \C\D = \left(
+%     \begin{array}{cccc}
+%       \C_1\D_1&&&\\
+%       &\C_2\D_2&&\\
+%       &&\cd&\\
+%       &&&\C_m\D_m
+%     \end{array}
+%   \right)
+%   $$
+% \end{li}
+
+% \end{frame}
+
+% \begin{frame}
+
+
+
+
+
+% \begin{li}
+%   可用矩阵的分块来证明：若方阵$\A$为可逆的上三角阵，则$\A^{-1}$也为上三角阵。
+% \end{li}
+% \end{frame}
+
+
+% \begin{frame}
+
+
+
+% \begin{dingyi}[分块矩阵的转置]
+%   分块矩阵$\A=(\A_{kl})_{s\times t}$的转置矩阵为
+%   $$
+%   \A^T = (\B_{lk})_{t\times s},
+%   $$
+%   其中$\B_{lk}=\A_{kl}$.
+% \end{dingyi}
+
+% \begin{li}
+%   $$
+%   \A = \left(
+%     \begin{array}{ccc}
+%       \A_{11} & \A_{12} & \A_{13}\\
+%       \A_{21} & \A_{22} & \A_{23}
+%     \end{array}
+%   \right) ~\Rightarrow~
+%   \A = \left(
+%     \begin{array}{cc}
+%       \A_{11}^T & \A_{21}^T \\[0.2cm]
+%       \A_{12}^T & \A_{22}^T \\[0.2cm]
+%       \A_{13}^T & \A_{23}^T
+%     \end{array}
+%   \right)
+%   $$
+
+%   $$
+%   \B \xlongequal[]{\mbox{按行分块}} \left(
+%     \begin{array}{c}
+%       \bb_1\\
+%       \bb_2\\
+%       \vd\\
+%       \bb_m
+%     \end{array}
+%   \right) ~\Rightarrow~
+%   \B^T = \left(
+%     \begin{array}{cccc}
+%       \bb_1^T & \bb_2^T & \cd & \bb_m^T
+%     \end{array}
+%   \right)
+%   $$
+% \end{li}
+
+
+
+% \end{frame}
+
+% \begin{frame}
+
+
+% \begin{dingyi}[可逆分块矩阵的逆矩阵]
+%   对角块矩阵（准对角矩阵）
+%   $$
+%   \A = \left(
+%     \begin{array}{cccc}
+%       \A_1&&&\\
+%           &\A_2&&\\
+%           &&\dd&\\
+%           &&&\A_m
+%     \end{array}
+%   \right)
+%   $$
+%   的行列式为$|\A|=|\A_1||\A_2|\cd|\A_m|$，因此，$\A$可逆的充分必要条件为
+%   $$
+%   |\A_i|\ne 0, \quad i=1,2,\cd, m.
+%   $$
+
+%   其逆矩阵为
+%   $$
+%   \A^{-1} = \left(
+%     \begin{array}{cccc}
+%       \A_1^{-1}&&&\\
+%                &\A_2^{-1}&&\\
+%                &&\dd&\\
+%                &&&\A_m^{-1}
+%     \end{array}
+%   \right)
+%   $$
+% \end{dingyi}
+% \end{frame}
+
+% \begin{frame}
+% 分块矩阵的作用：
+% \begin{itemize}
+% \item   用分块矩阵求逆矩阵，可将高阶矩阵的求逆转化为低阶矩阵的求逆。
+% \item   一个$2\times 2$的分块矩阵求逆，可以根据逆矩阵的定义，用解矩阵方程的方法解得。
+% \end{itemize}
+% \end{frame}
+
+% \begin{frame}
+% \begin{li}
+%   设$\A=\left(
+%     \begin{array}{cc}
+%       \B&\zero\\
+%       \C&\D
+%     \end{array}
+%   \right)$，其中$\B,\D$皆为可逆矩阵，证明$\A$可逆并求$\A^{-1}$.
+% \end{li}
+% \end{frame}
+
+% \begin{frame}
+% \begin{jie}
+%   因$|\A|=|\B||\D|\ne 0$，故$\A$可逆。 设$\A^{-1}=\left(
+%     \begin{array}{cc}
+%       \X&\Y\\
+%       \Z&\T
+%     \end{array}
+%   \right)$，则
+%   $$
+%   \left(
+%     \begin{array}{cc}
+%       \B&\zero\\
+%       \C&\D
+%     \end{array}
+%   \right) \left(
+%     \begin{array}{cc}
+%       \X&\Y\\
+%       \Z&\T
+%     \end{array}
+%   \right)=\left(
+%     \begin{array}{cc}
+%       \B\X&\B\Y\\
+%       \C\X+\D\Z&\C\Y+\D\T
+%     \end{array}
+%   \right) = \left(
+%     \begin{array}{cc}
+%       \II & \zero\\
+%       \zero & \II
+%     \end{array}
+%   \right)
+%   $$
+
+%   由此可知
+%   $$
+%   \begin{array}{ll}
+%     \B\X = \II   & \Rightarrow ~ \X = \B^{-1}\\[0.2cm]
+%     \B\Y = \zero & \Rightarrow ~ \Y = \zero\\[0.2cm]
+%     \C\X+\D\Z = \zero & \Rightarrow ~ \Z = -\D^{-1}\C\B^{-1}\\[0.2cm]
+%     \C\Y+\D\T = \II & \Rightarrow ~ \T = \D^{-1}
+%   \end{array}
+%   $$
+
+%   故
+%   $$
+%   \A^{-1} = \left(
+%     \begin{array}{cc}
+%       \B^{-1} & \zero\\
+%       -\D^{-1}\C\B^{-1} & \D^{-1}
+%     \end{array}
+%   \right).
+%   $$
+% \end{jie}
+% \end{frame}
+
+% \begin{frame}
+
+
+
+
+% \begin{dingyi}[分块矩阵的初等变换与分块初等矩阵]
+%   对于分块矩阵
+%   $$
+%   \A = \left(
+%     \begin{array}{cc}
+%       \A_{11} & \A_{12}\\
+%       \A_{21} & \A_{22}
+%     \end{array}
+%   \right)
+%   $$
+%   同样可以定义它的3类初等行变换与列变换，并相应地定义3类分块矩阵：
+%   \begin{itemize}
+%   \item[(i)] 分块倍乘矩阵（$\C_1,\C_2$为可逆阵）
+%     $$
+%     \left(
+%       \begin{array}{cc}
+%         \C_1 & \zero\\
+%         \zero & \II_n
+%       \end{array}
+%     \right) ~~\mbox{或}~~
+%     \left(
+%       \begin{array}{cc}
+%         \II_m & \zero\\
+%         \zero & \C_2
+%       \end{array}
+%     \right)
+%     $$
+%   \item[(ii)] 分块倍加矩阵
+%     $$
+%     \left(
+%       \begin{array}{cc}
+%         \II_m & \zero\\
+%         \C_3 & \II_n
+%       \end{array}
+%     \right) ~~\mbox{或}~~
+%     \left(
+%       \begin{array}{cc}
+%         \II_m & \C_4\\
+%         \zero & \II_n
+%       \end{array}
+%     \right)
+%     $$
+%   \item[(iii)] 分块对换矩阵
+%     $$
+%     \left(
+%       \begin{array}{cc}
+%         \zero & \II_n\\
+%         \II_m & \zero
+%       \end{array}
+%     \right)
+%     $$
+%   \end{itemize}
+% \end{dingyi}
+% \end{frame}
+
+% \begin{frame}
+
+% \begin{li}
+%   设$n$阶矩阵$\A$分块表示为
+%   $$
+%   \A = \left(
+%     \begin{array}{cc}
+%       \A_{11} & \A_{12}\\
+%       \A_{21} & \A_{22}
+%     \end{array}
+%   \right)
+%   $$
+%   其中$\A_{11},\A_{22}$为方阵，且$\A$与$\A_{11}$可逆。证明：$\A_{22}-\A_{21}\A_{11}^{-1}\A_{12}$可逆，并求$\A^{-1}$。
+% \end{li}
+% \end{frame}
+
+% \begin{frame}
+% \begin{jie}
+%   构造分块倍加矩阵
+%   $$
+%   \PP_1 = \left(
+%     \begin{array}{cc}
+%       \II_1 & \zero\\
+%       -\A_{21}\A_{11}^{-1} & \II_2
+%     \end{array}
+%   \right)
+%   $$
+%   则$$
+%   \PP_1\A = \left(
+%     \begin{array}{cc}
+%       \A_{11} & \A_{12} \\
+%       \zero & \A_{22}-\A_{21}\A_{11}^{-1}\A_{12}
+%     \end{array}
+%   \right)
+%   $$
+%   两边同时取行列式可知
+%   $$
+%   |\A| = |\PP_1\A| = |\A_{11}|\cdot |\A_{22}-\A_{21}\A_{11}^{-1}\A_{12}|
+%   $$
+%   故$\A_{22}-\A_{21}\A_{11}^{-1}\A_{12}$可逆。
+% \end{jie}
+% \end{frame}
+
+% \begin{frame}
+% \begin{jie}[续]
+%   $$
+%   \PP_1\A = \left(
+%     \begin{array}{cc}
+%       \A_{11} & \A_{12} \\
+%       \zero & \A_{22}-\A_{21}\A_{11}^{-1}\A_{12}
+%     \end{array}
+%   \right)\xlongequal[]{\textcolor{acolor3}{\ds \QQ=\A_{22}-\A_{21}\A_{11}^{-1}\A_{12}}}
+%   \left(
+%     \begin{array}{cc}
+%       \A_{11} & \A_{12} \\
+%       \zero & \QQ
+%     \end{array}
+%   \right)
+%   $$ 
+%   构造分块倍加矩阵
+%   $$
+%   \PP_2 = \left(
+%     \begin{array}{cc}
+%       \II_1 & -\A_{12}\QQ^{-1}\\
+%       \zero & \II_2
+%     \end{array}
+%   \right)
+%   $$ 
+%   则
+%   $$
+%   \PP_2\PP_1\A = \left(
+%     \begin{array}{cc}
+%       \A_{11} & \zero\\
+%       \zero & \QQ
+%     \end{array}
+%   \right)
+%   $$ 
+%   于是
+%   $$
+%   \begin{array}{rl}
+%     \A^{-1} & = \left(
+%       \begin{array}{cc}
+%         \A_{11}^{-1} & \zero\\
+%         \zero & \QQ^{-1}
+%       \end{array}
+%     \right)\left(
+%       \begin{array}{cc}
+%         \II_1 & -\A_{12}\QQ^{-1}\\
+%         \zero & \II_2
+%       \end{array}
+%     \right)\left(
+%       \begin{array}{cc}
+%         \II_1 & \zero\\[0.2cm]
+%         -\A_{21}\A_{11}^{-1} & \II_2
+%       \end{array}
+%     \right) \\[0.3in]
+%     & = \left(
+%       \begin{array}{cc}
+%         \A_{11}^{-1} & \zero\\[0.2cm]
+%         \zero & \QQ^{-1}
+%       \end{array}
+%     \right)\left(
+%       \begin{array}{cc}
+%         \II_1+ \A_{12}\QQ^{-1}\A_{21}\A_{11}^{-1}& -\A_{12}\QQ^{-1}\\[0.2cm]
+%         -\A_{21}\A_{11}^{-1} & \II_2
+%       \end{array}
+%     \right)\\[0.3in]
+%     & = \left(
+%       \begin{array}{cc}
+%         \A_{11}^{-1}+ \A_{11}^{-1}\A_{12}\QQ^{-1}\A_{21}\A_{11}^{-1}& -\A_{11}^{-1}\A_{12}\QQ^{-1}\\[0.2cm]
+%         -\QQ^{-1}\A_{21}\A_{11}^{-1} & \QQ^{-1}
+%       \end{array}
+%     \right)
+%   \end{array}
+%   $$
+% \end{jie}
+% \end{frame}
+
+% \begin{frame}
+
+%   \begin{li}
+%     设$\QQ=\left(
+%       \begin{array}{cc}
+%         \A&\B\\
+%         \C&\D
+%       \end{array}
+%     \right)$，且$\A$可逆，证明：
+%     $$
+%     |\QQ| = |\A| \cdot |\D-\C\A^{-1}\B|
+%     $$
+%   \end{li}
+% \begin{proof}
+%   构造分块倍加矩阵
+%   $$
+%   \PP_1 = \left(
+%     \begin{array}{cc}
+%       \II_1 & \zero\\
+%       -\C\A^{-1} & \II_2
+%     \end{array}
+%   \right)
+%   $$ 
+%   则
+%   $$
+%   \PP_1 \QQ = \left(
+%     \begin{array}{cc}
+%       \A & \B\\
+%       \zero & \D-\C\A^{-1}\B
+%     \end{array}
+%   \right)
+%   $$
+
+%   两边同时取行列式得
+%   $$
+%   |\QQ| = |\PP_1\QQ| = |\A|\cdot |\D-\C\A^{-1}\B|.
+%   $$
+% \end{proof}
+% \end{frame}
+
+% \begin{frame}
+%   \begin{li}
+%     设$\A$与$\B$均为$n$阶分块矩阵，证明
+%     $$
+%     \left|
+%       \begin{array}{cc}
+%         \A&\B\\
+%         \B&\A
+%       \end{array}
+%     \right| = |\A+\B|~|\A-\B|
+%     $$
+%   \end{li}
+% \end{frame}
+
+% \begin{frame}
+% \begin{proof}
+
+%   将分块矩阵$
+%   \PP = 
+%   \left(
+%     \begin{array}{cc}
+%       \A&\B\\
+%       \B&\A
+%     \end{array}
+%   \right)$的第一行加到第二行，得
+%   $$
+%   \left(
+%     \begin{array}{cc}
+%       \II & \zero\\
+%       \II & \II
+%     \end{array}
+%   \right) \left(
+%     \begin{array}{cc}
+%       \A&\B\\
+%       \B&\A
+%     \end{array}
+%   \right) = \left(
+%     \begin{array}{cc}
+%       \A&\B\\
+%       \A+\B&\A+\B
+%     \end{array}
+%   \right)
+%   $$
+%   再将第一列减去第二列，得
+%   $$
+%   \left(
+%     \begin{array}{cc}
+%       \A&\B\\
+%       \A+\B&\A+\B
+%     \end{array}
+%   \right) \left(
+%     \begin{array}{cc}
+%       \II&\zero\\
+%       -\II&\II
+%     \end{array}
+%   \right) = \left(
+%     \begin{array}{cc}
+%       \A-\B & \B\\
+%       \zero & \A+\B
+%     \end{array}
+%   \right)
+%   $$
+%   总之有
+%   $$
+%   \left(
+%     \begin{array}{cc}
+%       \II & \zero\\
+%       \II & \II
+%     \end{array}
+%   \right) \left(
+%     \begin{array}{cc}
+%       \A&\B\\
+%       \B&\A
+%     \end{array}
+%   \right) 
+%   \left(
+%     \begin{array}{cc}
+%       \II&\zero\\
+%       -\II&\II
+%     \end{array}
+%   \right) = \left(
+%     \begin{array}{cc}
+%       \A-\B & \B\\
+%       \zero & \A+\B
+%     \end{array}
+%   \right)
+%   $$
+%   两边同时取行列式即得结论。
+% \end{proof}
+% \end{frame}

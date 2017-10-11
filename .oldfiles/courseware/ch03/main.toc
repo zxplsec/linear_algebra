@@ -1,0 +1,6 @@
+\beamer@endinputifotherversion {3.10pt}
+\beamer@sectionintoc {1}{$n$维向量及其线性相关性}{3}{0}{1}
+\beamer@sectionintoc {2}{向量组的秩及其极大线性无关组}{87}{0}{2}
+\beamer@sectionintoc {3}{矩阵的秩 \hskip 1em\relax 相抵标准形}{120}{0}{3}
+\beamer@sectionintoc {4}{齐次线性方程组有非零解的条件及解的结构}{241}{0}{4}
+\beamer@sectionintoc {5}{非齐次线性方程组有解的条件及解的结构}{285}{0}{5}

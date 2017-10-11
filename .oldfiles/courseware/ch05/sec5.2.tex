@@ -1,0 +1,126 @@
+\section{矩阵可对角化的条件}
+\begin{frame}
+  \begin{footnotesize}
+    矩阵可对角化，即矩阵与对角阵相似。    
+  \end{footnotesize}
+\end{frame}
+
+\begin{frame}
+  \begin{footnotesize}
+    \begin{block}{定理}
+      $\mbox{矩阵可对角化} ~~\Longleftrightarrow~~
+      \mbox{$n$阶矩阵有$n$个线性无关的特征向量}$ 
+    \end{block}
+    \pause\proofname
+    \begin{itemize}
+\item[$\Rightarrow$] 
+$$
+\PP^{-1}\A\PP=\Lambdabd  ~~\Longrightarrow~~
+\A\PP=\PP\Lambdabd
+$$\pause
+将$\PP$按列分块，即
+$$
+\PP=(\xx_1,~\xx_2,~\cd,~\xx_n),
+$$
+则
+$$
+\A(\xx_1,~\xx_2,~\cd,~\xx_n)=(\xx_1,~\xx_2,~\cd,~\xx_n)\left(
+\begin{array}{cccc}
+\lambda_1&&&\\
+&\lambda_2&&\\
+&&\dd&\\
+&&&\lambda_n
+\end{array}
+\right)
+$$\pause
+于是
+$$
+\A\xx_i=\lambda_i\xx_i\quad(i=1,2,\cd,n).
+$$\pause
+故$\xx_1,~\xx_2,~\cd,~\xx_n$是$\A$分别对应于$\lambda_1,~\lambda_2,~\cd,~\lambda_n$的特征向量。\pause由于$\PP$可逆，所以它们是线性无关的。
+\end{itemize}•
+  \end{footnotesize}
+\end{frame}
+
+
+\begin{frame}
+  \begin{footnotesize}
+    若$\A$与$\Lambdabd$相似，则$\Lambdabd$的主对角元都是$\A$的特征值。
+    若不计$\lambda_k$的排列次序，则$\Lambdabd$是唯一的，称$\Lambdabd$为$\A$的相似标准型。
+  \end{footnotesize}
+\end{frame}
+
+
+\begin{frame}
+  \begin{footnotesize}
+    \begin{block}{定理}
+      $\A$的属于不同特征值的特征向量是线性无关的。
+    \end{block}
+    \pause\proofname
+    设$\A$的$m$个互不相同的特征值为$\lambda_1,\lambda_2,\cd,\lambda_m$，其相应的特征向量为$\xx_1,~\xx_2,~\cd,~\xx_m$.
+    对$m$做数学归纳法。
+    \begin{itemize}
+\item[$1^o$] 当$m=1$时，结论显然成立。
+\item[$2^o$] 设$k$个不同特征值$\lambda_1,\lambda_2,\cd,\lambda_k$的特征向量$\xx_1,~\xx_2,~\cd,~\xx_k$。下面考虑$k+1$个不同特征值的特征向量。
+\pause
+设
+$$
+\begin{array}{rc}
+& a_1\xx_1+a_2\xx_2+\cd+a_k\xx_k+a_{k+1}\xx_{k+1}=\zero\qquad(1)\\[0.1cm]\pause
+\Longrightarrow&
+\A(a_1\xx_1+a_2\xx_2+\cd+a_k\xx_k+a_{k+1}\xx_{k+1})=\zero\\[0.1cm]\pause
+\Longrightarrow& 
+a_1\lambda_1\xx_1+a_2\lambda_2\xx_2+\cd+a_k\lambda_k\xx_k+a_{k+1}\lambda_{k+1}\xx_{k+1}=\zero\quad(2)\\[0.1cm]\pause
+\xLongrightarrow[]{(2)-\lambda_{k+1}(1)}&
+a_1(\lambda_{k+1}-\lambda_1)\xx_1+a_2(\lambda_{k+1}-\lambda_2)\xx_2+\cd+a_k(\lambda_{k+1}-\lambda_k)\xx_k=\zero\\[0.1cm]\pause
+\Longrightarrow&
+a_i(\lambda_{k+1}-\lambda_i)=0, ~~i=1,2,\cd,k\\[0.1cm]\pause
+\Longrightarrow&
+a_i=0, ~~i=1,2,\cd,k\\[0.1cm]\pause
+\Longrightarrow&
+a_{k+1}\xx_{k+1}=0\\[0.1cm]\pause
+\Longrightarrow&
+a_{k+1}=0\\[0.1cm]\pause
+\Longrightarrow&
+ \xx_1,~\xx_2,~\cd,~\xx_k,~~\xx_{k+1}\mbox{线性无关}
+\end{array}
+$$
+
+\end{itemize}•
+  \end{footnotesize}
+\end{frame}
+
+\begin{frame}
+  \begin{footnotesize}
+    \begin{block}{推论}
+      若$\A$有$n$个互不相同的特征值，则$\A$与对角阵相似。
+    \end{block}
+  \end{footnotesize}
+\end{frame}
+
+\begin{frame}
+  \begin{footnotesize}
+    \begin{exampleblock}{例1}
+      设实对称矩阵
+      $$
+      \A=\left(
+      \begin{array}{rrrr}
+        1&-1&-1&-1\\
+        -1&1&-1&-1\\
+        -1&-1&1&-1\\
+        -1&-1&-1&1
+      \end{array}
+      \right)
+      $$
+      问$\A$是否可对角化？若可对角化，求对角阵$\Lambdabd$及可逆矩阵$\PP$使得$\PP^{-1}\A\PP=\Lambdabd$，再求$\A^k$。
+    \end{exampleblock}
+  \end{footnotesize}
+\end{frame}
+
+\begin{frame}
+  \begin{footnotesize}
+    \begin{exampleblock}{例2}
+      设$\A=(a_{ij})_{n\times n}$是主对角元全为$2$的上三角矩阵，且存在$a_{ij}\ne 0(i<j)$，问$\A$是否可对角化?
+    \end{exampleblock}
+  \end{footnotesize}
+\end{frame}

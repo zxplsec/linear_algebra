@@ -1,0 +1,577 @@
+\section{非齐次线性方程组有解的条件及解的结构}
+
+\begin{frame}
+  \begin{footnotesize}
+    \begin{block}{定理3.5.1}
+      对于非齐次线性方程组$\A\xx=\bb$，以下命题等价：
+      \begin{itemize}
+      \item[(i)] $\A\xx=\bb$有解；
+      \item[(ii)] $\bb$可由$\A$的列向量组线性表示；
+      \item[(iii)] $\rr(\A,\bb)=\rr(\A)$。
+      \end{itemize}
+    \end{block}
+    \pause\proofname
+    \begin{itemize}
+    \item[(i)$\Leftrightarrow$(ii)] 记$\A=(\alphabd_1,\alphabd_2,\cd,\alphabd_n)$，则$\A\xx=\bb$等价于
+      $$
+      x_1\alphabd_1+x_2\alphabd_2+\cd+x_n\alphabd_n=\bb.
+      $$
+    \item[(ii)$\Leftrightarrow$(iii)] 若$\bb$可由$\A$的列向量组$\alphabd_1,\alphabd_2,\cd,\alphabd_n$线性表示，则$(\A,\bb)$的列向量组与$\A$的列向量组等价，故$\rr(\A,\bb)=\rr(\A)$。
+      \pause \vspace{0.1in}
+      
+      反之，若$\rr(\A,\bb)=\rr(\A)$，则$\bb$能由向量组$\alphabd_1,\alphabd_2,\cd,\alphabd_n$线性表示，否则$\rr(\A,\bb)=\rr(\A)+1$，导致矛盾。
+    \end{itemize}
+  \end{footnotesize}
+\end{frame}
+
+
+\begin{frame}
+  \begin{footnotesize}
+    \begin{block}{注}
+      $\rr(\A,\bb)=\rr(\A)+1$会导致矛盾方程的出现
+    \end{block}
+    记$\rr(\A)=r$，若$\rr(\A,\bb)=\rr(\A)+1$，则增广矩阵$(\A,\bb)$经过初等行变换所得的行阶梯形矩阵形如
+    \begin{center}
+    \begin{tikzpicture}
+      \matrix(MM) [matrix of math nodes,nodes in empty cells,ampersand replacement=\&,left delimiter=(,right delimiter=)] {
+        1\&\cd\&c_{1r}\&c_{1,r+1}\&\cd\&c_{1n}\&\&d_1\\        
+        \vd\&\&\vd\&\vd\&\&\vd\&\&\vd\\
+        0\&\cd\&1\&c_{r,r+1}\&\cd\&c_{rn}\&\&d_r\\
+        0\&\cd\&0\&0\&\cd\&0\&\&\red{d_{r+1}}\\
+        0\&\cd\&0\&0\&\cd\&0\&\&0\\        
+        \vd\&\&\vd\&\vd\&\&\vd\&\&\vd\\
+        0\&\cd\&0\&0\&\cd\&0\&\&0\\
+      };  
+      \draw[thick,dashed] (MM-1-7.north)--(MM-7-7.south);
+    \end{tikzpicture}
+    \end{center}
+    其中$d_{r+1}\ne 0$（否则$\rr(\A,\bb)=r$）。这意味着出现了矛盾方程
+    $$
+    0 = \red{d_{r+1}}.
+    $$    
+  \end{footnotesize}
+\end{frame}
+
+\begin{frame}
+  \begin{footnotesize}
+    \begin{block}{推论}
+      $$
+      \A\xx=\bb\mbox{有唯一解} ~~\Longleftrightarrow~~
+      \rr(\A,\bb)=\rr(\A)=\A\mbox{的列数}.
+      $$
+    \end{block}
+\begin{center}
+    \begin{tikzpicture}
+      \matrix(MM) [matrix of math nodes,nodes in empty cells,ampersand replacement=\&,left delimiter=(,right delimiter=)] {
+        1\&\cd\&0\&\&d_1\\        
+        \vd\&\&\vd\&\&\vd\\
+        0\&\cd\&1\&\&d_r\\
+        0\&\cd\&0\&\&0\\
+        0\&\cd\&0\&\&0\\
+        \vd\&\&\vd\&\&\vd\\
+        0\&\cd\&0\&\&0\\
+      };  
+      \draw[thick,dashed] (MM-1-4.north)--(MM-7-4.south);
+    \end{tikzpicture}
+    \end{center}
+  \end{footnotesize}
+\end{frame}
+
+\begin{frame}
+  \begin{footnotesize}
+    \begin{block}{定理3.5.2}
+      若$\xx_1,~\xx_2$是$\A\xx=\bb$的解，则$\xx_1-\xx_2$是$\A\xx=\zero$的解。
+    \end{block}
+    \pause
+    \proofname
+    $$
+    \A(\xx_1-\xx_2)=\A\xx_1-\A\xx_2=\bb-\bb=\zero,
+    $$
+    故$\xx_1-\xx_2$是$\A\xx=\zero$的解。
+  \end{footnotesize}
+\end{frame}
+
+\begin{frame}
+  \begin{footnotesize}
+    \begin{block}{定理3.5.3}
+      若$\A\xx=\bb$有解，则其一般解（或称通解）为
+      $$
+      \xx=\xx_0+\bar\xx
+      $$
+      其中$\xx_0$是$\A\xx=\bb$的一个特解，而
+      $$
+      \bar\xx=k_1\xx_1+k_2\xx_2+\cd+k_p\xx_p
+      $$
+      为$\A\xx=\zero$的一般解。
+    \end{block}
+    \pause\proofname
+    $$
+    \A(\xx_0+\bar\xx)=\A\xx_0+\A\bar\xx=\bb ~~\Rightarrow~~
+    \xx_0+\bar\xx\mbox{是}\A\xx=\bb\mbox{的解}
+    $$
+    设$\xx^*$是$\A\xx=\bb$的任意一个解，则$\xx^*-\xx_0$是$\A\xx=\zero$的解，而
+    $$
+    \xx^*=\xx_0+(\xx^*-\xx_0).
+    $$
+    故$\xx^*$可表示为$\xx_0+\bar\xx$的形式。
+  \end{footnotesize}
+\end{frame}
+
+
+\begin{frame}
+  \begin{footnotesize}
+    非齐次线性方程组
+    $$\A\xx=\bb$$
+    的通解为
+    $$
+    k_1\xx_1+k_2\xx_2+\cd+k_p\xx_p + \red{\xx_0}
+    $$
+    其中$\xx_1,\xx_2,\cd,\xx_p$为$\A\xx=\zero$的基础解系，$\xx_0$为$\A\xx=\bb$的一个特解。
+
+    \begin{block}{注}
+      “$\A\xx=\bb$的通解” =  “$\A\xx=\zero$的通解” + “$\A\xx=\bb$的特解”
+    \end{block}
+  \end{footnotesize}
+\end{frame}
+
+\begin{frame}
+  \begin{footnotesize}
+    \begin{exampleblock}{例1}
+      求非齐次线性方程组$\A\xx=\bb$的一般解，其中增广矩阵为
+      $$
+      (\A,\bb) = \left(
+      \begin{array}{rrrrr}
+        1&-1&-1& 1&\red{0}\\
+        1&-1& 1&-3&\red{1}\\
+        1&-1&-2& 3&\red{-\frac12}
+      \end{array}
+      \right)
+      $$
+    \end{exampleblock}
+    \pause\jiename
+    $$
+    \begin{array}{rl}
+        \left(
+    \begin{array}{rrrrr}
+      1&-1&-1& 1&\red{0}\\
+      1&-1& 1&-3&\red{1}\\
+      1&-1&-2& 3&\red{-\frac12}
+    \end{array}
+    \right)  \xlongrightarrow[r_3-r_1]{r_2-r_1} &
+    \left(
+    \begin{array}{rrrrr}
+      1&-1&-1& 1&\red{0}\\
+      0& 0& 2&-4&\red{1}\\
+      0& 0&-1& 2&\red{-\frac12}
+    \end{array}
+    \right) \\[0.4in]
+     \xlongrightarrow[r_2\div2]{r_1-r_3,r_3+\frac12r_2} &
+    \left(
+    \begin{array}{rrrrr}
+      1&-1&-1& 1&\red{0}\\
+      0& 0& 1&-2&\red{\frac12}\\
+      0& 0& 0& 0&\red{0}
+    \end{array}
+    \right)
+    \end{array}
+    $$
+  \end{footnotesize}
+\end{frame}
+
+\begin{frame}
+  \begin{footnotesize}
+    同解方程为
+    $$
+    \left\{
+    \begin{array}{rcrcrcr}
+      x_1&=&x_2&+&x_4&+&\frac12\\[0.1in]
+      x_3&=&&&2x_4&+&\frac12
+    \end{array}
+    \right.
+    $$
+    亦即
+    $$
+    \left\{
+    \begin{array}{rcrcrcr}
+      x_1&=&x_2&+&x_4&+&\frac12\\[0.1in]
+      x_2&=&x_2&&&&\\[0.1in]
+      x_3&=&&&2x_4&+&\frac12\\[0.1in]
+      x_4&=&&&x_4&&
+    \end{array}
+    \right.
+    $$
+    故通解为
+    $$
+    \left(
+    \begin{array}{c}
+      x_1\\x_2\\x_3\\x_4
+    \end{array}
+    \right) = c_1    \left(
+    \begin{array}{c}
+      1\\1\\0\\0
+    \end{array}
+    \right)+c_2    \left(
+    \begin{array}{c}
+      1\\0\\2\\1
+    \end{array}
+    \right)+    \left(
+    \begin{array}{c}
+      1/2\\0\\1/2\\0
+    \end{array}
+    \right) \quad c_1,c_2\in\mathbb R
+    $$
+
+  \end{footnotesize}
+\end{frame}
+
+\begin{frame}
+  \begin{footnotesize}
+    \begin{exampleblock}{例2（重要题型）}
+      设有线性方程组
+      $$
+      \left\{
+      \begin{array}{rrrcr}
+        (1+\lambda)x_1&+x_2&+x_3&=&0\\[0.05in]
+        x_1&+(1+\lambda)x_2&+x_3&=&3\\[0.05in]
+        x_1&+x_2&+(1+\lambda)x_3&=&\lambda
+      \end{array}
+      \right.
+      $$
+      问$\lambda$取何值时，此方程组
+      \begin{itemize}
+      \item[(1)]有唯一解？
+      \item[(2)]无解？ 
+      \item[(3)]有无穷多解？ 并在有无穷多解时求其通解。
+      \end{itemize}
+    \end{exampleblock}
+    \pause\jiename
+    $$
+    |\A|=\left|
+    \begin{array}{ccc}
+      1+\lambda&1&1\\
+      1&1+\lambda&1\\
+      1&1&1+\lambda
+    \end{array}
+    \right| = (3+\lambda)\lambda^2.
+    $$
+    故当$\lambda\ne0$且$\lambda\ne-3$时，有唯一解。
+  \end{footnotesize}
+\end{frame}
+
+
+\begin{frame}
+  \begin{footnotesize}
+    当$\lambda=0$时，原方程组为
+    $$
+    \left\{
+    \begin{array}{l}
+      x_1+x_2+x_3=0,\\
+      x_1+x_2+x_3=3,\\
+      x_1+x_2+x_3=0      
+    \end{array}
+    \right.
+    $$
+    它为矛盾方程组，故无解。\pause \vspace{0.1in}
+
+    当$\lambda=-3$时，增广矩阵为
+    $$
+    \left(
+    \begin{array}{rrrr}
+      -2&1&1&\red{0}\\
+      1&-2&1&\red{3}\\
+      1&1&-2&\red{-3}
+    \end{array}
+    \right) \xlongrightarrow[]{\mbox{初等行变换}}
+    \left(
+    \begin{array}{rrrr}
+      1&0&-1&\red{-1}\\
+      0&1&-1&\red{-2}\\
+      0&0&0&\red{0}
+    \end{array}
+    \right)
+    $$
+    得同解方程组为
+    $$
+    \left\{
+    \begin{array}{l}
+      x_1=x_3-1\\[0.05in]
+      x_2=x_3-2\\[0.05in]
+      x_3=x_3
+    \end{array}
+    \right.
+    $$
+    通解为
+    $$
+    \left(
+    \begin{array}{c}
+      x_1\\x_2\\x_3
+    \end{array}
+    \right) = c\left(
+    \begin{array}{c}
+     1\\1\\1
+    \end{array}
+    \right)+\left(
+    \begin{array}{r}
+      -1\\-2\\0
+    \end{array}
+    \right) \quad c\in\mathbb R
+    $$
+  \end{footnotesize}
+\end{frame}
+
+\begin{frame}
+  \begin{footnotesize}
+    \begin{exampleblock}{例3}
+      设$\etabd^*$为$\A\xx=\bb$的一个解，$\xibd_1,~\xibd_2,~\cd,~\xibd_{n-r}$为对应的齐次线性方程组的一个基础解系，证明：
+      \begin{itemize}
+      \item $\etabd^*,~\xibd_1,~\xibd_2,~\cd,~\xibd_{n-r}$线性无关
+      \item $\etabd^*,~\etabd^*+\xibd_1,~\etabd^*+\xibd_2,~\cd,~\etabd^*+\xibd_{n-r}$线性无关
+      \end{itemize}
+    \end{exampleblock}
+    \pause\proofname
+    \begin{itemize}
+    \item[(1)] 假设$\etabd^*,~\xibd_1,~\xibd_2,~\cd,~\xibd_{n-r}$线性相关，而$\xibd_1,~\xibd_2,~\cd,~\xibd_{n-r}$线性无关，故$\etabd^*$可由$\xibd_1,~\xibd_2,~\cd,~\xibd_{n-r}$线性表示，从而$\etabd^*$为$\A\xx=\zero$的解，这与$\etabd^*$为$\A\xx=\bb$的解矛盾。故假设不成立，即$\etabd^*,~\xibd_1,~\xibd_2,~\cd,~\xibd_{n-r}$线性无关。\pause 
+    \item[(2)] 显然，
+      $$\etabd^*,~\xibd_1,~\xibd_2,~\cd,~\xibd_{n-r}
+      \mbox{~~等价于~~} 
+      \etabd^*,~\etabd^*+\xibd_1,~\etabd^*+\xibd_2,~\cd,~\etabd^*+\xibd_{n-r},$$ \pause 
+      由题(1)结论可知
+      $$
+      \rr(\etabd^*,~\etabd^*+\xibd_1,~\etabd^*+\xibd_2,~\cd,~\etabd^*+\xibd_{n-r}) = 
+      \rr(\etabd^*,~\xibd_1,~\xibd_2,~\cd,~\xibd_{n-r}) = n-r+1
+      $$
+      从而结论成立。
+    \end{itemize}
+  \end{footnotesize}
+\end{frame}
+
+\begin{frame}
+  \begin{footnotesize}
+    \begin{exampleblock}{例3}
+      设$\etabd_1,~\etabd_2,~\cd,~\etabd_s$为$\A\xx=\bb$的$s$个解，$k_1,~k_2,~\cd,~k_{s}$为实数，满足$k_1+k_2+\cd+k_s=1$。证明：
+      $$
+      \xx=k_1\etabd_1+k_2\etabd_2+\cd+k_s\etabd_s
+      $$
+      也是它的解。
+    \end{exampleblock}
+    \pause\proofname
+    $$
+    \begin{array}{rcl}
+      \A(k_1\etabd_1+k_2\etabd_2+\cd+k_{s}\etabd_{s})&=&
+      k_1\A\etabd_1+k_2\A\etabd_2+\cd+k_s\A\etabd_s\\[0.05in]
+      &=&k_1\bb+k_2\bb+\cd+k_s\bb\\[0.05in]
+      &=&\bb.
+    \end{array}
+    $$
+  \end{footnotesize}
+\end{frame}
+
+\begin{frame}
+  \begin{footnotesize}
+    \begin{exampleblock}{例3}
+      对于$\A\xx=\bb$，$\rr(\A)=r$，$\etabd_1,~\etabd_2,~\cd,~\etabd_{n-r+1}$为它的$n-r+1$个线性无关的解。证明它的任一解可表示为
+      $$
+      \xx=k_1\etabd_1+k_2\etabd_2+\cd+k_{n-r+1}\etabd_{n-r+1},
+      $$
+      其中$k_1+k_2+\cd+k_{n-r+1}=1$
+    \end{exampleblock}
+    \pause\proofname
+    取向量组
+    $$
+    \etabd_2-\etabd_1,~~\etabd_2-\etabd_1,~~\cd,~\etabd_{n-r+1}-\etabd_1.
+    $$
+    下证该向量组为$\A\xx=\zero$的一个基础解系。\pause 
+    $$
+    (\etabd_1,~\etabd_2,~\cd,~\etabd_{n-r+1}) \xlongrightarrow[j=2,\cd,n-r+1]{c_j-c_1}
+    (\etabd_1,~\etabd_2-\etabd_1,~\cd,~\etabd_{n-r+1}-\etabd_1)
+    $$\pause 
+    $$
+    \begin{array}{rl}
+      &\etabd_1,~\etabd_2,~\cd,~\etabd_{n-r+1}\mbox{线性无关}\\[0.1in] \pause 
+      \Rightarrow&\etabd_1,~\etabd_2-\etabd_1,~\cd,~\etabd_{n-r+1}-\etabd_1\mbox{线性无关}\\[0.1in] \pause 
+      \Rightarrow&\etabd_2-\etabd_1,~\cd,~\etabd_{n-r+1}-\etabd_1\mbox{线性无关}\\[0.1in] \pause 
+      \Rightarrow& \etabd_2-\etabd_1,~\cd,~\etabd_{n-r+1}-\etabd_1\mbox{为}\A\xx=\zero
+      \mbox{的基础解系}.      
+    \end{array}
+    $$
+  \end{footnotesize}
+\end{frame}
+
+\begin{frame}
+  \begin{footnotesize}
+    于是$\A\xx=\bb$的任意一个解$\xx$可表示为
+    $$
+    \begin{array}{rl}
+      & \xx = k_2(\etabd_2-\etabd_1)+\cd+k_{n-r+1}(\etabd_{n-r+1}-\etabd_1)+\red{\etabd_1}\\[0.1in] \pause
+      \Rightarrow & 
+      \xx = (1-k_2-\cd-k_{n+r-1})\etabd_1+k_2\etabd_2+\cd+k_{n-r+1}\etabd_{n-r+1}\\[0.1in]\pause
+      \Rightarrow & 
+      \xx =k_1\etabd_1+k_2\etabd_2+\cd+k_{n-r+1}\etabd_{n-r+1}
+    \end{array}
+    $$
+  \end{footnotesize}
+\end{frame}
+
+\begin{frame}
+  \begin{footnotesize}
+    \begin{exampleblock}{例}
+      设四元齐次线性方程组
+      $$
+      \mbox{I}:\left\{
+      \begin{array}{l}
+        x_1+x_2=0,\\
+        x_2-x_4=0;
+      \end{array}
+      \right. \quad
+      \mbox{II}:\left\{
+      \begin{array}{l}
+        x_1-x_2+x_3=0,\\
+        x_2-x_3+x_4=0.
+      \end{array}
+      \right.
+      $$
+      求
+      \begin{itemize}
+      \item[(1)] 方程组I与II的基础解系
+      \item[(1)] 方程组I与II的公共解        
+      \end{itemize}
+    \end{exampleblock}
+    \pause\jiename
+    \begin{itemize}
+    \item[(1)]因为
+      $
+      \mbox{I} \Longleftrightarrow
+      \left\{
+      \begin{array}{rcr}
+        x_1&=&-x_2\\[0.05in]
+        x_4&=&x_2
+      \end{array}
+      \right. \Longleftrightarrow
+      \left\{
+      \begin{array}{rcrr}
+        x_1&=&-x_2&\\[0.05in]
+        x_2&=&x_2&\\[0.05in]
+        x_3&=&&x_3\\[0.05in]
+        x_4&=&x_2&
+      \end{array}
+      \right. 
+      $\pause 
+      
+      故(I)的基础解系为
+      $$
+      \xibd_1=\left(
+      \begin{array}{r}
+        -1\\1\\0\\1
+      \end{array}
+      \right), \quad
+      \xibd_1=\left(
+      \begin{array}{r}
+        0\\0\\1\\0
+      \end{array}
+      \right)
+      $$
+    \end{itemize}
+  \end{footnotesize}
+\end{frame}
+
+\begin{frame}
+  \begin{footnotesize}
+    因为
+      $
+      \mbox{II} \Longleftrightarrow
+      \left\{
+      \begin{array}{rcrr}
+        x_1&=&x_2&-x_3\\[0.05in]
+        x_4&=&-x_2&+x_3
+      \end{array}
+      \right. \Longleftrightarrow
+      \left\{
+      \begin{array}{rcrr}
+        x_1&=&x_2&-x_3\\[0.05in]
+        x_2&=&x_2&\\[0.05in]
+        x_3&=&&x_3\\[0.05in]
+        x_4&=&-x_2&+x_3
+      \end{array}
+      \right. 
+      $\pause 
+      
+      故(I)的基础解系为
+      $$
+      \xibd_1=\left(
+      \begin{array}{r}
+        1\\1\\0\\-1
+      \end{array}
+      \right), \quad
+      \xibd_1=\left(
+      \begin{array}{r}
+        -1\\0\\1\\1
+      \end{array}
+      \right)
+      $$
+  \end{footnotesize}
+\end{frame}
+
+\begin{frame}
+  \begin{footnotesize}
+    \begin{itemize}
+    \item[(2)] 方程I与II的公共解，即联立I和II所得新方程组的解：
+      $$
+      \left\{
+      \begin{array}{l}
+        x_1+x_2=0\\
+        x_2-x_4=0\\
+        x_1-x_2+x_3=0\\
+        x_2-x_3+x_4=0
+      \end{array}
+      \right.
+      $$\pause
+
+      $$
+      \begin{array}{rl}
+        \left(
+        \begin{array}{rrrr}
+          1&1&0&0\\
+          0&1&0&-1\\
+          1&-1&1&0\\
+          0&1&-1&1
+        \end{array}
+        \right) \xlongrightarrow[r_3-r_1]{r_4+r_2} & 
+        \left(
+        \begin{array}{rrrr}
+          1&1&0&0\\
+          0&1&0&-1\\
+          0&-2&1&0\\
+          0&2&-1&0
+        \end{array}
+        \right) \\[0.3in]
+        \xlongrightarrow[r_3\times(-1)]{r_3+r_4}&
+        \left(
+        \begin{array}{rrrr}
+          1&1&0&0\\
+          0&1&0&-1\\
+          0&2&-1&0\\
+          0&0&0&0
+        \end{array}
+        \right)         
+      \end{array}
+      $$ \pause 
+      即
+      $$
+      \left\{
+      \begin{array}{rcr}
+        x_1&=&-x_2\\
+        x_2&=&x_2\\
+        x_3&=&2x_2\\
+        x_4&=&x_2
+      \end{array}
+      \right. \pause ~~ \Rightarrow ~~
+      \xx = c\left(
+      \begin{array}{r}
+        -1\\1\\2\\1
+      \end{array}
+      \right) \quad c\in \mathbb R.
+      $$
+    \end{itemize}
+  \end{footnotesize}
+\end{frame}
+

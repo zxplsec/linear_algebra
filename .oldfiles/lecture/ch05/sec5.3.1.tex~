@@ -1,0 +1,43 @@
+\subsection{实对称矩阵的特征值和特征向量}
+
+\begin{frame}
+  \begin{footnotesize}
+    \begin{block}{定理}
+      实对称矩阵$\A$的任一特征值都是实数。
+    \end{block}
+    \pause\proofname
+    $$
+    \begin{array}{rl}
+      \A\xx = \lambda \xx
+      &~~\Longrightarrow~~
+      \overline{(\A\xx)}^T = \overline{\lambda \xx}^T\\[0.1in]
+      &~~\Longrightarrow~~
+      \overline{\xx}^T~\overline{\A}^T~\xx = \overline{\lambda} ~\overline{\xx}^T~\xx\\[0.1in]
+      &~~\Longrightarrow~~
+      \overline{\xx}^T~\A^T~\xx = \overline{\lambda} ~\overline{\xx}^T~\xx\\[0.1in]
+      &~~\Longrightarrow~~
+      \lambda \overline{\xx}^T~\xx = \overline{\lambda} ~\overline{\xx}^T~\xx\\[0.1in]
+      &~~\Longrightarrow~~
+      \lambda = \overline \lambda
+    \end{array}
+    $$
+  \end{footnotesize}
+\end{frame}
+
+
+\begin{frame}
+  \begin{footnotesize}
+    \begin{block}{定理}
+      实对称矩阵$\A$对应于不同特征值的特征向量是正交的。
+    \end{block}
+    \pause\proofname
+    设$\A\xx_1=\lambda_1\xx_1,~~\A\xx_1=\lambda_1\xx_1~ (\lambda_1\ne\lambda_2), ~~\A^T=\A$，则
+    $$
+    \lambda_1\xx_2^T\xx_1=\xx_2^T\A\xx_1=\xx_2^T\A^T\xx_1=(\A\xx_2)^T\xx_1=(\lambda_2\xx_2)^T\xx_1=\lambda_2\xx_2^T\xx_1
+    $$\pause
+    由于$\lambda_1\ne\lambda_2$，所以
+    $$
+    \xx_2^T\xx_1=0.
+    $$
+  \end{footnotesize}
+\end{frame}

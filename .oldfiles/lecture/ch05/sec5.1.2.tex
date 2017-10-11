@@ -1,0 +1,378 @@
+\subsection{特征值与特征值的性质}
+
+
+
+\begin{dingli}
+  若$\xx_1$和$\xx_2$都是$\A$的对应于特征值$\lambda_0$的特征向量，则$k_1\xx_1+k_2\xx_2$也是$\A$的对应于特征值$\lambda_0$的特征向量（其中$k_1,k_2$为任意常数，但$k_1\xx_1+k_2\xx_2\ne 0$）。
+\end{dingli}
+
+\begin{proof}
+  由于$\xx_1$和$\xx_2$是齐次线性方程组
+  $$
+  (\A-\lambda_0\II)\xx=0
+  $$
+  的解，因此$k_1\xx_1+k_2\xx_2$也是上式的解，故当$k_1\xx_1+k_2\xx_2\ne0$时，是$\A$的属于$\lambda_0$的特征向量。
+\end{proof}
+
+在$(\A-\lambda\II)\xx=0$的解空间中，除零向量以外的全体解向量就是$\A$的属于特征值$\lambda$的全体特征向量。因此，$(\A-\lambda\II)\xx=0$的解空间也称为$\A$关于特征值$\lambda$的特征子空间，记作$V_\lambda$。$n$阶矩阵$\A$的特征子空间就是$n$维向量空间的子空间，其维数为
+$$
+dim V_\lambda = n - rank(\A-\lambda \II).
+$$
+需要注意的是，$n$维实矩阵的特征值可能是复数，所以特征子空间一般是$n$维复向量空间$\mathbb C^n$的子空间。
+
+上例中，矩阵$\A=\left(
+    \begin{array}{rrr}
+      5&-1&-1\\
+      3&1&-1\\
+      4&-2&1
+    \end{array}
+  \right)$的两个特征子空间为
+  $$
+  \begin{aligned}
+    V_{\lambda_1}=\{k\xx | \xx = (1,1,1)^T, k \in \mathbb C\},\\
+    V_{\lambda_2}=\{k\xx | \xx = (1,1,2)^T, k \in \mathbb C\}.
+  \end{aligned}
+  $$
+
+\begin{dingli}
+  设$n$阶矩阵$\A=(a_{ij})$的$n$个特征值为$\lambda_1,\lambda_2,\cd,\lambda_n$，则
+  \begin{itemize}
+  \item[(1)] $\ds \sum_{i=1}^n\lambda_i=\sum_{i=1}^na_{ii}$;
+  \item[(2)] $\ds \prod_{i=1}^n\lambda_i=\det(\A)$,         
+  \end{itemize}
+  其中$\sum_{i=1}^na_{ii}$是$\A$的主对角元之和，称为$\A$的迹(trace)，记为$tr(\A)$。
+\end{dingli}
+\begin{proof}
+  设
+  $$
+  \det(\A-\lambda\II)=\left|
+    \begin{array}{rrrr}
+      a_{11}-\lambda&a_{12}&\cd&a_{1n}\\
+      a_{21}&a_{22}-\lambda&\cd&a_{2n}\\
+      \vd&\vd&&\vd\\
+      a_{n1}&a_{n2}&\cd&a_{nn}-\lambda
+    \end{array}
+    \right|=\lambda^n+c_1\lambda^{n-1}+c_2\lambda^{n-2}+\cd+c_{n-1}\lambda+c_n,
+    $$
+    展开后含$\lambda^{n-1}$项的行列式有下面$n$个
+    $$
+    \left|
+    \begin{array}{ccccc}
+      a_{11}&&&&\\
+      a_{21}&-\lambda&&&\\
+      a_{31}&&-\lambda&&\\
+      \vd&&&\dd&\\
+      a_{n1}&&&&-\lambda
+    \end{array}
+  \right|,
+  \left|
+    \begin{array}{ccccc}
+      -\lambda&a_{12}&&&\\
+              &a_{22}&&&\\
+              &a_{32}&-\lambda&&\\
+              &\vd&&\dd&\\
+              &a_{n2}&&&-\lambda
+    \end{array}
+  \right|,\cd,
+  \left|
+    \begin{array}{ccccc}
+      -\lambda&&&&a_{1n}\\
+             &-\lambda&&&a_{2n}\\
+             &&-\lambda&&a_{3n}\\
+             &&&\dd&\vd\\
+             &&&&a_{nn}
+    \end{array}
+  \right|
+  $$
+  它们之和等于
+  $$
+  (a_{11}+a_{22}+\cd+a_{nn})(-\lambda)^{n-1}=(-1)^{n-1}\sum_{i=1}^na_{ii}\lambda^{n-1},
+  $$
+  即$c_1=(-1)^{n-1}\sum_{i=1}^na_{ii}$。
+
+  展开后常数项为
+  $$
+  \left|
+    \begin{array}{rrrr}
+      a_{11}&a_{12}&\cd&a_{1n}\\
+      a_{21}&a_{22}&\cd&a_{2n}\\
+      \vd&\vd&&\vd\\
+      a_{n1}&a_{n2}&\cd&a_{nn}
+    \end{array}
+  \right|=\det(\A),
+  $$
+  即$c_n=\det(\A)$。
+
+  假设$\A$的$n$个特征值为$\lambda_1,\lambda_2,\cd,\lambda_n$，根据$n$次多项式的根与系数的关系，得
+  $$
+  \begin{aligned}
+    (-1)^{n-1}\sum_{i=1}^n\lambda_i = c_1 = (-1)^{n-1}\sum_{i=1}^na_{ii},\\
+    \prod_{i=1}^n\lambda_i=c_n=\det(\A),
+  \end{aligned}
+  $$
+  故
+  $$
+  \det(\A)=\prod_{i=1}^n\lambda_i.
+  $$
+  
+\end{proof}
+
+\begin{zhu}
+\begin{itemize}
+\item 当$\det(\A)\ne 0$，即$\A$为可逆矩阵时，其特征值全为非零数；
+\item 奇异矩阵$\A$至少有一个零特征值。      
+\end{itemize}
+\end{zhu}
+
+
+
+
+
+\begin{dingli}
+  一个特征向量不能属于不同的特征值。
+\end{dingli}
+\begin{proof}
+
+  若$\xx$是$\A$的属于特征值$\lambda_1,\lambda_2(\lambda_1\ne\lambda_2)$的特征向量，
+  即有
+  $$
+  \A\xx=\lambda_1\xx, ~~ \A\xx=\lambda_2\xx
+  ~~\Rightarrow~~ (\lambda_1-\lambda_2)\xx=\zero
+  ~~\Rightarrow~~ \xx=\zero
+  $$
+  这与$\xx\ne\zero$矛盾。
+\end{proof}
+
+
+
+
+
+\begin{xingzhi}
+  若$\lambda$是矩阵$\A$的特征值，$\xx$是$\A$属于$\lambda$的特征向量，则
+  \begin{itemize}
+  \item[(i)] $k\lambda$是$k\A$的特征值；
+  \item[(ii)] $\lambda^m$是$\A^m$的特征值；
+  \item[(iii)] 当$\A$可逆时，$\lambda^{-1}$是$\A^{-1}$的特征值；
+  \end{itemize}
+  且$\xx$仍是矩阵$k\A,\A^m,\A^{-1}$分别对应于$k\lambda,\lambda^m,\lambda^{-1}$的特征向量。
+\end{xingzhi}
+\begin{proof}
+  \begin{itemize}
+  \item[(i)]
+  \item[(ii)]
+  \item[(iii)] 当$\A$可逆时，$\lambda\ne0$，由$\A\xx=\lambda\xx$可得
+    $$
+    \A^{-1}(\A\xx)=\A^{-1}(\lambda\xx)=\lambda\A^{-1}\xx,
+    $$
+    因此
+    $$
+    \A^{-1}\xx=\lambda^{-1}\xx,
+    $$
+    故$\lambda^{-1}$是$\A^{-1}$的特征值，且$\xx$也是$\A^{-1}$对应于$\lambda^{-1}$的特征向量。
+  \end{itemize}
+\end{proof}
+
+\begin{zhu*}
+  若$\lambda$是$\A$的特征值，则$\varphi(\lambda)$是$\varphi(\A)$的特征值，其中$\varphi(\lambda)=a_0+a_1\lambda+\cd+a_m\lambda^m, \varphi(\A)=a_0\II+a_1\A+\cd+a_m\A^m$.
+\end{zhu*}
+
+\begin{li}
+  设$3$阶矩阵$\A$的特征值为$1,-1,2$，求$|\A^*+3\A-2\II|$.
+\end{li}
+\begin{jie}
+  因$\A$的特征值全不为零，故$\A$可逆，从而$\A^*=|\A|\A^{-1}$。又因$|\A|=\lambda_1\lambda_2\lambda_3=-2$，故
+  $$
+  \A^*+3\A-2\II=-2\A^{-1}+3\A-2\II.
+  $$
+  令$\varphi(\lambda)=-\frac2\lambda+3\lambda-2$，则$\varphi(\lambda)$为上述矩阵的特征值，分别为$\varphi(1)=-1,\varphi(-1)=-3,\varphi(2)=3$，于是
+  $$
+  |\A^*+3\A-2\II|=(-1)\cdot(-3)\cdot3=9.
+  $$
+\end{jie}
+
+\begin{xingzhi}
+  矩阵$\A$与$\A^T$的特征值相同。
+\end{xingzhi}
+\begin{proof}
+  因$(\A-\lambda\II)^T=\A^T-(\lambda\II)^T=\A^T-\lambda\II$，故
+  $$
+  \det(\A-\lambda\II)=\det(\A^T-\lambda\II),
+  $$
+  故$\A$与$\A^T$有完全相同的特征值。
+\end{proof}
+
+
+
+
+% \begin{dingli}
+%   设$\A=(a_{ij})$是$n$阶矩阵,若
+%   \begin{itemize}
+%   \item[(1)] $\ds \sum_{j=1}^n|a_{ij}|<1, ~~(i=1,2,\cd,n)$
+%   \item[(2)] $\ds \sum_{i=1}^n|a_{ij}|<1, ~~(j=1,2,\cd,n)$
+%   \end{itemize}
+%   有一个成立，则$\A$的所有特征值的模都小于$1$。
+% \end{dingli}
+
+
+\begin{li}
+  设$\A=\left(
+    \begin{array}{rrr}
+      1&-1&1\\
+      2&-2&2\\
+      -1&1&-1
+    \end{array}
+  \right)$
+  \begin{itemize}
+  \item[(i)]求$\A$的特征值与特征向量
+  \item[(ii)] 求可逆矩阵$\PP$，使得$\PP^{-1}\A\PP$为对角阵。 
+  \end{itemize}
+\end{li}
+\begin{jie}
+  由
+  $$
+  \begin{aligned}
+    |\A-\lambda\II|&=\left|
+      \begin{array}{rrr}
+        1-\lambda&-1&1\\
+        2&-2-\lambda&2\\
+        -1&1&-1-\lambda
+      \end{array}
+  \right|=\left|
+    \begin{array}{rrr}
+      1-\lambda&0&1\\
+        2&-\lambda&2\\
+        -1&-\lambda&-1-\lambda
+    \end{array}
+  \right|\\
+  &=\left|
+    \begin{array}{rrr}
+      1-\lambda&0&1\\
+      2&-\lambda&2\\
+      -3&0&-3-\lambda
+    \end{array}
+  \right|=-\lambda[(\lambda-1)(\lambda+3)+3]=-\lambda^2(\lambda+2),
+\end{aligned}
+$$
+知$\A$的特征值为$\lambda_1=\lambda_2=0$和$\lambda_3=-2$.
+
+当$\lambda_{1,2}=0$时，由$(\A-0\II)\xx=0$，即$\A\xx=0$得基础解系
+$$
+\xx_1=(1,1,0)^T, \quad \xx_2=(-1,0,1)^T,
+$$
+故$\A$对应于$\lambda_{1,2}=0$的全体特征向量为$k_1\xx_1+k_2\xx_2=k_1(1,1,0)^T+k_2(-1,0,1)^T$，其中$k_1,k_2$为不全为零的任意常数。
+
+
+当$\lambda_{3}=-2$时，由$(\A-\lambda_{3}\II)\xx=0$，即
+$$
+\left(
+  \begin{array}{rrr}
+    3&-1&1\\
+    2&0&2\\
+    -1&1&1
+  \end{array}
+\right)\left(
+  \begin{array}{c}
+    x_1\\x_2\\x_3
+  \end{array}
+\right)=\left(
+  \begin{array}{c}
+    0\\0\\0
+  \end{array}
+\right)
+$$得基础解系
+$$
+\xx_3=(-1,-2,1)^T,
+$$
+故$\A$对应于$\lambda_{3}=-2$的全体特征向量为$k_3\xx_3=k_3(-1,-2,1)^T$，其中$k_3$为非零的任意常数。
+
+
+将$\A\xx_i=\lambda_i\xx_i(i=1,2,3)$表示成
+$$
+\A(\xx_1,\xx_2,\xx_3)=(\xx_1,\xx_2,\xx_3)\left(
+  \begin{array}{ccc}
+    \lambda_1&&\\
+    &\lambda_2\\
+    &&\lambda_3\\
+  \end{array}
+\right)
+$$
+取
+$$
+\PP=(\xx_1,\xx_2,\xx_3)=\left(
+  \begin{array}{rrr}
+    1&-1&-1\\
+    1& 0&-2\\
+    0& 1& 1
+  \end{array}
+\right), \quad \Lambdabd=\left(
+  \begin{array}{rrr}
+    0&&\\
+     &0&\\
+     & &-2
+  \end{array}
+\right),
+$$
+则$\A\PP=\PP\Lambdabd$，且$|\PP|=2\ne 0$，故得
+$$
+\PP^{-1}\A\PP=\Lambdabd
+$$
+为对角阵。
+\end{jie}
+
+
+\begin{dingli}
+  设$\lambda_1,\lambda_2,\cd,\lambda_m$是方阵$\A$的$m$个特征值，$\xx_1,\xx_2,\cd,\xx_m$依次是与之对应的特征向量，若$\lambda_1,\lambda_2,\cd,\lambda_m$互不相等，则$\xx_1,\xx_2,\cd,\xx_m$线性无关。
+\end{dingli}
+\begin{proof}
+  设有常数$k_1,k_2,\cd,k_m$使得
+  $$
+  k_1\xx_1+k_2\xx_2+\cd+k_m\xx_m=0,
+  $$
+  则$\A(k_1\xx_1+k_2\xx_2+\cd+k_m\xx_m)=0$，即
+  $$
+  \lambda_1k_1\xx_1+\lambda_2k_2\xx_2+\cd+\lambda_mk_m\xx_m=0,
+  $$
+  以此类推，有
+  $$
+  \lambda_1^lk_1\xx_1+\lambda_2^lk_2\xx_2+\cd+\lambda_m^lk_m\xx_m=0, \quad l=1,2,\cd,m-1.
+  $$
+  写成矩阵形式即为
+  $$
+  (k_1\xx_1,k_2\xx_2,\cd,k_m\xx_m)\left(
+    \begin{array}{cccc}
+      1&\lambda_1&\cd&\lambda_1^{m-1}\\
+      1&\lambda_2&\cd&\lambda_2^{m-1}\\
+      \vd&\vd&&\vd\\
+      1&\lambda_m&\cd&\lambda_m^{m-1}\\
+    \end{array}
+  \right)=(0,0,\cd,0).
+  $$
+  上式左边的第二个矩阵的行列式为范德蒙德行列式，当$\lambda_i$互不相等时该行列式不为零，从而该矩阵可逆。于是有
+  $$
+  (k_1\xx_1,k_2\xx_2,\cd,k_m\xx_m)=(0,0,\cd,0),
+  $$
+  即$k_j\xx_j=0, ~~j=1,2,\cd,m$。但$\xx_j\ne 0$，故$k_j=0,~~j=1,2,\cd,m$，从而$\xx_1,\xx_2,\cd,\xx_m$线性无关。
+\end{proof}
+
+\begin{li}
+设$\lambda_1$和$\lambda_2$是矩阵$\A$的两个不同特征值，对应的特征向量依次为$\xx_1,\xx_2$，证明$\xx_1+\xx_2$不是$\A$的特征向量。
+\end{li}
+\begin{proof}
+  按题设，有$\A\xx_1=k_1\xx_1,~\A\xx_2=k_2\xx_2$，故
+  $$
+  A(\xx_1+\xx_2)=\lambda_1\xx_1+\lambda_2\xx_2.
+  $$
+  （反证法）假设$\xx_1+\xx_2$是$\A$的特征向量，则应存在$\lambda$使得$\A(\xx_1+\xx_2)=\lambda(\xx_1+\xx_2)$，于是
+  $$
+  \lambda(\xx_1+\xx_2)=\lambda_1\xx_1+\lambda_2\xx_2,
+  $$
+  即
+  $$
+  (\lambda_1-\lambda)\xx_1+(\lambda_2-\lambda)\xx_2=0.
+  $$
+  因$\lambda_1\ne\lambda_2$，由上述定理知$\xx_1,\xx_2$线性无关，从而有
+  $$
+  \lambda_1-\lambda=\lambda_2-\lambda,
+  $$
+  即$\lambda_1=\lambda_2$，与题设矛盾，从而$\xx_1+\xx_2$不是$\A$的特征向量。
+\end{proof}

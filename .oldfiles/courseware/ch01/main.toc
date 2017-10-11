@@ -1,0 +1,10 @@
+\beamer@endinputifotherversion {3.36pt}
+\beamer@sectionintoc {1}{行列式简介}{3}{0}{1}
+\beamer@sectionintoc {2}{行列式的定义}{10}{0}{2}
+\beamer@subsectionintoc {2}{1}{二阶行列式}{11}{0}{2}
+\beamer@subsectionintoc {2}{2}{三阶行列式}{20}{0}{2}
+\beamer@subsectionintoc {2}{3}{$n$阶行列式的定义}{38}{0}{2}
+\beamer@sectionintoc {3}{行列式的性质}{59}{0}{3}
+\beamer@sectionintoc {4}{行列式的计算}{124}{0}{4}
+\beamer@sectionintoc {5}{克莱姆法则}{272}{0}{5}
+\beamer@sectionintoc {6}{习题}{304}{0}{6}

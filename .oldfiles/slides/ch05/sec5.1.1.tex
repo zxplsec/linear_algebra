@@ -1,0 +1,182 @@
+\subsection{特征值与特征向量}
+
+\begin{frame}[fragile]\ft{\subsecname}
+
+
+  \begin{dingyi}[特征值与特征向量]
+    设$\A$为复数域$\mathbb C$上的$n$阶矩阵，如果存在数$\lambda\in\mathbb C$和非零的$n$维向量$\xx$使得
+    $$
+    \A\xx=\lambda\xx
+    $$
+    则称$\lambda$为矩阵$\A$的\blue{\underline{特征值}}，$\xx$为$\A$的对应于特征值$\lambda$的\blue{\underline{特征向量}}。
+  \end{dingyi} 
+
+  % \begin{itemize}
+  % \item[(1)] 特征向量$\xx\ne\zero$；
+  % \item[(2)] 特征值问题是对方针而言的。 
+  % \end{itemize}
+
+
+  % 由定义，$n$阶矩阵$\A$的特征值，就是使齐次线性方程组
+  % $$
+  % (\A-\lambda\II)\xx=\zero
+  % $$
+  % 有非零解的$\lambda$值，即满足方程
+  % $$
+  % \det(\A-\lambda\II)=0
+  % $$
+  % 的$\lambda$都是矩阵$\A$的特征值。
+
+
+  % \begin{jielun}
+  %   特征值$\lambda$是关于$\lambda$的多项式$\det(\A-\lambda\II)$的根。
+  % \end{jielun}
+
+
+  % \begin{dingyi}[特征多项式、特征矩阵、特征方程]
+  %   设$n$阶矩阵$\A=(a_{ij})$，则
+  %   $$
+  %   f(\lambda)=\det(\A-\lambda\II)
+  %   =\left|
+  %     \begin{array}{cccc}
+          %           a_{11}-\lambda&a_{12}&\cd&a_{1n}\\[0.2cm]
+          %           a_{21}&a_{22}-\lambda&\cd&a_{2n}\\[0.2cm]
+          %           \vd&\vd&&\vd\\[0.2cm]
+          %           a_{n1}&a_{n2}&\cd&a_{nn}-\lambda
+                                         %         \end{array}
+                                         %                                          \right|
+                                         %                                          $$
+                                         %                                          称为矩阵$\A$的特征多项式，$\A-\lambda\II$称为$\A$的特征矩阵，$\det(\A-\lambda\II)=0$称为$\A$的特征方程。
+                                         %                                          \end{dingyi}
+
+                                         %                                          \begin{itemize}
+                                         %                                          \item[(1)]  $n$阶矩阵$\A$的特征多项式是$\lambda$的$n$次多项式。
+                                         %                                          \item[(2)]  特征多项式的$k$重根称为$k$重特征值。
+                                         %                                          \end{itemize}
+
+                                         %                                          \begin{li}
+                                         %                                          求矩阵
+                                         %                                          $$
+                                         %                                          \A=\left(
+                                         %                                          \begin{array}{rrr}
+                                         %                                          5&-1&-1\\
+          %           3&1&-1\\
+          %           4&-2&1
+                            %         \end{array}
+                            %                             \right)
+                            %                             $$
+                            %                             的特征值与特征向量。
+                            %                             \end{li}
+                            %                             \begin{jie}
+                            %                             $$
+                            %                             \begin{array}{rl}
+                            %                             \det(\A-\lambda\II)&=\left|
+                                                                               %                                                                                \begin{array}{rrr}
+                                                                               %                                                                                5-\lambda&-1&-1\\
+          %           3&1-\lambda&-1\\
+          %           4&-2&1-\lambda
+                            %         \end{array}
+                            %                             \right| = \left|
+                            %                             \begin{array}{rrr}
+                            %                             3-\lambda&-1&-1\\
+          %           3-\lambda&1-\lambda&-1\\
+          %           3-\lambda&-2&1-\lambda
+                                    %         \end{array}
+                                    %                                     \right|\\[0.3in]
+          %                                     &= (3-\lambda)\left|
+                                                  %                                                   \begin{array}{rrr}
+                                                  %                                                   1&-1&-1\\
+          %           1&1-\lambda&-1\\
+          %           1&-2&1-\lambda
+                            %         \end{array}
+                            %                             \right|= (3-\lambda)\left|
+                            %                             \begin{array}{rrr}
+                            %                             1&-1&-1\\
+          %           0&2-\lambda&0\\
+          %           0&-1&2-\lambda
+                            %         \end{array}
+                            %                             \right|\\
+          %                                     &=(3-\lambda)(\lambda-2)^2=0
+                                                  %         \end{array}
+                                                  %                                                   $$
+                                                  %                                                   故$\A$的特征值为$\lambda_1=3,~\lambda_2=2\mbox{（二重特征值）}$。
+
+                                                  %                                                   当$\lambda_1=3$时，由$(\A-\lambda\II)\xx=\zero$，即
+                                                  %                                                   $$
+                                                  %                                                   \left(\begin{array}{rrr}
+                                                  %                                                   2&-1&-1\\
+          %           3&-2&-1\\
+          %           4&-2&-2
+                            %         \end{array}\right)\left(
+                            %                             \begin{array}{c}
+                            %                             x_1\\
+          %           x_2\\
+          %           x_3
+          %         \end{array}
+          %           \right)=\left(
+          %           \begin{array}{c}
+          %           0\\
+          %           0\\
+          %           0
+          %         \end{array}
+          %           \right)
+          %           $$
+          %           得其基础解系为$\xx_1=(1,1,1)^T$，因此$k_1\xx_1$（$k_1$为非零任意常数）是$\A$对应于$\lambda_1=3$的全部特征向量。
+          %           \vspace{0.1in}
+
+          %           当$\lambda_1=2$时，由$(\A-\lambda\II)\xx=\zero$，即
+          %           $$
+          %           \left(\begin{array}{rrr}
+          %           3&-1&-1\\
+          %           3&-1&-1\\
+          %           4&-2&-1
+                            %         \end{array}\right)\left(
+                            %                             \begin{array}{c}
+                            %                             x_1\\
+          %           x_2\\
+          %           x_3
+          %         \end{array}
+          %           \right)=\left(
+          %           \begin{array}{c}
+          %           0\\
+          %           0\\
+          %           0
+          %         \end{array}
+          %           \right)
+          %           $$
+          %           得其基础解系为$\xx_2=(1,1,2)^T$，因此$k_2\xx_2$（$k_1$为非零任意常数）是$\A$对应于$\lambda_1=2$的全部特征向量。
+          %           \end{jie}
+  
+  
+          %           \begin{li}
+          %           $$
+          %           \left(
+          %           \begin{array}{cccc}
+          %           a_{11}&0&\cd&0\\
+          %           0&a_{22}&\cd&0\\
+          %           \vd&\vd&&\vd\\
+          %           0&0&\cd&a_{nn}
+                               %         \end{array}
+                               %                                \right), \left(
+                               %                                \begin{array}{cccc}
+                               %                                a_{11}&a_{12}&\cd&a_{1n}\\
+          %           0&a_{22}&\cd&a_{2n}\\
+          %           \vd&\vd&&\vd\\
+          %           0&0&\cd&a_{nn}
+                               %         \end{array}
+                               %                                \right),\left(
+                               %                                \begin{array}{cccc}
+                               %                                a_{11}&0&\cd&0\\
+          %           a_{21}&a_{22}&\cd&0\\
+          %           \vd&\vd&&\vd\\
+          %           a_{n1}&a_{n2}&\cd&a_{nn}
+                                         %         \end{array}
+                                         %                                          \right)
+                                         %                                          $$
+                                         %                                          的特征多项式为
+                                         %                                          $$
+                                         %                                          (\lambda-a_{11})(\lambda-a_{22})\cd(\lambda-a_{nn})
+                                         %                                          $$
+                                         %                                          故其$n$个特征值为$n$个对角元。
+                                         %                                          \end{li}
+\end{frame}

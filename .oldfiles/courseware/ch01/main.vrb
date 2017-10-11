@@ -1,0 +1,100 @@
+\par  \onslide<1>
+    \begin{exampleblock}{引例}
+      用消元法求解
+      $$
+      \left \lbrace
+      \begin{array}{l}
+        a_{11} x_1 + a_{12} x_2 = b_1, \\[0.2cm]
+        a_{21} x_1 + a_{22} x_2 = b_2.
+      \end{array}
+      \right.
+      $$
+    \end{exampleblock}
+    \pause
+    消去$x_2$得
+    $$
+    (a_{11}a_{22}-a_{12}a_{21})x_1 = b_1 a_{22} - b_2 a_{12},
+    $$
+    消去$x_1$得
+    $$
+    (a_{11}a_{22}-a_{12}a_{21})x_2 = b_2 a_{11} - b_1 a_{11},
+    $$
+    若$\boxed{\red{a_{11}a_{22}-a_{12}a_{21}\ne0}}$，则
+    $$
+    x_1 = \frac{b_1 a_{22} - b_2 a_{12}}{a_{11}a_{22}-a_{12}a_{21}}, \ \
+    x_2 = \frac{b_2 a_{11} - b_1 a_{11}}{a_{11}a_{22}-a_{12}a_{21}}.
+    $$
+    %%%%
+    \onslide<2>
+    \begin{block}{二阶行列式}
+      由$2^2=4$个数，按下列形式排成2行2列的方形
+      $$
+      \left|
+      \begin{array}{cc}
+        a_{11} & a_{12} \\[0.2cm]
+        a_{21} & a_{22}
+      \end{array}
+      \right|,
+      $$
+      其被定义成一个数
+      $$
+      \left|
+      \begin{array}{cc}
+        a_{11} & a_{12} \\[0.2cm]
+        a_{21} & a_{22}
+      \end{array}
+      \right| = a_{11}a_{22} - a_{12}a_{21} \triangleq D,
+      $$
+      该数称为由这四个数构成的二阶行列式。
+    \end{block}
+    %%%%
+    \onslide<3>
+    \begin{itemize}
+    \item
+      $\red{a_{ij}}$表示行列式的元素。\\[0.2cm]
+      $i$为行标，表明该元素位于第$i$行；\\[0.2cm]
+      $j$为列标，表明该元素位于第$j$列。\\[0.4cm]
+    \item
+      对角线法则\\
+      \begin{center}
+        \begin{tikzpicture}
+          \matrix (A) [matrix of nodes,ampersand replacement=\&,row sep=15pt,column sep=15pt,left delimiter=|,
+          right delimiter=|] {
+            $a_{11}$ \& $a_{12}$  \\
+            $a_{21}$ \& $a_{22}$  \\
+          };
+          \draw[blue, thick] (A-1-1.south east) -- (A-2-2.north west);
+          \draw[red,  thick] (A-1-2.south west) -- (A-2-1.north east);
+        \end{tikzpicture}
+      \end{center}
+    \end{itemize}
+
+    %%%%%%
+    \onslide<4>
+    \begin{itemize}
+    \item
+      类似地，
+      $$
+      \begin{array}{l}
+        b_1 a_{22} - b_2 a_{12} = \left|
+        \begin{array}{cc}
+          b_1 & a_{12} \\
+          b_2 & a_{22}
+        \end{array}
+        \right|  \triangleq D_1\\[0.4cm]
+        b_2 a_{11} - b_1 a_{21} = \left|
+        \begin{array}{cc}
+          a_{11} & b_1 \\
+          a_{21} & b_2
+        \end{array}
+        \right|  \triangleq D_2\\
+      \end{array}
+      $$
+      则上述方程组的解可表示为
+      $$
+      x_1 = \frac{D_1}{D},\ \
+      x_2 = \frac{D_2}{D}.
+      $$
+    \end{itemize}
+
+

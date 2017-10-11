@@ -1,0 +1,610 @@
+\section{二次型}
+
+\subsection{二次型的定义与矩阵表示}
+
+\begin{frame}
+  
+  \begin{dingyi}[二次型]
+    $n$元变量$x_1,x_2,\cd,x_n$的二次齐次多项式
+    \begin{equation}\label{qf}
+    \begin{array}{rcccccccc}
+      f(x_1,x_2,\cd,x_n) &=& \\[0.1in]
+      a_{11}x_1^2&+&2a_{12}x_1x_2&+&2a_{13}x_1x_3&+&\cd&+&2a_{1n}x_1x_n\\[0.1in]
+                         &+&a_{22}x_2^2&+&2a_{23}x_2x_3&+&\cd&+&2a_{2n}x_2x_n\\[0.1in]
+                         &&&&\cd&&\cd\\[0.1in]
+                         &&&&&&&+&a_{nn}x_n^2
+    \end{array}
+    \end{equation}
+    当系数属于数域$F$时，称为数域$F$上的一个\blue{\underline{$n$元二次型}}。
+  \end{dingyi}
+  
+\end{frame}
+
+\begin{frame}
+  
+  \begin{itemize}
+  \item
+    对于任意一个二次型，总可以写成对称形式
+    $$
+    f(x_1,x_2,\cd,x_n)=\xx^T\A\xx
+    $$
+    其中$\A$为对称矩阵。\\[0.1in]\pause
+  \item
+    若$\A,\B$为对称矩阵，且
+    $$
+    f(x_1,x_2,\cd,x_n)=\xx^T\A\xx=\xx^T\B\xx
+    $$
+    则必有$\A=\B$。\\[0.1in]\pause
+  \item 二次型和它的矩阵是相互唯一确定的，因此研究二次型的性质就转化为研究对称矩阵$\A$所具有的性质。\\[0.1in]\pause
+  \item \blue{对于二次型$f=\xx^T\A\xx$，对称阵$\A$称为二次型$f$的矩阵，$f$称为对称阵$\A$的二次型，而$\A$的秩称为二次型$f$的秩。}
+  \end{itemize}
+
+  
+\end{frame}
+
+\begin{frame}
+  
+  \begin{li}
+    设$f(x_1,x_2,x_3,x_4)=2x_1^2+x_1x_2+2x_1x_3+4x_2x_4+x_3^2+5x_4^2$，则它的矩阵为
+    $$
+    \A=\left(
+      \begin{array}{cccc}
+        2&\frac12&1&0\\[0.2cm]
+        \frac12&0&0&2\\[0.2cm]
+        1&0&1&0\\[0.2cm]
+        0&2&0&5
+      \end{array}
+    \right)
+    $$
+  \end{li}
+  
+\end{frame}
+
+\begin{frame}
+  
+  \begin{itemize}
+  \item 对于二次型，我们讨论的主要问题是：寻求可逆的线性变换$\xx=\C\yy$
+    使得
+    $$
+    f=\xx^T\A\xx=\yy^T(\C^T\A\C)\yy=\yy^T\Lambdabd\yy=\blue{\lambda_1y_1^2+\lambda_2y_2^2+\cd+\lambda_ny_n^2.}
+    $$
+    这种只含平方项的二次型，称为\red{二次型的标准形}。\\[0.2in]
+
+    \item 若标准形的系数$\lambda_1,\lambda_2,\cd,\lambda_n$只在$1,-1,0$中取值，也就是用\eqref{lt}代入\eqref{qf}，能使
+    $$
+    f=y_1^2+\cd+y_p^2-y_{p+1}^2-\cd-y_r^2.
+    $$
+    则称上式为\red{二次型的规范形}。
+  \end{itemize}
+\end{frame}
+
+
+
+\begin{frame}
+  
+  \begin{dingyi}[矩阵的合同]
+    对于两个矩阵$\A$和$\B$，若存在可逆矩阵$\C$，使得
+    $$
+    \C^T\A\C=\B,
+    $$
+    就称\red{$\A$合同于$\B$}.
+  \end{dingyi}
+  
+\end{frame}
+
+\begin{frame}
+  \begin{jielun}
+
+    经过可逆变换$\xx=\C\yy$后，二次型$f$的矩阵由$\A$变为与$\A$合同的矩阵$\C^T\A\C$，且二次型的秩不变。
+  \end{jielun}
+\end{frame}
+
+
+\subsection{化二次型为标准型}
+
+\begin{frame}
+  
+  \red{化二次型为标准型，就是对实对称矩阵$\A$，寻找可逆阵$\C$，使$\C^T\A\C$成为对角矩阵。}
+    
+  
+\end{frame}
+
+
+\subsubsection{正交变换法}
+\begin{frame}
+  \begin{center}
+    \red{\Huge 正交变换法}
+  \end{center}
+\end{frame}
+
+\begin{frame}
+  
+    \begin{jielun}
+      对于实对称矩阵$\A$，存在正交阵$\QQ$，使得
+      $$
+      \QQ^{-1}\A\QQ=\Lambdabd,
+      $$
+      由于$\QQ^{-1}=\QQ^T$，故
+      $$
+      \QQ^{T}\A\QQ=\Lambdabd.
+      $$
+    \end{jielun}
+  
+\end{frame}
+
+\begin{frame}
+  
+    \begin{dingli}[主轴定理]
+      对于任一个$n$元二次型
+      $$
+      f(x_1,x_2,\cd,x_n)=\xx^T\A\xx,
+      $$
+      存在正交变换$\xx=\QQ\yy$($\QQ$为正交阵)，使得
+      $$
+      \xx^T\A\xx=\yy^T(\QQ^T\A\QQ)\yy=\lambda_1y_1^2+\lambda_2y_2^2+\cd+\lambda_ny_n^2,
+      $$
+      其中$\lambda_1,\lambda_2,\cd,\lambda_n$为$\A$的$n$个特征值，
+      $\QQ$的$n$个列向量$\alphabd_1,\alphabd_2,\cd,\alphabd_n$是$\A$对应于$\lambda_1,\lambda_2,\cd,\lambda_n$的标准正交特征向量。
+    \end{dingli} \vspace{.2in}
+
+    \begin{tuilun}
+      任给二次型$f(\xx)=\xx^T\A\xx$，总有可逆变换$\xx=\C\zz$，使得$f(\C\zz)$为规范形。
+    \end{tuilun}
+\end{frame}
+
+
+
+\begin{frame}
+  
+    \begin{li}[\red{$\bigstar$}]
+      用正交变换法，将二次型
+      $$
+      f(x_1,x_2,x_3)=2x_1^2+5x_2^2+5x_3^2+4x_1x_2-4x_1x_3-8x_2x_3
+      $$
+      化为标准型。
+    \end{li} \pause
+    
+    \begin{jie}
+    对应矩阵为
+    $$
+    \A=\left(
+    \begin{array}{rrr}
+      2&2&-2\\
+      2&5&-4\\
+      -2&-4&5
+    \end{array}
+    \right)
+    $$
+    \pause
+    其特征多项式为
+    $$
+    |\A-\lambda\E|=-(\lambda-1)^2(\lambda-10)
+    $$
+    得特征值$\lambda_{1,2}=1$和$\lambda_3=10$.
+    \end{jie}
+  
+\end{frame}
+
+
+\begin{frame}
+  
+    $$
+    \begin{array}{rl}
+      (\A-\lambda_1\E)\xx=\zero & \Rightarrow~~
+      \left(
+      \begin{array}{rrr}
+        1&2&-2\\
+        2&4&-4\\
+        -2&-4&4
+      \end{array}
+      \right)\left(
+      \begin{array}{c}
+        x_1\\
+        x_2\\
+        x_3
+      \end{array}
+      \right)=\zero\\[0.3in] \pause
+      & \Rightarrow~~
+      \xx_1=(-2,1,0)^T, \quad
+      \xx_2=(2,0,1)^T. \\[0.2in]\pause
+      (\A-\lambda\E)\xx=\zero & \Rightarrow~~
+      \left(
+      \begin{array}{rrr}
+        -8&2&-2\\
+        2&-5&-4\\
+        -2&-4&-5
+      \end{array}
+      \right)\left(
+      \begin{array}{c}
+        x_1\\
+        x_2\\
+        x_3
+      \end{array}
+      \right)=\zero\\[0.3in] \pause
+      & \Rightarrow~~
+      \xx_3=(1,2,-2)^T.
+    \end{array}
+    $$ \pause 
+
+    对$\xx_1,\xx_2$用施密特正交化方法得
+    $$
+    \xibd_1=\left(-\frac{2\sqrt{5}}5,\frac{2\sqrt{5}}5,0\right)^T,~~~~
+    \xibd_2=\left(\frac{2\sqrt{5}}{15},\frac{4\sqrt{5}}{15},\frac{\sqrt{5}}3\right)^T
+    $$
+    再将$\xx_3$单位化为
+    $$
+    \xibd_3=\left(\frac13,\frac23,-\frac23\right)^T
+    $$
+  
+\end{frame}
+
+
+\begin{frame}
+  
+    取正交矩阵
+    $$
+    \QQ=(\xibd_1,\xibd_2,\xibd_3)=\left(
+    \begin{array}{rrr}
+      \ds-\frac{2\sqrt{5}}5&\ds\frac{2\sqrt{5}}{15}&\ds\frac13\\[0.2cm]
+      \ds \frac{2\sqrt{5}}5&\ds\frac{4\sqrt{5}}{15}&\ds\frac23\\[0.2cm]
+      \ds 0&\ds\frac{\sqrt{5}}3&\ds-\frac23
+    \end{array}
+    \right)
+    $$
+    则
+    $$
+    \QQ^{-1}\A\QQ=\QQ^{T}\A\QQ=\mathrm{diag}(1,1,10).
+    $$ \pause 
+    \blue{在正交变换$\xx=\QQ\yy$的作用下，原二次型就化成标准型
+    $$
+    \xx^T\A\xx=\yy^T(\QQ^T\A\QQ)\yy=y_1^2+y_2^2+10y_3^2.
+    $$}
+  
+\end{frame}
+
+
+\subsubsection{配方法}
+
+\begin{frame}
+  \begin{center}
+    \red{\Huge 配方法}
+  \end{center}
+\end{frame}
+
+\begin{frame}
+  
+    \begin{li}
+      用配方法把三元二次型
+      $$
+      f(x_1,x_2,x_3)=2x_1^2+3x_2^2+x_3^2+4x_1x_2-4x_1x_3-8x_2x_3
+      $$
+      化为标准型。
+    \end{li}
+    \begin{jie}
+    先按$x_1^2$和含$x_1$的混合项配成完全平方，即
+    $$
+    \begin{array}{rl}
+      f&=2[x_1^2+2x_1(x_2-x_3)+(x_2-x_3)^2]-2(x_2-x_3)^2+3x_2^2+x_3^2-8x_2x_3\\[0.1in]
+      &=2(x_1+x_2-x_3)^2+x_2^2-x_3^2-4x_2x_3
+    \end{array}
+    $$\pause
+    再按$x_2^2-4x_2x_3$配成完全平方，得
+    $$
+    f(x_1,x_2,x_3)=2(x_1+x_2-x_3)^2+(x_2-2x_3)^2-5x_3^2.
+    $$
+    \pause
+    令
+    $$
+    \left\{
+    \begin{array}{rcrcrcr}
+      y_1&=&x_1&+&x_2&-&x_3\\
+      y_2&=& &&x_2&-&2x_3\\
+      y_3&=&&&&&x_3
+    \end{array}
+    \right. \pause ~~\Longrightarrow~~
+    \left(
+    \begin{array}{c}
+      x_1\\
+      x_2\\
+      x_3
+    \end{array}
+    \right)=
+    \left(
+    \begin{array}{rrr}
+      1&-1&-1\\
+      0&1&2\\
+      0&0&1
+    \end{array}
+    \right)
+    \left(
+    \begin{array}{c}
+      y_1\\
+      y_2\\
+      y_3
+    \end{array}
+    \right)
+    $$ \pause 
+    则
+    $$
+    f(x_1,x_2,x_3)=2y_1^2+y_2^2-5y_3^2.
+    $$
+
+    \end{jie}
+  
+\end{frame}
+
+
+\begin{frame}
+  
+    \begin{li}
+      用配方法化二次型
+      $$
+      f(x_1,x_2,x_3)=2x_1x_2+4x_1x_3
+      $$
+      为标准型。
+    \end{li}
+    \pause
+    \begin{jie}
+    对$x_1x_2$利用平方差公式，令
+    $$
+    \left\{
+    \begin{array}{l}
+      x_1=y_1+y_2\\
+      x_2=y_1-y_2\\
+      x_3=y_3
+    \end{array}
+    \right.
+    $$
+    则
+    $$
+    f(x_1,x_2,x_3)=2(y_1+y_2)(y_1-y_2)+4(y_1+y_2)y_3=2y_1^2-2y_2^2+4y_1y_3+4y_2y_3
+    $$
+    \pause
+    先对含$y_1$的项配完全平方，得
+    $$
+    f(x_1,x_2,x_3)=2(y_1^2+2y_1y_3+y_3^2)-2y_2^2-2y_3^2+4y_2y_3
+    $$
+    再对含$y_2$的项配完全平方，得
+    $$
+    f(x_1,x_2,x_3)=2(y_1+y_3)^2-2(y_2-y_3)^2
+    $$
+    \end{jie}
+  
+\end{frame}
+
+\begin{frame}
+  
+    令
+    $$
+    \left\{
+    \begin{array}{l}
+      z_1=y_1+y_3\\
+      z_2=y_2-y_3\\
+      z_3=y_3
+    \end{array}
+    \right. ~~\Longleftrightarrow~~
+    \left\{
+    \begin{array}{l}
+      y_1=z_1-z_3\\
+      y_2=z_2+z_3\\
+      y_3=z_3
+    \end{array}
+    \right.
+    $$
+    则
+    $$
+    f(x_1,x_2,x_3)=2z_1^2-2z_2^2.
+    $$\pause
+    坐标变换记为
+    $$
+    \xx=\C_1\yy, \quad  \yy=\C_2\zz, \quad \xx=\C_1\C_2\zz=\C\zz
+    $$
+    其中
+    $$
+    \begin{array}{c}
+      \C_1=\left(
+      \begin{array}{rrr}
+        1&1&0\\
+        1&-1&0\\
+        0&0&1
+      \end{array}
+      \right),
+      \quad\C_2=\left(
+      \begin{array}{rrr}
+        1&0&-1\\
+        0&1&1\\
+        0&0&1
+      \end{array}
+      \right)
+      \\[0.4in]
+      \C=\C_1\C_2=\left(
+      \begin{array}{rrr}
+        1&1&0\\
+        1&-1&-2\\
+        0&0&1
+      \end{array}
+      \right)      
+    \end{array}
+    $$
+  
+\end{frame}
+
+\begin{frame}
+  
+    \begin{table}
+      \caption{}
+      \begin{tabular}{|c|c|}\hline
+        二次型&对应矩阵\\\hline
+        $2x_1x_2+4x_1x_3$ & $\A=\left(
+        \begin{array}{ccc}
+          0&1&2\\
+          1&0&0\\
+          2&0&0
+        \end{array}
+        \right)$\\\hline
+        $2z_1^2-2z_2^2$ & $\Lambdabd=\left(
+        \begin{array}{ccc}
+          2&&\\
+          &-2&\\
+          &&0
+        \end{array}
+        \right)$ \\\hline
+      \end{tabular}      
+    \end{table}
+    易验证
+    $$
+    \C^T\A\C=\diag(2,-2,0)    
+    $$
+  
+\end{frame}
+
+\begin{frame}
+  
+    任何$n$元二次型都可用配方法化为标准型，相应的变换矩阵为主对角元为1的上三角阵和对角块矩阵，或者是这两类矩阵的乘积。
+  
+\end{frame}
+
+
+\subsection{正定二次型和正定矩阵}
+
+\begin{frame}
+  二次型的标准形是不唯一的，但标准形中所含项数（即二次型的秩）是确定的。不仅如此，在限定变换为实变换时，标准形中正系数的个数是不变的，从而负系数的个数也是不变的。
+\end{frame}
+
+\begin{frame}
+  \begin{dingli}[惯性定理]
+    设有二次型$f=\xx^T\A\xx$，它的秩为$r$，有两个可逆变换
+    $$
+    \xx = \C\yy, \quad \xx = \QQ \zz,
+    $$
+    使得
+    $$
+    \begin{aligned}
+      f & = k_1y_1^2+k_2y_2^2+\cd+k_ry_r^2, ~~ k_i\ne 0, \\[0.1in]
+      f & = \lambda_1y_1^2+\lambda_2y_2^2+\cd+\lambda_ry_r^2, ~~ \lambda_i\ne 0,
+    \end{aligned}
+    $$
+    则$k_1,k_2,\cd,k_r$中正数的个数与$\lambda_1,\lambda_2,\cd,\lambda_r$中正数的个数相等。
+  \end{dingli}
+\end{frame}
+
+\begin{frame}
+  二次型的标准形中，正系数的个数称为二次型的\blue{正惯性指数}，负系数的个数称为\blue{负惯性指数}。若二次型$f$的正惯性指数为$p$，秩为$r$，则$f$的规范形便可确定为
+  $$
+  f=y_1^2+\cd+y_p^2-y_{p+1}^2-\cd-y_r^2.
+  $$
+\end{frame}
+
+\begin{frame}
+  
+    \begin{dingyi}
+      如果对于任意的非零向量$\xx=(x_1,x_2,\cd,x_n)^T$，恒有
+      $$
+      \xx^T\A\xx=\sum_{i=1}^n\sum_{j=1}^na_{ij}x_ix_j>0,
+      $$
+      就称$\xx^T\A\xx$为\red{正定二次型}，称$\A$为\red{正定矩阵}。
+    \end{dingyi}
+    \pause\vspace{0.1in}
+
+    
+    类似地，
+    \begin{itemize}
+    \item 若$\forall \xx \ne 0$, 恒有$\xx^T\A\xx\ge 0$，则称$\A$为\red{半正定矩阵}；
+    \item 若$\forall \xx \ne 0$, 恒有$\xx^T\A\xx < 0$，则称$\A$为\red{负定矩阵}；
+    \item 若$\forall \xx \ne 0$, 恒有$\xx^T\A\xx \le 0$，则称$\A$为\red{半负定矩阵}.
+    \end{itemize}
+    
+    
+  
+\end{frame}
+
+
+\begin{frame}
+  
+    \begin{dingli}
+      若$\A$是$n$阶实对称矩阵，则以下命题等价：
+      \begin{itemize}
+      \item[(1)]$\xx^T\A\xx$是正定二次型（$\A$是正定矩阵）；
+      \item[(2)]$\A$的正惯性指数为$n$，即$\A$合同于单位阵$\E$；
+      \item[(3)]存在可逆矩阵$\PP$使得$\A=\PP^T\PP$；
+      \item[(4)]$\A$的$n$个特征值$\lambda_1,\lambda_2,\cd,\lambda_n$全大于零；
+      \item[(5)]$\A$的各阶顺序主子式全大于零．
+      \end{itemize}
+    \end{dingli}
+  
+\end{frame}
+
+\begin{frame}
+  
+    \begin{dingli}
+      $$
+      \A\mbox{正定}~~\Longrightarrow~~
+      a_{ii}>0(i=1,2,\cd,n) \mbox{~~且~~}
+      |\A|>0
+      $$
+    \end{dingli}
+\end{frame}
+
+
+\begin{frame}
+  
+    \begin{li}[\red{$\bigstar$}]
+      判断二次型
+      $$
+      f(x_1,x_2,x_3)=x_1^2+2x_2^2+3x_3^2+2x_1x_2-2x_2x_3
+      $$
+      是否为正定二次型。
+    \end{li}
+    \begin{jie}
+      用特征值或顺序主子式判定．
+    \end{jie}
+\end{frame}
+
+\begin{frame}
+  
+    \begin{li}[\red{$\bigstar$}]
+      判断二次型
+      $$
+      f(x_1,x_2,x_3)=3x_1^2+x_2^2+3x_3^2-4x_1x_2-4x_1x_3+4x_2x_3
+      $$
+      是否为正定二次型。
+    \end{li}
+    \begin{jie}
+      用特征值或顺序主子式判定。
+    \end{jie}
+\end{frame}
+
+\begin{frame}
+\begin{li}[\red{$\bigstar$}]
+  判断二次型$f=-5x^2-6y^2-4z^2+4xy+4xz$的正定性。
+\end{li}
+\pause
+\begin{jie}
+  $f$的矩阵为
+  $$
+  \A=\left(
+    \begin{array}{rrr}
+      -5&2&2\\
+      2&-6&0\\
+      2&0&-4\\
+    \end{array}
+  \right)
+  $$
+  因
+  $$
+  a_{11}=-5<0, ~~\left|
+    \begin{array}{rr}
+      -5&2\\
+      2&-6
+    \end{array}
+  \right|=26>0, ~~\left|
+    \begin{array}{rrr}
+      -5&2&2\\
+      2&-6&0\\
+      2&0&-4\\
+    \end{array}
+  \right|=-80<0
+  $$
+  故$f$负定。
+\end{jie}
+\end{frame}
