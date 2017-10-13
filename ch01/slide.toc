@@ -1,1 +1,8 @@
-\beamer@sectionintoc {2}{行列式的性质}{3}{0}{1}
+\beamer@sectionintoc {2}{行列式简介}{3}{0}{1}
+\beamer@sectionintoc {3}{行列式的定义}{7}{0}{2}
+\beamer@subsectionintoc {3}{1}{二阶行列式}{8}{0}{2}
+\beamer@subsectionintoc {3}{2}{三阶行列式}{17}{0}{2}
+\beamer@subsectionintoc {3}{3}{$n$阶行列式的定义}{29}{0}{2}
+\beamer@sectionintoc {4}{行列式的性质}{41}{0}{3}
+\beamer@sectionintoc {5}{行列式的计算}{84}{0}{4}
+\beamer@sectionintoc {6}{克莱姆法则}{123}{0}{5}
