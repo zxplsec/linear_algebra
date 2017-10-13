@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.14159265-2.6-0.99998 (TeX Live 2017) (preloaded format=xelatex 2017.7.8)  10 OCT 2017 16:17
+This is XeTeX, Version 3.14159265-2.6-0.99998 (TeX Live 2017) (preloaded format=xelatex 2017.7.8)  13 OCT 2017 08:30
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -3082,38 +3082,37 @@ Package hyperref Warning: Option `pdfauthor' has already been used,
 
 [1
 
-] (./slide.toc
-LaTeX Font Info:    Font shape `FMX/futm/m/n' will be
-(Font)              scaled to size 8.27998pt on input line 5.
-LaTeX Font Info:    Font shape `FMX/futm/m/n' will be
-(Font)              scaled to size 6.99199pt on input line 5.
-LaTeX Font Info:    Font shape `MDA/mdbch/b/n' will be
-(Font)              scaled to size 8.64006pt on input line 5.
-LaTeX Font Info:    Font shape `MDA/mdbch/b/n' will be
-(Font)              scaled to size 7.29605pt on input line 5.
-LaTeX Font Info:    Font shape `U/futm/m/n' will be
-(Font)              scaled to size 8.27998pt on input line 5.
-LaTeX Font Info:    Font shape `U/futm/m/n' will be
-(Font)              scaled to size 6.99199pt on input line 5.
-) [2
+] (./slide.toc) [2
 
-] (./slide/lec00.tex (./slide.toc) [3
+] (./slide/lec02.tex (./slide.toc) [3
 
-] [4
+]
+LaTeX Font Info:    Font shape `T1/lmss/m/it' in size <9> not available
+(Font)              Font shape `T1/lmss/m/sl' tried instead on input line 26.
+LaTeX Font Info:    Font shape `FMX/futm/m/n' will be
+(Font)              scaled to size 8.27998pt on input line 26.
+LaTeX Font Info:    Font shape `FMX/futm/m/n' will be
+(Font)              scaled to size 6.99199pt on input line 26.
+LaTeX Font Info:    Font shape `MDA/mdbch/b/n' will be
+(Font)              scaled to size 8.64006pt on input line 26.
+LaTeX Font Info:    Font shape `MDA/mdbch/b/n' will be
+(Font)              scaled to size 7.29605pt on input line 26.
+LaTeX Font Info:    Font shape `U/futm/m/n' will be
+(Font)              scaled to size 8.27998pt on input line 26.
+LaTeX Font Info:    Font shape `U/futm/m/n' will be
+(Font)              scaled to size 6.99199pt on input line 26.
+ [4
 
 ] [5
 
 ] [6
 
-])
-(./slide/lec01.tex (./slide.toc) [7
-
-] (./slide.toc) [8
+] [7
 
 ]
-LaTeX Font Info:    Font shape `T1/lmss/m/it' in size <9> not available
-(Font)              Font shape `T1/lmss/m/sl' tried instead on input line 38.
- [9
+[8
+
+] [9
 
 ] [10
 
@@ -3121,8 +3120,7 @@ LaTeX Font Info:    Font shape `T1/lmss/m/it' in size <9> not available
 
 ] [12
 
-]
-[13
+] [13
 
 ] [14
 
@@ -3130,7 +3128,7 @@ LaTeX Font Info:    Font shape `T1/lmss/m/it' in size <9> not available
 
 ] [16
 
-] (./slide.toc) [17
+] [17
 
 ] [18
 
@@ -3142,42 +3140,20 @@ LaTeX Font Info:    Font shape `T1/lmss/m/it' in size <9> not available
 
 ] [22
 
-] [23
+]
+[23
 
 ] [24
 
-]
-[25
+] [25
 
 ] [26
 
-]
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 362.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 362.
-
-(./slide.toc) [27
+] [27
 
 ] [28
 
-]
-LaTeX Font Info:    Font shape `FMX/futm/m/n' will be
-(Font)              scaled to size 7.35999pt on input line 416.
-LaTeX Font Info:    Font shape `FMX/futm/m/n' will be
-(Font)              scaled to size 6.25598pt on input line 416.
-LaTeX Font Info:    Font shape `MDA/mdbch/b/n' will be
-(Font)              scaled to size 7.68005pt on input line 416.
-LaTeX Font Info:    Font shape `MDA/mdbch/b/n' will be
-(Font)              scaled to size 6.52805pt on input line 416.
-LaTeX Font Info:    Font shape `U/futm/m/n' will be
-(Font)              scaled to size 7.35999pt on input line 416.
-LaTeX Font Info:    Font shape `U/futm/m/n' will be
-(Font)              scaled to size 6.25598pt on input line 416.
- [29
+] [29
 
 ] [30
 
@@ -3195,10 +3171,27 @@ LaTeX Font Info:    Font shape `U/futm/m/n' will be
 
 ] [37
 
-] [38
+]
+Overfull \hbox (18.95003pt too wide) detected at line 652
+[][]
+ []
 
-])
-(./slide/lec02.tex (./slide.toc) [39
+
+Overfull \vbox (0.25627pt too high) detected at line 652
+ []
+
+[38
+
+]
+Overfull \hbox (18.95003pt too wide) detected at line 652
+[][]
+ []
+
+
+Overfull \vbox (0.25627pt too high) detected at line 652
+ []
+
+[39
 
 ] [40
 
@@ -3211,223 +3204,6 @@ LaTeX Font Info:    Font shape `U/futm/m/n' will be
 ] [44
 
 ] [45
-
-] [46
-
-]
-[47
-
-] [48
-
-] [49
-
-] [50
-
-] [51
-
-] [52
-
-] [53
-
-] [54
-
-] [55
-
-] [56
-
-] [57
-
-] [58
-
-] [59
-
-] [60
-
-] [61
-
-]
-[62
-
-] [63
-
-] [64
-
-] [65
-
-] [66
-
-] [67
-
-] [68
-
-] [69
-
-] [70
-
-] [71
-
-] [72
-
-] [73
-
-]
-Overfull \hbox (18.95003pt too wide) detected at line 652
-[][]
- []
-
-
-Overfull \vbox (0.25627pt too high) detected at line 652
- []
-
-[74
-
-]
-Overfull \hbox (18.95003pt too wide) detected at line 652
-[][]
- []
-
-
-Overfull \vbox (0.25627pt too high) detected at line 652
- []
-
-[75
-
-] [76
-
-] [77
-
-] [78
-
-] [79
-
-] [80
-
-] [81
-
-]) (./slide/lec03.tex (./slide.toc) [82
-
-]
-[83
-
-] [84
-
-]
-
-Package amsmath Warning: Foreign command \atop;
-(amsmath)                \frac or \genfrac should be used instead
-(amsmath)                 on input line 101.
-
-[85
-
-] [86
-
-] [87
-
-]
-Overfull \hbox (33.31017pt too wide) detected at line 171
-[][]
- []
-
-[88
-
-] [89
-
-] [90
-
-] [91
-
-] [92
-
-]
-Overfull \hbox (5.86087pt too wide) detected at line 299
-[][]
- []
-
-[93
-
-]
-Overfull \hbox (5.86087pt too wide) detected at line 299
-[][]
- []
-
-[94
-
-] [95
-
-] [96
-
-] [97
-
-] [98
-
-] [99
-
-] [100
-
-] [101
-
-] [102
-
-] [103
-
-] [104
-
-] [105
-
-] [106
-
-]
-[107
-
-] [108
-
-] [109
-
-] [110
-
-] [111
-
-] [112
-
-] [113
-
-] [114
-
-] [115
-
-] [116
-
-] [117
-
-] [118
-
-]
-[119
-
-] [120
-
-]) (./slide/lec04.tex (./slide.toc) [121
-
-] [122
-
-] [123
-
-] [124
-
-] [125
-
-]
-[126
-
-] [127
-
-] [128
-
-] [129
-
-] [130
-
-] [131
 
 ])
 \tf@nav=\write8
@@ -3446,12 +3222,12 @@ Package atveryend Info: Empty hook `AtVeryEndDocument' on input line 56.
 Package atveryend Info: Empty hook `AtEndAfterFileList' on input line 56.
  ) 
 Here is how much of TeX's memory you used:
- 52147 strings out of 493005
- 1110051 string characters out of 6134597
- 1356219 words of memory out of 5000000
- 55149 multiletter control sequences out of 15000+600000
- 94308 words of font info for 119 fonts, out of 8000000 for 9000
+ 51007 strings out of 493005
+ 1082716 string characters out of 6134597
+ 1336606 words of memory out of 5000000
+ 54036 multiletter control sequences out of 15000+600000
+ 71749 words of font info for 94 fonts, out of 8000000 for 9000
  1348 hyphenation exceptions out of 8191
- 71i,20n,106p,10445b,1396s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 71i,20n,106p,10445b,647s stack positions out of 5000i,500n,10000p,200000b,80000s
 
-Output written on slide.pdf (131 pages).
+Output written on slide.pdf (45 pages).
