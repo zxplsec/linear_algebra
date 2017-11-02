@@ -1,0 +1,471 @@
+\section{齐次线性方程组有非零解的条件及解的结构}
+\begin{frame}
+设$\MA$为$m\times n$矩阵，考察以$\MA$为系数矩阵的齐次线性方程组
+\begin{equation}\label{ax0}
+  \MA\vx=\M0.
+\end{equation}    
+若将$\MA$按列分块为
+$$
+\MA = (\alphabd_1,~\alphabd_2,~\cd,~\alphabd_n),
+$$
+齐次方程组(\ref{ax0})可表示为
+$$
+x_1\alphabd_1+x_2\alphabd_2+\cd+x_n\alphabd_n=\M0.
+$$
+而齐次方程组(\ref{ax0})有\blue{非零解}的充分必要条件是$\alphabd_1,~\alphabd_2,~\cd,~\alphabd_n$\blue{线性相关}，即
+$$
+\rank(\MA) = \rank(\alphabd_1,~\alphabd_2,~\cd,~\alphabd_n) < n.
+$$
+\end{frame}
+
+
+\begin{frame}
+\begin{dingli}
+  设$\MA$为$m\times n$矩阵，则
+  $$
+  \blue{\underline{\MA\vx=\M0\mbox{有非零解}}} ~~\Longleftrightarrow~~
+  \blue{\underline{\rank(\MA)<n}}.$$
+\end{dingli}
+
+
+\begin{dingli}[定理1的等价命题]
+  设$\MA$为$m\times n$矩阵，则
+  $$
+  \blue{\underline{\MA\vx=\M0\mbox{只有零解}}} ~~\Longleftrightarrow~~
+  \blue{\underline{\rank(\MA)=n=\MA\mbox{的列数}}}.
+  $$
+\end{dingli}
+\end{frame}
+
+\begin{frame}
+\begin{li}
+  设$\MA$为$n$阶矩阵，证明：存在$n\times s$矩阵$\MB\ne \M0$，使得$\MA\MB=\M0$的充分必要条件是
+  $$
+  |\MA|=0.
+  $$      
+\end{li}\pause 
+\begin{proof}
+$|\MA|=0~~\Longleftrightarrow~~\MA\vx=\M0$有非零解。 下证
+$$
+\purple{\mbox{存在}n\times s\mbox{矩阵}\MB\ne 0\mbox{使得}\MA\MB=\M0
+  ~~\Longleftrightarrow~~\MA\vx=\M0\mbox{有非零解}}.
+$$     
+\begin{itemize}
+\item[($\red{\Longrightarrow}$)]
+  设$\MA\MB=\M0$，则$\MB$的解向量为$\MA\vx=\M0$的解。又$\MB\ne\M0$，则$\MB$至少有一个非零列向量，
+  从而$\MA\vx=\M0$至少有一个非零解。
+\item[($\red{\Longleftarrow}$)]
+  设$\MA\vx=\M0$有非零解，任取一个非零解$\betabd$，令
+  $$
+  \MB=(\betabd,~\M0,~\cd,~\M0)
+  $$
+  则$\MB\ne\M0$，且$\MA\MB=\M0$。
+\end{itemize}
+\end{proof}
+\end{frame}
+
+\begin{frame}
+\begin{dingli}
+  若$\vx_1,~\vx_2$为齐次线性方程组$\MA\vx=\M0$的两个解，则
+  $$
+  k_1\vx_1+k_2\vx_2\quad(k_1,~k_2\mbox{为任意常数})
+  $$
+  也是它的解。
+\end{dingli}\pause 
+\begin{proof}
+因为
+$$
+\MA(\red{k_1\vx_1+k_2\vx_2}) = k_1\MA\vx_1+k_2\MA\vx_2 = k_1\M0+k_2\M0=\M0,
+$$
+故$k_1\vx_1+k_2\vx_2$也为$\MA\vx=\M0$的解。
+\end{proof}
+\end{frame}
+
+\begin{frame}
+\begin{dingyi}[基础解系]
+  设$\vx_1,~\vx_2,~\cd,~\vx_p$为$\MA\vx=\M0$的解向量，若
+  \begin{itemize}
+  \item[(1)] $\vx_1,~\vx_2,~\cd,~\vx_p$线性无关；
+  \item[(2)] $\MA\vx=\M0$的任一解向量可由$\vx_1,~\vx_2,~\cd,~\vx_p$线性表示。
+  \end{itemize}
+  则称$\vx_1,~\vx_2,~\cd,~\vx_p$为$\MA\vx=\M0$的一个\blue{\underline{基础解系}}。
+\end{dingyi}
+\end{frame}
+
+\begin{frame}
+\begin{zhu}
+  关于基础解系，请注意以下几点：
+  \begin{itemize}
+  \item[(1)] 基础解系即全部解向量的\blue{极大无关组}。\\[0.1in]  
+  \item[(2)] 找到了基础解系，就找到了齐次线性方程组的全部解：
+    $$
+    k_1\vx_1+k_2\vx_2+\cd+k_p\vx_p \quad(k_1,k_2,\cd,k_p\mbox{为任意常数}).
+    $$ 
+  \item[(3)] 基础解系\blue{不唯一}。
+  \end{itemize}
+\end{zhu}
+\end{frame}
+
+
+\begin{frame}[allowframebreaks]
+\begin{li}
+  求方程组
+  $$
+  x+y+z=0
+  $$
+  的全部解。
+\end{li}
+
+\begin{jie}
+\begin{itemize}
+\item[(1)] 选取$y,z$为自由未知量，则
+  $$
+  \left\{
+    \begin{array}{cccccc}
+      x&=&-&y&-&z\\
+      y&=&&y&&\\
+      z&=&&&&z
+    \end{array}
+  \right.
+  $$
+  则方程组的全部解为
+  $$
+  \left(
+    \begin{array}{r}
+      x\\y\\z
+    \end{array}
+  \right) = c_1      \left(
+    \begin{array}{r}
+      -1\\1\\0
+    \end{array}
+  \right) + c_2      \left(
+    \begin{array}{r}
+      -1\\0\\1
+    \end{array}
+  \right) \quad (c_1,c_2\mbox{为任意常数})
+  $$
+\end{itemize}
+\end{jie}
+\end{frame}
+
+\begin{frame}
+\begin{jie}[续]
+\begin{itemize}  
+\item[(2)] 选取$x,z$为自由未知量，则
+  $$
+  \left\{
+    \begin{array}{cccccc}
+      x&=&&x&&\\
+      y&=&-&x&-&z\\
+      z&=&&&&z
+    \end{array}
+  \right.
+  $$
+  则方程组的全部解为
+  $$
+  \left(
+    \begin{array}{r}
+      x\\y\\z
+    \end{array}
+  \right) = c_1      \left(
+    \begin{array}{r}
+      1\\-1\\0
+    \end{array}
+  \right) + c_2      \left(
+    \begin{array}{r}
+      0\\-1\\1
+    \end{array}
+  \right) \quad (c_1,c_2\mbox{为任意常数})
+  $$  
+\item[(3)] 选取$x,y$为自由未知量，则
+  $$
+  \left\{
+    \begin{array}{cccccc}
+      x&=&&x&&\\
+      y&=&&&&y\\
+      z&=&-&x&-&y
+    \end{array}
+  \right.
+  $$
+  则方程组的全部解为
+  $$
+  \left(
+    \begin{array}{r}
+      x\\y\\z
+    \end{array}
+  \right) = c_1      \left(
+    \begin{array}{r}
+      1\\0\\-1
+    \end{array}
+  \right) + c_2      \left(
+    \begin{array}{r}
+      0\\1\\-1
+    \end{array}
+  \right) \quad (c_1,c_2\mbox{为任意常数})
+  $$
+\end{itemize}
+
+
+
+
+
+
+三个不同的基础解系为
+$$
+\left\{
+  \left(
+    \begin{array}{r}
+      -1\\1\\0
+    \end{array}
+  \right),~~
+  \left(
+    \begin{array}{r}
+      -1\\0\\1
+    \end{array}
+  \right)
+\right\},
+$$
+$$
+\left\{
+  \left(
+    \begin{array}{r}
+      1\\-1\\0
+    \end{array}
+  \right),~~
+  \left(
+    \begin{array}{r}
+      0\\-1\\1
+    \end{array}
+  \right)
+\right\},
+$$
+$$
+\left\{
+  \left(
+    \begin{array}{r}
+      1\\0\\-1
+    \end{array}
+  \right),~~
+  \left(
+    \begin{array}{r}
+      0\\1\\-1
+    \end{array}
+  \right)
+\right\}.
+$$
+\end{jie}
+\end{frame}
+
+
+\begin{frame}
+\begin{dingli}
+  设$\MA$为$m\times n$矩阵，若$\rank(\MA)=r<n$，则齐次线性方程组$\MA\vx=\M0$存在基础解系，
+  且基础解系含$n-r$个解向量。
+\end{dingli}
+
+\begin{zhu}
+  注意以下两点：
+  \begin{itemize}
+  \item $r$为$\MA$的秩，也是$\MA$的行阶梯形矩阵的非零行行数，是非自由未知量的个数。 
+  \item $n$为未知量的个数，故$n-r$为自由未知量的个数。 有多少自由未知量，基础解系里就对应有多少个向量。
+  \end{itemize}
+\end{zhu}
+\end{frame}
+
+\begin{frame}[allowframebreaks]
+\begin{li}
+  求齐次线性方程组$\MA\vx=\M0$的基础解系，其中
+  $$
+  \MA = \left(
+    \begin{array}{rrrr}
+      1&-8&10&2\\
+      2&4&5&-1\\
+      3&8&6&-2
+    \end{array}
+  \right).
+  $$
+\end{li} 
+\end{frame}
+
+\begin{frame}[allowframebreaks]
+\begin{jie}
+$$
+\begin{array}{l}
+  \left(
+  \begin{array}{rrrr}
+    1&-8&10&2\\
+    2&4&5&-1\\
+    3&8&6&-2
+  \end{array}
+           \right) \xlongrightarrow[r_3-3r_1]{r_2-2r_1}
+           \left(
+           \begin{array}{rrrr}
+             1&-8&10&2\\
+             0&20&-15&-5\\
+             0&32&24&-8
+           \end{array}
+                      \right)\\[0.3in]
+  \xlongrightarrow[r_2\div4]{r_3\div8}
+  \left(
+  \begin{array}{rrrr}
+    1&-8&10&2\\
+    0&4&-3&-1\\
+    0&4&-3&-1
+  \end{array}
+            \right) \xlongrightarrow[r_1+2r_2]{r_3-r_2}
+            \left(
+            \begin{array}{rrrr}
+              1&0&4&0\\
+              0&4&-3&-1\\
+              0&0&0&0
+            \end{array}
+                     \right) \\[0.3in]
+  \xlongrightarrow[]{r_2\div4}
+  \left(
+  \begin{array}{rrrr}
+    1&0&4&0\\
+    0&1&-3/4&-1/4\\
+    0&0&0&0
+  \end{array}
+           \right)
+\end{array}
+$$
+原方程等价于
+$$\left\{
+  \begin{array}{rcrcrc}
+    x_1&=&-4&x_3&&\\[0.1in]
+    x_2&=&\frac34&x_3&+\frac14&x_4
+  \end{array}
+\right.  \Leftrightarrow
+\left\{
+  \begin{array}{rcrcrc}
+    x_1&=&-4&x_3&&\\[0.1in]
+    x_2&=&\frac34&x_3&+\frac14&x_4\\[0.1in]
+    x_3&=&&x_3&&\\[0.1in]
+    x_4&=&&&&x_4      
+  \end{array}
+\right.
+$$
+基础解系为
+$$
+\xibd_1 = \left(
+  \begin{array}{r}
+    -4\\[0.1in]
+    \frac34\\[0.1in]
+    1\\[0.1in]
+    0
+  \end{array}
+\right), \quad \xibd_2 = \left(
+  \begin{array}{r}
+    0\\[0.1in]
+    \frac14\\[0.1in]
+    0\\[0.1in]
+    1
+  \end{array}
+\right)
+$$
+\end{jie}
+\end{frame}
+
+\begin{frame}
+\begin{li}
+  求齐次线性方程组
+  $$
+  nx_1+(n-1)x_2+\cd+2x_{n-1}+x_n=0
+  $$
+  的基础解系。      
+\end{li}
+\pause 
+\begin{jie}
+原方程等价于$x_n=-nx_1-(n-1)x_2-\cd-2x_{n-1}$， 即
+$$
+\left\{
+  \begin{array}{rcrrrr}
+    x_1&=&x_1&&&\\
+    x_2&=&&x_2&&\\
+       &\vd&&&&\\
+    x_{n-1}&=&&&&x_{n-1}\\      
+    x_n&=&-nx_1&-(n-1)x_2&\cd&-2x_{n-1}
+  \end{array}    
+\right.
+$$
+基础解系为
+$$
+(\xibd_1,\xibd_2,\cd,\xibd_{n-1})=\left(
+  \begin{array}{rrrr}
+    1&0&\cd&0\\
+    0&1&\cd&0\\
+    \vd&\vd&&\vd\\
+    0&0&\cd&1\\
+    -n&-n+1&\cd&-2
+  \end{array}
+\right)
+$$
+\end{jie}
+\end{frame}
+
+\begin{frame}
+\begin{li}
+  设$\MA$与$\MB$分别为$m\times n$和$n\times s$矩阵，且$\MA\MB=\M0$。证明：
+  $$
+  \rank(\MA)+\rank(\MB)\le n.
+  $$
+\end{li}
+\pause 
+\begin{proof}
+由$\MA\MB=\M0$知，$\MB$的列向量是$\MA\vx=\M0$的解。
+故$\MB$的列向量组的秩，不超过$\MA\vx=\M0$的基础解系的秩，即
+$$
+\rank(\MB) \le n-\rank(\MA),
+$$
+即
+$$
+\rank(\MA)+\rank(\MB)\le n.
+$$
+\end{proof}
+\end{frame}
+
+\begin{frame}
+
+\begin{li}
+  设$n$元齐次线性方程组$\MA\vx=\M0$与$\MB\vx=\M0$同解，证明
+  $$
+  \rank(\MA)=\rank(\MB).
+  $$
+\end{li}
+\pause 
+\begin{jie}
+$\MA\vx=\M0$与$\MB\vx=\M0$同解，故它们有相同的基础解系，而基础解系包含的向量个数相等，即
+$$
+n-\rank(\MA)=n-\rank(\MB),
+$$
+从而
+$$
+\rank(\MA)=\rank(\MB).
+$$
+\end{jie}
+\end{frame}
+
+
+\begin{frame}
+\begin{li}
+  设$\MA$为$m\times n$实矩阵，证明$\rank(\MA^T\MA)=\rank(\MA)$。    
+\end{li}
+\pause 
+\begin{proof}
+只需证明$\MA\vx=\M0$与$(\MA^T\MA)\vx=\M0$同解。
+\begin{itemize}
+\item[(1)] 若$\vx$满足$\MA\vx=\M0$，则有$(\MA^T\MA)\vx=\MA^T(\MA\vx)=\M0$。 
+\item[(2)] 若$\vx$满足$\MA^T\MA\vx=\M0$，则
+  $$
+  \vx^T\MA^T\MA\vx=\M0,
+  $$
+  即
+  $$
+  (\MA\vx)^T\MA\vx=\M0,
+  $$
+  故$\MA\vx=\M0$。
+\end{itemize}
+\end{proof}
+\end{frame}
+
