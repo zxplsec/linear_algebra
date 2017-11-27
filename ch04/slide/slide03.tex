@@ -1,0 +1,147 @@
+
+\section{线性空间的定义及简单性质}
+
+
+\begin{frame}
+\begin{dingyi}
+数域$F$上的线性空间$V$是一个非空集合，存在两种运算
+\begin{itemize}
+\item 加法（$\alphabd+\betabd$）
+\item 数乘 ($\lambda \in \alphabd$)
+\end{itemize}
+其中$\alphabd,\betabd \in V, \lambda\in F$，且$V$对两种运算封闭，并满足以下$8$条性质：
+\begin{enumerate}
+\item $\alphabd+\betabd=\betabd+\alphabd$
+\item $(\alphabd+\betabd)+\gammabd=\alphabd+(\betabd+\gammabd)$
+\item 存在$\M0\in V$使得$\alphabd+\M0=\alphabd$，其中$\M0$称为$V$的零元素
+\item 存在$-\alphabd\in V$，使得$\alphabd+(-\alphabd)=\M0$，其中$-\alphabd$称为$\alphabd$的负元素
+\item $1\alphabd = \alphabd$
+\item $k(l\alphabd) = (kl)\alphabd$
+\item $(k+l)\alphabd = k\alphabd + l\alphabd$
+\item $k(\alpha+\betabd) = k \alphabd + l \alphabd$
+\end{enumerate}
+其中$\alphabd,\betabd,\gammabd\in V, k, l \in F$。
+
+\end{dingyi}
+\end{frame}
+
+\begin{frame}
+  \begin{itemize}
+    \item 当$F$是实数域时，$V$称为实线性空间；\\[0.2in]
+    \item 当$F$是复数域时，$V$称为复线性空间。
+  \end{itemize} \pause
+
+  线性空间$V$中的元素常称为向量，线性空间中的\blue{加法与数乘}运算称为\red{线性运算}。
+\end{frame}
+
+\begin{frame}
+  \begin{li}[数域$F$上的全体多项式$F(x)$]
+
+    对加法和数乘运算构成数域$F$上的线性空间，其中
+    \begin{itemize}
+      \item 零元素是系数全为零的多项式（零多项式）\\[0.15in]
+      \item $f(x)$的负元素为$(-1)f(x)$
+    \end{itemize} \pause
+
+    如果只考虑次数小于$n$的实系数多项式，则它们连同零多项式一起构成实数域$\MR$上的线性空间，记为$\MR[x]_n$。
+  \end{li}
+\end{frame}
+
+\begin{frame}
+  \begin{li}[全体$m\times n$实矩阵]
+
+    对矩阵的加法和数乘运算构成实数域上的线性空间，记为$\MR^{m\times n}$，其中
+    \begin{itemize}
+      \item 零元素是$m\times n$零矩阵
+      \item 任一元素$\MA$的负元素为$-\MA$
+    \end{itemize}
+  \end{li} 
+\end{frame}
+
+\begin{frame}
+  \begin{li}
+
+    对于\red{$[a,b]$上的全体实连续函数}，加法与数乘运算构成实数域上的线性空间，记为$C[a,b]$。  
+
+
+    对于\red{$(a,b)$上全体$k$阶导数连续的实函数}，对同样的加法和数乘运算也构成实线性空间，记为$C^k(a,b)$。
+  \end{li} 
+\end{frame}
+
+\begin{frame}
+  对于数域$F$和给定的非空集合$V$，若定义的加法和数乘运算不封闭，或者运算不能完全满足$8$条规则，则$V$对定义的运算就不能构成数域$F$上的线性空间。
+
+  \begin{li}
+    \begin{itemize}
+      \item 全体$n$阶实矩阵对矩阵的加法和数乘运算不能构成复数域上的线性空间；
+
+      \item 全体非零的三维实向量对向量的加法和数乘运算不能构成实线性空间。
+    \end{itemize}
+  \end{li}
+\end{frame}
+
+\begin{frame}
+由线性空间的性质可以得到线性空间的一些性质。\pause 
+
+\begin{xingzhi}
+  线性空间的零元素是唯一的。
+\end{xingzhi} \pause 
+\begin{proof}
+  设$\M0_1, \M0_2$是线性空间的两个零元素，则
+  $$
+  \M0_1 = \M0_1+\M0_2 = \M0_2+\M0_1 = \M0_2.
+  $$
+\end{proof}
+\end{frame}
+
+\begin{frame}
+\begin{xingzhi}
+  线性空间中任一元素$\alphabd$的负元素是唯一的。
+\end{xingzhi} \pause 
+\begin{proof}
+  设$\betabd_1, \betabd_2$是$\alphabd$的两个负元素，则
+  $$
+  \alphabd + \betabd_1 = \alphabd + \betabd_2 = \M0.
+  $$
+  于是
+  $$
+  \betabd_1 = \betabd_1 + \M0 = \betabd_1 + (\alphabd + \betabd_2)
+  = (\betabd_1 + \alphabd) + \betabd_2 = \M0 + \betabd_2 = \betabd_2.
+  $$
+\end{proof} \pause 
+
+利用负元素，可定义减法：
+$$
+\blue{\betabd - \alphabd = \betabd + (-\alphabd).}
+$$
+\end{frame}
+
+\begin{frame}
+  \begin{xingzhi}
+    若$\alphabd, \betabd \in V; k, l \in F$，则
+    $$
+    k(\alphabd - \betabd) = k \alphabd - l \betabd, \quad
+    (k-l)\alphabd = k\alphabd - l \alphabd.
+    $$
+  \end{xingzhi}\pause 
+  \begin{proof}
+    $$
+    k(\alphabd - \betabd) + k \betabd = k[(\alphabd - \betabd) + \betabd]
+    = k[\alphabd + ((- \betabd) + \betabd)] = k(\alphabd + \M0) = k \alphabd.
+    $$
+    $$
+    (k-l)\alphabd + l\alphabd = [(k-l)+l]\alphabd = k\alphabd.
+    $$
+  \end{proof}\pause 
+
+  分别取$\alphabd=\betabd, \alphabd = \M0, k = l, l = 0$，可得
+  \begin{xingzhi}
+    \begin{itemize}
+      \item $k\M0 = \M0$
+      \item $k(-\betabd) = -(k\betabd)$
+      \item $0\alphabd = \M0$
+      \item $(-l)\alphabd = -(l\alphabd)$.
+    \end{itemize}
+  \end{xingzhi}
+\end{frame}
+

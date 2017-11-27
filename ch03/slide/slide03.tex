@@ -3,18 +3,88 @@
 \begin{dingyi}[行秩 \& 列秩]
   \begin{itemize}
   \item
-    对于矩阵$\MA$，把它的每一行称为$\MA$的一个\red{行向量}。
-    把$\MA$的行向量组的秩，称为矩阵$\MA$的\red{行秩}。
+    把$\MA$的行向量组的秩，称为矩阵$\MA$的\red{行秩}，记为$\red{\rank_r(\MA)}$。
   \item
-    对于矩阵$\MA$，把它的每一列称为$\MA$的一个\red{列向量}。
-    把$\MA$的列向量组的秩，称为矩阵$\MA$的\red{列秩}。
+    把$\MA$的列向量组的秩，称为矩阵$\MA$的\red{列秩}，记为$\red{\rank_c(\MA)}$。
   \end{itemize}      
 \end{dingyi}    
 对于$m\times n$阶矩阵$\MA$，
 \begin{itemize}
-\item $\MA$的行秩$~\le~ m$；
-\item $\MA$的列秩$~\le~ n$。
+\item $\rank_p(\MA) \le m$；
+\item $\rank_c(\MA) \le n$。
 \end{itemize}
+\end{frame}
+
+\begin{frame}
+\begin{dingyi}[阶梯形矩阵]
+  若矩阵$\MA$满足
+  \begin{itemize}
+  \item[(1)] 零行在最下方；
+  \item[(2)] 非零行首元的列标号随行标号的增加而严格递增，
+  \end{itemize}
+  则称$\MA$为\red{阶梯形矩阵}。
+\end{dingyi}
+
+\begin{li}
+  $$
+  \left(
+    \begin{array}{rrrr}
+      2&0&2&1\\
+      0&5&2&-2\\
+      0&0&3&2\\
+      0&0&0&0
+    \end{array}
+  \right)
+  $$
+\end{li}
+\end{frame}
+
+\begin{frame}
+\begin{dingyi}[行简化阶梯形矩阵]
+  若矩阵$\MA$满足
+  \begin{itemize}
+  \item[(1)] 它是阶梯形矩阵；
+  \item[(2)] 非零行首元所在的列除了非零行首元外，其余元素全为零，
+  \end{itemize}
+  则称$\MA$为\red{行简化阶梯形矩阵}。
+\end{dingyi}
+
+\begin{li}
+  $$
+  \left(
+    \begin{array}{rrrr}
+      2&0&0&1\\
+      0&5&0&-2\\
+      0&0&3&2\\
+      0&0&0&0
+    \end{array}
+  \right)
+  $$
+\end{li}
+\end{frame}
+
+\begin{frame}
+\begin{dingyi}[行最简阶梯形矩阵]
+  若矩阵$\MA$满足
+  \begin{itemize}
+  \item[(1)] 它是行简化阶梯形矩阵；
+  \item[(2)] 非零行首元为$1$，
+  \end{itemize}
+  则称$\MA$为\red{行最简阶梯形矩阵}。
+\end{dingyi}
+
+\begin{li}
+  $$
+  \left(
+    \begin{array}{rrrr}
+      1&0&0&1\\
+      0&1&0&-2\\
+      0&0&1&2\\
+      0&0&0&0
+    \end{array}
+  \right)
+  $$
+\end{li}
 \end{frame}
 
 
@@ -39,7 +109,7 @@
   \end{tikzpicture}
 \end{figure}
 其中$a_{11}\ne0, a_{23}\ne 0, a_{34}\ne 0$。
-\red{验证$\MA$的行秩$=3$，列秩$=3$}。
+\red{验证$\rank_r(\MA)=3, \rank_c(\MA)=3$}。
 \end{frame}
 
 \begin{frame}
@@ -57,7 +127,7 @@ $$
 下证$\alphabd_1,\alphabd_2,\alphabd_3$线性无关，$\betabd_1,\betabd_3,\betabd_4$线性无关。
 \end{frame}
 
-\begin{frame}[allowframebreaks]
+\begin{frame}
 \begin{itemize}
 \item[(1)] 设
   $$
@@ -66,120 +136,38 @@ $$
   即
   $$
   \begin{aligned}
-  x_1(a_{11},a_{12},a_{13},a_{14},a_{15})+
-  x_2(0,0,a_{23},a_{24},a_{25})\\
-  +
-  x_3(0,0,0,a_{34},a_{35})=(0,0,0,0,0)
+    \red{x_1(a_{11},a_{12},a_{13},a_{14},a_{15})+
+      x_2(0,0,a_{23},a_{24},a_{25})
+      +
+      x_3(0,0,0,a_{34},a_{35})=(0,0,0,0,0)}
   \end{aligned}
   $$  
   比较第一个分量
   $$
   x_1a_{11} = 0 \Rightarrow x_1=0.
-  $$  从而
+  $$  \pause 
   $$
-  x_2(0,0,a_{23},a_{24},a_{25})+
-  x_3(0,0,0,a_{34},a_{35})=(0,0,0,0,0)
+  \red{x_2(0,0,a_{23},a_{24},a_{25})+
+  x_3(0,0,0,a_{34},a_{35})=(0,0,0,0,0)}
   $$  
   比较第3个分量
   $$
   x_2a_{23} = 0 \Rightarrow x_2=0.
-  $$   从而
+  $$ \pause 
   $$
-  x_3(0,0,0,a_{34},a_{35})=(0,0,0,0,0)
+  \red{x_3(0,0,0,a_{34},a_{35})=(0,0,0,0,0)}
   $$ 
-  同理得$x_3=0$。  于是$\alphabd_1,\alphabd_2,\alphabd_3$线性无关。 
+  同理得$x_3=0$。  于是$\alphabd_1,\alphabd_2,\alphabd_3$线性无关。 \pause 
   \vspace{0.1in}
 
-  又$\alphabd_4=\M0$，而零向量可由任何向量线性表示，这里
+  又$\alphabd_4=\M0$，而零向量可由任何向量线性表示，此时
   $$
   \M0 = 0\alphabd_1+0\alphabd_2+0\alphabd_3.
   $$
-  故$\alphabd_1,\alphabd_2,\alphabd_3$是向量组$\alphabd_1,\alphabd_2,\alphabd_3,\alphabd_4$的极大无关组。所以矩阵$\MA$的行秩为3。
+  故$\alphabd_1,\alphabd_2,\alphabd_3$是向量组$\alphabd_1,\alphabd_2,\alphabd_3,\alphabd_4$的极大无关组，所以$\rank_r(\MA)=3$.
 \end{itemize}
 \end{frame}
 
-\begin{frame}[allowframebreaks]
-\begin{itemize}
-\item[(2)] 设
-  $$
-  y_1\betabd_1 + y_3\betabd_3 + y_4\betabd_4=\M0
-  $$
-  即
-  $$
-  y_1\left(
-    \begin{array}{c}
-      a_{11}\\
-      0\\
-      0\\
-      0
-    \end{array}
-  \right) + y_3\left(
-    \begin{array}{c}
-      a_{13}\\
-      a_{23}\\
-      0\\
-      0
-    \end{array}
-  \right) + y_4\left(
-    \begin{array}{c}
-      a_{14}\\
-      a_{24}\\
-      a_{34}\\
-      0
-    \end{array}
-  \right) = \left(
-    \begin{array}{c}
-      0\\
-      0\\
-      0\\
-      0
-    \end{array}
-  \right)
-  $$
-  比较第三个分量得$y_4=0$。从而
-  $$
-  y_1\left(
-    \begin{array}{c}
-      a_{11}\\
-      0\\
-      0\\
-      0
-    \end{array}
-  \right) + y_3\left(
-    \begin{array}{c}
-      a_{13}\\
-      a_{23}\\
-      0\\
-      0
-    \end{array}
-  \right) = \left(
-    \begin{array}{c}
-      0\\
-      0\\
-      0\\
-      0
-    \end{array}
-  \right)
-  $$比较第二个分量得$y_3=0$。从而
-  $$
-  y_1\left(
-    \begin{array}{c}
-      a_{11}\\
-      0\\
-      0\\
-      0
-    \end{array}
-  \right) = \left(
-    \begin{array}{c}
-      0\\
-      0\\
-      0\\
-      0
-    \end{array}
-  \right)
-  $$ 比较第一个分量得$y_1=0$。故$\betabd_1,\betabd_3,\betabd_4$线性无关。
-\end{itemize}
-\end{frame}
 
 
 \begin{frame}
@@ -193,35 +181,32 @@ $$
       \red{0} \& 0 \& \red{0}  \& \red{a_{34}} \& a_{35}\\
       \red{0} \& 0 \& \red{0}  \& \red{0} \& 0\\
     };
+    \node[above=5pt  of MM-1-1, blue]  {$\betabd_1$};
+    \node[above=5pt  of MM-1-2, blue]  {$\betabd_2$};
+    \node[above=5pt  of MM-1-3, blue]  {$\betabd_3$};
+    \node[above=5pt  of MM-1-4, blue]  {$\betabd_4$};
+    \node[above=5pt  of MM-1-5, blue]  {$\betabd_5$};
   \end{tikzpicture}
 \end{figure}
+去掉$\betabd_1,\betabd_2,\betabd_3,\betabd_4,\betabd_5$的最后一个分量$0$，得新向量组$\betabd_1^*,\betabd_2^*,\betabd_3^*,\betabd_4^*,\betabd_5^*$。
+
+\pause 
+因$$ \left|\begin{array}{ccc}
+             \betabd_1^*&\betabd_3^*&\betabd_4^*
+           \end{array}\right| =
+\left|
+  \begin{array}{ccc}
+    a_{11}&a_{13}&a_{14}\\
+    0&a_{23}&a_{24}\\
+    0&0&a_{34}\\
+  \end{array}
+\right|=a_{11}a_{23}a_{24}\ne 0,
+$$
+故$\betabd_1^*,\betabd_3^*,\betabd_4^*$线性无关，从而$\betabd_1,\betabd_3,\betabd_4$线性无关\red{(对应位置增减零不影响线性相关性)}。 \pause 
+
+因$\red{\betabd_i^*\in\mathbb R^3}$，故$\red{\betabd_{1}^*,\betabd_{3}^*,\betabd_{4}^*},\blue{\betabd_{j}^*(j=2 ~or~5)}$线性相关，而$\red{\betabd_{1}^*,\betabd_{3}^*,\betabd_{4}^*}$线性无关，故$\blue{\betabd_{j}^*(j=2 ~or~5)}$可由$\red{\betabd_{1}^*,\betabd_{3}^*,\betabd_{4}^*}$线性表示，从而$\blue{\betabd_{j}(j=2 ~or~5)}$可由$\red{\betabd_{1},\betabd_{3},\betabd_{4}}$线性表示。于是$\red{\betabd_1,\betabd_3,\betabd_4}$是极大无关组，从而有$\rank_c(\MA)=3$.
 \end{frame}
 
-\begin{frame}
-去掉向量组
-$$B:\betabd_1,\betabd_2,\betabd_3,\betabd_4,\betabd_5$$
-的最后一个分量，
-所得的新向量记为
-$$B^*:\betabd_1^*,\betabd_2^*,\betabd_3^*,\betabd_4^*,\betabd_5^*.$$
-注意去掉的分量全为$0$，故这两个向量组的相关性是一致的。
-
-\vspace{0.1in}
-
-由$\betabd_1,\betabd_3,\betabd_4$线性无关，
-则$\betabd_1^*,\betabd_3^*,\betabd_4^*$也线性无关。
-
-\vspace{0.1in}
-
-
-因任意$(3+1)=4$个$3$维向量必线性相关，
-故$\betabd_1^*,\betabd_3^*,\betabd_4^*$为向量组$B^*$的极大无关组，
-即向量组$B^*$中任何一个向量都可由$\betabd_1^*,\betabd_3^*,\betabd_4^*$线性表示，
-从而向量组$B$的任何一个向量都可以由$\betabd_1,\betabd_3,\betabd_4$线性表示。
-
-\vspace{0.1in}
-
-得证$\betabd_1,\betabd_3,\betabd_4$是向量组$B$的极大无关组，即矩阵$\MA$的列秩为$3$。
-\end{frame}
 
 \begin{frame}
 \begin{jielun}
@@ -235,34 +220,37 @@ $$B^*:\betabd_1^*,\betabd_2^*,\betabd_3^*,\betabd_4^*,\betabd_5^*.$$
 \end{dingli}
 \end{frame}
 
-\begin{frame}[allowframebreaks]
+\begin{frame}
 \begin{proof}
   只需证明每做一次对换、倍乘和倍加变换，矩阵的行秩不改变。    
   设$\MA$是$m\times n$矩阵，进行一次初等变换所得矩阵为$\MB$。记$\MA$的行向量为
-  $\red{A:~\alphabd_1,\alphabd_2,\cd,\alphabd_m.}$
+  $\red{A:~\alphabd_1,\alphabd_2,\cd,\alphabd_m.}$ \pause 
   \begin{itemize}
-  \item[(1)] 证明对调变换
-    $\red{\MA \xlongrightarrow[]{r_i\leftrightarrow r_j}\MB}$不改变矩阵的行秩。       因$\MB$的行向量组
-    $$\red{B:~\alphabd_1,\alphabd_2,\cd,\blue{c\alphabd_j},,\cd,\blue{c\alphabd_i},\cd,\alphabd_m}$$
-    与$\MA$的行向量组$$\red{B:~\alphabd_1,\alphabd_2,\cd,\blue{c\alphabd_i},,\cd,\blue{c\alphabd_j},\cd,\alphabd_m}$$
-    一致，故$\MB$的行秩等于$\MA$的行秩。 
-  \item[(2)] 证明倍乘变换
-    $\red{\MA \xlongrightarrow[]{r_i\times c, ~c\ne 0}\MB}$
-    不改变矩阵的行秩。 因$\MB$的行向量组
+  \item[(1)] 考虑对调变换
+    $\red{\MA \xlongrightarrow[]{r_i\leftrightarrow r_j}\MB}$。
+    因$\MB$的行向量组
+    $$\red{B:~\alphabd_1,\alphabd_2,\cd,\blue{\alphabd_j},\cd,\blue{\alphabd_i},\cd,\alphabd_m}$$
+    与$\MA$的行向量组
+    $$\red{A:~\alphabd_1,\alphabd_2,\cd,\blue{\alphabd_i},\cd,\blue{\alphabd_j},\cd,\alphabd_m}$$
+    一致，故$\rank_r(\MB)=\rank_r(\MA)$。 \pause 
+
+  \item[(2)] 考虑倍乘变换
+    $\red{\MA \xlongrightarrow[]{r_i\times c, ~c\ne 0}\MB}$。 
+    因$\MB$的行向量组
     $$\red{B:~\alphabd_1,\alphabd_2,\cd,\blue{c\alphabd_i},\cd,\alphabd_m}$$
     与$\MA$的行向量组
     $$\red{A:~\alphabd_1,\alphabd_2,\cd,\blue{\alphabd_i},\cd,\alphabd_m}$$
-    等价，故$\MB$的行秩等于$\MA$的行秩。
-  \item[(3)] 证明倍乘变换
+    等价，故$\rank_r(\MB)=\rank_r(\MA)$。\pause 
+
+  \item[(3)] 考虑倍乘变换
     $
     \red{\MA \xlongrightarrow[]{r_i+ r_j \times c  }\MB}
-    $
-    不改变矩阵的行秩。 
+    $。 
     因$\MB$的行向量组
-    $$B:~\alphabd_1,\alphabd_2,\cd,\red{\alphabd_i+c\alphabd_j},\cd,\alphabd_m$$
+    $$B:~\red{\alphabd_1,\alphabd_2,\cd,}\blue{\alphabd_i+c\alphabd_j}\red{,\cd,\alphabd_m}$$
     与$\MA$的行向量组
     $$\red{A:~\alphabd_1,\alphabd_2,\cd,\blue{\alphabd_i},\cd,\alphabd_m}$$
-    等价，故$\MB$的行秩等于$\MA$的行秩。
+    等价，故$\rank_r(\MB)=\rank_r(\MA)$。
   \end{itemize}
 \end{proof}
 \end{frame}
@@ -275,26 +263,27 @@ $$B^*:\betabd_1^*,\betabd_2^*,\betabd_3^*,\betabd_4^*,\betabd_5^*.$$
 \begin{proof}
   设
   $$
-  \MA = (\alphabd_1,\alphabd_2,\cd,\alphabd_m) \xlongrightarrow[]{\mbox{初等行变换}}
-  (\betabd_1,\betabd_2,\cd,\betabd_m) = \MB
+  \red{\MA = (\alphabd_1,\alphabd_2,\cd,\alphabd_m) \xlongrightarrow[]{\mbox{初等行变换}}
+  (\betabd_1,\betabd_2,\cd,\betabd_m) = \MB.}
   $$ 
-  在$\MA,\MB$中相同位置任取某$s$个列向量：
+  在$\MA,\MB$中相同位置任取$s$个列向量：
   $$
-  \alphabd_{i_1},\alphabd_{i_2},\cd,\alphabd_{i_s} \mbox{~~和~~}
-  \betabd_{i_1},\betabd_{i_2},\cd,\betabd_{i_s},
-  $$
-  分别记为向量组$A^*$和$B^*$。设
+  \underbrace{\alphabd_{i_1},\alphabd_{i_2},\cd,\alphabd_{i_s}}_{A^*} \mbox{~~和~~}
+  \underbrace{\betabd_{i_1},\betabd_{i_2},\cd,\betabd_{i_s}}_{B^*}.
+  $$ \pause 
+  设
   \begin{eqnarray}
     x_1\alphabd_{i_1}+x_2\alphabd_{i_2}+\cd+x_s\alphabd_{i_s} =\M0, \label{thm3.3.2-1}\\[0.1in]
-    x_1\betabd_{i_1}+x_2\betabd_{i_2}+\cd+x_s\betabd_{i_s} =\M0, \label{thm3.3.2-2}
-  \end{eqnarray} 
-  注意到方程组(\ref{thm3.3.2-2})是方程组(\ref{thm3.3.2-1})经过高斯消元法得到，故两方程组同解。 即向量组$A^*$和$B^*$有完全相同的线性关系。得证$\MA,\MB$列秩相等。
+    x_1\betabd_{i_1}+x_2\betabd_{i_2}+\cd+x_s\betabd_{i_s} =\M0. \label{thm3.3.2-2}
+  \end{eqnarray} \pause 
+  注意到方程组(\ref{thm3.3.2-2})是方程组(\ref{thm3.3.2-1})经过高斯消元法得到，故两方程组同解。 即向量组$A^*$和$B^*$有完全相同的线性关系，从而$\MA,\MB$的列秩相等。
 \end{proof}
 
-\end{frame}
+% \end{frame}
 
-\begin{frame}
-定理3.3.2提供了求向量组的秩与极大无关组的一种简便而有效的方法。
+% \begin{frame}
+\pause 
+\blue{上述定理提供了求向量组的秩与极大无关组的一种简便而有效的方法。}
 \end{frame}
 
 \begin{frame}
@@ -406,7 +395,7 @@ $$
 \end{frame}
 
 \begin{frame}
-由定理3.3.1与定理3.3.2可以推出：
+%由定理3.3.1与定理3.3.2可以推出：
 \purple{初等列变换也不改变矩阵的列秩与行秩。}
 
 \begin{dingli}
@@ -423,8 +412,8 @@ $$
 对$\MA$做初等行变换得到阶梯矩阵$\MU$，则有
 $$
 \begin{array}{rl}
-  \MA\mbox{的行秩}&=\MU\mbox{的行秩}\\[0.1in]
-                 &=\MU\mbox{的列秩}=\MA\mbox{的列秩}
+  \rank_r(\MA)&=\rank_r(\MU)\\[0.1in]
+                 &=\rank_c(\MU)=\rank_c(\MA).
 \end{array}
 $$
 \end{proof}
@@ -435,8 +424,7 @@ $$
   矩阵的行秩或列秩的数值，称为\red{矩阵的秩}。记作
   $$
   \rank(\MA)  \quad \mbox{或} \quad 
-  \mathrm{R} (\MA)  \quad \mbox{或} \quad
-  \mathrm{rank} (\MA)
+  \mbox{rank} (\MA).
   $$
 \end{dingyi}
 
@@ -509,6 +497,8 @@ $$
 \begin{zhu}
   若$\MA$存在$r$阶非零子式，而所有$r+1$阶子式(如果有)都等于零，则矩阵$\MA$的非零子式的最高阶数为$r$。
 \end{zhu}
+
+\pause 
 事实上，由行列式的按行展开可知，若所有$r+1$阶子式都等于零，可得到所有更高阶的子式都等于零。
 
 \end{frame}
@@ -521,16 +511,14 @@ $$
 \begin{proof}
 \begin{itemize}
 \item[$(\Rightarrow)$] 设$\rank(\MA)=r$，即$\MA$的行秩为$r$，不妨设$\MA$的前$r$行构成的矩阵$\MA_1$的行秩为$r$，
-  其列秩也为$r$；不妨设$\MA_1$的前$r$个列向量线性无关。\vspace{0.05in}  
-
-  由定理3.3.5可知，$\MA$的左上角$r$阶子式为非零子式。\vspace{0.05in}  
+  其列秩也为$r$；不妨设$\MA_1$的前$r$个列向量线性无关，于是$\MA$的左上角$r$阶子式为非零子式。\vspace{0.05in}  \pause 
 
   又因为$\MA$的任意$r+1$个行向量线性相关，所以$\MA$的任意$r+1$阶子式都是零子式（\purple{因为其中有一行可由其余$r$行线性表示}），
   因此$\MA$的非零子式的最高阶数为$r$。 \vspace{0.05in}  \pause 
 
 \item[$(\Leftarrow)$] 
   不妨设$\MA$的左上角$r$阶子式$|\MA_r|\ne 0$，于是$\MA_r$可逆，其$r$个行向量线性无关。
-  将它们添加分量称为$\MA$的前$r$个行向量，它们也线性无关。\vspace{0.05in}  
+  将它们添加分量称为$\MA$的前$r$个行向量，它们也线性无关。\vspace{0.05in}  \pause 
 
   而$\MA$的任何$r+1$个行向量必线性相关（\purple{否则，$\MA$中存在$r+1$阶非零子式，这与题设矛盾}），故$\MA\mbox{的行秩}=\rank(\MA)=r$.
 \end{itemize}
@@ -540,7 +528,7 @@ $$
 \begin{frame}
 关于矩阵的秩的基本结论
 \begin{itemize}
-\item[(1)]  $\red{\rank(\MA)=\MA\mbox{的行秩}=\MA\mbox{的列秩}=\MA\mbox{的非零子式的最高阶数}}$
+\item[(1)]  $\red{\rank(\MA)=\rank_r(\MA)=\rank_c(\MA)=\MA\mbox{的非零子式的最高阶数}}$
 \item[(2)]  \red{初等变换不改变矩阵的秩}
 \end{itemize}
 \end{frame}
@@ -555,16 +543,17 @@ $$
   \red{\rank(\MA)~~\le~~\rank(\MA,~\vb)~~\le~~\rank(\MA)+1.}
   $$
 \end{xingzhi}
-\end{frame}
+% \end{frame}
 
-\begin{frame}
+% \begin{frame}
+\pause 
 $$
-\rank(\MA,\vb) = \left\{
-  \begin{array}{ll}
-    \rank(\MA) & \Longleftrightarrow~~ \vb\mbox{可以被}\MA\mbox{的列向量线性表示}\\[0.1in]
-    \rank(\MA)+1 & \Longleftrightarrow~~ \vb\mbox{不能被}\MA\mbox{的列向量线性表示}
+\purple{\rank(\MA,\vb) = \left\{
+  \begin{array}{lll}
+    \rank(\MA) & \Longleftrightarrow~~ \vb\mbox{可以被}\MA\mbox{的列向量线性表示} & \Longleftrightarrow~~ \MA\vx=\vb\mbox{有解}\\[0.1in]
+    \rank(\MA)+1 & \Longleftrightarrow~~ \vb\mbox{不能被}\MA\mbox{的列向量线性表示} & \Longleftrightarrow~~ \MA\vx=\vb\mbox{无解}.
   \end{array}
-\right.
+\right.}
 $$
 \end{frame}
 
@@ -657,7 +646,7 @@ $$
   显然$(\MA,~\MB)$的列向量组可由向量组$\alphabd_1,~\cd,~\alphabd_p,~
   \betabd_1,~\cd,~\betabd_q$线性表示，故
   $$
-  \rank(\MA,~\MB) = (\MA,~\MB)\mbox{的列秩} \le \rank(\alphabd_1,~\cd,~\alphabd_p,~
+  \rank(\MA,~\MB) = \rank_c(\MA,~\MB) \le \rank(\alphabd_1,~\cd,~\alphabd_p,~
   \betabd_1,~\cd,~\betabd_q) \le p+q.
   $$
 \end{itemize}
@@ -669,9 +658,9 @@ $$
   \begin{itemize}
   \item 不等式
     $$
-    \min\{\rank(\MA),~\rank(\MB)\} ~~\le~~ \rank(\MA,~\MB)
+    \blue{\min\{\rank(\MA),~\rank(\MB)\} ~~\le~~ \rank(\MA,~\MB)}
     $$
-    意味着：在$\MA$的右侧添加新的列，只有可能使得秩在原来的基础上得到增加；当$\MB$的列向量能被$\MA$的列向量线性表示时，等号成立。\\[0.1in]  \pause 
+    意味着：在$\MA$的右侧添加新的列，秩会增加(或不变)；当$\MB$的列向量能被$\MA$的列向量线性表示时，秩不变。\\[0.1in]  \pause 
   \item 不等式
     $$
     \rank(\MA,~\MB) ~~\le~~ \rank(\MA)+\rank(\MB)
@@ -698,12 +687,20 @@ $$
 显然$\MA+\MB$的列向量组可由向量组$\alphabd_1,~\cd,~\alphabd_p,~
 \betabd_1,~\cd,~\betabd_q$线性表示，故
 $$
-\rank(\MA+\MB) = \MA+\MB\mbox{的列秩} \le \rank(\alphabd_1,~\cd,~\alphabd_p,~
+\rank(\MA+\MB) = \rank_c(\MA+\MB) \le \rank(\alphabd_1,~\cd,~\alphabd_p,~
 \betabd_1,~\cd,~\betabd_q) \le p+q.
 $$
-\end{proof}\pause 
+\end{proof}
+\end{frame}
+
+\begin{frame}
 \begin{zhu}
-  将矩阵$\MA$和$\MB$合并、相加，只可能使得秩减小。
+  由
+  $$
+  \red{\rank(\MA,\MB)\le \rank(\MA)+\rank(\MB), \quad
+  \rank(\MA+\MB) \le \rank(\MA)+\rank(\MB)}
+  $$
+  可知，将矩阵$\MA$和$\MB$合并、相加，只可能使得秩减小(或不变)。
 \end{zhu}
 
 \end{frame}
@@ -729,8 +726,9 @@ $$
 $$  
 由此可知，$\MA\MB$的列向量组可由$\alphabd_1,~\alphabd_2,~\cd,~\alphabd_n$线性表示，故
 $$
-\rank(\MA\MB) = \MA\MB\mbox{的列秩} \le \MA\mbox{的列秩} = \rank(\MA).
-$$
+\rank(\MA\MB) = \rank_c(\MA\MB) \le \rank_c(\MA)= \rank(\MA).
+$$ \pause 
+
 类似地，将$\MB$按行分块，可得$\rank(\MA\MB)\le \rank(\MB).$
 \end{proof}\pause 
 \red{该性质告诉我们，对一个向量组进行线性组合，可能会使向量组的秩减小。}
@@ -768,12 +766,28 @@ $$
   设$\MA$是$m\times n$矩阵，且$m<n$，证明：$|\MA^T\MA|=0$.
 \end{li} \pause 
 \begin{jie}
-由于$\rank(\MA)=\rank(\MA^T)\le \min\{m,n\}<n$，根据性质2，有
-$$
-\rank(\MA^T\MA) \le \min\{\rank(\MA^T),~\rank(\MA)\} < n,
-$$
+  首先$\rank(\MA)=\rank(\MA^T)\le \min\{m,n\}<n$，另外
+  $$
+  \red{\rank(\MA^T\MA) \le \min\left\{\rank(\MA^T),~\rank(\MA)\right\}} < n,
+  $$
 而$\MA^T\MA$为$n$阶矩阵，故$|\MA^T\MA|=0$。
 \end{jie}
+\end{frame}
+
+
+\begin{frame}
+  \begin{center}
+    小结（矩阵的秩）
+    $$
+    \red{
+      \begin{aligned}
+        \rank(\MA,\MB) &\le \rank(\MA)+\rank(\MB),\\
+        \rank(\MA+\MB) &\le \rank(\MA)+\rank(\MB),\\
+        \rank(\MA\MB)  &\le \min(\rank(\MA),~\rank(\MB)).
+      \end{aligned}
+    }
+    $$
+  \end{center}
 \end{frame}
 
 
@@ -800,53 +814,6 @@ $$
 \end{xingzhi}
 \end{frame}
 
-\begin{frame}
-\begin{dingyi}[阶梯形矩阵]
-  若矩阵$\MA$满足
-  \begin{itemize}
-  \item[(1)] 零行在最下方；
-  \item[(2)] 非零行首元的列标号随行标号的增加而严格递增，
-  \end{itemize}
-  则称$\MA$为\red{阶梯形矩阵}。
-\end{dingyi}
-
-\begin{li}
-  $$
-  \left(
-    \begin{array}{rrrr}
-      2&0&2&1\\
-      0&5&2&-2\\
-      0&0&3&2\\
-      0&0&0&0
-    \end{array}
-  \right)
-  $$
-\end{li}
-\end{frame}
-
-\begin{frame}
-\begin{dingyi}{行简化阶梯形矩阵}
-  若矩阵$\MA$满足
-  \begin{itemize}
-  \item[(1)] 它是阶梯形矩阵；
-  \item[(2)] 非零行首元所在的列除了非零行首元外，其余元素全为零，
-  \end{itemize}
-  则称$\MA$为\red{行简化阶梯形矩阵}。
-\end{dingyi}
-
-\begin{li}
-  $$
-  \left(
-    \begin{array}{rrrr}
-      2&0&0&1\\
-      0&5&0&-2\\
-      0&0&3&2\\
-      0&0&0&0
-    \end{array}
-  \right)
-  $$
-\end{li}
-\end{frame}
 
 
 \begin{frame}
@@ -862,7 +829,7 @@ $$
   $$
 \end{dingli}\pause 
 \begin{proof}
-对$\MA$做初等行变换，可将$\MA$化为有$r$个非零行的行简化阶梯形矩阵，即存在初等矩阵$\MP_1,\MP_2,\cd,\MP_s$使得
+对$\MA$做初等行变换，可将$\MA$化为有$r$个非零行的行最简阶梯形矩阵，即存在初等矩阵$\MP_1,\MP_2,\cd,\MP_s$使得
 $$
 \MP_s\cd\MP_2\MP_1\MA=\MU_1.
 $$
@@ -909,9 +876,9 @@ $
   $$
 \end{li}\pause 
 \begin{proof}
-由定理7可知，存在$m$阶可逆矩阵$\MP$与$n$阶可逆矩阵$\MQ$使得
+由上述定理可知，存在$m$阶可逆矩阵$\MP$使得
 $$
-\MP\MA\MQ=\left(
+\MP\MA=\left(
   \begin{array}{c}
     \MI_n\\
     \M0_1
@@ -923,26 +890,21 @@ $$
     \MI_n\\
     \M0_1
   \end{array}
-\right)\MQ^{-1}=\left(
-  \begin{array}{c}
-    \MQ^{-1}\\
-    \M0_1
-  \end{array}
 \right)
 $$
 其中$\M0_1$为$(m-n)\times n$零矩阵。
 取
 $$
-\MC=(\MQ~~\M0_2),
+\MC=(\MI_n~~\M0_2),
 $$
 其中$\M0_2$为$n\times(m-n)$阶零矩阵， 则
 $$
-\MC\MP\MA=(\MQ~~\M0_2)\left(
+\MC\MP\MA=(\MI_n~~\M0_2)\left(
   \begin{array}{c}
-    \MQ^{-1}\\
+    \MI_n\\
     \M0_1
   \end{array}
-\right)=\MQ\MQ^{-1}+\M0_2\M0_1=\MI_n.
+\right)=\MI_n.
 $$ 
 故存在$\MB=\MC\MP$使得
 $
@@ -1028,7 +990,7 @@ $$
   \end{array}
 \right)=\MB
 $$ 
-由于$\rank(\MB)=\rank(\MA)$，故$\MB$中第2、3行必须成比例，即
+由于$\rank(\MB)=\rank(\MA)=2$，故$\MB$中第2、3行必须成比例，即
 $$
 \frac{-2}{2+t}=\frac{-4}6,
 $$

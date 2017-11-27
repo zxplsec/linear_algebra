@@ -1,6 +1,6 @@
 \section{齐次线性方程组有非零解的条件及解的结构}
 \begin{frame}
-设$\MA$为$m\times n$矩阵，考察以$\MA$为系数矩阵的齐次线性方程组
+设$\MA$为$m\times n$矩阵，考察
 \begin{equation}\label{ax0}
   \MA\vx=\M0.
 \end{equation}    
@@ -49,11 +49,11 @@ $|\MA|=0~~\Longleftrightarrow~~\MA\vx=\M0$有非零解。 下证
 $$
 \purple{\mbox{存在}n\times s\mbox{矩阵}\MB\ne 0\mbox{使得}\MA\MB=\M0
   ~~\Longleftrightarrow~~\MA\vx=\M0\mbox{有非零解}}.
-$$     
+$$      \pause 
 \begin{itemize}
 \item[($\red{\Longrightarrow}$)]
   设$\MA\MB=\M0$，则$\MB$的解向量为$\MA\vx=\M0$的解。又$\MB\ne\M0$，则$\MB$至少有一个非零列向量，
-  从而$\MA\vx=\M0$至少有一个非零解。
+  从而$\MA\vx=\M0$至少有一个非零解。\\[0.1in] \pause 
 \item[($\red{\Longleftarrow}$)]
   设$\MA\vx=\M0$有非零解，任取一个非零解$\betabd$，令
   $$
@@ -177,83 +177,87 @@ $$
     \end{array}
   \right) \quad (c_1,c_2\mbox{为任意常数})
   $$  
-\item[(3)] 选取$x,y$为自由未知量，则
+\end{itemize}
+\end{jie}
+\end{frame}
+
+\begin{frame}
+  \begin{jie}[续]
+    \begin{itemize}
+    \item[(3)] 选取$x,y$为自由未知量，则
+      $$
+      \left\{
+        \begin{array}{cccccc}
+          x&=&&x&&\\
+          y&=&&&&y\\
+          z&=&-&x&-&y
+        \end{array}
+      \right.
+      $$
+      则方程组的全部解为
+      $$
+      \left(
+        \begin{array}{r}
+          x\\y\\z
+        \end{array}
+      \right) = c_1      \left(
+        \begin{array}{r}
+          1\\0\\-1
+        \end{array}
+      \right) + c_2      \left(
+        \begin{array}{r}
+          0\\1\\-1
+        \end{array}
+      \right) \quad (c_1,c_2\mbox{为任意常数})
+      $$
+    \end{itemize}
+  \end{jie}
+\end{frame}
+
+\begin{frame}
+  三个不同的基础解系为
   $$
   \left\{
-    \begin{array}{cccccc}
-      x&=&&x&&\\
-      y&=&&&&y\\
-      z&=&-&x&-&y
-    \end{array}
-  \right.
+    \left(
+      \begin{array}{r}
+        -1\\1\\0
+      \end{array}
+    \right),~~
+    \left(
+      \begin{array}{r}
+        -1\\0\\1
+      \end{array}
+    \right)
+  \right\},
   $$
-  则方程组的全部解为
   $$
-  \left(
-    \begin{array}{r}
-      x\\y\\z
-    \end{array}
-  \right) = c_1      \left(
-    \begin{array}{r}
-      1\\0\\-1
-    \end{array}
-  \right) + c_2      \left(
-    \begin{array}{r}
-      0\\1\\-1
-    \end{array}
-  \right) \quad (c_1,c_2\mbox{为任意常数})
+  \left\{
+    \left(
+      \begin{array}{r}
+        1\\-1\\0
+      \end{array}
+    \right),~~
+    \left(
+      \begin{array}{r}
+        0\\-1\\1
+      \end{array}
+    \right)
+  \right\},
   $$
-\end{itemize}
-
-
-
-
-
-
-三个不同的基础解系为
-$$
-\left\{
-  \left(
-    \begin{array}{r}
-      -1\\1\\0
-    \end{array}
-  \right),~~
-  \left(
-    \begin{array}{r}
-      -1\\0\\1
-    \end{array}
-  \right)
-\right\},
-$$
-$$
-\left\{
-  \left(
-    \begin{array}{r}
-      1\\-1\\0
-    \end{array}
-  \right),~~
-  \left(
-    \begin{array}{r}
-      0\\-1\\1
-    \end{array}
-  \right)
-\right\},
-$$
-$$
-\left\{
-  \left(
-    \begin{array}{r}
-      1\\0\\-1
-    \end{array}
-  \right),~~
-  \left(
-    \begin{array}{r}
-      0\\1\\-1
-    \end{array}
-  \right)
-\right\}.
-$$
-\end{jie}
+  $$
+  \left\{
+    \left(
+      \begin{array}{r}
+        1\\0\\-1
+      \end{array}
+    \right),~~
+    \left(
+      \begin{array}{r}
+        0\\1\\-1
+      \end{array}
+    \right)
+  \right\}.
+  $$
 \end{frame}
 
 
@@ -261,18 +265,19 @@ $$
 \begin{dingli}
   设$\MA$为$m\times n$矩阵，若$\rank(\MA)=r<n$，则齐次线性方程组$\MA\vx=\M0$存在基础解系，
   且基础解系含$n-r$个解向量。
-\end{dingli}
+\end{dingli} \vspace{0.2in} \pause 
 
 \begin{zhu}
   注意以下两点：
   \begin{itemize}
-  \item $r$为$\MA$的秩，也是$\MA$的行阶梯形矩阵的非零行行数，是非自由未知量的个数。 
-  \item $n$为未知量的个数，故$n-r$为自由未知量的个数。 有多少自由未知量，基础解系里就对应有多少个向量。
+  \item $r$为$\MA$的秩，也是$\MA$的行阶梯形矩阵的非零行行数，是非自由未知量的个数。 \\[0.1in]
+  \item $n$为未知量的个数，故$n-r$为自由未知量的个数。 \\[0.1in]
+  \item[] 有多少自由未知量，基础解系里就对应有多少个向量。
   \end{itemize}
 \end{zhu}
 \end{frame}
 
-\begin{frame}[allowframebreaks]
+\begin{frame}
 \begin{li}
   求齐次线性方程组$\MA\vx=\M0$的基础解系，其中
   $$
@@ -287,7 +292,7 @@ $$
 \end{li} 
 \end{frame}
 
-\begin{frame}[allowframebreaks]
+\begin{frame}
 \begin{jie}
 $$
 \begin{array}{l}
@@ -330,6 +335,11 @@ $$
            \right)
 \end{array}
 $$
+\end{jie}
+\end{frame}
+
+\begin{frame}
+\begin{jie}[续]
 原方程等价于
 $$\left\{
   \begin{array}{rcrcrc}
