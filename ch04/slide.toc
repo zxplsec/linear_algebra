@@ -4,3 +4,6 @@
 \beamer@subsectionintoc {3}{2}{标准正交基}{26}{0}{2}
 \beamer@subsectionintoc {3}{3}{施密特（Schmidt）正交化方法}{32}{0}{2}
 \beamer@subsectionintoc {3}{4}{正交矩阵及其性质}{61}{0}{2}
+\beamer@sectionintoc {4}{线性空间的定义及简单性质}{68}{0}{3}
+\beamer@sectionintoc {5}{线性子空间}{88}{0}{4}
+\beamer@sectionintoc {6}{线性空间的基、维数和向量的坐标}{128}{0}{5}

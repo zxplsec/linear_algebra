@@ -1,0 +1,334 @@
+\section{线性子空间}
+\begin{frame}
+对于数域$F$上的线性空间$V$(记为$V(F)$)，其子集合$W$关于$V(F)$中的两种运算可能是封闭的，也可能是不封闭的。
+\end{frame}
+
+\begin{frame}
+考虑$\R^3$的两个子集合
+$$
+\begin{array}{l}
+  W_1=\{(x_1,x_2,x_3)~|~x_1-x_2+5x_3=0\},\\
+  W_2=\{(x_1,x_2,x_3)~|~x_1-x_2+5x_3=1\}.
+\end{array}
+$$
+显然，
+\begin{itemize}
+\item $W_1$是过原点的平面$x_1-x_2+5x_3=0$上的全体向量；
+\item $W_2$是不过原点的平面$x_1-x_2+5x_3=1$上的全体向量。
+\end{itemize}\pause 
+
+容易验证，$W_1$关于向量的加法和数乘是封闭的，而$W_2$对这两种运算不封闭。
+\end{frame}
+
+\begin{frame}
+  \begin{dingyi}[线性子空间]
+    设$V(F)$是一个线性空间，$W$是$V$的一个非空子集合。如果$W$对$V(F)$中定义的\blue{线性运算}也构成数域$F$上的一个线性空间，则称$W$为$V(F)$上的一个\red{线性子空间}（简称\red{子空间}）。
+  \end{dingyi}
+\end{frame}
+
+\begin{frame}
+\begin{dingli}
+  线性空间$V(F)$的非空子集合$W$为$V$的子空间的充分必要条件是$W$对于$V$的两种运算封闭。
+\end{dingli}\pause
+
+\begin{proof}
+\begin{itemize}
+\item[$\Rightarrow$]显然成立。\\
+
+\item[$\Leftarrow$] 只需验证$W$中的向量满足线性空间定义的$8$条规则。\pause 
+  \vspace{.1in} 
+
+  由于$W$是$V$的非空子集，故规则(1),(2),(5),(6),(7),(8)显然成立。\pause 
+  \vspace{.1in} 
+  
+  因此只需证明
+  \begin{itemize}
+    \item $\M0 \in W$
+    \item $\forall \alphabd, ~ -\alphabd \in W$
+  \end{itemize} \vspace{.1in} \pause 
+
+  事实上，由于$W$对数乘封闭，即$\forall \lambda \in F, \forall \alphabd \in W$，均有$\lambda\alphabd \in W$。取$\lambda=0, -1$，即有
+  $$
+  \M0 = 0\alphabd = \M0 \in W, ~~
+  -\alphabd = (-1)\alphabd = \in W. 
+  $$
+
+\end{itemize}
+\end{proof}
+\end{frame}
+
+\begin{frame}
+  \begin{li}
+    在线性空间$V$中，
+    \begin{itemize}
+    \item 由单个的零向量组成的子集合$\{\M0\}$是$V$的一个子空间，称为\red{零子空间}；
+    \item $V$本身也是$V$的一个子空间，
+    \end{itemize}
+    这两个子空间都称为$V$的\red{平凡子空间}，而$V$的其他子空间称为\red{非平凡子空间}。
+  \end{li}
+\end{frame}
+
+\begin{frame}
+\begin{li}
+  设$\MA\in F^{m\times n}$，则$\MA\vx=\M0$的解集合
+  $$
+  S = \{\vx ~|~ \MA \vx = \M0\}
+  $$
+  是$F^n$的一个子空间，称为齐次线性方程组的解空间(也称矩阵$\MA$的零空间，记作$\mathcal N(A)$)。 \vspace{.1in} \pause 
+
+  \blue{注：非齐次线性方程组$\MA\vx=\vb$的解集合不是$F^n$的子空间。}
+
+\end{li}
+\end{frame}
+
+\begin{frame}
+\begin{li}
+  全体$n$阶实数量矩阵、实对角矩阵、实对称矩阵、实上（下）三角矩阵分别组成的集合，都是$\R^{n\times n}$的子空间。
+\end{li}
+\end{frame}
+
+\begin{frame}
+  \begin{li}
+    设$\R^3$的子集合
+    $$
+    \begin{array}{l}
+      V_1=\{(x_1,0,0)~|~x_1\in \R\},
+      V_2=\{(1,0,x_3)~|~x_3\in \R\},
+    \end{array}
+    $$
+    则$V_1$是$\R^3$的子空间，$V_2$不是$\R^3$的子空间。 \vspace{.1in}
+    \pause 
+
+    \blue{注：在$\R^3$中，
+      \begin{itemize}
+        \item 凡是过原点的平面或直线上的全体向量组成的子集合都是$\R^3$的子空间；
+        \item 凡是不过原点的平面或直线上的全体向量组成的子集合都不是$\R^3$的子空间。
+      \end{itemize}
+    }
+  \end{li}
+\end{frame}
+
+\begin{frame}
+  \begin{dingli}
+    设$V$是数域$F$上的线性空间，$S$是$V$的一个非空子集合，则$S$中的一切向量组的所有线性组合组成的集合
+    $$
+    W = \{k_1\alphabd_1+\cd+k_m\alphabd_m~|~\alphabd_i\in S, ~k_i\in F, ~i=1,\cd,m\}
+    $$
+    是$V$中包含$S$的最小的子空间。
+  \end{dingli}\pause 
+  \begin{proof}
+    $W$显然包含$S$，设$\alphabd,\betabd\in W$，则存在$\alphabd_1,\cd,\alphabd_m,\betabd_1,\cd,\betabd_n\in S$及$k_1,\cd,k_m,l_1,\cd,l_n\in F$，使得
+    $$
+    \begin{array}{l}
+      \alphabd = k_1\alphabd_1+\cd+k_m\alphabd_m, \quad 
+      \betabd = l_1\betabd_1+\cd+l_n\betabd_m
+    \end{array}
+    $$
+    于是
+    $$
+    \alphabd+\betabd=(k_1\alphabd_1+\cd+k_m\alphabd_m)+(l_1\betabd_1+\cd+l_n\betabd_m)\in W
+    $$
+    $\forall k\in F$，有
+    $$
+    k\alphabd=k(k_1\alphabd_1+\cd+k_m\alphabd_m)=kk_1\alphabd_1+\cd+kk_m\alphabd_m\in W,
+    $$
+    故$W$是$V$的一个子空间。
+    \vspace{.1in}\pause
+    
+    再设$W^*$是$V$中包含$S$的任一子空间，则
+    $$
+    \forall \alpha = k_1\alphabd_1+\cd+k_m\alphabd_m \in W.
+    $$
+    由于$\alphabd_1,\cd,\alphabd_m\in S\subset W^*$，故必有$\alphabd\in W^*$，从而有$W\subset W^*$，因此$W$是$V$中包含$S$的最小子空间。
+  \end{proof}
+\end{frame}
+
+\begin{frame}
+以上定理中的$W$称为\blue{由$V$的非空子集$S$生成的子空间}。
+
+
+特别地，当$S$为有限子集$\{\alphabd_1,\cd,\alphabd_m\}$时，记
+$$
+W = L(\alphabd_1,\cd,\alphabd_m) \mbox{  或  } W = span\{\alphabd_1,\cd,\alphabd_m\}
+$$
+为由向量组$\alphabd_1,\cd,\alphabd_m$生成的子空间。\vspace{.1in}\pause 
+
+
+\begin{li}
+\begin{itemize}
+	\item $\MA\vx = \M0$的解空间是由它的基础解系生成的子空间；
+	\item $\R^3$中任一个过原点的平面上的全体向量所构成的子空间，是由该平面上任意两个线性无关的向量生成的子空间。
+\end{itemize}
+
+\end{li}
+\end{frame}
+
+\begin{frame}
+\begin{dingli}
+	设$W_1,W_2$是数域$F$上的线性空间$V$上的两个子空间，且
+	$$
+	W_1=L(\alphabd_1,\cd,\alphabd_s),~W_2=L(\betabd_1,\cd,\betabd_t),
+	$$
+	则$W_1=W_2$的充分必要条件是两个向量组$\alphabd_1,\cd,\alphabd_s$和$\betabd_1,\cd,\betabd_t$等价。
+\end{dingli}\vspace{.1in}\pause 
+
+\begin{proof}
+\begin{itemize}
+	\item[$\Rightarrow$] 显然成立。 \\[.1in] \pause 
+	\item[$\Leftarrow$]  设$\alphabd = k_1\alphabd_1+\cd+k_s\alphabd_s\in W_1$，由于$\alphabd_i$可由向量组$\betabd_1,\cd,\betabd_t$线性表示，故$\alphabd$也可由向量组$\betabd_1,\cd,\betabd_t$线性表示，即存在$l_1,\cd,l_t\in F$使得
+	$$
+	\alphabd = l_1\betabd_1+\cd+l_t\betabd_t \in W_2,
+	$$
+	因此，$W_1\subset W_2$。\vspace{.1in}\pause 
+	
+	同理可证$W_2\subset W_1$，从而$W_1=W_2$。
+\end{itemize}
+\end{proof}
+\end{frame}
+
+\begin{frame}
+\begin{dingyi}
+设$W_1,W_2$是线性空间$V$的两个子空间，则$V$的子集合
+$$
+\begin{array}{ll}
+W_1\cap W_2 &= \{\alphabd ~|~ \alphabd \in W_1 \mbox{ 且 }  \alphabd \in W_2\},\\[0.1in]
+W_1 +   W_2 &= \{\alphabd_1+\alphabd_2 ~|~ \alphabd_1 \in W_1, ~\alphabd_2\in W_2\}
+\end{array}
+$$	
+分别称为两个子空间的\red{交}与\red{和}。\vspace{.1in}\pause
+
+\red{如果$W_1\cap W_2 = \{\M0\}$，则称$W_1+W_2$为直和，记为\blue{$W_1\oplus W_2$}。}
+\end{dingyi}
+\end{frame}
+
+\begin{frame}
+\begin{dingli}
+	线性空间$V(F)$的两个子空间$W_1, W_2$的交与和仍是$V$的子空间。
+\end{dingli}
+
+\begin{proof}
+只证$W_1+W_2$是$V$的子空间，为此只需证$W_1+W_2$对$V$中的线性运算封闭。\vspace{.1in}\pause
+
+设$\alphabd, \betabd \in W_1+W_2$，即存在$\alphabd_1, \betabd_1 \in W_1; ~ \alphabd_2, \betabd_2 \in W_2$使得
+$$
+\alphabd = \alphabd_1+\alphabd_2, ~~ 
+\betabd = \betabd_1 + \betabd_2,
+$$
+于是
+$$
+\alphabd+\betabd=(\alphabd_1+\alphabd_2)+(\betabd_1 + \betabd_2)=(\alphabd_1+\betabd_1)+(\alphabd_2+\betabd_2)\in W_1+W_2,
+$$
+再设$\lambda\in F$，则
+$$
+\lambda\alphabd=\lambda(\alphabd_1+\alphabd_2)=\lambda\alphabd_1+\lambda\alphabd_2\in W_1+W_2.
+$$
+故$W_1+W_2$也是$V$的一个子空间。
+\end{proof}
+
+	
+\end{frame}
+
+\begin{frame}
+\begin{dingyi}
+矩阵$\MA$的列（行）向量组生成的子空间，称为矩阵$\MA$的列（行）空间，记为$\mathcal R(A)$（$\mathcal R(A^T)$）。
+\end{dingyi}\vspace{.1in}\pause
+
+若$\MA \in \R^{m\times n}$，则
+\begin{itemize} 
+	\item $\MA$的列向量组为
+	$$
+	\betabd_1,\cd,\betabd_n\in \R^m
+	$$
+	\item $\MA$的行向量组为
+	$$
+	\alphabd_1,\cd,\alphabd_m\in \R^n
+	$$
+\end{itemize}
+\vspace{.1in}\pause
+
+于是
+\begin{itemize} 
+\item $\mathcal R(A)=L(\betabd_1,\cd,\betabd_n)$是$\R^m$的一个子空间；
+\item $\mathcal R(A^T)=L(\alphabd_1,\cd,\alphabd_m)$是$\R^n$的一个子空间。
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+$$
+\begin{array}{ll}
+& \mbox{非齐次线性方程组$\MA\vx = \vb$有解} \\[.1in]
+\Leftrightarrow & \mbox{$\vb$是$\MA$的列向量组的线性组合}\\[.1in]
+\Leftrightarrow & \mbox{$\vb$属于$\MA$的列空间，即$\vb \in \mathcal R(\MA)$}
+\end{array}
+$$
+\end{frame}
+
+\begin{frame}
+\begin{dingyi}
+设$\alphabd \in \R^n$，$W$是$\R^n$的一个子空间。如果对于任意的$\gammabd \in W$，均有
+$$
+(\alphabd, \gammabd) = \M0,
+$$
+则称$\alphabd$与子空间$W$正交，记作$\alphabd \perp W$。
+\end{dingyi}	\vspace{.1in}\pause
+
+
+\begin{dingyi}
+	设$V$和$W$是$\R^n$的两个子空间。如果对于任意的$\alphabd \in V, \betabd \in W$，均有
+	$$
+	(\alphabd, \betabd) = \M0,
+	$$
+	则称$V$与$W$正交，记作$V \perp W$。
+\end{dingyi}
+
+\end{frame}
+
+\begin{frame}
+
+\begin{li}
+对于齐次线性方程组$\MA\vx=\M0$，其每个解向量与系数矩阵$\MA$的每个行向量都正交，故解空间与$\MA$的行空间是正交的，即
+$$
+\mathcal N(\MA) \perp \mathcal R(A^T).
+$$
+\end{li}
+
+\end{frame}
+
+\begin{frame}
+\begin{dingli}
+$\R^n$中与子空间$V$正交的全部向量所构成的集合
+$$
+W=\{\alphabd ~|~ \alphabd \perp V, ~ \alphabd \in \R^n \}
+$$
+是$\R^n$的一个子空间。
+\end{dingli}\vspace{.1in}\pause
+
+\begin{proof}
+因$\M0$与任何子空间正交，故$W$是非空集合。设$\alphabd_1,\alphabd_2\in W$，于是$\forall \gammabd \in W$，都有
+$$
+(\alphabd_1, \gammabd) = \M0, \quad
+(\alphabd_2, \gammabd) = \M0,
+$$
+从而
+$$
+(\alphabd_1+\alphabd_2, \gammabd) = \M0, \quad
+(k\alphabd_1, \gammabd) = \M0 (k \in \R),
+$$
+所以$(\alphabd_1+\alphabd_2)\perp V, k\alphabd_1\perp V$，即$\alphabd_1+\alphabd_2\in W, k\alphabd_1\in W$，故$W$是$\R^n$的一个子空间。
+\end{proof}
+
+\end{frame}
+
+\begin{frame}
+\begin{dingyi}
+$\R^n$中与子空间$V$正交的全体向量构成的子空间$W$，称为$V$的\red{正交补}，记为$W=V^\perp$。
+\end{dingyi}\vspace{.1in}\pause
+
+\begin{li}
+$\MA \vx = \M0$的解空间$\mathcal N(\MA)$由与$\MA$的行向量都正交的全部向量构成，故
+$$
+\mathcal N(A) = \mathcal R(A^T)^\perp. 
+$$
+这是$\MA \vx = \M0$的解空间的一个基本性质。
+\end{li}
+\end{frame}
