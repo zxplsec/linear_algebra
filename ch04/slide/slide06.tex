@@ -1,0 +1,90 @@
+\section{向量空间的线性变换}
+
+\begin{frame}
+  \begin{dingyi}[映射]
+    设$X,Y$是两个非空集合，如果有一个法则$\sigma$，它使$X$中每个元素$\alpha$都有$Y$中唯一确定的一个元素$\beta$与之对应，则称$\sigma$是$X$到$Y$的一个映射，记作
+    $$
+    \sigma: X \to Y,
+    $$
+    并称$\beta$为$\alpha$在$\sigma$下的象，$\alpha$为$\beta$在$\sigma$下一个原象，记作
+    $$
+    \sigma: \alpha \mapsto \beta \mbox{ 或 } \sigma(\alpha)=\beta.
+    $$    
+  \end{dingyi} \vspace{.1in} \pause 
+
+  \begin{zhu}
+    $\alpha$的象是唯一的，但$\beta$的原象不是唯一的。
+  \end{zhu}\vspace{.1in} \pause 
+
+  \blue{由$X$到自身的映射$\sigma$，常称之为\red{变换}。}
+\end{frame}
+
+\begin{frame}
+  \begin{itemize}
+    \item 若$\forall \alpha_1,\alpha_2\in X, \alpha_1\ne \alpha_2$，
+      都有$\sigma(\alpha_1)\ne \sigma(\alpha_2)$，就称$\sigma$为\red{单射}。\\[0.15in]
+    \item 若$\forall \beta\in Y$，都有$\alpha \in X$，使得$\sigma(\alpha)=\beta$，则称$\sigma$为\red{满射}。\\[0.15in]
+    \item 若$\sigma$既是单射，也是满射，则称$\sigma$为\red{双射}（或称\red{一一对应}）。
+  \end{itemize}
+\end{frame}
+
+\begin{frame}
+  \begin{li}
+    \begin{itemize}
+    \item $f(x)=\sin x$是$\R \to [-1,1]$的一个映射，它是满射，但不是单射。\\[0.1in]
+    \item $f(x)=e^x$是$\R \to \R$的一个映射，它是单射而不是满射。
+    \end{itemize}
+  \end{li}
+\end{frame}
+
+\begin{frame}
+  线性函数
+  $$
+  y = f(x) = ax
+  $$
+  是$\R\to \R$的映射。显然它是双射，且具有以下性质
+  \begin{enumerate}
+  \item $f(x_1+x_2)=f(x_1)+f(x_2)$\\[0.1in]
+  \item $f(\lambda x) = \lambda f(x), \lambda$为常数。
+  \end{enumerate}
+\end{frame}
+
+\begin{frame}
+  现在把一元线性函数推广到$n$维向量空间，设$\MA\in \R^{n\times n}$，若对每一个列向量$\vx\in \R^n$，映射
+  $$
+  \sigma: \vx \to \MA\vx \mbox{  即  } \sigma(\vx) = \MA \vx
+  $$
+  是$\R^n\to\R^n$的一个映射，且满足以下性质
+  $$
+  \begin{array}{rl}
+    \sigma(\vx_1+\vx_2)&=\MA(\vx_1+\vx_2)=\MA\vx_1+\MA\vx_2=\sigma(\vx_1)+\sigma(\vx_2), \\[.15in]
+    \sigma(\lambda\vx)&=\MA(\lambda\vx) = \lambda\MA\vx=\lambda\sigma(\vx), ~\lambda\in R.
+  \end{array}
+  $$\pause 
+  我们把这个映射$\sigma$称为$\R^n\to\R^n$的\red{线性映射}（也称\red{线性变换}）。
+\end{frame}
+
+\begin{frame}
+更一般地，若$\MA\in \R^{m\times n}, \vx \in \R^n$，则映射
+$$
+\sigma: \vx \to \MA\vx \in \R^m
+$$
+是$\R^n\to \R^m$的线性映射。 \vspace{.1in}\pause 
+
+\begin{li}
+  二元线性函数
+  $$
+  y = f(x_1,x_2)=a_1x_1+a_2x_2=(a_1,a_2)\left(\begin{array}{l}x_1\\x_2\end{array}\right)
+  $$
+  是$\R^2\to \R^1$的线性映射。
+\vspace{.1in}\pause 
+
+\red{本节主要讨论$\R^n\to \R^n$的线性映射（也称$\R^n$的线性变换）。}
+
+\end{li}
+\end{frame}
+
+\input{slide/slide06_1.tex}
+\input{slide/slide06_2.tex}
+\input{slide/slide06_3.tex}
+\input{slide/slide06_4.tex}

@@ -1,0 +1,470 @@
+\subsection{线性变换的矩阵表示}
+
+\begin{frame}
+  设$\{\alphabd_1,\alphabd_2,\cd,\alphabd_n\}$是$V(F)$的一组基，$\sigmabd$是$V(F)$的一个线性变换，若$\alphabd\in V(F)$，且
+  $$
+  \alphabd=x_1\alphabd_1+x_2\alphabd_2+\cd+x_n\alphabd_n,
+  $$
+  则
+  $$
+  \sigmabd(\alphabd)=x_1\sigmabd(\alphabd_1)+x_2\sigmabd(\alphabd_2)+\cd+x_n\sigmabd(\alphabd_n).
+  $$
+  这意味着，如果知道了$\sigmabd$关于$V(F)$的基的象$\sigmabd(\alphabd_1),\sigmabd(\alphabd_2),\cd,\sigmabd(\alphabd_n)$，则任一向量$\alphabd$的象$\sigmabd(\alphabd)$就知道了。
+\end{frame}
+
+\begin{frame}
+  \begin{dingli}
+    设$\{\alphabd_1,\alphabd_2,\cd,\alphabd_n\}$是$V(F)$的一组基，若$V(F)$的两个线性变换$\sigmabd$和$\taubd$关于这组基的象相同，即
+    $$
+    \sigmabd(\alphabd_i)=\taubd(\alphabd_i), \quad i=1,2,\cd,n,
+    $$
+    则$\sigmabd=\taubd$.
+  \end{dingli}
+  \vspace{.1in}\pause 
+
+  \begin{proof}
+    所谓$\sigmabd=\taubd$，即每个向量在它们的作用下的象相同，即对任意的$\alphabd\in V$，有$\sigmabd(\alphabd)=\taubd(\alphabd)$。\vspace{.1in}\pause 
+
+    对任一的$\alphabd=x_1\alphabd_1+x_2\alphabd_2+\cd+x_n\alphabd_n$，则
+    $$
+    \begin{aligned}
+      \sigmabd(\alphabd)
+      &=x_1\sigmabd(\alphabd_1)+x_2\sigmabd(\alphabd_2)+\cd+x_n\sigmabd(\alphabd_n)\\
+      &=x_1\taubd(\alphabd_1)+x_2\taubd(\alphabd_2)+\cd+x_n\taubd(\alphabd_n)\\
+      &=\taubd(\alphabd)
+  \end{aligned}
+    $$
+  \end{proof}
+\end{frame}
+
+\begin{frame}
+  因$\sigmabd(\alphabd_i)\in V(F)$，故它们可由$V(F)$的基$\{\alphabd_1,\alphabd_2,\cd,\alphabd_n\}$线性表出，即有
+  $$
+  \left\{
+    \begin{array}{c}
+      \sigmabd(\alphabd_1)=a_{11}\alphabd_{1}+a_{21}\alphabd_{12}+\cd+a_{n1}\alphabd_{n}, \\[0.1in]
+      \sigmabd(\alphabd_1)=a_{12}\alphabd_{1}+a_{22}\alphabd_{22}+\cd+a_{n2}\alphabd_{n}, \\[0.1in]
+      \cd\cd\\[0.1in]
+      \sigmabd(\alphabd_1)=a_{1n}\alphabd_{1}+a_{2n}\alphabd_{22}+\cd+a_{nn}\alphabd_{n}.
+    \end{array}
+  \right.
+  $$
+  记
+  $$
+  \sigmabd(\alphabd_1,\alphabd_2,\cd,\alphabd_n)=(\sigmabd(\alphabd_1),\sigmabd(\alphabd_2),\cd,\sigmabd(\alphabd_n))
+  $$
+  其矩阵形式为
+  \begin{equation}\label{a_sigma}
+  \sigmabd(\alphabd_1,\alphabd_2,\cd,\alphabd_n)=(\alphabd_1,\alphabd_2,\cd,\alphabd_n)\underbrace{\left[
+    \begin{array}{cccc}
+      a_{11}&a_{12}&\cd&a_{1n}\\
+      a_{21}&a_{22}&\cd&a_{2n}\\
+      \vdots&\vdots&&\vdots\\
+      a_{n1}&a_{n2}&\cd&a_{nn}
+    \end{array}
+  \right]}_{\red{\MA}}.
+  \end{equation}
+
+\end{frame}
+
+\begin{frame}
+  \begin{dingyi}
+    若$V(F)$中的线性变换$\sigmabd$，使得$V(F)$的基$\{\alphabd_1,\alphabd_2,\cd,\alphabd_n\}$和$\sigmabd$关于基的象$\sigmabd(\alphabd_1),\sigmabd(\alphabd_2),\cd,\sigmabd(\alphabd_n)$满足\eqref{a_sigma}，就称\eqref{a_sigma}中的\red{$\MA$是$\sigma$在基$\{\alphabd_1,\alphabd_2,\cd,\alphabd_n\}$的矩阵表示}，或称\red{$\MA$是$\sigmabd$在基$\{\alphabd_1,\alphabd_2,\cd,\alphabd_n\}$下对应的矩阵}。
+  \end{dingyi}
+\end{frame}
+
+\begin{frame}
+  \begin{dingli}
+    设$V(F)$的线性变换$\sigmabd$在基$\{\alphabd_1,\cd,\alphabd_n\}$下的矩阵为$\MA$，向量$\alphabd$在基下的坐标向量为$\vx=(x_1,\cd,x_n)^T$，$\sigmabd(\alphabd)$在基下的坐标向量为$\vy=(y_1,\cd,y_n)^T$，则
+    $$
+    \vy=\MA\vx.
+    $$
+  \end{dingli} \vspace{.1in} \pause 
+
+  \begin{proof}
+    由
+    $$
+    \alphabd=x_1\alphabd_1+\cd+x_n\alphabd_n=(\alphabd_1,\cd,\alphabd_n)\left(\begin{array}{c}x_1\\\vdots\\x_n\end{array}\right)
+    $$
+    可得
+    $$
+    \begin{aligned}
+      \sigmabd(\alphabd)&=x_1\sigmabd(\alphabd_1)+\cd+x_n\sigmabd(\alphabd_n)\\
+      &=\blue{(\sigmabd(\alphabd_1),\cd,\sigmabd(\alphabd_n))}\left(\begin{array}{c}x_1\\\vdots\\x_n\end{array}\right)\\
+      &=\blue{(\alphabd_1,\cd,\alphabd_n)\MA}\left(\begin{array}{c}x_1\\\vdots\\x_n\end{array}\right)
+    \end{aligned}
+    $$
+    故$\sigmabd(\alphabd)$在基$\{\alphabd_1,\cd,\alphabd_n\}$下的坐标为
+    $$
+    \left(\begin{array}{c}y_1\\\vdots\\y_n\end{array}\right)=\MA\left(\begin{array}{c}x_1\\\vdots\\x_n\end{array}\right)
+    $$
+  \end{proof}
+\end{frame}
+
+\begin{frame}
+   \begin{li}
+    求旋转变换$\MR_\theta$在$\R^2$的标准正交基$\ve_1=(1,0)^T$和$\ve_2=(0,1)^T$的矩阵。
+  \end{li} \pause 
+  \begin{jie}
+    $$
+    \left\{
+      \begin{array}{rcr}
+        \MR_\theta(\ve_1)&=&\cos\theta \ve_1 + \sin\theta \ve_2, \\[0.1in]
+        \MR_\theta(\ve_2)&=&-\sin\theta \ve_1 + \cos\theta \ve_2.
+      \end{array}
+    \right.
+    $$
+    即
+    $$
+    \MR_\theta(\ve_1,\ve_2)=(\MR_\theta(\ve_1),\MR_\theta(\ve_2))=(\ve_1,\ve_2)\left(
+      \begin{array}{rr}
+        \cos\theta&-\sin\theta\\
+        \sin\theta& \cos\theta
+      \end{array}
+    \right)
+    $$
+    故初等旋转变换$\MR_\theta$在标准正交基$\{\ve_1,\ve_2\}$下的矩阵为
+    $$
+    \left(
+      \begin{array}{rr}
+        \cos\theta&-\sin\theta\\
+        \sin\theta& \cos\theta
+      \end{array}
+    \right).
+    $$
+  \end{jie}
+\end{frame}
+
+\begin{frame}
+  \begin{li}
+    求镜像变换$\varphibd$在$\R^2$的标准正交基$\{\omegabd,\etabd\}$下所对应的矩阵$\MH$。
+  \end{li}\vspace{.1in}\pause 
+
+  \begin{jie}
+    根据镜像变换的定义，有
+    $$
+    \left\{
+      \begin{array}{rcr}
+        \varphibd(\omegabd)&=& \omegabd,\\[.1in]
+        \varphibd(\etabd)&=& -\etabd
+      \end{array}
+    \right. \mbox{  即  }
+    \varphibd(\omegabd,\etabd)=(\omegabd,\etabd)\left(
+      \begin{array}{rr}
+        1&0\\
+        0&-1
+      \end{array}
+    \right).   
+    $$
+    所以$\varphibd$在标准正交基$\{\omegabd,\etabd\}$下的矩阵为
+    $$
+    \left(
+      \begin{array}{rr}
+        1&0\\
+        0&-1
+      \end{array}
+    \right).
+    $$
+  \end{jie}
+\end{frame}
+
+\begin{frame}
+  \begin{li}
+    $\R^n$的恒等变换、零变换和数乘变换在任何基下的矩阵分别都是$\MI_n, \M0_{n},\lambda \MI_n $。
+  \end{li}
+\end{frame}
+
+\begin{frame}
+  \begin{li}
+    设$\sigmabd$是$\R^3$的一个线性变换，$B=\{\alphabd_1,\alphabd_2,\alphabd_3\}$是$\R^3$的一组基，已知
+    $$
+    \begin{array}{rrr}
+      \alphabd_1=(1,0,0)^T,&\alphabd_2=(1,1,0)^T,&\alphabd_3=(1,1,1)^T,\\
+      \sigmabd(\alphabd_1)=(1,-1,0)^T,&\sigmabd(\alphabd_2)=(-1,1,-1)^T,&\sigmabd(\alphabd_3)=(1,-1,2)^T.
+    \end{array}
+    $$
+    \begin{enumerate}
+      \item 求$\sigmabd$在基$B$下对应的矩阵；
+      \item 求$\sigmabd^2(\alphabd_1),\sigmabd^2(\alphabd_2),\sigmabd^2(\alphabd_3)$；
+      \item 已知$\sigmabd(\betabd)$在基$B$下的坐标为$(2,1,-2)^T$，问$\sigmabd(\betabd)$的原象$\betabd$是否唯一？并求$\betabd$在基$B$下的坐标。
+    \end{enumerate}
+  \end{li}
+
+\end{frame}
+
+\begin{frame}
+  \begin{jie}
+    1. 由$\sigmabd(\alphabd_1,\sigmabd_2,\sigmabd_3)=(\alphabd_1,\sigmabd_2,\sigmabd_3)\MA$可知
+    $$
+    \left(
+      \begin{array}{rrr}
+        1&-1&1\\
+        -1&1&-1\\
+        0&-1&2
+      \end{array}
+    \right)=\left(
+      \begin{array}{rrr}
+        1&1&1\\
+        0&1&1\\
+        0&0&1
+      \end{array}
+    \right)\MA
+    $$
+    可求得
+    $$
+    \MA=\left(
+      \begin{array}{rrr}
+        2&-2&2\\
+        -1&2&-3\\
+        0&1&2
+      \end{array}
+    \right)
+    $$
+  \end{jie}
+\end{frame}
+
+\begin{frame}
+  \begin{jie}
+    2. 由
+    $$
+    \sigmabd(\alphabd_1,\sigmabd_2,\sigmabd_3)=(\sigmabd(\alphabd_1),\sigmabd(\sigmabd_2),\sigmabd(\sigmabd_3))=(\alphabd_1,\sigmabd_2,\sigmabd_3)\MA
+    $$
+    可知
+    $$
+    \begin{aligned}
+      \sigmabd(\sigmabd(\alphabd_1),\sigmabd(\sigmabd_2),\sigmabd(\sigmabd_3))
+      &=\sigmabd((\alphabd_1,\sigmabd_2,\sigmabd_3)\MA)\\
+      &=(\sigmabd(\alphabd_1,\sigmabd_2,\sigmabd_3))\MA
+      =(\alphabd_1,\sigmabd_2,\sigmabd_3)\MA^2\\
+      &=(\alphabd_1,\sigmabd_2,\sigmabd_3)\left(
+      \begin{array}{rrr}
+        6&-10&14\\
+        -4&9&-14\\
+        1&-4&7
+      \end{array}
+    \right)
+    \end{aligned}
+    $$
+  \end{jie}
+\end{frame}
+
+
+
+\begin{frame}
+\begin{jie}
+  3. 设$(\betabd)_B=(x_1,x_2,x_3)^T$，则
+  $$
+  \left(
+    \begin{array}{rrr}
+      2&-2&2\\
+      -1&2&-3\\
+      0&1&2
+    \end{array}
+  \right)\left(
+    \begin{array}{c}
+      x_1\\
+      x_2\\
+      x_3
+    \end{array}
+  \right)=\left(
+    \begin{array}{r}
+      2\\
+      1\\
+      -2
+    \end{array}
+  \right)
+  $$
+  解得
+  $$
+  (x_1,x_2,x_3)=(3,2,0)+k(1,2,1), ~~k\in \R
+  $$
+  故$\sigmabd(\betabd)$的原象$\betabd$不唯一。
+\end{jie}
+\end{frame}
+
+
+\begin{frame}
+  \begin{dingli}
+    设线性变换$\sigmabd$在基$B_1=\{\alphabd_1,\cd,\alphabd_n\}$和基$B_2=\{\betabd_1,\cd,\betabd_n\}$下的矩阵分别为$\MA$和$\MB$，且$B_1$到$B_2$的过渡矩阵为$\MC$，则
+    $$
+    \MB = \MC^{-1}\MA\MC.
+    $$
+  \end{dingli}\vspace{.1in}\pause 
+  \begin{proof}
+    由
+    $$
+    \begin{array}{rl}
+      \sigmabd(\alphabd_1,\cd,\alphabd_n)&=(\alphabd_1,\cd,\alphabd_n)\MA, \\[.1in]
+      (\betabd_1,\cd,\betabd_n)&=(\alphabd_1,\cd,\alphabd_n)\MC
+    \end{array}
+    $$
+    知
+    $$
+    \begin{aligned}
+      \sigmabd(\betabd_1,\cd,\betabd_n)&=\sigmabd(\alphabd_1,\cd,\alphabd_n)\MC\\
+      &=(\alphabd_1,\cd,\alphabd_n)\MA\MC\\
+      &=(\betabd_1,\cd,\betabd_n)\MC^{-1}\MA\MC,
+    \end{aligned}
+    $$
+    由此即得$\MB=\MC^{-1}\MA\MC$。
+  \end{proof}
+\end{frame}
+
+
+\begin{frame}
+  \begin{li}
+    设$\R^3$的线性变换$\sigmabd$在自然基$\{\ve_1,\ve_2,\ve_3\}$下的矩阵为
+    $$
+    \MA=\left(
+      \begin{array}{rrr}
+        2&-1&-1\\
+        -1&2&-1\\
+        -1&-1&2
+      \end{array}
+    \right)
+    $$
+    \begin{enumerate}
+    \item 求$\sigmabd$在基$\{\betabd_1,\betabd_2,\betabd_3\}$下的矩阵，其中
+      $$
+      \betabd_1=(1,1,1)^T, ~~\betabd_2=(-1,1,0)^T, ~~\betabd_3=(-1,0,1)^T.
+      $$
+    \item $\alphabd=(1,2,3)^T$，求$\sigmabd$在基$\{\betabd_1,\betabd_2,\betabd_3\}$下的坐标向量$(y_1,y_2,y_3)^T$及$\sigmabd(\alphabd)$.
+    \end{enumerate}
+  \end{li}
+\end{frame}
+
+
+\begin{frame}
+  \begin{jie}
+    1. 由
+    $$
+    (\betabd_1,\betabd_2,\betabd_3)=(\alphabd_1,\alphabd_2,\alphabd_3)\MC
+    $$
+    知
+    $$
+    \MC=(\betabd_1,\betabd_2,\betabd_3)=\left(
+      \begin{array}{rrr}
+        1&-1&-1\\
+        1&1&0\\
+        1&0&1
+      \end{array}
+    \right), \pause~~ 
+    \MC^{-1}=\frac13\left(
+      \begin{array}{rrr}
+        1&1&1\\
+        -1&2&-1\\
+        -1&-1&2
+      \end{array}
+    \right)
+    $$
+    于是$\sigmabd$在基$\{\betabd_1,\betabd_2,\betabd_3\}$下的矩阵为
+    $$
+    \MB=\MC^{-1}\MA\MC=
+    \left(
+      \begin{array}{rrr}
+        0&0&0\\
+        0&3&0\\
+        0&0&3
+      \end{array}
+    \right).
+    $$
+  \end{jie}
+\end{frame}
+
+
+\begin{frame}
+  \begin{jie}
+    2. $\alphabd$在自然基下的坐标向量为其本身，即$(1,2,3)^T$，因此，由坐标变换公式得
+    $$
+    \left(
+      \begin{array}{c}
+        x_1\\x_2\\x_3
+      \end{array}
+    \right)=\MC^{-1}
+    \left(
+      \begin{array}{c}
+        1\\2\\3
+      \end{array}
+    \right)=\left(
+      \begin{array}{c}
+        2\\0\\1
+      \end{array}
+    \right)
+    $$\pause 
+
+    $\sigmabd$在基$\{\betabd_1,\betabd_2,\betabd_3\}$下的坐标向量为
+    $$
+    \left(
+      \begin{array}{c}
+        y_1\\y_2\\y_3
+      \end{array}
+    \right)=\MB
+    \left(
+      \begin{array}{c}
+        x_1\\x_2\\x_3
+      \end{array}
+    \right)=\left(
+      \begin{array}{c}
+        0\\0\\3
+      \end{array}
+    \right).
+    $$
+  \end{jie}
+\end{frame}
+
+
+\begin{frame}
+  由
+  $$
+  \sigmabd(\alphabd_1,\cd,\alphabd_n)=(\alphabd_1,\cd,\alphabd_n)\left(
+    \begin{array}{cccc}
+      a_{11}&a_{12}&\cd&a_{1n}\\
+      a_{21}&a_{22}&\cd&a_{2n}\\
+      \vdots&\vdots&&\vdots\\
+      a_{n1}&a_{n2}&\cd&a_{nn}
+    \end{array}
+  \right):=(\betabd_1,\cd,\betabd_n)
+  $$
+  知，给定$\R^n$中的一组基$\{\alphabd_1,\cd,\alphabd_n\}$，$\R^n$中任一向量组$\betabd_1,\cd,\betabd_n$就等价于任给上式中的一个矩阵$\MA$。\vspace{.1in}\pause 
+
+  \blue{反过来，任给$n$个向量$\betabd_1,\cd,\betabd_n$，是否存在唯一的一个线性变换$\sigmabd$，使得$\sigmabd(\alphabd_j)=\betabd_j$？}
+\end{frame}
+
+
+\begin{frame}
+  \begin{dingli}
+    设$\{\alphabd_1,\cd,\alphabd_n\}$是$\R^n$的一组基，$\betabd_1,\cd,\betabd_n$是在$\R^n$中任意给定的$n$个向量，则一定存在唯一的线性变换$\sigmabd$，使得
+    $$
+    \sigmabd(\alphabd_j)=\betabd_j, ~~ j=1,\cd,n.
+    $$
+  \end{dingli} \vspace{.1in} \pause 
+
+  \begin{proof}
+    \blue{存在性} \vspace{.1in}
+
+    设$\zetabd=x_1\alphabd_1+x_2\alphabd_2+\cd+x_n\alphabd_n$，定义变换
+    $$
+    \sigmabd(\zetabd)=x_1\betabd_1+x_2\betabd_2+\cd+x_n\betabd_n
+    $$\pause 
+    当$\zetabd=\alphabd_j$时，显然有
+    $$
+    \sigmabd(\alphabd_j)=\betabd_j.
+    $$\vspace{.1in} \pause 
+    \blue{下证$\sigmabd$为线性变换。}
+    任给$\R^n$中的两个向量$\zetabd_1=\sum_{j=1}^na_j\alphabd_j$和$\zetabd_2=\sum_{j=1}^nb_j\alphabd_j$以及$k\in \R$，有
+    $$
+    \begin{aligned}
+      \sigmabd(\zetabd_1+\zetabd_2)&=\sigmabd(\sum_{j=1}^n(a_j+b_j)\alphabd_j)
+      =\sum_{j=1}^n(a_j+b_j)\betabd_j=\sum_{j=1}^na_j\betabd_j+\sum_{j=1}^nb_j\betabd_j=\sigmabd(\zetabd_1)+\sigmabd(\zetabd_2), \\
+      \sigmabd(k\zetabd)&=\sigmabd(\sum_{j=1}^nkx_j\alphabd_j)=\sum_{j=1}^nkx_j\betabd_j=k\sigmabd(\zetabd).
+    \end{aligned}
+    $$ 
+  \end{proof}
+\end{frame}
+
+
+\begin{frame}
+  综上所述，可得重要结论：
+
+  \blue{给定$\R^n$的一组基后，$\R^n$中的线性变换与$\R^{n\times n}$中的矩阵一一对应。}
+\end{frame}

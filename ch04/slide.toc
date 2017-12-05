@@ -1,9 +1,14 @@
 \beamer@sectionintoc {2}{$\math@bb R^n$的基与向量关于基的坐标}{3}{0}{1}
-\beamer@sectionintoc {3}{$\math@bb {R}^n$中向量的内积\hskip 1em\relax 标准正交基和正交矩阵}{12}{0}{2}
-\beamer@subsectionintoc {3}{1}{$\math@bb {R}^n$中向量的内积，欧式空间}{13}{0}{2}
+\beamer@sectionintoc {3}{$\boldsymbol {R}^n$中向量的内积\hskip 1em\relax 标准正交基和正交矩阵}{12}{0}{2}
+\beamer@subsectionintoc {3}{1}{$\boldsymbol {R}^n$中向量的内积，欧式空间}{13}{0}{2}
 \beamer@subsectionintoc {3}{2}{标准正交基}{26}{0}{2}
 \beamer@subsectionintoc {3}{3}{施密特（Schmidt）正交化方法}{32}{0}{2}
 \beamer@subsectionintoc {3}{4}{正交矩阵及其性质}{61}{0}{2}
 \beamer@sectionintoc {4}{线性空间的定义及简单性质}{68}{0}{3}
 \beamer@sectionintoc {5}{线性子空间}{88}{0}{4}
 \beamer@sectionintoc {6}{线性空间的基、维数和向量的坐标}{128}{0}{5}
+\beamer@sectionintoc {7}{向量空间的线性变换}{167}{0}{6}
+\beamer@subsectionintoc {7}{1}{线性变化的定义及其性质}{179}{0}{6}
+\beamer@subsectionintoc {7}{2}{线性变换的矩阵表示}{193}{0}{6}
+\beamer@subsectionintoc {7}{3}{线性变换的运算}{225}{0}{6}
+\beamer@subsectionintoc {7}{4}{线性变换的象（值域）与核}{232}{0}{6}

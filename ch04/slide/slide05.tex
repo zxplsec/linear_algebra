@@ -199,6 +199,113 @@ $$
     d_1\alphabd_1+\cd+d_r\alphabd_r+c_1\gammabd_1+\cd+c_{t-r}\gammabd_{t-r}=\M0,
     $$
     其中$\alphabd_1,\cd,\alphabd_r,\gammabd_1,\cd,\gammabd_{t-r}$为$W_2$的基，故其系数全为零。
-    将其代入\eqref{subspace_dim2}右端，又得\eqref{subspace_dim2}的左端系数全为零，故\eqref{subspace_dim1}中的向量组线性无关。
+    将其代入\eqref{subspace_dim2}右端，又得\eqref{subspace_dim2}的左端系数全为零，故\eqref{subspace_dim1}中的向量组线性无关。 \qed
+\end{frame}  
+  
+\begin{frame}
+  $n$维线性空间$V(F)$中向量在基$B$下的坐标，与$F^n$中向量关于基$B$的坐标是完全类似的，主要有以下几个结论：
+  \begin{itemize}
+    \item 向量在给定基下的坐标是唯一的；\\[0.1in]
+    \item 由基$B_1$到基$B_2$的过渡矩阵是可逆的；\\[0.1in]
+    \item 基变换与坐标变换的公式
+  \end{itemize}
+在这里都是适用的。
+\end{frame}
 
+\begin{frame}
+给定$V(F)$中的一组基$B=\{\betabd_1,\betabd_2,\cd,\betabd_n\}$，$V(F)$中的向量及其坐标（$F^n$中的向量）不仅是一一对应的，而且这种对应保持线性运算关系不变，即
+$$
+\red{
+\begin{array}{l}
+  \mbox{$V(F)$中$\alphabd+\gammabd$对应于$F^n$中$\alphabd_B+\gammabd_B$}\\[0.1in]
+  \mbox{$V(F)$中$\lambda\alphabd$对应于$F^n$中$\lambda\alphabd_B$}
+\end{array}
+}
+$$\pause 
+
+事实上，若$\alpha=x_1\betabd_1+x_2\betabd_2+\cd+x_n\betabd_n,\gammabd=y_1\betabd_1+y_2\betabd_2+\cd+y_n\betabd_n,\lambda\in F$，则有
+$$
+\begin{array}{rl}
+  (\alphabd+\betabd) & = (x_1+y_1)\betabd_1+(x_2+y_2)\betabd_2+\cd+(x_n+y_n)\betabd_n, \\[0.1in]
+  \lambda\alphabd & = (\lambda x_1)\betabd_1+(\lambda x_2)\betabd_2+\cd+(\lambda x_n)\betabd_n
+\end{array}
+$$
+故
+$$
+(\alphabd+\betabd)_B = \alphabd_B+\betabd_B, \quad
+(\lambda\alphabd)_B = \lambda\alphabd_B.
+$$
+\end{frame}
+
+\begin{frame}
+具有上述对应关系的两个线性空间$V(F)$和$F^n$，称它们是\red{同构}的。 \vspace{.1in}\pause
+
+也就是说，研究任何$n$维线性空间$V(F)$，都可以通过基和坐标，转化为研究$n$维向量空间$F^n$。\vspace{.1in}\pause
+
+这样，\blue{我们对不同的$n$维线性空间就有了统一的研究方法，统一到研究$F^n$。}
+\vspace{.1in}\pause
+
+因此，\red{通常把线性空间也成为向量空间，线性空间中的元素也称为向量。}
+\end{frame}
+
+\begin{frame}i
+  \begin{li}
+    证明：$B=\{1,x,\cd,x^{n-1}\}$是$\R[x]_n$的一组基，并求$p(x)=a_0+a_1x+\cd+a_{n-1}x^{n-1}$在基$B$下的坐标。
+  \end{li}\pause 
+  \begin{proof}
+    前面我们已经证明$B$是线性无关的，且$\forall p(x) \in \R[x]_n$均可表示成
+    $$
+    p(x)= a_0+a_1x+\cd+a_{n-1}x^{n-1},
+    $$
+    故$B$是$\R[x]_n$的一组基（自然基），因此$\R[x]_n$是$n$维实线性空间。 
+    $p(x)$在基$B$下的坐标为
+    $$
+    (p(x))_B=(a_0,a_1,\cd,a_{n-1})^T.
+    $$  
+    \vspace{.1in}\pause 
+    
+    $$
+    \red{
+    p(x) = (1, x, \cd, x^{n-1}) 
+    \left( \begin{array}{c} a_0\\ a_1\\ \vd\\ a_{n-1} \end{array}\right).
+    }
+    $$
+    
+  \end{proof}
+\end{frame}
+
+\begin{frame}
+  \begin{li}
+    设$B_1=(g_1, g_2, g_3),B_2=(h_1, h_2, h_3)$，其中
+    $$
+    \left\{
+      \begin{array}{l}
+        g_1 = 1,\\
+        g_2 = -1+x, \\
+        g_3 = 1-x+x^2,
+      \end{array}   
+      \right., \quad
+      \left\{
+      \begin{array}{l}
+        h_1 = 1-x-x^2,\\
+        h_2 = 3x-2x^2, \\
+        h_3 = 1-2x^2,
+      \end{array}
+    \right.
+    $$
+    \begin{enumerate}
+    \item 证明$B_1,B_2$是$\R[x]_3$的基
+    \item 求$B_1$到$B_2$的过渡矩阵
+    \item 已知$[p(x)]_{B_1} = (1,4,3)^T$，求$[p(x)]_{B_2}$.
+    \end{enumerate}
+  \end{li}
+\end{frame}
+
+\begin{frame}
+\end{frame}
+
+\begin{frame}
+\end{frame}
+
+\begin{frame}
 \end{frame}

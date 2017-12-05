@@ -1,0 +1,195 @@
+\subsection{线性变换的象（值域）与核}
+
+\begin{frame}
+  \begin{dingyi}
+    设$\sigmabd$是线性空间$V(F)$的一个线性变换，
+    \begin{itemize}
+      \item 把$V$中所有元素在$\sigmabd$下的象所组成的集合
+        $$
+        \sigmabd(V)=\{\betabd|\betabd=\sigmabd(\alphabd), \alphabd\in V\}
+        $$
+        称为$\sigmabd$的\red{象或值域}，记为$\Im\sigmabd$；
+      \item
+        $V$的零元$\M0$在$\sigmabd$下的完全原象
+        $$
+        \sigmabd^{-1}(\M0)=\{\alphabd|\sigmabd(\alphabd)=\M0, ~~\alphabd \in V\}
+        $$
+        称为$\sigmabd$的核，记为$\Ker\sigmabd$。
+      \end{itemize}
+  \end{dingyi}
+\end{frame}
+
+\begin{frame}
+  \begin{li}
+    $\R^2$上旋转矩阵$\MR_\theta$与镜像变换$\varphibd$的值域都是$\R^2$自身，它们的核都只含一个零向量$\{\M0\}$。
+  \end{li}
+\end{frame}
+
+\begin{frame}
+  \begin{itemize}
+  \item[(1)] \blue{$\sigmabd(V)$（或$\Im \sigmabd$）}是线性空间$V(F)$的一个子空间。   
+  \end{itemize} \pause 
+
+  \begin{proof}
+    由$\sigmabd(\M0)=\M0$可知$\sigmabd(V)$是一个非空集合，且$\forall \betabd_1,\betabd_2\in \sigmabd(V)$，$\exists \alphabd_1,\alphabd_2\in V$，使得$\sigmabd(\alphabd_1)=\betabd_1,\sigmabd(\alphabd_2)=\betabd_2$，于是$\forall \lambda_1,\lambda_2\in F$，有
+    $$
+    \lambda_1\betabd_1+\lambda_2\betabd_2=\lambda_1\sigmabd(\alphabd_1)+\lambda_2\sigmabd(\alphabd_2)=\sigmabd(\lambda_1\alphabd_1+\lambda_2\alphabd_2)\in \sigmabd(V)
+    $$
+    所以，$\sigmabd(V)$是$V(F)$的一个子空间。
+  \end{proof}
+\end{frame}
+
+\begin{frame}
+  \begin{itemize}
+    \item[(2)] \blue{$\sigmabd^{-1}(\M0)$（或$\Ker \sigmabd$）}也是线性空间$V(F)$的一个子空间。   
+  \end{itemize} \pause 
+
+  \begin{proof}
+    因$\sigmabd^{-1}(\M0)$不是空集，且$\forall \alphabd_1,\alphabd_2\in \sigmabd^{-1}(\M0)$和$\forall \lambda_1,\lambda_2\in F$，均有
+    $$
+    \sigmabd(\lambda_1\alphabd_1+\lambda_2\alphabd_2)=\lambda_1\sigmabd(\alphabd_1)+\lambda_2\sigmabd(\alphabd_2)=\lambda_1\M0+\lambda_2\M0=\M0
+    $$
+    即$\lambda_1\alphabd_1+\lambda_2\alphabd_2\in\sigmabd^{-1}(\M0)$，故$\sigmabd^{-1}(\M0)$是$V(F)$的子空间。
+  \end{proof}
+\end{frame}
+
+\begin{frame}
+  \begin{itemize}
+    \item[(3)] 线性变换$\sigmabd$是单射的充分必要条件是$\sigmabd^{-1}(\M0) = \{\M0\}$。   
+  \end{itemize}\pause 
+
+  \begin{proof}
+    \begin{itemize}
+    \item[$\Rightarrow$] 因$\sigmabd$是单射，则$\forall \alphabd \in V$，若$\sigmabd(\alphabd)=\M0=\sigmabd(\M0)$，则$\alphabd=\M0$，故$\sigmabd^{-1}(\M0) = \{\M0\}$；\\[.1in] \pause 
+    \item[$\Leftarrow$] 由$\sigmabd^{-1}(\M0) = \{\M0\}$可得$\forall \alphabd_1,\alphabd_2\in V$，若$\sigmabd(\alphabd_1)=\sigmabd(\alphabd_2)$，即$\sigmabd(\alphabd_1)-\sigmabd(\alphabd_2)=\sigmabd(\alphabd_1-\alphabd_2)=\M0$，则$\alphabd_1-\alphabd_2=0$，即$\alphabd_1=\alphabd_2$，故$\sigmabd$为单射。
+    \end{itemize}
+  \end{proof}
+\end{frame}
+
+
+\begin{frame}
+  \begin{itemize}
+    \item $\dim \sigmabd(V)$称为$\sigmabd$的秩，记作$\rank(\sigmabd)$；\\[.15in]
+    \item $\dim \sigmabd^{-1}(\M0)$称为$\sigmabd$的零度，记作$\mathcal N(\sigmabd)$。
+    \end{itemize}
+\end{frame}
+
+\begin{frame}
+  \begin{dingli}
+    设线性空间$V(F)$的维数为$n$，$\sigmabd$是$V(F)$的一个线性变换，则
+    $$
+    \dim \sigmabd(V)+\dim \sigmabd^{-1}(\M0)=n.
+    $$
+  \end{dingli}\vspace{.1in}\pause 
+
+  \begin{proof}
+    设$\dim \sigma^{-1}(\M0)=k, B_1=\{\alphabd_1,\cd,\alphabd_k\}$是核$\sigmabd^{-1}(\M0)$的一组基，把$B_1$扩充到$V$的基
+    $$
+    B=\{\alphabd_1,\cd,\alphabd_k,\red{\alphabd_{k+1},\cd,\alphabd_n}\}.
+    $$\vspace{.1in}\pause 
+    
+    由于$\forall \alphabd=x_1\alphabd_1+\cd+x_n\alphabd_n\in V$，有$\sigmabd(\alphabd)=x_1\sigmabd(\alphabd_1)+\cd+x_n\sigmabd(\alphabd_n)$，故$\sigmabd$的值域是$\sigmabd$关于$V$的基象生成的子空间，即
+    $$
+    \sigmabd(V)=L(\sigmabd(\alphabd_1),\cd,\sigmabd(\alphabd_k),\sigmabd(\alphabd_{k+1}),\cd,\sigmabd(\alphabd_n))
+    $$
+    再由$\sigmabd(\alphabd_i)=\M0(i=1,\cd,k)$得
+    $$
+    \sigmabd(V)=L(\sigmabd(\alphabd_{k+1}),\cd,\sigmabd(\alphabd_n)).
+    $$
+    因此，只需证明\blue{$\dim \sigmabd(V)=n-k$，即$\{\sigmabd(\alphabd_{k+1}),\cd,\sigmabd(\alphabd_n)\}$线性无关。}
+  \end{proof}
+  
+\end{frame}
+
+\begin{frame}
+  \begin{proof}[续]
+    设
+    $$
+    c_{k+1}\sigmabd(\alphabd_{k+1})+\cd+c_n\sigmabd(\alphabd_n)=\M0
+    $$
+    即
+    $$
+    \sigmabd(c_{k+1}\alphabd_{k+1}+\cd+c_n\alphabd_n)=\M0
+    $$
+    故$c_{k+1}\alphabd_{k+1}+\cd+c_n\alphabd_n\in \sigmabd^{-1}(\M0)$，因此它可被$B_1$线性表示，于是
+    $$
+    c_1\alphabd_1+\cd+c_k\alphabd_k-c_{k+1}\alphabd_{k+1}-\cd-c_n\alphabd_n=\M0
+    $$
+    从而有
+    $$
+    c_1=\cd=c_k=c_{k+1}=\cd=c_n,
+    $$
+    故$\{\sigmabd(\alphabd_{k+1}),\cd,\sigmabd(\alphabd_n)\}$线性无关。
+
+  \end{proof}
+  
+\end{frame}
+
+\begin{frame}
+  由于线性变换$\sigmabd$的值域$\sigmabd(V)$是$\sigmabd$关于$V$的基$\{\alphabd_1,\cd,\alphabd_n\}$的象$\sigmabd(\alphabd_1),\cd,\sigmabd(\alphabd_n)$的生成子空间，故
+  $$
+  \dim \sigmabd(V) = \rank\{\sigmabd(\alphabd_1),\cd,\sigmabd(\alphabd_n)\}.
+  $$\pause 
+  而
+  $$
+  (\sigmabd(\alphabd_1),\cd,\sigmabd(\alphabd_n))=(\alphabd_1,\cd,\alphabd_n)\MA,
+  $$
+  可以证明：\red{基象组$\{\sigmabd(\alphabd_1),\cd,\sigmabd(\alphabd_n)\}$与$\MA$的列向量组有相同的线性相关性。} \pause 
+
+  于是有
+  $$
+  \rank\{\sigmabd(\alphabd_1),\cd,\sigmabd(\alphabd_n)\}=\rank(\MA),
+  $$
+  从而
+  $$
+  \dim \sigmabd(V) = \rank(\MA).
+  $$
+
+\end{frame}
+
+\begin{frame}
+  以下证明：\red{基象组$\{\sigmabd(\alphabd_1),\cd,\sigmabd(\alphabd_n)\}$与$\MA$的列向量组有相同的线性相关性。} \vspace{.1in}\pause
+
+  设
+  $$
+  x_1\sigmabd(\alphabd_1)+\cd+x_n\sigmabd(\alphabd_n)=\M0
+  $$
+  即
+  $$
+  \sum_{j=1}^n x_j\sigmabd(\alphabd_j)=\sum_{j=1}^n x_j\sum_{i=1}^na_{ij}\alphabd_i=\sum_{i=1}^n\left(\sum_{j=1}^na_{ij}x_j\right)\alphabd_i=\M0
+  $$
+  由$\alphabd_1,\cd,\alphabd_n$线性无关可得
+  $$
+  \sum_{j=1}^na_{ij}x_j=0, ~~~i=1,2,\cd,n
+  $$
+  即
+  $$
+  \MA\vx=\M0.
+  $$
+\end{frame}
+
+
+\begin{frame}
+  \begin{itemize}
+    \item 若$\sigmabd(\alphabd_1),\cd,\sigmabd(\alphabd_n)$线性无关，则$x_1=\cd=x_n=0$，即$\MA\vx=\M0$只有零解，故$\MA$的列向量组线性无关。
+    \item[] 反之亦然。 \\[0.1in]
+
+    \item 若$\sigmabd(\alphabd_1),\cd,\sigmabd(\alphabd_n)$线性无关，说明$\MA\vx=\M0$有非零解，即$\MA$的列向量组线性相关。
+    \item[] 反之亦然。
+  \end{itemize}
+\end{frame}
+
+
+\begin{frame}
+  若线性变换$\sigmabd$在$B=\{\alphabd_1,\cd,\alphabd_n\}$下对应的矩阵为$\MA$，则核$\sigmabd^{-1}(\M0)$中任一向量$\alphabd=x_1\alphabd_1+\cd+x_n\alphabd_n$在基$B$下的坐标向量$(x_1,\cd,x_n)^T$，就是$\MA\vx=\M0$的解向量。因此，$\MA\vx=\M0$的解空间$\mathcal N(\MA)$的维数等于核$\sigmabd^{-1}(\M0)$的维数，即
+  $$
+  \red{\dim \sigmabd^{-1}(\M0)=\dim \mathcal N(\MA). }
+  $$
+\end{frame}
+
+
+
+
+% \begin{frame}
+  
+% \end{frame}

@@ -1,0 +1,152 @@
+\subsection{线性变化的定义及其性质}
+\begin{frame}
+\begin{dingyi}[线性变换]
+  设$V(F)$是一个向量空间，若$V(F)$的一个变换$\sigmabd$满足条件：$\forall \alpha,\beta\in V$和$\lambda\in F$，
+  \begin{enumerate}
+    \item $\sigmabd(\alphabd+\betabd) = \sigmabd(\alphabd) + \sigmabd(\betabd)$\\[0.1in]
+    \item $\sigmabd(\lambda\alphabd) = \lambda\sigmabd(\alphabd)$
+  \end{enumerate}
+  就称$\sigmabd$是$V(F)$的一个\red{线性变换}，并称$\sigmabd(\alphabd)$为$\alphabd$的象，$\alphabd$为$\sigmabd(\alphabd)$的原象。
+\end{dingyi}
+\vspace{.1in}\pause 
+
+线性运算等价于：$\forall \alphabd,\betabd\in V$和$\lambda, \mu \in F$，有
+$$
+\sigmabd(\lambda\alphabd+\mu\betabd) = \lambda\sigmabd(\alphabd)+\mu\sigmabd(\betabd).
+$$
+\end{frame}
+
+\begin{frame}
+  \begin{li}[旋转变换]
+    $\R^2$中每个向量绕原点按逆时针方向旋转$\theta$角的变换$\MR_\theta$是$\R^2$的一个线性变换。即$\forall\alphabd=(x,y)\in\R^2$，
+    $$
+    \MR_\theta(x,y)=\MR_\theta(\alphabd)=\alphabd^\prime=(x^\prime,y^\prime),
+    $$
+    其中$|\alphabd|=r$，而
+    $$
+    \left\{
+      \begin{array}{ll}
+        x^\prime&=r\cos(\beta+\theta)=r\cos\beta\cos\theta-r\sin\beta\sin\theta=x\cos\theta-y\sin\theta,\\
+        y^\prime&=r\sin(\beta+\theta)=r\sin\beta\cos\theta+r\cos\beta\sin\theta=y\cos\theta+x\sin\theta.
+      \end{array}
+    \right.,
+    $$
+    于是，$\forall \alphabd_1=(x_1,y_1), \alphabd_2=(x_2,y_2)\in \R^2$和$\forall \lambda,\mu\in \R$，有
+    $$
+    \begin{aligned}
+      &\MR_\theta(\lambda\alphabd_1+\mu\alphabd_2)\\
+      =&\MR_\theta(\lambda x_1+\mu x_2, \lambda y_1+\mu y_2) \\
+      =&(\blue{(\lambda x_1+\mu x_2)\cos\theta-(\lambda y_1+\mu y_2)\sin\theta}, \red{(\lambda x_1+\mu x_2)\sin\theta+(\lambda y_1+\mu y_2)\cos\theta})\\
+      =&\lambda(x_1\cos\theta-y_1\sin\theta,x_1\sin\theta+y_1\cos\theta)+\mu(x_2\cos\theta-y_2\sin\theta,x_2\sin\theta+y_2\cos\theta)\\
+      =&\lambda\MR_\theta(x_1,y_1)+\mu\MR_\theta(x_2,y_2)\\
+      =&\lambda\MR_\theta(\alphabd_1)+\mu\MR_\theta(\alphabd_2),
+    \end{aligned}
+    $$
+    故$\MR_\theta$是$\R^2$的一个线性变换。
+
+  \end{li}
+\end{frame}
+
+\begin{frame}
+  \begin{li}[镜像变换（镜像反射）]
+    $\R^2$中每个向量关于过原点的直线$L$（看做镜面）相对称的变换$\phibd$也是$\R^2$的一个线性变换，即
+    $$
+    \phibd(\alphabd)=\alphabd^\prime.
+    $$
+  \end{li}
+\end{frame}
+
+\begin{frame}
+  \begin{li}[投影变换]
+    把$\R^3$中向量$\alphabd=(x_1,x_2,x_3)$投影到$xOy$平面上的向量$\betabd=(x_1,x_2,0)$的投影变换$P(\alphabd)=\betabd$，即
+    $$
+    \MP(x_1,x_2,x_3)=(x_1,x_2,0)
+    $$
+    是$\R^2$的一个线性变换。
+  \end{li}
+\end{frame}
+
+\begin{frame}
+  \begin{li}[恒等变换、零变换、数乘变换]
+    \begin{itemize}
+    \item 恒等变换$\sigmabd(\alphabd)=\alphabd, ~~\forall \alphabd\in\R^n$
+    \item 零变换 $\sigmabd(\alphabd)=0, ~~\forall \alphabd\in\R^n$
+    \item 数乘变换$\sigmabd(\alphabd)=\lambda\alphabd, ~~\forall \alphabd\in\R^n$
+    \end{itemize}
+  \end{li}
+\end{frame}
+
+\begin{frame}
+  \begin{li}
+    $\R^3$中定义变换
+    $$
+    \sigmabd(x_1,x_2,x_3)=(x_1+x_2,x_2-4x_3,2x_3),
+    $$
+    则$\sigmabd$是$\R^3$的一个线性变换。
+  \end{li}
+\end{frame}
+
+\begin{frame}
+  \begin{li}
+    $\R^3$中定义变换
+    $$
+    \sigmabd(x_1,x_2,x_3)=(x_1^2,x_2+x_3,x_2),
+    $$
+    则$\sigmabd$不是$\R^3$的一个线性变换。
+  \end{li}
+\end{frame}
+
+\begin{frame}
+  对于$\R^n$的变换
+  $$
+  \sigmabd(x_1,x_2,\cd,x_n)=(y_1,y_2,\cd,y_n)
+  $$
+  \begin{itemize}
+  \item 当$y_i$都是$y_1,y_2,\cd,y_n$的线性组合时，$\sigmabd$是$\R^n$的线性变换。\\[0.1in]
+  \item 当$y_i$有一个不是$y_1,y_2,\cd,y_n$的线性组合时，$\sigmabd$不是$\R^n$的线性变换。 \\[0.1in]
+  \item[] 上例中，$y_1=x_1^2$，故不是线性变换。
+  \end{itemize}
+\end{frame}
+
+
+\begin{frame} \ft{线性变换的简单性质}
+  对于数域$F$上的向量空间$V$中的线性变换$\sigma$
+  
+  \begin{itemize}
+  \item $\sigmabd(\M0)=\M0, \quad \sigmabd(-\alphabd)=\sigmabd(\alphabd), \quad \forall\alphabd\in V$
+  \end{itemize}
+\end{frame}
+
+\begin{frame} \ft{线性变换的简单性质}
+    对于数域$F$上的向量空间$V$中的线性变换$\sigma$
+
+  \begin{itemize}
+  \item 若$\alphabd=k_1\alphabd_1+k_2\alphabd_2+\cd+k_n\alphabd_n, \quad k_i\in F, \quad \alphabd_i\in V$，则
+    $$
+    \sigma(\alphabd)=k_1\sigma(\alphabd_1)+k_2\sigma(\alphabd_2)+\cd+k_n\sigma(\alphabd_n).
+    $$
+  \end{itemize}
+\end{frame}
+
+\begin{frame} \ft{线性变换的简单性质}
+    对于数域$F$上的向量空间$V$中的线性变换$\sigma$
+
+  \begin{itemize}
+  \item 若$\alphabd_1, \alphabd_2, \cd, \alphabd_n$线性相关，则其象向量组$\sigma(\alphabd_1),\sigma(\alphabd_n),\cd,\sigma(\alphabd_n)$也线性相关。
+  \end{itemize}
+
+  \vspace{.1in}
+  \pause 
+
+  \begin{zhu}
+    但$\alphabd_1, \alphabd_2, \cd, \alphabd_n$线性相关，不能推导出$\sigma(\alphabd_1),\sigma(\alphabd_n),\cd,\sigma(\alphabd_n)$线性无关。如
+    $$
+    \alphabd_1=(1,1,2)^T, \quad \alphabd_2=(2,2,2)^T
+    $$
+    线性无关，而
+    $$
+    \MP(\alphabd_1)=(1,1,0)^T, \quad \MP(\alphabd_2)=(2,2,0)^T
+    $$
+    线性相关。
+  \end{zhu}
+\end{frame}

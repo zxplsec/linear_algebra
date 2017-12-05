@@ -26,25 +26,25 @@
 \headcommand {\beamer@framepages {10}{10}}
 \headcommand {\slideentry {2}{0}{9}{11/11}{}{0}}
 \headcommand {\beamer@framepages {11}{11}}
-\headcommand {\sectionentry {3}{$\math@bb {R}^n$中向量的内积\hskip 1em\relax 标准正交基和正交矩阵}{12}{$\math@bb {R}^n$中向量的内积\hskip 1em\relax 标准正交基和正交矩阵}{0}}
+\headcommand {\sectionentry {3}{$\boldsymbol {R}^n$中向量的内积\hskip 1em\relax 标准正交基和正交矩阵}{12}{$\boldsymbol {R}^n$中向量的内积\hskip 1em\relax 标准正交基和正交矩阵}{0}}
 \headcommand {\beamer@sectionpages {3}{11}}
 \headcommand {\beamer@subsectionpages {3}{11}}
 \headcommand {\slideentry {3}{0}{1}{12/12}{}{0}}
 \headcommand {\beamer@framepages {12}{12}}
-\headcommand {\beamer@subsectionentry {0}{3}{1}{13}{$\math@bb {R}^n$中向量的内积，欧式空间}}\headcommand {\beamer@subsectionpages {12}{12}}
-\headcommand {\slideentry {3}{1}{1}{13/13}{$\math@bb {R}^n$中向量的内积，欧式空间}{0}}
+\headcommand {\beamer@subsectionentry {0}{3}{1}{13}{$\boldsymbol {R}^n$中向量的内积，欧式空间}}\headcommand {\beamer@subsectionpages {12}{12}}
+\headcommand {\slideentry {3}{1}{1}{13/13}{$\boldsymbol {R}^n$中向量的内积，欧式空间}{0}}
 \headcommand {\beamer@framepages {13}{13}}
-\headcommand {\slideentry {3}{1}{2}{14/14}{$\math@bb {R}^n$中向量的内积，欧式空间}{0}}
+\headcommand {\slideentry {3}{1}{2}{14/14}{$\boldsymbol {R}^n$中向量的内积，欧式空间}{0}}
 \headcommand {\beamer@framepages {14}{14}}
-\headcommand {\slideentry {3}{1}{3}{15/16}{$\math@bb {R}^n$中向量的内积，欧式空间}{0}}
+\headcommand {\slideentry {3}{1}{3}{15/16}{$\boldsymbol {R}^n$中向量的内积，欧式空间}{0}}
 \headcommand {\beamer@framepages {15}{16}}
-\headcommand {\slideentry {3}{1}{4}{17/18}{$\math@bb {R}^n$中向量的内积，欧式空间}{0}}
+\headcommand {\slideentry {3}{1}{4}{17/18}{$\boldsymbol {R}^n$中向量的内积，欧式空间}{0}}
 \headcommand {\beamer@framepages {17}{18}}
-\headcommand {\slideentry {3}{1}{5}{19/21}{$\math@bb {R}^n$中向量的内积，欧式空间}{0}}
+\headcommand {\slideentry {3}{1}{5}{19/21}{$\boldsymbol {R}^n$中向量的内积，欧式空间}{0}}
 \headcommand {\beamer@framepages {19}{21}}
-\headcommand {\slideentry {3}{1}{6}{22/24}{$\math@bb {R}^n$中向量的内积，欧式空间}{0}}
+\headcommand {\slideentry {3}{1}{6}{22/24}{$\boldsymbol {R}^n$中向量的内积，欧式空间}{0}}
 \headcommand {\beamer@framepages {22}{24}}
-\headcommand {\slideentry {3}{1}{7}{25/25}{$\math@bb {R}^n$中向量的内积，欧式空间}{0}}
+\headcommand {\slideentry {3}{1}{7}{25/25}{$\boldsymbol {R}^n$中向量的内积，欧式空间}{0}}
 \headcommand {\beamer@framepages {25}{25}}
 \headcommand {\beamer@subsectionentry {0}{3}{2}{26}{标准正交基}}\headcommand {\beamer@subsectionpages {13}{25}}
 \headcommand {\slideentry {3}{2}{1}{26/26}{标准正交基}{0}}
@@ -178,8 +178,145 @@
 \headcommand {\beamer@framepages {150}{151}}
 \headcommand {\slideentry {6}{0}{12}{152/152}{}{0}}
 \headcommand {\beamer@framepages {152}{152}}
-\headcommand {\beamer@partpages {1}{152}}
-\headcommand {\beamer@subsectionpages {128}{152}}
-\headcommand {\beamer@sectionpages {128}{152}}
-\headcommand {\beamer@documentpages {152}}
-\headcommand {\def \inserttotalframenumber {79}}
+\headcommand {\slideentry {6}{0}{13}{153/153}{}{0}}
+\headcommand {\beamer@framepages {153}{153}}
+\headcommand {\slideentry {6}{0}{14}{154/155}{}{0}}
+\headcommand {\beamer@framepages {154}{155}}
+\headcommand {\slideentry {6}{0}{15}{156/159}{}{0}}
+\headcommand {\beamer@framepages {156}{159}}
+\headcommand {\slideentry {6}{0}{16}{160/162}{}{0}}
+\headcommand {\beamer@framepages {160}{162}}
+\headcommand {\slideentry {6}{0}{17}{163/163}{}{0}}
+\headcommand {\beamer@framepages {163}{163}}
+\headcommand {\slideentry {6}{0}{18}{164/164}{}{0}}
+\headcommand {\beamer@framepages {164}{164}}
+\headcommand {\slideentry {6}{0}{19}{165/165}{}{0}}
+\headcommand {\beamer@framepages {165}{165}}
+\headcommand {\slideentry {6}{0}{20}{166/166}{}{0}}
+\headcommand {\beamer@framepages {166}{166}}
+\headcommand {\sectionentry {7}{向量空间的线性变换}{167}{向量空间的线性变换}{0}}
+\headcommand {\beamer@sectionpages {128}{166}}
+\headcommand {\beamer@subsectionpages {128}{166}}
+\headcommand {\slideentry {7}{0}{1}{167/167}{}{0}}
+\headcommand {\beamer@framepages {167}{167}}
+\headcommand {\slideentry {7}{0}{2}{168/170}{}{0}}
+\headcommand {\beamer@framepages {168}{170}}
+\headcommand {\slideentry {7}{0}{3}{171/171}{}{0}}
+\headcommand {\beamer@framepages {171}{171}}
+\headcommand {\slideentry {7}{0}{4}{172/172}{}{0}}
+\headcommand {\beamer@framepages {172}{172}}
+\headcommand {\slideentry {7}{0}{5}{173/173}{}{0}}
+\headcommand {\beamer@framepages {173}{173}}
+\headcommand {\slideentry {7}{0}{6}{174/175}{}{0}}
+\headcommand {\beamer@framepages {174}{175}}
+\headcommand {\slideentry {7}{0}{7}{176/178}{}{0}}
+\headcommand {\beamer@framepages {176}{178}}
+\headcommand {\beamer@subsectionentry {0}{7}{1}{179}{线性变化的定义及其性质}}\headcommand {\beamer@subsectionpages {167}{178}}
+\headcommand {\slideentry {7}{1}{1}{179/179}{线性变化的定义及其性质}{0}}
+\headcommand {\beamer@framepages {179}{179}}
+\headcommand {\slideentry {7}{1}{2}{180/181}{线性变化的定义及其性质}{0}}
+\headcommand {\beamer@framepages {180}{181}}
+\headcommand {\slideentry {7}{1}{3}{182/182}{线性变化的定义及其性质}{0}}
+\headcommand {\beamer@framepages {182}{182}}
+\headcommand {\slideentry {7}{1}{4}{183/183}{线性变化的定义及其性质}{0}}
+\headcommand {\beamer@framepages {183}{183}}
+\headcommand {\slideentry {7}{1}{5}{184/184}{线性变化的定义及其性质}{0}}
+\headcommand {\beamer@framepages {184}{184}}
+\headcommand {\slideentry {7}{1}{6}{185/185}{线性变化的定义及其性质}{0}}
+\headcommand {\beamer@framepages {185}{185}}
+\headcommand {\slideentry {7}{1}{7}{186/186}{线性变化的定义及其性质}{0}}
+\headcommand {\beamer@framepages {186}{186}}
+\headcommand {\slideentry {7}{1}{8}{187/187}{线性变化的定义及其性质}{0}}
+\headcommand {\beamer@framepages {187}{187}}
+\headcommand {\slideentry {7}{1}{9}{188/188}{线性变化的定义及其性质}{0}}
+\headcommand {\beamer@framepages {188}{188}}
+\headcommand {\slideentry {7}{1}{10}{189/189}{线性变化的定义及其性质}{0}}
+\headcommand {\beamer@framepages {189}{189}}
+\headcommand {\slideentry {7}{1}{11}{190/190}{线性变化的定义及其性质}{0}}
+\headcommand {\beamer@framepages {190}{190}}
+\headcommand {\slideentry {7}{1}{12}{191/192}{线性变化的定义及其性质}{0}}
+\headcommand {\beamer@framepages {191}{192}}
+\headcommand {\beamer@subsectionentry {0}{7}{2}{193}{线性变换的矩阵表示}}\headcommand {\beamer@subsectionpages {179}{192}}
+\headcommand {\slideentry {7}{2}{1}{193/193}{线性变换的矩阵表示}{0}}
+\headcommand {\beamer@framepages {193}{193}}
+\headcommand {\slideentry {7}{2}{2}{194/194}{线性变换的矩阵表示}{0}}
+\headcommand {\beamer@framepages {194}{194}}
+\headcommand {\slideentry {7}{2}{3}{195/197}{线性变换的矩阵表示}{0}}
+\headcommand {\beamer@framepages {195}{197}}
+\headcommand {\slideentry {7}{2}{4}{198/198}{线性变换的矩阵表示}{0}}
+\headcommand {\beamer@framepages {198}{198}}
+\headcommand {\slideentry {7}{2}{5}{199/199}{线性变换的矩阵表示}{0}}
+\headcommand {\beamer@framepages {199}{199}}
+\headcommand {\slideentry {7}{2}{6}{200/201}{线性变换的矩阵表示}{0}}
+\headcommand {\beamer@framepages {200}{201}}
+\headcommand {\slideentry {7}{2}{7}{202/203}{线性变换的矩阵表示}{0}}
+\headcommand {\beamer@framepages {202}{203}}
+\headcommand {\slideentry {7}{2}{8}{204/205}{线性变换的矩阵表示}{0}}
+\headcommand {\beamer@framepages {204}{205}}
+\headcommand {\slideentry {7}{2}{9}{206/206}{线性变换的矩阵表示}{0}}
+\headcommand {\beamer@framepages {206}{206}}
+\headcommand {\slideentry {7}{2}{10}{207/207}{线性变换的矩阵表示}{0}}
+\headcommand {\beamer@framepages {207}{207}}
+\headcommand {\slideentry {7}{2}{11}{208/208}{线性变换的矩阵表示}{0}}
+\headcommand {\beamer@framepages {208}{208}}
+\headcommand {\slideentry {7}{2}{12}{209/209}{线性变换的矩阵表示}{0}}
+\headcommand {\beamer@framepages {209}{209}}
+\headcommand {\slideentry {7}{2}{13}{210/210}{线性变换的矩阵表示}{0}}
+\headcommand {\beamer@framepages {210}{210}}
+\headcommand {\slideentry {7}{2}{14}{211/212}{线性变换的矩阵表示}{0}}
+\headcommand {\beamer@framepages {211}{212}}
+\headcommand {\slideentry {7}{2}{15}{213/213}{线性变换的矩阵表示}{0}}
+\headcommand {\beamer@framepages {213}{213}}
+\headcommand {\slideentry {7}{2}{16}{214/215}{线性变换的矩阵表示}{0}}
+\headcommand {\beamer@framepages {214}{215}}
+\headcommand {\slideentry {7}{2}{17}{216/217}{线性变换的矩阵表示}{0}}
+\headcommand {\beamer@framepages {216}{217}}
+\headcommand {\slideentry {7}{2}{18}{218/219}{线性变换的矩阵表示}{0}}
+\headcommand {\beamer@framepages {218}{219}}
+\headcommand {\slideentry {7}{2}{19}{220/223}{线性变换的矩阵表示}{0}}
+\headcommand {\beamer@framepages {220}{223}}
+\headcommand {\slideentry {7}{2}{20}{224/224}{线性变换的矩阵表示}{0}}
+\headcommand {\beamer@framepages {224}{224}}
+\headcommand {\beamer@subsectionentry {0}{7}{3}{225}{线性变换的运算}}\headcommand {\beamer@subsectionpages {193}{224}}
+\headcommand {\slideentry {7}{3}{1}{225/225}{线性变换的运算}{0}}
+\headcommand {\beamer@framepages {225}{225}}
+\headcommand {\slideentry {7}{3}{2}{226/226}{线性变换的运算}{0}}
+\headcommand {\beamer@framepages {226}{226}}
+\headcommand {\slideentry {7}{3}{3}{227/228}{线性变换的运算}{0}}
+\headcommand {\beamer@framepages {227}{228}}
+\headcommand {\slideentry {7}{3}{4}{229/230}{线性变换的运算}{0}}
+\headcommand {\beamer@framepages {229}{230}}
+\headcommand {\slideentry {7}{3}{5}{231/231}{线性变换的运算}{0}}
+\headcommand {\beamer@framepages {231}{231}}
+\headcommand {\beamer@subsectionentry {0}{7}{4}{232}{线性变换的象（值域）与核}}\headcommand {\beamer@subsectionpages {225}{231}}
+\headcommand {\slideentry {7}{4}{1}{232/232}{线性变换的象（值域）与核}{0}}
+\headcommand {\beamer@framepages {232}{232}}
+\headcommand {\slideentry {7}{4}{2}{233/233}{线性变换的象（值域）与核}{0}}
+\headcommand {\beamer@framepages {233}{233}}
+\headcommand {\slideentry {7}{4}{3}{234/234}{线性变换的象（值域）与核}{0}}
+\headcommand {\beamer@framepages {234}{234}}
+\headcommand {\slideentry {7}{4}{4}{235/236}{线性变换的象（值域）与核}{0}}
+\headcommand {\beamer@framepages {235}{236}}
+\headcommand {\slideentry {7}{4}{5}{237/238}{线性变换的象（值域）与核}{0}}
+\headcommand {\beamer@framepages {237}{238}}
+\headcommand {\slideentry {7}{4}{6}{239/241}{线性变换的象（值域）与核}{0}}
+\headcommand {\beamer@framepages {239}{241}}
+\headcommand {\slideentry {7}{4}{7}{242/242}{线性变换的象（值域）与核}{0}}
+\headcommand {\beamer@framepages {242}{242}}
+\headcommand {\slideentry {7}{4}{8}{243/245}{线性变换的象（值域）与核}{0}}
+\headcommand {\beamer@framepages {243}{245}}
+\headcommand {\slideentry {7}{4}{9}{246/246}{线性变换的象（值域）与核}{0}}
+\headcommand {\beamer@framepages {246}{246}}
+\headcommand {\slideentry {7}{4}{10}{247/249}{线性变换的象（值域）与核}{0}}
+\headcommand {\beamer@framepages {247}{249}}
+\headcommand {\slideentry {7}{4}{11}{250/251}{线性变换的象（值域）与核}{0}}
+\headcommand {\beamer@framepages {250}{251}}
+\headcommand {\slideentry {7}{4}{12}{252/252}{线性变换的象（值域）与核}{0}}
+\headcommand {\beamer@framepages {252}{252}}
+\headcommand {\slideentry {7}{4}{13}{253/253}{线性变换的象（值域）与核}{0}}
+\headcommand {\beamer@framepages {253}{253}}
+\headcommand {\beamer@partpages {1}{253}}
+\headcommand {\beamer@subsectionpages {232}{253}}
+\headcommand {\beamer@sectionpages {167}{253}}
+\headcommand {\beamer@documentpages {253}}
+\headcommand {\def \inserttotalframenumber {144}}
