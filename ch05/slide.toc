@@ -1,0 +1,7 @@
+\beamer@sectionintoc {2}{矩阵的特征值与特征向量\nobreakspace {}\nobreakspace {}相似矩阵}{3}{0}{1}
+\beamer@subsectionintoc {2}{1}{特征值与特征向量}{4}{0}{1}
+\beamer@subsectionintoc {2}{2}{特征值与特征值的性质}{17}{0}{1}
+\beamer@subsectionintoc {2}{3}{相似矩阵及其性质}{33}{0}{1}
+\beamer@sectionintoc {3}{矩阵可对角化的条件}{44}{0}{2}
+\beamer@sectionintoc {4}{实对称矩阵的对角化}{67}{0}{3}
+\beamer@subsectionintoc {4}{1}{实对称矩阵的特征值和特征向量}{70}{0}{3}
