@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.14159265-2.6-0.99998 (TeX Live 2017) (preloaded format=xelatex 2017.7.8)  8 DEC 2017 09:25
+This is XeTeX, Version 3.14159265-2.6-0.99998 (TeX Live 2017) (preloaded format=xelatex 2017.7.8)  12 DEC 2017 17:36
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -3253,6 +3253,64 @@ LaTeX Font Info:    Font shape `U/futm/m/n' will be
 
 ] [75
 
+])
+(./slide/slide03_2.tex (./slide.toc) [76
+
+] [77
+
+] [78
+
+] [79
+
+] [80
+
+] [81
+
+]
+Overfull \hbox (13.87979pt too wide) detected at line 137
+[][]\T1/futs/m/n/9 ([][][][])[] \FMS/futm/m/n/9 ^^81 [] [] [] ^^81 [] ^^81 []
+ []
+
+[82
+
+]
+Overfull \hbox (13.87979pt too wide) detected at line 137
+[][]\T1/futs/m/n/9 ([][][][])[] \FMS/futm/m/n/9 ^^81 [] [] [] ^^81 [] ^^81 []
+ []
+
+[83
+
+]
+Overfull \hbox (13.87979pt too wide) detected at line 137
+[][]\T1/futs/m/n/9 ([][][][])[] \FMS/futm/m/n/9 ^^81 [] [] [] ^^81 [] ^^81 []
+ []
+
+[84
+
+] [85
+
+] [86
+
+] [87
+
+] [88
+
+] [89
+
+] [90
+
+] [91
+
+] [92
+
+] [93
+
+] [94
+
+] [95
+
+] [96
+
 ]))
 \tf@nav=\write8
 \openout8 = `slide.nav'.
@@ -3265,18 +3323,17 @@ LaTeX Font Info:    Font shape `U/futm/m/n' will be
 
 Package atveryend Info: Empty hook `BeforeClearDocument' on input line 53.
 Package atveryend Info: Empty hook `AfterLastShipout' on input line 53.
-
-(./slide.aux)
+ (./slide.aux)
 Package atveryend Info: Empty hook `AtVeryEndDocument' on input line 53.
 Package atveryend Info: Empty hook `AtEndAfterFileList' on input line 53.
  ) 
 Here is how much of TeX's memory you used:
- 51135 strings out of 493005
- 1085451 string characters out of 6134597
- 1321232 words of memory out of 5000000
- 54134 multiletter control sequences out of 15000+600000
+ 51176 strings out of 493005
+ 1086011 string characters out of 6134597
+ 1322622 words of memory out of 5000000
+ 54170 multiletter control sequences out of 15000+600000
  72993 words of font info for 80 fonts, out of 8000000 for 9000
  1348 hyphenation exceptions out of 8191
- 71i,16n,106p,10445b,647s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 71i,18n,106p,10445b,647s stack positions out of 5000i,500n,10000p,200000b,80000s
 
-Output written on slide.pdf (75 pages).
+Output written on slide.pdf (96 pages).

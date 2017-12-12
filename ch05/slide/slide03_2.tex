@@ -1,0 +1,302 @@
+\subsection{实对称矩阵的对角化}
+
+\begin{frame}
+  \begin{dingli}
+    对于任何一个$n$阶实对称矩阵$\MA$，存在$n$阶正交矩阵$\MT$，使得
+    $$
+    \MT^{-1}\MA\MT=\diag(\lambda_1,\lambda_2,\cd,\lambda_n).
+    $$
+  \end{dingli}\pause 
+  \begin{proof}
+    用数学归纳法证明。
+
+    \begin{itemize}
+      \item 当$n=1$时，结论显然成立。
+    \end{itemize}
+  \end{proof}
+\end{frame}
+
+\begin{frame}
+\begin{proof}
+    \begin{itemize}
+      \item 假设定理对任何一个$n-1$阶实对称矩阵$\MB$成立，即存在$n-1$阶正交矩阵$\MQ$，使得$\MA^{-1}\MB\MQ=\Lambdabd_1$。
+        下证对$n$阶实对称矩阵$\MA$也成立。 \vspace{.1in}\pause 
+
+        设$\MA\vx_1=\lambda_1\vx_1$，其中$\vx_1$是长度为$1$的特征向量。现将$\vx_1$扩充为$\R^n$的一组标准正交基
+        $$
+        \vx_1,\vx_2,\cd,\vx_n
+        $$
+        其中$\vx_2,\cd,\vx_n$不一定$\MA$的特征向量，于是就有
+        $$
+        \begin{aligned}
+          \MA(\vx_1,\vx_2,\cd,\vx_n)&=(\MA\vx_1,\MA\vx_2,\cd,\MA\vx_n)\\
+          &=(\vx_1,\vx_2,\cd,\vx_n)\left[
+            \begin{array}{cccc}
+              \lambda_1&b_{12}&\cd&b_{1n}\\
+                       &b_{22}&\cd&b_{2n}\\
+                       &\vd   &   &\vd\\
+                       &b_{n2}&\cd&b_{nn}
+            \end{array}
+          \right]
+        \end{aligned}
+        $$
+        \pause 
+        记
+        $$
+        \MP=(\vx_1,\vx_2,\cd,\vx_n)
+        $$
+        则上式可写为
+        $$
+        \MP^{-1}\MA\MP=\left[
+          \begin{array}{cc}
+            \lambda_1&\vb\\
+                     &\MB
+          \end{array}
+        \right]
+        $$
+        
+    \end{itemize}
+  \end{proof}
+\end{frame}
+
+\begin{frame}
+\begin{proof}
+  由于$\MP^{-1}=\MP^T, (\MP^{-1}\MA\MP)^T=\MP^T\MA(\MP^{-1})^T=\MP^{-1}\MA\MP$，因此
+  $$
+  \left[
+    \begin{array}{cc}
+      \lambda_1&\\
+      \vb^T&\MB^T
+    \end{array}
+  \right]=
+  \left[
+    \begin{array}{cc}
+      \lambda_1&\vb\\
+               &\MB
+    \end{array}
+  \right]
+  $$
+  \pause 
+  因此$\vb^T=\vb, \MB^T=\MB$，从而
+  $$
+  \MP^{-1}\MA\MP=\left[
+    \begin{array}{cc}
+      \lambda_1& \\
+               &\MB
+    \end{array}
+  \right]
+  $$
+  由归纳假设，构造一个正交阵
+  $$
+  \MS=\left[
+    \begin{array}{cc}
+      1&\\
+       &\MQ
+    \end{array}
+  \right]
+  $$
+  便有
+  $$
+  \MS^{-1}(\MP^{-1}\MA\MP)\MS=
+  \left[
+    \begin{array}{cc}
+      1&\\
+       &\MQ^{-1}
+    \end{array}
+  \right]
+  \left[
+    \begin{array}{cc}
+      \lambda_1& \\
+               &\MB
+    \end{array}
+  \right]
+  \left[
+    \begin{array}{cc}
+      1&\\
+       &\MQ
+    \end{array}
+  \right]=
+  \left[
+    \begin{array}{cc}
+      \lambda_1& \\
+               &\MQ^{-1}\MB\MQ
+    \end{array}
+  \right]=\left[
+    \begin{array}{cc}
+      \lambda_1& \\
+               &\Lambda_1
+    \end{array}
+  \right]
+  $$
+  \pause 
+  取$\MT=\MP\MS, \MT^{-1}=\MS^{-1}\MP^{-1}$，则
+  $$
+  \MT^{-1}\MA\MT=\diag(\lambda_1,\lambda_2,\cd,\lambda_n).
+  $$
+\end{proof}
+\end{frame}
+
+\begin{frame}
+  给定一个$n$阶实对称矩阵$\MA$，如何求正交矩阵$\MA$，使得$\MT^{-1}\MA\MT=\Lambdabd$呢？
+  \vspace{.1in}\pause
+
+  \begin{enumerate}
+  \item 有特征多项式$|\MA-\lambda\MI|=\Pi_{i=1}^m(\lambda-\lambda_i)^{r_i}=0$求出全部互异的特征值$\lambda_1,\cd,\lambda_m$。\\[.1in]
+  \item 因$\MA$可对角化，故$r_i$重特征值$\lambda_i$对应$r_i$个线性无关的特征向量$\vx_{i_1},\cd,\vx_{i_r}$。\\[.1in]
+  \item 利用施密特正交化过程，得到$r_i$个相互正交的单位向量$\vy_{i_1},\cd,\vy_{i_r}$。\\[.1in]
+  \item 因不同特征值对应的特征向量正交，故得到$\{\vy_{i_1},\cd,\vy_{i_{r_i}} ~|~ i=1,\cd,m \}$为$n$个相互正交的单位特征向量，将其按列排成$n$阶矩阵，即得正交矩阵$\MT$.
+  \end{enumerate}
+\end{frame}
+
+\begin{frame}
+  \begin{li}
+    设$$
+    \MA=\left[
+      \begin{array}{rrr}
+        1&-2&2\\
+        -2&-2&4\\
+        2&4&-2
+      \end{array}
+    \right]
+    $$
+    求正交阵$\MT$，使得$\MT^{-1}\MA\MT$为对角阵。
+  \end{li}
+  \pause 
+  \begin{jie}
+    由
+    $$
+    |\MA-\lambda\MI|=\left|
+      \begin{array}{rrr}
+        1-\lambda&-2&2\\
+        -2&-2-\lambda&4\\
+        2&4&-2-\lambda
+      \end{array}
+    \right|=-(\lambda-2)^2(\lambda+7)
+    $$得
+    $\lambda_{1,2}=2$和$\lambda_3=-7$。 \pause 
+  \end{jie}
+\end{frame}
+
+\begin{frame}
+  \begin{jie}
+    当$\lambda_{1,2}=2$时，由
+    $$
+    (\MA-\lambda\MI)\vx=\left[
+      \begin{array}{rrr}
+        -1&-2&2\\
+        -2&-4&4\\
+        2&4&-4
+      \end{array}
+    \right]
+    \left[
+      \begin{array}{c}
+        x_1\\
+        x_2\\
+        x_3
+      \end{array}
+    \right]=
+    \left[
+      \begin{array}{c}
+        0\\
+        0\\
+        0
+      \end{array}
+    \right]
+    $$
+    得线性无关的特征向量$\vx_1=(2,-1,0)^T$和$\vx_2=(2,0,1)^T$。 \pause 
+    
+    用施密特正交化过程：先正交化
+    $$
+    \begin{aligned}
+      \betabd_1&=\vx_1,\\
+      \betabd_2&=\vx_2-\frac{(\vx_2,\betabd_1)}{(\betabd_1,\betabd_1)}\betabd_1=\frac15\left[
+      \begin{array}{c}
+        2\\
+        4\\
+        5
+      \end{array}
+    \right],\\
+    \end{aligned}
+    $$
+    再单位化得
+    $$
+    \vy_1=\left[
+      \begin{array}{c}
+        \frac{2\sqrt5}5\\[.1in]
+        -\frac{\sqrt 5}5\\[.1in]
+        0
+      \end{array}
+    \right],
+    \vy_2=\left[
+      \begin{array}{c}
+        \frac{2\sqrt5}{15}\\[.1in]
+        \frac{4\sqrt5}{15}\\[.1in]
+        \frac{\sqrt5}3
+      \end{array}
+    \right]
+    $$
+  \end{jie}
+\end{frame}
+
+\begin{frame}
+  \begin{jie}
+    当$\lambda_3=-7$时，由
+    $$
+    (\MA-\lambda\MI)\vx=\left[
+      \begin{array}{rrr}
+        8&-2&2\\
+        -2&5&4\\
+        2&4&5
+      \end{array}
+    \right]\left[
+      \begin{array}{c}
+        x_1\\
+        x_2\\
+        x_3
+      \end{array}
+    \right]=
+    \left[
+      \begin{array}{c}
+        0\\
+        0\\
+        0
+      \end{array}
+    \right]
+    $$
+    得特征向量$\vx_3=(1,2,-2)^T$，单位化得$\vy_3=(\frac13,\frac23,-\frac23)^T$。
+     \end{jie}
+\end{frame}
+
+\begin{frame}
+  \begin{jie}
+    取正交阵
+    $$
+    \MT=(\vy_1,\vy_2,\vy_3)=\left[
+      \begin{array}{rrr}
+        \frac{2\sqrt5}5 &\frac{2\sqrt5}{15}&\frac13\\
+        -\frac{\sqrt 5}5&\frac{4\sqrt5}{15}&\frac23\\
+        0&\frac{\sqrt5}3&-\frac23
+      \end{array}
+    \right]
+    $$
+    则$\MT^{-1}\MA\MT=\diag(2,2,-7)$。
+  \end{jie}
+\end{frame}
+
+\begin{frame}
+  \begin{li}
+    设实对称矩阵$\MA$和$\MB$是相似矩阵，证明：存在正交矩阵$\MT$使得$\MT^{-1}\MA\MT=\MB$.
+  \end{li}
+\end{frame}
+
+\begin{frame}
+  \begin{li}
+    设$n$阶实对称矩阵$\MA,\MB$有完全相同的$n$个特征值，证明：村早正交阵$\MT$和$n$阶矩阵$\MQ$使得$\MA=\MQ\MT$和$\MB=\MT\MQ$同时成立。
+  \end{li}
+\end{frame}
+
+\begin{frame}
+  \begin{li}
+    设$\MA$和$\MB$都是$n$实对称矩阵，若存在正交矩阵$\MT$使得$\MT^{-1}\MA\MT, \MT^{-1}\MB\MT$都是对角阵，则$\MA\MB$是实对称阵。
+  \end{li}
+\end{frame}
