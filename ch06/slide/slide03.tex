@@ -1,0 +1,158 @@
+\section{惯性定理与二次型的规范形}
+\begin{frame}
+  \begin{dingli}[惯性定理]
+    对一个$n$元二次型$\vx^T\MA\vx$，不论做怎样的坐标变换使之化为标准型，其中正平方项的项数$p$与负平方项的项数$q$都是唯一确定的。
+
+    或者说，对一个$n$阶实对称矩阵$\MA$，不论取怎样的可逆矩阵$\MC$，只要使
+    $$
+    \MC^T\MA\MC=\left[
+      \begin{array}{ccccccccc}
+        d_1&&&&&&&&\\
+           &\ddots&&&&&&&\\
+           &&d_p&&&&&&\\
+           &&&-d_{p+1}&&&&&\\
+           &&&&\ddots&&&&\\
+           &&&&&-d_{p+q}&&&\\
+           &&&&&&0&&\\
+           &&&&&&&\ddots&\\
+           &&&&&&&&0\\
+      \end{array}
+    \right]
+    $$
+    其中$d_i>0, ~i=1,2,\cd,p+q, p+q\le n$成立，则$p$和$q$是由$\MA$唯一确定的。
+  \end{dingli}
+\end{frame}
+
+\begin{frame}
+  \blue{\bf 证明.}
+    因$\rank(\MA)=\rank(\MC^T\MA\MC)=p+q$，故$p+q$由$\MA$的秩唯一确定，因此只需证明$p$由$\MA$唯一确定。 \vspace{.1in}\pause 
+
+    设$p+q=\rank(\MA)=r$，二次型$f=\vx^T\MA\vx$经坐标变换$\vx=\MB\vy$和$\vx=\MC\vz$都可化为标准型：
+    \begin{eqnarray}
+      f&=&b_1y_1^2+\cd+b_py_p^2-b_{p+1}y_{p+1}^2-\cd-b_{r}y_r^2, \\[.1in]
+      f&=&c_1z_1^2+\cd+c_tz_t^2-c_{t+1}z_{t+1}^2-\cd-c_{r}z_r^2.
+    \end{eqnarray}
+    要证正平方项的项数唯一确定，即证$p=t$。
+\end{frame}
+
+\begin{frame}
+  用反证法。设$p>t$，则
+  $$
+  \begin{array}{rrrr}
+    f&=\blue{b_1y_1^2+\cd+b_ty_t^2}&\red{+b_{t+1}y_{t+1}^2+\cd+b_py_p^2}&-b_{p+1}y_{p+1}^2-\cd-b_{r}y_r^2\\[.1in]
+     &=\blue{c_1z_1^2+\cd+c_tz_t^2}&\red{-c_{t+1}z_{t+1}^2-\cd-c_pz_p^2}&-c_{p+1}z_{p+1}^2-\cd-c_{r}z_r^2
+  \end{array}
+  $$
+  因$\vz = \MC^{-1}\MB\vy := \MD \vy$，可得
+  \begin{equation}\label{ls1}
+  \left\{
+    \begin{array}{c}
+      z_1 = d_{11}y_1+d_{12}y_2+\cd+d_{1n}y_n, \\
+      \cd\cd\\
+      z_t = d_{t1}y_1+d_{t2}y_2+\cd+d_{tn}y_n, \\
+      \cd\cd\\
+      z_n = d_{n1}y_1+d_{n2}y_2+\cd+d_{nn}y_n.
+    \end{array}
+  \right.
+  \end{equation}
+  \pause 
+
+  令$z_1=\cd=z_t=0, y_{p+1}=\cd=y_p=0$，利用上式可得
+  \begin{equation}\label{ls2}
+  \left\{
+    \begin{array}{r}
+      d_{11}y_1+d_{12}y_2+\cd+d_{1n}y_n=0, \\
+      \cd\cd\\
+      d_{t1}y_1+d_{t2}y_2+\cd+d_{tn}y_n=0, \\
+      y_{p+1}=0, \\
+      \cd\cd\\
+      y_n=0.
+    \end{array}
+  \right.
+  \end{equation}
+  齐次线性方程组\eqref{ls2}有$n$个未知量，但方程个数为$t+(n-p)=n-(p-t)<n$，故必有非零解。
+\end{frame}
+
+\begin{frame}
+  由于$y_{p+1}=\cd=y_n=0$，故$y_1,\cd,y_p$不全为零，于是
+  $$
+  f=b_1y_1^2+\cd+b_py_p^2>0.
+  $$
+  \pause 
+
+  将\eqref{ls2}的非零解代入\eqref{ls1}得$z_1,\cd,z_t,\cd,z_n$的一组值($z_1=\cd=z_t=0$)，于是
+  $$
+  f=-c_{t+1}z_{t+1}^2-\cd-c_{r}z_r^2\le 0.
+  $$
+  这导致矛盾，故假设$p>t$不能成立。
+  \pause 
+
+  同理可证$p<t$不成立，故$p=t$。这就证明了二次型的标准型中，正平方项的项数与所做的非退化线性变换无关，它是由二次型本身所确定的。 \qed
+\end{frame}
+
+\begin{frame}
+  \begin{dingyi}
+    二次型$\vx^T\MA\vx$的标准型中，
+    \begin{itemize}
+    \item 正平方项的项数称为二次型（或$\MA$）的\red{正惯性指数}；\\[0.1in]
+    \item 负平方项的项数称为二次型（或$\MA$）的\red{负惯性指数}；\\[0.1in]
+    \item 正、负惯性指数的差称为\red{符号差}；\\[0.1in]
+    \item 矩阵$\MA$的秩也称为二次型$\vx^T\MA\vx$的秩。
+    \end{itemize}
+  \end{dingyi}
+
+  \vspace{.1in}\pause 
+
+  设$n$阶实对称矩阵的秩为$r$，正惯性指数为$p$，则
+  \begin{itemize}
+  \item 负惯性指数为$q=r-p$；
+  \item 符号差为$p-q=2p-r$；
+  \item 与$\MA$合同的对角阵的零对角元个数为$n-r$。
+  \end{itemize}
+  \end{frame}
+
+\begin{frame}
+  \begin{tuilun}
+    设$\MA$为$n$阶实对称矩阵，若$\MA$的正、负惯性指数分别为$p$和$q$，则
+    \begin{equation}\label{eq1}
+    \MA \simeq \diag(\red{\underbrace{1,\cd,1}_{p\mbox{个}}},\blue{\underbrace{-1,\cd,-1}_{q\mbox{个}}},0,\cd,0).
+    \end{equation}
+
+    或者说，对于二次型$\vx^T\MA\vx$，存在坐标变换$\vx=\MC\vy$使得
+    \begin{equation}\label{eq2}
+    \vx^T\MA\vx=y_1^2+\cd+y_p^2-y_{p+1}^2-\cd-y_{p+q}^2.
+    \end{equation}
+    把\eqref{eq2}右端的二次型称为\red{$\vx^T\MA\vx$的规范形}；把\eqref{eq1}中的对角阵称为\red{$\MA$的合同规范形}。
+  \end{tuilun}
+\end{frame}
+
+
+\begin{frame}
+  \begin{proof}
+    $$
+    \MC_1^T\MA\MC_1=\diag(d_1,\cd,d_p,-d_{p+1},\cd,-d_{p+q},0,\cd,0)
+    $$ \pause 
+    取可逆阵
+    $$
+    \MC_2 = \diag(\frac1{\sqrt{d_1}},\cd,\frac1{\sqrt{d_p}},\frac1{\sqrt{d_{p+1}}},\cd,\frac1{\sqrt{d_{p+q}}},1,\cd,1)
+    $$
+    则有
+    $$
+    \MC_2^T(\MC_1^T\MA\MC_1)\MC_2=\diag(1,\cd,1,-1,\cd,-1,0,\cd,0)
+    $$
+  \end{proof}
+\end{frame}
+
+\begin{frame}
+  如果两个$n$阶实对称矩阵$\MA,\MB$合同，也称它们对应的二次型$\vx^T\MA\vx$和$\vy^T\MB\vy$合同。
+\end{frame}
+
+\begin{frame}
+  \begin{jielun}
+    \begin{itemize}
+    \item 两个实对称矩阵$\MA,\MB$合同的充分必要条件是$\MA,\MB$有相同的正惯性指数和负惯性指数；\\[0.1in]
+    \item 全体$n$阶实对称矩阵，按其合同规范形（不考虑$+1,-1,0$的排列次序）分类，共有$\frac{(n+1)(n+2)}2$类。
+    \end{itemize}
+  \end{jielun}
+\end{frame}
+

@@ -1,0 +1,64 @@
+\section{往年试题}
+
+\begin{frame}
+  \begin{li}[05-06上]
+    求二次型$f(x_1,x_2,x_3)=(x_1+x_2)^2+(x_2-x_3)^2+(x_3+x_1)^2$的秩。
+  \end{li}
+\end{frame}
+
+\begin{frame}
+  \begin{li}[05-06上]
+    设二次型$f(x_1,x_2,x_3)=x_1^2+x_2^2+x_3^2-2x_1x_2-2x_2x_3-2x_3x_1$，
+    \begin{enumerate}
+    \item 求二次型$f$的矩阵$\MA$的全部特征值；
+    \item 求可逆阵$\MP$，使得$\MP^{-1}\MA\MP$为对角阵；
+    \item 计算$\det(\MA^m)$
+    \end{enumerate}
+  \end{li}
+\end{frame}
+
+\begin{frame}
+  \begin{li}[05-06下]
+    求二次型$f(x_1,x_2,x_3)=x_1^2+2x_2^2+6x_3^2+2x_1x_2+2x_1x_3+6x_2x_3$的正定性。
+  \end{li}
+\end{frame}
+
+\begin{frame}
+  \begin{li}[06-07上]
+    设二次型$f(x_1,x_2,x_3)=x_1^2+4x_2^2+2\lambda x_1x_2-2x_1x_3+4x_2x_3$，试求该二次型的矩阵，并指出$\lambda$取何值时，$f$正定？
+  \end{li}
+\end{frame}
+
+\begin{frame}
+  \begin{li}[06-07下]
+    设二次型$f(x,y,z)=3x^2+2y^2+2z^2+2xy+2xz$，
+    \begin{enumerate}
+    \item 用正交变换化二次型$f$为标准型，并写出相应的正交阵；
+    \item 求$f(x,y,z)$在单位球面$x^2+y^2+z^2=1$上的最大值和最小值。
+    \end{enumerate}
+  \end{li}
+\end{frame}
+
+\begin{frame}
+  \begin{li}[06-07下]
+    设二次型$f(x,y,z)=2x_1x_2+2x_1x_3-2x_2x_3$，
+    \begin{enumerate}
+    \item 写出二次型$f$的矩阵$\MA$；
+    \item 求出$\MA$的全部特征值和特征向量；
+    \item 化$f$为标准型；
+    \item 判断$f$是否正定。
+    \end{enumerate}
+  \end{li}
+\end{frame}
+
+\begin{frame}
+  \begin{li}[07-08上、09-10上]
+    对于二次型$f(x_1,x_2,x_3)=ax_1^2+2x_2^2-2x_3^2+2bx_1x_3(b>0)$，其中二次型的矩阵$\MA$的特征值之和
+    \begin{enumerate}
+    \item 写出二次型$f$的矩阵$\MA$；
+    \item 求出$\MA$的全部特征值和特征向量；
+    \item 化$f$为标准型；
+    \item 判断$f$是否正定。
+    \end{enumerate}
+  \end{li}
+\end{frame}

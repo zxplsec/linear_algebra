@@ -1,6 +1,1 @@
-\beamer@sectionintoc {2}{二次型的定义与矩阵表示\hskip 1em\relax 合同矩阵}{3}{0}{1}
-\beamer@sectionintoc {3}{化二次型为标准型}{25}{0}{2}
-\beamer@subsectionintoc {3}{1}{正交变换法}{27}{0}{2}
-\beamer@subsectionintoc {3}{2}{配方法}{49}{0}{2}
-\beamer@subsectionintoc {3}{3}{初等变换法}{63}{0}{2}
-\beamer@sectionintoc {4}{正定二次型和正定矩阵}{68}{0}{3}
+\beamer@sectionintoc {2}{往年试题}{3}{0}{1}
