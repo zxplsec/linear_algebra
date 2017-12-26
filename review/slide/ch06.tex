@@ -1,0 +1,646 @@
+\section{第六章~~二次型}
+
+\subsection{知识点}
+
+\begin{frame}\ft{二次型的定义和矩阵表示}
+  
+  \begin{dingyi}
+    $n$元变量$x_1,x_2,\cd,x_n$的二次齐次多项式
+    $$
+    \begin{array}{rcccccccc}
+      f(x_1,x_2,\cd,x_n) &=& \\[0.1in]
+      a_{11}x_1^2&+&2a_{12}x_1x_2&+&2a_{13}x_1x_3&+&\cd&+&2a_{1n}x_1x_n\\[0.1in]
+                         &+&a_{22}x_2^2&+&2a_{23}x_2x_3&+&\cd&+&2a_{2n}x_2x_n\\[0.1in]
+                         &&&&\cd&&\cd\\[0.1in]
+                         &&&&&&&+&a_{nn}x_n^2\\[0.1in]
+    \end{array}
+    $$
+    其矩阵形式为
+    $$
+    f(x_1,x_2,\cd,x_n)=   (x_1,x_2,\cd,x_n)\left(
+      \begin{array}{cccc}
+        a_{11}&a_{12}&\cd&a_{1n}\\
+        a_{21}&a_{22}&\cd&a_{2n}\\
+        \vd&\vd&&\vd\\
+        a_{n1}&a_{n2}&\cd&a_{nn}\\
+      \end{array}
+    \right)\left(
+      \begin{array}{c}
+        x_1\\
+        x_2\\
+        \vd\\
+        x_n
+      \end{array}\right) = \vx^T\MA\vx
+    $$
+  \end{dingyi}
+  
+\end{frame}
+
+
+
+
+\begin{frame}\ft{二次型的定义和矩阵表示}
+  
+  \begin{li}
+    设$f(x_1,x_2,x_3,x_4)=2x_1^2+x_1x_2+2x_1x_3+4x_2x_4+x_3^2+5x_4^2$，则它的矩阵为
+    $$
+    \MA=\left(
+      \begin{array}{cccc}
+        2&\ds1/2&1&0\\[0.2cm]
+        \ds1/2&0&0&2\\[0.2cm]
+        1&0&1&0\\[0.2cm]
+        0&2&0&5
+      \end{array}
+    \right)
+    $$
+  \end{li}
+  
+\end{frame}
+
+
+\begin{frame}\ft{二次型的定义和矩阵表示}
+  
+  设$\alphabd$在两组基$\{\epsilonbd_1,\epsilonbd_2,\cd,\epsilonbd_n\}$和$\{\etabd_1,\etabd_2,\cd,\etabd_n\}$下的坐标向量分别为
+  $$
+  \vx=(x_1,x_2,\cd,x_n)^T\mbox{~~和~~}\vy=(y_1,y_2,\cd,y_n)^T
+  $$
+  又
+  $$
+  (\etabd_1,\etabd_2,\cd,\etabd_n)=(\epsilonbd_1,\epsilonbd_2,\cd,\epsilonbd_n)\MC
+  $$
+  故
+  $$
+  \vx=\MC\vy
+  $$
+  从而
+  $$
+  f(\alphabd)=\vx^T\MA\vx=\vy^T(\MC^T\MA\MC)\vy
+  $$ \pause
+
+
+  \blue{
+    二次型$f(\alphabd)$在两组基$\{\epsilonbd_1,\epsilonbd_2,\cd,\epsilonbd_n\}$和$\{\etabd_1,\etabd_2,\cd,\etabd_n\}$下所对应的矩阵分别为
+    $$
+    \MA \mbox{~~和~~} \MC^T\MA\MC     
+    $$
+  }
+  
+\end{frame}
+
+
+
+
+
+
+\begin{frame}\ft{矩阵的合同}
+  
+  \begin{dingyi}[矩阵的合同]
+    对于两个矩阵$\MA$和$\MB$，若存在可逆矩阵$\MC$，使得
+    $$
+    \MC^T\MA\MC=\MB,
+    $$
+    就称$\MA$合同于$\MB$，记作$\MA\simeq\MB$。
+  \end{dingyi}
+  
+\end{frame}
+
+
+\begin{frame}\ft{用正交变换法将二次型化为标准型}
+  
+  \begin{itemize}
+  \item 含平方项而不含混合项的二次型称为\red{标准二次型}。\\[0.2cm]
+  \item 化二次型为标准型，就是对实对称矩阵$\MA$，寻找可逆阵$\MC$，使$\MC^T\MA\MC$成为对角矩阵。
+  \end{itemize}
+  
+\end{frame}
+
+
+
+
+
+
+\begin{frame}\ft{用正交变换法将二次型化为标准型}
+  
+  \begin{dingli}[主轴定理]
+    对于任一个$n$元二次型
+    $$
+    f(x_1,x_2,\cd,x_n)=\vx^T\MA\vx,
+    $$
+    存在正交变换$\vx=\MQ\vy$~($\MQ$为正交阵)，使得
+    $$
+    \vx^T\MA\vx=\vy^T(\MQ^T\MA\MQ)\vy=\lambda_1y_1^2+\lambda_2y_2^2+\cd+\lambda_ny_n^2,
+    $$
+    其中$\lambda_1,\lambda_2,\cd,\lambda_n$为$\MA$的$n$个特征值，
+    $\MQ$的$n$个列向量$\alphabd_1,\alphabd_2,\cd,\alphabd_n$是$\MA$对应于$\lambda_1,\lambda_2,\cd,\lambda_n$的标准正交特征向量。
+  \end{dingli}
+  
+\end{frame}
+
+
+
+\begin{frame}\ft{用正交变换法将二次型化为标准型}
+  
+  \begin{li}{\blue{$\bigstar\bigstar\bigstar\bigstar\bigstar$}}
+    用正交变换法，将二次型
+    $$
+    f(x_1,x_2,x_3)=2x_1^2+5x_2^2+5x_3^2+4x_1x_2-4x_1x_3-8x_2x_3
+    $$
+    化为标准型。
+  \end{li}
+  \pause
+  对应方程为
+  $$
+  \MA=\left(
+    \begin{array}{rrr}
+      2&2&-2\\
+      2&5&-4\\
+      -2&-4&5
+    \end{array}
+  \right)
+  $$
+  \pause
+  其特征多项式为
+  $$
+  \det(\MA-\lambda\MI)=-(\lambda-1)^2(\lambda-10)
+  $$
+  得特征值$\lambda_{1,2}=1$和$\lambda_3=10$.
+  
+\end{frame}
+
+
+\begin{frame}\ft{用正交变换法将二次型化为标准型}
+  
+  $$
+  \begin{array}{rl}
+    (\MA-\MI)\vx=\M0 & \Rightarrow~~
+                       \left(
+                       \begin{array}{rrr}
+                         1&2&-2\\
+                         2&4&-4\\
+                         -2&-4&4
+                       \end{array}
+                                \right)\left(
+                                \begin{array}{c}
+                                  x_1\\
+                                  x_2\\
+                                  x_3
+                                \end{array}
+    \right)=\M0\\[0.3in]  
+                     & \Rightarrow~~
+                       \vx_1=(-2,1,0)^T, \quad
+                       \vx_2=(2,0,1)^T. \\[0.2in] 
+    (\MA-10\MI)\vx=\M0 & \Rightarrow~~
+                         \left(
+                         \begin{array}{rrr}
+                           -8&2&-2\\
+                           2&-5&-4\\
+                           -2&-4&-5
+                         \end{array}
+                                  \right)\left(
+                                  \begin{array}{c}
+                                    x_1\\
+                                    x_2\\
+                                    x_3
+                                  \end{array}
+    \right)=\M0\\[0.3in]  
+                     & \Rightarrow~~
+                       \vx_3=(1,2,-2)^T.
+  \end{array}
+  $$ \pause 
+
+  对$\vx_1,\vx_2$用施密特正交化过程先正交化，再单位化，得
+  $$
+  \xibd_1=\left(-\frac{2\sqrt{5}}5,\frac{2\sqrt{5}}5,0\right)^T,~~~~
+  \xibd_2=\left(\frac{2\sqrt{5}}{15},\frac{4\sqrt{5}}{15},\frac{\sqrt{5}}3\right)^T
+  $$ 
+  对$\vx_3$单位化，得
+  $$
+  \xibd_3=\left(\frac13,\frac23,-\frac23\right)^T
+  $$
+  
+\end{frame}
+
+
+\begin{frame}\ft{用正交变换法将二次型化为标准型}
+  
+  取正交矩阵
+  $$
+  \MQ=(\xibd_1,\xibd_2,\xibd_3)=\left(
+    \begin{array}{rrr}
+      \ds-\frac{2\sqrt{5}}5&\ds\frac{2\sqrt{5}}{15}&\ds\frac13\\[0.2cm]
+      \ds \frac{2\sqrt{5}}5&\ds\frac{4\sqrt{5}}{15}&\ds\frac23\\[0.2cm]
+      \ds 0&\ds\frac{\sqrt{5}}3&\ds-\frac23
+    \end{array}
+  \right)
+  $$
+  则
+  $$
+  \MQ^{-1}\MA\MQ=\MQ^{T}\MA\MQ=\diag(1,1,10).
+  $$ \pause 
+  令$\vx=(x_1,x_2,x_3)^T,\vy=(y_1,y_2,y_3)^T$，\red{做正交变换$\vx=\MQ\vy$，原二次型就化成标准型}
+  $$
+  \vx^T\MA\vx=\vy^T(\MQ^T\MA\MQ)\vy=y_1^2+y_2^2+10y_3^2.
+  $$
+  
+\end{frame}
+
+
+
+
+
+
+
+
+\begin{frame}\ft{惯性定理和二次型的规范形}
+  
+  \begin{dingli}[惯性定理]
+    对于一个$n$元二次型$\vx^T\MA\vx$，不论做怎样的坐标变换使之化为标准形，其中正平方项的项数$p$和负平方项的项数$q$都是唯一确定的。或者说，对一个$n$阶实对称矩阵$\MA$，不论取怎样的可逆矩阵$\MC$，只要使
+    $$
+    \MC^T\MA\MC=\left(
+      \begin{array}{cccccccccc}
+        d_1&&&&&&&&\\
+           &\dd&&&&&&&\\
+           &&d_p&&&&&&\\
+           &&&-d_{p+1}&&&&&\\
+           &&&&\dd&&&&\\
+           &&&&&-d_{p+q}&&&\\
+           &&&&&&0&&\\
+           &&&&&&&\dd&\\
+           &&&&&&&&0
+      \end{array}
+    \right)
+    $$
+    其中$d_i>0(i=1,2,\cd,p+q),p+q\le n$成立，则$p$和$q$是由$\MA$唯一确定的。
+  \end{dingli}
+  
+\end{frame}
+
+
+
+\begin{frame}\ft{惯性定理和二次型的规范形}
+  
+  \begin{dingyi}
+    二次型$\vx^T\MA\vx$的标准形中，
+    \begin{itemize}
+    \item  正平方项的项数（与$\MA$合同的对角阵中正对角元的个数），称为二次型（或$\MA$）的\red{正惯性指数}；
+    \item  负平方项的项数（与$\MA$合同的对角阵中负对角元的个数），称为二次型（或$\MA$）的\red{负惯性指数}；
+    \item
+      正、负惯性指数的差称为符号差；
+    \item 矩阵$\MA$的秩也成为\red{二次型$\vx^T\MA\vx$的秩}。
+    \end{itemize}
+  \end{dingyi}
+  \pause
+  设$\rank(\MA)=r$，正惯性指数为$p$，则
+  \begin{itemize}
+  \item 负惯性指数为$q=r-p$
+  \item 符号差为$p-q=2p-r$
+  \item 与$\MA$合同的对角阵的零对角元个数为$n-r$。
+  \end{itemize}
+  
+  
+\end{frame}
+
+\begin{frame}\ft{惯性定理和二次型的规范形}
+  
+  \begin{tuilun}
+    设$\MA$为$n$阶实对称矩阵，若$\MA$的正、负惯性指数分别为$p$和$q$，则
+    $$\blue{
+      \MA\simeq\underbrace{\diag(\underbrace{1,\cd,1}_{p\mbox{个}},\underbrace{-1,\cd,-1}_{q\mbox{个}},\underbrace{0,\cd,0}_{n-p-q\mbox{个}})}_{\red{\ds\MA\mbox{的合同规范形}}}
+    }
+    $$ \pause 
+    或者说，对于二次型$\vx^T\MA\vx$，存在坐标变换$\vx=\MC\vy$，使得
+    $$
+    \blue{
+      \vx^T\MA\vx=\underbrace{y_1^2+\cd+y_p^2-y_{p+1}^2-\cd-y_{p+q}^2}_{\red{\ds\vx^T\MA\vx\mbox{的规范形}}}.
+    }
+    $$
+  \end{tuilun}
+  
+\end{frame}
+
+
+
+
+\begin{frame}\ft{正定二次型和正定矩阵}
+  
+  \begin{dingyi}
+    如果对于任意的非零向量$\vx=(x_1,x_2,\cd,x_n)^T$，恒有
+    $$
+    \vx^T\MA\vx=\sum_{i=1}^n\sum_{j=1}^na_{ij}x_ix_j>0,
+    $$
+    就称$\vx^T\MA\vx$为正定二次型，称$\MA$为正定矩阵。
+  \end{dingyi}
+  \pause\vspace{0.1in}
+
+  
+  注：正定矩阵是针对对称矩阵而言的。
+  
+  
+\end{frame}
+
+\begin{frame}
+  
+  \begin{jielun}
+    二次型$f(y_1,y_2,\cd,y_n)=d_1y_1^2+d_2y_2^2+\cd+d_ny_n^2$正定
+    $~~~\Longleftrightarrow~~~d_i>0~~(i=1,2,\cd,n)$
+  \end{jielun} 
+  \begin{jielun}
+    一个二次型$\vx^T\MA\vx$，经过非退化线性变换$\vx=\MC\vy$，化为$\vy^T(\MC^T\MA\MC)\vy$，其正定性保持不变。即当
+    $$\vx^T\MA\vx~~~\xLongleftrightarrow[]{\ds \vx=\MC\vy}~~~\vy^T(\MC^T\MA\MC)\vy\quad (\MC\mbox{可逆})$$
+    时，等式两端的二次型有相同的正定性。
+  \end{jielun} 
+  
+\end{frame}
+
+
+\begin{frame}
+  
+  \begin{dingli}
+    若$\MA$是$n$阶实对称矩阵，则以下命题等价：
+    \begin{itemize}
+    \item[(1)]$\MA$正定；
+    \item[(2)]$\MA$的正惯性指数为$n$，即$\MA\simeq\MI$；
+    \item[(3)]存在可逆矩阵$\MP$使得$\MA=\MP^T\MP$；
+    \item[(4)]$\MA$的$n$个特征值$\lambda_1,\lambda_2,\cd,\lambda_n$全大于零。
+    \item[(5)]$\MA$的$n$个顺序主子式全大于零。
+    \end{itemize}
+  \end{dingli}
+  
+  \begin{dingli}
+    $$
+    \MA\mbox{正定}~~\Longrightarrow~~
+    a_{ii}>0(i=1,2,\cd,n) \mbox{~~且~~}
+    \det(\MA)>0
+    $$
+  \end{dingli}
+  
+\end{frame}
+
+\begin{frame}
+  
+  \begin{li}
+    $\MA\mbox{正定} ~~\Longrightarrow~~ \MA^{-1}\mbox{正定}$
+  \end{li}
+\end{frame}
+
+\begin{frame}
+  \begin{li}
+    判断二次型
+    $$
+    f(x_1,x_2,x_3)=x_1^2+2x_2^2+3x_3^2+2x_1x_2-2x_2x_3
+    $$
+    是否为正定二次型。
+  \end{li}
+  
+\end{frame}
+
+\begin{frame}
+    
+  \begin{li}
+    判断二次型
+    $$
+    f(x_1,x_2,x_3)=3x_1^2+x_2^2+3x_3^2-4x_1x_2-4x_1x_3+4x_2x_3
+    $$
+    是否为正定二次型。
+  \end{li}
+  
+\end{frame}
+
+
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+\subsection{典型例题}
+
+
+\begin{frame}
+  
+  \begin{li}[2005-2006第一学期]
+    求二次型
+    $
+    f(x_1,x_2,x_3)=(x_1+x_2)^2+(x_2-x_3)^2+(x_3+x_1)^2
+    $
+    的秩。
+  \end{li}
+\end{frame}
+
+\begin{frame}
+  \begin{li}[2005-2006第一学期]
+    设二次型
+    $
+    f(x_1,x_2,x_3)=x_1^2+x_2^2+x_3^2-2x_1x_2-2x_2x_3-2x_3x_1,
+    $
+    \begin{itemize}
+    \item[(1)] 求二次型$f$的矩阵$\MA$的全部特征值；
+    \item[(2)] 求可逆矩阵$\MP$，使得$\MP^{-1}\MA\MP$为对角阵；
+    \item[(3)] 计算$\det(\MA^m)$.
+    \end{itemize}•
+  \end{li}  
+\end{frame}
+
+
+\begin{frame}  
+  \begin{li}[2005-2006第二学期]
+    判断二次型
+    $
+    f(x_1,x_2,x_3)=x_1^2+2x_2^2+6x_3^2+2x_1x_2+2x_1x_2+6x_2x_3
+    $
+    的正定性。
+  \end{li}
+\end{frame}
+
+\begin{frame}
+  \begin{li}[2006-2007第一学期]
+    设二次型
+    $
+    f(x_1,x_2,x_3)=x_1^2+4x_2^2+2\lambda  x_1x_2-2x_1x_3+4x_2x_3,
+    $
+    试求该二次型的矩阵，并指出$\lambda$取何值时，$f$正定？
+  \end{li}
+  
+\end{frame}
+
+
+\begin{frame}
+  \begin{li}[2006-2007第二学期]
+    判断二次型
+    $
+    f(x,y,z)=3x^2+2y^2+2z^2+2xy+2xz
+    $
+    \begin{itemize}
+    \item[(1)] 用正交变换化二次型$f$为标准型，并写出相应的正交阵；
+    \item[(2)]  求$f(x,y,z)$在单位球面$x^2+y^2+z^2=1$上的最大值和最小值。
+    \end{itemize}•
+  \end{li}
+\end{frame}
+
+\begin{frame}
+  \begin{li}[2006-2007第二学期]
+    设二次型
+    $
+    f(x_1,x_2,x_3)=2x_1x_3+2x_1x_3-2x_2x_3,
+    $
+    \begin{itemize}
+    \item[(1)] 写出二次型$f$的矩阵$\MA$；
+    \item[(2)]  求出$\MA$的全部特征值和特征向量；
+    \item[(3)] 化$f$为标准型；
+    \item[(4)] 判断$f$是否正定.
+    \end{itemize}•
+  \end{li}
+  
+\end{frame}
+
+
+\begin{frame}
+  
+  \begin{li}[2007-2008第一学期，2009-2010第一学期]
+    对于二次型
+    $
+    f(x_1,x_2,x_3)=ax_1^2+2x_2^2-2x_3^2+2bx_1x_3(b>0),
+    $其中二次型的矩阵$\MA$的特征值之和为$1$，特征值之积为$-12$.
+    \begin{itemize}
+    \item[(1)] 求$a,b$；
+    \item[(2)]  化$f$为标准型，并写出所用的正交变换和正交矩阵。
+    \end{itemize}•
+  \end{li}
+\end{frame}
+
+\begin{frame}
+  \begin{li}[2007-2008第二学期]
+    设二次型的矩阵为
+    $
+    \left(
+      \begin{array}{ccc}
+        5&-a&2b-1\\
+        a-b&c&2-c\\
+        c-2&-3&3
+      \end{array}
+    \right), a,b,c
+    $为常数，则
+    \begin{itemize}
+    \item[(1)] 写出二次型$f$的具体形式；
+    \item[(2)]  求出$\MA$的全部特征值和特征向量；
+    \item[(3)] 求正交变换$\vx=\MP\vy$，化$f$为标准型；
+    \item[(4)] 在$\|\vx\|=1$的条件下，求$f$的最大值和最小值.
+    \end{itemize}•
+  \end{li}
+  
+\end{frame}
+
+
+\begin{frame}
+  
+  \begin{li}[2008-2009第一学期]
+    设二次型
+    $
+    f(x_1,x_2,x_3)=x_1^2+x_2^2+x_3^2+2ax_1x_2+2bx_2x_3+2x_1x_3,
+    $经正交变换$\vx=\MP\vy$化为标准型$f=y_2^2+2y_3^2$，试求$a,b$。      
+  \end{li}
+\end{frame}
+
+\begin{frame}
+  \begin{li}[2008-2009第一学期]
+    设二次型$f(x_1,x_2,x_3)=x_1^2+x_2^2+x_3^2-2x_1x_2-2x_2x_3-2x_3x_1$,      
+    \begin{itemize}
+    \item[(1)] 求出$\MA$的全部特征值和特征向量；
+    \item[(2)] 求正交变换$\vx=\MP\vy$，化$f$为标准型；
+    \item[(3)] 计算$\det(\MA^m)$
+    \end{itemize}•
+  \end{li}
+  
+\end{frame}
+
+
+\begin{frame}
+  
+  \begin{li}[2009-2010第二学期]
+    设二次型
+    $
+    f(x_1,x_2,x_3)=2x_1x_3+x_2^2
+    $，\begin{itemize}
+    \item[(1)] 求出$\MA$的全部特征值和特征向量；
+    \item[(2)] 求正交变换$\vx=\MP\vy$，化$f$为标准型。
+    \end{itemize}      
+  \end{li}
+\end{frame}
+
+\begin{frame}
+  \begin{li}[2010-2011第一学期]
+    设二次型$f(x_1,x_2,x_3)=4x_2^2-3x_3^2+4x_1x_2-4x_1x_3+8x_2x_3$,      
+    \begin{itemize}
+    \item[(1)] 写出$\MA$；
+    \item[(2)] 求正交变换$\vx=\MP\vy$，化$f$为标准型。
+    \end{itemize}•
+  \end{li}
+  
+\end{frame}
+
+
+\begin{frame}
+  
+
+  \begin{li}[2010-2011第二学期]
+    设二次型
+    $
+    f(x_1,x_2,x_3)=x_1^2+2x_2^2+x_3^2+2tx_1x_2+2x_1x_3
+    $的矩阵是奇异阵，
+    \begin{itemize}
+    \item[(1)] 写出$\MA$并求$t$的值；
+    \item[(2)] 根据所求$t$的值，求一个可逆矩阵$\MP$和一个对角阵$\Lambdabd$，使得$\MP^{-1}\MA\MP=\Lambdabd$;
+    \item[(3)] 求$\MA^n(n\ge 2)$.
+    \end{itemize}      
+  \end{li}
+\end{frame}
+
+\begin{frame}
+  \begin{li}[2011-2012第二学期]
+    在正交变换$\vx=\MQ\vy$将二次型$f(x_1,x_2,x_3)=2x_1x_2+2x_1x_3+2x_2x_3$化为标准型。
+  \end{li}
+  
+\end{frame}
+
+\begin{frame}
+  
+
+  \begin{li}[2012-2013第二学期]
+    已知二次型
+    $
+    f(x_1,x_2,x_3)=(1-a)x_1^2+(1-a)x_2^2+2x_3^2+2(1+a)x_1x_2 
+    $的秩为2，
+    \begin{itemize}
+    \item[(1)] 求$a$；
+    \item[(2)] 求正交变换$\vx=\MP\vy$，将$f$化为标准型.
+    \end{itemize}      
+  \end{li}
+\end{frame}
+
+\begin{frame}
+  \begin{li}[2012-2013第二学期]
+    已知二次型
+    $
+    f(x_1,x_2,x_3)=2x_1^2+3x_2^2+3x_3^2+4x_2x_3 
+    $的秩为2，
+    \begin{itemize}
+    \item[(1)] 把$f$写成$f=\vx^T\MA\vx$的形式；
+    \item[(2)] 求$\MA$的特征值和特征向量；
+    \item[(3)] 求正交变换$\vx=\MP\vy$，将$f$化为标准型.
+    \end{itemize}      
+  \end{li}
+  
+\end{frame}
+
+\begin{frame} 
+  \begin{li}[2013-2014第一学期]
+    用正交变换化二次型
+    $
+    f(x_1,x_2,x_3)=x_1^2+x_2^2+2x_3^2-2x_1x_2+4x_1x_3+4x_2x_3$为标准型.
+  \end{li}  
+\end{frame}
+
+
+
+
+
+

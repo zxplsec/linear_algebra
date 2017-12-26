@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.14159265-2.6-0.99998 (TeX Live 2017) (preloaded format=xelatex 2017.7.8)  26 DEC 2017 14:38
+This is XeTeX, Version 3.14159265-2.6-0.99998 (TeX Live 2017) (preloaded format=xelatex 2017.7.8)  26 DEC 2017 17:40
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -680,7 +680,9 @@ emedefault.sty
 \beamer@dimb=\dimen187
 )
 (/usr/local/texlive/2017/texmf-dist/tex/latex/beamer/themes/outer/beamerouterth
-emedefault.sty))) (./beamerthemeepyt.sty
+emedefault.sty)))
+(/usr/local/texlive/2017/texmf-dist/tex/latex/beamertheme-epyt/beamerthemeepyt.
+sty
 Package: beamerthemeepyt 2016/05/25 v1.0
 
 (/usr/local/texlive/2017/texmf-dist/tex/latex/beamer/themes/font/beamerfontthem
@@ -2842,27 +2844,15 @@ File: lstlang1.sty 2015/06/04 1.6 listings language file
 . Defining environment 'testexample' with sig. ' O{} ' on line 28.
 .................................................
 ) (../asset/global_newtheorem.tex
-\c@li=\count344
-\c@lianxi=\count345
-\c@jielun=\count346
-\c@dingli=\count347
-\c@mingti=\count348
-\c@yinli=\count349
-\c@tuilun=\count350
-\c@dingyi=\count351
-\c@zhu=\count352
-\c@xingzhi=\count353
-\c@wenti=\count354
-\c@rem=\count355
+\c@lianxi=\count344
+\c@zhu=\count345
 )
-\c@lem=\count356
-
 *************************************************
 * fontspec warning: "script-not-exist"
 * 
 * Font 'FandolHei-Regular' does not contain script 'CJK'.
 *************************************************
-\g__fontspec_family_FandolHei-Regular_int=\count357
+\g__fontspec_family_FandolHei-Regular_int=\count346
 .................................................
 . fontspec info: "defining-font"
 . 
@@ -2878,8 +2868,8 @@ File: lstlang1.sty 2015/06/04 1.6 listings language file
 .................................................
 (/usr/local/texlive/2017/texmf-dist/tex/xelatex/xecjk/xeCJK-listings.sty
 Package: xeCJK-listings 2017/05/15 v3.4.8 xeCJK patch file for listings
-\l__xeCJK_listings_max_char_int=\count358
-\l__xeCJK_listings_flag_int=\count359
+\l__xeCJK_listings_max_char_int=\count347
+\l__xeCJK_listings_flag_int=\count348
 )
 (./slide.aux)
 \openout1 = `slide.aux'.
@@ -2987,7 +2977,7 @@ Package: nameref 2016/05/21 v2.44 Cross-referencing by name of section
 (/usr/local/texlive/2017/texmf-dist/tex/generic/oberdiek/gettitlestring.sty
 Package: gettitlestring 2016/05/16 v1.5 Cleanup title references (HO)
 )
-\c@section@level=\count360
+\c@section@level=\count349
 )
 LaTeX Info: Redefining \ref on input line 15.
 LaTeX Info: Redefining \pageref on input line 15.
@@ -3030,7 +3020,7 @@ Dictionary: translator-theorem-dictionary, Language: ChineseUTF8 2017/04/01 v2.
 LaTeX Info: Redefining \includegraphics on input line 15.
  ABD: EverySelectfont initializing macros
 LaTeX Info: Redefining \selectfont on input line 15.
-\c@lstlisting=\count361
+\c@lstlisting=\count350
 
 (/usr/local/texlive/2017/texmf-dist/tex/latex/base/inputenc.sty
 Package: inputenc 2015/03/17 v1.2c Input encoding file
@@ -3082,48 +3072,29 @@ Package hyperref Warning: Option `pdfauthor' has already been used,
 
 [1
 
-] (./slide.toc
-LaTeX Font Info:    Font shape `FMX/futm/m/n' will be
-(Font)              scaled to size 9.19998pt on input line 1.
-LaTeX Font Info:    Font shape `FMX/futm/m/n' will be
-(Font)              scaled to size 6.99199pt on input line 1.
-LaTeX Font Info:    Font shape `MDA/mdbch/b/n' will be
-(Font)              scaled to size 9.60007pt on input line 1.
-LaTeX Font Info:    Font shape `MDA/mdbch/b/n' will be
-(Font)              scaled to size 7.29605pt on input line 1.
-LaTeX Font Info:    Font shape `U/futm/m/n' will be
-(Font)              scaled to size 9.19998pt on input line 1.
-LaTeX Font Info:    Font shape `U/futm/m/n' will be
-(Font)              scaled to size 6.99199pt on input line 1.
-LaTeX Font Info:    Font shape `FMX/futm/m/n' will be
-(Font)              scaled to size 8.27998pt on input line 3.
-LaTeX Font Info:    Font shape `MDA/mdbch/b/n' will be
-(Font)              scaled to size 8.64006pt on input line 3.
-LaTeX Font Info:    Font shape `U/futm/m/n' will be
-(Font)              scaled to size 8.27998pt on input line 3.
-) [2
+] (./slide.toc) [2
 
-] (./slide/slide01.tex
+] (./slide/ch04.tex (./slide.toc) [3
 
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 1.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `superscript' on input line 1.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 1.
-
-(./slide.toc) [3
+] (./slide.toc)
+[4
 
 ]
 LaTeX Font Info:    Font shape `T1/lmss/m/it' in size <9> not available
-(Font)              Font shape `T1/lmss/m/sl' tried instead on input line 16.
- [4
-
-] [5
+(Font)              Font shape `T1/lmss/m/sl' tried instead on input line 29.
+LaTeX Font Info:    Font shape `FMX/futm/m/n' will be
+(Font)              scaled to size 8.27998pt on input line 29.
+LaTeX Font Info:    Font shape `FMX/futm/m/n' will be
+(Font)              scaled to size 6.99199pt on input line 29.
+LaTeX Font Info:    Font shape `MDA/mdbch/b/n' will be
+(Font)              scaled to size 8.64006pt on input line 29.
+LaTeX Font Info:    Font shape `MDA/mdbch/b/n' will be
+(Font)              scaled to size 7.29605pt on input line 29.
+LaTeX Font Info:    Font shape `U/futm/m/n' will be
+(Font)              scaled to size 8.27998pt on input line 29.
+LaTeX Font Info:    Font shape `U/futm/m/n' will be
+(Font)              scaled to size 6.99199pt on input line 29.
+ [5
 
 ] [6
 
@@ -3137,448 +3108,9 @@ LaTeX Font Info:    Font shape `T1/lmss/m/it' in size <9> not available
 
 ] [11
 
-]) (./slide/slide02.tex
+] [12
 
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 2.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\begingroup' on input line 2.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\<let>-command' on input line 2.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\@nomath' on input line 2.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\begingroup' on input line 2.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\setbox' on input line 2.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\z@' on input line 2.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\hbox' on input line 2.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\thinmuskip' on input line 2.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\medmuskip' on input line 2.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\m@ne' on input line 2.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\thickmuskip' on input line 2.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\@ne' on input line 2.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\setbox' on input line 2.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\tw@' on input line 2.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\hbox' on input line 2.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 2.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\mathsurround' on input line 2.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\z@' on input line 2.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 2.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 2.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\mathsurround' on input line 2.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\z@' on input line 2.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 2.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\<def>-command' on input line 2.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\@tempa' on input line 2.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\mathchoice' on input line 2.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\hbox' on input line 2.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 2.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\mathsurround' on input line 2.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\z@' on input line 2.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\displaystyle' on input line 2.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 2.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\hbox' on input line 2.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 2.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\mathsurround' on input line 2.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\z@' on input line 2.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\textstyle' on input line 2.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 2.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\hbox' on input line 2.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 2.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\mathsurround' on input line 2.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\z@' on input line 2.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\scriptstyle' on input line 2.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 2.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\hbox' on input line 2.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 2.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\mathsurround' on input line 2.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\z@' on input line 2.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\scriptscriptstyle' on input line 2.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 2.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\endgroup' on input line 2.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `superscript' on input line 2.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 2.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                \hskip 9.24991pt
-(hyperref)                replaced by space on input line 2.
-
-(./slide.toc) [12
-
-] (./slide/slide02_1.tex
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 1.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\begingroup' on input line 1.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\<let>-command' on input line 1.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\@nomath' on input line 1.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\begingroup' on input line 1.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\setbox' on input line 1.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\z@' on input line 1.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\hbox' on input line 1.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\thinmuskip' on input line 1.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\medmuskip' on input line 1.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\m@ne' on input line 1.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\thickmuskip' on input line 1.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\@ne' on input line 1.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\setbox' on input line 1.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\tw@' on input line 1.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\hbox' on input line 1.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 1.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\mathsurround' on input line 1.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\z@' on input line 1.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 1.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 1.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\mathsurround' on input line 1.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\z@' on input line 1.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 1.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\<def>-command' on input line 1.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\@tempa' on input line 1.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\mathchoice' on input line 1.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\hbox' on input line 1.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 1.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\mathsurround' on input line 1.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\z@' on input line 1.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\displaystyle' on input line 1.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 1.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\hbox' on input line 1.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 1.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\mathsurround' on input line 1.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\z@' on input line 1.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\textstyle' on input line 1.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 1.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\hbox' on input line 1.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 1.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\mathsurround' on input line 1.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\z@' on input line 1.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\scriptstyle' on input line 1.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 1.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\hbox' on input line 1.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 1.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\mathsurround' on input line 1.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\z@' on input line 1.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\scriptscriptstyle' on input line 1.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 1.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\endgroup' on input line 1.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `superscript' on input line 1.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 1.
-
-(./slide.toc) [13
+] [13
 
 ] [14
 
@@ -3586,13 +3118,27 @@ Package hyperref Warning: Token not allowed in a PDF string (Unicode):
 
 ] [16
 
-] [17
+]
+LaTeX Font Info:    Font shape `FMX/futm/m/n' will be
+(Font)              scaled to size 7.35999pt on input line 290.
+LaTeX Font Info:    Font shape `FMX/futm/m/n' will be
+(Font)              scaled to size 6.25598pt on input line 290.
+LaTeX Font Info:    Font shape `MDA/mdbch/b/n' will be
+(Font)              scaled to size 7.68005pt on input line 290.
+LaTeX Font Info:    Font shape `MDA/mdbch/b/n' will be
+(Font)              scaled to size 6.52805pt on input line 290.
+LaTeX Font Info:    Font shape `U/futm/m/n' will be
+(Font)              scaled to size 7.35999pt on input line 290.
+LaTeX Font Info:    Font shape `U/futm/m/n' will be
+(Font)              scaled to size 6.25598pt on input line 290.
+ [17
 
 ] [18
 
 ] [19
 
-] [20
+]
+[20
 
 ] [21
 
@@ -3602,10 +3148,9 @@ Package hyperref Warning: Token not allowed in a PDF string (Unicode):
 
 ] [24
 
-]
-[25
+] [25
 
-]) (./slide/slide02_2.tex (./slide.toc) [26
+] [26
 
 ] [27
 
@@ -3617,14 +3162,14 @@ Package hyperref Warning: Token not allowed in a PDF string (Unicode):
 
 ] [31
 
-])
-(./slide/slide02_3.tex (./slide.toc) [32
+] [32
 
 ] [33
 
 ] [34
 
-] [35
+]
+[35
 
 ] [36
 
@@ -3632,8 +3177,7 @@ Package hyperref Warning: Token not allowed in a PDF string (Unicode):
 
 ] [38
 
-]
-[39
+] [39
 
 ] [40
 
@@ -3655,7 +3199,8 @@ Package hyperref Warning: Token not allowed in a PDF string (Unicode):
 
 ] [49
 
-] [50
+]
+[50
 
 ] [51
 
@@ -3663,8 +3208,7 @@ Package hyperref Warning: Token not allowed in a PDF string (Unicode):
 
 ] [53
 
-]
-[54
+] [54
 
 ] [55
 
@@ -3678,8 +3222,7 @@ Package hyperref Warning: Token not allowed in a PDF string (Unicode):
 
 ] [60
 
-]) (./slide/slide02_4.tex (./slide.toc)
-[61
+] [61
 
 ] [62
 
@@ -3687,14 +3230,14 @@ Package hyperref Warning: Token not allowed in a PDF string (Unicode):
 
 ] [64
 
-] [65
+]
+[65
 
 ] [66
 
 ] [67
 
-])) (./slide/slide03.tex (./slide.toc)
-[68
+] [68
 
 ] [69
 
@@ -3702,20 +3245,7 @@ Package hyperref Warning: Token not allowed in a PDF string (Unicode):
 
 ] [71
 
-]
-LaTeX Font Info:    Font shape `FMX/futm/m/n' will be
-(Font)              scaled to size 7.35999pt on input line 49.
-LaTeX Font Info:    Font shape `FMX/futm/m/n' will be
-(Font)              scaled to size 6.25598pt on input line 49.
-LaTeX Font Info:    Font shape `MDA/mdbch/b/n' will be
-(Font)              scaled to size 7.68005pt on input line 49.
-LaTeX Font Info:    Font shape `MDA/mdbch/b/n' will be
-(Font)              scaled to size 6.52805pt on input line 49.
-LaTeX Font Info:    Font shape `U/futm/m/n' will be
-(Font)              scaled to size 7.35999pt on input line 49.
-LaTeX Font Info:    Font shape `U/futm/m/n' will be
-(Font)              scaled to size 6.25598pt on input line 49.
- [72
+] [72
 
 ] [73
 
@@ -3731,16 +3261,18 @@ LaTeX Font Info:    Font shape `U/futm/m/n' will be
 
 ] [79
 
-] [80
+]
+[80
 
 ] [81
 
 ] [82
 
-]
-[83
+] (./slide.toc) [83
 
-] [84
+]
+Missing character: There is no • in font ec-lmss9!
+ [84
 
 ] [85
 
@@ -3748,18 +3280,18 @@ LaTeX Font Info:    Font shape `U/futm/m/n' will be
 
 ] [87
 
-]) (./slide/slide04.tex (./slide.toc) [88
+] [88
 
 ] [89
 
 ] [90
 
-]
-[91
+] [91
 
-] [92
+])
+(./slide/ch05.tex (./slide.toc) [92
 
-] [93
+] (./slide.toc) [93
 
 ] [94
 
@@ -3769,9 +3301,12 @@ LaTeX Font Info:    Font shape `U/futm/m/n' will be
 
 ] [97
 
-] [98
+]
+[98
 
-] [99
+]
+Missing character: There is no • in font ec-lmss9!
+ [99
 
 ] [100
 
@@ -3783,20 +3318,24 @@ LaTeX Font Info:    Font shape `U/futm/m/n' will be
 
 ] [104
 
-]
-[105
+] [105
 
 ] [106
 
 ] [107
 
-] [108
+]
+Missing character: There is no • in font ec-lmss9!
+ [108
 
-] [109
+]
+Missing character: There is no • in font ec-lmss9!
+ [109
 
 ] [110
 
-] [111
+]
+[111
 
 ] [112
 
@@ -3809,7 +3348,8 @@ LaTeX Font Info:    Font shape `U/futm/m/n' will be
 ] [116
 
 ]
-[117
+Missing character: There is no • in font ec-lmss9!
+ [117
 
 ] [118
 
@@ -3821,7 +3361,8 @@ LaTeX Font Info:    Font shape `U/futm/m/n' will be
 
 ] [122
 
-] [123
+]
+[123
 
 ] [124
 
@@ -3829,29 +3370,42 @@ LaTeX Font Info:    Font shape `U/futm/m/n' will be
 
 ] [126
 
-] [127
+] (./slide.toc) [127
 
-])
-(./slide/slide05.tex (./slide.toc) [128
+] [128
 
 ] [129
 
 ] [130
 
-] [131
-
-] [132
-
-] [133
-
-] [134
+]
+Missing character: There is no • in font ec-lmss9!
+ [131
 
 ]
-[135
+Missing character: There is no • in font ec-lmss9!
+ [132
 
-] [136
+]
+Missing character: There is no • in font ec-lmss9!
 
-] [137
+[133
+
+]
+Missing character: There is no • in font ec-lmss9!
+ [134
+
+]
+Missing character: There is no • in font ec-lmss9!
+ [135
+
+]
+Missing character: There is no • in font ec-lmss9!
+ [136
+
+]
+Missing character: There is no • in font ec-lmss9!
+ [137
 
 ] [138
 
@@ -3859,9 +3413,9 @@ LaTeX Font Info:    Font shape `U/futm/m/n' will be
 
 ] [140
 
-] [141
+]) (./slide/ch06.tex (./slide.toc) [141
 
-] [142
+] (./slide.toc) [142
 
 ] [143
 
@@ -3871,8 +3425,7 @@ LaTeX Font Info:    Font shape `U/futm/m/n' will be
 
 ] [146
 
-]
-[147
+] [147
 
 ] [148
 
@@ -3880,7 +3433,8 @@ LaTeX Font Info:    Font shape `U/futm/m/n' will be
 
 ] [150
 
-] [151
+]
+[151
 
 ] [152
 
@@ -3896,8 +3450,7 @@ LaTeX Font Info:    Font shape `U/futm/m/n' will be
 
 ] [158
 
-]
-[159
+] [159
 
 ] [160
 
@@ -3905,7 +3458,8 @@ LaTeX Font Info:    Font shape `U/futm/m/n' will be
 
 ] [162
 
-] [163
+]
+[163
 
 ] [164
 
@@ -3913,218 +3467,63 @@ LaTeX Font Info:    Font shape `U/futm/m/n' will be
 
 ] [166
 
-]) (./slide/slide06.tex
-(./slide.toc) [167
+] [167
 
 ] [168
 
-] [169
+] (./slide.toc) [169
 
 ] [170
 
-] [171
+]
+Missing character: There is no • in font ec-lmss9!
+ [171
 
 ] [172
 
-] [173
-
-] [174
-
-] [175
-
-] [176
+]
+[173
 
 ]
-[177
+Missing character: There is no • in font ec-lmss9!
+ [174
+
+]
+Missing character: There is no • in font ec-lmss9!
+ [175
+
+]
+Missing character: There is no • in font ec-lmss9!
+ [176
+
+]
+Missing character: There is no • in font ec-lmss9!
+ [177
 
 ] [178
 
-] (./slide/slide06_1.tex (./slide.toc) [179
+]
+Missing character: There is no • in font ec-lmss9!
+ [179
 
 ] [180
 
-] [181
+]
+Missing character: There is no • in font ec-lmss9!
+ [181
 
 ] [182
 
-]
-[183
+] [183
 
 ] [184
 
-] [185
+]
+[185
 
 ] [186
 
-] [187
-
-] [188
-
-] [189
-
-] [190
-
-] [191
-
-] [192
-
 ])
-(./slide/slide06_2.tex (./slide.toc) [193
-
-] [194
-
-] [195
-
-] [196
-
-] [197
-
-] [198
-
-]
-[199
-
-]
-Overfull \vbox (11.71959pt too high) detected at line 102
- []
-
-[200
-
-]
-Overfull \vbox (11.71959pt too high) detected at line 102
- []
-
-[201
-
-] [202
-
-] [203
-
-] [204
-
-] [205
-
-] [206
-
-] [207
-
-] [208
-
-] [209
-
-] [210
-
-] [211
-
-] [212
-
-]
-[213
-
-] [214
-
-] [215
-
-] [216
-
-] [217
-
-] [218
-
-] [219
-
-]
-Overfull \hbox (4.45325pt too wide) detected at line 463
-[][]
- []
-
-[220
-
-]
-Overfull \hbox (4.45325pt too wide) detected at line 463
-[][]
- []
-
-[221
-
-]
-Overfull \hbox (4.45325pt too wide) detected at line 463
-[][]
- []
-
-[222
-
-]
-Overfull \hbox (4.45325pt too wide) detected at line 463
-[][]
- []
-
-[223
-
-] [224
-
-]) (./slide/slide06_3.tex (./slide.toc) [225
-
-] [226
-
-] [227
-
-] [228
-
-]
-[229
-
-] [230
-
-] [231
-
-]) (./slide/slide06_4.tex (./slide.toc) [232
-
-] [233
-
-] [234
-
-]
-[235
-
-] [236
-
-] [237
-
-] [238
-
-] [239
-
-] [240
-
-] [241
-
-] [242
-
-] [243
-
-] [244
-
-] [245
-
-] [246
-
-]
-[247
-
-] [248
-
-] [249
-
-] [250
-
-] [251
-
-] [252
-
-] [253
-
-]))
 \tf@nav=\write8
 \openout8 = `slide.nav'.
 
@@ -4141,12 +3540,12 @@ Package atveryend Info: Empty hook `AtVeryEndDocument' on input line 56.
 Package atveryend Info: Empty hook `AtEndAfterFileList' on input line 56.
  ) 
 Here is how much of TeX's memory you used:
- 51545 strings out of 493005
- 1094457 string characters out of 6134597
- 1329107 words of memory out of 5000000
- 54508 multiletter control sequences out of 15000+600000
- 116771 words of font info for 122 fonts, out of 8000000 for 9000
+ 51456 strings out of 493005
+ 1091977 string characters out of 6134597
+ 1331993 words of memory out of 5000000
+ 54462 multiletter control sequences out of 15000+600000
+ 102182 words of font info for 108 fonts, out of 8000000 for 9000
  1348 hyphenation exceptions out of 8191
  71i,19n,106p,10445b,647s stack positions out of 5000i,500n,10000p,200000b,80000s
 
-Output written on slide.pdf (253 pages).
+Output written on slide.pdf (186 pages).

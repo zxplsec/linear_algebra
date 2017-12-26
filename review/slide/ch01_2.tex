@@ -1,0 +1,483 @@
+\subsection{往年试题}
+
+
+
+\begin{frame}
+  \begin{footnotesize}
+    \begin{exampleblock}{例1\quad 2005－2006第二学期}
+      设$\A=\left(
+      \begin{array}{rrrr}
+        1&2&-3&-1\\
+        1&-2&1&1\\
+        0&1&-1&2\\
+        3&0&2&4
+      \end{array}
+      \right)$，求$|\A\A^T|$。
+    \end{exampleblock}
+    \pause\jiename
+    因
+    $\red{
+    |\A\A^T|=|\A|~|\A^T|=|\A|^2}
+    $，而
+    $$
+    \begin{array}{rl}
+      |\A|&=\left|
+      \begin{array}{rrrr}
+        1&2&-3&-1\\
+        0&-4&4&2\\
+        0&1&-1&2\\
+        0&-6&11&7
+      \end{array}
+      \right|=\left|
+      \begin{array}{rrr}
+        -4&4&2\\
+        1&-1&2\\
+        -6&11&7
+      \end{array}
+      \right|\\[0.3in]
+      &=\left|
+      \begin{array}{rrr}
+        -4&0&2\\
+        1&0&2\\
+        -6&5&7
+      \end{array}
+      \right|=-5\left|
+      \begin{array}{rrr}
+        -4&2\\
+        1&2\\
+      \end{array}
+      \right|=50
+    \end{array}
+    $$
+    故$$|\A\A^T|=2500$$
+  \end{footnotesize}
+\end{frame}
+
+
+\begin{frame}
+  \begin{footnotesize}
+    \begin{exampleblock}{例2\quad2009－2010第二学期}
+      设$\A=\left(
+      \begin{array}{rrr}
+        1&2&3\\
+        4&5&6\\
+        7&8&9\\
+        10&11&12
+      \end{array}
+      \right)$，求$|\A\A^T|$。
+    \end{exampleblock}
+    \pause\jiename
+    因$\red{\rr(\A\A^T)\le \rr(\A)\le 3}$，故$\A\A^T$为降秩矩阵，从而$|\A\A^T|=0$。
+  \end{footnotesize}
+\end{frame}
+
+
+\begin{frame}
+  \begin{footnotesize}
+    \begin{exampleblock}{例3\quad2006－2007第一学期}
+      设$\A=(a_{ij})$为$2007$阶方阵，其中$a_{ij}=i-j$，求$|\A|$
+    \end{exampleblock}
+    \pause\jiename
+    注意到
+    $$
+    a_{ij}=i-j=-(j-i)=-a_{ji},
+    $$
+    故$\A$为反对称矩阵，由\red{奇数阶反对称矩阵的行列式为零}可知，$$|\A|=0.$$
+  \end{footnotesize}
+\end{frame}
+
+
+
+\begin{frame}
+  \begin{footnotesize}
+    \begin{exampleblock}{例4\quad2006－2007第二学期}
+      计算
+      $$
+      D=\left|
+      \begin{array}{rrrrrr}
+        1&2&3&\cd&n-1&n\\
+        -1&0&3&\cd&n-1&n\\
+        -1&-2&0&\cd&n-1&n\\
+        \vd&\vd&\vd&\dd&\vd&\vd\\
+        -1&-2&-3&\cd&-(n-1)&0
+      \end{array}
+      \right|~~(n\ge 1)
+      $$
+    \end{exampleblock}
+    \pause \jiename
+    $$
+    D\xlongequal[\ds i=2,\cd,n]{\ds r_i+r_1}\left|
+      \begin{array}{rrrrrr}
+        1&2&3&\cd&n-1&n\\
+        0&2&6&\cd&2(n-1)&2n\\
+        0&0&3&\cd&2(n-1)&2n\\
+        \vd&\vd&\vd&\dd&\vd&\vd\\
+        0&0&0&\cd&0&n
+      \end{array}
+      \right|=n!
+    $$
+  \end{footnotesize}
+\end{frame}
+
+\begin{frame}
+  \begin{footnotesize}
+    \begin{exampleblock}{例5\quad2006－2007第二学期}
+      计算
+      $$
+      D=\left|
+      \begin{array}{rrrrrr}
+        1&2&3&\cd&n-1&n\\
+        2&3&4&\cd&n&n+1\\
+        3&4&5&\cd&n+1&n+2\\
+        \vd&\vd&\vd&\dd&\vd&\vd\\
+        n&n+1&n+2&\cd&2n-2&2n-1
+      \end{array}
+      \right|
+      $$
+    \end{exampleblock}
+    \pause\jiename
+    $$
+    \begin{array}{rl}
+      D&\xlongequal[i=n,n-1,\cd,2]{\ds r_{i}-r_{i-1}}\left|
+      \begin{array}{rrrrrr}
+        1&2&3&\cd&n-1&n\\
+        1&1&1&\cd&1&1\\
+        1&1&1&\cd&1&1\\
+        \vd&\vd&\vd&\dd&\vd&\vd\\
+        1&1&1&\cd&1&1
+      \end{array}
+      \right|=0
+    \end{array}
+    $$
+
+  \end{footnotesize}
+\end{frame}
+
+
+\begin{frame}
+  \begin{footnotesize}
+    \begin{exampleblock}{例6\quad2007－2008第一学期，2010－2011第二学期，2011－2012第一学期}
+      计算
+      $
+      D=\left|
+      \begin{array}{rrrrr}
+        x+a_1&a_2&a_3&\cd&a_n\\
+        a_1&x+a_2&a_3&\cd&a_n\\
+        a_1&a_2&x+a_3&\cd&a_n\\
+        \vd&\vd&\vd&\dd&\vd\\
+        a_1&a_2&a_3&\cd&x+a_n
+      \end{array}
+      \right|
+      $
+    \end{exampleblock}
+    \end{footnotesize}
+
+  \begin{tiny}
+    \pause\jiename（加边法）
+    \begin{itemize}
+    \item 当$x=0$时，$D=0$
+    \item 当$x\ne 0$时，
+      $$
+    \begin{array}{rl}
+            D&=\left|
+      \begin{array}{rrrrrr}
+        1&a_1&a_2&a_3&\cd&a_n\\
+        0&x+a_1&a_2&a_3&\cd&a_n\\
+        0&a_1&x+a_2&a_3&\cd&a_n\\
+        0&a_1&a_2&x+a_3&\cd&a_n\\
+        \vd&\vd&\vd&\vd&\dd&\vd\\
+        0&a_1&a_2&a_3&\cd&x+a_n
+      \end{array}      \right|=\left|
+      \begin{array}{rrrrrr}
+        1&a_1&a_2&a_3&\cd&a_n\\
+        -1&x&0&0&\cd&0\\
+        -1&0&x&0&\cd&0\\
+        -1&0&0&x&\cd&0\\
+        \vd&\vd&\vd&\vd&\dd&\vd\\
+        -1&0&0&0&\cd&x
+      \end{array}
+      \right|\\[0.4in]
+      &\xlongequal[]{r_1-\frac{a_1}xr_2-\cd--\frac{a_n}xr_{n+1}}
+      \left|
+      \begin{array}{rrrrrr}
+        1+\frac{a_1+a_2+\cd+a_n}x&0&0&0&\cd&0\\
+        -1&x&0&0&\cd&0\\
+        -1&0&x&0&\cd&0\\
+        -1&0&0&x&\cd&0\\
+        \vd&\vd&\vd&\vd&\dd&\vd\\
+        -1&0&0&0&\cd&x
+      \end{array}
+      \right|=\ds x^{n-1}(x+\sum_{i=1}^na_i)
+    \end{array}
+      $$
+    \end{itemize}
+  \end{tiny}
+\end{frame}
+
+
+\begin{frame}
+  \begin{footnotesize}
+    \begin{exampleblock}{例7\quad2008－2009第一学期}
+      计算$
+      D=\left|
+      \begin{array}{ccccc}
+        a_1-b&a_2&a_3&\cd&a_n\\
+        a_1&a_2-b&a_3&\cd&a_n\\
+        a_1&a_2&a_3-b&\cd&a_n\\
+        \vd&\vd&\vd&\dd&\vd\\
+        a_1&a_2&a_3&\cd&a_n-b
+      \end{array}
+      \right|
+      $
+    \end{exampleblock}
+  \end{footnotesize}
+\end{frame}
+
+\begin{frame}
+  \begin{footnotesize}
+    \begin{exampleblock}{例8\quad2011－2012第二学期}
+      计算
+      $
+      D=\left|
+      \begin{array}{cccccc}
+        x&1&2&\cd&8&9\\
+        1&x&2&\cd&8&9\\
+        1&2&x&\cd&8&9\\
+        \vd&\vd&\vd&\dd&\vd&\vd\\
+        1&2&3&\cd&x&9\\
+        1&2&3&\cd&9&x
+      \end{array}
+      \right|
+      $
+    \end{exampleblock}
+    \end{footnotesize}
+  \begin{tiny}
+    \pause\jiename
+    $$
+    \begin{array}{rl}
+      D&=(x+45)\left|
+    \begin{array}{cccccc}
+      1&1&2&\cd&8&9\\
+      1&x&2&\cd&8&9\\
+      1&2&x&\cd&8&9\\
+      \vd&\vd&\vd&\dd&\vd&\vd\\
+      1&2&3&\cd&x&9\\
+      1&2&3&\cd&9&x
+      \end{array}
+    \right|=(x+45)\left|
+    \begin{array}{cccccc}
+      1&1&2&\cd&8&9\\
+      0&x-1&0&\cd&0&0\\
+      0&1&x-2&\cd&0&0\\
+      \vd&\vd&\vd&\dd&\vd&\vd\\
+      0&1&1&\cd&x-8&0\\
+      0&1&1&\cd&1&x-9
+      \end{array}
+    \right|\\[0.4in]
+    &=(x+45)\left|
+    \begin{array}{cccccc}      
+      x-1&0&\cd&0&0\\
+      1&x-2&\cd&0&0\\
+      \vd&\vd&\dd&\vd&\vd\\
+      1&1&\cd&x-8&0\\
+      1&1&\cd&1&x-9
+      \end{array}
+    \right|=(x+45)(x-1)(x-2)\cd(x-9)
+    \end{array}
+    $$
+  \end{tiny}
+\end{frame}
+
+\begin{frame}
+  \begin{footnotesize}
+    \begin{exampleblock}{例9\quad2012－2013第二学期}
+      计算
+      $$
+      \left|
+      \begin{array}{ccccc}
+        4&3&\cd&3&3\\
+        3&4&\cd&3&3\\
+        \vd&\vd&\dd&\vd&\vd\\
+        3&3&\cd&4&3\\
+        3&3&\cd&3&4
+      \end{array}
+      \right|
+      $$
+    \end{exampleblock}
+    \pause\jiename
+      可用加边法
+
+  \end{footnotesize}
+\end{frame}
+
+
+\begin{frame}
+  \begin{footnotesize}
+    \begin{exampleblock}{例10\quad2007－2008第一学期，2010－2011第一学期}
+      设$\alphabd_1,\alphabd_2,\alphabd_3,\betabd_1,\betabd_2$都是四维列向量，且四阶行列式
+      $$
+      |\alphabd_1,\alphabd_2,\alphabd_3,\betabd_1|=m,~~
+      |\alphabd_1,\alphabd_2,\betabd_2,\alphabd_3|=n,      
+      $$
+      求四阶行列式$|\alphabd_1,\alphabd_2,\alphabd_3,\betabd_1+\betabd_2|$
+    \end{exampleblock}
+    \pause\jiename
+    $$
+    \begin{array}{rl}
+      |\alphabd_1,\alphabd_2,\alphabd_3,\betabd_1+\betabd_2|&=
+      |\alphabd_1,\alphabd_2,\alphabd_3,\betabd_1|+
+      |\alphabd_1,\alphabd_2,\alphabd_3,\betabd_2|\\[0.1in]
+      &=
+      |\alphabd_1,\alphabd_2,\alphabd_3,\betabd_1|-
+      |\alphabd_1,\alphabd_2,\betabd_2,\alphabd_3|=m-n
+    \end{array}
+    $$
+  \end{footnotesize}
+\end{frame}
+
+
+\begin{frame}
+  \begin{footnotesize}
+    \begin{exampleblock}{例11\quad2007－2008第二学期}
+      设$\alphabd_1,\alphabd_2,\alphabd_3$都是三维列向量，记三阶矩阵
+      $$
+      \A=(\alphabd_1,\alphabd_2,\alphabd_3),~~
+      \B=(\alphabd_1+\alphabd_2+\alphabd_3,\alphabd_1+2\alphabd_2+4\alphabd_3,\alphabd_1+3\alphabd_2+9\alphabd_3),
+      $$已知$|\A|=1$，求$|\B|$。
+    \end{exampleblock}
+    \pause\jiename
+    因
+    $$
+    \B=(\alphabd_1,\alphabd_2,\alphabd_3)\left(
+    \begin{array}{ccc}
+      1&1&1\\
+      1&2&3\\
+      1&4&9
+    \end{array}
+    \right)=\A\left(
+    \begin{array}{ccc}
+      1&1&1\\
+      1&2&3\\
+      1&4&9
+    \end{array}
+    \right)
+    $$
+    而
+    $$
+    \left|
+    \begin{array}{ccc}
+      1&1&1\\
+      1&2&3\\
+      1&4&9
+    \end{array}
+    \right|=\left|
+    \begin{array}{ccc}
+      1&1&1\\
+      0&1&2\\
+      0&3&8
+    \end{array}
+    \right|=\left|
+    \begin{array}{ccc}
+      1&1&1\\
+      0&1&2\\
+      0&0&2
+    \end{array}
+    \right|=2    
+    $$
+    故$$|\B|=2|\A|=2.$$
+  \end{footnotesize}
+\end{frame}
+
+
+\begin{frame}
+  \begin{footnotesize}
+    \begin{exampleblock}{例12\quad2008－2009第一学期}
+      计算
+      $
+      D=\left|
+      \begin{array}{rrr}
+        -ab&ac&ae\\
+        bd&-cd&de\\
+        bf&cf&-cf
+      \end{array}
+      \right|
+      $
+    \end{exampleblock}
+    \pause\jiename
+    $$
+    \begin{array}{rl}
+    D&=adf\left|
+      \begin{array}{rrr}
+        -b&c&e\\
+        b&-c&e\\
+        b&c&-c
+      \end{array}
+      \right|=adf\left|
+      \begin{array}{rrr}
+        -b&c&e\\
+        0&0&2e\\
+        0&2c&e-c
+      \end{array}
+      \right|\\[0.2in]
+      &=-adf\left|
+      \begin{array}{rrr}
+        -b&c&e\\
+        0&2c&e-c\\
+        0&0&2e
+      \end{array}
+      \right|  
+      =-adf\cdot(-b)\cdot 2c \cdot 2e=4abcdef
+    \end{array}
+    $$
+  \end{footnotesize}
+\end{frame}
+
+
+
+
+\begin{frame}
+  \begin{footnotesize}
+    \begin{exampleblock}{例13\quad2012－2013第二学期}
+      计算
+      $
+      D=\left|
+      \begin{array}{rrrr}
+        1&2&0&0\\
+        -1&1&0&0\\
+        0&-1&-2&4\\
+        0&0&-1&-3
+      \end{array}
+      \right|
+      $
+    \end{exampleblock}
+    \pause\jiename
+    $$
+    D=\left|
+    \begin{array}{rr}
+      1&2\\
+      -1&1
+    \end{array}
+    \right|\left|
+    \begin{array}{rr}
+      -2&4\\
+      -1&-3
+    \end{array}
+    \right|=3\cdot10=30
+    $$
+  \end{footnotesize}
+\end{frame}
+
+
+\begin{frame}
+  \begin{footnotesize}
+    \begin{exampleblock}{例14\quad2013－2014第一学期}
+      在$n$阶行列式$D$中，如果把第一列移到最后一列，而其余各列保持原来次序各向左移动了一列，得到行列式$\Delta$，问$\Delta$与$D$有何关系？
+    \end{exampleblock}
+    \pause\jiename
+    $$
+    \Delta=(-1)^{n-1}D
+    $$
+  \end{footnotesize}
+\end{frame}
+
+

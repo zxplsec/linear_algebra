@@ -1,0 +1,1817 @@
+\section{向量空间与线性变换}
+\subsection{知识点}
+\begin{frame}\ft{基与坐标}
+  
+  \begin{dingyi}[$\mathbb R^n$的基与向量关于基的坐标]
+    设有序向量组$B=(\betabd_1,\betabd_2,\cd,\betabd_n)\subset\mathbb R^n$，如果$B$线性无关，
+    则$\mathbb R^n$中任一向量$\alphabd$均可由$B$线性表示，即
+    $$
+    \alphabd=a_1\betabd_1+a_2\betabd_2+\cd+a_n\betabd_n,
+    $$
+    称$B$为$\mathbb R^n$的一组基，有序数组$(a_1,a_2,\cd,a_n)$是向量$\alphabd$在基$B$下的坐标，记作
+    $$
+    \alphabd_B=(a_1,a_2,\cd,a_n)\mbox{~~或~~}\alphabd_B=(a_1,a_2,\cd,a_n)^T
+    $$
+    并称之为$\alphabd$的坐标向量。
+  \end{dingyi}
+  
+  $$
+  \alphabd=(\betabd_1,\betabd_2,\cd,\betabd_n)\left(
+    \begin{array}{c}
+      a_1\\
+      a_2\\
+      \vd\\
+      a_n
+    \end{array}
+  \right)
+  $$
+  
+\end{frame}
+
+\begin{frame}\ft{基与坐标}
+  
+  \begin{dingli}
+    设$B=\{\alphabd_1,\alphabd_2,\cd,\alphabd_n\}$是$\mathbb R^n$的一组基，且
+    $$
+    \left\{
+      \begin{array}{l}
+        \etabd_1=a_{11}\alphabd_1+a_{21}\alphabd_2+\cd+a_{n1}\alphabd_n,\\[0.2cm]
+        \etabd_2=a_{12}\alphabd_1+a_{22}\alphabd_2+\cd+a_{n2}\alphabd_n,\\[0.2cm]
+        \cd\cd\\[0.2cm]
+        \etabd_n=a_{1n}\alphabd_1+a_{2n}\alphabd_2+\cd+a_{nn}\alphabd_n.
+      \end{array}
+    \right.
+    $$
+    则$\etabd_1,\etabd_2,\cd,\etabd_n$线性无关的充要条件是
+    $$
+    \mathrm{det}\MA=\left|
+      \begin{array}{cccc}
+        a_{11}&a_{12}&\cd&a_{1n}\\
+        a_{21}&a_{22}&\cd&a_{2n}\\
+        \vd&\vd&&\vd\\
+        a_{n1}&a_{n2}&\cd&a_{nn}
+      \end{array}
+    \right|\ne 0.
+    $$
+  \end{dingli}
+  
+\end{frame}
+
+
+\begin{frame}\ft{基与坐标}
+  
+  设$\mathbb R^n$的两组基$B_1=\{\alphabd_1,\alphabd_2,\cd,\alphabd_n\}$和$B_2=\{\etabd_1,\etabd_2,\cd,\etabd_n\}$满足关系式
+  $$\red{
+    (\etabd_1,\etabd_2,\cd,\etabd_n)=(\alphabd_1,\alphabd_2,\cd,\alphabd_n)\left(
+      \begin{array}{cccc}
+        a_{11}&a_{12}&\cd&a_{1n}\\
+        a_{21}&a_{22}&\cd&a_{2n}\\
+        \vd&\vd&&\vd\\
+        a_{n1}&a_{n2}&\cd&a_{nn}
+      \end{array}
+    \right)}
+  $$
+  则矩阵
+  $$\blue{
+    \MA=\left(
+      \begin{array}{cccc}
+        a_{11}&a_{12}&\cd&a_{1n}\\
+        a_{21}&a_{22}&\cd&a_{2n}\\
+        \vd&\vd&&\vd\\
+        a_{n1}&a_{n2}&\cd&a_{nn}
+      \end{array}
+    \right)}
+  $$
+  称为\purple{由旧基$B_1$到新基$B_2$的过渡矩阵}。
+  
+\end{frame}
+
+\begin{frame}\ft{基与坐标}
+  
+  \begin{dingli}
+    设$\alphabd$在两组基$B_1=\{\alphabd_1,\alphabd_2,\cd,\alphabd_n\}$与$B_2=\{\etabd_1,\etabd_2,\cd,\etabd_n\}$的坐标分别为
+    $$
+    \vx=(x_1,x_2,\cd,x_n)^T\mbox{~~和~~}\vy=(y_1,y_2,\cd,y_n)^T
+    $$
+    基$B_1$到$B_2$的过渡矩阵为$\MA$，则
+    $$\red{
+      \MA\vy=\vx\mbox{~~或~~}\vy=\MA^{-1}\vx
+    }
+    $$
+  \end{dingli}
+  
+\end{frame}
+
+
+\begin{frame}\ft{基与坐标}
+  
+  \begin{li}
+    已知$\mathbb R^3$的一组基为$B_2=\{\betabd_1,\betabd_2,\betabd_3\}$，其中
+    $$\betabd_1=(1,2,1)^T,\betabd_2=(1,-1,0)^T,\betabd_3=(1,0,-1)^T,$$
+    求自然基$B_1$到$B_2$的过渡矩阵。
+  \end{li}
+  
+\end{frame}
+
+
+\begin{frame}\ft{基与坐标}
+  
+  \begin{li}
+    已知$\mathbb R^3$的两组基为$B_1=\{\alphabd_1,\alphabd_2,\alphabd_3\}$和$B_2=\{\betabd_1,\betabd_2,\betabd_3\}$，
+    其中
+    $$
+    \begin{array}{lll}
+      \alphabd_1=(1,1,1)^T,&\alphabd_2=(0,1,1)^T,&\alphabd_3=(0,0,1)^T, \\[0.2cm]
+      \betabd_1=(1,0,1)^T,&\betabd_2=(0,1,-1)^T,&\betabd_3=(1,2,0)^T.  
+    \end{array}
+    $$
+    \begin{itemize}
+    \item[(1)] 求基$B_1$到$B_2$的过渡矩阵。
+    \item[(2)] 已知$\alpha$在基$B_1$的坐标为$(1,-2,-1)^T$，求$\alphabd$在基$B_2$下的坐标。
+    \end{itemize}
+    
+  \end{li}
+  
+\end{frame}
+
+
+
+\begin{frame}\ft{内积}
+  
+  \begin{dingyi}[内积]
+    在$\mathbb R^n$中，对于$\alphabd=(a_1,a_2,\cd,a_n)^T$和$\betabd=(b_1,b_2,\cd,b_n)^T$，规定$\alphabd$和$\betabd$的内积为 
+    $$
+    (\alphabd,\betabd)=a_1b_1+a_2b_2+\cd+a_nb_n.
+    $$
+  \end{dingyi}
+  当$\alphabd$和$\betabd$为列向量时，
+  $$
+  (\alphabd,\betabd)=\alphabd^T\betabd=\betabd^T\alphabd.
+  $$
+  
+\end{frame}
+
+\begin{frame}\ft{内积}
+  
+  \begin{xingzhi}
+    对于$\alphabd,\betabd,\gammabd\in\mathbb R^n$和$k\in\mathbb R$，
+    \begin{itemize}
+    \item[(i)]   $(\alphabd,\betabd)=(\betabd,\alphabd)$
+    \item[(ii)]  $(\alphabd+\betabd,\gammabd)=(\alphabd,\gammabd)+(\betabd,\gammabd)$
+    \item[(iii)] $(k\alphabd,\betabd)=k(\alphabd,\betabd)$
+    \item[(iv)]  $(\alphabd,\alphabd)\ge0$， 等号成立当且仅当$\alphabd=\M0$.
+    \end{itemize}
+  \end{xingzhi}
+  
+  \begin{dingyi}[向量长度]
+    向量$\alphabd$的长度定义为
+    $$
+    \|\alphabd\|=\sqrt{(\alphabd,\alphabd)}
+    $$
+  \end{dingyi}
+  
+\end{frame}
+
+
+\begin{frame}\ft{内积}
+  
+  \begin{dingli}[柯西-施瓦茨(Cauchy-Schwarz)不等式]
+    $$
+    |(\alphabd,\betabd)|\le\|\alphabd\|\|\betabd\|
+    $$
+  \end{dingli}  
+
+  \begin{dingyi}[向量之间的夹角]
+    向量$\alphabd,\betabd$之间的夹角定义为
+    $$
+    <\alphabd,\betabd>=\arccos\frac{(\alphabd,\betabd)}{\|\alphabd\|\|\betabd\||}
+    $$
+  \end{dingyi}  
+  
+  \begin{dingli}
+    $$\alphabd\perp\betabd ~~\Longleftrightarrow~~
+    (\alphabd,\betabd)=0
+    $$
+  \end{dingli}  
+
+
+  \begin{dingli}[三角不等式]
+    $$
+    \|\alphabd+\betabd\|\le\|\alphabd\|+\|\betabd\|.
+    $$
+  \end{dingli}
+  
+  
+\end{frame}
+
+
+
+\begin{frame}\ft{标准正交基}
+  
+  \begin{dingli}
+    $\mathbb R^n$中两两正交且不含零向量的向量组$\alphabd_1,\alphabd_2,\cd,\alphabd_s$是线性无关的。
+  \end{dingli}  \vspace{.15in}
+  
+  \begin{dingyi}[标准正交基]
+    设$\alphabd_1,\alphabd_2,\cd,\alphabd_n\in \mathbb R^n$，若
+    $$
+    (\alphabd_i,\alphabd_j)=\delta_{ij}=\left\{
+      \begin{array}{ll}
+        1,& i=j,\\
+        0,& i\ne j.
+      \end{array}
+    \right. \quad i,j=1,2,\cd,n.
+    $$
+    则称$\{\alphabd_1,\alphabd_2,\cd,\alphabd_n\}$是$\mathbb R^n$中的一组标准正交基。
+  \end{dingyi}
+  
+\end{frame}
+
+
+\begin{frame}\ft{标准正交基}
+  
+  \begin{li}
+    设$B=(\alphabd_1,\alphabd_2,\cd,\alphabd_n)$是$\mathbb R^n$中的一组标准正交基，求$\mathbb R^n$中向量$\betabd$在基$B$下的坐标。
+  \end{li}
+  \begin{jie}
+    $$
+    \begin{array}{rl}
+      & \betabd=x_1\alphabd_1+x_2\alphabd_2+\cd+x_n\alphabd_n\\[0.1in]
+      \Longrightarrow&   (\betabd,\alphabd_j)=(x_1\alphabd_1+x_2\alphabd_2+\cd+x_n\alphabd_n,\alphabd_j)=x_j(\alphabd_j,\alphabd_j)\\[0.1in]
+      \Longrightarrow& \ds x_j =  (\betabd,\alphabd_j) 
+    \end{array}
+    $$
+  \end{jie}
+  
+\end{frame}
+
+
+\begin{frame}\ft{施密特正交化过程}
+  
+  \begin{block}{目标}
+    从线性无关的向量组$\alphabd_1,\alphabd_2,\cd,\alphabd_m$出发，构造\red{标准正交向量组}。
+  \end{block}
+  
+\end{frame}
+
+
+\begin{frame}\ft{施密特正交化过程}
+  
+  给定$\mathbb R^n$中的线性无关组$\alphabd_1,\alphabd_2,\cd,\alphabd_m$， 
+  \begin{itemize}
+  \item \red{正交化}
+    \begin{enumerate}
+    \item$$\betabd_1=\alphabd_1$$
+    \item
+      $$
+      \betabd_2=\alphabd_2-\frac{(\alphabd_2,\betabd_1)}{(\betabd_1,\betabd_1)}\betabd_1
+      $$
+    \item
+      $$
+      \betabd_3=\alphabd_3-\frac{(\alphabd_3,\betabd_1)}{(\betabd_1,\betabd_1)}\betabd_1
+      -\frac{(\alphabd_3,\betabd_2)}{(\betabd_2,\betabd_2)}\betabd_2
+      $$
+    \item  $$\cd\cd$$
+    \item
+      $$
+      \betabd_m=\alphabd_m-\frac{(\alphabd_m,\betabd_1)}{(\betabd_1,\betabd_1)}\betabd_1
+      -\frac{(\alphabd_m,\betabd_2)}{(\betabd_2,\betabd_2)}\betabd_2
+      -\cd
+      -\frac{(\alphabd_m,\betabd_{m-1})}{(\betabd_{m-1},\betabd_{m-1})}\betabd_{m-1}.
+      $$
+    \end{enumerate}  
+  \item \red{单位化}
+    $$
+    \betabd_1, \betabd_2, \cd, \betabd_m \xlongrightarrow[]{\ds \eta_j=\frac{\betabd_j}{\|\betabd_j\|}}
+    \etabd_1, \etabd_2, \cd, \etabd_m
+    $$
+  \end{itemize}  
+  
+\end{frame}
+
+
+\begin{frame}\ft{施密特正交化过程}
+  
+  \begin{li}
+    已知$B=\{\alphabd_1,\alphabd_2,\alphabd_3\}$是$\mathbb R^3$的一组基，其中
+    $$
+    \alphabd_1=(1,-1,0)^T,~~
+    \alphabd_2=(1,0,1)^T,~~
+    \alphabd_3=(1,-1,1)^T.
+    $$
+    试用施密特正交化方法，由$B$构造$\mathbb R^3$的一组标准正交基。
+  \end{li}
+  
+  \begin{jie}
+    $$
+    \begin{array}{rl}
+      \betabd_1&=\alphabd_1=(1,-1,0)^T, \\[0.2cm]
+      \betabd_2&\ds=\alphabd_2-\frac{(\alphabd_2,\betabd_1)}{(\betabd_1,\betabd_1)}\betabd_1\\[0.4cm]
+               &\ds=(1,0,1)^T-\frac12(1,-1,0)^T=\left(\frac12,\frac12,1\right),\\[0.4cm]
+      \betabd_3&\ds=\alphabd_3-\frac{(\alphabd_3,\betabd_1)}{(\betabd_1,\betabd_1)}\betabd_1
+                 -\frac{(\alphabd_3,\betabd_2)}{(\betabd_2,\betabd_2)}\betabd_2\\[0.4cm]
+               &\ds=(1,-1,1)^T-\frac23\left(\frac12,\frac12,1\right)^T-\frac22(1,-1,0)^T=\left(-\frac13,-\frac13,\frac13\right).
+    \end{array}
+    $$
+  \end{jie}
+\end{frame}
+
+
+\begin{frame}\ft{施密特正交化过程}
+  \begin{jie}[续]
+    $$
+    \begin{array}{rl}
+      \etabd_1&\ds =\frac{\betabd_1}{\|\betabd_1\|}=\left(\frac1{\sqrt{2}},-\frac1{\sqrt{2}},0\right),\\[0.4cm]
+      \etabd_2&\ds =\frac{\betabd_2}{\|\betabd_2\|}=\left(\frac1{\sqrt{6}},\frac1{\sqrt{6}},\frac2{\sqrt{6}}\right),\\[0.4cm]
+      \etabd_3&\ds =\frac{\betabd_3}{\|\betabd_3\|}=\left(-\frac1{\sqrt{3}},-\frac1{\sqrt{3}},\frac1{\sqrt{3}}\right).
+    \end{array}
+    $$
+  \end{jie}
+\end{frame}
+
+
+
+\begin{frame}\ft{正交矩阵}
+  
+  \begin{dingyi}[正交矩阵]
+    设$\MA\in\mathbb R^{n\times n}$，如果
+    $$
+    \MA^T\MA=\MI
+    $$
+    则称$\MA$为正交矩阵。
+  \end{dingyi}  \vspace{.1in}
+
+  \begin{dingli}
+    $$
+    \MA\mbox{为}\mbox{正交矩阵}
+    ~~\Longleftrightarrow~~
+    \MA\mbox{的列向量组为一组标准正交基。}
+    $$
+  \end{dingli}
+  
+  
+\end{frame}
+
+
+\begin{frame}\ft{正交矩阵}
+  
+  \begin{dingli}
+    设$\MA,\MB$皆为$n$阶正交矩阵，则
+    \begin{itemize}
+    \item[(1)] $|\MA|=1\mbox{~或~} -1$
+    \item[(2)] $\MA^{-1}=\MA^T$
+    \item[(3)] $\MA^T$也是正交矩阵
+    \item[(4)] $\MA\MB$也是正交矩阵
+    \end{itemize}
+  \end{dingli}  \vspace{.1in}
+
+  \begin{dingli}
+    若列向量$\vx,\vy\in\mathbb R^n$在$n$阶正交矩阵$\MA$的作用下变换为$\MA\vx,\MA\vy\in\mathbb R^n$，则向量的内积、长度与向量间的夹角都保持不变.
+  \end{dingli}
+  
+\end{frame}
+
+\begin{frame}\ft{线性空间的定义}
+  \begin{dingyi}
+    数域$F$上的线性空间$V$是一个非空集合，存在两种运算
+    \begin{itemize}
+    \item 加法（$\alphabd+\betabd$）
+    \item 数乘 ($\lambda \in \alphabd$)
+    \end{itemize}
+    其中$\alphabd,\betabd \in V, \lambda\in F$，且$V$对两种运算封闭，并满足以下$8$条性质：
+    \begin{enumerate}
+    \item $\alphabd+\betabd=\betabd+\alphabd$
+    \item $(\alphabd+\betabd)+\gammabd=\alphabd+(\betabd+\gammabd)$
+    \item 存在$\M0\in V$使得$\alphabd+\M0=\alphabd$，其中$\M0$称为$V$的零元素
+    \item 存在$-\alphabd\in V$，使得$\alphabd+(-\alphabd)=\M0$，其中$-\alphabd$称为$\alphabd$的负元素
+    \item $1\alphabd = \alphabd$
+    \item $k(l\alphabd) = (kl)\alphabd$
+    \item $(k+l)\alphabd = k\alphabd + l\alphabd$
+    \item $k(\alpha+\betabd) = k \alphabd + l \alphabd$
+    \end{enumerate}
+    其中$\alphabd,\betabd,\gammabd\in V, k, l \in F$。
+
+  \end{dingyi}
+\end{frame}
+
+
+\begin{frame}\ft{线性空间的定义}
+  \begin{li} 
+    \begin{itemize}
+    \item 数域$F$上的全体多项式\red{$F(x)$}，对通常的多项式加法和数乘多项式的运算构成数域$F$上的线性空间，其中\\[0.15in]
+    \item 如果只考虑次数小于$n$的实系数多项式，则它们连同零多项式一起构成实数域$\MR$上的线性空间，记为\red{$\R[x]_n$}。
+    \end{itemize}
+    
+  \end{li}
+\end{frame}
+
+\begin{frame}\ft{线性空间的定义}
+  \begin{li} 
+    对矩阵的加法和数乘运算构成实数域上的线性空间，记为\red{$\R^{m\times n}$}。
+  \end{li} 
+\end{frame}
+
+\begin{frame}\ft{线性空间的定义}
+  \begin{li}
+    对于\blue{$[a,b]$上的全体实连续函数}，加法与数乘运算构成实数域上的线性空间，记为\red{$C[a,b]$}。  \vspace{.2in}
+
+    对于\blue{$(a,b)$上全体$k$阶导数连续的实函数}，对同样的加法和数乘运算也构成实线性空间，记为\red{$C^k(a,b)$}。
+  \end{li} 
+\end{frame}
+
+
+\begin{frame}\ft{线性空间的性质}
+
+  \begin{xingzhi}
+    线性空间的零元素是唯一的。
+  \end{xingzhi}  
+
+  \begin{xingzhi}
+    线性空间中任一元素$\alphabd$的负元素是唯一的。
+  \end{xingzhi}  
+
+  \begin{xingzhi}
+    若$\alphabd, \betabd \in V; k, l \in F$，则
+    $$
+    k(\alphabd - \betabd) = k \alphabd - l \betabd, \quad
+    (k-l)\alphabd = k\alphabd - l \alphabd.
+    $$
+  \end{xingzhi} 
+
+  \begin{xingzhi}
+    \begin{itemize}
+    \item $k\M0 = \M0$
+    \item $k(-\betabd) = -(k\betabd)$
+    \item $0\alphabd = \M0$
+    \item $(-l)\alphabd = -(l\alphabd)$.
+    \end{itemize}
+  \end{xingzhi} 
+
+  \begin{xingzhi}
+    设$\alphabd \in V, k\in F$，若$k\alphabd=\M0$，则$k=0$或$\alphabd=\M0$.
+  \end{xingzhi}
+\end{frame}
+
+\begin{frame}\ft{线性子空间}
+  \begin{dingyi}[线性子空间]
+    设$V(F)$是一个线性空间，$W$是$V$的一个非空子集合。如果$W$对$V(F)$中定义的\blue{线性运算}也构成数域$F$上的一个线性空间，则称$W$为$V(F)$上的一个\red{线性子空间}（简称\red{子空间}）。
+  \end{dingyi}  \vspace{.2in}
+
+  \begin{dingli}
+    线性空间$V(F)$的非空子集合$W$为$V$的子空间的充分必要条件是$W$对于$V$的两种运算封闭。
+  \end{dingli}
+\end{frame}
+
+\begin{frame}\ft{线性子空间}
+  \begin{li}
+    在线性空间$V$中，
+    \begin{itemize}
+    \item 由单个的零向量组成的子集合$\{\M0\}$是$V$的一个子空间，称为\red{零子空间}；
+    \item $V$本身也是$V$的一个子空间，
+    \end{itemize}
+    这两个子空间都称为$V$的\red{平凡子空间}，而$V$的其他子空间称为\red{非平凡子空间}。
+  \end{li}
+\end{frame}
+
+\begin{frame}\ft{线性子空间}
+  \begin{li}
+    设$\MA\in F^{m\times n}$，则$\MA\vx=\M0$的解集合
+    $$
+    S = \{\vx ~|~ \MA \vx = \M0\}
+    $$
+    是$F^n$的一个子空间，称为齐次线性方程组的解空间(也称矩阵$\MA$的零空间，记作$\mathcal N(A)$)。 \vspace{.1in}  
+
+    \blue{注：非齐次线性方程组$\MA\vx=\vb$的解集合不是$F^n$的子空间。}
+
+  \end{li}
+\end{frame}
+
+\begin{frame}\ft{线性子空间}
+  \begin{li}
+    全体$n$阶实数量矩阵、实对角矩阵、实对称矩阵、实上（下）三角矩阵分别组成的集合，都是$\R^{n\times n}$的子空间。
+  \end{li}
+\end{frame}
+
+\begin{frame}\ft{线性子空间}
+  \begin{li}
+    设$\R^3$的子集合
+    $$
+    \begin{array}{l}
+      V_1=\{(x_1,0,0)~|~x_1\in \R\},
+      V_2=\{(1,0,x_3)~|~x_3\in \R\},
+    \end{array}
+    $$
+    则$V_1$是$\R^3$的子空间，$V_2$不是$\R^3$的子空间。 \vspace{.1in}
+     
+
+    \blue{注：在$\R^3$中，
+      \begin{itemize}
+      \item 凡是过原点的平面或直线上的全体向量组成的子集合都是$\R^3$的子空间；
+      \item 凡是不过原点的平面或直线上的全体向量组成的子集合都不是$\R^3$的子空间。
+      \end{itemize}
+    }
+  \end{li}
+\end{frame}
+
+\begin{frame}\ft{线性子空间}
+  \begin{dingli}
+    设$V$是数域$F$上的线性空间，$S$是$V$的一个非空子集合，则$S$中的一切向量组的所有线性组合组成的集合
+    $$
+    W = \{k_1\alphabd_1+\cd+k_m\alphabd_m~|~\alphabd_i\in S, ~k_i\in F, ~i=1,\cd,m\}
+    $$
+    是$V$中包含$S$的最小的子空间。
+  \end{dingli} \vspace{.1in} 
+  
+  这里，$W$称为\blue{由$V$的非空子集$S$生成的子空间}。
+
+
+  特别地，当$S$为有限子集$\{\alphabd_1,\cd,\alphabd_m\}$时，记
+  $$
+  W = L(\alphabd_1,\cd,\alphabd_m) \mbox{  或  } W = span\{\alphabd_1,\cd,\alphabd_m\}
+  $$
+  为由向量组$\alphabd_1,\cd,\alphabd_m$生成的子空间。
+\end{frame}
+
+\begin{frame}\ft{线性子空间}
+  
+  \begin{li}
+    \begin{itemize}
+    \item $\MA\vx = \M0$的解空间是由它的基础解系生成的子空间； \vspace{.2in} 
+    \item $\R^3$中任一个过原点的平面上的全体向量所构成的子空间，是由该平面上任意两个线性无关的向量生成的子空间。
+    \end{itemize}
+    
+  \end{li}
+\end{frame}
+
+\begin{frame}\ft{线性子空间}
+  \begin{dingli}
+    设$W_1,W_2$是数域$F$上的线性空间$V$上的两个子空间，且
+    $$
+    W_1=L(\alphabd_1,\cd,\alphabd_s),~W_2=L(\betabd_1,\cd,\betabd_t),
+    $$
+    则$W_1=W_2$的充分必要条件是两个向量组$\alphabd_1,\cd,\alphabd_s$和$\betabd_1,\cd,\betabd_t$等价。
+  \end{dingli}
+\end{frame}
+
+\begin{frame}\ft{线性子空间}
+  \begin{dingyi}
+    设$W_1,W_2$是线性空间$V$的两个子空间，则$V$的子集合
+    $$
+    \begin{array}{ll}
+      W_1\cap W_2 &= \{\alphabd ~|~ \alphabd \in W_1 \mbox{ 且 }  \alphabd \in W_2\},\\[0.1in]
+      W_1 +   W_2 &= \{\alphabd_1+\alphabd_2 ~|~ \alphabd_1 \in W_1, ~\alphabd_2\in W_2\}
+    \end{array}
+    $$	
+    分别称为两个子空间的\red{交}与\red{和}。\vspace{.1in}
+
+    \red{如果$W_1\cap W_2 = \{\M0\}$，则称$W_1+W_2$为直和，记为\blue{$W_1\oplus W_2$}。}
+  \end{dingyi}  \vspace{.1in}
+  
+  \begin{dingli}
+    线性空间$V(F)$的两个子空间$W_1, W_2$的交与和仍是$V$的子空间。
+  \end{dingli}
+
+\end{frame}
+
+\begin{frame}\ft{线性子空间}
+  \begin{dingyi}
+    矩阵$\MA$的列（行）向量组生成的子空间，称为矩阵$\MA$的列（行）空间，记为$\mathcal R(A)$（$\mathcal R(A^T)$）。
+  \end{dingyi}\vspace{.1in}
+
+  若$\MA \in \R^{m\times n}$，则
+  \begin{itemize} 
+  \item $\MA$的列向量组为
+    $$
+    \betabd_1,\cd,\betabd_n\in \R^m
+    $$
+  \item $\MA$的行向量组为
+    $$
+    \alphabd_1,\cd,\alphabd_m\in \R^n
+    $$
+  \end{itemize}
+  \vspace{.1in}
+
+  于是
+  \begin{itemize} 
+  \item $\mathcal R(A)=L(\betabd_1,\cd,\betabd_n)$是$\R^m$的一个子空间；
+  \item $\mathcal R(A^T)=L(\alphabd_1,\cd,\alphabd_m)$是$\R^n$的一个子空间。
+  \end{itemize}
+\end{frame}
+
+\begin{frame}\ft{线性子空间}
+  $$
+  \begin{array}{ll}
+    & \mbox{非齐次线性方程组$\MA\vx = \vb$有解} \\[.1in]
+    \Leftrightarrow & \mbox{$\vb$是$\MA$的列向量组的线性组合}\\[.1in]
+    \Leftrightarrow & \mbox{$\vb$属于$\MA$的列空间，即$\vb \in \mathcal R(\MA)$}
+  \end{array}
+  $$
+\end{frame}
+
+\begin{frame}\ft{线性子空间}
+  \begin{dingyi}
+    设$\alphabd \in \R^n$，$W$是$\R^n$的一个子空间。如果对于任意的$\gammabd \in W$，均有
+    $$
+    (\alphabd, \gammabd) = \M0,
+    $$
+    则称$\alphabd$与子空间$W$正交，记作$\alphabd \perp W$。
+  \end{dingyi}	\vspace{.1in}
+
+
+  \begin{dingyi}
+    设$V$和$W$是$\R^n$的两个子空间。如果对于任意的$\alphabd \in V, \betabd \in W$，均有
+    $$
+    (\alphabd, \betabd) = \M0,
+    $$
+    则称$V$与$W$正交，记作$V \perp W$。
+  \end{dingyi}
+
+\end{frame}
+
+\begin{frame}\ft{线性子空间}
+
+  \begin{li}
+    对于齐次线性方程组$\MA\vx=\M0$，其每个解向量与系数矩阵$\MA$的每个行向量都正交，故解空间与$\MA$的行空间是正交的，即
+    $$
+    \mathcal N(\MA) \perp \mathcal R(A^T).
+    $$
+  \end{li}
+
+\end{frame}
+
+\begin{frame}\ft{线性子空间}
+  \begin{dingli}
+    $\R^n$中与子空间$V$正交的全部向量所构成的集合
+    $$
+    W=\{\alphabd ~|~ \alphabd \perp V, ~ \alphabd \in \R^n \}
+    $$
+    是$\R^n$的一个子空间。
+  \end{dingli}
+\end{frame}
+
+\begin{frame}\ft{线性子空间}
+  \begin{dingyi}
+    $\R^n$中与子空间$V$正交的全体向量构成的子空间$W$，称为$V$的\red{正交补}，记为$W=V^\perp$。
+  \end{dingyi}\vspace{.1in}
+
+  \begin{li}
+    $\MA \vx = \M0$的解空间$\mathcal N(\MA)$由与$\MA$的行向量都正交的全部向量构成，故
+    $$
+    \mathcal N(A) = \mathcal R(A^T)^\perp. 
+    $$
+    这是$\MA \vx = \M0$的解空间的一个基本性质。
+  \end{li}
+\end{frame}
+
+
+\begin{frame}\ft{线性空间的基、维数和向量的坐标}
+  在一般的线性空间$V(F)$中讨论元素（或称向量）的线性相关性、基、维数以及坐标。
+\end{frame}
+
+\begin{frame}\ft{线性空间的基、维数和向量的坐标}
+
+\begin{li}
+证明：线性空间$\R[x]_n$中元素$f_0=1, f_1=x, f_2=x^2,\cdots,f_{n-1}=x^{n-1}$是线性无关。
+\end{li} \vspace{.2in} 
+
+\begin{li}
+证明：线性空间$\R^{2\times 2}$中的元素
+$$
+\MA_1=\left(\begin{array}{cc} 1&0\\0&0 \end{array}\right), 
+\MA_2=\left(\begin{array}{cc} 1&1\\0&0 \end{array}\right), 
+\MA_3=\left(\begin{array}{cc} 1&1\\1&0 \end{array}\right), 
+\MA_4=\left(\begin{array}{cc} 1&1\\1&1 \end{array}\right) 
+$$
+是线性无关的。
+\end{li}
+\end{frame}
+
+\begin{frame}\ft{线性空间的基、维数和向量的坐标}
+显然，在$\R^{2\times 2}$中，矩阵
+$$
+\ME_{11}=\left(\begin{array}{cc} 1&0\\0&0 \end{array}\right), 
+\ME_{12}=\left(\begin{array}{cc} 0&1\\0&0 \end{array}\right), 
+\ME_{21}=\left(\begin{array}{cc} 0&0\\1&0 \end{array}\right), 
+\ME_{22}=\left(\begin{array}{cc} 0&0\\0&1 \end{array}\right) 
+$$
+是也线性无关的，且$\R^{2\times 2}$中任一矩阵
+$$
+\MA = \left(\begin{array}{cc} a&b\\c&d \end{array}\right)=a\ME_{11}+b\ME_{12}+c\ME_{21}+d\ME_{22}.
+$$ 
+
+\vspace{.1in} 
+
+\blue{在$\R^{2\times 2}$中任意$5$个元素(二阶矩阵)$\MA,\MB,\MC,\MD,\MQ$是线性相关的，若$\MA,\MB,\MC,\MD$线性无关，则$\MQ$可由$\MA,\MB,\MC,\MD$线性表出，且表示法唯一。}
+\vspace{.1in} 
+
+
+由此可以发现$\R^{2\times 2}$的这些属性与$\R^4$是类似的，我们可以把线性空间的这些属性抽象为基、维数与坐标的概念。
+\end{frame}
+
+\begin{frame}\ft{线性空间的基、维数和向量的坐标}
+\begin{dingyi}
+	如果线性空间$V(F)$中存在线性无关的向量组$B=\{\alphabd_1, \alphabd_2, \cdots, \alphabd_n\}$，且任一$\alphabd\in V$都可以由$B$线性表示为
+	$$
+	\alphabd=x_1\alphabd_1+x_2\alphabd_2+\cdots+x_n\alphabd_n,
+	$$
+	则称
+	\begin{itemize}
+	\item $V$是$n$维线性空间（或者说\blue{$V$的维数为$n$，记作$dim V = n$}）；
+	\item $B$是$V$的一个基；
+	\item 有序数组$(x_1,x_2,\cdots,x_n)$为$\alphabd$关于基$B$的坐标（向量），记作
+	$$
+	\alphabd_B=(x_1,x_2,\cdots,x_n)^T\in F^n.
+	$$
+	\end{itemize}
+\end{dingyi}
+\end{frame}
+
+\begin{frame}\ft{线性空间的基、维数和向量的坐标}
+
+  \blue{在$n$维线性空间$V$中，
+    \begin{itemize}
+    \item 任意$n+1$个元素$\betabd_1,\betabd_2,\cdots,\betabd_{n+1}$都可以由$V$的一个基$\alphabd_1,\alphabd_2,\cdots,\alphabd_n$线性表示，
+    \item $n$维线性空间中任意$n+1$个元素都是线性相关的，
+    \end{itemize}
+    故$n$维线性空间$V$中，任何$n$个线性无关的向量都是$V$的一组基。}
+  \vspace{.1in} 
+  \begin{li}
+    \begin{itemize}
+      \item $F[x]_n$是$n$维线性空间，$\{1,x,x^2,\cd,x^{n-1}\}$是它的一组基；\vspace{.1in} 
+      \item $\R^{2\times 2}$是$4$维线性空间，$\ME_{11},\ME_{12},\ME_{21},\ME_{22}$是它的一组基；\vspace{.1in} 
+      \item $F^{m\times n}$是$m\times n$维线性空间，$\{\ME_{ij}\}_{i=1,\cd,m; j=1,\cd,n}$是它的一组基。
+    \end{itemize}
+  \end{li}
+\end{frame}
+
+\begin{frame}\ft{线性空间的基、维数和向量的坐标}
+  在线性空间$V$中，$\dim L(\alphabd_1,\alphabd_2,\cd,\alphabd_s) = \rank(\alphabd_1,\alphabd_2,\cd,\alphabd_s)$，向量组$\alphabd_1,\alphabd_2,\cd,\alphabd_s$的极大线性无关组是$L(\alphabd_1,\alphabd_2,\cd,\alphabd_s)$的基。\vspace{.1in}  
+
+  \begin{li}
+    矩阵$\MA$的列空间$\mathcal R(\MA)$和行空间$\mathcal R(\MA^T)$的维数都等于$\MA$的秩。$V$的零子空间$\{\M0\}$的维数为零。
+  \end{li}
+\end{frame}
+
+\begin{frame}\ft{线性空间的基、维数和向量的坐标}
+  $\MA\vx = \M0$的基础解系是其解空间$\mathcal N(\MA)$的基，如果$\MA$是$m\times n$矩阵，$\rank(\MA)=r$，则解空间$\mathcal N(\MA)$的维数为$n-r$，所以
+  $$
+  \dim(\mathcal R(\MA^T)) + \dim(\mathcal N(\MA)) = n. 
+  $$
+\end{frame}
+
+\begin{frame}\ft{线性空间的基、维数和向量的坐标}
+  \begin{dingli}
+    设$V$是$n$维线性空间，$W$是$V$的$m$维子空间，且$B_1=\{\alphabd_1,\alphabd_2,\cd,\alphabd_m\}$是$W$中的一组基，则$B_1$可以扩充为$V$的基，即\blue{在$B_1$的基础上可以添加$n-m$个向量而成为$V$的一组基}.
+  \end{dingli}
+  \vspace{.1in}  
+
+  \begin{dingli}[子空间的维数公式]
+    设$W_1,W_2$是线性空间$V(F)$的子空间，则
+    $$
+    \dim W_1 + \dim W_2 = \dim(W_1+W_2) + \dim(W_1\cap W_2).
+    $$
+  \end{dingli}
+\end{frame}  
+  
+\begin{frame}\ft{线性空间的基、维数和向量的坐标}
+  $n$维线性空间$V(F)$中向量在基$B$下的坐标，与$F^n$中向量关于基$B$的坐标是完全类似的，主要有以下几个结论：
+  \begin{itemize}
+    \item 向量在给定基下的坐标是唯一的；\\[0.1in]
+    \item 由基$B_1$到基$B_2$的过渡矩阵是可逆的；\\[0.1in]
+    \item 基变换与坐标变换的公式
+  \end{itemize}
+在这里都是适用的。
+\end{frame}
+
+\begin{frame}\ft{线性空间的基、维数和向量的坐标}
+给定$V(F)$中的一组基$B=\{\betabd_1,\betabd_2,\cd,\betabd_n\}$，$V(F)$中的向量及其坐标（$F^n$中的向量）不仅是一一对应的，而且这种对应保持线性运算关系不变，即
+$$
+\red{
+\begin{array}{l}
+  \mbox{$V(F)$中$\alphabd+\gammabd$对应于$F^n$中$\alphabd_B+\gammabd_B$}\\[0.1in]
+  \mbox{$V(F)$中$\lambda\alphabd$对应于$F^n$中$\lambda\alphabd_B$}
+\end{array}
+}
+$$ 
+
+事实上，若$\alpha=x_1\betabd_1+x_2\betabd_2+\cd+x_n\betabd_n,\gammabd=y_1\betabd_1+y_2\betabd_2+\cd+y_n\betabd_n,\lambda\in F$，则有
+$$
+\begin{array}{rl}
+  (\alphabd+\betabd) & = (x_1+y_1)\betabd_1+(x_2+y_2)\betabd_2+\cd+(x_n+y_n)\betabd_n, \\[0.1in]
+  \lambda\alphabd & = (\lambda x_1)\betabd_1+(\lambda x_2)\betabd_2+\cd+(\lambda x_n)\betabd_n
+\end{array}
+$$
+故
+$$
+(\alphabd+\betabd)_B = \alphabd_B+\betabd_B, \quad
+(\lambda\alphabd)_B = \lambda\alphabd_B.
+$$
+\end{frame}
+
+\begin{frame}\ft{线性空间的基、维数和向量的坐标}
+具有上述对应关系的两个线性空间$V(F)$和$F^n$，称它们是\red{同构}的。 \vspace{.1in}
+
+也就是说，研究任何$n$维线性空间$V(F)$，都可以通过基和坐标，转化为研究$n$维向量空间$F^n$。\vspace{.1in}
+
+这样，\blue{我们对不同的$n$维线性空间就有了统一的研究方法，统一到研究$F^n$。}
+\vspace{.1in}
+
+因此，\red{通常把线性空间也成为向量空间，线性空间中的元素也称为向量。}
+\end{frame}
+
+\begin{frame}\ft{线性空间的基、维数和向量的坐标} 
+  \begin{li}
+    证明：$B=\{1,x,\cd,x^{n-1}\}$是$\R[x]_n$的一组基，并求
+    $$
+    p(x)=a_0+a_1x+\cd+a_{n-1}x^{n-1}
+    $$
+    在基$B$下的坐标。
+  \end{li} 
+  \begin{proof}
+    前面我们已经证明$B$是线性无关的，且$\forall p(x) \in \R[x]_n$均可表示成
+    $$
+    p(x)= a_0+a_1x+\cd+a_{n-1}x^{n-1},
+    $$
+    故$B$是$\R[x]_n$的一组基（自然基），因此$\R[x]_n$是$n$维实线性空间。 
+    $p(x)$在基$B$下的坐标为
+    $$
+    (p(x))_B=(a_0,a_1,\cd,a_{n-1})^T.
+    $$  
+    \vspace{.1in} 
+    
+    $$
+    \red{
+    p(x) = (1, x, \cd, x^{n-1}) 
+    \left( \begin{array}{c} a_0\\ a_1\\ \vd\\ a_{n-1} \end{array}\right).
+    }
+    $$
+    
+  \end{proof}
+\end{frame}
+
+\begin{frame}\ft{线性空间的基、维数和向量的坐标}
+  \begin{li}
+    设$B_1=(g_1, g_2, g_3),B_2=(h_1, h_2, h_3)$，其中
+    $$
+    \left\{
+      \begin{array}{l}
+        g_1 = 1,\\
+        g_2 = -1+x, \\
+        g_3 = 1-x+x^2,
+      \end{array}   
+      \right., \quad
+      \left\{
+      \begin{array}{l}
+        h_1 = 1-x-x^2,\\
+        h_2 = 3x-2x^2, \\
+        h_3 = 1-2x^2,
+      \end{array}
+    \right.
+    $$
+    \begin{enumerate}
+    \item 证明$B_1,B_2$是$\R[x]_3$的基
+    \item 求$B_1$到$B_2$的过渡矩阵
+    \item 已知$[p(x)]_{B_1} = (1,4,3)^T$，求$[p(x)]_{B_2}$.
+    \end{enumerate}
+  \end{li}
+\end{frame}
+
+\begin{frame}
+\begin{dingyi}[线性变换]
+  设$V(F)$是一个向量空间，若$V(F)$的一个变换$\sigmabd$满足条件：$\forall \alpha,\beta\in V$和$\lambda\in F$，
+  \begin{enumerate}
+    \item $\sigmabd(\alphabd+\betabd) = \sigmabd(\alphabd) + \sigmabd(\betabd)$\\[0.1in]
+    \item $\sigmabd(\lambda\alphabd) = \lambda\sigmabd(\alphabd)$
+  \end{enumerate}
+  就称$\sigmabd$是$V(F)$的一个\red{线性变换}，并称$\sigmabd(\alphabd)$为$\alphabd$的象，$\alphabd$为$\sigmabd(\alphabd)$的原象。
+\end{dingyi}
+\vspace{.1in} 
+
+线性运算等价于：$\forall \alphabd,\betabd\in V$和$\lambda, \mu \in F$，有
+$$
+\sigmabd(\lambda\alphabd+\mu\betabd) = \lambda\sigmabd(\alphabd)+\mu\sigmabd(\betabd).
+$$
+\end{frame}
+
+\begin{frame}\ft{线性变换的定义}
+  \begin{li}[旋转变换]
+    $\R^2$中每个向量绕原点按逆时针方向旋转$\theta$角的变换$\MR_\theta$是$\R^2$的一个线性变换。
+  \end{li} \vspace{.1in} 
+
+  \begin{li}[镜像变换]
+    $\R^2$中每个向量关于过原点的直线$L$（看做镜面）相对称的变换$\phibd$也是$\R^2$的一个线性变换，即
+    $$
+    \phibd(\alphabd)=\alphabd^\prime.
+    $$
+  \end{li} \vspace{.1in}
+
+  \begin{li}[投影变换]
+    把$\R^3$中向量$\alphabd=(x_1,x_2,x_3)$投影到$xOy$平面上的向量$\betabd=(x_1,x_2,0)$的投影变换$P(\alphabd)=\betabd$，即
+    $$
+    \MP(x_1,x_2,x_3)=(x_1,x_2,0)
+    $$
+    是$\R^2$的一个线性变换。
+  \end{li} \vspace{.1in}
+
+  \begin{li}[恒等变换、零变换、数乘变换]
+    \begin{itemize}
+    \item 恒等变换$\sigmabd(\alphabd)=\alphabd, ~~\forall \alphabd\in\R^n$
+    \item 零变换 $\sigmabd(\alphabd)=0, ~~\forall \alphabd\in\R^n$
+    \item 数乘变换$\sigmabd(\alphabd)=\lambda\alphabd, ~~\forall \alphabd\in\R^n$
+    \end{itemize}
+  \end{li}
+\end{frame}
+
+\begin{frame}
+  \begin{li}
+    $\R^3$中定义变换
+    $$
+    \sigmabd(x_1,x_2,x_3)=(x_1+x_2,x_2-4x_3,2x_3),
+    $$
+    则$\sigmabd$是$\R^3$的一个线性变换。
+  \end{li}\vspace{.1in}
+
+  \begin{li}
+    $\R^3$中定义变换
+    $$
+    \sigmabd(x_1,x_2,x_3)=(x_1^2,x_2+x_3,x_2),
+    $$
+    则$\sigmabd$不是$\R^3$的一个线性变换。
+  \end{li}
+\end{frame}
+
+\begin{frame}
+  对于$\R^n$的变换
+  $$
+  \sigmabd(x_1,x_2,\cd,x_n)=(y_1,y_2,\cd,y_n)
+  $$
+  \begin{itemize}
+  \item 当$y_i$都是$x_1,x_2,\cd,x_n$的线性组合时，$\sigmabd$是$\R^n$的线性变换。\\[0.1in]
+  \item 当$y_i$有一个不是$x_1,x_2,\cd,x_n$的线性组合时，$\sigmabd$不是$\R^n$的线性变换。 
+  \end{itemize}
+\end{frame}
+
+
+\begin{frame} \ft{线性变换的简单性质}
+  对于数域$F$上的向量空间$V$中的线性变换$\sigma$
+  
+  \begin{itemize}
+  \item $\sigmabd(\M0)=\M0, \quad \sigmabd(-\alphabd)=\sigmabd(\alphabd), \quad \forall\alphabd\in V$；\\[.1in]
+  \item 若$\alphabd=k_1\alphabd_1+k_2\alphabd_2+\cd+k_n\alphabd_n, \quad k_i\in F, \quad \alphabd_i\in V$，则
+    $$
+    \sigma(\alphabd)=k_1\sigma(\alphabd_1)+k_2\sigma(\alphabd_2)+\cd+k_n\sigma(\alphabd_n).
+    $$ \\[.1in]
+  \item 若$\alphabd_1, \alphabd_2, \cd, \alphabd_n$线性相关，则其象向量组$\sigma(\alphabd_1),\sigma(\alphabd_n),\cd,\sigma(\alphabd_n)$也线性相关。
+  \end{itemize}
+
+  \vspace{.1in}
+   
+
+  \begin{zhu}
+    但$\alphabd_1, \alphabd_2, \cd, \alphabd_n$线性无关，不能推导出$\sigma(\alphabd_1),\sigma(\alphabd_n),\cd,\sigma(\alphabd_n)$也线性无关。
+  \end{zhu}
+\end{frame}
+
+\begin{frame}\ft{线性变换的矩阵表示}
+  \begin{dingli}
+    设$\{\alphabd_1,\alphabd_2,\cd,\alphabd_n\}$是$V(F)$的一组基，若$V(F)$的两个线性变换$\sigmabd$和$\taubd$关于这组基的象相同，即
+    $$
+    \sigmabd(\alphabd_i)=\taubd(\alphabd_i), \quad i=1,2,\cd,n,
+    $$
+    则$\sigmabd=\taubd$.
+  \end{dingli}
+\end{frame}
+
+\begin{frame}\ft{线性变换的矩阵表示}
+  因$\sigmabd(\alphabd_i)\in V(F)$，故它们可由$V(F)$的基$\{\alphabd_1,\alphabd_2,\cd,\alphabd_n\}$线性表出，即有
+  $$
+  \left\{
+    \begin{array}{c}
+      \sigmabd(\alphabd_1)=a_{11}\alphabd_{1}+a_{21}\alphabd_{12}+\cd+a_{n1}\alphabd_{n}, \\[0.1in]
+      \sigmabd(\alphabd_1)=a_{12}\alphabd_{1}+a_{22}\alphabd_{22}+\cd+a_{n2}\alphabd_{n}, \\[0.1in]
+      \cd\cd\\[0.1in]
+      \sigmabd(\alphabd_1)=a_{1n}\alphabd_{1}+a_{2n}\alphabd_{22}+\cd+a_{nn}\alphabd_{n}.
+    \end{array}
+  \right.
+  $$
+  记
+  $$
+  \sigmabd(\alphabd_1,\alphabd_2,\cd,\alphabd_n)=(\sigmabd(\alphabd_1),\sigmabd(\alphabd_2),\cd,\sigmabd(\alphabd_n))
+  $$
+  其矩阵形式为
+  \begin{equation}\label{a_sigma}
+  \sigmabd(\alphabd_1,\alphabd_2,\cd,\alphabd_n)=(\alphabd_1,\alphabd_2,\cd,\alphabd_n)\underbrace{\left[
+    \begin{array}{cccc}
+      a_{11}&a_{12}&\cd&a_{1n}\\
+      a_{21}&a_{22}&\cd&a_{2n}\\
+      \vdots&\vdots&&\vdots\\
+      a_{n1}&a_{n2}&\cd&a_{nn}
+    \end{array}
+  \right]}_{\red{\MA}}.
+  \end{equation}
+
+\end{frame}
+
+\begin{frame}\ft{线性变换的矩阵表示}
+  \begin{dingyi}
+    若$V(F)$中的线性变换$\sigmabd$，使得$V(F)$的基$\{\alphabd_1,\alphabd_2,\cd,\alphabd_n\}$和$\sigmabd$关于基的象$\sigmabd(\alphabd_1),\sigmabd(\alphabd_2),\cd,\sigmabd(\alphabd_n)$满足
+    $$
+    \sigmabd(\alphabd_1,\alphabd_2,\cd,\alphabd_n)=(\alphabd_1,\alphabd_2,\cd,\alphabd_n)\underbrace{\left[
+        \begin{array}{cccc}
+          a_{11}&a_{12}&\cd&a_{1n}\\
+          a_{21}&a_{22}&\cd&a_{2n}\\
+          \vdots&\vdots&&\vdots\\
+          a_{n1}&a_{n2}&\cd&a_{nn}
+        \end{array}
+      \right]}_{\red{\MA}},
+    $$
+    就称\blue{$\MA$是$\sigmabd$在基$\{\alphabd_1,\alphabd_2,\cd,\alphabd_n\}$下对应的矩阵}。
+  \end{dingyi}
+\end{frame}
+
+\begin{frame}\ft{线性变换的矩阵表示}
+  \begin{dingli}
+    设$V(F)$中，
+    \begin{itemize}
+    \item 线性变换$\sigmabd$在基$\{\alphabd_1,\cd,\alphabd_n\}$下的矩阵为$\MA$，\\[.1in]
+    \item 向量$\alphabd$在基下的坐标向量为$\vx=(x_1,\cd,x_n)^T$，\\[.1in]
+    \item $\sigmabd(\alphabd)$在基下的坐标向量为$\vy=(y_1,\cd,y_n)^T$，\\[.1in]
+    \end{itemize}
+    则
+    $$
+    \red{\vy=\MA\vx.}
+    $$
+  \end{dingli} 
+\end{frame}
+
+\begin{frame}\ft{线性变换的矩阵表示}
+   \begin{li}
+    旋转变换$\MR_\theta$在$\R^2$的标准正交基$\ve_1=(1,0)^T$和$\ve_2=(0,1)^T$的矩阵为
+    $$
+    \left(
+      \begin{array}{rr}
+        \cos\theta&-\sin\theta\\
+        \sin\theta& \cos\theta
+      \end{array}
+    \right).
+    $$
+  \end{li} 
+   
+  \begin{li}
+    镜像变换$\varphibd$在$\R^2$的标准正交基$\{\omegabd,\etabd\}$下所对应的矩阵为
+    $$
+    \left(
+      \begin{array}{rr}
+        1&0\\
+        0&-1
+      \end{array}
+    \right).
+    $$
+  \end{li}  
+  
+  \begin{li}
+    $\R^n$的恒等变换、零变换和数乘变换在任何基下的矩阵分别都是$\MI_n, \M0_{n},\lambda \MI_n $。
+  \end{li}
+\end{frame}
+
+\begin{frame}\ft{线性变换的矩阵表示}
+  \begin{li}
+    设$\sigmabd$是$\R^3$的一个线性变换，$B=\{\alphabd_1,\alphabd_2,\alphabd_3\}$是$\R^3$的一组基，已知
+    $$
+    \begin{array}{rrr}
+      \alphabd_1=(1,0,0)^T,&\alphabd_2=(1,1,0)^T,&\alphabd_3=(1,1,1)^T,\\
+      \sigmabd(\alphabd_1)=(1,-1,0)^T,&\sigmabd(\alphabd_2)=(-1,1,-1)^T,&\sigmabd(\alphabd_3)=(1,-1,2)^T.
+    \end{array}
+    $$
+    \begin{enumerate}
+      \item 求$\sigmabd$在基$B$下对应的矩阵；
+      \item 求$\sigmabd^2(\alphabd_1),\sigmabd^2(\alphabd_2),\sigmabd^2(\alphabd_3)$；
+      \item 已知$\sigmabd(\betabd)$在基$B$下的坐标为$(2,1,-2)^T$，问$\sigmabd(\betabd)$的原象$\betabd$是否唯一？并求$\betabd$在基$B$下的坐标。
+    \end{enumerate}
+  \end{li}
+
+\end{frame}
+
+\begin{frame}\ft{线性变换的矩阵表示}
+  \begin{jie}
+    1. 由$\sigmabd(\alphabd_1,\sigmabd_2,\sigmabd_3)=(\alphabd_1,\sigmabd_2,\sigmabd_3)\MA$可知
+    $$
+    \left(
+      \begin{array}{rrr}
+        1&-1&1\\
+        -1&1&-1\\
+        0&-1&2
+      \end{array}
+    \right)=\left(
+      \begin{array}{rrr}
+        1&1&1\\
+        0&1&1\\
+        0&0&1
+      \end{array}
+    \right)\MA
+    $$
+    可求得
+    $$
+    \MA=\left(
+      \begin{array}{rrr}
+        2&-2&2\\
+        -1&2&-3\\
+        0&1&2
+      \end{array}
+    \right)
+    $$
+  \end{jie}
+\end{frame}
+
+\begin{frame}\ft{线性变换的矩阵表示}
+  \begin{jie}
+    2. 由
+    $$
+    \sigmabd(\alphabd_1,\sigmabd_2,\sigmabd_3)=(\sigmabd(\alphabd_1),\sigmabd(\sigmabd_2),\sigmabd(\sigmabd_3))=(\alphabd_1,\sigmabd_2,\sigmabd_3)\MA
+    $$
+    可知
+    $$
+    \begin{aligned}
+      \sigmabd(\sigmabd(\alphabd_1),\sigmabd(\sigmabd_2),\sigmabd(\sigmabd_3))
+      &=\sigmabd((\alphabd_1,\sigmabd_2,\sigmabd_3)\MA)\\
+      &=(\sigmabd(\alphabd_1,\sigmabd_2,\sigmabd_3))\MA
+      =(\alphabd_1,\sigmabd_2,\sigmabd_3)\MA^2\\
+      &=(\alphabd_1,\sigmabd_2,\sigmabd_3)\left(
+      \begin{array}{rrr}
+        6&-10&14\\
+        -4&9&-14\\
+        1&-4&7
+      \end{array}
+    \right)
+    \end{aligned}
+    $$
+  \end{jie}
+\end{frame}
+
+
+
+\begin{frame}\ft{线性变换的矩阵表示}
+\begin{jie}
+  3. 设$(\betabd)_B=(x_1,x_2,x_3)^T$，则
+  $$
+  \left(
+    \begin{array}{rrr}
+      2&-2&2\\
+      -1&2&-3\\
+      0&1&2
+    \end{array}
+  \right)\left(
+    \begin{array}{c}
+      x_1\\
+      x_2\\
+      x_3
+    \end{array}
+  \right)=\left(
+    \begin{array}{r}
+      2\\
+      1\\
+      -2
+    \end{array}
+  \right)
+  $$
+  解得
+  $$
+  (x_1,x_2,x_3)=(3,2,0)+k(1,2,1), ~~k\in \R
+  $$
+  故$\sigmabd(\betabd)$的原象$\betabd$不唯一。
+\end{jie}
+\end{frame}
+
+
+\begin{frame}\ft{线性变换的矩阵表示}
+  \begin{dingli}
+    设线性变换$\sigmabd$在基$B_1=\{\alphabd_1,\cd,\alphabd_n\}$和基$B_2=\{\betabd_1,\cd,\betabd_n\}$下的矩阵分别为$\MA$和$\MB$，且$B_1$到$B_2$的过渡矩阵为$\MC$，则
+    $$
+    \red{\MB = \MC^{-1}\MA\MC.}
+    $$
+  \end{dingli}
+\end{frame}
+
+
+\begin{frame}\ft{线性变换的矩阵表示}
+  \begin{li}
+    设$\R^3$的线性变换$\sigmabd$在自然基$\{\ve_1,\ve_2,\ve_3\}$下的矩阵为
+    $$
+    \MA=\left(
+      \begin{array}{rrr}
+        2&-1&-1\\
+        -1&2&-1\\
+        -1&-1&2
+      \end{array}
+    \right)
+    $$
+    \begin{enumerate}
+    \item 求$\sigmabd$在基$\{\betabd_1,\betabd_2,\betabd_3\}$下的矩阵，其中
+      $$
+      \betabd_1=(1,1,1)^T, ~~\betabd_2=(-1,1,0)^T, ~~\betabd_3=(-1,0,1)^T.
+      $$
+    \item $\alphabd=(1,2,3)^T$，求$\sigmabd$在基$\{\betabd_1,\betabd_2,\betabd_3\}$下的坐标向量$(y_1,y_2,y_3)^T$及$\sigmabd(\alphabd)$.
+    \end{enumerate}
+  \end{li}
+\end{frame}
+
+
+\begin{frame}\ft{线性变换的矩阵表示}
+  \begin{jie}
+    1. 由
+    $$
+    (\betabd_1,\betabd_2,\betabd_3)=(\alphabd_1,\alphabd_2,\alphabd_3)\MC
+    $$
+    知
+    $$
+    \MC=(\betabd_1,\betabd_2,\betabd_3)=\left(
+      \begin{array}{rrr}
+        1&-1&-1\\
+        1&1&0\\
+        1&0&1
+      \end{array}
+    \right), ~~ 
+    \MC^{-1}=\frac13\left(
+      \begin{array}{rrr}
+        1&1&1\\
+        -1&2&-1\\
+        -1&-1&2
+      \end{array}
+    \right)
+    $$
+    于是$\sigmabd$在基$\{\betabd_1,\betabd_2,\betabd_3\}$下的矩阵为
+    $$
+    \MB=\MC^{-1}\MA\MC=
+    \left(
+      \begin{array}{rrr}
+        0&0&0\\
+        0&3&0\\
+        0&0&3
+      \end{array}
+    \right).
+    $$
+  \end{jie}
+\end{frame}
+
+
+\begin{frame}\ft{线性变换的矩阵表示}
+  \begin{jie}
+    2. $\alphabd$在自然基下的坐标向量为其本身，即$(1,2,3)^T$，因此，由坐标变换公式得
+    $$
+    \left(
+      \begin{array}{c}
+        x_1\\x_2\\x_3
+      \end{array}
+    \right)=\MC^{-1}
+    \left(
+      \begin{array}{c}
+        1\\2\\3
+      \end{array}
+    \right)=\left(
+      \begin{array}{c}
+        2\\0\\1
+      \end{array}
+    \right)
+    $$ 
+
+    $\sigmabd$在基$\{\betabd_1,\betabd_2,\betabd_3\}$下的坐标向量为
+    $$
+    \left(
+      \begin{array}{c}
+        y_1\\y_2\\y_3
+      \end{array}
+    \right)=\MB
+    \left(
+      \begin{array}{c}
+        x_1\\x_2\\x_3
+      \end{array}
+    \right)=\left(
+      \begin{array}{c}
+        0\\0\\3
+      \end{array}
+    \right).
+    $$
+  \end{jie}
+\end{frame}
+
+
+\begin{frame}\ft{线性变换的矩阵表示}
+  由
+  $$
+  \sigmabd(\alphabd_1,\cd,\alphabd_n)=(\alphabd_1,\cd,\alphabd_n)\left(
+    \begin{array}{cccc}
+      a_{11}&a_{12}&\cd&a_{1n}\\
+      a_{21}&a_{22}&\cd&a_{2n}\\
+      \vdots&\vdots&&\vdots\\
+      a_{n1}&a_{n2}&\cd&a_{nn}
+    \end{array}
+  \right):=(\betabd_1,\cd,\betabd_n)
+  $$
+  知，给定$\R^n$中的一组基$\{\alphabd_1,\cd,\alphabd_n\}$，$\R^n$中任一向量组$\betabd_1,\cd,\betabd_n$就等价于任给上式中的一个矩阵$\MA$。\vspace{.1in} 
+
+  \blue{反过来，任给$n$个向量$\betabd_1,\cd,\betabd_n$，是否存在唯一的一个线性变换$\sigmabd$，使得$\sigmabd(\alphabd_j)=\betabd_j$？}
+\end{frame}
+
+
+\begin{frame}\ft{线性变换的矩阵表示}
+  \begin{dingli}
+    设$\{\alphabd_1,\cd,\alphabd_n\}$是$\R^n$的一组基，$\betabd_1,\cd,\betabd_n$是在$\R^n$中任意给定的$n$个向量，则一定存在唯一的线性变换$\sigmabd$，使得
+    $$
+    \red{\sigmabd(\alphabd_j)=\betabd_j, ~~ j=1,\cd,n.}
+    $$
+  \end{dingli}
+\end{frame}
+
+
+\begin{frame}\ft{线性变换的矩阵表示}
+  综上所述，可得重要结论：
+
+  \blue{给定$\R^n$的一组基后，$\R^n$中的线性变换与$\R^{n\times n}$中的矩阵一一对应。}
+\end{frame}
+
+
+\begin{frame}\ft{线性变换的运算}
+\begin{dingyi}
+  设$\sigmabd$与$\taubd$是线性空间$V(F)$的两个线性变换，$\lambda\in F$，定义
+  $$
+  \begin{array}{rl}
+    (\sigmabd+\taubd)(\alphabd)&=\sigmabd(\alphabd)+\taubd(\alpha),\\
+    (\lambda\sigmabd)(\alphabd)&=\lambda\sigmabd(\alphabd), \\
+    (\sigmabd\taubd)(\alphabd)&=\sigmabd(\taubd(\alphabd))
+  \end{array}
+  $$
+\end{dingyi}
+上述定义的\blue{$\sigmabd+\taubd,\lambda\sigmabd,\sigmabd\taubd$仍是$V(F)$的线性变换。}
+
+\end{frame}
+
+\begin{frame}\ft{线性变换的运算}
+  \begin{dingli}
+    设线性空间$V(F)$的线性变换$\sigmabd$与$\taubd$在$V$的基$\{\alphabd_1,\cd,\alphabd_n\}$下对应的矩阵分别为$\MA$和$\MB$，则\blue{$\sigmabd+\taubd, \lambda\sigmabd$和$\sigmabd\taubd$}在该组基下对应的矩阵分别为\red{$\MA+\MB, \lambda \MA$和$\MA\MB$}。
+  \end{dingli}
+  \vspace{.1in} 
+
+  \begin{dingyi}
+    如果线性变换$\sigmabd$对应的矩阵$\MA$为可逆矩阵，则称$\sigmabd$是\red{可逆的线性变换}。$\sigmabd$可逆也可定义为：如果存在线性变换$\taubd$使得
+    $$
+    \sigmabd\taubd=\taubd\sigmabd=\MI
+    $$
+    则称$\sigmabd$为\red{可逆的线性变换}。
+  \end{dingyi}
+\end{frame}
+
+\begin{frame}\ft{线性变换的象（值域）与核}
+  \begin{dingyi}
+    设$\sigmabd$是线性空间$V(F)$的一个线性变换，
+    \begin{itemize}
+      \item 把$V$中所有元素在$\sigmabd$下的象所组成的集合
+        $$
+        \sigmabd(V)=\{\betabd|\betabd=\sigmabd(\alphabd), \alphabd\in V\}
+        $$
+        称为$\sigmabd$的\red{象或值域}，记为$\Im\sigmabd$；
+      \item
+        $V$的零元$\M0$在$\sigmabd$下的完全原象
+        $$
+        \sigmabd^{-1}(\M0)=\{\alphabd|\sigmabd(\alphabd)=\M0, ~~\alphabd \in V\}
+        $$
+        称为$\sigmabd$的核，记为$\Ker\sigmabd$。
+      \end{itemize}
+  \end{dingyi}
+\end{frame}
+
+
+
+\begin{frame}\ft{线性变换的象（值域）与核}
+  \begin{itemize}
+  \item[(1)] \blue{$\sigmabd(V)$（或$\Im \sigmabd$）}是线性空间$V(F)$的一个子空间； \\[.1in]
+  \item[(2)] \blue{$\sigmabd^{-1}(\M0)$（或$\Ker \sigmabd$）}也是线性空间$V(F)$的一个子空间；\\[.1in]   
+  \item[(3)] 线性变换$\sigmabd$是单射的充分必要条件是$\sigmabd^{-1}(\M0) = \{\M0\}$。   
+  \end{itemize}
+\end{frame}
+
+
+\begin{frame}\ft{线性变换的象（值域）与核}
+  \begin{itemize}
+    \item $\dim \sigmabd(V)$称为$\sigmabd$的秩，记作$\rank(\sigmabd)$；\\[.15in]
+    \item $\dim \sigmabd^{-1}(\M0)$称为$\sigmabd$的零度，记作$\mathcal N(\sigmabd)$。
+    \end{itemize}
+\end{frame}
+
+\begin{frame}\ft{线性变换的象（值域）与核}
+  \begin{dingli}
+    设线性空间$V(F)$的维数为$n$，$\sigmabd$是$V(F)$的一个线性变换，则
+    $$
+    \dim \sigmabd(V)+\dim \sigmabd^{-1}(\M0)=n.
+    $$
+  \end{dingli}
+\end{frame}
+
+\begin{frame}\ft{线性变换的象（值域）与核}
+  
+  
+  $$
+  \red{\dim \sigmabd(V) = \rank(\MA).}
+  $$
+
+  $$
+  \red{\dim \sigmabd^{-1}(\M0)=\dim \mathcal N(\MA). }
+  $$
+\end{frame}
+
+
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+\subsection{往年试题}
+
+\begin{frame}
+  \begin{li}[13-14上]
+    在$\mathbb R^4$中，已知
+    $$
+    \begin{aligned}
+      \alphabd_1=\left(
+        \begin{array}{c}
+          1\\0\\0\\0
+        \end{array}
+      \right),
+      \alphabd_2=\left(
+        \begin{array}{c}
+          1\\2\\0\\0
+        \end{array}
+      \right),
+      \alphabd_3=\left(
+        \begin{array}{c}
+          1\\1\\1\\0
+        \end{array}
+      \right),
+      \alphabd_4=\left(
+        \begin{array}{c}
+          1\\1\\1\\1
+        \end{array}
+      \right);\\
+      \betabd_1=\left(
+        \begin{array}{c}
+          1\\-1\\a\\1
+        \end{array}
+      \right),
+      \betabd_2=\left(
+        \begin{array}{c}
+          -1\\1\\2-a\\1
+        \end{array}
+      \right),
+      \betabd_3=\left(
+        \begin{array}{c}
+          -1\\1\\0\\0
+        \end{array}
+      \right),
+      \betabd_4=\left(
+        \begin{array}{c}
+          1\\0\\0\\0
+        \end{array}
+      \right)
+    \end{aligned}
+    $$
+    \begin{itemize}
+    \item[1] 求$a$使得$\betabd_1,\betabd_2,\betabd_3,\betabd_4$为$\mathbb R^4$的基；
+    \item[2] 求由基$\alphabd_1,\alphabd_2,\alphabd_3,\alphabd_4$到基$\betabd_1,\betabd_2,\betabd_3,\betabd_4$的过渡矩阵$\MP$.
+    \end{itemize}•
+  \end{li}  
+\end{frame}
+
+
+\begin{frame}
+  \begin{li}
+    在$P[x]_3$中，求$f(x)=3x^2+7x+3$在基：$f_1=x^2+x, f_2=x^2-x, f_3=x+1$下的坐标。
+  \end{li} 
+   
+  \begin{jie}
+    设$f=k_1f_1+k_2f_2+k_3f_3$得
+    $$
+    \left\{
+      \begin{array}{r}
+        k_1+k_2=3,\\
+        k_1-k_2+k_3=7,\\
+        k_3=3
+      \end{array}
+    \right.
+    $$
+    它有唯一解$(k_1,k_2,k_3)=(\frac72,-\frac12,3)$。故$f(x)$在所给基下的坐标为$(\frac72,-\frac12,3)$。
+  \end{jie}
+\end{frame}
+
+
+\begin{frame}
+  \begin{li}
+    在$\mathbb R^{2\times 2}$中所有$2$阶实对称矩阵所组成的集合构成$\mathbb R^{2\times 2}$的一个子空间$V$。
+    在$V$中定义线性变换
+    $T:T(\MA)=
+    \left[
+      \begin{array}{cc}
+        1&0\\
+        1&1
+      \end{array}
+    \right]\MA
+    \left[
+      \begin{array}{cc}
+        1&1\\
+        0&1
+      \end{array}
+    \right]$，求线性变换$T$在基$\left[
+      \begin{array}{cc}
+        1&0\\
+        0&0
+      \end{array}
+    \right],\left[
+      \begin{array}{cc}
+        0&1\\
+        1&0
+      \end{array}
+    \right],\left[
+      \begin{array}{cc}
+        0&0\\
+        0&1
+      \end{array}
+    \right]$下的矩阵。
+  \end{li}
+   
+  \begin{jie}
+    设$$\MA_1=\left[
+      \begin{array}{cc}
+        1&0\\
+        0&0
+      \end{array}
+    \right],\MA_2=\left[
+      \begin{array}{cc}
+        0&1\\
+        1&0
+      \end{array}
+    \right],\MA_3=\left[
+      \begin{array}{cc}
+        0&0\\
+        0&1
+      \end{array}
+    \right]
+    $$
+    则
+    $$
+    \begin{array}{rl}
+      T(\MA_1)&=
+      \left[
+      \begin{array}{cc}
+        1&1\\
+        1&1
+      \end{array}
+      \right]=\MA_1+\MA_2+\MA_3, \\
+      T(\MA_2)&=\left[
+      \begin{array}{cc}
+        0&1\\
+        1&2
+      \end{array}
+           \right]=\MA_2+2\MA_3, \\
+      T(\MA_3)&=\left[
+      \begin{array}{cc}
+        0&0\\
+        0&1
+      \end{array}
+           \right]=\MA_3,
+    \end{array}
+    $$
+    故所求矩阵为
+    $$
+    \left[
+      \begin{array}{ccc}
+        1&0&0\\
+        1&1&0\\
+        1&2&1
+      \end{array}
+    \right]
+    $$
+  \end{jie}
+\end{frame}
+
+
+\begin{frame}
+  \begin{li}
+    已知$\mathbb R^3$中的一组基为$\alphabd_1=(1,-1,0)^T,\alphabd_2=(0,2,-1)^T,\alphabd_3=(0,1,-1)^T$，线性变换$T$将$\alphabd_1,\alphabd_2,\alphabd_3$分别变到$\betabd_1=(1,1,-1)^T,\betabd_2=(0,3,-2)^T,\betabd_3=(1,0,-1)^T$。
+    \begin{enumerate}
+    \item 线性变换$T$在$\alphabd_1,\alphabd_2,\alphabd_3$下的矩阵表示$\MA$；
+    \item 求$\xibd=(1,2,-1)^T$以及$T(\xibd)$在基$\alphabd_1,\alphabd_2,\alphabd_3$下的坐标。
+    \end{enumerate}
+  \end{li} 
+\end{frame}
+
+\begin{frame}  
+  \begin{jie}
+    \begin{enumerate}
+    \item 由$(\betabd_1,\betabd_2,\betabd_3)=(T(\alphabd_1),T(\alphabd_2),T(\alphabd_3))=(\alphabd_1,\alphabd_2,\alphabd_3)\MA$得矩阵方程
+      $$
+      \left[
+        \begin{array}{rrr}
+          1&0&1\\
+          1&3&0\\
+          -1&2&-1
+        \end{array}
+      \right]=\left[
+        \begin{array}{rrr}
+          1&0&0\\
+          -1&2&0\\
+           0&-1&-1
+        \end{array}
+      \right]\MA
+      $$
+      可求得
+      $$
+      \MA=\left[
+        \begin{array}{rrr}
+          1&0&1\\
+          1&1&0\\
+          0&1&1
+        \end{array}
+      \right]
+      $$
+    \item 设$\xibd$在基$\alphabd_1,\alphabd_2,\alphabd_3$下的坐标为$\vx=(x_1,x_2,x_3)^T$，那么$\xibd=(\alphabd_1,\alphabd_2,\alphabd_3)\vx$，即
+      $$
+      \left[
+        \begin{array}{rrr}
+          1\\
+          -2\\
+          1
+        \end{array}
+      \right]=\left[
+        \begin{array}{rrr}
+          1&0&0\\
+          -1&2&1\\
+          0&-1&-1
+        \end{array}
+      \right]\left[
+        \begin{array}{rrr}
+          x_1\\
+          x_2\\
+          x_3
+        \end{array}
+      \right]
+      $$
+      解得
+      $$
+      \vx=\left[
+        \begin{array}{rrr}
+          1\\
+          0\\
+          -1
+        \end{array}
+      \right]
+      $$
+      
+    \end{enumerate}
+  \end{jie}
+\end{frame}
+
+\begin{frame}  
+    \begin{li}
+    设$L(\alphabd_1,\alphabd_2,\cd,\alphabd_m)$表示由$\alphabd_1,\alphabd_2,\cd,\alphabd_m$生成的子空间，设有子空间
+    $$
+    \begin{aligned}
+      V_1&=\left\{\alphabd=(x_1,x_2,x_3,x_4)^T~\big|~x_1+x_2+x_3+x_4=0 \right\}, \\
+      V_2&=\left\{\alphabd=(x_1,x_2,x_3,x_4)^T~\big|~x_1-x_2+x_3-x_4=0 \right\}.
+    \end{aligned}
+    $$
+    \begin{enumerate}
+    \item 将$V_1$和$V_2$用$L(\alphabd_1,\alphabd_2,\cd,\alphabd_m)$表示出来；
+    \item 求子空间$V_1+V_2$和$V_1\cap V_2$的维数和一组基。
+    \end{enumerate}
+  \end{li}
+\end{frame}
+\begin{frame}
+  \begin{jie}
+    \begin{enumerate}
+      \item 解$x_1+x_2+x_3+x_4=0$得基础解系：
+      $$\alphabd_1=(-1,1,0,0)^T, ~ \alphabd_2=(-1,0,1,0)^T, ~ \alphabd_3=(-1,0,0,1)^T$$
+      解$x_1-x_2+x_3-x_4=0$得基础解系：
+      $$\betabd_1=(1,1,0,0)^T, ~ \betabd_2=(-1,0,1,0)^T, ~ \betabd_3=(1,0,0,1)^T$$
+      故
+      $$
+      V_1=L(\alphabd_1,\alphabd_2,\alphabd_3),\quad
+      V_2=L(\betabd_1,\betabd_2,\betabd_3).
+      $$  
+    \item 显然$\dim V_1=\dim V_2=3$，$V_1+V_2=L(\alphabd_1,\alphabd_2,\alphabd_3,\betabd_1,\betabd_2,\betabd_3)$。而
+      $$
+      (\alphabd_1,\alphabd_2,\alphabd_3,\betabd_1,\betabd_2,\betabd_3) \xlongrightarrow[]{\mbox{初等行变换}}
+      \left[
+        \begin{array}{rrrrrr}
+          1&&&&&-1\\
+           &1&&&&\\
+           &&1&&&1\\
+           &&&1&&
+        \end{array}
+      \right]
+      $$
+      由此可以看出$\alphabd_1,\alphabd_2,\alphabd_3,\betabd_1$是$V_1+V_2$的一组基，从而$\dim (V_1+V_2)=4$。 
+      由
+      $\blue{\dim V_1 + \dim V_2 = \dim(V_1\cap V_2) + \dim(V_1+V_2)}$知$\red{\dim(V_1\cap V_2)=2}$。
+       解方程组
+      $$
+      \left\{
+        \begin{array}{c}
+          x_1+x_2+x_3+x_4=0\\
+          x_1-x_2+x_3-x_4=0
+        \end{array}
+      \right.
+      $$
+      可得$V_1\cap V_2$的一组基
+      $$
+      \gammabd_1=(-1,0,1,0)^T, \quad 
+      \gammabd_2=(0,-1,0,1)^T.
+      $$
+    \end{enumerate}
+  \end{jie}
+
+\end{frame}
+
+\begin{frame}  
+  \begin{li}
+    \begin{enumerate}
+      \item $1+x,x+x^2,x^2-1$可否作为$L(1+x,x+x^2,x^2-1)$的一组基？求$L(1+x,x+x^2,x^2-1)$的维数；
+      \item 求$V\to W$的线性变换$T(a,b,c)=\left[
+          \begin{array}{cc}
+            a+b+c&a+c\\
+            0&2a+b+2c
+          \end{array}
+        \right]$
+        的值域的基和零空间的基。
+    \end{enumerate}
+  \end{li} 
+  \begin{jie}
+    \begin{enumerate}
+    \item 因$[1+x,x+x^2,x^2-1]=[1,x,x^2]\left[
+          \begin{array}{ccc}
+            1&0&-1\\
+            1&1&0\\
+            0&1&1
+          \end{array}
+        \right]$，而$\left[
+          \begin{array}{ccc}
+            1&0&-1\\
+            1&1&0\\
+            0&1&1
+          \end{array}
+        \right]\to \left[
+          \begin{array}{ccc}
+            1&0&-1\\
+            0&1&1\\
+            0&0&0
+          \end{array}
+        \right]$
+        故$1+x,x+x^2$可作为$L(1+x,x+x^2,x^2-1)$的一组基，其维数为$2$。
+      \item 因$T(a,b,c)=\left[
+          \begin{array}{cc}
+            a+b+c&a+c\\
+            0&2a+b+2c
+          \end{array}
+        \right]=(E_{11}, E_{12},E_{22})\left[
+          \begin{array}{ccc}
+            1&1&1\\
+            1&0&1\\
+            2&1&2
+          \end{array}
+        \right]\left[
+          \begin{array}{c}
+            a\\
+            b\\
+            c
+          \end{array}
+        \right]$
+        而$
+        \left[
+          \begin{array}{ccc}
+            1&1&1\\
+            1&0&1\\
+            2&1&2
+          \end{array}
+        \right]\to \left[
+          \begin{array}{ccc}
+            1&0&1\\
+            0&1&0\\
+            0&0&0
+          \end{array}
+        \right]
+        $，故$R(T)$的基为$\left[
+          \begin{array}{cc}
+            1&1\\
+            0&2\\
+          \end{array}
+        \right],\left[
+          \begin{array}{cc}
+            1&0\\
+            0&1\\
+          \end{array}
+        \right]$，$ker(T)$的基为$\left[
+          \begin{array}{cc}
+            -1&0\\
+            0&1
+          \end{array}
+        \right]$。
+    \end{enumerate}
+  \end{jie}
+\end{frame}

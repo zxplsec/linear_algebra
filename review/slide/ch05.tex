@@ -1,0 +1,1014 @@
+\section{第五章~~特征值问题}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+\subsection{知识点}
+
+
+\begin{frame}\ft{特征值与特征向量}
+  
+  \begin{dingyi}[特征值与特征向量]
+    设$\MA$为复数域$\mathbb C$上的$n$阶矩阵，如果存在数$\lambda\in\mathbb C$和非零的$n$维向量$\vx$使得
+    $$
+    \MA\vx=\lambda\vx
+    $$
+    则称$\lambda$为矩阵$\MA$的\blue{\underline{特征值}}，$\vx$为$\MA$的对应于特征值$\lambda$的\blue{\underline{特征向量}}。
+  \end{dingyi}  
+
+  \begin{itemize}
+  \item[(1)] 特征向量$\vx\ne\M0$；
+  \item[(2)] 特征值问题是对方针而言的。 
+  \end{itemize}
+  
+\end{frame}
+
+
+\begin{frame}\ft{特征值与特征向量}
+  
+  由定义，$n$阶矩阵$\MA$的特征值，就是使齐次线性方程组
+  $$
+  (\MA-\lambda\MI)\vx=\M0
+  $$
+  有非零解的$\lambda$值，即满足方程
+  $$
+  \det(\MA-\lambda\MI)=0
+  $$
+  的$\lambda$都是矩阵$\MA$的特征值。
+
+
+  
+  
+\end{frame}
+
+
+\begin{frame}\ft{特征值与特征向量}
+  
+  \begin{dingyi}[特征多项式、特征矩阵、特征方程]
+    设$n$阶矩阵$\MA=(a_{ij})$，则
+    $$
+    f(\lambda)=\det(\MA-\lambda\MI)
+    =\left|
+      \begin{array}{cccc}
+        a_{11}- \lambda&a_{12}&\cd&a_{1n}\\[0.2cm]
+        a_{21}&a_{22}-\lambda&\cd&a_{2n}\\[0.2cm]
+        \vd&\vd&&\vd\\[0.2cm]
+        a_{n1}&a_{n2}&\cd&a_{nn}-\lambda
+      \end{array}
+    \right|
+    $$
+    称为矩阵$\MA$的特征多项式，$\MA-\lambda\MI$称为$\MA$的特征矩阵，$\det(\MA-\lambda\MI)=0$称为$\MA$的特征方程。
+  \end{dingyi}
+  
+  
+\end{frame}
+
+\begin{frame}\ft{特征值与特征向量}
+  
+  \begin{li}{例1}
+    求矩阵
+    $$
+    \MA=\left(
+      \begin{array}{rrr}
+        5&-1&-1\\
+        3&1&-1\\
+        4&-2&1
+      \end{array}
+    \right)
+    $$
+    的特征值与特征向量。
+  \end{li}
+  \pause
+  $$
+  \begin{array}{rl}
+    \det(\MA-\lambda\MI)&=\left|\begin{array}{rrr}
+                                  5-\lambda&-1&-1\\
+                                  3&1-\lambda&-1\\
+                                  4&-2&1-\lambda
+                                \end{array}\right| =-(\lambda-3)(\lambda-2)^2=0
+  \end{array}
+  $$
+  故特征值为$\lambda_1=3,~\lambda_{2,3}=2\mbox{（二重特征值）}$。
+  
+\end{frame}
+
+\begin{frame}\ft{特征值与特征向量}
+  
+  \begin{itemize}
+  \item 对于特征值$\lambda_1=3$，齐次线性方程组$(\MA-3\MI)\vx=\M0$为
+    $$
+    \left(\begin{array}{rrr}
+            2&-1&-1\\
+            3&-2&-1\\
+            4&-2&-2
+          \end{array}\right)\left(
+          \begin{array}{c}
+            x_1\\
+            x_2\\
+            x_3
+          \end{array}
+        \right)=\left(
+          \begin{array}{c}
+            0\\
+            0\\
+            0
+          \end{array}
+        \right)
+        $$
+        基础解系为$\vx_1=(1,1,1)^T$，因此\red{$k_1\vx_1(k_1\ne 0)$}是$\MA$对应于$\lambda_1=3$的全部特征向量。\\[0.1in]
+        
+      \item 
+        对于特征值$\lambda_{2,3}=2$，齐次线性方程组$(\MA-2\MI)\vx=\M0$为
+        $$
+        \left(\begin{array}{rrr}
+                3&-1&-1\\
+                3&-1&-1\\
+                4&-2&-1
+              \end{array}\right)\left(
+              \begin{array}{c}
+                x_1\\
+                x_2\\
+                x_3
+              \end{array}
+            \right)=\left(
+              \begin{array}{c}
+                0\\
+                0\\
+                0
+              \end{array}
+            \right)
+            $$
+            基础解系为$\vx_2=(1,1,2)^T$，因此\red{$k_2\vx_2(k_2\ne 0)$}是$\MA$对应于$\lambda_{2,3}=2$的全部特征向量。
+
+          \end{itemize}•
+          
+
+          
+        \end{frame}
+
+
+
+        \begin{frame}\ft{特征值与特征向量的性质}
+          
+          \begin{dingli}
+            设$n$阶矩阵$\MA=(a_{ij})$的$n$个特征值为$\lambda_1,\lambda_2,\cd,\lambda_n$，则
+            \begin{itemize}
+            \item[(1)] $\ds \sum_{i=1}^n\lambda_i=\sum_{i=1}^na_{ii}$
+            \item[(2)] $\ds \prod_{i=1}^n\lambda_i=\det(\MA)$         
+            \end{itemize}
+          \end{dingli}
+          
+
+          \begin{itemize}
+          \item 当$\det(\MA)\ne 0$，即$\MA$为可逆矩阵时，其特征值全为非零数；
+          \item 奇异矩阵$\MA$至少有一个零特征值。      
+          \end{itemize}
+          
+        \end{frame}
+
+
+        
+
+
+        \begin{frame}\ft{特征值与特征向量的性质}
+          
+          \begin{dingli}
+            一个特征向量不能属于不同的特征值。
+          \end{dingli}
+          
+          
+        \end{frame}
+
+        \begin{frame}\ft{特征值与特征向量的性质}
+          
+          \begin{xingzhi}{性质1}
+            \begin{table}
+              \caption{特征值与特征向量}
+              
+              \begin{tabular}{|c|c|c|}\hline
+                &特征值&特征向量\\\hline
+                \red{$\MA$}&\red{$\lambda$}&\red{$\vx$}\\ \hline 
+                \hline 
+                $k\MA$&$k\lambda$&$\vx$\\\hline
+                $\MA^m$&$\lambda^m$&$\vx$\\\hline
+                $\MA^{-1}$&$\lambda^{-1}$&$\vx$\\\hline
+              \end{tabular}
+            \end{table}
+          \end{xingzhi}
+          % 
+          % \end{frame}
+          % 
+          % \begin{frame}\ft{特征值与特征向量的性质}
+          %   
+          \begin{xingzhi}{性质2}
+            矩阵$\MA$与$\MA^T$的特征值相同。
+          \end{xingzhi}
+          
+          
+        \end{frame}
+
+        
+
+        % \begin{frame}\ft{特征值与特征向量的性质}
+        %   
+        %   \begin{li}{例}
+        %     设$\MA=\left(
+        %       \begin{array}{rrr}
+        %         1&-1&1\\
+        %         2&-2&2\\
+        %         -1&1&-1
+        %       \end{array}
+        %     \right)$
+        %     \begin{itemize}
+        %     \item[(i)]求$\MA$的特征值与特征向量
+        %     \item[(ii)] 求可逆矩阵$\MP$，使得$\MP^{-1}\MA\MP$为对角阵。 
+        %     \end{itemize}
+        %   \end{li}
+        %   \pause
+        %   $$
+        %   \begin{array}{rl}
+        %     |\lambda\MI-\MA|&=\left|
+        %       \begin{array}{rrr}
+        %         \lambda-1&1&-1\\
+        %         -2&\lambda+2&-2\\
+        %         1&-1&\lambda+1
+        %       \end{array}
+        %     \right| = \lambda^2(\lambda+2)
+        %   \end{array}
+        %   $$
+        %   $\MA$的特征值为$\lambda_1=\lambda_2=0$（二重特征值）和$\lambda=-2$.
+        %   
+        % \end{frame}
+        % 
+        % \begin{frame}\ft{特征值与特征向量的性质}
+        %   
+        %   \begin{itemize}
+        %   \item 当$\lambda_1=\lambda_2=0$时，
+        %     $$
+        %     \lambda_1\MI-\MA=\left(
+        %       \begin{array}{rrr}
+        %         -1&1&-1\\
+        %         -2&2&-2\\
+        %         1&-1&1
+        %       \end{array}
+        %     \right)\left(
+        %       \begin{array}{c}
+        %         x_1\\x_2\\x_3
+        %       \end{array}
+        %     \right)=\left(
+        %       \begin{array}{c}
+        %         0\\0\\0
+        %       \end{array}
+        %     \right)
+        %     $$
+        %     基础解系为$\vx_1=(1,1,0)^T$和$\vx_2=(-1,0,1)^T$，故$\MA$对应于$\lambda_1=0$的全体特征向量为
+        %     $$
+        %     k_1\vx_1+k_2\vx_2 ~~~(k_1,k_2\mbox{为不全为零的任意常数})
+        %     $$
+        %   \end{itemize}
+        %   
+        % \end{frame}
+        % 
+        % 
+        % \begin{frame}\ft{特征值与特征向量的性质}
+        %   
+        %   \begin{itemize}
+        %   \item 当$\lambda_3=-2$时，
+        %     $$
+        %     \lambda_1\MI-\MA=\left(
+        %       \begin{array}{rrr}
+        %         -3&1&-1\\
+        %         -2&0&-2\\
+        %         1&-1&-1
+        %       \end{array}
+        %     \right)\left(
+        %       \begin{array}{c}
+        %         x_1\\x_2\\x_3
+        %       \end{array}
+        %     \right)=\left(
+        %       \begin{array}{c}
+        %         0\\0\\0
+        %       \end{array}
+        %     \right)
+        %     $$
+        %     基础解系为$\vx_3=(-1,-2,1)^T$，故$\MA$对应于$\lambda_3=-2$的全体特征向量为
+        %     $$
+        %     k_3\vx_3 ~~~(k_3\mbox{为非零的任意常数})
+        %     $$
+        %   \end{itemize}
+        %   
+        % \end{frame}
+        % 
+        % 
+        % \begin{frame}\ft{特征值与特征向量的性质}
+        %   
+        %   $$
+        %   \MA(\vx_1,~\vx_2,~\vx_3)=(\vx_1,~\vx_2,~\vx_3)\left(
+        %     \begin{array}{rrr}
+        %       \lambda_1&&\\
+        %       &\lambda_2&\\
+        %       &&\lambda_3
+        %     \end{array}
+        %   \right)
+        %   $$
+        %   取
+        %   $$
+        %   \MP=(\vx_1,~\vx_2,~\vx_3)=\left(
+        %     \begin{array}{rrr}
+        %       1&-1&-1\\
+        %       1&0&-2\\
+        %       0&1&1
+        %     \end{array}
+        %   \right), ~~ \Lambdabd=\left(
+        %     \begin{array}{rrr}
+        %       0&&\\
+        %       &0&\\
+        %       &&-2
+        %     \end{array}
+        %   \right)
+        %   $$
+        %   则$\MP$可逆（因为$|\MP|\ne 0$），且
+        %   $$
+        %   \MP^{-1}\MA\MP=\Lambdabd
+        %   $$
+        %   
+        % \end{frame}
+
+
+        \begin{frame}\ft{特征值与特征向量的性质}
+          
+          \begin{li}{例}
+            对于下列矩阵$\MA$的特征值，能做怎样的断言？
+            \begin{itemize}
+            \item[(1)] $\det(\MI-\MA^2)=0$
+            \item[(2)] $\MA^k=0$
+            \item[(3)] $\MA=k\MI-\MB$（$\lambda_0$为$\MB$的特征值）
+            \end{itemize}
+          \end{li}
+          
+        \end{frame}
+
+
+        \begin{frame}\ft{相似矩阵}
+          
+          \begin{dingyi}[相似矩阵]
+            对于方阵$\MA$和$\MB$，若存在可逆矩阵$\MP$，使得
+            $$
+            \MP^{-1}\MA\MP=\MB,
+            $$
+            就称$\MA$相似于$\MB$，记作$\MA\sim\MB$.
+          \end{dingyi}
+          
+
+          % 
+          % 
+          % \end{frame}
+          % 
+          % 
+          % \begin{frame}
+          %   
+          \begin{dingli}
+            相似矩阵的特征值相同。
+          \end{dingli}
+          
+          
+        \end{frame}
+
+
+
+        \begin{frame}\ft{矩阵可对角化的条件}
+
+          \red{矩阵可对角化，即矩阵与对角阵相似。 } 
+
+
+          
+          \begin{dingli}
+            $\mbox{矩阵可对角化} ~~\Longleftrightarrow~~
+            \mbox{$n$阶矩阵有$n$个线性无关的特征向量}$ 
+          \end{dingli}
+          
+          % 
+          % \end{frame}
+          % 
+          % 
+          % \begin{frame}
+          %   
+          %   若$\MA$与$\Lambdabd$相似，则$\Lambdabd$的主对角元都是$\MA$的特征值。
+          %   若不计$\lambda_k$的排列次序，则$\Lambdabd$是唯一的，称$\Lambdabd$为$\MA$的相似标准型。
+          %   
+          % \end{frame}
+          % 
+          % 
+          % \begin{frame}
+          %   
+          \begin{dingli}
+            $\MA$的属于不同特征值的特征向量是线性无关的。
+          \end{dingli}
+          
+          % 
+          % \end{frame}
+          % 
+          % \begin{frame}
+          %   
+          \begin{tuilun}{推论}
+            若$\MA$有$n$个互不相同的特征值，则$\MA$与对角阵相似。
+          \end{tuilun}
+          
+        \end{frame}
+
+        \begin{frame}\ft{矩阵可对角化的条件}
+          
+          \begin{li}{例}
+            设实对称矩阵
+            $$
+            \MA=\left(
+              \begin{array}{rrrr}
+                1&-1&-1&-1\\
+                -1&1&-1&-1\\
+                -1&-1&1&-1\\
+                -1&-1&-1&1
+              \end{array}
+            \right)
+            $$
+            问$\MA$是否可对角化？若可对角化，求对角阵$\Lambdabd$及可逆矩阵$\MP$使得$\MP^{-1}\MA\MP=\Lambdabd$，再求$\MA^k$。
+          \end{li}
+          \pause\proofname
+          $$
+          |\MA-\lambda\MI|=\left|
+            \begin{array}{rrrr}
+              1-\lambda&-1&-1&-1\\
+              -1&1-\lambda&-1&-1\\
+              -1&-1&1-\lambda&-1\\
+              -1&-1&-1&1-\lambda
+            \end{array}
+          \right|=(\lambda+2)(\lambda-2)^3
+          $$
+          故特征值为$\lambda_1=-2,~~\lambda_{2,3,4}=2$
+          
+        \end{frame}
+
+        \begin{frame}\ft{矩阵可对角化的条件}
+          
+          \begin{itemize}
+          \item
+            对于特征值$\lambda_1=-2$，齐次线性方程组$(\MA+2\MI)\vx=\M0$为
+            $$
+            \left(
+              \begin{array}{rrrr}
+                3&-1&-1&-1\\
+                -1&3&1&1\\
+                -1&-1&3&1\\
+                -1&-1&-1&3
+              \end{array}
+            \right)\left(
+              \begin{array}{cccc}
+                x_1\\x_2\\x_3\\x_4
+              \end{array}
+            \right)=\left(
+              \begin{array}{cccc}
+                0\\0\\0\\0
+              \end{array}
+            \right)
+            $$
+            基础解系为$$
+            \vx_1=(1,1,1,1)^T,
+            $$
+            故对应于$\lambda_1=-2$的全部特征向量为
+            $
+            \red{ k_1\vx_1( k_1\ne 0)}.
+            $
+            \pause 
+          \item
+            对于特征值$\lambda_{2,3,4}=2$，齐次线性方程组$(\MA-2\MI)\vx=\M0$为
+            $$
+            (\MA-\lambda_2\MI)\vx= \left(
+              \begin{array}{rrrr}
+                -1&-1&-1&-1\\
+                -1&-1&-1&-1\\
+                -1&-1&-1&-1\\
+                -1&-1&-1&-1
+              \end{array}
+            \right)\left(
+              \begin{array}{cccc}
+                x_1\\x_2\\x_3\\x_4
+              \end{array}
+            \right)=\left(
+              \begin{array}{cccc}
+                0\\0\\0\\0
+              \end{array}
+            \right)
+            $$
+            基础解系为
+            $$
+            \vx_2=(1,-1,0,0)^T,~~
+            \vx_3=(1,0,-1,0)^T,~~
+            \vx_4=(1,0,-1,0)^T,
+            $$
+            故对应于$\lambda_2=2$的全部特征向量为
+            $\red{
+              k_2\vx_2+k_3\vx_3+k_4\vx_4 (k_2,k_3,k_4\mbox{不全为零})}
+            $
+          \end{itemize}•
+          
+          
+        \end{frame}
+
+
+        \begin{frame}\ft{矩阵可对角化的条件}
+          
+
+          由特征值问题定义可知
+          $$\red{\boxed{
+              \MA(\vx_1,\vx_2,\vx_3,\vx_4)=(\vx_1,\vx_2,\vx_3,\vx_4)\left(
+                \begin{array}{cccc}
+                  \lambda_1&&&\\
+                           &\lambda_2&&\\
+                           &&\lambda_3&\\
+                           &&&\lambda_4
+                \end{array}
+              \right)}}
+          $$
+
+          取
+          $$	
+          \MP=(\vx_1,\vx_2,\vx_3,\vx_4)=\left(
+            \begin{array}{rrrr}
+              1&1&1&1\\
+              1&-1&0&0\\
+              1&0&-1&0\\
+              1&0&0&-1
+            \end{array}
+          \right)
+          $$
+          则$\MA\MP=\MP\Lambdabd$，注意到$\det(\MP)\ne 0$，于是
+          $$
+          \MA=\MP\Lambdabd\MP^{-1}.
+          $$
+
+          
+        \end{frame}
+
+        \begin{frame}\ft{矩阵可对角化的条件}
+          
+          \begin{li}{例2}
+            设$\MA=(a_{ij})_{n\times n}$是主对角元全为$2$的上三角矩阵，且存在$a_{ij}\ne 0(i<j)$，问$\MA$是否可对角化?
+          \end{li}
+          \pause\proofname
+          $$
+          \MA=\left(
+            \begin{array}{cccc}
+              2&*&\cd&*\\
+              0&2&\cd&*\\
+              \vd&\vd&\dd&\vd\\
+              0&0&\cd&2
+            \end{array}
+          \right)~~\Longrightarrow~~
+          \det(\MA-\lambda\MI)=(2-\lambda)^n
+          ~~\Longrightarrow~~
+          \lambda=2\mbox{为$\MA$的$n$重特征值}
+          $$ 
+          $$
+          \begin{array}{rl}
+            \rank(2\MI-\MA)\ge 1 &
+                                   \Longrightarrow~~
+                                   (2\MI-\MA)\vx=\M0\mbox{的基础解系所含向量个数}\le n-1\\[0.1in] 
+                                 &\Longrightarrow~~
+                                   \MA\mbox{的线性无关的特征向量的个数}\le n-1\\[0.1in]
+                                 &\Longrightarrow~~
+                                   \MA\mbox{不与对角阵相似。}
+          \end{array}
+          $$
+          
+        \end{frame}
+
+
+
+        \begin{frame}\ft{实对称矩阵的对角化}
+          
+          \begin{dingli}
+            实对称矩阵$\MA$的任一特征值都是实数。
+          \end{dingli}
+          
+          % 
+          % \end{frame}
+          % 
+          % 
+          % \begin{frame}
+          %   
+          \begin{dingli}
+            实对称矩阵$\MA$对应于不同特征值的特征向量\red{正交}。
+          \end{dingli}
+          
+          
+        \end{frame}
+
+
+
+        \begin{frame}\ft{实对称矩阵的对角化}
+          
+          \begin{dingli}
+            对于$n$阶实对称矩阵$\MA$，存在$n$阶正交矩阵$\MT$，使得
+            $$
+            \MT^{-1}\MA\MT=\Lambdabd
+            $$
+          \end{dingli}
+          
+          
+        \end{frame}
+
+
+
+        \begin{frame}\ft{实对称矩阵的对角化}
+          
+          \begin{li}{例}
+            设
+            $$
+            \MA=\left(
+              \begin{array}{rrr}
+                1&-2&2\\
+                -2&-2&4\\
+                2&4&-2
+              \end{array}
+            \right)
+            $$
+            求正交阵$\MT$，使$\MT^{-1}\MA\MT$为对角阵。      
+          \end{li}
+          \pause
+          $$
+          |\MA-\lambda\MI|=\left|
+            \begin{array}{rrr}
+              1-\lambda&-2&2\\
+              -2&-2-\lambda&4\\
+              2&4&-2-\lambda
+            \end{array}
+          \right| = -(\lambda-2)^2(\lambda+7)
+          $$
+          特征值为$\lambda_{1,2}=2$（二重）和$\lambda_3=-7$。
+          
+        \end{frame}
+
+
+        \begin{frame}\ft{实对称矩阵的对角化}
+          
+          \begin{itemize}
+          \item 对于特征值$\lambda_{1,2}=2$，齐次线性方程组$(\MA-2\MI)\vx=\M0$为
+            $$
+            \left(
+              \begin{array}{rrr}
+                -1&-2& 2\\
+                -2&-3& 4\\
+                2& 4&-4
+              \end{array}
+            \right)\left(
+              \begin{array}{r}
+                x_1\\
+                x_2\\
+                x_3
+              \end{array}
+            \right)=\left(
+              \begin{array}{r}
+                0\\
+                0\\
+                0
+              \end{array}
+            \right)
+            $$
+            得特征向量$\vx_1=(2,-1,0)^T,~~\vx_2=(2,0,1)^T$。 \\[0.1in]
+          \item 
+            对于特征值$\lambda_2=-7$，齐次线性方程组$(\MA-\lambda_2\MI)\vx=\M0$为
+            $$
+            \left(
+              \begin{array}{rrr}
+                8&-2&2\\
+                -2&5&4\\
+                2&4&5
+              \end{array}
+            \right)\left(
+              \begin{array}{r}
+                x_1\\
+                x_2\\
+                x_3
+              \end{array}
+            \right)=\left(
+              \begin{array}{r}
+                0\\
+                0\\
+                0
+              \end{array}
+            \right)
+            $$
+            得特征向量$\vx_3=(1,2,-2)^T$。
+          \end{itemize}•
+          
+
+
+          
+          
+        \end{frame}
+
+
+        \begin{frame}\ft{实对称矩阵的对角化}
+          
+          \begin{itemize}
+          \item 对特征向量$\vx_1=(2,-1,0)^T,~~\vx_2=(2,0,1)^T$，先用\red{施密特正交化过程}正交化，然后单位化。
+          \item[] 先正交化得
+            $$
+            \begin{array}{rl}
+              \betabd_1&=\vx_1,\\[0.2cm]
+              \betabd_2&\ds =\vx_2-\frac{(\vx_2,\betabd_1)}{(\betabd_1,\betabd_1)}\betabd_1\\[0.2in]
+                       &\ds=\left(
+                         \begin{array}{rrr}
+                           2\\0\\1
+                         \end{array}
+              \right)-\frac45\left(
+              \begin{array}{rrr}
+                2\\-1\\0
+              \end{array}
+              \right)=\frac15\left(
+              \begin{array}{rrr}
+                2\\4\\5
+              \end{array}
+              \right)
+            \end{array}
+            $$
+            \pause
+            再单位化得
+            $$
+            \vy_1=\left(\frac{2\sqrt{5}}{5},~-\frac{\sqrt{5}}{5},~0\right)^T,~~
+            \vy_2=\left(\frac{2\sqrt{5}}{15},~-\frac{4\sqrt{5}}{15},~\frac{\sqrt{5}}3\right)^T
+            $$
+
+
+          \item
+            对特征向量$\vx_3=(1,2,-2)^T$单位化，得$\ds \vy_3=\left(\frac13,~~\frac23,~~-\frac23\right)^T$。
+          \end{itemize}
+          
+        \end{frame}
+
+
+        \begin{frame}\ft{实对称矩阵的对角化}
+          
+          取正交矩阵
+          $$
+          \MT=(\vy_1,~~\vy_2,~~\vy_3)=\left(
+            \begin{array}{ccc}
+              \ds\frac{2\sqrt{5}}{5}&\ds\frac{2\sqrt{5}}{15}&\ds\frac13\\[0.1in]
+              \ds-\frac{\sqrt{5}}{5}&\ds-\frac{4\sqrt{5}}{15}&\ds\frac23\\[0.1in]
+              0&\ds\frac{\sqrt{5}}3&\ds-\frac23
+            \end{array}
+          \right)
+          $$
+          则
+          $$
+          \MT^{-1}\MA\MT=\mathrm{diag}(2,2,-7).
+          $$
+
+          
+        \end{frame}
+
+
+        \begin{frame}\ft{实对称矩阵的对角化}
+          
+          \begin{li}{例}
+            设实对称矩阵$\MA$和$\MB$是相似矩阵，证明：存在正交矩阵$\MP$，使$\MP^{-1}\MA\MP=\MB$。
+          \end{li}
+          \pause\proofname
+          $$
+          \begin{array}{rl}
+            \MA\sim\MB & \Longrightarrow~~
+                         \MA,~\MB\mbox{有相同的特征值$\lambda_1,\lambda_2,\cd,\lambda_n$}\\[0.1in]
+                       & \Longrightarrow~~ \exists\mbox{正交阵}\MP_1,\MP_2,~~ s.t.~~
+                         \MP_1^{-1}\MA\MP_1=\mathrm{diag}(\lambda_1,\lambda_2,\cd,\lambda_n)=\MP_2^{-1}\MA\MP_2\\[0.1in]
+                       & \Longrightarrow~~
+                         \MP_2\MP_1^{-1}\MA\MP_1 \MP_2^{-1}=\MB
+          \end{array}
+          $$
+          取$\MP=\MP_1\MP_2^{-1}$，则$\MP$为正交阵，且
+          $$
+          \MP^{-1}\MA\MP=\MB
+          $$
+          
+        \end{frame}
+
+        
+
+
+        \begin{frame}\ft{实对称矩阵的对角化}
+          
+          \begin{li}{例}
+            设$\MA,\MB$都是$n$阶实对称矩阵，若存在正交矩阵$\MT$使$\MT^{-1}\MA\MT,~\MT^{-1}\MB\MT$都是对角阵，则$\MA\MB$是实对称矩阵。
+          \end{li}
+          \pause\proofname
+          $$
+          \begin{array}{rl}
+            \left.
+            \begin{array}{rl}
+              \MT^{-1}\MA\MT=\Lambdabd_1\\[0.1in]
+              \MT^{-1}\MB\MT=\Lambdabd_2
+            \end{array}
+            \right\} & \Longrightarrow~~
+                       (\MT^{-1}\MA\MT)(\MT^{-1}\MB\MT)=\Lambdabd_1\Lambdabd_2=\Lambdabd_2\Lambdabd_1=(\MT^{-1}\MB\MT)(\MT^{-1}\MA\MT)      \\[0.2in]
+                     & \Longrightarrow~~ \MT^{-1}\MA\MB\MT=\MT^{-1}\MB\MA\MT\\[0.2in]
+                     & \Longrightarrow~~ \MA\MB=\MB\MA\\[0.2in]
+                     & \Longrightarrow~~ (\MA\MB)^T=\MB^T\MA^T=\MB\MA=\MA\MB
+          \end{array}
+          $$
+          
+        \end{frame}
+
+        \begin{frame}\ft{实对称矩阵的对角化}
+            \begin{li}{$\bigstar\bigstar\bigstar$}
+              三阶实对称矩阵$\MA$的特征值为$\lambda_1=-1,\lambda_2=\lambda_3=1$，对应于$\lambda_1=-1$的特征向量为$\alphabd_1=(0,1,1)^T$，求$\MA$。
+            \end{li}\pause\proofname
+            $$
+            \MA \sim \diag(-1,~1,~1)
+            $$ 
+            注意\red{不同特征值对应的特征向量正交}，在与$\alphabd_1$正交的平面上取两个线性无关的向量，如$\alphabd_2=(1,0,0)^T,\alphabd_3=(0,1,-1)^T$，则
+            $$
+            \MA(\alphabd_1,~\alphabd_2,~\alphabd_3)=(\alphabd_1,~\alphabd_2,~\alphabd_3)\left(
+              \begin{array}{ccc}
+                -1&&\\
+                  &1&\\
+                  &&1
+              \end{array}
+            \right)
+            $$ 
+            注意到$\alphabd_1,~\alphabd_2,~\alphabd_3$正交，单位化即得标准正交向量组
+            $$
+            \betabd_1=\frac1{\sqrt{2}}(0,1,1)^T,~~
+            \betabd_2=(1,0,0)^T,~~
+            \betabd_3=\frac1{\sqrt{2}}(0,1,-1)^T.
+            $$ 
+            令$\MP=(\betabd_1,~\betabd_2,~\betabd_3)$，则
+            $$
+            \MA=\MP\Lambdabd\MP^{-1}=\MP\Lambdabd\MP^{T}
+            = \left(
+              \begin{array}{rrr}
+                1&0&0\\
+                0&0&-1\\
+                0&-1&0
+              \end{array}
+            \right)
+            $$
+        \end{frame}
+
+
+        %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+        \subsection{往年试题}
+
+        \begin{frame} 
+          
+          \begin{li}[05-06上]
+            设二阶方阵$\MA$满足$\MA^2-3\MA+2\MI=\M0$，求$\MA$所有可能的特征值。
+          \end{li}
+        \end{frame}
+
+        \begin{frame}
+          \begin{li}[05-06下]
+            设三阶方阵$\MA$有三个实特征值$\lambda_1,\lambda_2,\lambda_3$，且$\lambda_1=\lambda_2\ne\lambda_3$，如果$\lambda_1$对应两个线性无关的特征向量$\alphabd_1$和$\alphabd_2$，$\lambda_3$对应一个特征向量$\alphabd_3$，证明$\alphabd_1,\alphabd_2,\alphabd_3$线性无关。
+          \end{li}
+        \end{frame}
+
+        \begin{frame}
+          \begin{li}[05-06下]
+            设$\MA=\left(
+              \begin{array}{ccc}
+                0&0&1\\
+                1&1&-1\\
+                x^2&0&0
+              \end{array}
+            \right)$，$x$为实数，试讨论$x$为何值时，$\MA$可与对角阵相似？
+          \end{li}
+          
+        \end{frame}
+
+
+        \begin{frame} 
+          
+          \begin{li}[06-07上，08-09上]
+            设$\MA=\left(
+              \begin{array}{ccc}
+                1&k&1\\
+                1&0&1\\
+                0&1&0
+              \end{array}
+            \right)$，
+            \begin{itemize}
+            \item 当$k=1$时，是否存在正交矩阵$\MQ$，使得$\MQ^T\MA\MQ$为对角阵？如果存在，是否唯一？
+            \item 当$k=0$时，$\MA$能否与对角阵相似？
+
+            \end{itemize}•
+          \end{li}
+        \end{frame}
+
+        \begin{frame}
+          \begin{li}[07-08上]
+            设$\MA=\left(
+              \begin{array}{ccc}
+                2&0&0\\
+                1&2&-1\\
+                1&0&1
+              \end{array}
+            \right)$，
+            \begin{itemize}
+            \item 求$\MA$的特征值和特征向量；
+            \item 求$\MA^k$及其特征值和特征向量；
+            \end{itemize}•
+          \end{li}
+          
+        \end{frame}
+
+
+        \begin{frame}                     
+          \begin{li}[07-08下]
+            已知$1,1,-1$是三阶实对称矩阵$\MA$的三个特征值，向量$\alphabd_1=(1,1,1)^T,\alphabd_2=(2,2,1)^T$是$\MA$的对应于$\lambda_1=\lambda_2=1$的特征向量。
+            \begin{itemize}
+            \item[(1)] 能否求出$\MA$的属于$\lambda_3=-1$的特征向量？如能，试求出该特征向量，若不能，请说明理由；
+            \item[(2)]能否由此求得$\MA$?若能，试求之，若不能请说明理由。
+
+            \end{itemize}•
+          \end{li}
+        \end{frame}
+
+        \begin{frame}
+          \begin{li}[08-09上]
+            已知$\MA$是三阶方阵，且$\MA^2\ne \M0, \MA^3=\M0$。
+            \begin{itemize}
+            \item[(1)] 能否求出$\MA$的特征值？如能，试求出该特征值，若不能，请说明理由；
+            \item[(2)] $\MA$能否对角化?若能，试求之，若不能请说明理由。
+            \item[(3)] 已知$\MB=\MA^3-5\MA^2+3\MI$，能否求得$\det(\MB)$，若能，试求之，若不能请说明理由。
+
+            \end{itemize}•
+          \end{li}
+          
+        \end{frame}
+
+
+
+        \begin{frame}                     
+          \begin{li}[09-10下]
+            设$\alphabd$是$n$维非零实列向量，$\MA=\MI-\frac2{\alphabd^T\alphabd}\alphabd\alphabd^T$，
+            \begin{itemize}
+            \item[(1)] 计算$\MA^T$，并回答$k\MI-\MA$能否对角化？请说明理由，其中$k$为常数；
+            \item[(2)] 计算$\MA^2$，并回答$k\MI-\MA$是否可逆? 请说明理由，其中$k\ne\pm 1$为常数；
+            \item[(3)] 给出$\MI-2\alphabd\alphabd^T$为正交矩阵的充分必要条件。
+            \end{itemize}•
+          \end{li}
+        \end{frame}
+
+        \begin{frame}
+          \begin{li}[08-09上]
+            已知$\MA$是三阶方阵，且$\MA^2\ne \M0, \MA^3=\M0$。
+            \begin{itemize}
+            \item[(1)] 能否求出$\MA$的特征值？如能，试求出该特征值，若不能，请说明理由；
+            \item[(2)] $\MA$能否对角化?若能，试求之，若不能请说明理由。
+            \item[(3)] 已知$\MB=\MA^3-5\MA^2+3\MI$，能否求得$\det(\MB)$，若能，试求之，若不能请说明理由。
+
+            \end{itemize}•
+          \end{li}
+
+          
+        \end{frame}
+
+
+
+        \begin{frame} 
+          
+
+          \begin{li}[12-13下]
+            已知$\MA$是三阶实对称阵，且$\MA^2+2\MA= \M0$，已知$\rank(\MA)=2$。
+            \begin{itemize}
+            \item[(1)] 求$\MA$的全部特征值？ 
+            \item[(2)] 计算$\det(\MA+4\MI)$
+            \item[(3)] 当$k$为何值时，$\MA+k\MI$正定。
+
+            \end{itemize}•
+          \end{li}
+
+        \end{frame}
+
+        \begin{frame}
+          \begin{li}[12-13下]
+            已知三阶矩阵$\MA$的特征值为$1,2,3$，求$\det(\MA^3-5\MA^2+7\MA)$
+          \end{li}
+        \end{frame}
+
+        \begin{frame}
+          \begin{li}[12-13下]
+            证明：设$\MA$为$n$阶非零实对称矩阵，则存在$n$维列向量$\vx$使得$\vx^T\MA\vx\ne 0$.
+          \end{li}          
+        \end{frame}
+
+
+
+        \begin{frame} 
+          
+          \begin{li}[13-14上]
+            设$\alphabd=(a_1,a_2,a_3)^T,\betabd=(b_1,b_2,b_3)^T$，且$\alphabd^T\betabd=2,\MA=\alphabd\betabd^T$，
+            \begin{itemize}
+            \item[(1)] 求$\MA$的特征值；
+            \item[(2)] 求可逆阵$\MP$及对角阵$\Lambdabd$使得$\MP^{-1}\MA\MP=\Lambdabd$。
+
+            \end{itemize}
+          \end{li}
+
+          
+        \end{frame}

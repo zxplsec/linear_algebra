@@ -1,0 +1,9 @@
+\beamer@sectionintoc {2}{向量空间与线性变换}{3}{0}{1}
+\beamer@subsectionintoc {2}{1}{知识点}{4}{0}{1}
+\beamer@subsectionintoc {2}{2}{往年试题}{83}{0}{1}
+\beamer@sectionintoc {3}{第五章\nobreakspace {}\nobreakspace {}特征值问题}{92}{0}{2}
+\beamer@subsectionintoc {3}{1}{知识点}{93}{0}{2}
+\beamer@subsectionintoc {3}{2}{往年试题}{127}{0}{2}
+\beamer@sectionintoc {4}{第六章\nobreakspace {}\nobreakspace {}二次型}{141}{0}{3}
+\beamer@subsectionintoc {4}{1}{知识点}{142}{0}{3}
+\beamer@subsectionintoc {4}{2}{典型例题}{169}{0}{3}

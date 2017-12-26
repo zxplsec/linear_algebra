@@ -1,0 +1,517 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\subsection{典型例题1~~（线性相关性）}
+\begin{frame}\ft{\subsecname}
+  \begin{footnotesize}
+    \begin{exampleblock}{例1~~2007-2008第一学期，2010-2011第一学期}
+     若有不全为零的数$\lambda_1,\lambda_2,\cd,\lambda_m$使得$\lambda_1\alphabd_1+\lambda_2\alphabd_2+\cd+\lambda_m\alphabd_m+\lambda_1\betabd_1+\lambda_2\betabd_2+\cd+\lambda_m\betabd_m=\zero$ 成立，则$\alphabd_1,\alphabd_2,\cd,\alphabd_m$线性相关，$\betabd_1,\betabd_2,\cd,\betabd_m$也线性相关。试讨论该结论是否正确？
+    \end{exampleblock}
+    
+    \pause
+    该题可转换为：
+    $$(\A+\B)\xx=\zero\mbox{有非零解}~~\xLongrightarrow[]{\ds \red{?}}~~ \A\xx=\zero\mbox{和}\B\xx=\zero\mbox{都有非零解}$$
+   \end{footnotesize}
+ \end{frame}
+ 
+ \begin{frame}\ft{\subsecname}
+  \begin{footnotesize}
+    \begin{exampleblock}{例2~~2007-2008第二学期}
+      设$\A$为$m\times n$矩阵，$\B$为$n\times m$矩阵，$\II$为单位矩阵，易知$\B\A=\II$，试判断$\A$的列向量组是否线性相关？为什么？
+    \end{exampleblock}
+    
+    \pause \jiename
+    一方面
+    $$
+    \rr(\A) \ge \rr(\B\A) =n,
+    $$
+    另一方面
+    $$
+    \rr(\A)\le n
+    $$
+    故$\rr(\A)=n$，于是$\A$的列向量组线性无关。
+%      \end{footnotesize}
+%\end{frame}
+%
+%
+%\begin{frame}\ft{\subsecname}
+%  \begin{footnotesize}
+\pause 
+    \begin{exampleblock}{例3~~2012-2013第二学期}
+    设$\A$为$n\times m$矩阵，$\B$为$m\times n$矩阵，$n<m$且$\A\B=\II$，证明$\B$的列向量组线性无关。
+    \end{exampleblock}
+
+  \end{footnotesize}
+\end{frame}
+
+\begin{frame}\ft{\subsecname}
+  \begin{footnotesize}
+    \begin{exampleblock}{例4~~2008-2009第一学期}
+      证明：与基础解系等价的线性无关的向量组也是基础解系。
+    \end{exampleblock}
+    \pause\proofname
+    设$A:\alphabd_1,\alphabd_2,\cd,\alphabd_r$为基础解系，$B:\betabd_1,\betabd_2,\cd,\betabd_s$是$A$的等价组，且线性无关。
+    由于$B$等价于$A$，故$A,B$可以互相线性表示。因$A$为基础解系，齐次线性方程组的全部解能由$A$线性表示，而$A$可由$B$线性表示，故齐次线性方程组的全部解能由$B$线性表示。注意到$r(A)=r$和$r(B=s)$，而$A$与$B$等价，故$r(A)=r(B)$，即$r=s$。综上所述，$B$也为基础解系。
+  \end{footnotesize}
+\end{frame}
+
+
+\begin{frame}\ft{\subsecname}
+  \begin{footnotesize}
+    \begin{exampleblock}{例5~~2009-2010第一学期}
+      已知向量组$\alphabd_1,\alphabd_2,\alphabd_3,\alphabd_4$线性无关，
+      \begin{itemize}
+      \item[1] 向量组$\alphabd_1,\alphabd_2,\alphabd_3$是否线性无关，并说明理由。
+      \item[2] 常数$l,m$满足何种条件时，$l\alphabd_1+\alphabd_2,\alphabd_2+\alphabd_3,m\alphabd_3+\alphabd_1$线性无关，并说明理由。
+      \end{itemize}
+    \end{exampleblock}
+    \pause \proofname
+    \begin{itemize}
+      \item[1] 整体无关，则部分无关。
+      \item[2]   
+      设$
+      x_1(l\alphabd_1+\alphabd_2)+x_2(\alphabd_2+\alphabd_3)+x_3(m\alphabd_3+\alphabd_1)=\zero  
+      $
+      即
+      $$
+      (lx_1+x_3)\alphabd_1+(x_1+x_2)\alphabd_2 +(x_2+mx_3)\alphabd_3=\zero
+      $$      
+      由于$\alphabd_1,\alphabd_2,\alphabd_3$线性无关，故
+      $$
+      \left\{
+      \begin{array}{rcl}
+lx_1+x_3&=&0\\
+x_1+x_2&=&0\\
+x_2+mx_3&=&0
+      \end{array}
+      \right.
+      $$
+      只有零解。
+      \end{itemize}
+  \end{footnotesize}
+\end{frame}
+
+
+
+
+\subsection{典型例题2~~（极大无关组与向量组的秩）}
+
+\begin{frame}\ft{\subsecname}
+  \begin{scriptsize}
+    \begin{exampleblock}{$\bigstar\bigstar\bigstar\bigstar\bigstar$}
+      设向量组
+      $$
+      \alphabd_1=\left(
+      \begin{array}{r}
+        -1\\-1\\0\\0
+      \end{array}
+      \right),~~ \alphabd_2=\left(
+      \begin{array}{r}
+        1\\2\\1\\-1
+      \end{array}
+      \right),~~ \alphabd_3=\left(
+      \begin{array}{r}
+        0\\1\\1\\-1
+      \end{array}
+      \right),~~ \alphabd_4=\left(
+      \begin{array}{r}
+        1\\3\\2\\1
+      \end{array}
+      \right),~~ \alphabd_5=\left(
+      \begin{array}{r}
+        2\\6\\4\\-1
+      \end{array}
+      \right)
+      $$
+      求向量组的秩及其一个极大无关组，并将其余向量用该极大无关组线性表示。
+    \end{exampleblock}
+    \pause\jiename
+    作矩阵$\A=(\alphabd_1,\alphabd_2,\alphabd_3,\alphabd_4,\alphabd_5)$，由
+    $$
+    \begin{array}{rl}
+    \A &= \left(
+    \begin{array}{rrrrr}
+      -1&1&0&1&2\\
+      -1&2&1&3&6\\
+      0&1&1&2&4\\
+      0&-1&-1&1&-1
+    \end{array}
+    \right) \xlongrightarrow[r_2+r_1]{ r_1\times(-1)}
+    \left(
+    \begin{array}{rrrrr}
+      1&-1&0&-1&-2\\
+      0&1&1&2&4\\
+      0&1&1&2&4\\
+      0&-1&-1&1&-1
+    \end{array}
+    \right)\\[0.28in]
+    &\xlongrightarrow[r_4+r_2]{r_3- r_2}
+    \left(
+    \begin{array}{rrrrr}
+      1&-1&0&-1&-2\\
+      0&1&1&2&4\\
+      0&0&0&0&0\\
+      0&0&0&3&3
+    \end{array}
+    \right) \xlongrightarrow[r_3\leftrightarrow r_4]{r_4\div 3}
+    \left(
+    \begin{array}{rrrrr}
+      1&-1&0&-1&-2\\
+      0&1&1&2&4\\
+      0&0&0&1&1\\
+      0&0&0&0&0
+    \end{array}
+    \right)
+    \end{array}
+    $$
+  \end{scriptsize}
+\end{frame}
+
+\begin{frame}\ft{\subsecname}
+  \begin{scriptsize}
+    $$
+    \begin{array}{rl}
+      & \xlongrightarrow[r_2 -2 r_3]{r_1+r_3}
+    \left(
+    \begin{array}{rrrrr}
+      1&-1&0&0&-1\\
+      0&1&1&0&2\\
+      0&0&0&1&1\\
+      0&0&0&0&0
+    \end{array}
+    \right) \xlongrightarrow[]{r_1+r_2}
+    \left(
+    \begin{array}{rrrrr}
+      1&0&1&0&1\\
+      0&1&1&0&2\\
+      0&0&0&1&1\\
+      0&0&0&0&0
+    \end{array}
+    \right) = \B
+    \end{array}
+    $$
+    将最后一个阶梯矩阵$\B$记为$(\betabd_1,\betabd_2,\betabd_3,\betabd_4,\betabd_5)$
+    \pause 
+    \vspace{0.1in}
+
+    易知$\betabd_1,\betabd_2,\betabd_4$为$\B$的列向量组的一个极大无关组，故$\alphabd_1,\alphabd_2,\alphabd_4$也为$\A$的列向量组的一个极大无关组，故
+    $$
+    \rr(\alphabd_1,\alphabd_2,\alphabd_3,\alphabd_4,\alphabd_5)=3,
+    $$
+    且
+    $$
+    \begin{array}{l}
+      \alphabd_3=\alphabd_1+\alphabd_2,\\
+      \alphabd_5=\alphabd_1+2\alphabd_2+\alphabd_4,\\
+    \end{array}
+    $$
+    
+  \end{scriptsize}
+\end{frame}
+
+
+
+
+\begin{frame}
+  \begin{scriptsize}
+    \begin{exampleblock}{$\bigstar\bigstar\bigstar\bigstar\bigstar$}
+      设$\alphabd_1=(1,3,1,2), ~\alphabd_2=(2,5,3,3), ~\alphabd_3=(0,1,-1,a), ~\alphabd_4=(3,10,k,4)$，
+      试求向量组$\alphabd_1,~\alphabd_2,~\alphabd_3,~\alphabd_4$的秩，并将$\alphabd_4$用$\alphabd_1,~\alphabd_2,~\alphabd_3$线性表示。
+    \end{exampleblock}
+    \pause \jiename
+    将4个向量按列排成一个矩阵$\A$，对$\A$进行初等变换，将其化为阶梯形矩阵$\U$，即
+    $$
+    \A=\left(
+    \begin{array}{rrrr}
+    1&2&0&3\\
+    3&5&1&10\\
+    1&3&-1&k\\
+    2&3&a&4
+    \end{array}
+    \right) \xlongrightarrow[]{\mbox{初等行变换}}
+    \left(
+    \begin{array}{rrcc}
+    1&2&0&3\\
+    0&-1&1&1\\
+    0&0&a-1&-3\\
+    0&0&0&k-2
+    \end{array}
+    \right)=\U
+    $$
+    \pause 
+    \begin{itemize}
+    \item[(1)] 当$a=1$或$k=2$时，$\U$只有3个非零行，故
+      $$\rr(\alphabd_1,\alphabd_2,\alphabd_3,\alphabd_4)=\rr(\A)=3. $$ 
+    \item[(2)] \pause 当$a\ne1$且$k\ne2$时，
+      $$\rr(\alphabd_1,\alphabd_2,\alphabd_3,\alphabd_4)=\rr(\A)=4.$$
+    \end{itemize}
+      \end{scriptsize}
+\end{frame}
+
+
+\begin{frame}
+  \begin{scriptsize}
+    $$
+    \A=\left(
+    \begin{array}{rrrr}
+      1&2&0&3\\
+      3&5&1&10\\
+      1&3&-1&k\\
+      2&3&a&4
+    \end{array}
+    \right) \xlongrightarrow[]{\mbox{初等行变换}}
+    \left(
+    \begin{array}{rrcc}
+      1&2&0&3\\
+      0&-1&1&1\\
+      0&0&a-1&-3\\
+      0&0&0&k-2
+    \end{array}
+    \right)
+    $$
+    \begin{itemize}
+    \item 当$k=2$且$a\ne1$时，$\alphabd_4$可由$\alphabd_1,~\alphabd_2,~\alphabd_3$线性表示，
+      且
+      $$
+      \alphabd_4=-\frac{1+5a}{1-a}\alphabd_1+\frac{2+a}{1-a}\alphabd_2+\frac{3}{1-a}\alphabd_3.
+      $$
+    \item \pause 当$k\ne2$或$a=1$时，$\alphabd_4$不能由$\alphabd_1,~\alphabd_2,~\alphabd_3$线性表示。
+    \end{itemize}
+  \end{scriptsize}
+\end{frame}
+
+
+\begin{frame}
+  \begin{scriptsize}
+    \begin{exampleblock}{$\bigstar\bigstar\bigstar\bigstar\bigstar$}
+      设
+      $$
+      \A=\left(
+      \begin{array}{rrr}
+        1&2&1\\
+        2&2&-2\\
+        -1&t&5\\
+        1&0&-3
+      \end{array}
+      \right)
+      $$
+      已知$\rr(\A)=2$，求$t$。
+    \end{exampleblock}
+    \pause
+    \jiename
+    $$
+    \A \xlongrightarrow[]{\mbox{初等行变换}} \left(
+    \begin{array}{ccr}
+      1&2&1\\
+      0&-2&-4\\
+      0&2+t&6\\
+      0&0&0
+    \end{array}
+    \right)=\B
+    $$ \pause
+    由于$\rr(\B)=\rr(\A)$，故$\B$中第2、3行必须成比例，即
+    $$
+    \frac{-2}{2+t}=\frac{-4}6,
+    $$
+    即得$t=1$。
+  \end{scriptsize}
+\end{frame}
+
+
+%% \begin{frame}\ft{\subsecname}
+%%   \begin{scriptsize}
+%%     \begin{exampleblock}{2005-2006第一学期}
+%%       对于$\RR^3$中的向量组$A:\alphabd_1,\alphabd_2,\alphabd_3$和$B:\betabd_1,\betabd_2,\betabd_3$，讨论下面的问题：
+%%       \begin{itemize}
+%%       \item[(1)] 向量组$B$能否成为$\RR^3$中的基？能否用$A$线性表示$B$？如果可以，试求出由$\alphabd_1,\alphabd_2,\alphabd_3$到$\betabd_1,\betabd_2,\betabd_3$的过渡矩阵$P$，其中
+%%         $$
+%%         \begin{aligned}
+%%           \alphabd_1=\left(
+%%         \begin{array}{c}
+%%           1\\0\\0
+%%         \end{array}
+%%         \right),
+%%         \alphabd_2=\left(
+%%         \begin{array}{c}
+%%           1\\1\\0
+%%         \end{array}
+%%         \right),
+%%         \alphabd_3=\left(
+%%         \begin{array}{c}
+%%           1\\1\\1
+%%         \end{array}
+%%         \right),
+%%          \\
+%%          \betabd_1=\left(
+%%         \begin{array}{c}
+%%           1\\1\\a
+%%         \end{array}
+%%         \right),
+%%         \betabd_2=\left(
+%%         \begin{array}{c}
+%%           1\\1\\2-a
+%%         \end{array}
+%%         \right),
+%%         \betabd_3=\left(
+%%         \begin{array}{c}
+%%           -1\\1\\0
+%%         \end{array}
+%%         \right), (a\in \RR)
+%%         \end{aligned}
+%%         $$
+%%       \item[(2)]
+%%         若$\betabd_1=k(2\alphabd_1+2\alphabd_2-\alphabd_3), \betabd_2=k(2\alphabd_1-\alphabd_2+2\alphabd_3),\betabd_3=k(\alphabd_1-2\alphabd_2-2\alphabd_3)$，$k$为非零实数，
+%%         \begin{itemize}
+%%         \item[(a)] 给出向量组$\betabd_1,\betabd_2,\betabd_3$线性无关的一个充要条件，并证明之；
+%%         \item[(b)] 给出矩阵$(\betabd_1,\betabd_2,\betabd_3)$为正交阵的一个充要条件，并证明之.
+%%         \end{itemize}
+%%       \end{itemize}
+%%     \end{exampleblock}
+%%     \end{scriptsize}
+%% \end{frame}
+
+
+
+\begin{frame}\ft{\subsecname}
+  \begin{footnotesize}
+    \begin{exampleblock}{例1~~2005-2006第二学期}
+      设$$\alphabd_1=(1,0,2,1),\alphabd_2=(2,0,1,-1),\alphabd_3=(1,1,0,1),\alphabd_4=(4,1,3,1),$$
+      求向量组$\alphabd_1,\alphabd_2,\alphabd_3,\alphabd_4$的秩和一个极大无关组。
+    \end{exampleblock}
+%%   \end{footnotesize}
+%% \end{frame}
+
+
+%% \begin{frame}\ft{\subsecname}
+%%   \begin{footnotesize}
+    \begin{exampleblock}{例2~~2006-2007第二学期}
+      计算向量组$$
+      \begin{aligned}
+      \alphabd_1=(1,-2,3,-1,2)^T,\alphabd_2=(2,1,2,-2,-3)^T, \\[1ex]
+      \alphabd_3=(5,0,7,-5,-4)^T,\alphabd_4=(3,-1,5,-3,-1)^T
+      \end{aligned}$$
+      的秩和一个极大无关组，同时将其余向量表示成极大无关组的线性组合。
+    \end{exampleblock}
+  \end{footnotesize}
+\end{frame}
+
+
+
+
+
+
+ \begin{frame}\ft{\subsecname}
+   \begin{footnotesize}
+    \begin{exampleblock}{例3~~2007-2008第二学期}
+      计算向量组
+      $$\xibd_1=(1,2,3)^T,\xibd_2=(-8,4,8)^T,\xibd_3=(2,-1,-2)^T,
+      \xibd_4=(10,5,6)^T
+      $$的秩和一个极大无关组，同时将其余向量表示成极大无关组的线性组合。
+    \end{exampleblock}
+%  \end{footnotesize}
+%\end{frame}
+%
+%
+%
+%\begin{frame}\ft{\subsecname}
+%  \begin{footnotesize}
+    \begin{exampleblock}{例4~~2008-2009第一学期}
+      计算向量组
+      $$\xibd_1=(1,0,2,1)^T,\xibd_2=(2,0,1,-1)^T,\xibd_3=(1,1,0,1)^T,
+      \xibd_4=(4,1,3,1)^T
+      $$的秩和一个极大无关组，同时将其余向量表示成极大无关组的线性组合。
+    \end{exampleblock}
+  \end{footnotesize}
+\end{frame}
+
+
+
+
+\begin{frame}\ft{\subsecname}
+  \begin{footnotesize}
+    \begin{exampleblock}{例5~~2008-2009第一学期}
+      计算向量组$$\xibd_1=(1,1,0)^T,\xibd_2=(0,1,1)^T,\xibd_3=(1,1,1)^T,
+      \xibd_4=(1,2,1)^T$$的秩和一个极大无关组，并给出向量组中不能由其余向量线性表示的向量。
+    \end{exampleblock}
+%  \end{footnotesize}
+%\end{frame}
+%
+%
+%\begin{frame}\ft{\subsecname}
+%  \begin{footnotesize}
+    \begin{exampleblock}{例6~~2009-2010第一学期}
+    已知线性方程组$\A\xx=\bb$存在两个不同的解，其中$$\A=\left(
+    \begin{array}{ccc}
+        \lambda&1&1\\
+        0&\lambda-1&0\\
+        1&1&\lambda
+      \end{array}
+    \right),\bb=\left(
+      \begin{array}{c}
+        a\\1 \\1
+      \end{array}
+      \right).$$
+      \begin{itemize}
+      \item[1] 求$\lambda,a$.
+      \item[2] 求其通解。
+      \end{itemize}
+    \end{exampleblock}
+
+  \end{footnotesize}
+\end{frame}
+
+
+\begin{frame}\ft{\subsecname}
+  \begin{footnotesize}
+    \begin{exampleblock}{例7~~2009-2010第一学期}
+    设有向量组$$\alphabd_1=(1,2,0)^T,\alphabd_2=(1,a+2,-3a)^T,\alphabd_3=(-1,-b-2,a+2b)^T,\betabd=(1,3,-3)^T,$$
+    讨论当$a,b$为何值时，
+    \begin{itemize}
+      \item[1] $\betabd$不能由$\alphabd_1,\alphabd_2,\alphabd_3$线性表示；
+      \item[2] $\betabd$可由$\alphabd_1,\alphabd_2,\alphabd_3$惟一地线性表示，并求出表示式；
+      \item[3] $\betabd$可由$\alphabd_1,\alphabd_2,\alphabd_3$线性表示，但表示式不唯一，并求出表示式。
+      \end{itemize}
+    \end{exampleblock}
+  \end{footnotesize}
+\end{frame}
+
+
+
+\begin{frame}\ft{\subsecname}
+  \begin{footnotesize}
+    \begin{exampleblock}{例8~~2012-2013第二学期}
+    已知$\alphabd_1=\left(
+      \begin{array}{c}
+        1\\4\\0\\2
+      \end{array}
+      \right),\alphabd_2=\left(
+      \begin{array}{c}
+        2\\7\\1\\3
+      \end{array}
+      \right),\alphabd_3=\left(
+      \begin{array}{r}
+        0\\1\\-1\\a
+      \end{array}
+      \right),\betabd=\left(
+      \begin{array}{c}
+        3\\10\\b\\4
+      \end{array}
+      \right)$
+      问$a,b$为何值时，
+      \begin{itemize}
+      \item[1] $\betabd$不能由$\alphabd_1,\alphabd_2,\alphabd_3$线性表示；
+      \item[2] $\betabd$可由$\alphabd_1,\alphabd_2,\alphabd_3$惟一地线性表示，并求出表示式；
+      \item[3] $\betabd$可由$\alphabd_1,\alphabd_2,\alphabd_3$线性表示，但表示式不唯一，并求出表示式；
+      \item[4] $\alphabd_1,\alphabd_2,\alphabd_3$线性相关，并在此时求它的秩和一个最大无关组，且用该最大无关组表示其余向量。
+      \end{itemize}
+    \end{exampleblock}
+
+  \end{footnotesize}
+\end{frame}
+
+
+
+
+
+
+
+

@@ -1,0 +1,1290 @@
+\section{第二章~~矩阵及其运算}
+
+\subsection{往年试题}
+\begin{frame}
+\begin{footnotesize}
+\begin{exampleblock}{2005-2006第一学期}
+已知$\A$为$n(n\ge 2)$矩阵，且$\A$非奇异，求$(\A^*)^*$。
+\end{exampleblock}
+\pause\jiename
+由$\A^{-1}=\A^*/|\A|$，可知$\A^*=|\A|\A^{-1}$，从而$|\A^*|=|\A|^{n-1}$。
+而
+$$
+(\A^*)^*=|\A^*|(\A^*)^{-1}=|\A|^{n-1}(|\A|\A^{-1})^{-1}=|\A|^{n-2}\A.
+$$
+\end{footnotesize}
+\end{frame}
+
+\begin{frame}
+\begin{footnotesize}
+\begin{exampleblock}{2005-2006第一学期, 2009-2010第一学期, 2010-2011第一学期, 2011-2012第一学期}
+设$\A=\left(
+\begin{array}{rrr}
+1&0&1\\
+0&2&0\\
+1&6&a
+\end{array}
+\right)$，且$\rr(\A)=2$，$\X$满足$\A\X+\II=\A^2+\X$，求$a$和$\X$。
+\end{exampleblock}
+\pause\jiename
+因$\A \rightarrow \left(
+\begin{array}{ccc}
+1&0&1\\
+0&2&0\\
+0&0&a-1
+\end{array}
+\right)$,
+由$\rr(\A)=2$知$a=1$,故$\A=\left(
+\begin{array}{rrr}
+1&0&1\\
+0&2&0\\
+1&6&1
+\end{array}
+\right)$.
+\vspace{0.1in}
+
+
+$$\blue{
+\A\X+\II=\A^2+\X ~~\Rightarrow~~
+(\A-\II)\X=\A^2-\II=(\A-\II)(\A+\II)
+}
+$$
+因$
+\A-\II=\left(
+\begin{array}{rrr}
+0&0&1\\
+0&1&0\\
+1&6&0
+\end{array}
+\right)
+$可逆，故
+$$
+\X=\A+\II=\left(
+\begin{array}{rrr}
+2&0&1\\
+0&3&0\\
+1&6&2
+\end{array}
+\right)
+$$
+\end{footnotesize}
+\end{frame}
+
+\begin{frame}
+\begin{footnotesize}
+\begin{exampleblock}{2005-2006第一学期}
+设$\A$为$n$阶实矩阵，
+\begin{itemize}
+\item[(1)] 当$n$为奇数且$\A\A^T=\II$及$|\A|=1$时，证明$|\II-\A|=0$；
+\item[(2)]  当$m$为任意给定正整数且$(\A+\II)^m=\zero$，证明$\A$可逆。
+\end{itemize}
+\end{exampleblock}
+\pause\proofname
+\begin{itemize}
+\item[(1)]
+由$\A\A^T=\II$知$A^T=\A^{-1}$。
+又$\II-\A=(\A^{-1}-\II)\A=(\A^T-\II)\A$，故
+$$
+|\II-\A|=|\A^T-\II||\A|=|\A-\II|=(-1)^n=|\II-\A|
+$$
+而$n$为奇数，于是
+$
+|\II-\A|=-|\II-\A|
+$，即$|\II-\A|=0$。\\[0.1in] \pause 
+\item[(2)]
+由$(\A+\II)^m=\zero$，即$\A^m+C_m^{m-1}\A^{m-1}+\cd++C_m^{1}\A+\II=\zero$可知，
+$$
+\A(\A^{m-1}+C_m^{m-1}\A^{m-2}+\cd+C_m^{1}\II)=-\II
+$$
+故
+$$
+\A^{-1}=-(\A^{m-1}+C_m^{m-1}\A^{m-2}+\cd+C_m^{1}\II).
+$$
+\end{itemize}
+\end{footnotesize}
+\end{frame}
+
+
+\begin{frame}
+\begin{footnotesize}
+\begin{exampleblock}{2005-2006第二学期}
+设$\A=\left(
+\begin{array}{rrr}
+1&1&-1\\
+0&1&1\\
+0&0&-1
+\end{array}
+\right)$，且$\A^2-\A\B=\II$，
+\begin{itemize}
+\item[(1)] 求$\B$；
+\item[(2)]  令$\C=4\A^2-\B^2-2\B\A+2\A\B$，计算$\C^*$。
+\end{itemize}
+\end{exampleblock}
+\pause\jiename
+\begin{itemize}
+\item[(1)]
+由$\A^2-\A\B=\II$知$\A\B=\A^2-\II$。利用如下过程可求得$\B$:
+$$\boxed{\blue{
+(\A, ~~\A^2-\II) ~~\xlongrightarrow[]{\mbox{初等行变换}} (\II, ~~\B)
+}
+}
+$$
+易求得$\A^2-\II=\left(
+\begin{array}{rrr}
+0&2&1\\
+0&0&0\\
+0&0&0
+\end{array}
+\right)$，故
+$$\left(
+\begin{array}{rrrrrr}
+1&1&-1&0&2&1\\
+0&1&1&0&0&0\\
+0&0&-1&0&0&0
+\end{array}
+\right) \longrightarrow
+\left(
+\begin{array}{rrrrrr}
+1&0&0&0&2&1\\
+0&1&0&0&0&0\\
+0&0&1&0&0&0
+\end{array}
+\right)
+$$
+\end{itemize}•
+\end{footnotesize}
+\end{frame}
+
+\begin{frame}
+\begin{footnotesize}
+\begin{itemize}
+\item[(2)]
+易求得
+$$
+\C=(2\A-\B)(2\A+\B)=\left(
+\begin{array}{rrr}
+4&8&4\\
+0&4&0\\
+0&0&4
+\end{array}
+\right) $$
+故
+$$
+\C^{-1}=\frac14\left(
+\begin{array}{rrr}
+1&-2&-1\\
+0&1&0\\
+0&0&1
+\end{array}
+\right), \quad |\C|=64.
+$$
+故
+$$
+\C^*=|\C|\C^{-1}=16\left(
+\begin{array}{rrr}
+1&-2&-1\\
+0&1&0\\
+0&0&1
+\end{array}
+\right)
+$$
+\end{itemize}•
+\end{footnotesize}
+\end{frame}
+
+
+
+
+\begin{frame}
+\begin{footnotesize}
+\begin{exampleblock}{2006-2007第一学期}
+设三阶方阵$\A=(a_{ij})$，
+\begin{itemize}
+\item[(1)] 若$\A^T=\A$且$\A^2=\zero$，证明$\A=\zero$；并由反例说明一般情况下$\A^2=\zero$得不出$\A=\zero$；
+\item[(2)]  若$\A$可逆，将其第二行的$2$倍加到第三行的矩阵为$\B$，问$\B\A^{-1}-\A\B^{-1}$是否可逆？
+\end{itemize}
+\end{exampleblock}
+\pause\jiename
+\begin{itemize}
+\item[(1)]
+由条件知$\A^T\A=\zero$，而$(\A^T\A)_{ii}=a_{1i}^2+a_{2i}^2+\cd+a_{ni}^2=0$，故$a_{ij}=0$，即$\A=\zero$。
+反例：$\A=\left(\begin{array}{cc}
+0&1\\0&0
+\end{array}\right)\ne \zero$，但$\A^2=\left(\begin{array}{cc}
+0&0\\0&0
+\end{array}\right)$. \pause
+\item[(2)]
+由题意知$\B=\PP\A$，其中$\PP=\left(\begin{array}{ccc}
+1&&\\0&1&\\0&3&1
+\end{array}\right)$. 故
+$$
+\begin{array}{rl}
+\B\A^{-1}-\A\B^{-1}&=\PP\A\A^{-1}-\A\A^{-1}\PP^{-1}=\PP-\PP^{-1} \\[0.1in]
+&=\left(\begin{array}{ccc}
+1&&\\0&1&\\0&3&1
+\end{array}\right)-\left(\begin{array}{ccc}
+1&&\\0&1&\\0&-3&1
+\end{array}\right)=\left(\begin{array}{ccc}
+0&&\\0&0&\\0&6&0
+\end{array}\right),
+\end{array}
+$$ 显然不可逆。
+\end{itemize}•
+\end{footnotesize}
+\end{frame}
+
+\begin{frame}
+\begin{footnotesize}
+\begin{exampleblock}{2006-2007第二学期}
+设$\A=\left(
+\begin{array}{rrr}
+1&2&1\\
+2&1&1\\
+1&1&2
+\end{array}
+\right)$， $\B=\left(
+\begin{array}{rrr}
+-1&1&0\\
+1&3&1\\
+-1&0&1
+\end{array}
+\right)$，
+\begin{itemize}
+\item[(1)] 求$(\A+\B)^2-(\A^2+2\A\B+\B^2)$；
+\item[(2)]  求$\A^{-1}$。
+\end{itemize}
+\end{exampleblock}
+\pause\jiename
+\begin{itemize}
+\item[(1)]  $(\A+\B)^2-(\A^2+2\A\B+\B^2)=\B\A-\A\B=\left(
+\begin{array}{rrr}
+1&-1&0\\
+8&6&6\\
+0&-1&1
+\end{array}
+\right)-\left(
+\begin{array}{rrr}
+0&7&3\\
+-2&5&2\\
+-2&4&3
+\end{array}
+\right)=\left(
+\begin{array}{rrr}
+1&-8&-3\\
+10&1&4\\
+2&-5&-2
+\end{array}
+\right)$ \pause 
+\item[(2)]
+$$
+\begin{array}{rl}
+(\A,~\II)&=\left(
+\begin{array}{rrrrrr}
+1&2&1&1&0&0\\
+2&1&1&0&1&0\\
+1&1&2&0&0&1
+\end{array}
+\right)\rightarrow\left(
+\begin{array}{rrrrrr}
+1&2&1&1&0&0\\
+0&-3&-1&-2&1&0\\
+0&-1&1&-1&0&1
+\end{array}
+\right)\\
+&\rightarrow\left(
+\begin{array}{rrrrrr}
+1&2&1&1&0&0\\
+0&1&-1&1&0&-1\\
+0&0&-4&1&1&-3\\
+\end{array}
+\right)\rightarrow\left(
+\begin{array}{rrrrrr}
+1&0&0&-\frac14&\frac34&-\frac14\\
+0&1&0&\frac34&-\frac14&-\frac14\\
+0&0&1&-\frac14&-\frac14&\frac34\\
+\end{array}
+\right)
+\end{array}
+$$
+\end{itemize}
+\end{footnotesize}
+\end{frame}
+
+\begin{frame}
+\begin{footnotesize}
+\begin{exampleblock}{2006-2007第二学期}
+设$\A=\left(
+\begin{array}{rrr}
+1&-3&2\\
+-2&1&-1\\
+1&2&-1
+\end{array}
+\right)$， $\B=\left(
+\begin{array}{rrr}
+2&5&4\\
+4&-2&2\\
+1&4&1
+\end{array}
+\right)$，
+\begin{itemize}
+\item[(1)] 求$4\A^2-\B^2-2\B\A+2\A\B$；
+\item[(2)]  求$|\A^*|$。
+\end{itemize}
+\end{exampleblock}
+\pause\jiename
+\begin{itemize}
+\item[(1)] $4\A^2-\B^2-2\B\A+2\A\B=(2\A-\B)(2\A+\B)=\left(
+\begin{array}{rrr}
+0&0&0\\
+-44&-24&-60\\
+-5&-25&11
+\end{array}
+\right)$ \pause 
+\item[(2)]  因$|\A^*|=|\A|^{2}$，而
+$
+|\A|=\left|
+\begin{array}{rrr}
+1&-3&2\\
+0&-5&3\\
+0&5&-3
+\end{array}
+\right|=0
+$，
+故$|\A^*|=0$。
+\end{itemize}
+\end{footnotesize}
+\end{frame}
+
+\begin{frame}
+\begin{footnotesize}
+\begin{exampleblock}{2007-2008第一学期}
+证明
+\begin{itemize}
+\item[(1)] 设$\A$为$n$阶方阵，证明：若$|\A|=0$，则$|\A^*|=0$；
+\item[(2)]  设$\A,\B$为$n$阶方阵，且满足$\A^2=\A,\B^2=\B,\rr(\A+\B-\II)=n$，证明：$\rr(\A)=\rr(\B)$。
+\end{itemize}
+\end{exampleblock}
+\pause\proofname
+\begin{itemize}
+\item[(1)] $|\A^*|=|\A|^{n-1}=0$；\pause 
+\item[(2)]  由$\rr(\A+\B-\II)=n$知$\A+\B-\II$可逆。故
+$$
+\rr(\A)=\rr(\A(\A+\B-\II))=\rr(\A\B)
+$$
+$$
+\rr(\B)=\rr((\A+\B-\II)\B)=\rr(\A\B)
+$$
+于是$\rr(\A)=\rr(\B)$。
+\end{itemize}
+\end{footnotesize}
+\end{frame}
+
+
+\begin{frame}
+\begin{scriptsize}
+\begin{exampleblock}{2007-2008第二学期}
+设$\A=\left(
+\begin{array}{rrr}
+2&-1&1\\
+1&2&0\\
+2&1&2
+\end{array}
+\right)$， $\B=\left(
+\begin{array}{rrr}
+0&2&-3\\
+2&-1&4\\
+0&-1&4
+\end{array}
+\right)$，$\A\C-\II=\B+\C$，求$\C$。
+\end{exampleblock}
+\pause\jiename
+由题意可知$(\A-\II)\C=\B+\II$,
+$$
+\begin{array}{rl}
+&(\A-\II,\B+\II)=\left(
+\begin{array}{rrrrrr}
+1&-1&1 &1&2&-3\\
+1&1&0 &2&0&4\\
+2&1&1&0&-1&5
+\end{array}
+\right)\rightarrow\left(
+\begin{array}{rrrrrr}
+1&-1&1 &1&2&-3\\
+0&2&-1 &1&-2&7\\
+0&3&-1&-2&-5&11
+\end{array}
+\right)\\[0.2in]
+&\rightarrow\left(
+\begin{array}{rrrrrr}
+1&-1&1 &1&2&-3\\
+0&2&-1 &1&-2&7\\
+0&0&1&-7&-4&1
+\end{array}
+\right) \rightarrow\left(
+\begin{array}{rrrrrr}
+1&-1&0 &8&6&-4\\
+0&1&0 &-3&-3&4\\
+0&0&1&-7&-4&1
+\end{array}
+\right)\\[0.2in]
+& \rightarrow\left(
+\begin{array}{rrrrrr}
+1&-1&0 &8&6&-4\\
+0&1&0 &-3&-3&4\\
+0&0&1&-7&-4&1
+\end{array}
+\right) \rightarrow\left(
+\begin{array}{rrrrrr}
+1&0&0 &5&3&0\\
+0&1&0 &-3&-3&4\\
+0&0&1&-7&-4&1
+\end{array}
+\right)
+\end{array}
+$$
+\end{scriptsize}
+\end{frame}
+
+
+\begin{frame}
+\begin{footnotesize}
+\begin{exampleblock}{2008-2009第一学期}
+设$\A,\B$为三阶方阵，满足$\A\B+\II=\A^2+\B$，且$\A=\left(
+\begin{array}{rrr}
+1&0&1\\
+0&2&0\\
+1&0&1
+\end{array}
+\right)$， 求$\B$及$\B^*$。
+\end{exampleblock}
+\pause\jiename
+依题意可知
+$$
+(\A-\II)\B=\A^2-\II=(\A-\II)(\A+\II),
+$$
+而$\A-\II=\left(
+\begin{array}{rrr}
+0&0&1\\
+0&2&0\\
+1&0&0
+\end{array}
+\right)$非奇异，故$$\B=\A+\II=\left(
+\begin{array}{rrr}
+2&0&1\\
+0&3&0\\
+1&0&2
+\end{array}
+\right)$$
+\end{footnotesize}
+\end{frame}
+
+
+
+
+
+
+\begin{frame}
+\begin{footnotesize}
+\begin{exampleblock}{2009-2010第一学期}
+计算下列各题：
+\begin{itemize}
+\item[(1)] 已知$\A=\left(
+\begin{array}{rrr}
+a&a&a\\
+b&b&b\\
+c&c&c
+\end{array}
+\right)$，求$\A^{2010}$；
+\item[(2)] 设$n(n\ge2)$阶方阵$\A$非奇异，求$(\A^*)^*$。
+\end{itemize}
+\end{exampleblock}
+\pause\jiename
+\begin{itemize}
+\item[(1)]由$|\A-\lambda\II|
+%=\left|
+%\begin{array}{rrr}
+%a-\lambda&a&a\\
+%b&b-\lambda&b\\
+%c&c&c-\lambda
+%\end{array}
+%\right|
+%=(a+b+c-\lambda)\left|
+%\begin{array}{rrr}
+%1&1&1\\
+%b&b-\lambda&b\\
+%c&c&c-\lambda
+%\end{array}
+%\right|=(a+b+c-\lambda)\left|
+%\begin{array}{rrr}
+%1&0&0\\
+%b&-\lambda&\\
+%c&0&-\lambda
+%\end{array}
+%\right|
+=(a+b+c-\lambda)\lambda^2=0$知，
+特征值为$\lambda_{1,2}=0$与$\lambda_3=a+b+c$。
+\begin{itemize}
+\item
+$\lambda_{1,2}=0$，方程为$x+y+z=0$，基础解系为$\boxed{\xx_1=(-1,1,0)^T,\xx_2=(-1,0,1)^T}$。\\[0.1in]
+\item
+$\lambda_3=a+b+c$，方程为$\left(
+\begin{array}{rrr}
+-b-c&a&a\\
+b&-a-c&b\\
+c&c&-a-b
+\end{array}
+\right)\xx=\zero$，基础解系为$\boxed{\xx_3=(a,b,c)^T}$。
+\end{itemize}
+\end{itemize}
+\end{footnotesize}
+\end{frame}
+
+\begin{frame}
+\begin{footnotesize}
+故
+$$
+\A(\xx_1,\xx_2,\xx_3)=(\xx_1,\xx_2,\xx_3)\left(
+\begin{array}{ccc}
+0&&\\
+&0&\\
+&&a+b+c
+\end{array}
+\right)
+$$
+从而
+$$
+\A^{2010}=\PP\left(
+\begin{array}{ccc}
+0&&\\
+&0&\\
+&&a+b+c
+\end{array}
+\right)^{2010}\PP^{-1}
+$$
+其中
+$$
+\PP=\left(
+\begin{array}{ccc}
+-1&-1&a\\
+1&0&b\\
+0&1&c
+\end{array}
+\right), \quad
+\PP^{-1}=\frac1{a+b+c}\left(
+\begin{array}{ccc}
+-b&a+c&-b\\
+-c&-c&a+b\\
+1&1&1
+\end{array}
+\right)
+$$
+故
+$$
+\A^{2010}= (a+b+c)^{2009}
+\left(
+\begin{array}{ccc}
+a&a&a\\
+b&b&b\\
+c&c&c
+\end{array}
+\right)
+$$
+\end{footnotesize}
+\end{frame}
+
+\begin{frame}
+\begin{footnotesize}
+\begin{exampleblock}{2009-2010第一学期，2011-2012第二学期}
+设三阶方阵$\A$满足$\A\X=\A+2\X$，且$\A=\left(
+\begin{array}{rrr}
+3&0&1\\
+1&1&0\\
+0&1&4
+\end{array}
+\right)$，求$\X$。
+\end{exampleblock}
+\pause\jiename
+依题意可知$(\A-2\II)\X=\A$，解此矩阵方程即可求得$\X$。\pause 
+$$
+\begin{array}{rl}
+&(\A-2\II, \A)=\left(
+\begin{array}{rrrrrr}
+  1&0&1&3&0&1\\
+  1&-1&0&1&1&0\\
+  0&1&2&0&1&4
+\end{array}
+\right)\rightarrow\left(
+\begin{array}{rrrrrr}
+  1&0&1&3&0&1\\
+  0&-1&-1&-2&1&-1\\
+  0&1&2&0&1&4
+\end{array}
+\right)\\[0.2in]
+&\rightarrow\left(
+\begin{array}{rrrrrr}
+  1&0&1&3&0&1\\
+  0&-1&-1&-2&1&-1\\
+  0&0&1&-2&2&3
+\end{array}
+\right)\rightarrow\left(
+\begin{array}{rrrrrr}
+  1&0&1&3&0&1\\
+  0&1&0&4&-3&-2\\
+  0&0&1&-2&2&3
+\end{array}
+\right)\\[0.2in]
+&\rightarrow\left(
+\begin{array}{rrrrrr}
+  1&0&0&5&-2&-2\\
+  0&1&0&4&-3&-2\\
+  0&0&1&-2&2&3
+\end{array}
+\right)
+\end{array}
+$$
+\end{footnotesize}
+\end{frame}
+
+
+\begin{frame}
+\begin{scriptsize}
+\begin{exampleblock}{2009-2010第二学期}
+已知矩阵方程满足$(2\II-\C^{-1}\B)\A^T=\C^{-1}$，求$\A$，其中
+$$\B=\left(
+\begin{array}{rrrr}
+1&2&-3&-2\\
+0&1&2&-3\\
+0&0&1&2\\
+0&0&0&1
+\end{array}
+\right),\quad
+\C=\left(
+\begin{array}{rrrr}
+1&2&0&1\\
+0&1&2&0\\
+0&0&1&2\\
+0&0&0&1
+\end{array}
+\right)$$
+\end{exampleblock}
+\pause\jiename
+依题意知$\A^T=(2\II-\C^{-1}\B)^{-1}\C^{-1}=(\C(2\II-\C^{-1}\B))^{-1}=(2\C-\B)^{-1}$
+$$
+\begin{array}{l}
+  (2\C-\B,~\II)=\left(
+  \begin{array}{rrrrrrrr}
+    1&2&3&4&1&0&0&0\\
+    0&1&2&3&0&1&0&0\\
+    0&0&1&2&0&0&1&0\\
+    0&0&0&1&0&0&0&1
+  \end{array}
+  \right)\rightarrow\left(
+  \begin{array}{rrrrrrrr}
+    1&2&3&0&1&0&0&-4\\
+    0&1&2&0&0&1&0&-3\\
+    0&0&1&0&0&0&1&-2\\
+    0&0&0&1&0&0&0&1
+  \end{array}
+  \right)\\[0.3in]
+\rightarrow\left(
+  \begin{array}{rrrrrrrr}
+    1&2&0&0&1&0&-3&2\\
+    0&1&0&0&0&1&-2&1\\
+    0&0&1&0&0&0&1&-2\\
+    0&0&0&1&0&0&0&1
+  \end{array}
+  \right)
+\rightarrow\left(
+  \begin{array}{rrrrrrrr}
+    1&0&0&0&1&-2&1&0\\
+    0&1&0&0&0&1&-2&1\\
+    0&0&1&0&0&0&1&-2\\
+    0&0&0&1&0&0&0&1   
+  \end{array}
+  \right)\\[0.3in]
+  \red{\Longrightarrow \A=\left(
+  \begin{array}{rrrr}
+    1&0&0&0\\
+    -2&1&0&0\\
+    1&-2&1&0\\
+    0&1&-2&1   
+  \end{array}
+  \right)
+}
+\end{array}
+$$
+
+\end{scriptsize}
+\end{frame}
+
+\begin{frame}
+\begin{footnotesize}
+\begin{exampleblock}{2012-2013第二学期}
+已知$\A$为三阶矩阵，$\B=\left(
+\begin{array}{rrr}
+1&-2&0\\
+1&2&0\\
+0&0&2
+\end{array}
+\right)$，且满足$2\A^{-1}\B=\B-4\II$，$\II$为三阶单位矩阵，求矩阵$\A$。
+\end{exampleblock}
+\pause\jiename
+依题意$\A(\B-4\II)=2\B$，可用$\boxed{\left(
+  \begin{array}{c}
+    \B-4\II\\
+    2\B
+  \end{array}
+\right)\xlongrightarrow[]{\mbox{初等列变换}} \left(
+  \begin{array}{c}
+    \II\\
+    \red{\A}
+  \end{array}
+\right)}$求$\A$。
+$$
+\left(
+  \begin{array}{c}
+    \B-4\II\\
+    2\B
+  \end{array}
+\right)=\left(
+\begin{array}{rrr}
+-3&-2&0\\
+1&-2&0\\
+0&0&-2\\
+2&-4&0\\
+2&4&0\\
+0&0&4
+\end{array}
+\right)\rightarrow
+\left(
+\begin{array}{rrr}
+3  &1&0\\
+-1 &1&0\\
+0  &0 &1\\
+-2 &2 &0\\
+-2 &-2&0\\
+0  &0 &-2
+\end{array}
+\right)\rightarrow
+\left(
+\begin{array}{rrr}
+1 &0  &0\\
+0 &1 &0\\
+0 &0  &1\\
+0 &2 &0\\
+-1&-1  &0\\
+0 &0  &-2
+\end{array}
+\right)
+$$
+\end{footnotesize}
+\end{frame}
+
+
+\begin{frame}
+\begin{footnotesize}
+\begin{exampleblock}{2012-2013第二学期}
+设矩阵$\A=\left(
+\begin{array}{rrr}
+-1&0&0\\
+ 0&1&0\\
+ 0&1&1
+\end{array}
+\right)$，矩阵$\B$满足$\A^*\B\A=2\B\A-9\II$，求$\B$。
+\end{exampleblock}
+\pause\jiename
+易知$|\A|=-1$，即$\A$可逆，由$\A\A^*=|\A|\II=-\II$可得
+$$
+\begin{array}{l}
+\A^*\B\A=2\B\A-9\II ~~\Rightarrow~~
+\A\A^*\B\A=\A(2\B\A-9\II) \\[0.1in]
+\Rightarrow~~
+-\B\A=2\A\B\A-9\A ~~\Rightarrow~~
+-\B=2\A\B-9\II   ~~\Rightarrow~~
+(2\A+\II)\B=9\II
+\end{array}
+$$
+$$
+\begin{array}{l}
+(2\A+\II, 9\II)=\left(
+\begin{array}{rrrrrr}
+  -1   &  0  &   0 &  9&0&0\\
+  0    & 3   &  0  &  0&9&0\\
+  0    & 2   &  3  &  0&0&9
+\end{array}
+\right)  \rightarrow
+\left(
+\begin{array}{rrrrrr}
+  1   &  0  &   0 & -9&0&0\\
+  0    & 1   &  0  &  0&3&0\\
+  0    & 0   &  1  &  0&-2&3
+\end{array}
+\right)  
+\end{array}
+$$
+\end{footnotesize}
+\end{frame}
+
+\begin{frame}
+\begin{scriptsize}
+\begin{exampleblock}{2012-2013第二学期}
+设矩阵$\A=\left(
+\begin{array}{rrrr}
+1&-1&-1&-1\\
+-1&1&-1&-1\\
+-1&-1&1&-1\\
+-1&-1&-1&1
+\end{array}
+\right)$，
+\begin{itemize}
+\item[(1)] 求$\A^n$；
+\item[(2)] 设$\A^2+\A\B-\A=\II$，求$|\B|$。
+\end{itemize}
+\end{exampleblock}
+\pause\jiename
+\begin{itemize}
+\item[(1)] 求矩阵的特征值与特征向量。
+  $$
+  \begin{array}{l}
+    |\A-\lambda\II|=\left|
+    \begin{array}{rrrr}
+      1-\lambda&-1&-1&-1\\
+      -1&1-\lambda&-1&-1\\
+      -1&-1&1-\lambda&-1\\
+      -1&-1&-1&1-\lambda
+    \end{array}
+    \right|
+    =(-2-\lambda)\left|
+    \begin{array}{rrrr}
+      1&-1&-1&-1\\
+      1&1-\lambda&-1&-1\\
+      1&-1&1-\lambda&-1\\
+      1&-1&-1&1-\lambda
+    \end{array}
+    \right|\\[0.3in]=(-2-\lambda)\left|
+    \begin{array}{rrrr}
+      1&-1&-1&-1\\
+      0&2-\lambda&0&0\\
+      0&0& 2-\lambda&0\\
+      0&0& 0 &2-\lambda
+    \end{array}
+    \right|   = (\lambda+2)(\lambda-2)^3
+  \end{array}
+$$
+\end{itemize}
+\end{scriptsize}
+\end{frame}
+
+
+\begin{frame}
+\begin{scriptsize}
+  \begin{itemize}
+  \item 当$\lambda_{1,2,3}=2$时，$(\A-\lambda\II)\xx=\zero$为
+    $$
+    x_1+x_2+x_3+x_4=0
+    $$
+    基础解系为
+    $$
+    \xx_1=(-1,1,0,0)^T,~~
+    \xx_2=(-1,0,1,0)^T,~~
+    \xx_3=(-1,0,0,1)^T.
+    $$
+    故对应于$\lambda_{1,2,3}=2$的特征向量为$k_1\xx_1+k_2\xx_2+k_3\xx_3, (k_1,k_2,k_3\mbox{不全为零})$;
+  \item 当$\lambda_{4}=-2$时，$(\A-\lambda\II)\xx=\zero$为
+    $$
+    \begin{array}{l}
+          \left(
+    \begin{array}{rrrr}
+      3&-1&-1&-1\\
+      -1&3&-1&-1\\
+      -1&-1&3&-1\\
+      -1&-1&-1&3
+    \end{array}
+    \right) \rightarrow \left(
+    \begin{array}{rrrr}
+      1&-3&1&1\\
+      1&1&-3&1\\
+      1&1&1&-3\\
+      3&-1&-1&-1
+    \end{array}
+    \right) \rightarrow \left(
+    \begin{array}{rrrr}
+      1&-3&1&1\\
+      0&4&-4&0\\
+      0&4&0&-4\\
+      0&8&-4&-4
+    \end{array}
+    \right) \\[0.2in]
+    \rightarrow \left(
+    \begin{array}{rrrr}
+      1&-3&1&1\\
+      0&1&-1&0\\
+      0&0&1&-1\\
+      0&0&0&0
+    \end{array}
+    \right)\rightarrow \left(
+    \begin{array}{rrrr}
+      1&0&0&-1\\
+      0&1&0&-1\\
+      0&0&1&-1\\
+      0&0&0&0
+    \end{array}
+    \right)
+    \end{array}
+    $$
+    对应方程为
+    $$
+    \left\{
+    \begin{array}{l}
+      x_1=x_4\\
+      x_2=x_4\\
+      x_3=x_4\\
+      x_4=x_4
+    \end{array}
+    \right.
+    $$
+    基础解系为$$
+    \xx_3=(1,1,1,1)^T
+    $$
+    
+  \end{itemize}
+\end{scriptsize}
+\end{frame}
+
+\begin{frame}
+\begin{footnotesize}
+  取
+  $$
+  \PP=(\xx_1,\xx_2,\xx_3,\xx_4)=\left(
+  \begin{array}{rrrr}
+    -1 & -1& -1&  1 \\
+    1  &  0&  0&  1 \\
+    0  &  1&  0&  1  \\
+    0  &  0&  1&  1 
+  \end{array}
+  \right), ~~~\PP^{-1}=\frac14 \left(
+  \begin{array}{rrrr}
+    -1 &   3& -1&  -1 \\
+    -1 &  -1&  3&  -1 \\
+    -1 &  -1& -1&   3  \\
+     1 &   1&  1&   1 
+  \end{array}
+  \right)
+  $$
+  则 $\A\PP=\PP\Lambdabd$，即
+  $$
+  \A=\PP\Lambdabd\PP^{-1},
+  $$
+  从而$$
+  \A^{n}=\PP\Lambdabd^n\PP^{-1}
+  =2^n \PP\left(
+  \begin{array}{cccc}
+    1&&&\\
+    &1&&\\
+    &&1&\\
+    &&&(-1)^n
+  \end{array}
+  \right)\PP^{-1}
+  $$
+  当$n$为偶数时，$\A^n=2^n \II$
+  当$n$为奇数时，$\A^n=2^n\PP\left(
+  \begin{array}{cccc}
+    1&&&\\
+    &1&&\\
+    &&1&\\
+    &&&-1
+  \end{array}
+  \right)\PP^{-1} $
+  而
+  $
+  \A=2\PP\left(
+  \begin{array}{cccc}
+    1&&&\\
+    &1&&\\
+    &&1&\\
+    &&&-1
+  \end{array}
+  \right)\PP^{-1} 
+  $
+  故
+  $
+  \A^n=2^{n-1}\A
+  $。
+\end{footnotesize}
+\end{frame}
+
+\begin{frame}
+\begin{footnotesize}
+  \begin{itemize}
+  \item[(2)]
+    依题意，
+    $$
+    \A\B=\II-\A+\A^2=\II-\A+4\II=-\A+5\II
+    $$
+    故
+    $$
+    |\A||\B|=|-\A+5\II|
+    $$
+    即
+    $$
+    -16 |\B| = |\A-5\II| =\left|
+    \begin{array}{rrrr}
+      -4&-1&-1&-1\\
+      -1&-4&-1&-1\\
+      -1&-1&-4&-1\\
+      -1&-1&-1&-4
+    \end{array}
+    \right| = 189
+    $$
+    故
+    $$
+    |\B|=-\frac{189}{16}.
+    $$
+  \end{itemize}
+\end{footnotesize}
+\end{frame}
+
+%% \begin{frame}
+%% \begin{footnotesize}
+
+%% \end{footnotesize}
+%% \end{frame}
+
+%% \begin{frame}
+%% \begin{footnotesize}
+
+%% \end{footnotesize}
+%% \end{frame}
+
+%% \begin{frame}
+%% \begin{footnotesize}
+
+%% \end{footnotesize}
+%% \end{frame}
+
+%% \begin{frame}
+%% \begin{footnotesize}
+
+%% \end{footnotesize}
+%% \end{frame}
+
+%% \begin{frame}
+%% \begin{footnotesize}
+
+%% \end{footnotesize}
+%% \end{frame}
+
+%% \begin{frame}
+%% \begin{footnotesize}
+
+%% \end{footnotesize}
+%% \end{frame}
+
+
+%% \begin{frame}
+%% \begin{footnotesize}
+
+%% \end{footnotesize}
+%% \end{frame}
+
+%% \begin{frame}
+%% \begin{footnotesize}
+
+%% \end{footnotesize}
+%% \end{frame}
+
+%% \begin{frame}
+%% \begin{footnotesize}
+
+%% \end{footnotesize}
+%% \end{frame}
+
+%% \begin{frame}
+%% \begin{footnotesize}
+
+%% \end{footnotesize}
+%% \end{frame}
+
+%% \begin{frame}
+%% \begin{footnotesize}
+
+%% \end{footnotesize}
+%% \end{frame}
+
+%% \begin{frame}
+%% \begin{footnotesize}
+
+%% \end{footnotesize}
+%% \end{frame}
+
+%% \begin{frame}
+%% \begin{footnotesize}
+
+%% \end{footnotesize}
+%% \end{frame}
+
+%% \begin{frame}
+%% \begin{footnotesize}
+
+%% \end{footnotesize}
+%% \end{frame}
+
+%% \begin{frame}
+%% \begin{footnotesize}
+
+%% \end{footnotesize}
+%% \end{frame}
+
+
+%% \begin{frame}
+%% \begin{footnotesize}
+
+%% \end{footnotesize}
+%% \end{frame}
+
+%% \begin{frame}
+%% \begin{footnotesize}
+
+%% \end{footnotesize}
+%% \end{frame}
+
+%% \begin{frame}
+%% \begin{footnotesize}
+
+%% \end{footnotesize}
+%% \end{frame}
+
+%% \begin{frame}
+%% \begin{footnotesize}
+
+%% \end{footnotesize}
+%% \end{frame}
+
+%% \begin{frame}
+%% \begin{footnotesize}
+
+%% \end{footnotesize}
+%% \end{frame}
+
+%% \begin{frame}
+%% \begin{footnotesize}
+
+%% \end{footnotesize}
+%% \end{frame}
+
+%% \begin{frame}
+%% \begin{footnotesize}
+
+%% \end{footnotesize}
+%% \end{frame}
+
+
+%% \begin{frame}
+%% \begin{footnotesize}
+
+%% \end{footnotesize}
+%% \end{frame}
+
+%% \begin{frame}
+%% \begin{footnotesize}
+
+%% \end{footnotesize}
+%% \end{frame}
+
+
+%% \begin{frame}
+%% \begin{footnotesize}
+
+%% \end{footnotesize}
+%% \end{frame}
+
+%% \begin{frame}
+%% \begin{footnotesize}
+
+%% \end{footnotesize}
+%% \end{frame}
+
+%% \begin{frame}
+%% \begin{footnotesize}
+
+%% \end{footnotesize}
+%% \end{frame}
+
+%% \begin{frame}
+%% \begin{footnotesize}
+
+%% \end{footnotesize}
+%% \end{frame}
+
+%% \begin{frame}
+%% \begin{footnotesize}
+
+%% \end{footnotesize}
+%% \end{frame}
+
+%% \begin{frame}
+%% \begin{footnotesize}
+
+%% \end{footnotesize}
+%% \end{frame}
+
+%% \begin{frame}
+%% \begin{footnotesize}
+
+%% \end{footnotesize}
+%% \end{frame}
+
+%% \begin{frame}
+%% \begin{footnotesize}
+
+%% \end{footnotesize}
+%% \end{frame}
+
+%% \begin{frame}
+%% \begin{footnotesize}
+
+%% \end{footnotesize}
+%% \end{frame}
+
+
+%% \begin{frame}
+%% \begin{footnotesize}
+
+%% \end{footnotesize}
+%% \end{frame}
+
+%% \begin{frame}
+%% \begin{footnotesize}
+
+%% \end{footnotesize}
+%% \end{frame}
+
+%% \begin{frame}
+%% \begin{footnotesize}
+
+%% \end{footnotesize}
+%% \end{frame}
+
+%% \begin{frame}
+%% \begin{footnotesize}
+
+%% \end{footnotesize}
+%% \end{frame}
+
+%% \begin{frame}
+%% \begin{footnotesize}
+
+%% \end{footnotesize}
+%% \end{frame}
+
+%% \begin{frame}
+%% \begin{footnotesize}
+
+%% \end{footnotesize}
+%% \end{frame}
+
+%% \begin{frame}
+%% \begin{footnotesize}
+
+%% \end{footnotesize}
+%% \end{frame}

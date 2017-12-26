@@ -1,0 +1,19 @@
+\beamer@endinputifotherversion {3.20pt}
+\beamer@sectionintoc {1}{第一章\hspace {0.25em plus 0.125em minus 0.08em}\ignorespaces \hspace {0.25em plus 0.125em minus 0.08em}\ignorespaces 行列式}{3}{0}{1}
+\beamer@subsectionintoc {1}{1}{知识点}{5}{0}{1}
+\beamer@subsectionintoc {1}{2}{往年试题}{16}{0}{1}
+\beamer@sectionintoc {2}{第二章\hspace {0.25em plus 0.125em minus 0.08em}\ignorespaces \hspace {0.25em plus 0.125em minus 0.08em}\ignorespaces 矩阵及其运算}{44}{0}{2}
+\beamer@subsectionintoc {2}{1}{往年试题}{46}{0}{2}
+\beamer@sectionintoc {3}{第三章\hspace {0.25em plus 0.125em minus 0.08em}\ignorespaces \hspace {0.25em plus 0.125em minus 0.08em}\ignorespaces 向量组\hspace {0.25em plus 0.125em minus 0.08em}\ignorespaces \hspace {0.25em plus 0.125em minus 0.08em}\ignorespaces 矩阵的秩}{90}{0}{3}
+\beamer@subsectionintoc {3}{1}{知识点}{92}{0}{3}
+\beamer@subsectionintoc {3}{2}{典型例题1\hspace {0.25em plus 0.125em minus 0.08em}\ignorespaces \hspace {0.25em plus 0.125em minus 0.08em}\ignorespaces （线性相关性）}{115}{0}{3}
+\beamer@subsectionintoc {3}{3}{典型例题2\hspace {0.25em plus 0.125em minus 0.08em}\ignorespaces \hspace {0.25em plus 0.125em minus 0.08em}\ignorespaces （极大无关组与向量组的秩）}{125}{0}{3}
+\beamer@subsectionintoc {3}{4}{典型题型3\hspace {0.25em plus 0.125em minus 0.08em}\ignorespaces \hspace {0.25em plus 0.125em minus 0.08em}\ignorespaces （非齐次线性方程组）}{144}{0}{3}
+\beamer@sectionintoc {4}{第四章\hspace {0.25em plus 0.125em minus 0.08em}\ignorespaces \hspace {0.25em plus 0.125em minus 0.08em}\ignorespaces 向量空间与线性变换}{157}{0}{4}
+\beamer@subsectionintoc {4}{1}{往年试题}{185}{0}{4}
+\beamer@sectionintoc {5}{第五章\hspace {0.25em plus 0.125em minus 0.08em}\ignorespaces \hspace {0.25em plus 0.125em minus 0.08em}\ignorespaces 特征值问题}{187}{0}{5}
+\beamer@subsectionintoc {5}{1}{知识点}{189}{0}{5}
+\beamer@subsectionintoc {5}{2}{往年试题}{224}{0}{5}
+\beamer@sectionintoc {6}{第六章\hspace {0.25em plus 0.125em minus 0.08em}\ignorespaces \hspace {0.25em plus 0.125em minus 0.08em}\ignorespaces 二次型}{231}{0}{6}
+\beamer@subsectionintoc {6}{1}{知识点}{233}{0}{6}
+\beamer@subsectionintoc {6}{2}{典型例题}{258}{0}{6}
