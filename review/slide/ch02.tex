@@ -1,40 +1,43 @@
-\section{第二章~~矩阵及其运算}
+\section{矩阵及其运算}
 
 \subsection{往年试题}
 \begin{frame}
-\begin{footnotesize}
-\begin{exampleblock}{2005-2006第一学期}
-已知$\A$为$n(n\ge 2)$矩阵，且$\A$非奇异，求$(\A^*)^*$。
-\end{exampleblock}
-\pause\jiename
-由$\A^{-1}=\A^*/|\A|$，可知$\A^*=|\A|\A^{-1}$，从而$|\A^*|=|\A|^{n-1}$。
+
+\begin{li}[2005-2006第一学期]
+已知$\MA$为$n(n\ge 2)$矩阵，且$\MA$非奇异，求$(\MA^*)^*$。
+\end{li}
+\pause
+\begin{jie}
+由$\MA^{-1}=\MA^*/|\MA|$，可知$\MA^*=|\MA|\MA^{-1}$，从而$|\MA^*|=|\MA|^{n-1}$。
 而
 $$
-(\A^*)^*=|\A^*|(\A^*)^{-1}=|\A|^{n-1}(|\A|\A^{-1})^{-1}=|\A|^{n-2}\A.
+(\MA^*)^*=|\MA^*|(\MA^*)^{-1}=|\MA|^{n-1}(|\MA|\MA^{-1})^{-1}=|\MA|^{n-2}\MA.
 $$
-\end{footnotesize}
+\end{jie}
 \end{frame}
 
 \begin{frame}
-\begin{footnotesize}
-\begin{exampleblock}{2005-2006第一学期, 2009-2010第一学期, 2010-2011第一学期, 2011-2012第一学期}
-设$\A=\left(
+
+\begin{li}[2005-2006第一学期, 2009-2010第一学期, 2010-2011第一学期, 2011-2012第一学期]
+设$\MA=\left(
 \begin{array}{rrr}
 1&0&1\\
 0&2&0\\
 1&6&a
 \end{array}
-\right)$，且$\rr(\A)=2$，$\X$满足$\A\X+\II=\A^2+\X$，求$a$和$\X$。
-\end{exampleblock}
-\pause\jiename
-因$\A \rightarrow \left(
+\right)$，且$\rank(\MA)=2$，$\MX$满足$\MA\MX+\MI=\MA^2+\MX$，求$a$和$\MX$。
+\end{li}
+\pause
+
+\begin{jie}
+因$\MA \rightarrow \left(
 \begin{array}{ccc}
 1&0&1\\
 0&2&0\\
 0&0&a-1
 \end{array}
 \right)$,
-由$\rr(\A)=2$知$a=1$,故$\A=\left(
+由$\rank(\MA)=2$知$a=1$,故$\MA=\left(
 \begin{array}{rrr}
 1&0&1\\
 0&2&0\\
@@ -45,12 +48,12 @@ $$
 
 
 $$\blue{
-\A\X+\II=\A^2+\X ~~\Rightarrow~~
-(\A-\II)\X=\A^2-\II=(\A-\II)(\A+\II)
+\MA\MX+\MI=\MA^2+\MX ~~\Rightarrow~~
+(\MA-\MI)\MX=\MA^2-\MI=(\MA-\MI)(\MA+\MI)
 }
 $$
 因$
-\A-\II=\left(
+\MA-\MI=\left(
 \begin{array}{rrr}
 0&0&1\\
 0&1&0\\
@@ -59,7 +62,7 @@ $$
 \right)
 $可逆，故
 $$
-\X=\A+\II=\left(
+\MX=\MA+\MI=\left(
 \begin{array}{rrr}
 2&0&1\\
 0&3&0\\
@@ -67,69 +70,72 @@ $$
 \end{array}
 \right)
 $$
-\end{footnotesize}
+\end{jie}
 \end{frame}
 
 \begin{frame}
-\begin{footnotesize}
-\begin{exampleblock}{2005-2006第一学期}
-设$\A$为$n$阶实矩阵，
+
+\begin{li}[2005-2006第一学期]
+设$\MA$为$n$阶实矩阵，
 \begin{itemize}
-\item[(1)] 当$n$为奇数且$\A\A^T=\II$及$|\A|=1$时，证明$|\II-\A|=0$；
-\item[(2)]  当$m$为任意给定正整数且$(\A+\II)^m=\zero$，证明$\A$可逆。
+\item[(1)] 当$n$为奇数且$\MA\MA^T=\MI$及$|\MA|=1$时，证明$|\MI-\MA|=0$；
+\item[(2)]  当$m$为任意给定正整数且$(\MA+\MI)^m=\M0$，证明$\MA$可逆。
 \end{itemize}
-\end{exampleblock}
-\pause\proofname
+\end{li}
+\pause
+\begin{proof}
 \begin{itemize}
 \item[(1)]
-由$\A\A^T=\II$知$A^T=\A^{-1}$。
-又$\II-\A=(\A^{-1}-\II)\A=(\A^T-\II)\A$，故
+由$\MA\MA^T=\MI$知$A^T=\MA^{-1}$。
+又$\MI-\MA=(\MA^{-1}-\MI)\MA=(\MA^T-\MI)\MA$，故
 $$
-|\II-\A|=|\A^T-\II||\A|=|\A-\II|=(-1)^n=|\II-\A|
+|\MI-\MA|=|\MA^T-\MI||\MA|=|\MA-\MI|=(-1)^n=|\MI-\MA|
 $$
 而$n$为奇数，于是
 $
-|\II-\A|=-|\II-\A|
-$，即$|\II-\A|=0$。\\[0.1in] \pause 
+|\MI-\MA|=-|\MI-\MA|
+$，即$|\MI-\MA|=0$。\\[0.1in] \pause 
 \item[(2)]
-由$(\A+\II)^m=\zero$，即$\A^m+C_m^{m-1}\A^{m-1}+\cd++C_m^{1}\A+\II=\zero$可知，
+由$(\MA+\MI)^m=\M0$，即$\MA^m+C_m^{m-1}\MA^{m-1}+\cd++C_m^{1}\MA+\MI=\M0$可知，
 $$
-\A(\A^{m-1}+C_m^{m-1}\A^{m-2}+\cd+C_m^{1}\II)=-\II
+\MA(\MA^{m-1}+C_m^{m-1}\MA^{m-2}+\cd+C_m^{1}\MI)=-\MI
 $$
 故
 $$
-\A^{-1}=-(\A^{m-1}+C_m^{m-1}\A^{m-2}+\cd+C_m^{1}\II).
+\MA^{-1}=-(\MA^{m-1}+C_m^{m-1}\MA^{m-2}+\cd+C_m^{1}\MI).
 $$
 \end{itemize}
-\end{footnotesize}
+\end{proof}
 \end{frame}
 
 
 \begin{frame}
-\begin{footnotesize}
-\begin{exampleblock}{2005-2006第二学期}
-设$\A=\left(
+
+\begin{li}[2005-2006第二学期]
+设$\MA=\left(
 \begin{array}{rrr}
 1&1&-1\\
 0&1&1\\
 0&0&-1
 \end{array}
-\right)$，且$\A^2-\A\B=\II$，
+\right)$，且$\MA^2-\MA\MB=\MI$，
 \begin{itemize}
-\item[(1)] 求$\B$；
-\item[(2)]  令$\C=4\A^2-\B^2-2\B\A+2\A\B$，计算$\C^*$。
+\item[(1)] 求$\MB$；
+\item[(2)]  令$\MC=4\MA^2-\MB^2-2\MB\MA+2\MA\MB$，计算$\MC^*$。
 \end{itemize}
-\end{exampleblock}
-\pause\jiename
+\end{li}
+\pause
+
+\begin{jie}
 \begin{itemize}
 \item[(1)]
-由$\A^2-\A\B=\II$知$\A\B=\A^2-\II$。利用如下过程可求得$\B$:
+由$\MA^2-\MA\MB=\MI$知$\MA\MB=\MA^2-\MI$。利用如下过程可求得$\MB$:
 $$\boxed{\blue{
-(\A, ~~\A^2-\II) ~~\xlongrightarrow[]{\mbox{初等行变换}} (\II, ~~\B)
+(\MA, ~~\MA^2-\MI) ~~\xlongrightarrow[]{\mbox{初等行变换}} (\MI, ~~\MB)
 }
 }
 $$
-易求得$\A^2-\II=\left(
+易求得$\MA^2-\MI=\left(
 \begin{array}{rrr}
 0&2&1\\
 0&0&0\\
@@ -151,17 +157,17 @@ $$\left(
 \end{array}
 \right)
 $$
-\end{itemize}•
-\end{footnotesize}
+\end{itemize}
+\end{jie}
 \end{frame}
 
 \begin{frame}
-\begin{footnotesize}
+
 \begin{itemize}
 \item[(2)]
 易求得
 $$
-\C=(2\A-\B)(2\A+\B)=\left(
+\MC=(2\MA-\MB)(2\MA+\MB)=\left(
 \begin{array}{rrr}
 4&8&4\\
 0&4&0\\
@@ -170,17 +176,17 @@ $$
 \right) $$
 故
 $$
-\C^{-1}=\frac14\left(
+\MC^{-1}=\frac14\left(
 \begin{array}{rrr}
 1&-2&-1\\
 0&1&0\\
 0&0&1
 \end{array}
-\right), \quad |\C|=64.
+\right), \quad |\MC|=64.
 $$
 故
 $$
-\C^*=|\C|\C^{-1}=16\left(
+\MC^*=|\MC|\MC^{-1}=16\left(
 \begin{array}{rrr}
 1&-2&-1\\
 0&1&0\\
@@ -189,37 +195,39 @@ $$
 \right)
 $$
 \end{itemize}•
-\end{footnotesize}
+
 \end{frame}
 
 
 
 
 \begin{frame}
-\begin{footnotesize}
-\begin{exampleblock}{2006-2007第一学期}
-设三阶方阵$\A=(a_{ij})$，
+
+\begin{li}[2006-2007第一学期]
+设三阶方阵$\MA=(a_{ij})$，
 \begin{itemize}
-\item[(1)] 若$\A^T=\A$且$\A^2=\zero$，证明$\A=\zero$；并由反例说明一般情况下$\A^2=\zero$得不出$\A=\zero$；
-\item[(2)]  若$\A$可逆，将其第二行的$2$倍加到第三行的矩阵为$\B$，问$\B\A^{-1}-\A\B^{-1}$是否可逆？
+\item[(1)] 若$\MA^T=\MA$且$\MA^2=\M0$，证明$\MA=\M0$；并由反例说明一般情况下$\MA^2=\M0$得不出$\MA=\M0$；
+\item[(2)]  若$\MA$可逆，将其第二行的$2$倍加到第三行的矩阵为$\MB$，问$\MB\MA^{-1}-\MA\MB^{-1}$是否可逆？
 \end{itemize}
-\end{exampleblock}
-\pause\jiename
+\end{li}
+\pause
+
+\begin{jie}
 \begin{itemize}
 \item[(1)]
-由条件知$\A^T\A=\zero$，而$(\A^T\A)_{ii}=a_{1i}^2+a_{2i}^2+\cd+a_{ni}^2=0$，故$a_{ij}=0$，即$\A=\zero$。
-反例：$\A=\left(\begin{array}{cc}
+由条件知$\MA^T\MA=\M0$，而$(\MA^T\MA)_{ii}=a_{1i}^2+a_{2i}^2+\cd+a_{ni}^2=0$，故$a_{ij}=0$，即$\MA=\M0$。
+反例：$\MA=\left(\begin{array}{cc}
 0&1\\0&0
-\end{array}\right)\ne \zero$，但$\A^2=\left(\begin{array}{cc}
+\end{array}\right)\ne \M0$，但$\MA^2=\left(\begin{array}{cc}
 0&0\\0&0
 \end{array}\right)$. \pause
 \item[(2)]
-由题意知$\B=\PP\A$，其中$\PP=\left(\begin{array}{ccc}
+由题意知$\MB=\MP\MA$，其中$\MP=\left(\begin{array}{ccc}
 1&&\\0&1&\\0&3&1
 \end{array}\right)$. 故
 $$
 \begin{array}{rl}
-\B\A^{-1}-\A\B^{-1}&=\PP\A\A^{-1}-\A\A^{-1}\PP^{-1}=\PP-\PP^{-1} \\[0.1in]
+\MB\MA^{-1}-\MA\MB^{-1}&=\MP\MA\MA^{-1}-\MA\MA^{-1}\MP^{-1}=\MP-\MP^{-1} \\[0.1in]
 &=\left(\begin{array}{ccc}
 1&&\\0&1&\\0&3&1
 \end{array}\right)-\left(\begin{array}{ccc}
@@ -229,20 +237,21 @@ $$
 \end{array}\right),
 \end{array}
 $$ 显然不可逆。
-\end{itemize}•
-\end{footnotesize}
+\end{itemize}
+\end{jie}
+
 \end{frame}
 
 \begin{frame}
-\begin{footnotesize}
-\begin{exampleblock}{2006-2007第二学期}
-设$\A=\left(
+
+\begin{li}[2006-2007第二学期]
+设$\MA=\left(
 \begin{array}{rrr}
 1&2&1\\
 2&1&1\\
 1&1&2
 \end{array}
-\right)$， $\B=\left(
+\right)$， $\MB=\left(
 \begin{array}{rrr}
 -1&1&0\\
 1&3&1\\
@@ -250,13 +259,15 @@ $$ 显然不可逆。
 \end{array}
 \right)$，
 \begin{itemize}
-\item[(1)] 求$(\A+\B)^2-(\A^2+2\A\B+\B^2)$；
-\item[(2)]  求$\A^{-1}$。
+\item[(1)] 求$(\MA+\MB)^2-(\MA^2+2\MA\MB+\MB^2)$；
+\item[(2)]  求$\MA^{-1}$。
 \end{itemize}
-\end{exampleblock}
-\pause\jiename
+\end{li}
+\pause
+
+\begin{jie}
 \begin{itemize}
-\item[(1)]  $(\A+\B)^2-(\A^2+2\A\B+\B^2)=\B\A-\A\B=\left(
+\item[(1)]  $(\MA+\MB)^2-(\MA^2+2\MA\MB+\MB^2)=\MB\MA-\MA\MB=\left(
 \begin{array}{rrr}
 1&-1&0\\
 8&6&6\\
@@ -278,7 +289,7 @@ $$ 显然不可逆。
 \item[(2)]
 $$
 \begin{array}{rl}
-(\A,~\II)&=\left(
+(\MA,~\MI)&=\left(
 \begin{array}{rrrrrr}
 1&2&1&1&0&0\\
 2&1&1&0&1&0\\
@@ -307,19 +318,19 @@ $$
 \end{array}
 $$
 \end{itemize}
-\end{footnotesize}
+\end{jie}
 \end{frame}
 
 \begin{frame}
-\begin{footnotesize}
-\begin{exampleblock}{2006-2007第二学期}
-设$\A=\left(
+
+\begin{li}[2006-2007第二学期]
+设$\MA=\left(
 \begin{array}{rrr}
 1&-3&2\\
 -2&1&-1\\
 1&2&-1
 \end{array}
-\right)$， $\B=\left(
+\right)$， $\MB=\left(
 \begin{array}{rrr}
 2&5&4\\
 4&-2&2\\
@@ -327,22 +338,24 @@ $$
 \end{array}
 \right)$，
 \begin{itemize}
-\item[(1)] 求$4\A^2-\B^2-2\B\A+2\A\B$；
-\item[(2)]  求$|\A^*|$。
+\item[(1)] 求$4\MA^2-\MB^2-2\MB\MA+2\MA\MB$；
+\item[(2)]  求$|\MA^*|$。
 \end{itemize}
-\end{exampleblock}
-\pause\jiename
+\end{li}
+\pause
+
+\begin{jie}
 \begin{itemize}
-\item[(1)] $4\A^2-\B^2-2\B\A+2\A\B=(2\A-\B)(2\A+\B)=\left(
+\item[(1)] $4\MA^2-\MB^2-2\MB\MA+2\MA\MB=(2\MA-\MB)(2\MA+\MB)=\left(
 \begin{array}{rrr}
 0&0&0\\
 -44&-24&-60\\
 -5&-25&11
 \end{array}
 \right)$ \pause 
-\item[(2)]  因$|\A^*|=|\A|^{2}$，而
+\item[(2)]  因$|\MA^*|=|\MA|^{2}$，而
 $
-|\A|=\left|
+|\MA|=\left|
 \begin{array}{rrr}
 1&-3&2\\
 0&-5&3\\
@@ -350,58 +363,61 @@ $
 \end{array}
 \right|=0
 $，
-故$|\A^*|=0$。
+故$|\MA^*|=0$。
 \end{itemize}
-\end{footnotesize}
+\end{jie}
 \end{frame}
 
 \begin{frame}
-\begin{footnotesize}
-\begin{exampleblock}{2007-2008第一学期}
+
+\begin{li}[2007-2008第一学期]
 证明
 \begin{itemize}
-\item[(1)] 设$\A$为$n$阶方阵，证明：若$|\A|=0$，则$|\A^*|=0$；
-\item[(2)]  设$\A,\B$为$n$阶方阵，且满足$\A^2=\A,\B^2=\B,\rr(\A+\B-\II)=n$，证明：$\rr(\A)=\rr(\B)$。
+\item[(1)] 设$\MA$为$n$阶方阵，证明：若$|\MA|=0$，则$|\MA^*|=0$；
+\item[(2)]  设$\MA,\MB$为$n$阶方阵，且满足$\MA^2=\MA,\MB^2=\MB,\rank(\MA+\MB-\MI)=n$，证明：$\rank(\MA)=\rank(\MB)$。
 \end{itemize}
-\end{exampleblock}
-\pause\proofname
+\end{li}
+\pause
+
+\begin{proof}
 \begin{itemize}
-\item[(1)] $|\A^*|=|\A|^{n-1}=0$；\pause 
-\item[(2)]  由$\rr(\A+\B-\II)=n$知$\A+\B-\II$可逆。故
+\item[(1)] $|\MA^*|=|\MA|^{n-1}=0$；\pause 
+\item[(2)]  由$\rank(\MA+\MB-\MI)=n$知$\MA+\MB-\MI$可逆。故
 $$
-\rr(\A)=\rr(\A(\A+\B-\II))=\rr(\A\B)
+\rank(\MA)=\rank(\MA(\MA+\MB-\MI))=\rank(\MA\MB)
 $$
 $$
-\rr(\B)=\rr((\A+\B-\II)\B)=\rr(\A\B)
+\rank(\MB)=\rank((\MA+\MB-\MI)\MB)=\rank(\MA\MB)
 $$
-于是$\rr(\A)=\rr(\B)$。
+于是$\rank(\MA)=\rank(\MB)$.
 \end{itemize}
-\end{footnotesize}
+\end{proof}
 \end{frame}
 
 
 \begin{frame}
-\begin{scriptsize}
-\begin{exampleblock}{2007-2008第二学期}
-设$\A=\left(
+\begin{li}[2007-2008第二学期]
+设$\MA=\left(
 \begin{array}{rrr}
 2&-1&1\\
 1&2&0\\
 2&1&2
 \end{array}
-\right)$， $\B=\left(
+\right)$， $\MB=\left(
 \begin{array}{rrr}
 0&2&-3\\
 2&-1&4\\
 0&-1&4
 \end{array}
-\right)$，$\A\C-\II=\B+\C$，求$\C$。
-\end{exampleblock}
-\pause\jiename
-由题意可知$(\A-\II)\C=\B+\II$,
+\right)$，$\MA\MC-\MI=\MB+\MC$，求$\MC$。
+\end{li}
+\pause
+
+\begin{jie}
+由题意可知$(\MA-\MI)\MC=\MB+\MI$,
 $$
 \begin{array}{rl}
-&(\A-\II,\B+\II)=\left(
+&(\MA-\MI,\MB+\MI)=\left(
 \begin{array}{rrrrrr}
 1&-1&1 &1&2&-3\\
 1&1&0 &2&0&4\\
@@ -442,40 +458,42 @@ $$
 \right)
 \end{array}
 $$
-\end{scriptsize}
+\end{jie}
 \end{frame}
 
 
 \begin{frame}
-\begin{footnotesize}
-\begin{exampleblock}{2008-2009第一学期}
-设$\A,\B$为三阶方阵，满足$\A\B+\II=\A^2+\B$，且$\A=\left(
+
+\begin{li}[2008-2009第一学期]
+设$\MA,\MB$为三阶方阵，满足$\MA\MB+\MI=\MA^2+\MB$，且$\MA=\left(
 \begin{array}{rrr}
 1&0&1\\
 0&2&0\\
 1&0&1
 \end{array}
-\right)$， 求$\B$及$\B^*$。
-\end{exampleblock}
-\pause\jiename
+\right)$， 求$\MB$及$\MB^*$。
+\end{li}
+\pause
+
+\begin{jie}
 依题意可知
 $$
-(\A-\II)\B=\A^2-\II=(\A-\II)(\A+\II),
+(\MA-\MI)\MB=\MA^2-\MI=(\MA-\MI)(\MA+\MI),
 $$
-而$\A-\II=\left(
+而$\MA-\MI=\left(
 \begin{array}{rrr}
 0&0&1\\
 0&2&0\\
 1&0&0
 \end{array}
-\right)$非奇异，故$$\B=\A+\II=\left(
+\right)$非奇异，故$$\MB=\MA+\MI=\left(
 \begin{array}{rrr}
 2&0&1\\
 0&3&0\\
 1&0&2
 \end{array}
 \right)$$
-\end{footnotesize}
+\end{jie}
 \end{frame}
 
 
@@ -484,23 +502,25 @@ $$
 
 
 \begin{frame}
-\begin{footnotesize}
-\begin{exampleblock}{2009-2010第一学期}
+
+\begin{li}[2009-2010第一学期]
 计算下列各题：
 \begin{itemize}
-\item[(1)] 已知$\A=\left(
+\item[(1)] 已知$\MA=\left(
 \begin{array}{rrr}
 a&a&a\\
 b&b&b\\
 c&c&c
 \end{array}
-\right)$，求$\A^{2010}$；
-\item[(2)] 设$n(n\ge2)$阶方阵$\A$非奇异，求$(\A^*)^*$。
+\right)$，求$\MA^{2010}$；
+\item[(2)] 设$n(n\ge2)$阶方阵$\MA$非奇异，求$(\MA^*)^*$。
 \end{itemize}
-\end{exampleblock}
-\pause\jiename
+\end{li}
+\pause
+
+\begin{jie}
 \begin{itemize}
-\item[(1)]由$|\A-\lambda\II|
+\item[(1)]由$|\MA-\lambda\MI|
 %=\left|
 %\begin{array}{rrr}
 %a-\lambda&a&a\\
@@ -525,7 +545,7 @@ c&c&c
 特征值为$\lambda_{1,2}=0$与$\lambda_3=a+b+c$。
 \begin{itemize}
 \item
-$\lambda_{1,2}=0$，方程为$x+y+z=0$，基础解系为$\boxed{\xx_1=(-1,1,0)^T,\xx_2=(-1,0,1)^T}$。\\[0.1in]
+$\lambda_{1,2}=0$，方程为$x+y+z=0$，基础解系为$\boxed{\vx_1=(-1,1,0)^T,\vx_2=(-1,0,1)^T}$。\\[0.1in]
 \item
 $\lambda_3=a+b+c$，方程为$\left(
 \begin{array}{rrr}
@@ -533,17 +553,17 @@ $\lambda_3=a+b+c$，方程为$\left(
 b&-a-c&b\\
 c&c&-a-b
 \end{array}
-\right)\xx=\zero$，基础解系为$\boxed{\xx_3=(a,b,c)^T}$。
+\right)\vx=\M0$，基础解系为$\boxed{\vx_3=(a,b,c)^T}$。
 \end{itemize}
 \end{itemize}
-\end{footnotesize}
+\end{jie}
 \end{frame}
 
 \begin{frame}
-\begin{footnotesize}
+
 故
 $$
-\A(\xx_1,\xx_2,\xx_3)=(\xx_1,\xx_2,\xx_3)\left(
+\MA(\vx_1,\vx_2,\vx_3)=(\vx_1,\vx_2,\vx_3)\left(
 \begin{array}{ccc}
 0&&\\
 &0&\\
@@ -553,24 +573,24 @@ $$
 $$
 从而
 $$
-\A^{2010}=\PP\left(
+\MA^{2010}=\MP\left(
 \begin{array}{ccc}
 0&&\\
 &0&\\
 &&a+b+c
 \end{array}
-\right)^{2010}\PP^{-1}
+\right)^{2010}\MP^{-1}
 $$
 其中
 $$
-\PP=\left(
+\MP=\left(
 \begin{array}{ccc}
 -1&-1&a\\
 1&0&b\\
 0&1&c
 \end{array}
 \right), \quad
-\PP^{-1}=\frac1{a+b+c}\left(
+\MP^{-1}=\frac1{a+b+c}\left(
 \begin{array}{ccc}
 -b&a+c&-b\\
 -c&-c&a+b\\
@@ -580,7 +600,7 @@ $$
 $$
 故
 $$
-\A^{2010}= (a+b+c)^{2009}
+\MA^{2010}= (a+b+c)^{2009}
 \left(
 \begin{array}{ccc}
 a&a&a\\
@@ -589,25 +609,26 @@ c&c&c
 \end{array}
 \right)
 $$
-\end{footnotesize}
+
 \end{frame}
 
 \begin{frame}
-\begin{footnotesize}
-\begin{exampleblock}{2009-2010第一学期，2011-2012第二学期}
-设三阶方阵$\A$满足$\A\X=\A+2\X$，且$\A=\left(
+
+\begin{li}[2009-2010第一学期，2011-2012第二学期]
+设三阶方阵$\MA$满足$\MA\MX=\MA+2\MX$，且$\MA=\left(
 \begin{array}{rrr}
 3&0&1\\
 1&1&0\\
 0&1&4
 \end{array}
-\right)$，求$\X$。
-\end{exampleblock}
-\pause\jiename
-依题意可知$(\A-2\II)\X=\A$，解此矩阵方程即可求得$\X$。\pause 
+\right)$，求$\MX$。
+\end{li}
+\pause
+\begin{jie}
+依题意可知$(\MA-2\MI)\MX=\MA$，解此矩阵方程即可求得$\MX$。\pause 
 $$
 \begin{array}{rl}
-&(\A-2\II, \A)=\left(
+&(\MA-2\MI, \MA)=\left(
 \begin{array}{rrrrrr}
   1&0&1&3&0&1\\
   1&-1&0&1&1&0\\
@@ -642,15 +663,14 @@ $$
 \right)
 \end{array}
 $$
-\end{footnotesize}
+\end{jie}
 \end{frame}
 
 
 \begin{frame}
-\begin{scriptsize}
-\begin{exampleblock}{2009-2010第二学期}
-已知矩阵方程满足$(2\II-\C^{-1}\B)\A^T=\C^{-1}$，求$\A$，其中
-$$\B=\left(
+\begin{li}[2009-2010第二学期]
+已知矩阵方程满足$(2\MI-\MC^{-1}\MB)\MA^T=\MC^{-1}$，求$\MA$，其中
+$$\MB=\left(
 \begin{array}{rrrr}
 1&2&-3&-2\\
 0&1&2&-3\\
@@ -658,7 +678,7 @@ $$\B=\left(
 0&0&0&1
 \end{array}
 \right),\quad
-\C=\left(
+\MC=\left(
 \begin{array}{rrrr}
 1&2&0&1\\
 0&1&2&0\\
@@ -666,12 +686,14 @@ $$\B=\left(
 0&0&0&1
 \end{array}
 \right)$$
-\end{exampleblock}
-\pause\jiename
-依题意知$\A^T=(2\II-\C^{-1}\B)^{-1}\C^{-1}=(\C(2\II-\C^{-1}\B))^{-1}=(2\C-\B)^{-1}$
+\end{li}
+\pause
+
+\begin{jie}
+依题意知$\MA^T=(2\MI-\MC^{-1}\MB)^{-1}\MC^{-1}=(\MC(2\MI-\MC^{-1}\MB))^{-1}=(2\MC-\MB)^{-1}$
 $$
 \begin{array}{l}
-  (2\C-\B,~\II)=\left(
+  (2\MC-\MB,~\MI)=\left(
   \begin{array}{rrrrrrrr}
     1&2&3&4&1&0&0&0\\
     0&1&2&3&0&1&0&0\\
@@ -702,7 +724,7 @@ $$
     0&0&0&1&0&0&0&1   
   \end{array}
   \right)\\[0.3in]
-  \red{\Longrightarrow \A=\left(
+  \red{\Longrightarrow \MA=\left(
   \begin{array}{rrrr}
     1&0&0&0\\
     -2&1&0&0\\
@@ -713,38 +735,40 @@ $$
 }
 \end{array}
 $$
+\end{jie}
 
-\end{scriptsize}
 \end{frame}
 
 \begin{frame}
-\begin{footnotesize}
-\begin{exampleblock}{2012-2013第二学期}
-已知$\A$为三阶矩阵，$\B=\left(
+
+\begin{li}[2012-2013第二学期]
+已知$\MA$为三阶矩阵，$\MB=\left(
 \begin{array}{rrr}
 1&-2&0\\
 1&2&0\\
 0&0&2
 \end{array}
-\right)$，且满足$2\A^{-1}\B=\B-4\II$，$\II$为三阶单位矩阵，求矩阵$\A$。
-\end{exampleblock}
-\pause\jiename
-依题意$\A(\B-4\II)=2\B$，可用$\boxed{\left(
+\right)$，且满足$2\MA^{-1}\MB=\MB-4\MI$，$\MI$为三阶单位矩阵，求矩阵$\MA$。
+\end{li}
+\pause
+
+\begin{jie}
+依题意$\MA(\MB-4\MI)=2\MB$，可用$\boxed{\left(
   \begin{array}{c}
-    \B-4\II\\
-    2\B
+    \MB-4\MI\\
+    2\MB
   \end{array}
 \right)\xlongrightarrow[]{\mbox{初等列变换}} \left(
   \begin{array}{c}
-    \II\\
-    \red{\A}
+    \MI\\
+    \red{\MA}
   \end{array}
-\right)}$求$\A$。
+\right)}$求$\MA$。
 $$
 \left(
   \begin{array}{c}
-    \B-4\II\\
-    2\B
+    \MB-4\MI\\
+    2\MB
   \end{array}
 \right)=\left(
 \begin{array}{rrr}
@@ -777,36 +801,38 @@ $$
 \end{array}
 \right)
 $$
-\end{footnotesize}
+\end{jie}
 \end{frame}
 
 
 \begin{frame}
-\begin{footnotesize}
-\begin{exampleblock}{2012-2013第二学期}
-设矩阵$\A=\left(
+
+\begin{li}[2012-2013第二学期]
+设矩阵$\MA=\left(
 \begin{array}{rrr}
 -1&0&0\\
  0&1&0\\
  0&1&1
 \end{array}
-\right)$，矩阵$\B$满足$\A^*\B\A=2\B\A-9\II$，求$\B$。
-\end{exampleblock}
-\pause\jiename
-易知$|\A|=-1$，即$\A$可逆，由$\A\A^*=|\A|\II=-\II$可得
+\right)$，矩阵$\MB$满足$\MA^*\MB\MA=2\MB\MA-9\MI$，求$\MB$。
+\end{li}
+\pause
+
+\begin{jie}
+易知$|\MA|=-1$，即$\MA$可逆，由$\MA\MA^*=|\MA|\MI=-\MI$可得
 $$
 \begin{array}{l}
-\A^*\B\A=2\B\A-9\II ~~\Rightarrow~~
-\A\A^*\B\A=\A(2\B\A-9\II) \\[0.1in]
+\MA^*\MB\MA=2\MB\MA-9\MI ~~\Rightarrow~~
+\MA\MA^*\MB\MA=\MA(2\MB\MA-9\MI) \\[0.1in]
 \Rightarrow~~
--\B\A=2\A\B\A-9\A ~~\Rightarrow~~
--\B=2\A\B-9\II   ~~\Rightarrow~~
-(2\A+\II)\B=9\II
+-\MB\MA=2\MA\MB\MA-9\MA ~~\Rightarrow~~
+-\MB=2\MA\MB-9\MI   ~~\Rightarrow~~
+(2\MA+\MI)\MB=9\MI
 \end{array}
 $$
 $$
 \begin{array}{l}
-(2\A+\II, 9\II)=\left(
+(2\MA+\MI, 9\MI)=\left(
 \begin{array}{rrrrrr}
   -1   &  0  &   0 &  9&0&0\\
   0    & 3   &  0  &  0&9&0\\
@@ -822,13 +848,13 @@ $$
 \right)  
 \end{array}
 $$
-\end{footnotesize}
+\end{jie}
 \end{frame}
 
 \begin{frame}
-\begin{scriptsize}
-\begin{exampleblock}{2012-2013第二学期}
-设矩阵$\A=\left(
+
+\begin{li}[2012-2013第二学期]
+设矩阵$\MA=\left(
 \begin{array}{rrrr}
 1&-1&-1&-1\\
 -1&1&-1&-1\\
@@ -837,16 +863,18 @@ $$
 \end{array}
 \right)$，
 \begin{itemize}
-\item[(1)] 求$\A^n$；
-\item[(2)] 设$\A^2+\A\B-\A=\II$，求$|\B|$。
+\item[(1)] 求$\MA^n$；
+\item[(2)] 设$\MA^2+\MA\MB-\MA=\MI$，求$|\MB|$。
 \end{itemize}
-\end{exampleblock}
-\pause\jiename
+\end{li}
+\pause
+
+\begin{jie}
 \begin{itemize}
 \item[(1)] 求矩阵的特征值与特征向量。
   $$
   \begin{array}{l}
-    |\A-\lambda\II|=\left|
+    |\MA-\lambda\MI|=\left|
     \begin{array}{rrrr}
       1-\lambda&-1&-1&-1\\
       -1&1-\lambda&-1&-1\\
@@ -872,25 +900,26 @@ $$
   \end{array}
 $$
 \end{itemize}
-\end{scriptsize}
+\end{jie}
+
 \end{frame}
 
 
 \begin{frame}
-\begin{scriptsize}
+
   \begin{itemize}
-  \item 当$\lambda_{1,2,3}=2$时，$(\A-\lambda\II)\xx=\zero$为
+  \item 当$\lambda_{1,2,3}=2$时，$(\MA-\lambda\MI)\vx=\M0$为
     $$
     x_1+x_2+x_3+x_4=0
     $$
     基础解系为
     $$
-    \xx_1=(-1,1,0,0)^T,~~
-    \xx_2=(-1,0,1,0)^T,~~
-    \xx_3=(-1,0,0,1)^T.
+    \vx_1=(-1,1,0,0)^T,~~
+    \vx_2=(-1,0,1,0)^T,~~
+    \vx_3=(-1,0,0,1)^T.
     $$
-    故对应于$\lambda_{1,2,3}=2$的特征向量为$k_1\xx_1+k_2\xx_2+k_3\xx_3, (k_1,k_2,k_3\mbox{不全为零})$;
-  \item 当$\lambda_{4}=-2$时，$(\A-\lambda\II)\xx=\zero$为
+    故对应于$\lambda_{1,2,3}=2$的特征向量为$k_1\vx_1+k_2\vx_2+k_3\vx_3, (k_1,k_2,k_3\mbox{不全为零})$;
+  \item 当$\lambda_{4}=-2$时，$(\MA-\lambda\MI)\vx=\M0$为
     $$
     \begin{array}{l}
           \left(
@@ -944,25 +973,25 @@ $$
     \right.
     $$
     基础解系为$$
-    \xx_3=(1,1,1,1)^T
+    \vx_3=(1,1,1,1)^T
     $$
     
   \end{itemize}
-\end{scriptsize}
+
 \end{frame}
 
 \begin{frame}
-\begin{footnotesize}
+
   取
   $$
-  \PP=(\xx_1,\xx_2,\xx_3,\xx_4)=\left(
+  \MP=(\vx_1,\vx_2,\vx_3,\vx_4)=\left(
   \begin{array}{rrrr}
     -1 & -1& -1&  1 \\
     1  &  0&  0&  1 \\
     0  &  1&  0&  1  \\
     0  &  0&  1&  1 
   \end{array}
-  \right), ~~~\PP^{-1}=\frac14 \left(
+  \right), ~~~\MP^{-1}=\frac14 \left(
   \begin{array}{rrrr}
     -1 &   3& -1&  -1 \\
     -1 &  -1&  3&  -1 \\
@@ -971,63 +1000,63 @@ $$
   \end{array}
   \right)
   $$
-  则 $\A\PP=\PP\Lambdabd$，即
+  则 $\MA\MP=\MP\Lambdabd$，即
   $$
-  \A=\PP\Lambdabd\PP^{-1},
+  \MA=\MP\Lambdabd\MP^{-1},
   $$
   从而$$
-  \A^{n}=\PP\Lambdabd^n\PP^{-1}
-  =2^n \PP\left(
+  \MA^{n}=\MP\Lambdabd^n\MP^{-1}
+  =2^n \MP\left(
   \begin{array}{cccc}
     1&&&\\
     &1&&\\
     &&1&\\
     &&&(-1)^n
   \end{array}
-  \right)\PP^{-1}
+  \right)\MP^{-1}
   $$
-  当$n$为偶数时，$\A^n=2^n \II$
-  当$n$为奇数时，$\A^n=2^n\PP\left(
+  当$n$为偶数时，$\MA^n=2^n \MI$
+  当$n$为奇数时，$\MA^n=2^n\MP\left(
   \begin{array}{cccc}
     1&&&\\
     &1&&\\
     &&1&\\
     &&&-1
   \end{array}
-  \right)\PP^{-1} $
+  \right)\MP^{-1} $
   而
   $
-  \A=2\PP\left(
+  \MA=2\MP\left(
   \begin{array}{cccc}
     1&&&\\
     &1&&\\
     &&1&\\
     &&&-1
   \end{array}
-  \right)\PP^{-1} 
+  \right)\MP^{-1} 
   $
   故
   $
-  \A^n=2^{n-1}\A
+  \MA^n=2^{n-1}\MA
   $。
-\end{footnotesize}
+
 \end{frame}
 
 \begin{frame}
-\begin{footnotesize}
+
   \begin{itemize}
   \item[(2)]
     依题意，
     $$
-    \A\B=\II-\A+\A^2=\II-\A+4\II=-\A+5\II
+    \MA\MB=\MI-\MA+\MA^2=\MI-\MA+4\MI=-\MA+5\MI
     $$
     故
     $$
-    |\A||\B|=|-\A+5\II|
+    |\MA||\MB|=|-\MA+5\MI|
     $$
     即
     $$
-    -16 |\B| = |\A-5\II| =\left|
+    -16 |\MB| = |\MA-5\MI| =\left|
     \begin{array}{rrrr}
       -4&-1&-1&-1\\
       -1&-4&-1&-1\\
@@ -1038,253 +1067,8 @@ $$
     $$
     故
     $$
-    |\B|=-\frac{189}{16}.
+    |\MB|=-\frac{189}{16}.
     $$
   \end{itemize}
-\end{footnotesize}
+
 \end{frame}
-
-%% \begin{frame}
-%% \begin{footnotesize}
-
-%% \end{footnotesize}
-%% \end{frame}
-
-%% \begin{frame}
-%% \begin{footnotesize}
-
-%% \end{footnotesize}
-%% \end{frame}
-
-%% \begin{frame}
-%% \begin{footnotesize}
-
-%% \end{footnotesize}
-%% \end{frame}
-
-%% \begin{frame}
-%% \begin{footnotesize}
-
-%% \end{footnotesize}
-%% \end{frame}
-
-%% \begin{frame}
-%% \begin{footnotesize}
-
-%% \end{footnotesize}
-%% \end{frame}
-
-%% \begin{frame}
-%% \begin{footnotesize}
-
-%% \end{footnotesize}
-%% \end{frame}
-
-
-%% \begin{frame}
-%% \begin{footnotesize}
-
-%% \end{footnotesize}
-%% \end{frame}
-
-%% \begin{frame}
-%% \begin{footnotesize}
-
-%% \end{footnotesize}
-%% \end{frame}
-
-%% \begin{frame}
-%% \begin{footnotesize}
-
-%% \end{footnotesize}
-%% \end{frame}
-
-%% \begin{frame}
-%% \begin{footnotesize}
-
-%% \end{footnotesize}
-%% \end{frame}
-
-%% \begin{frame}
-%% \begin{footnotesize}
-
-%% \end{footnotesize}
-%% \end{frame}
-
-%% \begin{frame}
-%% \begin{footnotesize}
-
-%% \end{footnotesize}
-%% \end{frame}
-
-%% \begin{frame}
-%% \begin{footnotesize}
-
-%% \end{footnotesize}
-%% \end{frame}
-
-%% \begin{frame}
-%% \begin{footnotesize}
-
-%% \end{footnotesize}
-%% \end{frame}
-
-%% \begin{frame}
-%% \begin{footnotesize}
-
-%% \end{footnotesize}
-%% \end{frame}
-
-
-%% \begin{frame}
-%% \begin{footnotesize}
-
-%% \end{footnotesize}
-%% \end{frame}
-
-%% \begin{frame}
-%% \begin{footnotesize}
-
-%% \end{footnotesize}
-%% \end{frame}
-
-%% \begin{frame}
-%% \begin{footnotesize}
-
-%% \end{footnotesize}
-%% \end{frame}
-
-%% \begin{frame}
-%% \begin{footnotesize}
-
-%% \end{footnotesize}
-%% \end{frame}
-
-%% \begin{frame}
-%% \begin{footnotesize}
-
-%% \end{footnotesize}
-%% \end{frame}
-
-%% \begin{frame}
-%% \begin{footnotesize}
-
-%% \end{footnotesize}
-%% \end{frame}
-
-%% \begin{frame}
-%% \begin{footnotesize}
-
-%% \end{footnotesize}
-%% \end{frame}
-
-
-%% \begin{frame}
-%% \begin{footnotesize}
-
-%% \end{footnotesize}
-%% \end{frame}
-
-%% \begin{frame}
-%% \begin{footnotesize}
-
-%% \end{footnotesize}
-%% \end{frame}
-
-
-%% \begin{frame}
-%% \begin{footnotesize}
-
-%% \end{footnotesize}
-%% \end{frame}
-
-%% \begin{frame}
-%% \begin{footnotesize}
-
-%% \end{footnotesize}
-%% \end{frame}
-
-%% \begin{frame}
-%% \begin{footnotesize}
-
-%% \end{footnotesize}
-%% \end{frame}
-
-%% \begin{frame}
-%% \begin{footnotesize}
-
-%% \end{footnotesize}
-%% \end{frame}
-
-%% \begin{frame}
-%% \begin{footnotesize}
-
-%% \end{footnotesize}
-%% \end{frame}
-
-%% \begin{frame}
-%% \begin{footnotesize}
-
-%% \end{footnotesize}
-%% \end{frame}
-
-%% \begin{frame}
-%% \begin{footnotesize}
-
-%% \end{footnotesize}
-%% \end{frame}
-
-%% \begin{frame}
-%% \begin{footnotesize}
-
-%% \end{footnotesize}
-%% \end{frame}
-
-%% \begin{frame}
-%% \begin{footnotesize}
-
-%% \end{footnotesize}
-%% \end{frame}
-
-
-%% \begin{frame}
-%% \begin{footnotesize}
-
-%% \end{footnotesize}
-%% \end{frame}
-
-%% \begin{frame}
-%% \begin{footnotesize}
-
-%% \end{footnotesize}
-%% \end{frame}
-
-%% \begin{frame}
-%% \begin{footnotesize}
-
-%% \end{footnotesize}
-%% \end{frame}
-
-%% \begin{frame}
-%% \begin{footnotesize}
-
-%% \end{footnotesize}
-%% \end{frame}
-
-%% \begin{frame}
-%% \begin{footnotesize}
-
-%% \end{footnotesize}
-%% \end{frame}
-
-%% \begin{frame}
-%% \begin{footnotesize}
-
-%% \end{footnotesize}
-%% \end{frame}
-
-%% \begin{frame}
-%% \begin{footnotesize}
-
-%% \end{footnotesize}
-%% \end{frame}

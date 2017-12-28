@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.14159265-2.6-0.99998 (TeX Live 2017) (preloaded format=xelatex 2017.7.8)  26 DEC 2017 17:40
+This is XeTeX, Version 3.14159265-2.6-0.99998 (TeX Live 2017) (preloaded format=xelatex 2017.7.8)  28 DEC 2017 22:50
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -2844,15 +2844,16 @@ File: lstlang1.sty 2015/06/04 1.6 listings language file
 . Defining environment 'testexample' with sig. ' O{} ' on line 28.
 .................................................
 ) (../asset/global_newtheorem.tex
-\c@lianxi=\count344
-\c@zhu=\count345
+\c@li=\count344
+\c@lianxi=\count345
+\c@zhu=\count346
 )
 *************************************************
 * fontspec warning: "script-not-exist"
 * 
 * Font 'FandolHei-Regular' does not contain script 'CJK'.
 *************************************************
-\g__fontspec_family_FandolHei-Regular_int=\count346
+\g__fontspec_family_FandolHei-Regular_int=\count347
 .................................................
 . fontspec info: "defining-font"
 . 
@@ -2868,8 +2869,8 @@ File: lstlang1.sty 2015/06/04 1.6 listings language file
 .................................................
 (/usr/local/texlive/2017/texmf-dist/tex/xelatex/xecjk/xeCJK-listings.sty
 Package: xeCJK-listings 2017/05/15 v3.4.8 xeCJK patch file for listings
-\l__xeCJK_listings_max_char_int=\count347
-\l__xeCJK_listings_flag_int=\count348
+\l__xeCJK_listings_max_char_int=\count348
+\l__xeCJK_listings_flag_int=\count349
 )
 (./slide.aux)
 \openout1 = `slide.aux'.
@@ -2977,7 +2978,7 @@ Package: nameref 2016/05/21 v2.44 Cross-referencing by name of section
 (/usr/local/texlive/2017/texmf-dist/tex/generic/oberdiek/gettitlestring.sty
 Package: gettitlestring 2016/05/16 v1.5 Cleanup title references (HO)
 )
-\c@section@level=\count349
+\c@section@level=\count350
 )
 LaTeX Info: Redefining \ref on input line 15.
 LaTeX Info: Redefining \pageref on input line 15.
@@ -3020,7 +3021,7 @@ Dictionary: translator-theorem-dictionary, Language: ChineseUTF8 2017/04/01 v2.
 LaTeX Info: Redefining \includegraphics on input line 15.
  ABD: EverySelectfont initializing macros
 LaTeX Info: Redefining \selectfont on input line 15.
-\c@lstlisting=\count350
+\c@lstlisting=\count351
 
 (/usr/local/texlive/2017/texmf-dist/tex/latex/base/inputenc.sty
 Package: inputenc 2015/03/17 v1.2c Input encoding file
@@ -3074,33 +3075,44 @@ Package hyperref Warning: Option `pdfauthor' has already been used,
 
 ] (./slide.toc) [2
 
-] (./slide/ch04.tex (./slide.toc) [3
+] (./slide/ch01.tex (./slide.toc) [3
 
-] (./slide.toc)
+] (./slide/ch01_1.tex
 [4
 
-]
-LaTeX Font Info:    Font shape `T1/lmss/m/it' in size <9> not available
-(Font)              Font shape `T1/lmss/m/sl' tried instead on input line 29.
-LaTeX Font Info:    Font shape `FMX/futm/m/n' will be
-(Font)              scaled to size 8.27998pt on input line 29.
-LaTeX Font Info:    Font shape `FMX/futm/m/n' will be
-(Font)              scaled to size 6.99199pt on input line 29.
-LaTeX Font Info:    Font shape `MDA/mdbch/b/n' will be
-(Font)              scaled to size 8.64006pt on input line 29.
-LaTeX Font Info:    Font shape `MDA/mdbch/b/n' will be
-(Font)              scaled to size 7.29605pt on input line 29.
-LaTeX Font Info:    Font shape `U/futm/m/n' will be
-(Font)              scaled to size 8.27998pt on input line 29.
-LaTeX Font Info:    Font shape `U/futm/m/n' will be
-(Font)              scaled to size 6.99199pt on input line 29.
- [5
+] [5
 
-] [6
+]
+LaTeX Font Info:    Font shape `FMX/futm/m/n' will be
+(Font)              scaled to size 7.35999pt on input line 32.
+LaTeX Font Info:    Font shape `FMX/futm/m/n' will be
+(Font)              scaled to size 6.25598pt on input line 32.
+LaTeX Font Info:    Font shape `MDA/mdbch/b/n' will be
+(Font)              scaled to size 7.68005pt on input line 32.
+LaTeX Font Info:    Font shape `MDA/mdbch/b/n' will be
+(Font)              scaled to size 6.52805pt on input line 32.
+LaTeX Font Info:    Font shape `U/futm/m/n' will be
+(Font)              scaled to size 7.35999pt on input line 32.
+LaTeX Font Info:    Font shape `U/futm/m/n' will be
+(Font)              scaled to size 6.25598pt on input line 32.
+ [6
 
 ] [7
 
-] [8
+]
+LaTeX Font Info:    Font shape `FMX/futm/m/n' will be
+(Font)              scaled to size 8.27998pt on input line 122.
+LaTeX Font Info:    Font shape `FMX/futm/m/n' will be
+(Font)              scaled to size 6.99199pt on input line 122.
+LaTeX Font Info:    Font shape `MDA/mdbch/b/n' will be
+(Font)              scaled to size 8.64006pt on input line 122.
+LaTeX Font Info:    Font shape `MDA/mdbch/b/n' will be
+(Font)              scaled to size 7.29605pt on input line 122.
+LaTeX Font Info:    Font shape `U/futm/m/n' will be
+(Font)              scaled to size 8.27998pt on input line 122.
+LaTeX Font Info:    Font shape `U/futm/m/n' will be
+(Font)              scaled to size 6.99199pt on input line 122.
+ [8
 
 ] [9
 
@@ -3114,31 +3126,21 @@ LaTeX Font Info:    Font shape `U/futm/m/n' will be
 
 ] [14
 
-] [15
-
-] [16
+]) (./slide/ch01_2.tex [15
 
 ]
-LaTeX Font Info:    Font shape `FMX/futm/m/n' will be
-(Font)              scaled to size 7.35999pt on input line 290.
-LaTeX Font Info:    Font shape `FMX/futm/m/n' will be
-(Font)              scaled to size 6.25598pt on input line 290.
-LaTeX Font Info:    Font shape `MDA/mdbch/b/n' will be
-(Font)              scaled to size 7.68005pt on input line 290.
-LaTeX Font Info:    Font shape `MDA/mdbch/b/n' will be
-(Font)              scaled to size 6.52805pt on input line 290.
-LaTeX Font Info:    Font shape `U/futm/m/n' will be
-(Font)              scaled to size 7.35999pt on input line 290.
-LaTeX Font Info:    Font shape `U/futm/m/n' will be
-(Font)              scaled to size 6.25598pt on input line 290.
- [17
+LaTeX Font Info:    Font shape `T1/lmss/m/it' in size <9> not available
+(Font)              Font shape `T1/lmss/m/sl' tried instead on input line 53.
+
+[16
+
+] [17
 
 ] [18
 
 ] [19
 
-]
-[20
+] [20
 
 ] [21
 
@@ -3150,15 +3152,38 @@ LaTeX Font Info:    Font shape `U/futm/m/n' will be
 
 ] [25
 
-] [26
+]
+LaTeX Font Info:    Font shape `T1/lmss/m/it' in size <8> not available
+(Font)              Font shape `T1/lmss/m/sl' tried instead on input line 222.
 
-] [27
+Overfull \hbox (15.00473pt too wide) detected at line 222
+[]
+ []
+
+[26
+
+]
+Overfull \hbox (15.00473pt too wide) detected at line 222
+[]
+ []
+
+[27
 
 ] [28
 
-] [29
+]
+Overfull \hbox (7.59103pt too wide) detected at line 298
+[]
+ []
 
-] [30
+[29
+
+]
+Overfull \hbox (7.59103pt too wide) detected at line 298
+[]
+ []
+
+[30
 
 ] [31
 
@@ -3168,8 +3193,7 @@ LaTeX Font Info:    Font shape `U/futm/m/n' will be
 
 ] [34
 
-]
-[35
+] [35
 
 ] [36
 
@@ -3185,7 +3209,8 @@ LaTeX Font Info:    Font shape `U/futm/m/n' will be
 
 ] [42
 
-] [43
+]))
+(./slide/ch02.tex (./slide.toc) [43
 
 ] [44
 
@@ -3199,16 +3224,18 @@ LaTeX Font Info:    Font shape `U/futm/m/n' will be
 
 ] [49
 
-]
-[50
+] [50
 
-] [51
+]
+[51
 
 ] [52
 
 ] [53
 
-] [54
+]
+Missing character: There is no • in font ec-lmss9!
+ [54
 
 ] [55
 
@@ -3230,14 +3257,24 @@ LaTeX Font Info:    Font shape `U/futm/m/n' will be
 
 ] [64
 
+] [65
+
 ]
-[65
+[66
 
-] [66
+]
+Overfull \hbox (8.76903pt too wide) detected at line 462
+[]
+ []
 
-] [67
+[67
 
-] [68
+]
+Overfull \hbox (8.76903pt too wide) detected at line 462
+[]
+ []
+
+[68
 
 ] [69
 
@@ -3255,24 +3292,41 @@ LaTeX Font Info:    Font shape `U/futm/m/n' will be
 
 ] [76
 
-] [77
+]
+Overfull \hbox (9.49353pt too wide) detected at line 740
+[]
+ []
 
-] [78
+[77
+
+]
+Overfull \hbox (9.49353pt too wide) detected at line 740
+[]
+ []
+
+[78
 
 ] [79
 
-]
-[80
+] [80
 
 ] [81
 
 ] [82
 
-] (./slide.toc) [83
+]
+Overfull \hbox (7.60397pt too wide) detected at line 905
+[]
+ []
+
+[83
 
 ]
-Missing character: There is no • in font ec-lmss9!
- [84
+Overfull \hbox (7.60397pt too wide) detected at line 905
+[]
+ []
+
+[84
 
 ] [85
 
@@ -3280,18 +3334,18 @@ Missing character: There is no • in font ec-lmss9!
 
 ] [87
 
-] [88
+]) (./slide/ch03.tex (./slide.toc) [88
 
-] [89
+] (./slide/ch03_0.tex
+[89
 
 ] [90
 
 ] [91
 
-])
-(./slide/ch05.tex (./slide.toc) [92
+] [92
 
-] (./slide.toc) [93
+] [93
 
 ] [94
 
@@ -3301,12 +3355,9 @@ Missing character: There is no • in font ec-lmss9!
 
 ] [97
 
-]
-[98
+] [98
 
-]
-Missing character: There is no • in font ec-lmss9!
- [99
+] [99
 
 ] [100
 
@@ -3314,7 +3365,8 @@ Missing character: There is no • in font ec-lmss9!
 
 ] [102
 
-] [103
+]
+[103
 
 ] [104
 
@@ -3324,32 +3376,26 @@ Missing character: There is no • in font ec-lmss9!
 
 ] [107
 
-]
-Missing character: There is no • in font ec-lmss9!
- [108
+] [108
 
-]
-Missing character: There is no • in font ec-lmss9!
- [109
+] [109
 
 ] [110
 
-]
-[111
+] [111
 
 ] [112
 
 ] [113
 
-] [114
+])
+(./slide/ch03_1.tex [114
 
 ] [115
 
 ] [116
 
-]
-Missing character: There is no • in font ec-lmss9!
- [117
+] [117
 
 ] [118
 
@@ -3370,7 +3416,7 @@ Missing character: There is no • in font ec-lmss9!
 
 ] [126
 
-] (./slide.toc) [127
+] [127
 
 ] [128
 
@@ -3378,34 +3424,20 @@ Missing character: There is no • in font ec-lmss9!
 
 ] [130
 
-]
-Missing character: There is no • in font ec-lmss9!
- [131
+] [131
+
+] [132
+
+] [133
+
+] [134
 
 ]
-Missing character: There is no • in font ec-lmss9!
- [132
+[135
 
-]
-Missing character: There is no • in font ec-lmss9!
+] [136
 
-[133
-
-]
-Missing character: There is no • in font ec-lmss9!
- [134
-
-]
-Missing character: There is no • in font ec-lmss9!
- [135
-
-]
-Missing character: There is no • in font ec-lmss9!
- [136
-
-]
-Missing character: There is no • in font ec-lmss9!
- [137
+] [137
 
 ] [138
 
@@ -3413,9 +3445,9 @@ Missing character: There is no • in font ec-lmss9!
 
 ] [140
 
-]) (./slide/ch06.tex (./slide.toc) [141
+] [141
 
-] (./slide.toc) [142
+] [142
 
 ] [143
 
@@ -3423,7 +3455,8 @@ Missing character: There is no • in font ec-lmss9!
 
 ] [145
 
-] [146
+])
+(./slide/ch03_2.tex [146
 
 ] [147
 
@@ -3433,8 +3466,7 @@ Missing character: There is no • in font ec-lmss9!
 
 ] [150
 
-]
-[151
+] [151
 
 ] [152
 
@@ -3442,7 +3474,8 @@ Missing character: There is no • in font ec-lmss9!
 
 ] [154
 
-] [155
+]
+[155
 
 ] [156
 
@@ -3456,10 +3489,10 @@ Missing character: There is no • in font ec-lmss9!
 
 ] [161
 
-] [162
+])) (./slide/ch04.tex (./slide.toc)
+[162
 
-]
-[163
+] [163
 
 ] [164
 
@@ -3471,46 +3504,32 @@ Missing character: There is no • in font ec-lmss9!
 
 ] [168
 
-] (./slide.toc) [169
+] [169
 
 ] [170
 
-]
-Missing character: There is no • in font ec-lmss9!
- [171
+] [171
 
 ] [172
 
-]
-[173
+] [173
 
 ]
-Missing character: There is no • in font ec-lmss9!
- [174
+[174
 
-]
-Missing character: There is no • in font ec-lmss9!
- [175
+] [175
 
-]
-Missing character: There is no • in font ec-lmss9!
- [176
+] [176
 
-]
-Missing character: There is no • in font ec-lmss9!
- [177
+] [177
 
 ] [178
 
-]
-Missing character: There is no • in font ec-lmss9!
- [179
+] [179
 
 ] [180
 
-]
-Missing character: There is no • in font ec-lmss9!
- [181
+] [181
 
 ] [182
 
@@ -3518,10 +3537,380 @@ Missing character: There is no • in font ec-lmss9!
 
 ] [184
 
-]
-[185
+] [185
 
-] [186
+]
+[186
+
+] [187
+
+] [188
+
+] [189
+
+] [190
+
+] [191
+
+] [192
+
+] [193
+
+] [194
+
+] [195
+
+] [196
+
+] [197
+
+]
+[198
+
+] [199
+
+] [200
+
+] [201
+
+] [202
+
+] [203
+
+] [204
+
+] [205
+
+] [206
+
+] [207
+
+] [208
+
+] [209
+
+]
+[210
+
+] [211
+
+] [212
+
+] [213
+
+] [214
+
+] [215
+
+] [216
+
+] [217
+
+] [218
+
+] [219
+
+] [220
+
+] [221
+
+]
+[222
+
+] [223
+
+] [224
+
+] [225
+
+] [226
+
+] [227
+
+] [228
+
+] [229
+
+] [230
+
+] [231
+
+] [232
+
+] [233
+
+]
+[234
+
+] [235
+
+] [236
+
+] [237
+
+] [238
+
+] [239
+
+] [240
+
+] [241
+
+] [242
+
+]
+Missing character: There is no • in font ec-lmss9!
+ [243
+
+] [244
+
+] [245
+
+]
+[246
+
+] [247
+
+] [248
+
+] [249
+
+] [250
+
+]) (./slide/ch05.tex (./slide.toc) [251
+
+] [252
+
+]
+[253
+
+] [254
+
+] [255
+
+] [256
+
+] [257
+
+]
+Missing character: There is no • in font ec-lmss9!
+ [258
+
+] [259
+
+] [260
+
+] [261
+
+] [262
+
+] [263
+
+] [264
+
+]
+[265
+
+] [266
+
+]
+Missing character: There is no • in font ec-lmss9!
+ [267
+
+]
+Missing character: There is no • in font ec-lmss9!
+ [268
+
+] [269
+
+] [270
+
+] [271
+
+] [272
+
+] [273
+
+] [274
+
+] [275
+
+]
+Missing character: There is no • in font ec-lmss9!
+ [276
+
+]
+[277
+
+] [278
+
+] [279
+
+] [280
+
+] [281
+
+] [282
+
+] [283
+
+] [284
+
+] [285
+
+] [286
+
+] [287
+
+] [288
+
+]
+[289
+
+]
+Missing character: There is no • in font ec-lmss9!
+ [290
+
+]
+Missing character: There is no • in font ec-lmss9!
+ [291
+
+]
+Missing character: There is no • in font ec-lmss9!
+ [292
+
+]
+Missing character: There is no • in font ec-lmss9!
+ [293
+
+]
+Missing character: There is no • in font ec-lmss9!
+ [294
+
+]
+Missing character: There is no • in font ec-lmss9!
+ [295
+
+]
+Missing character: There is no • in font ec-lmss9!
+ [296
+
+] [297
+
+] [298
+
+] [299
+
+])
+(./slide/ch06.tex (./slide.toc) [300
+
+] [301
+
+] [302
+
+] [303
+
+] [304
+
+] [305
+
+] [306
+
+]
+[307
+
+] [308
+
+] [309
+
+] [310
+
+] [311
+
+] [312
+
+] [313
+
+] [314
+
+] [315
+
+] [316
+
+] [317
+
+] [318
+
+]
+[319
+
+] [320
+
+] [321
+
+] [322
+
+] [323
+
+] [324
+
+] [325
+
+] [326
+
+] [327
+
+] [328
+
+] [329
+
+]
+Missing character: There is no • in font ec-lmss9!
+ [330
+
+]
+[331
+
+] [332
+
+]
+Missing character: There is no • in font ec-lmss9!
+ [333
+
+]
+Missing character: There is no • in font ec-lmss9!
+ [334
+
+]
+Missing character: There is no • in font ec-lmss9!
+ [335
+
+]
+Missing character: There is no • in font ec-lmss9!
+ [336
+
+] [337
+
+]
+Missing character: There is no • in font ec-lmss9!
+ [338
+
+] [339
+
+]
+Missing character: There is no • in font ec-lmss9!
+ [340
+
+] [341
+
+] [342
+
+]
+[343
+
+] [344
+
+] [345
 
 ])
 \tf@nav=\write8
@@ -3540,12 +3929,12 @@ Package atveryend Info: Empty hook `AtVeryEndDocument' on input line 56.
 Package atveryend Info: Empty hook `AtEndAfterFileList' on input line 56.
  ) 
 Here is how much of TeX's memory you used:
- 51456 strings out of 493005
- 1091977 string characters out of 6134597
- 1331993 words of memory out of 5000000
- 54462 multiletter control sequences out of 15000+600000
- 102182 words of font info for 108 fonts, out of 8000000 for 9000
+ 52128 strings out of 493005
+ 1105731 string characters out of 6134597
+ 1394592 words of memory out of 5000000
+ 55115 multiletter control sequences out of 15000+600000
+ 107757 words of font info for 110 fonts, out of 8000000 for 9000
  1348 hyphenation exceptions out of 8191
- 71i,19n,106p,10445b,647s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 71i,19n,106p,10445b,1031s stack positions out of 5000i,500n,10000p,200000b,80000s
 
-Output written on slide.pdf (186 pages).
+Output written on slide.pdf (345 pages).

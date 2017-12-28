@@ -1,27 +1,26 @@
 \subsection{往年试题}
 
-
-
-\begin{frame}
-  \begin{footnotesize}
-    \begin{exampleblock}{例1\quad 2005－2006第二学期}
-      设$\A=\left(
+\begin{frame}  
+    \begin{li}[2005－2006第二学期]
+      设$\MA=\left(
       \begin{array}{rrrr}
         1&2&-3&-1\\
         1&-2&1&1\\
         0&1&-1&2\\
         3&0&2&4
       \end{array}
-      \right)$，求$|\A\A^T|$。
-    \end{exampleblock}
-    \pause\jiename
+      \right)$，求$|\MA\MA^T|$。
+    \end{li}
+    \pause
+
+    \begin{jie}
     因
     $\red{
-    |\A\A^T|=|\A|~|\A^T|=|\A|^2}
+    |\MA\MA^T|=|\MA|~|\MA^T|=|\MA|^2}
     $，而
     $$
     \begin{array}{rl}
-      |\A|&=\left|
+      |\MA|&=\left|
       \begin{array}{rrrr}
         1&2&-3&-1\\
         0&-4&4&2\\
@@ -49,48 +48,51 @@
       \right|=50
     \end{array}
     $$
-    故$$|\A\A^T|=2500$$
-  \end{footnotesize}
+    故$$|\MA\MA^T|=2500$$
+  \end{jie}
 \end{frame}
 
 
 \begin{frame}
-  \begin{footnotesize}
-    \begin{exampleblock}{例2\quad2009－2010第二学期}
-      设$\A=\left(
+  
+    \begin{li}[2009－2010第二学期]
+      设$\MA=\left(
       \begin{array}{rrr}
         1&2&3\\
         4&5&6\\
         7&8&9\\
         10&11&12
       \end{array}
-      \right)$，求$|\A\A^T|$。
-    \end{exampleblock}
-    \pause\jiename
-    因$\red{\rr(\A\A^T)\le \rr(\A)\le 3}$，故$\A\A^T$为降秩矩阵，从而$|\A\A^T|=0$。
-  \end{footnotesize}
+      \right)$，求$|\MA\MA^T|$。
+    \end{li}
+    \pause
+
+    \begin{jie}
+    因$\red{\rank(\MA\MA^T)\le \rank(\MA)\le 3}$，故$\MA\MA^T$为降秩矩阵，从而$|\MA\MA^T|=0$。
+    \end{jie}
 \end{frame}
 
 
 \begin{frame}
-  \begin{footnotesize}
-    \begin{exampleblock}{例3\quad2006－2007第一学期}
-      设$\A=(a_{ij})$为$2007$阶方阵，其中$a_{ij}=i-j$，求$|\A|$
-    \end{exampleblock}
-    \pause\jiename
+  
+    \begin{li}[2006－2007第一学期]
+      设$\MA=(a_{ij})$为$2007$阶方阵，其中$a_{ij}=i-j$，求$|\MA|$
+    \end{li}
+    \pause
+    \begin{jie}
     注意到
     $$
     a_{ij}=i-j=-(j-i)=-a_{ji},
     $$
-    故$\A$为反对称矩阵，由\red{奇数阶反对称矩阵的行列式为零}可知，$$|\A|=0.$$
-  \end{footnotesize}
+    故$\MA$为反对称矩阵，由\red{奇数阶反对称矩阵的行列式为零}可知，$$|\MA|=0.$$
+    \end{jie}
 \end{frame}
 
 
 
 \begin{frame}
-  \begin{footnotesize}
-    \begin{exampleblock}{例4\quad2006－2007第二学期}
+  
+    \begin{li}[2006－2007第二学期]
       计算
       $$
       D=\left|
@@ -103,8 +105,9 @@
       \end{array}
       \right|~~(n\ge 1)
       $$
-    \end{exampleblock}
-    \pause \jiename
+    \end{li}
+    \pause 
+    \begin{jie}
     $$
     D\xlongequal[\ds i=2,\cd,n]{\ds r_i+r_1}\left|
       \begin{array}{rrrrrr}
@@ -116,12 +119,12 @@
       \end{array}
       \right|=n!
     $$
-  \end{footnotesize}
+    \end{jie}
 \end{frame}
 
 \begin{frame}
-  \begin{footnotesize}
-    \begin{exampleblock}{例5\quad2006－2007第二学期}
+  
+    \begin{li}[2006－2007第二学期]
       计算
       $$
       D=\left|
@@ -134,8 +137,10 @@
       \end{array}
       \right|
       $$
-    \end{exampleblock}
-    \pause\jiename
+    \end{li}
+    \pause
+
+    \begin{jie}
     $$
     \begin{array}{rl}
       D&\xlongequal[i=n,n-1,\cd,2]{\ds r_{i}-r_{i-1}}\left|
@@ -149,14 +154,14 @@
       \right|=0
     \end{array}
     $$
-
-  \end{footnotesize}
+    \end{jie}
+    
 \end{frame}
 
 
 \begin{frame}
-  \begin{footnotesize}
-    \begin{exampleblock}{例6\quad2007－2008第一学期，2010－2011第二学期，2011－2012第一学期}
+  
+    \begin{li}[2007－2008第一学期，2010－2011第二学期，2011－2012第一学期]
       计算
       $
       D=\left|
@@ -169,11 +174,12 @@
       \end{array}
       \right|
       $
-    \end{exampleblock}
-    \end{footnotesize}
+    \end{li}
+    
 
-  \begin{tiny}
-    \pause\jiename（加边法）
+    \pause
+    \begin{small}
+    \begin{jie}[加边法]
     \begin{itemize}
     \item 当$x=0$时，$D=0$
     \item 当$x\ne 0$时，
@@ -211,13 +217,14 @@
     \end{array}
       $$
     \end{itemize}
-  \end{tiny}
+  \end{jie}
+  \end{small}
 \end{frame}
 
 
 \begin{frame}
-  \begin{footnotesize}
-    \begin{exampleblock}{例7\quad2008－2009第一学期}
+  
+    \begin{li}[2008－2009第一学期]
       计算$
       D=\left|
       \begin{array}{ccccc}
@@ -229,13 +236,13 @@
       \end{array}
       \right|
       $
-    \end{exampleblock}
-  \end{footnotesize}
+    \end{li}
+  
 \end{frame}
 
 \begin{frame}
-  \begin{footnotesize}
-    \begin{exampleblock}{例8\quad2011－2012第二学期}
+  
+    \begin{li}[2011－2012第二学期]
       计算
       $
       D=\left|
@@ -249,10 +256,11 @@
       \end{array}
       \right|
       $
-    \end{exampleblock}
-    \end{footnotesize}
-  \begin{tiny}
-    \pause\jiename
+    \end{li}
+    
+    \pause
+    \begin{small}
+    \begin{jie}
     $$
     \begin{array}{rl}
       D&=(x+45)\left|
@@ -285,12 +293,13 @@
     \right|=(x+45)(x-1)(x-2)\cd(x-9)
     \end{array}
     $$
-  \end{tiny}
+  \end{jie}
+  \end{small}
 \end{frame}
 
 \begin{frame}
-  \begin{footnotesize}
-    \begin{exampleblock}{例9\quad2012－2013第二学期}
+  
+    \begin{li}[2012－2013第二学期]
       计算
       $$
       \left|
@@ -303,25 +312,29 @@
       \end{array}
       \right|
       $$
-    \end{exampleblock}
-    \pause\jiename
-      可用加边法
+    \end{li}
+    \pause
 
-  \end{footnotesize}
+    \begin{jie}
+      可用加边法
+    \end{jie}
+  
 \end{frame}
 
 
 \begin{frame}
-  \begin{footnotesize}
-    \begin{exampleblock}{例10\quad2007－2008第一学期，2010－2011第一学期}
+  
+    \begin{li}[2007－2008第一学期，2010－2011第一学期]
       设$\alphabd_1,\alphabd_2,\alphabd_3,\betabd_1,\betabd_2$都是四维列向量，且四阶行列式
       $$
       |\alphabd_1,\alphabd_2,\alphabd_3,\betabd_1|=m,~~
       |\alphabd_1,\alphabd_2,\betabd_2,\alphabd_3|=n,      
       $$
       求四阶行列式$|\alphabd_1,\alphabd_2,\alphabd_3,\betabd_1+\betabd_2|$
-    \end{exampleblock}
-    \pause\jiename
+    \end{li}
+    \pause
+
+    \begin{jie}
     $$
     \begin{array}{rl}
       |\alphabd_1,\alphabd_2,\alphabd_3,\betabd_1+\betabd_2|&=
@@ -332,29 +345,31 @@
       |\alphabd_1,\alphabd_2,\betabd_2,\alphabd_3|=m-n
     \end{array}
     $$
-  \end{footnotesize}
+  \end{jie}
 \end{frame}
 
 
 \begin{frame}
-  \begin{footnotesize}
-    \begin{exampleblock}{例11\quad2007－2008第二学期}
+  
+    \begin{li}[2007－2008第二学期]
       设$\alphabd_1,\alphabd_2,\alphabd_3$都是三维列向量，记三阶矩阵
       $$
-      \A=(\alphabd_1,\alphabd_2,\alphabd_3),~~
-      \B=(\alphabd_1+\alphabd_2+\alphabd_3,\alphabd_1+2\alphabd_2+4\alphabd_3,\alphabd_1+3\alphabd_2+9\alphabd_3),
-      $$已知$|\A|=1$，求$|\B|$。
-    \end{exampleblock}
-    \pause\jiename
+      \MA=(\alphabd_1,\alphabd_2,\alphabd_3),~~
+      \MB=(\alphabd_1+\alphabd_2+\alphabd_3,\alphabd_1+2\alphabd_2+4\alphabd_3,\alphabd_1+3\alphabd_2+9\alphabd_3),
+      $$已知$|\MA|=1$，求$|\MB|$。
+    \end{li}
+    \pause
+
+    \begin{jie}
     因
     $$
-    \B=(\alphabd_1,\alphabd_2,\alphabd_3)\left(
+    \MB=(\alphabd_1,\alphabd_2,\alphabd_3)\left(
     \begin{array}{ccc}
       1&1&1\\
       1&2&3\\
       1&4&9
     \end{array}
-    \right)=\A\left(
+    \right)=\MA\left(
     \begin{array}{ccc}
       1&1&1\\
       1&2&3\\
@@ -384,14 +399,14 @@
     \end{array}
     \right|=2    
     $$
-    故$$|\B|=2|\A|=2.$$
-  \end{footnotesize}
+    故$$|\MB|=2|\MA|=2.$$
+  \end{jie}
 \end{frame}
 
 
 \begin{frame}
-  \begin{footnotesize}
-    \begin{exampleblock}{例12\quad2008－2009第一学期}
+  
+    \begin{li}[2008－2009第一学期]
       计算
       $
       D=\left|
@@ -402,8 +417,10 @@
       \end{array}
       \right|
       $
-    \end{exampleblock}
-    \pause\jiename
+    \end{li}
+    \pause
+
+    \begin{jie}
     $$
     \begin{array}{rl}
     D&=adf\left|
@@ -429,15 +446,15 @@
       =-adf\cdot(-b)\cdot 2c \cdot 2e=4abcdef
     \end{array}
     $$
-  \end{footnotesize}
+    \end{jie}
 \end{frame}
 
 
 
 
 \begin{frame}
-  \begin{footnotesize}
-    \begin{exampleblock}{例13\quad2012－2013第二学期}
+  
+    \begin{li}[2012－2013第二学期]
       计算
       $
       D=\left|
@@ -449,8 +466,10 @@
       \end{array}
       \right|
       $
-    \end{exampleblock}
-    \pause\jiename
+    \end{li}
+    \pause
+
+    \begin{jie}
     $$
     D=\left|
     \begin{array}{rr}
@@ -464,20 +483,23 @@
     \end{array}
     \right|=3\cdot10=30
     $$
-  \end{footnotesize}
+    \end{jie}
 \end{frame}
 
 
 \begin{frame}
-  \begin{footnotesize}
-    \begin{exampleblock}{例14\quad2013－2014第一学期}
+  
+    \begin{li}[2013－2014第一学期]
       在$n$阶行列式$D$中，如果把第一列移到最后一列，而其余各列保持原来次序各向左移动了一列，得到行列式$\Delta$，问$\Delta$与$D$有何关系？
-    \end{exampleblock}
-    \pause\jiename
+    \end{li}
+    \pause
+
+    \begin{jie}
     $$
     \Delta=(-1)^{n-1}D
     $$
-  \end{footnotesize}
+  \end{jie}
+  
 \end{frame}
 
 

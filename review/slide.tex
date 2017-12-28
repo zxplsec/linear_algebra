@@ -24,32 +24,32 @@
   \titlepage
 \end{frame}
 
-\section*{目录}
-\frame{  
+
+\begin{frame}\ft{目录}
   \frametitle{\secname}
 %  \begin{multicols}{2}  %两行目录
-    \tableofcontents
+    \tableofcontents[hideallsubsections]
 %  \end{multicols}
-}
+\end{frame}
 \AtBeginSection[] {  %在每个subsection前面显示一次目录
   \frame{
 %    \begin{multicols}{2}  %两行目录
-      \tableofcontents[current,currentsection]
+      \tableofcontents[currentsection,hideallsubsections]
 %    \end{multicols}
   }
 }
 
-\AtBeginSubsection[] {  %在每个subsection前面显示一次目录
-  \frame{
-%    \begin{multicols}{2}  %两行目录
-      \tableofcontents[current,currentsubsection]
-%    \end{multicols}
-  }
-}
+% \AtBeginSubsection[] {  %在每个subsection前面显示一次目录
+%   \frame{
+% %    \begin{multicols}{2}  %两行目录
+%       \tableofcontents[current,currentsubsection]
+% %    \end{multicols}
+%   }
+% }
  
-% \input{slide/ch01.tex}
-% \input{slide/ch02.tex}
-% \input{slide/ch03.tex}
+\input{slide/ch01.tex}
+\input{slide/ch02.tex}
+\input{slide/ch03.tex}
 \input{slide/ch04.tex}
 \input{slide/ch05.tex}
 \input{slide/ch06.tex}

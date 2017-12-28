@@ -1,4 +1,4 @@
-file=slide
+file=lec
 
 all: pdf out 
 	make pdf

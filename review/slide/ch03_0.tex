@@ -1,9 +1,9 @@
 \subsection{知识点}
 
 \begin{frame}\ft{线性相关性}
-  \begin{footnotesize}
-    设$m\times n$矩阵$\A$按列分块为
-    $$\A=(\alphabd_1,\alphabd_2,\cd,\alphabd_n),$$
+  
+    设$m\times n$矩阵$\MA$按列分块为
+    $$\MA=(\alphabd_1,\alphabd_2,\cd,\alphabd_n),$$
     其中$\alphabd_i(i=1,2,\cd,n)$为$m$维列向量，则线性组合
     $$
     x_1\alphabd_1+x_2\alphabd_2+\cd+x_n\alphabd_n
@@ -16,93 +16,94 @@
     \end{array}
     \right)
     $$
-  \end{footnotesize}
+  
 \end{frame}
 
 
 \begin{frame}\ft{线性相关性与齐次线性方程组的解}
-  \begin{footnotesize}
-    \begin{block}{重要结论1}
+  
+    \begin{jielun}
       向量组$\alphabd_1,\alphabd_2,\cd,\alphabd_n$线性相关，等价于齐次方程组
         $$
         (\alphabd_1,\alphabd_2,\cd,\alphabd_n)\left(
         \begin{array}{c}
           x_1\\x_2\\\vd\\x_n
         \end{array}
-        \right)=\zero
+        \right)=\M0
         $$
         有非零解，也等价于
         $$
-        \rr(\A)=\rr(\alphabd_1,\alphabd_2,\cd,\alphabd_n)<n=\mbox{矩阵$\A$的列数}.
+        \rank(\MA)=\rank(\alphabd_1,\alphabd_2,\cd,\alphabd_n)<n=\mbox{矩阵$\MA$的列数}.
         $$
-    \end{block}
-\end{footnotesize}
+    \end{jielun}
+
 \end{frame}
 
 \begin{frame}\ft{线性相关性与齐次线性方程组的解}
-  \begin{footnotesize}
-    \begin{block}{重要结论2}  向量组$\alphabd_1,\alphabd_2,\cd,\alphabd_n$线性无关，等价于齐次方程组
+  
+    \begin{jielun}
+      向量组$\alphabd_1,\alphabd_2,\cd,\alphabd_n$线性无关，等价于齐次方程组
         $$
         (\alphabd_1,\alphabd_2,\cd,\alphabd_n)\left(
         \begin{array}{c}
           x_1\\x_2\\\vd\\x_n
         \end{array}
-        \right)=\zero
+        \right)=\M0
         $$
         只有零解，也等价于
         $$
-        \rr(\A)=\rr(\alphabd_1,\alphabd_2,\cd,\alphabd_n)=n=\mbox{矩阵$\A$的列数}.
+        \rank(\MA)=\rank(\alphabd_1,\alphabd_2,\cd,\alphabd_n)=n=\mbox{矩阵$\MA$的列数}.
         $$
 
-    \end{block}
-  \end{footnotesize}
+      \end{jielun}
+  
 \end{frame}
 
 
 \begin{frame}\ft{线性表示与非齐次线性方程组的解}
-  \begin{footnotesize}
-    \begin{block}{重要结论3} 
-      向量$\bb$可由$\alphabd_1,\alphabd_2,\cd,\alphabd_n$线性表示，等价于方程组
+  
+    \begin{jielun}
+      向量$\vb$可由$\alphabd_1,\alphabd_2,\cd,\alphabd_n$线性表示，等价于方程组
       $$
       (\alphabd_1,\alphabd_2,\cd,\alphabd_n)\left(
         \begin{array}{c}
           x_1\\x_2\\\vd\\x_n
         \end{array}
-        \right)=\bb
+        \right)=\vb
       $$
       有解，也等价于
       $$
-      \rr(\A,\bb)=\rr(\A).
+      \rank(\MA,\vb)=\rank(\MA).
       $$ 
-    \end{block}
-  \end{footnotesize}
+    \end{jielun}
+  
 \end{frame}
 
 
 \begin{frame}\ft{线性表示与非齐次线性方程组的解}
-  \begin{footnotesize}
+  
 
-    \begin{block}{重要结论4} 
-      向量$\bb$可由$\alphabd_1,\alphabd_2,\cd,\alphabd_n$惟一地线性表示，等价于方程组
+    \begin{jielun}
+      向量$\vb$可由$\alphabd_1,\alphabd_2,\cd,\alphabd_n$惟一地线性表示，等价于方程组
       $$
       (\alphabd_1,\alphabd_2,\cd,\alphabd_n)\left(
         \begin{array}{c}
           x_1\\x_2\\\vd\\x_n
         \end{array}
-        \right)=\bb
+        \right)=\vb
       $$
       有惟一解，也等价于
       $$
-      \rr(\A,\bb)=\rr(\A)=\A\mbox{的列数}.
+      \rank(\MA,\vb)=\rank(\MA)=\MA\mbox{的列数}.
       $$ 
-\end{block}
-  \end{footnotesize}
+\end{jielun}
+  
 \end{frame}
 
 
 \begin{frame}\ft{线性相关性}
-  \begin{scriptsize}
-    \begin{block}{重要结论5} 
+  
+    \begin{jielun}
       关于向量组的线性相关性，有如下结论：
       \begin{itemize}
       \item 部分相关，则整体相关；整体无关，则部分无关。
@@ -185,14 +186,14 @@
         $$
 
       \end{itemize}
-    \end{block}
+    \end{jielun}
 
-  \end{scriptsize}
+  
 \end{frame}
 
 \begin{frame}\ft{向量组和矩阵的秩}
-  \begin{footnotesize}
-    \begin{block}{向量组的秩}
+  
+    \begin{dingyi}[向量组的秩]
       设有向量组$\alphabd_1,\alphabd_2,\cd,\alphabd_s$。
       如果能从其中选出$r$个向量$\alphabd_1,\alphabd_2,\cd,\alphabd_{\red{r}}$，满足
       \begin{itemize}
@@ -203,116 +204,116 @@
       \vspace{0.1in}
 
       \blue{\underline{极大线性无关组所含向量的个数$\red{r}$}}，称为原向量组的\red{秩}。     
-    \end{block}
+    \end{dingyi}
 
-    \begin{block}{矩阵的秩}
+    \begin{dingyi}[矩阵的秩]
       矩阵的行秩或列秩的数值，称为矩阵的秩。
-    \end{block}
+    \end{dingyi}
 
-  \end{footnotesize}
+  
 \end{frame}
 
 
 \begin{frame}\ft{向量组的秩}
-  \begin{footnotesize}
-    \begin{block}{重要结论6}
+  
+    \begin{jielun}
       设
-      $$\blue{\rr(\alphabd_1,\alphabd_2,\cd,\alphabd_s)=p,~~\rr(\betabd_1,\betabd_2,\cd,\betabd_t)=r},$$
+      $$\blue{\rank(\alphabd_1,\alphabd_2,\cd,\alphabd_s)=p,~~\rank(\betabd_1,\betabd_2,\cd,\betabd_t)=r},$$
       如果向量组$\blue{B:~\betabd_1,\betabd_2,\cd,\betabd_t}$可由$\blue{A:~\alphabd_1,\alphabd_2,\cd,\alphabd_s}$线性表示，则
       $$\red{r\le p.}$$
-    \end{block}
+    \end{jielun}
 
     以上结论中，向量组$\blue{B:~\betabd_1,\betabd_2,\cd,\betabd_t}$可看作是向量组$\blue{A:~\alphabd_1,\alphabd_2,\cd,\alphabd_s}$的一个线性组合。由此可知
-    \begin{block}{$\bigstar\bigstar\bigstar\bigstar\bigstar$}      
+    \begin{jielun}[$\bigstar\bigstar\bigstar\bigstar\bigstar$]
       \red{对向量组进行线性组合，秩不变或减少。}
-    \end{block}
-  \end{footnotesize}
+    \end{jielun}
+  
 \end{frame}
 
 
 \begin{frame}\ft{矩阵的秩}
-  \begin{footnotesize}
-    \begin{block}{性质1}
+  
+    \begin{xingzhi}
       $$
-      \red{\max\{\rr(\A),~\rr(\B)\}~~\le~~ \rr(\A,~\B) ~~\le~~ \rr(\A) + \rr(\B).}
+      \red{\max\{\rank(\MA),~\rank(\MB)\}~~\le~~ \rank(\MA,~\MB) ~~\le~~ \rank(\MA) + \rank(\MB).}
       $$
       
       $$
-      \blue{\rr(\A)~~\le~~\rr(\A,~\bb)~~\le~~\rr(\A)+1.}
+      \blue{\rank(\MA)~~\le~~\rank(\MA,~\vb)~~\le~~\rank(\MA)+1.}
       $$
-    \end{block} 
+    \end{xingzhi} 
     
-    设$\rr(\A)=p, ~\rr(\B)=q$，
-    $\A$和$\B$的列向量组的极大无关组分别为
+    设$\rank(\MA)=p, ~\rank(\MB)=q$，
+    $\MA$和$\MB$的列向量组的极大无关组分别为
     $$
     \alphabd_1,~\cd,~\alphabd_p \mbox{~~和~~}
     \betabd_1,~\cd,~\betabd_q. 
     $$ 
-    显然$(\A,\B)$的列向量组可由向量组$\alphabd_1,~\cd,~\alphabd_p,~
+    显然$(\MA,\MB)$的列向量组可由向量组$\alphabd_1,~\cd,~\alphabd_p,~
     \betabd_1,~\cd,~\betabd_q$线性表示。
 
-   \end{footnotesize}
+   
 \end{frame}
 
 
 \begin{frame}\ft{矩阵的秩}
-  \begin{footnotesize}
-    \begin{block}{注}
+  
+    \begin{zhu}
       \begin{itemize}
       \item         
         $$
-        \red{\min\{\rr(\A),~\rr(\B)\} ~~\le~~ \rr(\A,~\B)}
+        \red{\min\{\rank(\MA),~\rank(\MB)\} ~~\le~~ \rank(\MA,~\MB)}
         $$
-        意味着：\blue{在$\A$的右侧添加新的列，只有可能使得秩在原来的基础上得到增加；当$\B$的列向量能被$\A$的列向量线性表示时，等号成立。}\\[0.1in]
+        意味着：\blue{在$\MA$的右侧添加新的列，只有可能使得秩在原来的基础上得到增加；当$\MB$的列向量能被$\MA$的列向量线性表示时，等号成立。}\\[0.1in]
       \item 
         $$
-        \red{\rr(\A,~\B) ~~\le~~ \rr(\A)+\rr(\B)}
+        \red{\rank(\MA,~\MB) ~~\le~~ \rank(\MA)+\rank(\MB)}
         $$
-        意味着：\blue{对$(\A,~\B)$，有可能$\A$的列向量与$\B$的列向量出现线性相关，合并为$(\A,~\B)$的秩一般会比$\rr(\A)+\rr(\B)$要小。}
+        意味着：\blue{对$(\MA,~\MB)$，有可能$\MA$的列向量与$\MB$的列向量出现线性相关，合并为$(\MA,~\MB)$的秩一般会比$\rank(\MA)+\rank(\MB)$要小。}
       \end{itemize}
-    \end{block}
-  \end{footnotesize}
+    \end{zhu}
+  
 \end{frame}
 
 
 \begin{frame}\ft{矩阵的秩}
-  \begin{footnotesize}
-     \begin{block}{性质2}
+  
+     \begin{xingzhi}
       $$
-      \red{\rr(\A+\B) \le \rr(\A)+\rr(\B).}
+      \red{\rank(\MA+\MB) \le \rank(\MA)+\rank(\MB).}
       $$
-    \end{block}
+    \end{xingzhi}
 
      
-    设$\rr(\A)=p, ~\rr(\B)=q$，
-    $\A$和$\B$的列向量组的极大无关组分别为
+    设$\rank(\MA)=p, ~\rank(\MB)=q$，
+    $\MA$和$\MB$的列向量组的极大无关组分别为
     $$
     \alphabd_1,~\cd,~\alphabd_p \mbox{~~和~~}
     \betabd_1,~\cd,~\betabd_q. \pause 
     $$ 
-    显然$\A+\B$的列向量组可由向量组$\alphabd_1,~\cd,~\alphabd_p,~
+    显然$\MA+\MB$的列向量组可由向量组$\alphabd_1,~\cd,~\alphabd_p,~
     \betabd_1,~\cd,~\betabd_q$线性表示。
 
 
-    \begin{block}{注}
-      将矩阵$\A$和$\B$合并、相加，秩不变或减小。
-    \end{block}
-  \end{footnotesize}
+    \begin{zhu}
+      将矩阵$\MA$和$\MB$合并、相加，秩不变或减小。
+    \end{zhu}
+  
 \end{frame}
 
 
 \begin{frame}\ft{矩阵的秩}
-  \begin{footnotesize}
-    \begin{block}{性质3}
+  
+    \begin{xingzhi}
       $$
-      \red{\rr(\A\B) \le \min(\rr(\A),~\rr(\B)).}
+      \red{\rank(\MA\MB) \le \min(\rank(\MA),~\rank(\MB)).}
       $$
-    \end{block}
+    \end{xingzhi}
     \pause
-    \proofname
-    设$\A,\B$分别为$m\times n, n\times s$矩阵，将$\A$按列分块，则
+    \begin{proof}
+    设$\MA,\MB$分别为$m\times n, n\times s$矩阵，将$\MA$按列分块，则
     $$
-    \A\B = (\alphabd_1,~\cd,~\alphabd_n) \left(
+    \MA\MB = (\alphabd_1,~\cd,~\alphabd_n) \left(
     \begin{array}{cccc}
       b_{11}&b_{12}&\cd&b_{1s}\\
       b_{21}&b_{22}&\cd&b_{2s}\\
@@ -321,74 +322,75 @@
     \end{array}
     \right).
     $$  
-    由此可知，$\A\B$的列向量组可由$\alphabd_1,~\alphabd_2,~\cd,~\alphabd_n$线性表示，故
+    由此可知，$\MA\MB$的列向量组可由$\alphabd_1,~\alphabd_2,~\cd,~\alphabd_n$线性表示，故
     $$
-    \rr(\A\B) = \A\B\mbox{的列秩} \le \A\mbox{的列秩} = \rr(\A).
+    \rank(\MA\MB) = \MA\MB\mbox{的列秩} \le \MA\mbox{的列秩} = \rank(\MA).
     $$
     \pause
-    类似地，将$\B$按行分块，可得$$\rr(\A\B)\le \rr(\B).$$
-      \end{footnotesize}
+    类似地，将$\MB$按行分块，可得$$\rank(\MA\MB)\le \rank(\MB).$$
+    \end{proof}
 \end{frame}
 
 \begin{frame}\ft{矩阵的秩}
-  \begin{footnotesize}
-    \begin{block}{性质4}
-      设$\A$为$m\times n$矩阵，$\PP,\QQ$分别为$m$阶、$n$阶可逆矩阵，则
+  
+    \begin{xingzhi}
+      设$\MA$为$m\times n$矩阵，$\MP,\MQ$分别为$m$阶、$n$阶可逆矩阵，则
       $$
-      \rr(\A) = \rr(\PP\A) = \rr(\A\QQ)  = \rr(\PP\A\QQ).
+      \rank(\MA) = \rank(\MP\MA) = \rank(\MA\MQ)  = \rank(\MP\MA\MQ).
       $$
-    \end{block}
-  \end{footnotesize}
+    \end{xingzhi}
+  
 \end{frame}
 
 
 
 \begin{frame}\ft{齐次线性方程组解的结构}
-  \begin{footnotesize}
-    \begin{block}{定义(基础解系)}
-      设$\xx_1,~\xx_2,~\cd,~\xx_p$为$\A\xx=\zero$的解向量，若
+  
+    \begin{dingyi}[基础解系]
+      设$\vx_1,~\vx_2,~\cd,~\vx_p$为$\MA\vx=\M0$的解向量，若
       \begin{itemize}
-      \item[(1)] $\xx_1,~\xx_2,~\cd,~\xx_p$线性无关
-      \item[(2)] $\A\xx=\zero$的任一解向量可由$\xx_1,~\xx_2,~\cd,~\xx_p$线性表示。
+      \item[(1)] $\vx_1,~\vx_2,~\cd,~\vx_p$线性无关
+      \item[(2)] $\MA\vx=\M0$的任一解向量可由$\vx_1,~\vx_2,~\cd,~\vx_p$线性表示。
       \end{itemize}
-      则称$\xx_1,~\xx_2,~\cd,~\xx_p$为$\A\xx=\zero$的一个\blue{\underline{基础解系}}。
-    \end{block}
+      则称$\vx_1,~\vx_2,~\cd,~\vx_p$为$\MA\vx=\M0$的一个\blue{\underline{基础解系}}。
+    \end{dingyi}\vspace{.15in}
 
-  \begin{block}{$\bigstar\bigstar\bigstar\bigstar\bigstar$}
-      设$\A$为$m\times n$矩阵，若$\rr(\A)=r<n$，则齐次线性方程组$\A\xx=\zero$存在基础解系，
+  \begin{dingli}[$\bigstar\bigstar\bigstar\bigstar\bigstar$]
+      设$\MA$为$m\times n$矩阵，若$\rank(\MA)=r<n$，则齐次线性方程组$\MA\vx=\M0$存在基础解系，
       且基础解系含$n-r$个解向量。
-    \end{block}
-
+    \end{dingli}
+    \vspace{.15in}
 
   齐次线性方程组的全部解可由基础解系给出：
   $$
-  k_1\xx_1+k_2\xx_2+\cd+k_p\xx_p \quad(k_1,k_2,\cd,k_p\mbox{为任意常数}).
+  k_1\vx_1+k_2\vx_2+\cd+k_p\vx_p \quad(k_1,k_2,\cd,k_p\mbox{为任意常数}).
   $$
-  \end{footnotesize}
+  
 \end{frame}
 
 \begin{frame}\ft{非齐次线性方程组}
-  \begin{footnotesize}
-    \begin{block}{非齐次线性方程组解的结构}
-      “$\A\xx=\bb$的通解” =  “$\A\xx=\zero$的通解” + “$\A\xx=\bb$的特解”
-    \end{block}
-  \end{footnotesize}
+  
+    \begin{jielun}[非齐次线性方程组解的结构]
+
+      “$\MA\vx=\vb$的通解” =  “$\MA\vx=\M0$的通解” + “$\MA\vx=\vb$的特解”
+    \end{jielun}
+  
 \end{frame}
 
 
 
 \begin{frame}\ft{几类重要的矩阵}
-  \begin{footnotesize}
-    \begin{block}{阶梯形矩阵}
-      若矩阵$\A$满足
+  
+    \begin{dingyi}[阶梯形矩阵]
+      若矩阵$\MA$满足
       \begin{itemize}
       \item[(1)] 零行在最下方；
       \item[(2)] 非零行首元的列标号随行标号的增加而严格递增，
       \end{itemize}
-      则称$\A$为\red{阶梯形矩阵}。
-    \end{block}
+      则称$\MA$为\red{阶梯形矩阵}。
+    \end{dingyi}
     \pause
-    \begin{exampleblock}{例}
+    \begin{li}
       $$
       \left(
       \begin{array}{rrrr}
@@ -399,23 +401,23 @@
       \end{array}
       \right)
       $$
-    \end{exampleblock}
-  \end{footnotesize}
+    \end{li}
+  
 \end{frame}
 
 
 \begin{frame}\ft{几类重要的矩阵}
-  \begin{footnotesize}
-    \begin{block}{行简化阶梯形矩阵}
-      若矩阵$\A$满足
+  
+    \begin{dingyi}[行简化阶梯形矩阵]
+      若矩阵$\MA$满足
       \begin{itemize}
       \item[(1)] 它是阶梯形矩阵；
       \item[(2)] 非零行首元所在的列除了非零行首元外，其余元素全为零，
       \end{itemize}
-      则称$\A$为\red{行简化阶梯形矩阵}。
-    \end{block}
+      则称$\MA$为\red{行简化阶梯形矩阵}。
+    \end{dingyi}
     \pause
-    \begin{exampleblock}{例}
+    \begin{li}
       $$
       \left(
       \begin{array}{rrrr}
@@ -426,7 +428,33 @@
       \end{array}
       \right)
       $$
-    \end{exampleblock}
-  \end{footnotesize}
+    \end{li}
+  
 \end{frame}
 
+
+\begin{frame}\ft{几类重要的矩阵}
+  
+    \begin{dingyi}[行最简阶梯形矩阵]
+      若矩阵$\MA$满足
+      \begin{itemize}
+      \item[(1)] 它是行简化阶梯形矩阵；
+      \item[(2)] 非零行首元为1,
+      \end{itemize}
+      则称$\MA$为\red{行最简阶梯形矩阵}。
+    \end{dingyi}
+    \pause
+    \begin{li}
+      $$
+      \left(
+      \begin{array}{rrrr}
+        1&0&0&1\\
+        0&1&0&-2\\
+        0&0&1&2\\
+        0&0&0&0
+      \end{array}
+      \right)
+      $$
+    \end{li}
+  
+\end{frame}

@@ -1,9 +1,19 @@
-\beamer@sectionintoc {2}{向量空间与线性变换}{3}{0}{1}
-\beamer@subsectionintoc {2}{1}{知识点}{4}{0}{1}
-\beamer@subsectionintoc {2}{2}{往年试题}{83}{0}{1}
-\beamer@sectionintoc {3}{第五章\nobreakspace {}\nobreakspace {}特征值问题}{92}{0}{2}
-\beamer@subsectionintoc {3}{1}{知识点}{93}{0}{2}
-\beamer@subsectionintoc {3}{2}{往年试题}{127}{0}{2}
-\beamer@sectionintoc {4}{第六章\nobreakspace {}\nobreakspace {}二次型}{141}{0}{3}
-\beamer@subsectionintoc {4}{1}{知识点}{142}{0}{3}
-\beamer@subsectionintoc {4}{2}{典型例题}{169}{0}{3}
+\beamer@sectionintoc {1}{行列式}{3}{0}{1}
+\beamer@subsectionintoc {1}{1}{知识点}{4}{0}{1}
+\beamer@subsectionintoc {1}{2}{往年试题}{15}{0}{1}
+\beamer@sectionintoc {2}{矩阵及其运算}{43}{0}{2}
+\beamer@subsectionintoc {2}{1}{往年试题}{44}{0}{2}
+\beamer@sectionintoc {3}{向量组\nobreakspace {}\nobreakspace {} 矩阵的秩}{88}{0}{3}
+\beamer@subsectionintoc {3}{1}{知识点}{89}{0}{3}
+\beamer@subsectionintoc {3}{2}{典型例题1\nobreakspace {}\nobreakspace {}（线性相关性）}{114}{0}{3}
+\beamer@subsectionintoc {3}{3}{典型例题2\nobreakspace {}\nobreakspace {}（极大无关组与向量组的秩）}{124}{0}{3}
+\beamer@subsectionintoc {3}{4}{典型题型3\nobreakspace {}\nobreakspace {}（非齐次线性方程组）}{146}{0}{3}
+\beamer@sectionintoc {4}{向量空间与线性变换}{162}{0}{4}
+\beamer@subsectionintoc {4}{1}{知识点}{163}{0}{4}
+\beamer@subsectionintoc {4}{2}{往年试题}{242}{0}{4}
+\beamer@sectionintoc {5}{特征值问题}{251}{0}{5}
+\beamer@subsectionintoc {5}{1}{知识点}{252}{0}{5}
+\beamer@subsectionintoc {5}{2}{往年试题}{286}{0}{5}
+\beamer@sectionintoc {6}{二次型}{300}{0}{6}
+\beamer@subsectionintoc {6}{1}{知识点}{301}{0}{6}
+\beamer@subsectionintoc {6}{2}{典型例题}{328}{0}{6}
