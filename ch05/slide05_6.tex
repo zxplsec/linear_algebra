@@ -1,0 +1,149 @@
+\section{优先级与结合性}
+\begin{frame}[fragile]\ft{\secname}
+  
+  \begin{itemize}
+  \item 
+    当表达式中有多个不同优先级的运算符，运算符的优先级决定哪个运算符被优先执行。\\[.1in]
+  \item[] 如 \lstinline|10 + 20 * 30| 等价于 \lstinline|10 + (20 * 30)|。\\[.1in]
+  \item 
+    结合性用于\blue{一个表达式中两个运算符的优先级相同的情形}。结合性可能是从左到右或者从右到左。\\[.1in]
+  \item[]
+    如 \lstinline|*| 与 \lstinline|/| 有相同的结合性，它们的结合性从左到右，故  \lstinline|100 / 10 * 10| 等价于 \lstinline|(100 / 10) * 10|。\\[.1in]
+\end{itemize} \pause 
+
+\red{优先级与结合性是运算符的两个特征，用于确定子表达式在没有括号时的运算次序。}
+\end{frame}
+
+\begin{frame}[fragile]\ft{\secname}
+  1、结合性仅用于两个或两个以上具有相同优先级的情形。需要指出的是结合性没有定义运算符中操作数的运算次序。
+\end{frame}
+
+\begin{frame}[fragile,allowframebreaks]\ft{\secname}  
+\lstinputlisting[]{ch05/code/associativity.c}
+\end{frame}
+
+\begin{frame}[fragile]\ft{\secname}
+该程序中，运算符 \lstinline|+| 的结合性为从左到右，但这并不意味着 \lstinline|f1()| 总在 \lstinline|f2()| 之前被调用。
+\end{frame}
+
+\begin{frame}[fragile]\ft{\secname}  
+  2、\blue{具有相同优先级的所有运算符有相同的结合性。}
+  \vspace{.1in}
+  
+  这是必然的，否则编译器将不知道如何在具有相同优先级和不同结合性的表达式中确定计算次序。如 \lstinline|+| 和 \lstinline|-| 具有相同的结合性。
+\end{frame}
+
+\begin{frame}[fragile]\ft{\secname}  
+3、 后缀 \lstinline|++| 与 前缀 \lstinline|++| 的优先级与结合性是不同的。
+\vspace{.1in}
+
+\begin{itemize}
+\item 后缀 \lstinline|++| 的优先级高于前缀 \lstinline|++|； \\[.1in]
+\item 后缀 \lstinline|++| 的结合性是从左到右，前缀 \lstinline|++| 的结合性是从右到左。
+\end{itemize}
+\end{frame}
+
+\begin{frame}[fragile]\ft{\secname}  
+4、逗号具有最低优先级，使用时需谨慎。
+  \begin{lstlisting}[language=c,backgroundcolor=\color{red!10}]
+#include<stdio.h> 
+int main()
+{
+    int a;
+    a = 1, 2, 3; // Evaluated as (a = 1), 2, 3
+    printf("%d", a);
+    return 0;
+}    
+  \end{lstlisting}
+\end{frame}
+
+\begin{frame}[fragile]\ft{\secname}  
+5、 对诸如 \lstinline|c > b > a| 的表达式，C将解释为 \lstinline|(c > b) > a|。
+\lstinputlisting[]{ch05/code/a_gt_b_gt_c.c}
+\end{frame}
+
+\begin{frame}[fragile]\ft{\secname}  
+
+\begin{table}[htbp]
+  \centering 
+  \caption{运算符的优先级与结合性}
+  \begin{tabular}{l|l|l}\hline\hline
+    运算符 & 描述 & 结合性 \\\hline
+    \lstinline|()| & 圆括号(函数调用) & 从左到右\\[.1in]
+    \lstinline|[]| & 方括号(数组下标)&  \\[.1in]
+    \lstinline|.| & 通过结构体、共同体等获取成员&  \\[.1in]
+    \lstinline|->| & 通过指针获取成员&  \\[.1in]
+    \lstinline|++ --| & 后缀自增/后缀自减&  \\\hline
+ \end{tabular}
+\end{table}    
+\end{frame}
+
+\begin{frame}[fragile]\ft{\secname}  
+
+\begin{table}[htbp]
+  \centering 
+  \caption{运算符的优先级与结合性}
+  \begin{tabular}{l|l|l}\hline\hline
+    运算符 & 描述 & 结合性 \\\hline    
+    \lstinline|++ --| & 前缀自增/前缀自减& 从右到左 \\[.1in] 
+    \lstinline|+ -| & 正/负 &\\[.1in]
+    \lstinline|! ~| & 逻辑非/位补 &\\[.1in]
+    \lstinline|(type)| & 强制类型转换 &\\[.1in]
+    \lstinline|*| & 取值运算符&\\[.1in]
+    \lstinline|&| & 取址运算符 & \\[.1in]
+    \lstinline|sizeof| & &\\\hline
+ \end{tabular}
+\end{table}    
+\end{frame}
+
+\begin{frame}[fragile]\ft{\secname}  
+
+\begin{table}[htbp]
+  \centering 
+  \caption{运算符的优先级与结合性}
+  \begin{tabular}{l|l|l}\hline\hline
+    运算符 & 描述 & 结合性 \\\hline    
+    \lstinline|* / %| &乘/除/求余 & 从左到右\\\hline
+    \lstinline|+ -| & 加/减 & 从左到右\\[.1in]\hline
+    \lstinline|<< >>| & 位左移/位右移 & 从左到右\\[.1in]\hline
+    \lstinline|< <=| & 小于/小于等于& 从左到右\\[.1in]
+    \lstinline|> >=| & 大于/大于等于& 从左到右\\[.1in]\hline
+    \lstinline|== !=| & 等于/不等于& 从左到右\\[.1in]\hline
+ \end{tabular}
+\end{table}    
+\end{frame}
+
+\begin{frame}[fragile]\ft{\secname}  
+
+\begin{table}[htbp]
+  \centering 
+  \caption{运算符的优先级与结合性}
+  \begin{tabular}{l|l|l}\hline\hline
+    运算符 & 描述 & 结合性 \\\hline    
+    \lstinline|&| & 位与 & 从左到右 \\[.1in]
+    \lstinline|^| & 位异或 & 从左到右 \\[.1in]
+    \lstinline||| & 位或 & 从左到右 \\[.1in]
+    \lstinline|&&| & 逻辑与 & 从左到右 \\[.1in]
+    \lstinline|||| & 逻辑或 & 从左到右 \\[.1in]\hline
+    \lstinline|?:| & 三元条件 & 从右到左 \\[.1in]\hline
+ \end{tabular}
+\end{table}    
+\end{frame}
+
+\begin{frame}[fragile]\ft{\secname}  
+
+\begin{table}[htbp]
+  \centering 
+  \caption{运算符的优先级与结合性}
+  \begin{tabular}{l|l|l}\hline\hline
+    运算符 & 描述 & 结合性 \\\hline    
+    \lstinline|=| & 赋值 & 从右到左\\[.1in]
+    \lstinline|+= -=| & 加/减赋值 & \\[.1in]
+    \lstinline|*= /=| & 乘/除赋值 & \\[.1in]
+    \lstinline|%= &=| & 求余/位与赋值 & \\[.1in]
+    \lstinline|^= !=| & 位异或/位或赋值 &\\[.1in]
+    \lstinline|<<= >>=| & 位左移/位右移赋值 & \\[.1in]\hline
+    \lstinline|,| & 逗号(分离表达式) & 从左到右\\\hline\hline
+  \end{tabular}
+\end{table}
+\end{frame}

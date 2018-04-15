@@ -1,0 +1,70 @@
+\section{C与C++中的逗号}
+\begin{frame}[fragile]\ft{\secname}
+  在C 与 C++中，逗号有两层含义：\\[.1in]
+  \begin{enumerate}
+  \item[1.] 逗号充当运算符：\\[.1in]
+  \item[] 逗号为\blue{一元运算符}，先计算第一个操作数并舍弃之，然后计算第二个操作数并返回该值。逗号运算符具有最低优先级，并且是一个顺序点。
+  \end{enumerate}
+\end{frame}
+
+\begin{frame}[fragile]\ft{\secname}
+    \begin{lstlisting}[language=c,backgroundcolor=\color{red!10}]
+/* comma as an operator */
+int i = (5, 10);  /* 10 is assigned to i*/
+int j = (f1(), f2());
+ /* f1() is called (evaluated) first followed by f2(). The returned value of f2() is assigned to j */    
+  \end{lstlisting}
+\end{frame}
+
+\begin{frame}[fragile]\ft{\secname}
+  \begin{enumerate}
+  \item[2.] 逗号充当分隔符\\[.1in]
+  \item[] 逗号作为分隔符，通常用于函数调用与定义，函数宏，变量声明，enum声明以及结构体中。
+    \begin{lstlisting}[language=c,backgroundcolor=\color{red!10}]
+/* comma as a separator */
+int a = 1, b = 2;
+void fun(x, y);    
+\end{lstlisting}
+\end{enumerate}
+\end{frame}
+
+%% %% The use of comma as a separator should not be confused with the use as an operator. For example, in below statement, f1() and f2() can be called in any order.
+
+\begin{frame}[fragile]\ft{\secname}
+
+\begin{lstlisting}[language=c,backgroundcolor=\color{red!10}]
+/* Comma acts as a separator here and doesn't enforce any sequence. Therefore, either f1() or f2() can be called first */
+void fun(f1(), f2());  
+\end{lstlisting}
+\end{frame}
+%% %% You can try below programs to check your understanding of comma in C.
+
+\begin{frame}[fragile]\ft{\secname}
+  \lstinputlisting[language=c,backgroundcolor=\color{red!10},numbers=left]{ch05/code/comma1.c}
+
+  \pause 
+  \begin{lstlisting}[frame=no]
+15
+  \end{lstlisting}
+\end{frame}
+
+\begin{frame}[fragile]\ft{\secname}
+  \lstinputlisting[language=c,backgroundcolor=\color{red!10},numbers=left]{ch05/code/comma2.c}
+  \pause 
+  \begin{lstlisting}[frame=no]
+12
+  \end{lstlisting}
+\end{frame}
+
+\begin{frame}[fragile,allowframebreaks]\ft{\secname}
+  \lstinputlisting[language=c,backgroundcolor=\color{red!10},numbers=left]{ch05/code/comma3.c}
+\end{frame}
+
+\begin{frame}[fragile]\ft{\secname}
+  \begin{lstlisting}[frame=no]
+x = 11
+x = 12
+y = 12
+x = 13
+\end{lstlisting}
+\end{frame}

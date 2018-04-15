@@ -1,0 +1,201 @@
+\documentclass[10pt,a4paper%,twoside,openright,titlepage,fleqn,%
+%headinclude,footinclude,BCOR5mm,%
+%numbers=noenddot,cleardoublepage=empty,%
+tablecaptionabove]{article}
+
+\usepackage{geometry}
+\geometry{left=2.5cm,right=2.5cm,top=2.5cm,bottom=2.5cm}
+
+\usepackage{amsmath,amssymb,amsthm}
+
+%% -----------------设置数学公式字体-------------------------
+%% Font style 1
+%% \newcommand\ibinom[2]{\genfrac\lbrace\rbrace{0pt}{}{#1}{#2}}
+%% \usepackage{bm}
+
+%% Font style 2
+%% \newcommand\ibinom[2]{\genfrac\lbrace\rbrace{0pt}{}{#1}{#2}} 
+%% \usepackage[boldsans]{ccfonts} 
+%% \usepackage{bm} 
+
+%% Font style 3
+\newcommand\ibinom[2]{\genfrac\lbrace\rbrace{0pt}{}{#1}{#2}}
+\usepackage[euler-digits]{eulervm}
+\usepackage{bm}
+
+%% Font style 4
+%% \usepackage{fourier}
+%% \newcommand\ibinom[2]{\genfrac\lbrace\rbrace{0pt}{}{#1}{#2}}
+%% \usepackage{bm}
+
+%% Font style 5
+%% \newcommand\ibinom[2]{\genfrac\lbrace\rbrace{0pt}{}{#1}{#2}}
+%% \usepackage{mathptmx}
+%% \usepackage{bm} 
+
+
+%% %% Font style 6
+%% \newcommand\ibinom[2]{\genfrac\lbrace\rbrace{0pt}{}{#1}{#2}}
+%% \usepackage{txfonts}
+%% \usepackage{bm}
+%% -----------------------------------------------------------
+
+\usepackage{titlesec} %设置标题
+\usepackage{titletoc}
+
+\usepackage{extarrows}
+\usepackage{verbatim,color,xcolor}
+\usepackage{pgf}
+\usepackage{tikz}
+\usetikzlibrary{calc}
+\usetikzlibrary{arrows,snakes,backgrounds,shapes,patterns}
+\usetikzlibrary{matrix,fit,positioning,decorations.pathmorphing}
+%% \usepackage{classicthesis}
+\usepackage{CJK}
+\usepackage{mathdots}
+
+\usepackage{listings}
+\lstset{
+  keywordstyle=\color{blue!70},
+  frame=single,
+  basicstyle=\ttfamily\small,
+  commentstyle=\small\color{red},
+  breakindent=0pt,
+  rulesepcolor=\color{red!20!green!20!blue!20},
+  rulecolor=\color{black},
+  tabsize=4,
+  numbersep=5pt,
+  breaklines=true,
+  %% backgroundcolor=\color{red!10},
+  showspaces=false,
+  showtabs=false,
+  extendedchars=false,
+  escapeinside=``,
+  frame=no,
+}
+
+
+\newcommand{\blue}{\textcolor{blue}}
+\newcommand{\red}{\textcolor{red}}
+\newcommand{\purple}{\textcolor{electricpurple}}
+\newcommand{\ds}{\displaystyle}
+\newcommand{\cd}{\cdots}
+\newcommand{\dd}{\ddots}
+\newcommand{\vd}{\vdots}
+\newcommand{\id}{\iddots}
+
+\newcommand{\R}{\mathbb R}
+\def\nn{{\boldsymbol{n}}}
+\def\xx{{\boldsymbol{x}}}
+\def\F{{\boldsymbol{F}}}
+\def\div{{\mathrm{div}}}
+\def\tf{\ttfamily}
+
+
+\begin{document}
+
+\begin{CJK}{UTF8}{gkai}
+
+
+ 
+
+\newtheorem{li}{例}
+\newtheorem{jielun}{结论}
+\newtheorem{dingli}{定理}
+\newtheorem{mingti}{{命题}} 
+\newtheorem{yinli}{{引理}} 
+\newtheorem{tuilun}{{推论}}
+\newtheorem{dingyi}{{定义}} 
+\newtheorem{example}{{例}}
+\newtheorem*{example*}{{例}}
+\newtheorem*{jie}{{解}}
+\newtheorem*{zhengming}{{证明}}
+\newtheorem{zhu}{{注}}
+\newtheorem*{zhu*}{{注}}
+\newtheorem{xingzhi}{{性质}}
+\newtheorem{wenti}{{问题}}
+\newtheorem{rem}{{Remark}}
+\newtheorem{lem}{{Lemma}}
+\pagenumbering{roman}
+\pagestyle{plain}
+
+\pagenumbering{arabic}
+
+
+
+\title{int main()与int main(void)的差别}
+%\author{张晓平}
+%\date{}                                           % Activate to display a given date or no date
+\maketitle
+
+考虑main()的两种定义，它们的差别是什么？
+\begin{lstlisting}[language=c,frame=single]
+int main()
+{
+   /*  */
+   return 0;
+}
+and
+
+int main(void)
+{
+   /*  */
+   return 0;
+}
+\end{lstlisting}
+
+在C++中，两种没有差别，完全一致。
+
+两者定义在C中都可以，但是第二种定义更好，因它清晰地表明main()在调用时不允许有参量。
+在C中，如果一个函数没有指定任何参量，就意味着该函数允许在调用时有任意多个参量或者无参量。例如，
+%In C, if a function signature doesn’t specify any argument, it means that the function can be called with any number of parameters or without any parameters. For example, try to compile and run following two C programs (remember to save your files as .c). Note the difference between two signatures of fun().
+\begin{lstlisting}[language=c,frame=single]
+// Program 1 (Compiles and runs fine in C, but not in C++)
+void fun() {  } 
+int main(void)
+{
+    fun(10, "GfG", "GQ");
+    return 0;
+}
+\end{lstlisting}
+上述程序能编译和运行，但以下程序编译会失败：
+\begin{lstlisting}[language=c,frame=single]
+// Program 2 (Fails in compilation in both C and C++)
+void fun(void) {  }
+int main(void)
+{
+    fun(10, "GfG", "GQ");
+    return 0;
+}
+\end{lstlisting}
+不同于C，在C++中，以上两个程序在编译时都会失败，因为在C++中，fun()和fun(void)无差别。
+
+因此， 差别在于，在C中，main()允许在调用时有任意多个参量，而main(void)在调用时不能有任何参量。尽管两者在大多数时候无任何差别，但在实践中更推荐使用int main(void)。
+
+练习：以下C程序的输出是什么？
+\begin{lstlisting}[language=c,frame=single]
+// Question 1
+#include <stdio.h>
+int main()
+{
+    static int i = 5;
+    if (--i){
+        printf("%d ", i);
+        main(10);
+    }
+}
+
+// Question 2
+
+#include <stdio.h>
+int main(void)
+{
+    static int i = 5;
+    if (--i){
+        printf("%d ", i);
+        main(10);
+    }
+}
+\end{lstlisting}
+\end{CJK}
+\end{document}

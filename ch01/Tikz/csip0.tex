@@ -1,0 +1,120 @@
+\tikzstyle{innerWhite} = [->,semithick,line width=4.0pt, shorten >=1.5pt,shorten <=1.5pt]
+\tikzstyle{rect} = [very thick,rounded corners]
+\tikzstyle{bracket} = [decoration={brace,amplitude=0.3em},decorate,ultra thick,black]
+
+
+\draw[rect] (0,-1.1) rectangle  (7.2,4.1);
+\node at (3.6,4.1) [above]{\footnotesize{\blue{CPU}}};
+\draw[very thick] (2,-1.1) -- (2,4.1);
+%%%%%%
+\draw[rect] (0.8,3)  rectangle (1.8,3.5); \node at (0.8,3.25) [left]{\footnotesize{AX}};
+\draw[thick,rounded corners] (0.8,2.3)   rectangle (1.8,2.8);\node at (0.8,2.55) [left]{\footnotesize{BX}};
+\node at (1,0.5) []{\footnotesize{其他部件}};
+%%%%%
+\draw[rect] (2.8,3)  rectangle (3.8,3.5); \node at (2.8,3.25) [left]{\footnotesize{CS}}; \draw[innerWhite] (3.8,3.25)--(5,3.25);
+\draw[rect] (2.8,2.3)   rectangle (3.8,2.8);\node at (2.8,2.55) [left]{\footnotesize{IP}}; \draw[innerWhite] (3.8,2.55)--(5,2.55);
+%%%%%
+\draw[rect] (5,2.2)   rectangle (6.8,3.6);
+\node at (5.9,3.6) [above]{\footnotesize{地址加法器}};
+%%%%%
+\draw[rect] (5,-0.5)   rectangle (6.8,1.2);
+\node at (5.9,-0.5) [below]{\footnotesize{输入输出控制电路}};
+\draw[innerWhite] (5.75,2.2)--(5.75,1.2);
+
+%%%%%%
+\draw[very thick,fill=black] (6.8,0.6) rectangle (7.2,1);
+\draw[very thick] (7.2,0.6) rectangle 
+node[above=2.5ex]{\footnotesize{20位}}
+node[above=.5ex]{\footnotesize{地址总线}}(8.3,1);
+
+\draw[fill=black] (6.8,-.2) rectangle (7.2,.2);
+\draw[very thick] (7.2,-0.2) rectangle node[above=.5ex]{\footnotesize{数据总线}} (8.3,.2);
+
+%%%%%
+\draw[rect] (2.5,0.8)   rectangle (4.1,1.2);
+\node at (3.3,1.2) [above]{\footnotesize{指令缓冲器}};
+\draw[innerWhite] (5,1)--(4.1,1);
+%%%%%
+\draw[rect] (2.8,-0.5)   rectangle (3.8,0.1);
+\node at (3.3,-0.5) [below]{\footnotesize{执行控制器}};
+\draw[innerWhite] (3.3,0.8)--(3.3,0.1);
+
+
+%%%%%
+\draw[thick] (8.3,-1.5) rectangle (9.5,4.5);
+\node at (9,4.5) [above]{\footnotesize{\blue{内存}}};
+\draw[ultra thick](8.5,-1.5)--(8.5,4.5);
+\foreach \i in {-2,-1,0,...,7,8}{
+\draw[thick](8.5,\i*0.5)--(9.5,\i*0.5);
+}
+\node at (9,4.25) []{\footnotesize{B8}};   
+\node at (9,3.75) []{\footnotesize{23}};
+\node at (9,3.25) []{\footnotesize{01}};
+\node at (9,2.75) []{\footnotesize{BB}};
+\node at (9,2.25) []{\footnotesize{03}};
+\node at (9,1.75) []{\footnotesize{00}};
+\node at (9,1.25) []{\footnotesize{89}};
+\node at (9,0.75) []{\footnotesize{D8}};
+\node at (9,0.25) []{\footnotesize{01}};
+\node at (9,-.25) []{\footnotesize{D8}};
+\node at (9,-.75) []{\footnotesize{$\cdots$}};
+
+\node at (9.5,4.25) [right]{\footnotesize{20000}};   
+\node at (9.5,3.75) [right]{\footnotesize{20001}};
+\node at (9.5,3.25) [right]{\footnotesize{20002}};
+\node at (9.5,2.75) [right]{\footnotesize{20003}};
+\node at (9.5,2.25) [right]{\footnotesize{20004}};
+\node at (9.5,1.75) [right]{\footnotesize{20005}};
+\node at (9.5,1.25) [right]{\footnotesize{20006}};
+\node at (9.5,0.75) [right]{\footnotesize{20007}};
+\node at (9.5,0.25) [right]{\footnotesize{20008}};
+\node at (9.5,-.25) [right]{\footnotesize{20009}};
+\node at (9.5,-.75) [right]{\footnotesize{2000A}};
+%%%%%%
+\draw [bracket] (10.6,4.25) --  (10.6,3.25);
+\draw [bracket] (10.6,2.75) --  (10.6,1.75);
+\draw [bracket] (10.6,1.25) --  (10.6,0.75);
+\draw [bracket] (10.6,0.25) --  (10.6,-.25);
+%%%%%%
+\node at (12,4.5) [above]{\footnotesize{\blue{汇编语言}}};
+\node at (10.7,3.75) [right] {\small{mov ax, 0123H}};
+\node at (10.7,2.25) [right] {\small{mov bx, 0003H}};
+\node at (10.7,1.00) [right] {\small{mov ax, bx}};
+\node at (10.7,0.00) [right] {\small{add ax, bx}};
+
+
+
+
+
+%%%%% CS IP
+\node at (3.3,3.25) [] {\footnotesize{\red{2000}}};
+\node at (3.3,2.55) [] {\footnotesize{\red{000A}}};
+
+%%%%%%
+%\node at (3.3,-.2) [] {\footnotesize{\red{执行！}}};
+
+%%%%% AX BX
+\node at (1.3,3.25) [] {\footnotesize{\red{0006}}};
+\node at (1.3,2.55) [] {\footnotesize{\red{0003}}};
+
+%%%%%
+%\node at (5.9,3.2) []{\footnotesize{\red{~~~~20000}}};
+%\node at (5.9,2.9) []{\footnotesize{\red{+~~~0000}}};
+%\draw[thick,red] (5.2,2.7)--(6.5,2.7);
+%\node at (5.9,2.5) []{\footnotesize{\red{~~~~20000}}};
+
+%%%
+%\node at (5.9,0.35) []{\footnotesize{\red{20000}}};
+
+%%%%
+%\node at (7.75,0.8) []{\footnotesize{\red{20000}}};
+
+
+%%%%数据总线
+%%\node at (7.75,0.0) []{\footnotesize{\red{B8~23~01}}};
+
+%%%%指令缓冲器
+%\node at (3.3,1.0) []{\footnotesize{\red{01~D8}}};
+
+
+

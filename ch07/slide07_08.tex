@@ -1,0 +1,90 @@
+\section{goto 语句}
+
+\begin{frame}[fragile]\ft{\secname}
+\begin{lstlisting}[title=goto语法]
+goto label;
+...
+label: printf("Refined analysis.\n");
+\end{lstlisting}
+
+\begin{itemize}
+\item
+goto语句包括两个部分：goto和一个标签。标签的命名方式与变量命名相同。\\[0.1in]
+\item 
+必须包含由标签定位的其它语句：标签名后紧跟一个冒号，然后是一条语句。
+\end{itemize}
+\end{frame}
+
+\begin{frame}[fragile]\ft{\secname}
+goto语句非常容易被滥用，建议谨慎使用，或者根本不用。
+\end{frame}
+
+\begin{frame}[fragile]\ft{\secname}
+\begin{lstlisting}
+if (size > 12)
+  goto a;
+goto b;
+a: cost *= 1.05;
+  flag = 2;
+b: bill = cost * flag;    
+\end{lstlisting}
+等效于
+\begin{lstlisting}
+if (size > 12)
+{
+  cost *= 1.05;
+  flag = 2;
+}  
+bill = cost * flag;    
+\end{lstlisting}
+\end{frame}
+
+\begin{frame}[fragile]\ft{\secname}
+\begin{lstlisting}
+if (n > 14)
+  goto a;
+m = 2;  
+goto b;
+a: m = 3;
+b: k = 2 * m;    
+\end{lstlisting}
+等效于
+\begin{lstlisting}
+if (size > 12)
+  m = 2;
+else
+  n = 3;   
+k = 2 * m;    
+\end{lstlisting}
+\end{frame}
+
+
+\begin{frame}[fragile]\ft{\secname}
+\begin{lstlisting}
+readin: scanf("%d", &score);
+if (score < 0)
+  goto stage2;
+lots of statements;
+goto readin;
+stage2: morestuff;      
+\end{lstlisting}
+等效于
+\begin{lstlisting}
+scanf("%d", &score); 
+while (score >= 0)
+{
+  lots of statements;
+  scanf("%d", &score);
+}   
+more stuff;
+\end{lstlisting}
+\end{frame}
+
+
+\begin{frame}[fragile]\ft{\secname}
+\begin{itemize}
+\item 调到循环末尾并开始下一轮循环，用continue代替。\\[0.1in]
+\item 跳出循环，用break代替。\\[0.1in]
+\item 事实上，break和continue是goto的特殊形式。使用它们的好处是其名称表明会完成什么动作；并且不需要标签，故不存在错放标签位置的潜在危险。
+\end{itemize}
+\end{frame}

@@ -1,0 +1,54 @@
+\section{if语句}
+
+\begin{frame}[fragile,allowframebreaks]\ft{\secname}
+\lstinputlisting
+{ch07/code/colddays.c}
+\end{frame}
+
+
+\begin{frame}[fragile]\ft{\secname}
+\begin{lstlisting}
+Enter the list of daily low temperature.
+Use Celsius, and enter q to quit.
+-10 -5 0 12 5 6 -4 8 -2 15
+q
+10 days total: 40.0% were below freezing.
+\end{lstlisting}
+\end{frame}
+
+\begin{frame}[fragile]\ft{\secname}
+if语句被称为分支语句，其一般形式为
+\begin{lstlisting}
+if (condition)
+  statement
+  
+if (condition){
+  statements
+}  
+\end{lstlisting}
+\begin{itemize}
+\item
+若condition的值为真，则执行statements；否则跳过该语句。\\[0.1in]
+\item
+if结构和while结构相似，主要区别在于，在if结构中，判断和执行仅有一次，而在while结构中，判断和执行可以重复多次。
+\end{itemize}
+\end{frame}
+
+\begin{frame}[fragile]\ft{\secname}
+\begin{itemize}
+\item
+condition是一个关系表达式，通常是比较两个量的大小。更一般地，condition可以是任何表达式，其值为0就被视为假。\\[0.1in]
+\item
+语句部分可以是一条简单语句，也可以是一个由花括号括起的复合语句：
+\begin{lstlisting}
+if (score >= 60)
+  printf("Pass!\n");
+  
+if (a > b){
+  a++;
+  printf("You lose. b.\n");
+}  
+\end{lstlisting}
+\end{itemize}
+
+\end{frame}

@@ -1,0 +1,91 @@
+% -*- coding: utf-8 -*-
+% !TEX program = xelatex
+
+\documentclass[12pt,notheorems]{beamer}
+
+\usetheme[style=beta]{epyt} % alpha, beta, delta, gamma, zeta
+
+\usepackage[UTF8,noindent]{ctex}
+\input{Macro/usepackage}
+\usepackage{courier}
+\usepackage{animate}
+\usepackage{dcolumn}
+
+
+
+\newcommand{\mylead}[1]{\textcolor{acolor1}{#1}}
+\newcommand{\mybold}[1]{\textcolor{acolor2}{#1}}
+\newcommand{\mywarn}[1]{\textcolor{acolor3}{#1}}
+
+\input{Macro/newcommand}
+
+
+
+%\newtheorem{theorem}{定理}
+%\newtheorem{definition}[theorem]{定义}
+%\newtheorem{example}[theorem]{例子}
+%\newtheorem{dingli}[theorem]{定理}
+%\newtheorem{li}[theorem]{例}
+%
+%\newtheorem*{theorem*}{定理}
+%\newtheorem*{definition*}{定义}
+%\newtheorem*{example*}{例子}
+%\newtheorem*{dingli*}{定理}
+%\newtheorem*{li*}{例}
+
+\renewcommand{\proofname}{证明}
+\newtheorem*{jie}{解}
+\newtheorem*{zhu}{注}
+\newtheorem*{dingli}{定理} 
+\newtheorem*{dingyi}{定义} 
+\newtheorem*{xingzhi}{性质} 
+\newtheorem*{tuilun}{推论} 
+\newtheorem*{li}{例} 
+\newtheorem*{jielun}{结论} 
+\newtheorem*{zhengming}{证明}
+\newtheorem*{wenti}{问题}
+\newtheorem*{jieshi}{解释}
+
+
+\renewcommand{\proofname}{证明}
+
+\begin{document}
+
+\title{C语言}
+\subtitle{第七讲、分支}
+\author{张晓平}
+\institute{武汉大学数学与统计学院}
+
+
+\begin{frame}[plain]\transboxout
+\titlepage
+\end{frame}
+
+\begin{frame}[allowframebreaks]\transboxin
+\begin{center}
+\tableofcontents[hideallsubsections]
+\end{center}
+\end{frame}
+
+%% \AtBeginSection[]{
+%% \begin{frame}[allowframebreaks]
+%% \tableofcontents[currentsection]%,sectionstyle=show/hide]
+%% \end{frame}
+%% }
+%\AtBeginSubsection[]{
+%\begin{frame}[allowframebreaks]
+%\tableofcontents[currentsection,currentsubsection,subsectionstyle=show/shaded/hide]
+%\end{frame}
+%}
+
+\input{sec7.01}                  
+\input{sec7.02}
+\input{sec7.03}
+\input{sec7.04}
+\input{sec7.05}
+\input{sec7.06}
+\input{sec7.07}
+\input{sec7.08}
+
+
+\end{document}

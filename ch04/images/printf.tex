@@ -1,0 +1,21 @@
+\documentclass{article}
+\usepackage[UTF8,noindent]{ctex}
+\input{../../asset/global_usepackage.tex}
+
+\pgfrealjobname{survey}
+\begin{document}
+\beginpgfgraphicnamed{printf}
+\begin{tikzpicture}
+\def\x{0.5}
+\draw[] (0,0) rectangle node[]{\lstinline|printf(|}(4*\x,\x);
+\draw[] (4*\x,0) rectangle node[]{\lstinline|"You look great in \%s\\n"|}(14*\x,\x); 
+\draw[] (14*\x,0) rectangle node[]{\lstinline|,|}(15*\x,\x);
+\draw[] (15*\x,0) rectangle node[]{\lstinline|color|}(17*\x,\x);
+\draw[] (17*\x,0) rectangle node[]{\lstinline|);|}(18*\x,\x);
+\node at (8*\x,0) [below] {\small{控制描述}};
+\node at (14*\x,0) [below] {\small{变量列表}};
+\end{tikzpicture}
+\endpgfgraphicnamed  
+\end{document}
+
+

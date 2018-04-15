@@ -1,0 +1,76 @@
+\section{调试}
+\begin{frame}[fragile]\ft{调试}
+找出以下程序中的错误。
+\begin{lstlisting}[language=c,numbers=left,frame=tb]
+#include<stdio.h>
+int main(void) 
+(
+  int n, int n2, int n3;
+  /* `该程序含几个错误`    
+  n = 5; n2 = n * n;
+  n3 = n2 * n2;
+  printf("n = %d, n^2 = %d, n^3 = %d\n", n, n2, n3)	 
+  return 0;
+)
+\end{lstlisting}
+\end{frame}
+
+\begin{frame}[fragile]\ft{语法错误}
+\begin{dingyi}[语法错误] 
+把正确的C符号放在了错误的位置。
+\end{dingyi}\pause 
+
+\begin{enumerate}
+\item 使用圆括号而不是花括号来包围函数体。\\[0.1in]
+\item 声明方式应采用
+
+\begin{minipage}{0.4\linewidth}
+\begin{lstlisting}[language=c,frame=single]
+int n, n2, n3;
+\end{lstlisting}
+\end{minipage}
+~~~~或~~~~
+\begin{minipage}{0.4\linewidth}
+\begin{lstlisting}[language=c,frame=single]
+int n;
+int n2;
+int n3;
+\end{lstlisting}
+\end{minipage}
+\item 注释应该用 “\lstinline|/* ... */|” 或 “\lstinline|// ...|” 的形式。\\[0.1in]
+\item \lstinline|printf|语句最后漏掉了分号。
+\end{enumerate}
+\end{frame}
+
+\begin{frame}[fragile]\ft{语法错误}
+\begin{wenti}
+如何检测语法错误？
+\end{wenti}\pause 
+
+\begin{enumerate}
+\item 在编译前看看源代码是否有明显的错误。\\[0.1in]
+\item 查看编译器发现的错误。若有语法错误，编译时会报错，同时指出每一个错误的性质和位置。
+\end{enumerate}
+
+\end{frame}
+
+
+\begin{frame}[fragile]\ft{语义错误}
+\begin{dingyi}[语义错误]
+逻辑或含义上的错误。当语法没有错误，但结果不正确时，就是犯了语义错误。
+\end{dingyi}\pause  \vspace{.1in}
+
+
+\begin{lstlisting}[language=c,frame=tb]
+n3 = n2 * n2;
+\end{lstlisting}
+本希望 \lstinline|n3| 表示 \lstinline|n| 的三次方，但求的却是 \lstinline|n| 的四次方。\pause \vspace{0.1in}
+
+
+语义错误编译器检测不到，它并没违法C规则。但编译器无法了解你的真正意图，只能靠你自己去发现这类错误。
+
+\vspace{.1in}\pause 
+
+\blue{语义错误可以通过调试器来一步一步执行程序，来逐步跟踪和定位。}
+\end{frame}
+

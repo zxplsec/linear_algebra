@@ -1,0 +1,25 @@
+\begin{tikzpicture}
+\tikzstyle{bracket} = [decoration={brace,amplitude=1em},decorate,thick,black]
+\def\x{0.3}
+
+\draw[fill=blue!20] (0,0)rectangle(-32*\x,2*\x);
+\draw (-23*\x,0)--(-23*\x,2*\x);
+\draw (-31*\x,0)--(-31*\x,2*\x);
+\node at (-11*\x,\x) [] {\footnotesize{23}};
+\node at (-27*\x,\x) [] {\footnotesize{8}};
+\node at (-31.5*\x,\x) [] {\footnotesize{1}};
+%%%% 刻度
+\draw (-32*\x,-0.2)--(0*\x,-0.2);
+\foreach \i in {0,-1,...,-32}
+\draw (\i*\x,-0.2)--(\i*\x,-0.1);
+\node at (-0.5*\x,-0.2) [below] {\footnotesize{0}};
+\node at (-22.5*\x,-0.2) [below] {\footnotesize{22}};
+\node at (-30.5*\x,-0.2) [below] {\footnotesize{30}};
+
+\draw[->,red] (-31.5*\x,-1) node[below]{\footnotesize{符号位}}--(-31.5*\x,-0.2);
+\draw[->,red] (-26.5*\x,-1) node[below]{\footnotesize{指数位}}--(-26.5*\x,-0.2);
+\draw[->,red] (-12.5*\x,-1) node[below]{\footnotesize{尾数部分}}--(-12.5*\x,-0.2);
+\draw [bracket] (-32*\x,2*\x)--node[above=1em]{\footnotesize{32位}}(0*\x,2*\x);
+
+
+\end{tikzpicture}

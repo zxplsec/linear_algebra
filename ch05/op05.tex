@@ -1,0 +1,76 @@
+\begin{frame}[fragile]\ft{\secname}
+\begin{itemize}
+\item[1] 不使用任何运算符，求两个正整数的和（可使用{\tf printf()}）。
+\end{itemize}
+\end{frame}
+
+
+
+\begin{frame}[fragile]\ft{\secname}
+\begin{itemize}
+\item[2] 输入分钟，以小时和分钟的形式显示时间。\\[.1in]
+  \begin{itemize}
+  \item 使用 \lstinline|#define| 或 \lstinline|const| 来创建一个代表 \lstinline|60| 的符号常量。\\[.1in]
+  \item 使用 \lstinline|while| 来允许用户重复键入值，并且键入一个小于等于0的时间来终止循环。
+  \end{itemize}
+\end{itemize}
+\end{frame}
+
+
+\begin{frame}[fragile]\ft{\secname}
+\begin{itemize}
+\item[3] 输入一个整数，打印从输入的值到比它大10的所有整数值。\\[.1in]
+  \begin{itemize}
+  \item 请在各个输出值之间用空格、制表符或换行符分开。
+  \end{itemize}
+\end{itemize}
+\end{frame}
+
+
+
+\begin{frame}[fragile]\ft{\secname}
+\begin{itemize}
+\item[4] 按厘米输入一个高度值，然后按英尺和英寸显示它。\\[.1in]
+  \begin{itemize}
+  \item 换算公式
+\begin{lstlisting}
+1 feet = 12 inches
+1 cm = 0.0328084 feet
+\end{lstlisting}    
+  \item 允许厘米和英寸的值出现小数部分。
+  \item 允许用户多次输入，直到用户输入一个非正的数值。
+  \end{itemize}
+
+\end{itemize}
+% \begin{lstlisting}[backgroundcolor=\color{red!10}]
+% Enter a height in centimeters: 182
+% 182.0 cm = 5 feet, 11.7 inches
+% Enter a height in centimeters (<=0 to quit): 168
+% 168.0 cm = 5 feet, 6.1 inches
+% Enter a height in centimeters (<=0 to quit): 0
+% Bye!
+% \end{lstlisting}
+
+\end{frame}
+
+\begin{frame}[fragile]\ft{\secname}
+\begin{itemize}
+\item[5] 输入$n$，求前$n$个整数的和。
+\end{itemize}
+\end{frame}
+
+\begin{frame}[fragile]\ft{\secname}
+\begin{itemize}
+\item[6] 输入一个华氏温度，以double型读入该温度值，并将它作为一个参数传递给一个函数 \lstinline|temp|。\\[.1in]
+  \begin{itemize}
+  \item 该函数将计算相应的摄氏温度和绝对温度，并显示这三种温度；\\[.1in]
+  \item 换算公式：
+\begin{lstlisting}
+Cel =  (Fah - 32.0) / 1.8 
+Kel  = Cel + 273.16
+\end{lstlisting}
+\item
+  允许重复输入温度，当用户输入q或其他非数字值时，循环结束。
+\end{itemize}
+\end{itemize}
+\end{frame}

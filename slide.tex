@@ -1,0 +1,146 @@
+% -*- coding: utf-8 -*-
+% !TEX program = xelatex
+
+\documentclass[11pt]{beamer}
+
+%\usetheme[style=beta]{epyt} % alpha, beta, delta, gamma, zeta
+% \usetheme{Warsaw}
+\usetheme{PaloAlto}
+% \usecolortheme{albatross}
+
+\usepackage[UTF8,noindent]{ctex}
+\input{asset/global_newcommand}
+\input{asset/global_usepackage}
+\input{asset/global_newenviroment}
+\input{asset/global_newtheorem}
+
+
+\begin{document}
+
+\newcommand{\num}{o7}
+
+\newcommand{\choosetitle}[1]
+{
+  \ifthenelse{\equal{#1}{o1}}{\title{C上机}}{}
+  \ifthenelse{\equal{#1}{o2}}{\title{C上机}}{}
+  \ifthenelse{\equal{#1}{o3}}{\title{C上机}\subtitle{C数据}}{}
+  \ifthenelse{\equal{#1}{o4}}{\title{C上机}\subtitle{格式化输入输出}}{}
+  \ifthenelse{\equal{#1}{o5}}{\title{C上机}\subtitle{运算符、表达式和语句}}{}
+  \ifthenelse{\equal{#1}{o6}}{\title{C上机}\subtitle{循环}}{}
+  \ifthenelse{\equal{#1}{o7}}{\title{C上机}\subtitle{循环}}{}
+  \ifthenelse{\equal{#1}{s1}}{\title{C语言介绍}}{}
+  \ifthenelse{\equal{#1}{s2}}{\title{简单C程序的说明}}{}
+  \ifthenelse{\equal{#1}{s3}}{\title{C数据}}{}
+  \ifthenelse{\equal{#1}{s4}}{\title{字符串与格式化输入/输出}}{}
+  \ifthenelse{\equal{#1}{s5}}{\title{运算符、表达式和语句}}{}
+  \ifthenelse{\equal{#1}{s6}}{\title{循环}}{}
+  \ifthenelse{\equal{#1}{s7}}{\title{分支}}{}
+}
+
+\newcommand{\inputslide}[1]
+{
+  \ifthenelse{\equal{#1}{o1}}{
+    \input{ch01/op01.tex}
+  }{}
+  \ifthenelse{\equal{#1}{o2}}{
+    \input{ch02/op02.tex}
+  }{}
+  \ifthenelse{\equal{#1}{o3}}{
+    \input{ch03/op03.tex}
+  }{}
+  \ifthenelse{\equal{#1}{o4}}{
+    \input{ch04/op04.tex}
+  }{}
+  \ifthenelse{\equal{#1}{o5}}{
+    \input{ch05/op05.tex}
+  }{}
+  \ifthenelse{\equal{#1}{o6}}{
+    \input{ch06/op06.tex}
+  }{}
+  \ifthenelse{\equal{#1}{o7}}{
+    \input{ch07/op07.tex}
+  }{}
+  \ifthenelse{\equal{#1}{s1}}{
+    \input{ch01/slide01_0.tex}
+    \input{ch01/slide01_1.tex}
+    \input{ch01/slide01_2.tex}
+    \input{ch01/slide01_3.tex}
+    \input{ch01/slide01_4.tex}
+    \input{ch01/slide01_5.tex}
+    \input{ch01/slide01_6.tex}
+    \input{ch01/slide01_7.tex}
+  }{}
+  \ifthenelse{\equal{#1}{s2}}{
+    \input{ch02/slide02_1.tex}
+    \input{ch02/slide02_2.tex}
+    \input{ch02/slide02_3.tex}
+    \input{ch02/slide02_4.tex}
+    \input{ch02/slide02_5.tex}
+    \input{ch02/slide02_6.tex}
+  }{}
+  \ifthenelse{\equal{#1}{s3}}{
+    \input{ch03/slide03_0.tex}
+    \input{ch03/slide03_1.tex}
+    \input{ch03/slide03_2.tex}
+    \input{ch03/slide03_3.tex}
+    \input{ch03/slide03_4.tex}
+  }{}
+  \ifthenelse{\equal{#1}{s4}}{
+    \input{ch04/slide04_1.tex}
+    \input{ch04/slide04_2.tex}
+    \input{ch04/slide04_3.tex}
+    \input{ch04/slide04_4.tex}
+  }{}
+  \ifthenelse{\equal{#1}{s5}}{
+    \input{ch05/slide05_0.tex}
+    \input{ch05/slide05_1.tex}
+    \input{ch05/slide05_2.tex}
+    \input{ch05/slide05_3.tex}
+    \input{ch05/slide05_4.tex}
+    \input{ch05/slide05_5.tex}
+    \input{ch05/slide05_6.tex}
+  }{}
+  \ifthenelse{\equal{#1}{s6}}{
+    \input{ch06/slide06_01.tex}
+    \input{ch06/slide06_02.tex}
+    \input{ch06/slide06_03.tex}
+    \input{ch06/slide06_04.tex}
+    \input{ch06/slide06_05.tex}
+    \input{ch06/slide06_06.tex}
+    \input{ch06/slide06_07.tex}
+    \input{ch06/slide06_08.tex}
+    \input{ch06/slide06_09.tex}
+    \input{ch06/slide06_10.tex}
+    \input{ch06/slide06_11.tex}
+    \input{ch06/slide06_12.tex}
+  }{}
+  \ifthenelse{\equal{#1}{s7}}{
+    \input{ch07/slide07_01.tex}
+    \input{ch07/slide07_02.tex}
+    \input{ch07/slide07_03.tex}
+    \input{ch07/slide07_04.tex}
+    \input{ch07/slide07_05.tex}
+    \input{ch07/slide07_06.tex}
+    \input{ch07/slide07_07.tex}
+    \input{ch07/slide07_08.tex}
+  }{}
+}
+\choosetitle{\num}
+\author{张晓平}
+\institute{武汉大学数学与统计学院\\[.1in]
+  homepage: \url{xpzhang.me}}
+
+
+\begin{frame}[plain]\transboxout
+  \titlepage
+\end{frame}
+
+\section*{目录}
+\begin{frame}\ft{\secname}
+    \tableofcontents
+\end{frame}
+
+\inputslide{\num}
+
+ 
+\end{document}

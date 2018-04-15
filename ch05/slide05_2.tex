@@ -1,0 +1,298 @@
+\section{其它运算符}
+
+\subsection{取模运算符 {\lstinline|\%|}}
+\begin{frame}[fragile]\ft{\subsecname}
+取模运算符(modulus operator)用于计算整数相除所得的余数，\red{只适用于整数运算}。
+
+\end{frame}
+
+\begin{frame}[fragile]\ft{\subsecname}
+\lstinputlisting[language=c,numbers=left,backgroundcolor=\color{red!10}]{ch05/code/modulus.c}
+
+\pause
+\begin{lstlisting}[backgroundcolor=\color{red!10},frame=no]
+$ gcc modulus.c
+$ ./a.out  
+13 % 5 = 3
+\end{lstlisting}
+\end{frame}
+
+\begin{frame}[fragile,allowframebreaks]\ft{\subsecname}
+\lstinputlisting[language=c,numbers=left,frame=single]{ch05/code/min_sec.c}
+\end{frame}
+
+
+\begin{frame}[fragile]\ft{\subsecname}
+\begin{lstlisting}[backgroundcolor=\color{red!10},frame=no]
+Convert seconds to minutes and seconds!
+Enter the number of seconds (<=0 to quit):
+154
+154 seconds is 2 minutes, 34 seconds.
+
+Enter next value (<=0 to quit):
+567
+567 seconds is 9 minutes, 27 seconds.
+
+Enter next value (<=0 to quit):
+0
+Done!
+\end{lstlisting}
+\end{frame}
+
+\begin{frame}[fragile,allowframebreaks]\ft{负数的取模运算}
+\lstinputlisting[language=c,numbers=left,backgroundcolor=\color{red!10}]{ch05/code/mod_negative.c}
+
+\end{frame}
+
+\begin{frame}[fragile]\ft{负数的取模运算}
+\begin{lstlisting}
+ 11 /  5 =  2,  11 %  5 =  1
+ 11 / -5 = -2,  11 % -5 =  1
+-11 / -5 =  2, -11 % -5 = -1
+-11 /  5 = -2, -11 %  5 = -1
+\end{lstlisting}
+\pause \vspace{.1in}
+
+\begin{itemize}
+\item C99规定，整数除法依\red{“趋零截尾”}的原则。\\[0.2in]
+\item 对于取模运算，模的符号由第一个操作数的符号来确定。
+\end{itemize}
+\end{frame}
+
+\subsection{自增自减运算符}
+\begin{frame}[fragile]\ft{自增运算符  \lstinline|++|}
+自增运算符(increment operator)使其操作数的值增加1。\vspace{0.1in}
+
+\begin{itemize}
+\item 前缀模式：
+\begin{lstlisting}[backgroundcolor=\color{red!10},frame=no]
+++i;
+\end{lstlisting} 
+\item 后缀模式：
+\begin{lstlisting}[backgroundcolor=\color{red!10},frame=no]
+i++;
+\end{lstlisting} 
+\end{itemize}
+两种模式的相似之处在于都使操作数自增1，区别在于自增这一动作发生的时间不同。
+\end{frame}
+
+\begin{frame}[fragile]\ft{两种模式的相似之处}
+  \lstinputlisting[language=c,numbers=left,backgroundcolor=\color{red!10}]{ch05/code/add_one.c}
+\end{frame}
+
+\begin{frame}[fragile]\ft{两种模式的相似之处}  
+\begin{lstlisting}[backgroundcolor=\color{red!10},frame=no]
+i = 1, j = 1
+i = 2, j = 2
+i = 3, j = 3
+i = 4, j = 4
+i = 5, j = 5
+\end{lstlisting}    
+\end{frame}
+
+
+\begin{frame}[fragile]\ft{两种模式的相似之处}
+\begin{lstlisting}[backgroundcolor=\color{red!10},frame=no]
+++i;
+j++;
+\end{lstlisting}
+可以替换为
+\begin{lstlisting}[backgroundcolor=\color{red!10},frame=no]
+i = i + 1;
+j = j + 1;
+\end{lstlisting} \pause 
+
+\red{单独使用自增运算符时，前缀模式与后缀模式效果相同。}
+\end{frame}
+
+\begin{frame}[fragile]\ft{为什么会创建自增运算符？}
+
+使程序更为简洁，可读性更强
+
+\begin{lstlisting}[backgroundcolor=\color{red!10},frame=no]
+shoe = 8.0;
+while (shoe < 18.5)
+{
+  foot = SCALE*shoe + ADJUST;
+  printf("%10.1f %20.2f inches\n", shoe, foot);
+  ++shoe;
+}
+\end{lstlisting}
+\end{frame}
+
+\begin{frame}[fragile]\ft{为什么会创建自增运算符？}
+进一步简化：
+\begin{lstlisting}[backgroundcolor=\color{red!10},frame=no]
+shoe = 8.0;
+while (++shoe < 18.5)
+{
+  foot = SCALE*shoe + ADJUST;
+  printf("%10.1f %20.2f inches\n", shoe, foot);
+}
+\end{lstlisting}
+\end{frame}
+
+\begin{frame}[fragile]\ft{前缀与后缀模式的不同}
+\lstinputlisting[language=c,numbers=left,backgroundcolor=\color{red!10}]{ch05/code/post_pre.c}    
+\end{frame}
+
+\begin{frame}[fragile]\ft{前缀与后缀模式的不同}
+  \begin{lstlisting}[backgroundcolor=\color{red!10},frame=no]
+$ gcc post_pre.c
+$ ./a.out    
+a = 2, aplus = 1
+b = 2, bplus = 2
+\end{lstlisting}    
+\end{frame}
+
+
+
+% \begin{frame}[fragile]\ft{前缀与后缀模式的不同}
+% \begin{lstlisting}
+% shoe = 3.0;
+% while (shoe++ < 18.5)
+% {
+%   foot = SCALE * size + ADJUST;
+%   printf("%10.1f %20.2f inches\n", shoe, foot);
+% }
+% \end{lstlisting}
+% \end{frame}
+
+\begin{frame}[fragile]\ft{前缀与后缀模式的不同}
+\begin{itemize}
+\item
+在使用自增运算符时，请自问一下是否能互换前缀和后缀模式？\\[0.1in]
+\item
+一个明智的选择是避免那些两种模式将导致不同效果的代码。例如，不要使用
+\begin{lstlisting}[backgroundcolor=\color{red!10},frame=no]
+b = ++i;
+\end{lstlisting}
+可用以下语句代替：
+\begin{lstlisting}[backgroundcolor=\color{red!10},frame=no]
+++i;
+b = i;
+\end{lstlisting}
+\item 然后有时不那么谨慎会更有趣。
+\end{itemize}
+\end{frame}
+
+\begin{frame}[fragile]\ft{两种模式的不同}
+观察代码
+\begin{lstlisting}
+i = 5;
+b = ++i;
+\end{lstlisting}
+\begin{lstlisting}
+i = 5;
+b = i++;
+\end{lstlisting}
+请分别指出执行后b和i的值？
+\end{frame}
+
+\begin{frame}[fragile]\ft{自减运算符 \lstinline|--|}
+\begin{lstlisting}
+--count; 
+
+count--; 
+\end{lstlisting}
+\end{frame}
+
+\begin{frame}[fragile]\ft{自增和自减运算符的优先级}
+自增和自减运算符有很高的优先级，只有圆括号比它们的优先级高。如
+\begin{lstlisting}[backgroundcolor=\color{red!10},frame=no]
+x * y++
+\end{lstlisting}
+等价于
+\begin{lstlisting}[backgroundcolor=\color{red!10},frame=no]
+x * (y++)
+\end{lstlisting}
+而不是
+\begin{lstlisting}
+(x * y)++   // invalid
+\end{lstlisting}
+\red{自增和自减运算符只能作用于变量。}
+\end{frame}
+
+\begin{frame}[fragile]\ft{自增和自减运算符的优先级}
+不要将自增和自减运算符的\blue{优先级和求值顺序}弄混淆。
+\end{frame}
+
+\begin{frame}[fragile]\ft{自增和自减运算符的优先级}
+\lstinputlisting[language=c,numbers=left]{ch05/code/inc.c}  
+
+\pause 
+\begin{lstlisting}[frame=no,numbers=left]
+nextnum = (2 + 3) * 6 = 5 * 6 = 30 
+n = 4, nextnum = 30
+\end{lstlisting}
+\end{frame}
+
+\begin{frame}[fragile]\ft{自增和自减运算符的优先级}
+\begin{itemize}
+\item \lstinline|n++| 表示在使用 \lstinline|n| 之后，\lstinline|n| 的值才自增。\\[0.1in]
+\item 优先级告诉我们 \lstinline|++| 只属于 \lstinline|n|，也告诉我们什么时候使用\lstinline|n| 的值。\\[0.1in]
+\item 而自增运算符的性质决定了什么时候改变 \lstinline|n| 的值。
+\end{itemize}
+\end{frame}
+
+\begin{frame}[fragile]\ft{自增和自减运算符的优先级}
+\lstinputlisting[language=c,numbers=left]{ch05/code/inc1.c}
+\end{frame}
+
+\begin{frame}[fragile]\ft{自增和自减运算符的优先级}
+\begin{lstlisting}[frame=no,numbers=left]
+nextnum = (2 + 4)*6 = 6*6 = 36 
+n = 4, nextnum = 36
+\end{lstlisting}
+\end{frame}
+
+\begin{frame}[fragile]\ft{自增和自减运算符的优先级}
+\begin{itemize}
+\item 当 \lstinline|n++| 是表达式的一部分时，它表示：\red{先使用 \lstinline|n|，然后将它的值加1}\\[0.1in]
+\item 当 \lstinline|++n| 是表达式的一部分时，它表示：\red{先将 \lstinline|n| 的值加1，然后再使用它}。
+\end{itemize}
+\end{frame}
+
+\begin{frame}[fragile]\ft{Don't Be Too Clever}
+  \lstinputlisting[language=c,numbers=left]{ch05/code/inc2.c}
+
+\pause 
+
+\begin{lstlisting}[frame=no]
+maybe:    n = 5, n^2 = 25
+maybe:    n = 6, n^2 = 25
+maybe:    n = 6, n^2 = 30
+\end{lstlisting}
+\end{frame}
+
+\begin{frame}[fragile]\ft{Don't Be Too Clever}
+C编译器可以选择先计算函数中哪个参数的值。这个自由提高了编译器的效率，但若在函数参数里使用自增自减运算符就会带来麻烦。
+\end{frame}
+
+\begin{frame}[fragile]\ft{Don't Be Too Clever}
+  \lstinputlisting[language=c,numbers=left]{ch05/code/inc3.c}
+
+  \pause 
+  编译器可能从左到右依次计算，也可能从右到左依次计算，这些都可能导致不可预知的结果。
+\end{frame}
+
+\begin{frame}[fragile]\ft{Don't Be Too Clever}
+\lstinputlisting[language=c,numbers=left]{ch05/code/inc4.c}
+\end{frame}
+
+\begin{frame}[fragile]\ft{Don't Be Too Clever}
+\begin{itemize}
+\item 执行后，n的值为5，但m的值不确定。\\[0.1in]
+\item 有的编译器计算m时，使用n的旧值两次，然后将n自增两次，从而使m的值为6，n的值为5。\\[0.1in]
+\item 有的编译器计算m时，先使用n的旧值一次，然后n自增一次，再使用第二个n的值，最后n再自增一次。此时，m的值为7，n的值为5。
+\end{itemize}
+\end{frame}
+
+\begin{frame}[fragile]\ft{请使用以下原则}
+
+  以下两种情况，请不要对变量使用自增/自减运算符：\\[0.1in]
+\begin{itemize}
+\item \red{它出现在同一个函数的多个参数中；}\\[0.1in]
+\item \red{它多次出现在一个表达式。}
+\end{itemize}
+\end{frame}

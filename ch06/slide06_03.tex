@@ -1,0 +1,358 @@
+\section{关系运算符和表达式}
+
+\begin{frame}[fragile]\ft{\secname}
+\begin{table}
+\centering
+\caption{关系运算符}
+\begin{tabular}{p{2cm}|p{3cm}}\hline
+运算符& 含义\\\hline\hline
+\lstinline|<|  & 小于\\[0.1in]
+\lstinline|<=| & 小于或等于\\[0.1in]
+\lstinline|>|  & 大于\\[0.1in]
+\lstinline|>=| & 大于或等于\\[0.1in]
+\lstinline|==| & 等于\\[0.1in]
+\lstinline|!=| & 不等于\\\hline
+\end{tabular}
+\end{table}
+\end{frame}
+
+\begin{frame}[fragile]\ft{\secname}
+关系运算符用来构成while语句和其它C语句中使用的关系表达式，这些语句检查表达式是真还是假。
+\end{frame}
+
+\begin{frame}[fragile]\ft{\secname}
+\begin{lstlisting}
+while(number < 6) {
+  printf("Your number is too small.\n");
+  scanf("%d", &number);
+}
+\end{lstlisting}
+\begin{lstlisting}
+while(ch != '*') {
+  count++;
+  scanf("%c", &ch);  
+}
+\end{lstlisting}
+
+\begin{lstlisting}
+while(scanf("%f", &num) == 1)
+  sum = sum + num;
+\end{lstlisting}
+
+\end{frame}
+
+\begin{frame}[fragile]\ft{\secname}
+请注意，不能使用关系运算符来比较字符串。
+\end{frame}
+
+\begin{frame}[fragile]\ft{\secname}
+关系运算符可用于浮点数。但要小心，在浮点数比较时只能使用 \lstinline|<| 和 \lstinline|>|，原因在于舍入误差可能造成两个逻辑上应该相等的数不相等。\vspace{0.1in}
+
+比如，虽然从数学上看
+$$
+3*\frac13==1.0
+$$
+但若用6位小数表示 \lstinline|1/3|，其乘积为 \lstinline|0.999 999|。
+\end{frame}
+
+\begin{frame}[fragile]\ft{\secname}
+请使用头文件 \lstinline|math.h| 中的 \lstinline|fabs| 函数来进行浮点数的判断，该函数返回一个浮点值的绝对值。
+\end{frame}
+
+\begin{frame}[fragile,allowframebreaks]\ft{\secname}
+\lstinputlisting[numbers=left]{ch06/code/cmpflt.c}
+\end{frame}
+
+\begin{frame}[fragile]\ft{\secname}
+\begin{lstlisting}
+What is the value of pi?
+3.14
+Try again!
+3.1416
+Close enough!
+\end{lstlisting}
+\end{frame}
+
+\begin{frame}[fragile]\ft{\secname：什么是真？}
+\lstinputlisting[numbers=left]{ch06/code/t_and_f.c}
+\pause
+
+\begin{lstlisting}
+true = 1; false = 0
+\end{lstlisting}
+\end{frame}
+
+\begin{frame}[fragile]\ft{\secname：什么是真？}
+对C来说，一个真表达式的值为1，而一个假表达式的值为0。
+\end{frame}
+
+\begin{frame}[fragile]\ft{\secname：什么是真？}
+
+\begin{lstlisting}
+while (1) {
+  ...
+}
+\end{lstlisting}
+\pause\vspace{.1in}
+
+死循环
+\end{frame}
+
+\begin{frame}[fragile]\ft{\secname：还有什么是真？}
+\begin{wenti}
+既然可以使用1或0来作为while语句的判断表达式，那么还可以使用其他数字吗？
+\end{wenti}
+\end{frame}
+
+\begin{frame}[fragile,allowframebreaks]\ft{\secname：还有什么是真？}
+  \lstinputlisting[numbers=left]{ch06/code/truth.c}    
+\end{frame}
+
+\begin{frame}[fragile]\ft{\secname：还有什么是真？}
+  \begin{lstlisting}
+ 3 is true
+ 2 is true
+ 1 is true
+ 0 is false
+-3 is true
+-2 is true
+-1 is true
+ 0 is false
+\end{lstlisting}    
+
+\end{frame}
+
+\begin{frame}[fragile]\ft{\secname：还有什么是真？}
+
+\red{对C来说，所有非零值都被认为是真，只有0被认为是假。}
+\end{frame}
+
+\begin{frame}[fragile]\ft{\secname：还有什么是真？}
+基于上述认识可知，如下两种方式等价： \vspace{.1in}
+
+\begin{minipage}{.45\textwidth}
+\begin{lstlisting}[language=c,backgroundcolor=\color{red!10}]
+while (n != 0) {
+  ...
+}
+\end{lstlisting}
+\end{minipage}\hfill 
+\begin{minipage}{.45\textwidth}
+\begin{lstlisting}[language=c,backgroundcolor=\color{red!10}]
+while (n) {
+  ...
+}
+\end{lstlisting}
+\end{minipage}
+\end{frame}
+
+
+\begin{frame}[fragile,allowframebreaks]\ft{\secname：真值的问题}
+\lstinputlisting[numbers=left]{ch06/code/trouble.c}
+\end{frame}
+
+\begin{frame}[fragile]\ft{\secname：真值的问题}
+\begin{lstlisting}
+Enter an integer to be summed (q to quit): 
+1
+Enter next integer (q to quit): 
+2
+Enter next integer (q to quit): 
+3
+Enter next integer (q to quit): 
+q
+Enter next integer (q to quit): 
+Enter next integer (q to quit): 
+Enter next integer (q to quit):
+... 
+\end{lstlisting}
+\end{frame}
+
+\begin{frame}[fragile]\ft{\secname：真值的问题}
+% 该例改变了while的判断条件，用 \lstinline|status=1| 代替了 \lstinline|status==1|。而\red{赋值表达式的值就是其左侧的值}，故 \lstinline|status=1| 的值为1。
+实际上，
+\begin{lstlisting}
+while (status = 1) 
+\end{lstlisting}
+等价于
+\begin{lstlisting}
+while (1) 
+\end{lstlisting}
+进入死循环。
+\end{frame}
+
+\begin{frame}[fragile]\ft{\secname：真值的问题}
+\begin{itemize}
+\item
+当你输入q后，根本没有机会进行更多的输入。\\[0.1in]
+\item
+当 \lstinline|scanf| 未能读取指定形式的输入时，它就留下这个不相容的输入，以供下次进行读取。\\[0.1in]
+\item
+当 \lstinline|scanf| 试着把q当做整数读取并失败时，它就把q留在那里。下次循环继续读取这个q，\lstinline|scanf| 再次失败。\\[0.1in]
+\item
+该例不但建立了一个无限循环，更建立了一个无限失败的循环。
+\end{itemize}
+\end{frame}
+
+
+\begin{frame}[fragile]\ft{\secname：真值的问题}
+\begin{itemize}
+\item
+不要在应该使用 \lstinline|==| 的地方使用 \lstinline|=|。\\[0.1in]
+\item
+  赋值运算符 \lstinline|=| 把一个值赋给左边的变量，而关系运算符 \lstinline|==| 检查左右两边的值是否相等，它并不改变左边变量的值。
+\begin{lstlisting}
+i = 5   // `把i赋值为5`
+i == 5  // `检查i的值是否为5`
+\end{lstlisting}
+\item
+  在使用 \lstinline|==| 时，若比较双方有一个是常量，可以把它放在左侧，以便于发现错误。
+\begin{lstlisting}
+5 = i   // `语法错误`
+5 == i  // `检查i的值是否为5`
+\end{lstlisting}
+\end{itemize}
+\end{frame}
+
+
+\begin{frame}[fragile]\ft{\secname：真值小结}
+\begin{itemize}
+\item 关系运算符用于构成关系表达式。关系表达式为真时值为1，为假时值为0。\\[0.1in]
+\item 对于使用关系表达式作为判断条件的语句（while和if），可以使用任何表达式作为判断，非零值被认为是真，而零值被认为是假。
+\end{itemize}
+\end{frame}
+
+
+\begin{frame}[fragile]\ft{\secname：\lstinline|_Bool|类型}
+\begin{itemize}
+\item 表示真/假的变量被称为布尔变量，在C中一直由int类型来表示。\\[0.1in]
+\item C99添加了\lstinline|_Bool|类型，是布尔变量的类型名。
+\\[0.1in]
+\item 一个布尔变量只可以具有值1或0。若把一个布尔变量赋为非零数值，它就被设置为1。
+  这说明C把任何非零值都认为是真。
+\end{itemize}
+
+\end{frame}
+
+
+\begin{frame}[fragile,allowframebreaks]\ft{\secname：\lstinline|_Bool|类型}
+\lstinputlisting[numbers=left]{ch06/code/boolean.c}
+\end{frame}
+
+
+\begin{frame}[fragile]\ft{\secname：\lstinline|_Bool|类型}
+\begin{lstlisting}
+  input_is_good = (scanf("%ld", &num) == 1);
+\end{lstlisting}
+
+\begin{itemize}
+\item 该代码将比较的结果赋给布尔变量。\\[0.1in]
+\item 外层括号不是必需的，因为 \lstinline|==| 的优先级比 \lstinline|=| 要高，但这样写可使代码更容易阅读。
+\\[0.1in]
+\item 还请注意布尔变量的命名方式：
+\begin{lstlisting}
+  while (input_is_good)
+\end{lstlisting}
+\end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]\ft{\secname：\lstinline|_Bool|类型}
+  C99还提供了一个头文件 \lstinline|stdbool.h|。
+  使用它可以用\lstinline|bool|代替\lstinline|_Bool|，并把 \lstinline|true| 和 \lstinline|false|定义成值为1和0的常量。
+\end{frame}
+
+\begin{frame}[fragile,allowframebreaks]\ft{\secname：\lstinline|_Bool|类型}
+\lstinputlisting[numbers=left]{ch06/code/boolean1.c}
+\end{frame}
+
+
+\begin{frame}[fragile]\ft{\secname：关系运算符的优先级}
+关系运算符的优先级低于包括 \lstinline|+| 和 \lstinline|-| 在内的算术运算符，但要高于赋值运算符。 \pause \vspace{.15in}
+
+\begin{minipage}{.4\textwidth}
+\begin{lstlisting}
+x > y+2
+\end{lstlisting}
+\end{minipage}$~~~\blue\Longleftrightarrow~~~$
+\begin{minipage}{.4\textwidth}
+\begin{lstlisting}
+x > (y+2)
+\end{lstlisting}
+\end{minipage} \vspace{.1in}
+
+\begin{minipage}{.4\textwidth}
+\begin{lstlisting}
+x = y > 2
+\end{lstlisting}
+\end{minipage}$~~~\blue\Longleftrightarrow~~~$
+\begin{minipage}{.4\textwidth}
+\begin{lstlisting}
+x = (y > 2)
+\end{lstlisting}
+\end{minipage}\vspace{.1in}
+
+
+\begin{minipage}{.4\textwidth}
+\begin{lstlisting}
+x_bigger = x > y
+\end{lstlisting}
+\end{minipage}$~~~\blue\Longleftrightarrow~~~$
+\begin{minipage}{.4\textwidth}
+\begin{lstlisting}
+x_bigger = (x > y)
+\end{lstlisting}
+\end{minipage}
+\end{frame}
+
+\begin{frame}[fragile]\ft{\secname：关系运算符的优先级}
+\begin{table}
+\centering
+\caption{关系运算符本身有两组不同的优先级}
+\begin{tabular}{p{2cm}|p{4cm}}\hline
+高优先级 & \lstinline| <   <=   >   >=|\\[0.1in]
+低优先级 & \lstinline| ==   !=|\\\hline
+\end{tabular}
+\end{table}
+
+\begin{center}
+结合规则：从左到右。
+\end{center}
+\end{frame}
+
+
+\begin{frame}[fragile]\ft{\secname：关系运算符的优先级}
+ 
+
+\begin{minipage}{.4\textwidth}
+\begin{lstlisting}
+c != a == b
+\end{lstlisting}
+\end{minipage}$~~~\blue\Longleftrightarrow~~~$
+\begin{minipage}{.4\textwidth}
+\begin{lstlisting}
+(c != a) == b
+\end{lstlisting}
+\end{minipage}
+
+\end{frame}
+
+
+\begin{frame}[fragile]\ft{\secname：运算符的优先级}
+\begin{table}
+\centering
+%\caption{运算符优先级}
+\begin{tabular}{p{7cm}|p{2cm}}\hline
+运算符（从高到低） & 结合性 \\\hline\hline
+\lstinline| ( )| & 从左到右\\[0.1in]
+\lstinline| -   +   ++   --   sizeof   (type)|
+& 从右到左\\[0.1in]
+\lstinline| *   /   %| & 从左到右 \\[0.1in]
+\lstinline| +   -| & 从左到右 \\[0.1in]
+\lstinline| <   <=   >   >=| & 从左到右\\[0.1in]
+\lstinline| ==   !=| & 从左到右\\[0.1in]
+\lstinline| = |& 从右到左\\\hline
+\end{tabular}
+\end{table}
+
+\end{frame}

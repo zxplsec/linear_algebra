@@ -1,0 +1,231 @@
+\section{格式化输入}
+\begin{frame}[fragile]\ft{\secname}
+  同\lstinline|printf()|一样，\lstinline|scanf()|也使用控制字符串和参数列表，主要区别在参数列表。\lstinline|printf()|使用变量名、常量和表达式；而\lstinline|scanf()|使用指向变量的指针。
+\end{frame}
+
+\begin{frame}[fragile]\ft{\secname：\lstinline|scanf()|的参数列表}
+\begin{itemize}
+\item 
+  若使用\lstinline|scanf()|来读取某种基本类型的值，请在变量名前加一个\lstinline|&|。 \\[0.1in]
+\item
+  若使用\lstinline|scanf()|把一个字符串读入一个字符数组，请不要使用\lstinline|&|。
+\end{itemize}
+\end{frame}
+
+\begin{frame}[fragile]\ft{\secname：\lstinline|scanf()|的参数列表}
+\lstinputlisting[language=c,frame=single,numbers=left]{ch04/code/input.c}
+\end{frame}
+
+\begin{frame}[fragile]\ft{\secname：\lstinline|scanf()|的参数列表}
+\begin{lstlisting}[backgroundcolor=\color{red!20}]
+$ gcc input.c
+$ ./a.out
+Enter your name, age and weight:
+Xiaoming 23, 100
+Xiaoming: 23 100.000000
+\end{lstlisting}
+\end{frame}
+
+\begin{frame}[fragile]\ft{\secname：\lstinline|scanf()|的参数列表}
+\begin{itemize}
+\item
+ \lstinline|scanf()|使用空格（换行、制表符和空格）来决定如何把输入分成几个字段。
+它依次把格式说明符与字段相匹配，并跳过它们之间的空格。\\[0.1in]
+\item
+也可以分一行或多行输入，只要每个输入项目之间至少有一个换行符、空格或制表符。\\[0.1in]
+\item
+\%c是个例外，即使下一个字符是空白字符，它也会读取。
+\end{itemize}
+\end{frame}
+
+\begin{frame}[fragile]\ft{\secname：\lstinline|printf|与\lstinline|scanf|格式说明符的区别}
+\begin{itemize}
+\item
+  \lstinline|printf()|把\lstinline|%f|、\lstinline|%e|、\lstinline|%E|、\lstinline|%g|和\lstinline|%G|同时用于\lstinline|float|和\lstinline|double|类型\\[0.1in]
+\item
+\lstinline|scanf()|只把它们用于\lstinline|float|类型，而用于\lstinline|double|类型时要求加上l修饰符。
+\end{itemize}
+\end{frame}
+
+\begin{frame}[fragile]\ft{\secname：\lstinline|scanf|格式说明符}
+\begin{table}
+\centering
+\begin{tabular}{p{3cm}|p{7cm}}\hline
+格式说明符 & 意义 \\\hline\hline
+\lstinline|%c| & 把输入解释成一个字符 \\[2mm]
+\lstinline|%d| & 把输入解释成一个有符号十进制数 \\[2mm]
+\lstinline|%e|,\lstinline|%f|,\lstinline|%g|,\lstinline|%a| & 把输入解释成一个浮点数\\[2mm]
+\lstinline|%E|,\lstinline|%f|,\lstinline|%g|,\lstinline|%A| & 把输入解释成一个浮点数\\[2mm]
+\lstinline|%i| & 把输入解释成一个有符号十进制数\\[2mm]
+\lstinline|%o| & 把输入解释成一个有符号八进制数\\[2mm]
+\lstinline|%p| & 把输入解释成一个指针\\ \hline
+\end{tabular}
+\end{table}
+\end{frame}
+
+\begin{frame}[fragile]\ft{\secname：\lstinline|scanf|格式说明符}
+\begin{table}
+\centering
+\begin{tabular}{p{2cm}|p{8cm}}\hline
+格式说明符 & 意义 \\\hline\hline
+\lstinline|%s| & 把输入解释成一个字符串：输入内容以第一个非空白字符作为开始，并且包含到下一个空白字符的全部字符 \\[2mm]
+\lstinline|%u| & 把输入解释成一个无符号十进制数 \\[2mm]
+\lstinline|%x|,\lstinline|%X| & 把输入解释成一个有符号十六进制数\\ \hline
+\end{tabular}
+\end{table}
+\end{frame}
+
+\begin{frame}[fragile]\ft{\secname：\lstinline|scanf|格式说明符}
+ 可在格式说明符中使用修饰符，修饰符出现在\%与格式字符之间。
+\end{frame}
+
+\begin{frame}[fragile]\ft{\secname：\lstinline|scanf|格式说明符}
+
+\begin{table}
+\centering
+\begin{tabular}{p{2cm}|p{8cm}}\hline
+修饰符 & 意义 \\\hline\hline
+ * &  滞后赋值，如{" \%*d"} \\[2mm]
+ digit & 最大字段宽度：在达到最大字段宽度或遇到第一个空白字符时停止对输入项的读取，如{ "\%10s"} \\[2mm]
+ hh & 把整数读作{ signed char}或{ unsigned char}，如{ "\%hhd"}或{ "\%hhu"} \\[2mm]
+ ll & 把整数读作{ long long}或{ unsigned long long}，如{ "\%lld"}或{ "\%llu"}\\
+\hline
+\end{tabular}
+\end{table}
+\end{frame}
+
+\begin{frame}[fragile]\ft{\secname：\lstinline|scanf|格式说明符}
+\begin{table}
+\centering
+%\caption{修饰符h, l 或 L}
+\begin{tabular}{p{3.5cm}|p{6cm}}\hline
+修饰符 & 意义 \\\hline\hline
+ "\lstinline|%hd|", "\lstinline|%hi|" & 以\lstinline|short|存储 \\[2mm]\hline
+ "\lstinline|%ho|", "\lstinline|%hx|", "\lstinline|%hu|" & 以\lstinline|unsigned short|存储\\[2mm]\hline
+ "\lstinline|%ld|", "\lstinline|%li|" & 以\lstinline|long|存储\\[2mm]\hline
+ "\lstinline|%lo|", "\lstinline|%lx|", "\lstinline|%lu|" & 以\lstinline|unsigned long|存储\\[2mm]\hline
+ "\lstinline|%le|", "\lstinline|%lf|", "\lstinline|%lg|" & 以\lstinline|double|存储
+\\[2mm]\hline
+ "\lstinline|%Le|", "\lstinline|%Lf|", "\lstinline|%Lg|" & 以\lstinline|long double|存储 \\
+\hline
+\end{tabular}
+\end{table}
+\end{frame}
+
+\begin{frame}[fragile]\ft{\secname：\lstinline|scanf|格式说明符}
+  若没有这些修饰符，则\lstinline|%d|, \lstinline|%i|, \lstinline|%o|和\lstinline|%x|指示\lstinline|int|类型，而\lstinline|%e|, \lstinline|%f|和\lstinline|%g|指示\lstinline|float|类型。
+\end{frame}
+
+\begin{frame}[fragile]\ft{\secname：格式字符串中的常规字符}
+  \lstinline|scanf()|允许把普通字符放在格式字符串中，除了空格字符之外的普通字符一定要与输入字符串准确匹配。  
+\end{frame}
+
+\begin{frame}[fragile]\ft{\secname：格式字符串中的常规字符}
+\begin{lstlisting}[showspaces=true,backgroundcolor=\color{red!20}]
+scanf("%d, %d", &n, &m);
+\end{lstlisting}
+
+\rule{\textwidth}{0.1em}
+\begin{lstlisting}[title=合法的输入方式,showspaces=true,backgroundcolor=\color{red!20}]
+12, 23
+
+12,     23
+
+12 , 23
+
+12,
+23
+\end{lstlisting}
+
+\end{frame}
+
+\begin{frame}[fragile]\ft{\secname：格式字符串中的常规字符}
+\begin{lstlisting}[showspaces=true,backgroundcolor=\color{red!20}]
+scanf("%d and %d", &n, &m);
+\end{lstlisting}
+
+\rule{\textwidth}{0.1em}
+\begin{lstlisting}[title=合法的输入方式,showspaces=true,backgroundcolor=\color{red!20}]
+12 and 23
+
+12 and     23
+
+12and23
+\end{lstlisting}
+\end{frame}
+
+\begin{frame}[fragile]\ft{\secname：格式字符串中的常规字符}
+
+除了\lstinline|%c|之外的说明符会自动跳过输入项之前的空格，故以下两条语句的效果相同：
+\begin{lstlisting}[showspaces=true,backgroundcolor=\color{red!10}]
+scanf("%d%d",&n,&m);
+
+scanf("%d %d",&n,&m);
+\end{lstlisting}
+\end{frame}
+
+\begin{frame}[fragile]\ft{\secname：格式字符串中的常规字符}
+对于\lstinline|%c|来说，向格式字符串中添加一些空格将导致一些差别。如：
+\begin{lstlisting}[showstringspaces=true,backgroundcolor=\color{red!10}]
+scanf("%c", &ch);
+\end{lstlisting}
+读取在输入中遇到的第一个字符，而
+\begin{lstlisting}[showstringspaces=true,backgroundcolor=\color{red!10}]
+scanf(" %c", &ch);
+\end{lstlisting}
+则读取遇到的第一个非空白字符。
+\end{frame}
+
+\begin{frame}[fragile]\ft{\secname：\lstinline|scanf|的返回值}
+\lstinline|scanf()|返回成功读入的项目个数。
+
+\begin{itemize}
+\item
+ 若没有读取任何项目，则返回0；
+\item
+若检测到文件结尾(end of file)，则返回\lstinline|EOF|。
+（\lstinline|EOF|是stdio.h中定义的特殊值，一般为-1）
+\end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile,allowframebreaks]\ft{\secname：\lstinline|printf()|的*修饰符}
+\lstinputlisting[language=c,frame=single,numbers=left]{ch04/code/varwidth.c}
+\end{frame}
+
+\begin{frame}[fragile]\ft{\secname：printf的*修饰符}
+\begin{lstlisting}[backgroundcolor=\color{red!10}]
+$ gcc varwidth.c
+$ ./a.out
+What field width?
+6
+The number is:   256
+Now enter a width and a precision:
+8 3
+Weight= 123.500
+\end{lstlisting}
+\end{frame}
+
+\begin{frame}[fragile]\ft{\secname：\lstinline|scanf()|的*修饰符}
+在\lstinline|scanf()|中，把\lstinline|*|放在\lstinline|%|与格式字符之间时，会使函数跳过相应的输入项目。
+\end{frame}
+
+\begin{frame}[fragile]\ft{\secname：\lstinline|scanf()|的*修饰符}
+
+\lstinputlisting[language=c,frame=single,numbers=left]{ch04/code/skip2.c}
+\end{frame}
+
+\begin{frame}[fragile]\ft{\secname：\lstinline|scanf()|的*修饰符}
+\begin{lstlisting}[backgroundcolor=\color{red!10}]
+$ gcc skip2.c
+$ ./a.out
+Please enter three integers:
+10 20 30
+The last integer was 30
+\end{lstlisting}
+\end{frame}
+
+
+
+
+

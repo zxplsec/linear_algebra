@@ -1,0 +1,55 @@
+\section{更多赋值运算符}
+\begin{frame}[fragile]\ft{\secname}
+\begin{lstlisting}
+  +=   -=   *=   /=   %=
+\end{lstlisting}
+\end{frame}
+
+\begin{frame}[fragile]\ft{\secname}
+\begin{minipage}{.4\textwidth}
+\begin{lstlisting}
+num += 20
+num -= 20
+num /= 20
+num *= 20
+num %= 20
+\end{lstlisting}
+\end{minipage}$\blue~~~\Leftrightarrow~~~$
+\begin{minipage}{.4\textwidth}
+\begin{lstlisting}
+num = num + 20
+num = num - 20
+num = num / 20
+num = num * 20
+num = num % 20
+\end{lstlisting}
+\end{minipage}
+\pause 
+\begin{minipage}{.4\textwidth}
+\begin{lstlisting}
+x *= 3 * y + 12
+\end{lstlisting}
+\end{minipage}$\blue~~~\Leftrightarrow~~~$
+\begin{minipage}{.45\textwidth}
+\begin{lstlisting}
+x = x * (3 * y + 12)
+\end{lstlisting}
+\end{minipage}
+\end{frame}
+
+\begin{frame}[fragile]\ft{\secname}
+\begin{itemize}
+\item 
+这些运算符具有与 \lstinline|=| 同样低的优先级。\\[0.1in]
+\item
+使用这些运算符可以让代码更为简洁，与长形式相比可能会产生效率更高的机器代码。
+特别是变量名很长时，使用它们就显得非常有必要。如
+
+\begin{lstlisting}
+xxxxyyyyzzzz *= 3
+\end{lstlisting}
+\begin{lstlisting}
+xxxxyyyyzzzz = xxxxyyyyzzzz * 3
+\end{lstlisting}
+\end{itemize}
+\end{frame}

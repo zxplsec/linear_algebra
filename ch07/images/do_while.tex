@@ -1,0 +1,38 @@
+\documentclass{article}
+\usepackage[UTF8,noindent]{ctex}
+\input{../../asset/global_usepackage.tex}
+
+\pgfrealjobname{survey}
+\begin{document}
+\beginpgfgraphicnamed{do_while}
+\tikzstyle{startstop}=[rectangle,rounded corners,minimum width=3cm,minimum height=1cm,text centered,draw=black,fill=red!30]
+\tikzstyle{process}=[rectangle,minimum width=3cm,minimum height=1cm,text centered,draw=black,fill=orange!30]
+\tikzstyle{decision}=[diamond,aspect=2,minimum width=3cm,minimum height=.5cm,text centered,draw=black,fill=green!30]
+\tikzstyle{arrow}=[thick,->,>=stealth]
+
+\begin{tikzpicture}[node distance=2.5cm]
+\node (start) [] {};
+\node (pro) [process,below of=start,yshift=1cm] {
+  \lstinline|printf("ba la ba la!");|
+};
+\node (dec) [decision,below of=pro,align=left] 
+{ 
+  \lstinline|count++ <= limit;|
+};
+
+
+\draw [arrow] (start) -- node [anchor=east]{do} (pro);
+\draw [arrow] (pro) -- node [anchor=east]{while}(dec);
+\draw [arrow] (dec) -- node[anchor=east] {yes} ++ (0,-2)
+-- ++(4,0) |- (pro);
+%\draw [arrow] (pro) -| (right);
+%\draw [arrow] (right) -- (dec);
+\draw [arrow] (dec) -- node[anchor=south] {no}
+node[anchor=north,align=left] {\lstinline|go to next| \\ \lstinline|statement|}
+ ++(-4,0);
+\end{tikzpicture}
+
+\endpgfgraphicnamed  
+\end{document}
+
+

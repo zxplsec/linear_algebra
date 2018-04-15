@@ -1,0 +1,39 @@
+\documentclass{article}
+\usepackage[UTF8,noindent]{ctex}
+\input{../../asset/global_usepackage.tex}
+
+\pgfrealjobname{survey}
+\begin{document}
+\beginpgfgraphicnamed{flowchart}
+\tikzstyle{startstop}=[rectangle,rounded corners,minimum width=3cm,minimum height=1cm,text centered,draw=black,fill=red!30]
+\tikzstyle{process}=[rectangle,minimum width=3cm,minimum height=1cm,text centered,draw=black,fill=orange!30]
+\tikzstyle{decision}=[diamond,aspect=2,minimum width=3cm,minimum height=.5cm,text centered,draw=black,fill=green!30]
+\tikzstyle{arrow}=[thick,->,>=stealth]
+
+\begin{tikzpicture}[node distance=2.5cm]
+\node (start) [process,align=left] 
+{\lstinline|ounces = 1,|\\ 
+  \lstinline|cost = FIRST_OZ;|
+};
+\node (dec) [decision,below of=start] {\lstinline|ounces <= 16|};
+\node (pro) [process,below of=dec,align=left] 
+{
+  \lstinline|printf("...");|
+};
+\node (right) [process,right of=dec,xshift=2cm,align=left] 
+{
+\lstinline|ounces++,|\\
+\lstinline|cost += NEXT_OZ|
+};
+
+\draw [arrow] (start) -- (dec);
+\draw [arrow] (dec) -- node[anchor=east] {yes} (pro);
+\draw [arrow] (pro) -| (right);
+\draw [arrow] (right) -- (dec);
+\draw [arrow] (dec) -- node[anchor=south] {no}
+ ++(-4,0);
+\end{tikzpicture}
+\endpgfgraphicnamed  
+\end{document}
+
+

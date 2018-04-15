@@ -1,0 +1,121 @@
+\section{关系运算符与逻辑运算符}
+
+\subsection{关系运算符}
+
+\begin{frame}\ft{\subsecname}
+关系运算符用于比较两个值。\\[.1in]
+\begin{enumerate}
+\item
+  运算符 \lstinline|==|  检查两个给定的操作数是否相等。若相等，返回 \lstinline|true|；否则返回 \lstinline|false|。\\[.1in]
+\item[] 如 \lstinline|5 == 5| 返回\lstinline|true|。\\[.1in]
+\item
+  运算符 \lstinline|!=|  检查两个给定的操作数是否相等。若不相等，返回\lstinline|true|；否则返回\lstinline|false|。\\[.1in]
+\item[] 如 \lstinline|5 != 5| 返回\lstinline|false|。
+\end{enumerate}
+\end{frame}
+
+\begin{frame}\ft{\subsecname}
+  \begin{enumerate}
+\item[3.]
+  运算符 \lstinline|>| 检查第一个操作数是否大于第二个操作数。若成立，返回\lstinline|true|；否则返回\lstinline|false|。\\[.1in]
+\item[] 如 \lstinline|6 > 5| 返回\lstinline|true|。\\[.1in]
+\item[4.]
+  运算符 \lstinline|<| 检查第一个操作数是否小于第二个操作数。若成立，返回\lstinline|true|；否则返回\lstinline|false|。\\[.1in]
+\item[] 如 \lstinline|6 < 5| 返回\lstinline|false|。
+\end{enumerate}
+\end{frame}
+
+\begin{frame}\ft{\subsecname}
+  \begin{enumerate}
+\item[5.]
+  运算符 \lstinline|>=| 检查第一个操作数是否大于或等于第二个操作数。若成立，返回\lstinline|true|；否则返回\lstinline|false|。\\[.1in]
+  \item[] 如 \lstinline|5 >= 5| 返回\lstinline|true|。\\[.1in]
+\item[6.]
+  运算符 \lstinline|<=| 检查第一个操作数是否小于或等于第二个操作数。若成立，返回\lstinline|true|；否则返回\lstinline|false|。\\[.1in]
+\item[] 如 \lstinline|5 <= 5| 返回\lstinline|true|。
+\end{enumerate}
+  
+\end{frame}
+
+\begin{frame}[fragile,allowframebreaks]\ft{\subsecname}
+\lstinputlisting[language=c,backgroundcolor=\color{red!10},numbers=left]{ch05/code/rel_operand.c}
+  
+\end{frame}
+ 
+
+\begin{frame}[fragile]\ft{\subsecname}
+\begin{lstlisting}[backgroundcolor=\color{red!10}]
+a = 10, b = 4
+a > b
+a >=  b
+a >= b
+a > b
+a != b
+a != b
+\end{lstlisting}  
+\end{frame}
+
+
+\subsection{逻辑运算符}
+\begin{frame}
+  逻辑运算符用于连接两个及以上条件，或对原条件取否。\\[.1in]
+\begin{enumerate}
+\item
+  \blue{逻辑与}： 当两个条件同时满足时，运算符 \lstinline|&&| 返回\lstinline|true|；否则返回 \lstinline|false|。\\[.1in]
+\item[] 如，当 \lstinline|a| 和 \lstinline|b| 均为 \lstinline|true| (即非零)时，\lstinline|a && b| 返回\lstinline|true|。\\[.1in]
+\item
+  \blue{逻辑或}：当至少有一个条件满足时，运算符 \lstinline|\|\|| 返回\lstinline|true|；否则返回 \lstinline|false|。\\[.1in]
+  如，当 \lstinline|a| 和 \lstinline|b| 至少有一个为 \lstinline|true| (即非零)时，\lstinline|a \|\| b| 返回\lstinline|true|。当然，当 \lstinline|a| 和 \lstinline|b| 均为 \lstinline|true| 时， \lstinline|a \|\| b|返回\lstinline|true|。\\[.1in]
+\item
+  \blue{逻辑非}：当条件不满足时，运算符 \lstinline|!| 返回 \lstinline|true| ；否则返回 \lstinline|false| 。\\[.1in]
+如，若 \lstinline|a| 为 \lstinline|false| 时，\lstinline|a| 返回 \lstinline|true|。
+\end{enumerate}
+  
+\end{frame}
+
+\begin{frame}[fragile,allowframebreaks]\ft{\subsecname}
+\lstinputlisting[language=c,backgroundcolor=\color{red!10},numbers=left]{ch05/code/logic_operand.c}
+  
+\end{frame}
+
+
+\begin{frame}[fragile]\ft{\subsecname}
+
+\begin{lstlisting}[backgroundcolor=\color{red!10},frame=no]
+AND condition not satisfied
+a is greater than b OR c is equal to d
+a is not zero  
+\end{lstlisting}
+\end{frame}
+
+\subsection{逻辑运算符中的短路现象}
+
+\begin{frame}[fragile]\ft{\subsecname} 
+对于逻辑与，若第一个操作数为 \lstinline|false| ，则第二个操作数将不会被计算。
+
+\lstinputlisting[language=c,backgroundcolor=\color{red!10},numbers=left]{ch05/code/logic_short_circuit1.c}
+\vspace{.1in}\pause 
+
+该程序不会打印 \lstinline|Hello|。
+\end{frame}
+
+\begin{frame}[fragile]\ft{\subsecname} 
+但下面的程序将打印 \lstinline|Hello|。
+\lstinputlisting[language=c,backgroundcolor=\color{red!10},numbers=left]{ch05/code/logic_short_circuit2.c}
+\end{frame}
+
+\begin{frame}[fragile]\ft{\subsecname} 
+对于逻辑或，若第一个操作数为 \lstinline|true| ，则第二个操作数不会被计算。
+
+\lstinputlisting[language=c,backgroundcolor=\color{red!10},numbers=left]{ch05/code/logic_short_circuit3.c}
+\vspace{.1in} \pause 
+
+该程序不会打印 \lstinline|Hello|。
+\end{frame}
+
+\begin{frame}[fragile]\ft{\subsecname} 
+
+但下面的程序将打印 \lstinline|Hello|。 
+\lstinputlisting[language=c,backgroundcolor=\color{red!10},numbers=left]{ch05/code/logic_short_circuit4.c}
+
+\end{frame}

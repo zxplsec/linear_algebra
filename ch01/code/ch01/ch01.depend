@@ -1,0 +1,5 @@
+# depslib dependency file v1.0
+1519710914 source:/home/zxp/workspace/teach/C_Programming/ch01/code/ch01/main.c
+	<stdio.h>
+	<stdlib.h>
+

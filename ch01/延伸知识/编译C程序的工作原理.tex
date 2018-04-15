@@ -1,0 +1,253 @@
+\documentclass[10pt,a4paper%,twoside,openright,titlepage,fleqn,%
+%headinclude,footinclude,BCOR5mm,%
+%numbers=noenddot,cleardoublepage=empty,%
+tablecaptionabove]{article}
+
+\usepackage{geometry}
+\geometry{left=2.5cm,right=2.5cm,top=2.5cm,bottom=2.5cm}
+
+\usepackage{amsmath,amssymb,amsthm}
+
+%% -----------------设置数学公式字体-------------------------
+%% Font style 1
+%% \newcommand\ibinom[2]{\genfrac\lbrace\rbrace{0pt}{}{#1}{#2}}
+%% \usepackage{bm}
+
+%% Font style 2
+%% \newcommand\ibinom[2]{\genfrac\lbrace\rbrace{0pt}{}{#1}{#2}} 
+%% \usepackage[boldsans]{ccfonts} 
+%% \usepackage{bm} 
+
+%% Font style 3
+\newcommand\ibinom[2]{\genfrac\lbrace\rbrace{0pt}{}{#1}{#2}}
+\usepackage[euler-digits]{eulervm}
+\usepackage{bm}
+
+%% Font style 4
+%% \usepackage{fourier}
+%% \newcommand\ibinom[2]{\genfrac\lbrace\rbrace{0pt}{}{#1}{#2}}
+%% \usepackage{bm}
+
+%% Font style 5
+%% \newcommand\ibinom[2]{\genfrac\lbrace\rbrace{0pt}{}{#1}{#2}}
+%% \usepackage{mathptmx}
+%% \usepackage{bm} 
+
+
+%% %% Font style 6
+%% \newcommand\ibinom[2]{\genfrac\lbrace\rbrace{0pt}{}{#1}{#2}}
+%% \usepackage{txfonts}
+%% \usepackage{bm}
+%% -----------------------------------------------------------
+
+\usepackage{titlesec} %设置标题
+\usepackage{titletoc}
+
+\usepackage{extarrows}
+\usepackage{verbatim,color,xcolor}
+\usepackage{pgf}
+\usepackage{tikz}
+\usetikzlibrary{calc}
+\usetikzlibrary{arrows,snakes,backgrounds,shapes,patterns}
+\usetikzlibrary{matrix,fit,positioning,decorations.pathmorphing}
+%% \usepackage{classicthesis}
+\usepackage{CJK}
+\usepackage{mathdots}
+
+\usepackage{listings}
+\lstset{
+  keywordstyle=\color{blue!70},
+  frame=single,
+  basicstyle=\ttfamily\small,
+  commentstyle=\small\color{red},
+  breakindent=0pt,
+  rulesepcolor=\color{red!20!green!20!blue!20},
+  rulecolor=\color{black},
+  tabsize=4,
+  numbersep=5pt,
+  breaklines=true,
+  %% backgroundcolor=\color{red!10},
+  showspaces=false,
+  showtabs=false,
+  extendedchars=false,
+  escapeinside=``,
+  frame=no,
+}
+
+
+\newcommand{\blue}{\textcolor{blue}}
+\newcommand{\red}{\textcolor{red}}
+\newcommand{\purple}{\textcolor{electricpurple}}
+\newcommand{\ds}{\displaystyle}
+\newcommand{\cd}{\cdots}
+\newcommand{\dd}{\ddots}
+\newcommand{\vd}{\vdots}
+\newcommand{\id}{\iddots}
+
+\newcommand{\R}{\mathbb R}
+\def\nn{{\boldsymbol{n}}}
+\def\xx{{\boldsymbol{x}}}
+\def\F{{\boldsymbol{F}}}
+\def\div{{\mathrm{div}}}
+
+
+\begin{document}
+
+\begin{CJK}{UTF8}{gkai}
+
+
+ 
+
+\newtheorem{li}{例}
+\newtheorem{jielun}{结论}
+\newtheorem{dingli}{定理}
+\newtheorem{mingti}{{命题}} 
+\newtheorem{yinli}{{引理}} 
+\newtheorem{tuilun}{{推论}}
+\newtheorem{dingyi}{{定义}} 
+\newtheorem{example}{{例}}
+\newtheorem*{example*}{{例}}
+\newtheorem*{jie}{{解}}
+\newtheorem*{zhengming}{{证明}}
+\newtheorem{zhu}{{注}}
+\newtheorem*{zhu*}{{注}}
+\newtheorem{xingzhi}{{性质}}
+\newtheorem{wenti}{{问题}}
+\newtheorem{rem}{{Remark}}
+\newtheorem{lem}{{Lemma}}
+\pagenumbering{roman}
+\pagestyle{plain}
+
+\pagenumbering{arabic}
+
+
+
+\title{编译C程序的工作原理}
+%\author{张晓平}
+%\date{}                                           % Activate to display a given date or no date
+\maketitle
+
+C是一种高级语言，它需要编译器将其转换为可执行代码，以使得程序能在机器上运行。 
+
+\section{如何编译和运行一个C程序？}
+
+以下介绍在MAC或Linux上使用gcc编译器的几个步骤。
+
+\begin{itemize}
+
+\item 首先使用编辑器（如vi或emacs等）创建一个C程序，并将其保存为add2num.c。
+
+\begin{lstlisting}[backgroundcolor=\color{red!10}]
+$ emacs add2num.c
+\end{lstlisting}
+在编辑界面输入以下内容：
+\lstinputlisting[language=c,frame=single]{Code/add2num.c}
+
+\item 然后用以下命令编译，并查看当前目录下的文件。
+\begin{lstlisting}[backgroundcolor=\color{red!10}]
+$ gcc -Wall add2num.c –o add2num
+$ ls
+add2num    add2num.c
+\end{lstlisting}
+选项\red{\ttfamily -Wall}启动所有编译器的警告信息。建议使用该选项以生成更好的代码。 选项\red{\ttfamily -o}用来制定输出文件名。如果缺省该选项，则输出文件将默认为\red{\ttfamily a.out}。
+
+\item 编译通过后，将会生成可执行文件，可使用以下命令来运行生成的可执行文件。
+
+
+\begin{lstlisting}[backgroundcolor=\color{red!10}]
+$ ./add2num
+\end{lstlisting}
+
+\end{itemize}
+
+
+\section{编译过程中发生了什么？}
+
+编译器将一个C程序转换为一个可执行文件，这经历了4个阶段：
+\begin{itemize}
+\item 预处理
+\item 编译
+\item 汇编
+\item 链接
+\end{itemize}
+执行以下命令，在当前目录下会生成所有的中间文件以及可执行文件。
+\begin{lstlisting}[backgroundcolor=\color{red!10}]
+$gcc -Wall -save-temps filename.c –o filename 
+$ls 
+add2num		add2num.c	add2num.o
+add2num.bc	add2num.i	add2num.s
+\end{lstlisting}
+
+接下来，让我们一个个地来看这些中间文件中的内容。
+\begin{itemize}
+\item 预处理
+\item[] 这是源代码后的第一阶段，包括
+\begin{itemize}
+\item 去掉注释
+\item 宏的展开
+\item 头文件的展开
+\end{itemize}
+预处理的输出保存在文件add2num.i中，可用以下命令来查看其内容：
+\begin{lstlisting}[backgroundcolor=\color{red!10}]
+$less add2num.i
+$ls 
+...
+int printf(const char * restrict, ...) __attribute__((__format__ (__printf__, 1, 2)));
+...
+extern int __vsnprintf_chk (char * restrict, size_t, int, size_t,
+       const char * restrict, va_list);
+# 499 "/usr/include/stdio.h" 2 3 4
+# 3 "add2num.c" 2
+
+int main(void)
+{
+  int a = 5, b = 4;
+  printf("Addition is: %d\n", (a+b));
+  return 0;
+}
+\end{lstlisting}
+\red{分析：}在以上内容中，源文件被附加了很多信息，但在末尾代码仍被保留。{\ttfamily printf()}函数中包含了{\ttfamily a+b}而非{\ttfamily add(a,b)}，因为宏已被展开。注释被去除掉。{\ttfamily\#include<stdio.h>}没有了，取而代之的是很多代码。因此，头文件已被展开，并且被包含到了源文件中。
+
+\item 编译
+\item[] 接下来就是编译{\ttfamily add2num.i}，并生成一个编译过的输出文件{\ttfamily add2num.s}。该文件为汇编指令，可用以下命令查看：
+\begin{lstlisting}[backgroundcolor=\color{red!10}]
+$less add2num.s
+...
+Ltmp2:
+        .cfi_def_cfa_register %rbp
+        subq    $16, %rsp
+        leaq    L_.str(%rip), %rdi
+        movl    $0, -4(%rbp)
+        movl    $5, -8(%rbp)
+        movl    $4, -12(%rbp)
+        movl    -8(%rbp), %eax
+        addl    -12(%rbp), %eax
+        movl    %eax, %esi
+        movb    $0, %al
+        callq   _printf
+        xorl    %esi, %esi
+...      
+\end{lstlisting}
+以上内容表明这是汇编语言，能为汇编器所识别。
+\item 汇编
+\item[] 这一阶段，将通过汇编器将{\ttfamily filename.s}转换成{\ttfamily filename.o}。该文件包含机器指令。需要注意的是，该阶段只会将现有代码转换成机器语言，而诸如{\ttfamily printf()}d的函数调用则不会。
+\begin{lstlisting}[backgroundcolor=\color{red!10}]
+$less add2num.o
+<CF><FA><ED><FE>^G^@^@^A^C^@^@^@^A^@^@^@^D^@^@^@^@^B^@^@^@ ^@^@^@^@^@^@^Y^@^@^@<88>^A^@^@^@^@^@^@^@^
+...      
+\end{lstlisting}
+\item 链接
+\item[] 
+这是最后一个阶段，将完成所有函数调用及其定义的链接工作。链接器知道所有这些函数在何处执行。链接器也会做一些额外的工作，以添加一些启动和结束程序所需的额外代码。 在命令行中输入以下命令，可看出从目标文件到可执行文件时文件大小的变化。这是因为链接器为我们的程序添加了额外的代码。
+\begin{lstlisting}[backgroundcolor=\color{red!10}]
+$ size add2num.o
+__TEXT	__DATA	__OBJC	others	dec	hex
+145	0	0	32	177	b1	
+HXM:Code hxm$ size add2num
+__TEXT	__DATA	__OBJC	others	dec	hex
+4096	4096	0	4294971392	4294979584	100003000
+\end{lstlisting}
+\end{itemize}
+
+\end{CJK}
+\end{document}

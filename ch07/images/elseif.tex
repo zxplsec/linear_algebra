@@ -1,0 +1,50 @@
+\documentclass{article}
+\usepackage[UTF8,noindent]{ctex}
+\input{../../asset/global_usepackage.tex}
+
+\pgfrealjobname{survey}
+\begin{document}
+\beginpgfgraphicnamed{elseif}
+\tikzstyle{startstop}=[rectangle,rounded corners,minimum width=3cm,minimum height=1cm,text centered,draw=black,fill=red!30]
+\tikzstyle{process}=[rectangle,minimum width=3cm,minimum height=1cm,text centered,draw=black,fill=orange!30]
+\tikzstyle{decision}=[diamond,aspect=2,minimum width=3cm,minimum height=.5cm,text centered,draw=black,fill=green!30]
+\tikzstyle{arrow}=[thick,->,>=stealth]
+\tikzstyle{information text}=[rounded corners,fill=red!10,inner sep=1ex]
+
+\begin{tikzpicture}[node distance=5cm]
+\node (dec1) [decision] 
+{
+\lstinline|kwh <= BREAK1|
+};
+\node (pro1) [process,below of=dec1,align=left] 
+{
+\lstinline|bill = RATE1 * kwh|
+};
+\node (dec2) [decision, left of=pro1] 
+{
+\lstinline|kwh <= BREAK2|
+};
+\node (pro2) [process,below of=dec2,align=left] 
+{
+\lstinline|bill = BASE1 + RATE2|\\
+\lstinline|  * (kwh-BREAK1);|
+};
+\node (pro3) [process,left of=pro2,align=left] 
+{
+\lstinline|bill = BASE2 + RATE3|\\
+\lstinline|  * (kwh-BREAK2);|
+};
+
+\draw [thick,<-,>=stealth] (dec1) -- node[anchor=west]{if}++(0,1.5);
+\draw [arrow] (dec1) -- node[anchor=west] {yes} (pro1);
+\draw [arrow] (dec1) -| node[anchor=south] {else if}(dec2);
+\draw [arrow] (dec2) -- node[anchor=west] {yes} (pro2);
+\draw [arrow] (dec2) -| node[anchor=south] {else}(pro3);
+\draw [arrow] (pro1) -- ++(0,-6);
+\draw [arrow] (pro2) -- ++(0,-1) -- ++(5,0);
+\draw [thick] (pro3) -- ++(0,-1) -- ++(5,0);
+\end{tikzpicture}
+\endpgfgraphicnamed  
+\end{document}
+
+

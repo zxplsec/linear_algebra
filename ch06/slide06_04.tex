@@ -1,0 +1,39 @@
+\section{不确定循环与计数循环}
+\begin{frame}[fragile]\ft{\secname}
+\begin{itemize}
+\item 不确定循环：在表达式变为假之前你不能预知循环要执行多少次。\\[0.1in]
+\item 计数循环：执行预先确定的循环次数。
+\end{itemize}
+\end{frame}
+
+
+\begin{frame}[fragile]\ft{\secname}
+
+\lstinputlisting[numbers=left]{ch06/code/sweetie1.c}
+
+\end{frame}
+
+\begin{frame}[fragile]\ft{\secname：循环三要素}
+\begin{itemize}
+\item 从哪里来（初始化计数器）\\[0.1in]
+\item 到哪里去（计数器与某个有限值做比较）\\[0.1in]
+\item 怎么走（每次执行循环，计数器要递增）
+\end{itemize}
+\end{frame}
+
+\begin{frame}[fragile]\ft{\secname：循环三要素}
+\begin{lstlisting}
+while (count <= NUMBER){
+  ...
+  count++;
+}
+\end{lstlisting}
+
+\begin{lstlisting}
+while (count++ <= NUMBER){
+  ...
+}
+\end{lstlisting}
+\end{frame}
+
+

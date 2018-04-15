@@ -1,0 +1,215 @@
+\documentclass[10pt,a4paper%,twoside,openright,titlepage,fleqn,%
+%headinclude,footinclude,BCOR5mm,%
+%numbers=noenddot,cleardoublepage=empty,%
+tablecaptionabove]{article}
+
+\usepackage{geometry}
+\geometry{left=2.5cm,right=2.5cm,top=2.5cm,bottom=2.5cm}
+
+\usepackage{amsmath,amssymb,amsthm}
+
+%% -----------------设置数学公式字体-------------------------
+%% Font style 1
+%% \newcommand\ibinom[2]{\genfrac\lbrace\rbrace{0pt}{}{#1}{#2}}
+%% \usepackage{bm}
+
+%% Font style 2
+%% \newcommand\ibinom[2]{\genfrac\lbrace\rbrace{0pt}{}{#1}{#2}} 
+%% \usepackage[boldsans]{ccfonts} 
+%% \usepackage{bm} 
+
+%% Font style 3
+\newcommand\ibinom[2]{\genfrac\lbrace\rbrace{0pt}{}{#1}{#2}}
+\usepackage[euler-digits]{eulervm}
+\usepackage{bm}
+
+%% Font style 4
+%% \usepackage{fourier}
+%% \newcommand\ibinom[2]{\genfrac\lbrace\rbrace{0pt}{}{#1}{#2}}
+%% \usepackage{bm}
+
+%% Font style 5
+%% \newcommand\ibinom[2]{\genfrac\lbrace\rbrace{0pt}{}{#1}{#2}}
+%% \usepackage{mathptmx}
+%% \usepackage{bm} 
+
+
+%% %% Font style 6
+%% \newcommand\ibinom[2]{\genfrac\lbrace\rbrace{0pt}{}{#1}{#2}}
+%% \usepackage{txfonts}
+%% \usepackage{bm}
+%% -----------------------------------------------------------
+
+\usepackage{titlesec} %设置标题
+\usepackage{titletoc}
+
+\usepackage{extarrows}
+\usepackage{verbatim,color,xcolor}
+\usepackage{pgf}
+\usepackage{tikz}
+\usetikzlibrary{calc}
+\usetikzlibrary{arrows,snakes,backgrounds,shapes,patterns}
+\usetikzlibrary{matrix,fit,positioning,decorations.pathmorphing}
+%% \usepackage{classicthesis}
+\usepackage{CJK}
+\usepackage{mathdots}
+
+\usepackage{listings}
+\lstset{
+  keywordstyle=\color{blue!70},
+  frame=single,
+  basicstyle=\ttfamily\small,
+  commentstyle=\small\color{red},
+  breakindent=0pt,
+  rulesepcolor=\color{red!20!green!20!blue!20},
+  rulecolor=\color{black},
+  tabsize=4,
+  numbersep=5pt,
+  breaklines=true,
+  %% backgroundcolor=\color{red!10},
+  showspaces=false,
+  showtabs=false,
+  extendedchars=false,
+  escapeinside=``,
+  frame=no,
+}
+
+
+\newcommand{\blue}{\textcolor{blue}}
+\newcommand{\red}{\textcolor{red}}
+\newcommand{\purple}{\textcolor{electricpurple}}
+\newcommand{\ds}{\displaystyle}
+\newcommand{\cd}{\cdots}
+\newcommand{\dd}{\ddots}
+\newcommand{\vd}{\vdots}
+\newcommand{\id}{\iddots}
+
+\newcommand{\R}{\mathbb R}
+\def\nn{{\boldsymbol{n}}}
+\def\xx{{\boldsymbol{x}}}
+\def\F{{\boldsymbol{F}}}
+\def\div{{\mathrm{div}}}
+\def\tf{\ttfamily}
+
+
+\begin{document}
+
+\begin{CJK}{UTF8}{gkai}
+
+
+ 
+
+\newtheorem{li}{例}
+\newtheorem{jielun}{结论}
+\newtheorem{dingli}{定理}
+\newtheorem{mingti}{{命题}} 
+\newtheorem{yinli}{{引理}} 
+\newtheorem{tuilun}{{推论}}
+\newtheorem{dingyi}{{定义}} 
+\newtheorem{example}{{例}}
+\newtheorem*{example*}{{例}}
+\newtheorem*{jie}{{解}}
+\newtheorem*{zhengming}{{证明}}
+\newtheorem{zhu}{{注}}
+\newtheorem*{zhu*}{{注}}
+\newtheorem{xingzhi}{{性质}}
+\newtheorem{wenti}{{问题}}
+\newtheorem{rem}{{Remark}}
+\newtheorem{lem}{{Lemma}}
+\pagenumbering{roman}
+\pagestyle{plain}
+
+\pagenumbering{arabic}
+
+
+
+\title{宏与预处理器}
+%\author{张晓平}
+%\date{}                                           % Activate to display a given date or no date
+\maketitle
+
+在C程序中，以\#开头的行是会被预处理器所处理，而预处理器是在真正的编译开始之前由编译器调用的独立程序。预处理器可以删除注释、包含其他文件以及执行宏替代。 下面介绍一些关于预处理器的有趣事实：
+\begin{enumerate}
+\item 使用include指令时，头文件中的内容将会复制到当前文件中。使用尖括号{\tf <}和{\tf >}，预处理器将会在预定义的缺省路径中寻找该文件；而使用双引号“和”，预处理器会先在当前目录中寻找该文件，若当前目录中不包含该文件，再到预定义的缺省路径下寻找文件。
+\item 使用define定义一个常数时，预处理会在程序中将宏名替换成表达式。例如，下面的程序中MAX定义为100。
+\lstinputlisting[language=c,numbers=left,frame=single]
+{Code/macro02.c}
+\begin{lstlisting}[backgroundcolor=\color{red!10}]
+Output: max is 100
+\end{lstlisting}
+
+\item 宏允许写成函数的形式，其中的变量不检查数据类型。如下面的程序中，宏{\tf INCREMENT(x)}可用于任意类型的{\tf x}。
+\lstinputlisting[language=c,numbers=left,frame=single]
+{Code/macro03.c}
+\begin{lstlisting}[backgroundcolor=\color{red!10}]
+eeksQuiz 11
+\end{lstlisting}
+
+\item 宏变量在宏展开之前不会被计算。考虑以下程序：
+\lstinputlisting[language=c,numbers=left,frame=single]
+{Code/macro04.c}
+\begin{lstlisting}[backgroundcolor=\color{red!10}]
+16
+\end{lstlisting}
+ 
+\item 可使用{\tf \#\#}运算符将几个宏变量连接在一起。\lstinputlisting[language=c,numbers=left,frame=single]
+{Code/macro05.c}
+\begin{lstlisting}[backgroundcolor=\color{red!10}]
+1234
+\end{lstlisting}
+
+\item 可使用{\tf \#}运算符将标识符转换为字符串字面值。
+\lstinputlisting[language=c,numbers=left,frame=single]
+{Code/macro06.c}
+\begin{lstlisting}[backgroundcolor=\color{red!10}]
+GeeksQuiz
+\end{lstlisting}
+
+\item 可用‘{$\backslash$}’将宏写成多行，但最后一行不需要‘{$\backslash$}’。
+\lstinputlisting[language=c,numbers=left,frame=single]
+{Code/macro07.c}
+\begin{lstlisting}[backgroundcolor=\color{red!10}]
+GeeksQuiz  GeeksQuiz  GeeksQuiz
+\end{lstlisting}
+%
+\item 使用带参量的宏需要谨慎。
+%The macros with arguments should be avoided as they cause problems sometimes. And Inline functions should be preferred as there is type checking parameter evaluation in inline functions. From C99 onward, inline functions are supported by C language also.
+%For example consider the following program. From first look the output seems to be 1, but it produces 36 as output.
+\lstinputlisting[language=c,numbers=left,frame=single]
+{Code/macro08.c}
+\begin{lstlisting}[backgroundcolor=\color{red!10}]
+x = 36
+\end{lstlisting}
+%If we use inline functions, we get the expected output. Also the program given in point 4 above can be corrected using inline functions.
+%\begin{lstlisting}[backgroundcolor=\color{red!10}]
+%inline int square(int x) { return x*x; }
+%int main()
+%{
+%  int x = 36/square(6);
+%  printf("%d", x);
+%  return 0;
+%}
+%\end{lstlisting}
+%\begin{lstlisting}[backgroundcolor=\color{red!10}]
+%Output: 1
+%\end{lstlisting}
+\item 预处理器也支持if-else指令，通常用于条件编译。
+\lstinputlisting[language=c,numbers=left,frame=single]
+{Code/macro09.c}
+\begin{lstlisting}[backgroundcolor=\color{red!10}]
+Trace Message!
+\end{lstlisting}
+%\item A header file may be included more than one time directly or indirectly, this leads to problems of redeclaration of same variables/functions. To avoid this problem, directives like defined, ifdef and ifndef are used.
+\item 可用标准宏{\tf $\_\_$FILE$\_\_$}打印程序名、{\tf $\_\_$DATE$\_\_$}打印编译日期、{\tf$\_\_$TIME$\_\_$}打印编译时间、\tf{$\_\_$LINE$\_\_$}打印C代码的行数。
+\lstinputlisting[language=c,numbers=left,frame=single]
+{Code/macro10.c}
+\begin{lstlisting}[backgroundcolor=\color{red!10}]
+Current File: macro10.c
+Current Date: Feb 27 2017
+Current Time: 21:02:36
+Line  Number: 8 
+\end{lstlisting}
+\end{enumerate}
+
+\end{CJK}
+\end{document}

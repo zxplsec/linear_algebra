@@ -1,0 +1,109 @@
+\section{一个统计字数的程序}
+
+\begin{frame}[fragile]\ft{\secname}
+编制程序，读取一段文字，并报告其中的单词个数，同时统计字符个数和行数。
+\end{frame}
+
+
+\begin{frame}[fragile]\ft{\secname}
+\begin{itemize}
+\item 该程序应该逐个读取字符，并想办法判断何时停止。\\[0.2in]
+\item 应该能够识别并统计字符、行和单词。
+\end{itemize}
+\end{frame}
+
+\begin{frame}[fragile]\ft{\secname}
+\begin{lstlisting}[numbers=left]
+// pseudo code
+ read a character
+ while there is more input
+      increment character count
+      if a line has been read, increment line count
+      if a word has been read, increment word count
+      read next character
+\end{lstlisting}
+\end{frame}
+
+\begin{frame}[fragile]\ft{\secname}
+\begin{lstlisting}[title=循环输入结构]
+while ((ch = getchar()) != STOP)
+{
+  ...
+}
+\end{lstlisting}
+
+\vspace{.1in}\pause 
+
+在通用的单词统计程序中，换行符和句号都不适合标记一段文字的结束。我们将采用一个不常见的字符|。
+\end{frame}
+
+\begin{frame}[fragile]\ft{\secname}
+\begin{itemize}
+\item 程序使用\lstinline| getchar |来循环输入字符，可在每次循环通过递增一个\blue{字符计数器}的值来统计字符。\\[0.15in]
+\item 为统计行数，程序可检查换行符。若字符为换行符，程序就递增\blue{行数计数器}的值。若STOP字符出现在一行的中间，则将该行作为一个\blue{不完整行}来统计，即该行有字符但没有换行符。
+\end{itemize}
+\end{frame}
+
+\begin{frame}[fragile]\ft{\secname}
+如何识别单词？ \pause \vspace{.1in}
+\begin{itemize}
+\item 可将一个单词定义为不包含空白字符的一系列字符。\\[0.15in]
+\item 一个单词以首次遇到非空白字符开始，在下一个空白字符出现时结束。
+\end{itemize}
+\end{frame}
+
+\begin{frame}[fragile]\ft{\secname}
+\begin{itemize}
+\item 检测非空白字符的判断表达式为
+\begin{lstlisting}
+c != ' ' && c != '\n' && c != '\t'
+\end{lstlisting} 
+或
+\begin{lstlisting}
+!isspace(c) // #include <ctype.h>
+\end{lstlisting}\vspace{0.1in}
+
+\item 检测空白字符的判断表达式为
+\begin{lstlisting}
+c == ' ' || c == '\n' || c == '\t'
+\end{lstlisting}
+或
+\begin{lstlisting}
+isspace(c) // #include <ctype.h>
+\end{lstlisting}
+\end{itemize}
+\end{frame}
+
+\begin{frame}[fragile]\ft{\secname}
+\begin{itemize}
+\item
+为了判断一个字符是否在某个单词中，可在读入一个单词的首字符时把一个标志(命名为inword)设置为1，同时在此处递增单词个数。\\[.15in]
+\item
+只要inword为1，后续的非空白字符就不标记为一个单词的开始。到出现下一个空白字符时，就把inword设置为0。
+\end{itemize}
+\begin{lstlisting}[numbers=left]
+// pseudo code
+   if c is not a whitespace and inword is false
+      set inword to true  and count the word
+   if c is a white space and inword is true
+      set inword to false   
+\end{lstlisting}
+
+\end{frame}
+
+\begin{frame}[fragile,allowframebreaks]\ft{\secname}
+\lstinputlisting[numbers=left]{ch07/code/wordcnt.c}
+\end{frame}
+
+
+\begin{frame}[fragile]\ft{\secname}
+\begin{lstlisting}
+Enter text (| to quit):
+Reason is a 
+powerful servant but
+an inadequate master.
+|
+characters = 56, words = 9, lines = 3, partial lines = 0
+\end{lstlisting}
+\end{frame}
+

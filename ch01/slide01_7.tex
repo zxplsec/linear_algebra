@@ -1,0 +1,178 @@
+\section{编译C程序的工作原理}
+\begin{frame}\ft{\secname}
+C是一种高级语言，它需要编译器将其转换为可执行代码，以使得程序能在机器上运行。 
+
+以下介绍在MAC或Linux上使用gcc编译器的几个步骤。
+
+\end{frame}
+
+
+\begin{frame}[fragile]\ft{\secname}
+\begin{itemize}
+
+\item[(1)] 用编辑器(vi,emacs等)创建一个C程序，并将其保存为 \lstinline|add2num.c|。
+
+\begin{lstlisting}
+$ emacs add2num.c
+\end{lstlisting} 
+
+\pause 
+\lstinputlisting[]{ch01/code/add2num.c}
+
+\end{itemize}
+\end{frame}
+
+\begin{frame}[fragile]\ft{\secname}
+\begin{itemize}
+\item[(2)] 编译 
+\begin{lstlisting}
+$ gcc -wall add2num.c –o add2num
+$ ls
+add2num    add2num.c
+\end{lstlisting}
+\begin{itemize}
+	\item \lstinline|-Wall| \quad 启动所有编译器的警告信息。建议使用该选项以生成更好的代码 \\[.1in]
+	\item \lstinline|-o| \quad 指定可执行文件名。若缺省，则可执行文件名将默认为\lstinline|a.out|
+\end{itemize} 
+\end{itemize}
+\end{frame}
+
+\begin{frame}[fragile]\ft{\secname}
+\begin{itemize}
+\item[(3)] 运行可执行文件。
+
+
+\begin{lstlisting}
+$ ./add2num
+Addition is: 9
+\end{lstlisting}
+
+\end{itemize}
+\end{frame}
+
+
+
+\begin{frame}[fragile]\ft{\secname}
+编译器将一个C程序转换为一个可执行文件，需经历了4个阶段：
+\begin{itemize}
+\item 预处理\\[.1in]
+\item 编译\\[.1in]
+\item 汇编\\[.1in]
+\item 链接
+\end{itemize}
+\end{frame}
+
+
+\begin{frame}[fragile]\ft{\secname}
+执行以下命令，在当前目录下会生成所有的中间文件以及可执行文件。
+\begin{lstlisting}
+$ gcc -Wall -save-temps filename.c –o filename 
+$ ls 
+add2num     add2num.c   add2num.o
+add2num.bc  add2num.i   add2num.s
+\end{lstlisting}
+
+接下来，让我们一个个地来看这些中间文件中的内容。 
+\end{frame}
+
+
+\begin{frame}[fragile]\ft{\secname}
+
+\begin{itemize}
+\item[(1)] \blue{预处理} \quad 其输出保存在文件 \lstinline|add2num.i| 中。\\[.1in]
+
+\begin{itemize}
+\item 去掉注释\\[.1in]
+\item 宏的展开\\[.1in]
+\item 头文件的展开\\[.1in]
+\end{itemize}
+ 
+\end{itemize}
+\pause 
+
+\begin{lstlisting}
+$ less add2num.i
+$ ls 
+...
+int printf(const char * restrict, ...) __attribute__((__format__ (__printf__, 1, 2)));
+# 499 "/usr/include/stdio.h" 2 3 4
+# 3 "add2num.c" 2
+
+int main(void)
+{
+  int a = 5, b = 4;
+  printf("Addition is: %d\n", (a+b));
+  return 0;
+}
+\end{lstlisting}
+\end{frame}
+
+
+%\begin{frame}[fragile]\ft{\secname}
+%\red{分析：}在以上内容中，源文件被附加了很多信息，但在末尾代码仍被保留。{\ttfamily printf()}函数中包含了{\ttfamily a+b}而非{\ttfamily add(a,b)}，因为宏已被展开。注释被去除掉。{\ttfamily\#include<stdio.h>}没有了，取而代之的是很多代码。因此，头文件已被展开，并且被包含到了源文件中。
+%
+%\end{frame}
+
+
+\begin{frame}[fragile]\ft{\secname}
+\begin{itemize}
+\item[(2)] \blue{编译} \quad  编译 \lstinline|add2num.i|，生成文件 \lstinline|add2num.s| 。该文件为汇编指令，可用以下命令查看：
+\end{itemize} 
+\begin{lstlisting}
+$ less add2num.s
+...
+        movl    $0, -4(%rbp)
+        movl    $5, -8(%rbp)
+        movl    $4, -12(%rbp)
+        movl    -8(%rbp), %eax
+        addl    -12(%rbp), %eax
+        movl    %eax, %esi
+        movb    $0, %al
+        callq   _printf
+        xorl    %esi, %esi
+...      
+\end{lstlisting}
+\end{frame}
+
+
+\begin{frame}[fragile]\ft{\secname}
+\begin{itemize}
+\item[(3)] \blue{汇编} \quad 通过汇编器将 \lstinline|add2num.s| 转换成 \lstinline|add2num.o|，该文件包含机器指令。\\[.1in]
+\begin{itemize}
+	\item  该阶段只会将现有代码转换成机器语言，而诸如 \lstinline|printf()| 的函数调用则不会。
+\end{itemize}
+\end{itemize}
+\pause 
+\begin{lstlisting}
+$ less add2num.o
+<CF><FA><ED><FE>^G^@^@^A^C^@^@^@^A^@^@^@^D^@^@^@^@^B^@^@^@ ^@^@^@^@^@^@^Y^@^@^@<88>^A^@^@^@^@^@^@^@^
+...      
+\end{lstlisting}
+
+\end{frame}
+
+
+\begin{frame}[fragile]\ft{\secname}
+\begin{itemize}
+\item[(4)] \blue{连接} \quad 完成所有函数调用及其定义的连接工作。\\[.1in]
+
+\begin{itemize}
+	\item 链接器知道所有这些函数在何处执行 \\[.1in]
+	\item 链接器也会做一些额外的工作，以添加一些启动和结束程序所需的额外代码 \\[.1in]
+\end{itemize} 
+\end{itemize}
+\pause 
+
+
+%在命令行中输入以下命令，可看出从目标文件到可执行文件时文件大小的变化。这是因为链接器为我们的程序添加了额外的代码。
+\begin{lstlisting}
+$ size add2num.o
+__TEXT  __DATA  __OBJC  others    dec         hex
+  145     0       0       32      177         b1	
+  
+$ size add2num
+__TEXT  __DATA  __OBJC  others    dec         hex
+4096      4096    0  4294971392 4294979584 100003000
+\end{lstlisting}
+
+\end{frame}

@@ -1,0 +1,212 @@
+\section{获取逻辑性}
+
+\begin{frame}[fragile]\ft{\secname}
+\begin{li}
+编写程序，首先输入一个句子，然后计算除单引号和双引号之外的字符出现的次数。
+\end{li}
+\end{frame}
+
+\begin{frame}[fragile]\ft{\secname}
+\lstinputlisting[numbers=left]{ch07/code/chcount.c}
+\end{frame}
+
+\begin{frame}[fragile]\ft{\secname}
+\begin{lstlisting}
+"I'm fine".
+There are 7 non-quote characters.
+\end{lstlisting}
+
+\end{frame}
+
+\begin{frame}[fragile]\ft{\secname}
+\begin{itemize}
+\item  首先，程序读入一个字符并检查它是不是一个句号。\\[0.1in]
+\item 接下来的语句中，使用了\blue{逻辑与}运算符\&\&。
+\item[] 此时，if语句的含义为“若字符不是双引号也不是单引号，则charcount增加1”。\\[0.1in]
+\item 要使整个表达式为真，则两个条件都必须为真。逻辑运算符的优先级低于关系运算符，故不必使用圆括号。
+\end{itemize}
+\end{frame}
+
+\begin{frame}[fragile]\ft{\secname}
+\begin{table}
+\centering
+\caption{逻辑运算符}
+\begin{tabular}{c|c}\hline\hline
+运算符&含义 \\\hline
+\lstinline|&&| & 与  \\[0.1in]
+\lstinline|||| & 或  \\[0.1in]
+\lstinline|!| & 非  \\\hline\hline
+\end{tabular}
+\end{table}
+\end{frame}
+
+\begin{frame}[fragile]\ft{\secname}
+  设 \lstinline|exp1| 和 \lstinline|exp2| 为两个简单的关系表达式，则 \vspace{0.1in}
+
+\begin{itemize}
+\item 仅当 \lstinline|exp1| 和 \lstinline|exp2| 都为真时， \lstinline|exp1 && exp2| 才为真。\\[0.2in]
+\item 若 \lstinline|exp1| 或 \lstinline|exp2| 为真或二者都为真， \lstinline|exp1| \lstinline||||  \lstinline|exp2| 为真。\\[0.2in]
+\item 若 \lstinline|exp1| 为假，则 \lstinline|!exp1| 为真；若 \lstinline|exp1| 为真，则 \lstinline|!exp1| 为假。
+\end{itemize}
+\end{frame}
+
+
+\begin{frame}[fragile]\ft{\secname}
+请判断以下表达式的值。
+
+\begin{itemize}
+\item \lstinline|5 > 2 \&\& 4 > 7|\\[0.2in]
+\item \lstinline|5 > 2 || 4 > 7|\\[0.2in]
+\item \lstinline|!(4 > 7)|
+\end{itemize}
+\end{frame}
+
+
+\begin{frame}[fragile]\ft{头文件iso646.h}
+\begin{itemize}
+\item 
+  C99标准为逻辑运算符增加了可供选择的拼写法，它们在头文件iso646.h中定义。\\[0.1in]
+\item 
+  若包含了该头文件，可用 \lstinline|and| 代替 \lstinline|&&|，用 \lstinline|or| 代替 \lstinline||||，用 \lstinline|not| 代替 \lstinline|!|。
+\end{itemize}
+\end{frame}
+
+\begin{frame}[fragile]\ft{头文件iso646.h}
+若包含了头文件iso646.h，则
+\begin{lstlisting}
+if (ch != '"' && ch != '\'')
+  charcount++;
+\end{lstlisting}
+可重写为
+\begin{lstlisting}
+if (ch != '"' and ch != '\'')
+  charcount++;
+\end{lstlisting}
+\end{frame}
+
+
+\begin{frame}[fragile]\ft{头文件iso646.h}
+\begin{table}
+\centering
+\caption{逻辑运算符的可选表示法}
+\begin{tabular}{c|c}\hline\hline
+传统用法 & iso646.h  \\\hline
+\lstinline|&&| & \lstinline|and|  \\[0.1in]
+\lstinline|||| & \lstinline|or|  \\[0.1in]
+\lstinline|!| &  \lstinline|not|  \\\hline\hline
+\end{tabular}
+\end{table}
+\end{frame}
+
+
+\begin{frame}[fragile]\ft{优先级}
+\begin{itemize}
+\item 
+\lstinline|!| 为单目运算符，优先级同增量运算符相同，仅次于圆括号。\\[0.2in]
+\item
+\lstinline|&&| 的优先级高于 \lstinline||||，两者的优先级都低于关系运算符，高于赋值运算符。\\[0.2in]
+\item[] 如
+\begin{lstlisting}
+a > b && b > c || b > d
+\end{lstlisting}
+会被视为
+\begin{lstlisting}
+((a > b) && (b > c)) || (b > d)
+\end{lstlisting}
+\end{itemize}
+\end{frame}
+
+\begin{frame}[fragile]\ft{求值顺序}
+\begin{itemize}
+\item 除了那些两个运算符共享一个操作数的情况外，C通常不保证复杂表达式的哪个部分首先被求值。\\[0.2in]
+\item [] 
+如以下语句中
+\begin{lstlisting}
+b = (5 + 3) * (9 + 6)
+\end{lstlisting}
+可能先计算 \lstinline|5 + 3| 的值，也可能先计算 \lstinline|9 + 6| 的值。\\[0.2in]
+\item 
+C允许这种不确定性，以便编译器设计者可以针对特定系统做出最有效率的选择。
+\end{itemize}
+
+\end{frame}
+
+
+\begin{frame}[fragile]\ft{求值顺序}
+\begin{itemize}
+\item 但对逻辑运算符的处理是个例外，C保证逻辑表达式是从左到右求值的。\\[0.2in]
+\item 
+\lstinline|&&| 和 \lstinline|||| 是顺序点，故在程序从一个操作数前进到下一个操作数之前，所有副作用都会生效。\\[0.2in]
+\item 
+\blue{C保证一旦发现某个元素使表达式总体无效，求值会立即停止。}
+\end{itemize}
+
+\end{frame}
+
+
+\begin{frame}[fragile]\ft{求值顺序}
+\begin{lstlisting}
+while ((c = getchar()) != ' ' && c != '\n') 
+\end{lstlisting} 
+
+\pause \vspace{0.5mm}
+
+\begin{itemize}
+\item
+该结构用于循环读入字符，直到出现第一个空格符或换行符。
+\item 
+第一个子表达式给c赋值，然后该值用于第二个子表达式中。
+\item
+若没有顺序保障，计算机可能试图在c被赋值之前判断第二个表达式。
+\end{itemize}
+\end{frame}
+
+
+
+\begin{frame}[fragile]\ft{求值顺序}
+\begin{lstlisting}
+while (x++ < 10 && x + y < 20) 
+\end{lstlisting} 
+
+
+\pause \vspace{0.5mm}
+
+\lstinline|&&| 是顺序点，故保证了在对右边表达式求值之前，先把x的值增加1。
+\end{frame}
+
+
+\begin{frame}[fragile]\ft{求值顺序}
+\begin{lstlisting}
+if (number != 0 && 12/number == 2)
+  printf("The number is 5 or 6.\n");
+\end{lstlisting} 
+
+\rule{\textwidth}{.5mm} \pause \vspace{0.5mm}
+
+若 \lstinline|number| 的值为0，则第一个表达式为假，就不再对关系表达式求值。这就避免了计算机试图把0作为除数。
+\end{frame}
+
+\begin{frame}[fragile]\ft{范围}
+可把 \lstinline|&&| 用于测试范围。如要检查90到100范围内的得分，可以这样做
+\begin{lstlisting}
+if (score >= 90 && score <= 100)
+  printf("Excellent!\n");
+\end{lstlisting} \pause \vspace{0.1in}
+\end{frame}
+
+\begin{frame}[fragile]\ft{范围}
+请避免以下做法：
+\begin{lstlisting}
+if (90 <= score <= 100)
+  printf("Excellent!\n");
+\end{lstlisting}
+
+\pause \vspace{0.5mm}
+
+这段代码没有语法错误，但有语义错误。因对 \lstinline|<=| 的求值顺序是从左到右的，故测试表达式会被解释为
+\begin{lstlisting}
+(90 <= score) <= 100
+\end{lstlisting}
+而子表达式\lstinline| 90 <= score |的值为1或0，总小于100。故不管range取何值，整个表达式总为真。
+\end{frame}
+

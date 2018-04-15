@@ -1,0 +1,4 @@
+\ft{\secname}
+\begin{block}{例5}
+读取输入直到\lstinline| #|，统计\lstinline| ei |出现的次数。
+\end{block}

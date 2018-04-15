@@ -1,0 +1,109 @@
+\section{使用函数返回值的循环}
+\begin{frame}[fragile]\ft{\secname}
+\begin{biancheng}
+  写一个函数，计算一个数的整数次幂，如$n^p$。
+\end{biancheng}
+\rule{\textwidth}{1mm}\pause \vspace{0.1in}
+
+请大家记住，头文件 \lstinline|math.h| 中提供了一个名为 \lstinline|pow| 的幂函数，允许计算浮点数次幂。
+
+
+\end{frame}
+
+
+\begin{frame}[fragile]\ft{\lstinline|pow()|的使用}
+
+\lstinputlisting[numbers=left]{ch06/code/pow.c}
+
+\end{frame}
+
+
+\begin{frame}[fragile]\ft{\lstinline|pow()|的使用}
+
+
+\begin{lstlisting}[backgroundcolor=\color{red!10}]
+   2^3   = 8.000000
+ sqrt 2  = 1.414214
+ 3^(1/4) = 1.316074
+\end{lstlisting}
+
+\end{frame}
+
+
+\begin{frame}[fragile]\ft{\secname}
+\begin{lstlisting}[numbers=left]
+double power(double n, int p)
+{
+  double pow = 1;
+  int i;
+  
+  for (i = 1; i <= p; i++)
+    pow *= n;
+    
+  return pow;
+}
+\end{lstlisting}
+\end{frame}
+
+
+\begin{frame}[fragile]\ft{\secname}
+写一个具有返回值的函数需要做以下事情：\vspace{0.1in}
+
+\begin{itemize}
+\item 定义函数时，说明它的返回值类型；\\[0.1in]
+\item 使用关键字return指示要返回的值。
+\end{itemize}
+\end{frame}
+
+
+\begin{frame}[fragile]\ft{\secname}
+\begin{itemize}
+\item 要声明函数类型，可以在函数名之前写出类型，就像声明一个变量时那样；\\[0.1in]
+\item 关键字return使函数把它后面的值返回给调用函数。可以返回一个值，也可以返回一个表达式。
+\begin{lstlisting}
+return 2 * x + b;
+\end{lstlisting}
+\end{itemize}
+\end{frame}
+
+
+\begin{frame}[fragile]\ft{\secname}
+在调用函数中，\vspace{0.1in}
+
+\begin{itemize}
+\item 可以把一个返回值赋给另一个变量。
+\begin{lstlisting}
+b = power(1.2, 3);
+\end{lstlisting}
+\item 可以把一个返回值作为一个表达式中的值。
+\begin{lstlisting}
+b = 2.0 + power(1.2, 3);
+\end{lstlisting}
+\item 也可以把一个返回值作为另一个函数的参数。
+\begin{lstlisting}
+printf("%f", power(1.2, 3));
+\end{lstlisting}
+\end{itemize}
+\end{frame}
+
+\begin{frame}[fragile,allowframebreaks]\ft{power函数的测试}
+\lstinputlisting[numbers=left]{ch06/code/power.c}
+\end{frame}
+
+
+\begin{frame}[fragile]\ft{power函数的测试}
+\begin{lstlisting}
+Enter a number and the positive integer power
+to which
+the number will be raised. Enter qto quit.
+1.2 12
+1.2 to the power 12 is 8.9161
+Enter next pair of numbers or q to quit.
+2
+16
+2 to the power 16 is 65536
+Enter next pair of numbers or q to quit.
+q
+\end{lstlisting}
+
+\end{frame}

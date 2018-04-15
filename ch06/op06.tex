@@ -1,0 +1,229 @@
+\begin{frame}[fragile]
+\begin{biancheng}[1]
+\begin{itemize}
+\item 创建一个长度为26的数组，其中存储26个小写字母；\\[.1in]
+\item 利用该数组打印26个大写字母。
+\end{itemize}
+\end{biancheng}
+\end{frame}
+
+
+% \begin{frame}[fragile,allowframebreaks]
+% \lstinputlisting{ch06/code/ex01.c}
+% \end{frame}
+
+
+\begin{frame}[fragile]
+\begin{biancheng}[2]
+使用嵌套循环生成如下图案
+\begin{lstlisting}
+$
+$$
+$$$
+$$$$
+$$$$$
+\end{lstlisting}
+\end{biancheng}
+\end{frame}
+
+% \begin{frame}[fragile,allowframebreaks]
+% \lstinputlisting{ch06/code/ex02.c}
+% \end{frame}
+
+\begin{frame}[fragile]
+\begin{biancheng}[3]
+使用嵌套循环产生下列图案
+\begin{lstlisting}
+F
+FE
+FED
+FEDC
+FEDCB
+FEDCBA
+\end{lstlisting}
+\end{biancheng}
+\end{frame}
+
+% \begin{frame}[fragile,allowframebreaks]
+% \lstinputlisting{ch06/code/ex03.c}
+% \end{frame}
+
+\begin{frame}[fragile]
+\begin{biancheng}[4]
+  让用户输入一个大写字母，生成如下图案。
+\begin{lstlisting}
+    A
+   ABA
+  ABCBA
+ ABCDCBA
+ABCDEDCBA
+\end{lstlisting}
+\end{biancheng}
+\end{frame}
+
+% \begin{frame}[fragile,allowframebreaks]
+% \lstinputlisting{ch06/code/ex04.c}
+% \end{frame}
+
+\begin{frame}[fragile]
+\begin{biancheng}[5]
+打印一个表格，每一行都给出一个整数、它的平方以及立方。要求：
+\begin{itemize}
+\item 用户输入表的上限和下限；\\[.1in]
+\item 使用一个for循环。
+\end{itemize}
+\end{biancheng}
+\end{frame}
+
+
+% \begin{frame}[fragile,allowframebreaks]
+% \lstinputlisting{ch06/code/ex05.c}
+% \end{frame}
+
+
+\begin{frame}[fragile]
+\begin{biancheng}[6]
+将一个单词读入一个字符数组，然后反向打印它。
+\end{biancheng}
+\end{frame}
+
+
+% \begin{frame}[fragile,allowframebreaks]
+% \lstinputlisting{ch06/code/ex06.c}
+% \end{frame}
+
+
+\begin{frame}[fragile]
+\begin{biancheng}[7]
+输入两个浮点数，然后打印出其差值和其乘积。要求在输入非数字之前循环处理每对输入值。
+\end{biancheng}
+\end{frame}
+
+
+% \begin{frame}[fragile,allowframebreaks]
+% \lstinputlisting{ch06/code/ex07.c}
+% \end{frame}
+
+
+\begin{frame}[fragile]
+\begin{biancheng}[8]
+改写以上程序，让它使用一个函数来返回计算值。
+\end{biancheng}
+\end{frame}
+
+\begin{frame}[fragile]
+\begin{biancheng}[9]
+\begin{itemize}
+\item 由用户输入一个下限整数和上限整数；\\[.1in]
+\item 依次计算从下限到上限的每一个整数的平方和；\\[.1in]
+\item 当上限小于或等于上限时，程序结束。
+\end{itemize}
+运行结果如下：
+\begin{lstlisting}
+Enter lower and upper integer limit: 5 9
+The sum of the squares from 25 to 81 is 255
+Enter lower and upper integer limit: 3 25
+The sum of the squares from 9 to 625 is 5520
+Enter lower and upper integer limit: 5 5
+Done
+\end{lstlisting}
+\end{biancheng}
+\end{frame}
+
+% \begin{frame}[fragile,allowframebreaks]
+% \lstinputlisting{ch06/code/ex09.c}
+% \end{frame}
+
+
+\begin{frame}[fragile]
+\begin{biancheng}[10]
+读入8个整数至一个数组，然后反顺打印它们。
+\end{biancheng}
+\end{frame}
+
+% \begin{frame}[fragile,allowframebreaks]
+% \lstinputlisting{ch06/code/ex10.c}
+% \end{frame}
+
+\begin{frame}[fragile]
+\begin{biancheng}[11]
+计算级数
+$$
+\begin{aligned}
+&1+\frac12 + \frac13 + \frac14 + \cdots + \frac1n + \cdots\\
+&1-\frac12 + \frac13 - \frac14 + \cdots + (-1)^{n+1}\frac1n + \cdots
+\end{aligned}
+$$
+由用户输入$n$，观察$n=20,100,500$时的结果，判断级数是否会收敛。
+\end{biancheng}
+\end{frame}
+
+% \begin{frame}[fragile,allowframebreaks]
+% \lstinputlisting{ch06/code/ex11.c}
+% \end{frame}
+
+
+\begin{frame}[fragile]
+\begin{biancheng}[12]
+\begin{itemize}
+\item 创建一个长度为8的int数组；\\[.1in]
+\item 把元素分别设为2的前8次幂；\\[.1in]
+\item 打印出它们的值。
+\end{itemize}
+使用for循环来设置值，使用do while循环来显示值。
+\end{biancheng}
+\end{frame}
+
+% \begin{frame}[fragile,allowframebreaks]
+% \lstinputlisting{ch06/code/ex12.c}
+% \end{frame}
+
+
+\begin{frame}[fragile]
+  \begin{biancheng}[13]
+    \begin{itemize}
+    \item 创建两个长度为8的double数组；\\[.1in]
+    \item 使用一个循环让用户键入第一个数组的8个元素的值；\\[.1in]
+    \item 把第二个数组第$i$个元素设置为第一个数组的前$i$个元素之和；\\[.1in]
+    \item 最后使用一个循环来显示两个数组的内容，第一个数组在一行中显示，而第二个数组中的每个元素在第一个数组的对应元素之下显示。
+  \end{itemize}
+\end{biancheng}
+\end{frame}
+
+% \begin{frame}[fragile,allowframebreaks]
+% \lstinputlisting{ch06/code/ex13.c}
+% \end{frame}
+
+\begin{frame}[fragile]
+\begin{biancheng}[14]
+读入一行输入，然后反向打印该行。
+\end{biancheng}
+\end{frame}
+
+% \begin{frame}[fragile,allowframebreaks]
+% \lstinputlisting{ch06/code/ex14.c}
+% \end{frame}
+
+
+\begin{frame}[fragile]
+\begin{biancheng}[15]
+小王以每年10\%的单利投资了￥10000，而小李以每年5\%的复利投资了￥10000。编制一个程序，计算需要多少年小王的投资额才会超过小李，并显示那时两个人的投资额。
+\end{biancheng}
+\end{frame}
+
+% \begin{frame}[fragile,allowframebreaks]
+% \lstinputlisting{ch06/code/ex15.c}
+% \end{frame}
+
+
+\begin{frame}[fragile]
+\begin{biancheng}[16]
+小王中奖100万美元，存入一个每年赢得8\%的账户。在每年的最后一天，小王取出10万美元。编写一个程序，计算需要多少年才会清空账户。
+\end{biancheng}
+\end{frame}
+
+
+% \begin{frame}[fragile,allowframebreaks]
+% \lstinputlisting{ch06/code/ex16.c}
+% \end{frame}
+

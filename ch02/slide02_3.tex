@@ -1,0 +1,46 @@
+\section{使程序可读的技巧}
+\begin{frame}[fragile]\ft{\secname}
+\begin{itemize}
+\item 变量命名时做到“见其名知其意”；\\[0.1in]
+\item 合理使用注释；\\[0.1in]
+\item 使用空行分隔一个函数的各个部分，如声明、操作等；\\[0.1in]
+\item 每条语句用一行。注意，C允许把多条语句放在同一行或一条语句放多行。
+\end{itemize}
+\end{frame}
+
+
+\begin{frame}[fragile]\ft{\secname}
+\lstinputlisting[language=c]{ch02/code/mile_km.c}
+\end{frame}
+
+
+\begin{frame}[fragile]\ft{\secname}
+\begin{itemize}
+	\item 建议在程序开始处，用一个注释说明文件名和程序的作用，这对以后浏览或打印程序很有帮助。\\[0.1in]
+	\item 多个声明 \\[0.1in]
+	
+\begin{minipage}{.4\textwidth}
+\begin{lstlisting}[language=c]
+float mile, km;
+\end{lstlisting}
+\end{minipage}	$~~\Leftrightarrow~~$
+\begin{minipage}{.4\textwidth}
+\begin{lstlisting}[language=c]
+float mile;
+float km;
+\end{lstlisting}
+\end{minipage}
+
+\item 输出多个值
+
+\begin{itemize}
+	\item 第一个printf语句用了两个占位符：第一个\%d为mile占位，第二个\%d为km占位；圆括号中有三个参数，之间用逗号隔开。\vspace{0.1in}
+	\item 
+	第二个printf语句说明输出的值可以是一个表达式。
+\end{itemize}
+
+\end{itemize}
+ 
+
+\end{frame}
+ 

@@ -1,0 +1,240 @@
+\section{switch语句}
+\begin{frame}[fragile]\ft{\secname}
+多重选择时，可以使用
+\begin{lstlisting}
+if (condition1)
+  ...
+else if (condition2)
+  ...
+else if (condition3)
+  ...
+else    
+\end{lstlisting}
+但多数情况下，使用switch语句会更加方便。
+\end{frame}
+
+\begin{frame}[fragile,allowframebreaks]\ft{\secname}
+\lstinputlisting[numbers=left]
+{ch07/code/animals.c}
+\end{frame}
+
+
+\begin{frame}[fragile]\ft{\secname}
+\begin{lstlisting}
+Give a letter, and I will give you an animal name beginning with that letter.
+Please type in a letter: # to quit.
+dog
+dove
+Please typer another letter or a #.
+a
+alligator
+Please typer another letter or a #.
+eff
+eagle
+Please typer another letter or a #.
+#
+Bye!
+\end{lstlisting}
+\end{frame}
+
+\begin{frame}[fragile]\ft{\secname}
+\begin{lstlisting}[language=c,frame=single]
+// switch`语法`
+switch (integer expression)
+{
+  case constant1:
+    statements
+  case constant2:
+    statements
+  ...
+  default:
+    statements
+}    
+\end{lstlisting}
+\end{frame}
+
+\begin{frame}[fragile]\ft{\secname}
+  1、判断表达式应该具有整数值，包括int，char和enum类型。
+\end{frame}
+
+\begin{frame}[fragile]\ft{\secname}
+  \lstinputlisting[numbers=left]
+  {ch07/code/switch1.c}
+\end{frame}
+
+\begin{frame}[fragile]\ft{\secname}
+2、break使程序跳出switch结构，执行switch之后的下一条语句。
+若没有break语句，从相匹配的标签到switch末尾的每一条语句都会被执行。
+\end{frame}
+
+\begin{frame}[fragile]\ft{\secname}
+  \lstinputlisting[numbers=left]
+  {ch07/code/switch2.c}
+\end{frame}
+
+\begin{frame}[fragile]\ft{\secname}
+\begin{lstlisting}
+Choice is 2
+Choice is 3
+Choice other than 1, 2 and 3
+\end{lstlisting}
+
+\end{frame}
+
+\begin{frame}[fragile]\ft{\secname}
+  \lstinputlisting[numbers=left]
+  {ch07/code/switch3.c}
+\end{frame}
+
+\begin{frame}[fragile]\ft{\secname}
+\begin{lstlisting}
+Choice is 2
+Choice is 3
+Choice is 4
+After Switch
+\end{lstlisting}
+\end{frame}
+
+
+\begin{frame}[fragile]\ft{\secname}
+3、case标签必须是整型常量或整型常量表达式，不能用变量作为case标签。
+\end{frame}
+
+\begin{frame}[fragile]\ft{\secname}
+  \lstinputlisting[numbers=left]
+  {ch07/code/switch4.c}
+\end{frame}
+
+\begin{frame}[fragile]\ft{\secname}
+4、default语句块可放在switch结构中的任意位置，若判断表达式与标签均不匹配，它会被执行。
+\end{frame}
+
+\begin{frame}[fragile]\ft{\secname}
+  \lstinputlisting[numbers=left]
+  {ch07/code/switch5.c} \pause 
+\begin{lstlisting}
+Choice other than 1 and 2
+\end{lstlisting}
+\end{frame}
+
+
+\begin{frame}[fragile,allowframebreaks]\ft{\secname}
+5、case之前的语句不会被执行。一旦进入switch结构，将直接转入标签匹配。
+\end{frame}
+
+\begin{frame}[fragile,allowframebreaks]\ft{\secname}
+\lstinputlisting
+[numbers=left]
+{ch07/code/switch6.c}
+\begin{lstlisting}
+Choice is 1
+\end{lstlisting}
+\end{frame}
+
+\begin{frame}[fragile,allowframebreaks]\ft{\secname}
+6、两个case标签不能有相同值。
+\end{frame}
+
+\begin{frame}[fragile,allowframebreaks]\ft{\secname}
+\lstinputlisting
+[numbers=left]
+{ch07/code/switch7.c}
+\end{frame}
+
+
+
+\begin{frame}[fragile]\ft{\secname}
+  \begin{li}
+    编制程序，输入一段文字，按{\tf \#}停止输入，然后统计该段文字中字母a, e, i, o, u出现的次数（不计大小写）。
+  \end{li}
+\end{frame}
+
+
+
+\begin{frame}[fragile,allowframebreaks]\ft{\secname}
+\lstinputlisting
+[numbers=left]
+{ch07/code/vowels.c}
+\end{frame}
+
+\begin{frame}[fragile]\ft{\secname}
+\begin{lstlisting}[backgroundcolor=\color{red!10}]
+Enter some text: enter # to quit.
+See you tommorrow!#
+Number of text:    A    E    I    U
+                   0    2    0    1
+\end{lstlisting}   
+\end{frame}
+
+\begin{frame}[fragile]\ft{\secname}
+\begin{itemize}
+\item
+若输入字母为i，则switch语句定位到标签为case 'i':的位置。因没有break同该标签相关联，故程序将前进到下一条语句，即ni++。\\[0.1in]
+\item 
+若输入字母为I，程序将直接定位到这条语句。\\[0.1in]
+\item 
+本质上，两个标签都指向相同的语句。
+\end{itemize} 
+\end{frame}
+
+\begin{frame}[fragile]\ft{\secname}
+在该例中，可通过ctype.h中的toupper函数在进行判断之前将所有的字母转换为大写字母以避免多重标签。
+\end{frame}
+
+\begin{frame}[fragile]\ft{\secname}
+\begin{lstlisting}
+ch = toupper(ch);
+switch (ch) {
+  case 'A':  na++;
+    break;
+  case 'E':  ne++;
+    break;
+  case 'I':  ni++;
+    break;
+  case 'O':  no++;
+    break;
+  case 'U':  nu++;
+    break;
+  default:
+    break;
+}   
+\end{lstlisting}           
+\end{frame}
+
+\begin{frame}[fragile]\ft{\secname}
+若希望保留ch的值不变，可以这么做
+\begin{lstlisting}
+switch (toupper(ch)) {
+  case 'A':  na++;
+    break;
+  case 'E':  ne++;
+    break;
+  case 'I':  ni++;
+    break;
+  case 'O':  no++;
+    break;
+  case 'U':  nu++;
+    break;
+  default:
+    break;
+}
+\end{lstlisting}  
+\end{frame}
+
+\begin{frame}[fragile]\ft{\secname：switch与if else}
+\begin{itemize}
+\item
+若选择是基于求一个浮点型变量或表达式的值，就不能使用switch。\\[0.1in]
+\item
+若变量必须落入某个范围，使用if语句会更方便。如
+\begin{lstlisting}
+if (integer < 1000 && integer > 2)  
+\end{lstlisting}
+\vspace{0.1in}
+\item 若可以使用switch，程序会运行得稍快些，并且代码会更紧凑。 
+\end{itemize}         
+\end{frame}
+
+
+
+

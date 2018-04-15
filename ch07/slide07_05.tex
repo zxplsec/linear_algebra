@@ -1,0 +1,79 @@
+\section{条件运算符}
+\begin{frame}[fragile]\ft{\secname}
+C提供一种简写方式来表示\lstinline| if else |语句，被称为条件表达式，并使用条件运算符\lstinline| ? : |。它是C语言中唯一的三目操作符。
+\end{frame}
+
+\begin{frame}[fragile]\ft{\secname}
+\begin{lstlisting}[title=求绝对值]
+x = (y < 0) ? -y : y;
+\end{lstlisting}
+
+\pause \vspace{.1in}
+
+\begin{itemize}
+\item 其含义为
+$$
+x = \left\{
+\begin{array}{ll}
+-y, & y < 0, \\
+y, & y \ge 0.
+\end{array}
+\right.
+$$
+\item 用if else描述为
+\begin{lstlisting}
+if (y < 0)
+  x = -y;
+else
+  x = y;  
+\end{lstlisting}
+\end{itemize}
+\end{frame}
+
+\begin{frame}[fragile]\ft{\secname}
+\begin{lstlisting}[title=条件表达式的语法]
+expresion1 ? expression2 : expression3
+\end{lstlisting}
+
+\pause \vspace{.1in}
+
+若expresion1为真，则条件表达式的值等于expression2的值；
+若expresion1为假，则条件表达式的值等于expression3的值。
+\end{frame}
+
+\begin{frame}[fragile]\ft{\secname}
+若希望将两个可能的值中的一个赋给变量时，可使用条件表达式。典型的例子是将两个值中的最大值赋给变量：
+\begin{lstlisting}[frame=single]
+max = (a > b) ? a : b;
+\end{lstlisting}
+\end{frame}
+
+\begin{frame}[fragile]\ft{\secname}
+if else语句能完成与条件运算符同样的功能。但是，条件运算符语句更简洁；并且可以产生更精简的程序代码。
+\end{frame}
+
+\begin{frame}[fragile]\ft{\secname}
+\begin{li}
+设每罐油漆可喷200平方英尺，编写程序计算向给定的面积喷油漆，全部喷完需要多少罐油漆。
+\end{li}
+\end{frame}
+
+\begin{frame}[fragile,allowframebreaks]\ft{\secname}
+\lstinputlisting[numbers=left]{ch07/code/paint.c}
+
+\end{frame}
+
+\begin{frame}[fragile]\ft{\secname}
+\begin{lstlisting}
+Enter number of square feet to be painted:
+200
+You need 1 can of paint.
+Enter next value (q to quit):
+225
+You need 2 cans of paint.
+Enter next value (q to quit):
+q
+\end{lstlisting}
+\end{frame}
+
+

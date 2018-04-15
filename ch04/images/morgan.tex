@@ -1,0 +1,32 @@
+\documentclass{article}
+\usepackage[UTF8,noindent]{ctex}
+\input{../../asset/global_usepackage.tex}
+
+\pgfrealjobname{survey}
+\begin{document}
+\beginpgfgraphicnamed{morgan}
+\begin{tikzpicture}
+\def\x{0.5}
+\foreach \i in {0,1,...,13}{
+\draw[fill=gray!10] (\i*\x,0)rectangle(\i*\x+\x,\x);
+\ifthenelse{\i=0} {\node at (\i*\x+0.5*\x,0) [above]{\lstinline|M|};}{}
+\ifthenelse{\i=1} {\node at (\i*\x+0.5*\x,0) [above]{\lstinline|o|};}{}
+\ifthenelse{\i=2} {\node at (\i*\x+0.5*\x,0) [above]{\lstinline|r|};}{}
+\ifthenelse{\i=3} {\node at (\i*\x+0.5*\x,0) [above]{\lstinline|g|};}{}
+\ifthenelse{\i=4} {\node at (\i*\x+0.5*\x,0) [above]{\lstinline|a|};}{}
+\ifthenelse{\i=5} {\node at (\i*\x+0.5*\x,0) [above]{\lstinline|n|};}{}
+\ifthenelse{\i=6} {\node at (\i*\x+0.5*\x,0) [above]{\lstinline|\\0|};}{}
+\ifthenelse{\i=7} {\node at (\i*\x+0.5*\x,0) [above]{};}{}
+\ifthenelse{\i=8} {\node at (\i*\x+0.5*\x,0) [above]{};}{}
+\ifthenelse{\i=9} {\node at (\i*\x+0.5*\x,0) [above]{};}{}
+\ifthenelse{\i=10}{\node at (\i*\x+0.5*\x,0.4*\x) []{};}{}
+\ifthenelse{\i=11}{\node at (\i*\x+0.5*\x,0) [above]{};}{}
+\ifthenelse{\i=12}{\node at (\i*\x+0.5*\x,0) [above]{};}{}
+\ifthenelse{\i=13}{\node at (\i*\x+0.5*\x,0) [above]{ };}{}
+}
+\end{tikzpicture}
+
+\endpgfgraphicnamed  
+\end{document}
+
+

@@ -1,0 +1,34 @@
+\documentclass{article}
+\usepackage[UTF8,noindent]{ctex}
+\input{../../asset/global_usepackage.tex}
+
+\pgfrealjobname{survey}
+\begin{document}
+\beginpgfgraphicnamed{while}
+\tikzstyle{startstop}=[rectangle,rounded corners,minimum width=3cm,minimum height=1cm,text centered,draw=black,fill=red!30]
+\tikzstyle{process}=[rectangle,minimum width=3cm,minimum height=1cm,text centered,draw=black,fill=orange!30]
+\tikzstyle{decision}=[diamond,aspect=2,minimum width=3cm,minimum height=.5cm,text centered,draw=black,fill=green!30]
+\tikzstyle{arrow}=[thick,->,>=stealth]
+
+\begin{tikzpicture}[node distance=3cm]
+  \node (start) [process] {\lstinline|shoe = 10.0;|};
+  \node (dec) [decision,below of=start] {\lstinline|shoe < 18.5|};
+  \node (pro) [process,below of=dec,align=left] 
+  {\lstinline|foot = SCALE * shoe + ADJUST;|\\
+    \lstinline|printf("...");|\\
+    \lstinline|shoe = shoe + 1;|
+  };
+  \node (right) [right of=pro] {};
+
+  \draw [arrow] (start) -- (dec);
+  \draw [arrow] (dec) -- node[anchor=east] {\lstinline|yes|} (pro);
+  \draw [thick] (pro) -- ++(4,0);
+  \draw [arrow] (pro)++(4,0)|- (dec);
+  \draw [arrow] (dec) -- node[anchor=south] {\lstinline|no|}
+  node[align=left,anchor=north] {\lstinline|go to next|\\ 
+    \lstinline|statement|} ++(-4,0);
+\end{tikzpicture}
+\endpgfgraphicnamed  
+\end{document}
+
+

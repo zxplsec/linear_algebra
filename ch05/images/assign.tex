@@ -1,0 +1,16 @@
+\documentclass{article}
+\usepackage[UTF8,noindent]{ctex}
+\input{../../asset/global_usepackage.tex}
+
+\pgfrealjobname{survey}
+\begin{document}
+\beginpgfgraphicnamed{assign}
+\begin{tikzpicture}
+\def\x{1}
+\draw (0,0)rectangle node[]{\lstinline|22|} node[above=0.8cm]{\lstinline|i|}(\x,\x);
+\draw (5*\x,0)rectangle node[]{\lstinline|23|} node[above=0.8cm]{\lstinline|i|}(6*\x,\x);
+\draw[->,>=stealth,very thick] (1.2*\x,0.5*\x)--node[above]{\lstinline|i = 22 + 1|}(4.8*\x,0.5*\x);
+\end{tikzpicture}\endpgfgraphicnamed  
+\end{document}
+
+

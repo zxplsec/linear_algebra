@@ -1,0 +1,80 @@
+\section{常量与预处理器}
+
+\begin{frame}[fragile]\ft{\secname}
+\lstinputlisting[language=c,frame=single,numbers=left]
+{ch04/code/circle1.c}
+\end{frame}
+
+\begin{frame}[fragile]\ft{\secname}
+\begin{lstlisting}[backgroundcolor=\color{red!10}]
+radius =  1.000000, circum = 6.283185, area = 3.141593
+\end{lstlisting}
+\end{frame}
+
+\begin{frame}[fragile]\ft{\secname}
+\lstinputlisting[language=c,frame=single,numbers=left]
+{ch04/code/circle2.c}
+\end{frame}
+
+\begin{frame}[fragile]\ft{\secname}
+\lstinputlisting[language=c,frame=single,numbers=left]
+{ch04/code/circle3.c}
+\end{frame}
+
+\begin{frame}[fragile]\ft{\secname}
+\lstinputlisting[language=c,frame=single,numbers=left]
+{ch04/code/circle4.c}
+
+\end{frame}
+
+\begin{frame}[fragile]\ft{\secname：宏定义}
+\begin{lstlisting}[title=宏定义的一般形式,backgroundcolor=\color{red!10}]
+#define NAME value
+\end{lstlisting}
+
+\begin{itemize}
+\item 没有使用分号是因为这是一种替代机制，而不是C的语句。\\[0.1in]
+\item 符号常量请使用大写，其好处在于当看到它时便可立即知道是常量。\\[0.1in]
+\item 符号常量的命名请遵循变量命名规则。
+\end{itemize}
+\end{frame}
+
+\begin{frame}[fragile]\ft{\secname：宏定义}
+\lstinline|#define|语句也可用于定义字符和字符串变量，前者用单引号，后者用双引号。
+\vspace{0.1in}
+
+\begin{lstlisting}
+#define BEEP '\a'
+#define TEE 'T'
+#define ESC '\033'
+#define OOPS "Now you have done it!"
+\end{lstlisting}
+
+\end{frame}
+
+\begin{frame}[fragile]\ft{\secname：宏定义}
+\lstinline|#define|语句也可用于定义字符和字符串变量，前者用单引号，后者用双引号。
+\vspace{0.1in} \pause 
+
+\begin{lstlisting}[title=常见错误]
+#define B = 20
+\end{lstlisting}
+\vspace{0.1in}
+
+如果这样做，\lstinline|B|将会被\lstinline|= 20|而不是\lstinline|20|代替。 这样以下语句
+\begin{lstlisting}
+c = a + B;
+\end{lstlisting}
+会被替换成如下错误的表达：
+\begin{lstlisting}
+c = a + = 20;
+\end{lstlisting}
+\end{frame}
+
+\begin{frame}[fragile]\ft{\secname：\lstinline|const|修饰符}
+C90允许使用关键字\lstinline|const|把一个变量声明转换为常量声明：
+\begin{lstlisting}
+const int MONTHS = 12; 
+\end{lstlisting}
+这使得\lstinline|MONTHS|成为一个只读值。你可以显示它，并把它用于计算中，但不能改变它的值。
+\end{frame}

@@ -1,0 +1,145 @@
+\section{专题一、预处理器与宏}
+\begin{frame}\ft{\secname}
+在C程序中，以{\tf \#}开头的行是会被预处理器所处理，而预处理器是在真正的编译开始之前由编译器调用的独立程序。预处理器可以删除注释、包含其他文件以及执行宏替代。 下面介绍一些关于预处理器的有趣事实。
+\end{frame}
+
+\begin{frame}\ft{\secname}
+1、 使用include指令时，头文件中的内容将会复制到当前文件中。使用尖括号{\tf <}和{\tf >}，预处理器将会在预定义的缺省路径中寻找该文件；而使用双引号“和”，预处理器会先在当前目录中寻找该文件，若当前目录中不包含该文件，再到预定义的缺省路径下寻找文件。
+\end{frame}
+
+\begin{frame}[fragile]\ft{\secname}
+2、 使用define定义一个常数时，预处理会在程序中将宏名替换成表达式。例如，下面的程序中MAX定义为100。
+\end{frame}
+
+\begin{frame}[fragile]\ft{\secname}
+\lstinputlisting[language=c,numbers=left,frame=single]
+{ch02/code/macro02.c}
+\pause
+\begin{lstlisting}[backgroundcolor=\color{red!10}]
+Output: max is 100
+\end{lstlisting}
+
+\end{frame}
+
+\begin{frame}[fragile]\ft{\secname}
+3、宏允许写成函数的形式，其中的变量不检查数据类型。如下面的程序中，宏{\tf INCREMENT(x)}可用于任意类型的{\tf x}。
+\end{frame}
+
+\begin{frame}[fragile]\ft{\secname}
+\lstinputlisting[language=c,numbers=left,frame=single]
+{ch02/code/macro03.c}
+\pause
+\begin{lstlisting}[backgroundcolor=\color{red!10}]
+elloWorld 11
+\end{lstlisting}
+\end{frame}
+
+\begin{frame}[fragile]\ft{\secname}
+4、宏变量在宏展开之前不会被计算。
+\end{frame}
+
+\begin{frame}[fragile]\ft{\secname}
+\lstinputlisting[language=c,numbers=left,frame=single]
+{ch02/code/macro04.c}
+\pause 
+\begin{lstlisting}[backgroundcolor=\color{red!10}]
+16
+\end{lstlisting}
+\end{frame}
+
+\begin{frame}[fragile]\ft{\secname}
+5、 可使用{\tf \#\#}运算符将几个宏变量连接在一起。
+\end{frame}
+
+\begin{frame}[fragile]\ft{\secname}\lstinputlisting[language=c,numbers=left,frame=single]
+{ch02/code/macro05.c}
+\pause
+\begin{lstlisting}[backgroundcolor=\color{red!10}]
+1234
+\end{lstlisting}
+\end{frame}
+
+\begin{frame}[fragile]\ft{\secname}
+6、 可使用{\tf \#}运算符将标识符转换为字符串字面值。
+\end{frame}
+
+\begin{frame}[fragile]\ft{\secname}\lstinputlisting[language=c,numbers=left,frame=single]
+{ch02/code/macro06.c}
+\pause 
+\begin{lstlisting}[backgroundcolor=\color{red!10}]
+HelloWorld
+\end{lstlisting}
+\end{frame}
+
+\begin{frame}[fragile]\ft{\secname}
+7、 可用‘{$\backslash$}’将宏写成多行，但最后一行不需要‘{$\backslash$}’。
+\end{frame}
+
+\begin{frame}[fragile]\ft{\secname}
+\lstinputlisting[language=c,numbers=left,frame=single]
+{ch02/code/macro07.c}
+\end{frame}
+
+\begin{frame}[fragile]\ft{\secname}
+\begin{lstlisting}[backgroundcolor=\color{red!10}]
+HelloWorld  HelloWorld  HelloWorld
+\end{lstlisting}
+\end{frame}
+
+\begin{frame}[fragile]\ft{\secname}
+8、 使用带参量的宏需要谨慎。
+%%The macros with arguments should be avoided as they cause problems sometimes. And Inline functions should be preferred as there is type checking parameter evaluation in inline functions. From C99 onward, inline functions are supported by C language also.
+%%For example consider the following program. From first look the output seems to be 1, but it produces 36 as output.
+\end{frame}
+
+\begin{frame}[fragile]\ft{\secname}\lstinputlisting[language=c,numbers=left,frame=single]
+{ch02/code/macro08.c}
+\pause 
+\begin{lstlisting}[backgroundcolor=\color{red!10}]
+x = 36
+\end{lstlisting}
+%%If we use inline functions, we get the expected output. Also the program given in point 4 above can be corrected using inline functions.
+%%\begin{lstlisting}[backgroundcolor=\color{red!10}]
+%%inline int square(int x) { return x*x; }
+%%int main()
+%%{
+%%  int x = 36/square(6);
+%%  printf("%d", x);
+%%  return 0;
+%%}
+%%\end{lstlisting}
+%%\begin{lstlisting}[backgroundcolor=\color{red!10}]
+%%Output: 1
+%%\end{lstlisting}
+\end{frame}
+
+\begin{frame}[fragile]\ft{\secname}
+9、预处理器也支持if-else指令，通常用于条件编译。
+\end{frame}
+
+\begin{frame}[fragile]\ft{\secname}
+\lstinputlisting[language=c,numbers=left,frame=single]
+{ch02/code/macro09.c}
+\pause 
+\begin{lstlisting}[backgroundcolor=\color{red!10}]
+Trace Message!
+\end{lstlisting}
+%%\item A header file may be included more than one time directly or indirectly, this leads to problems of redeclaration of same variables/functions. To avoid this problem, directives like defined, ifdef and ifndef are used.
+\end{frame}
+
+\begin{frame}[fragile]\ft{\secname}
+10、可用标准宏{\tf $\_\_$FILE$\_\_$}打印程序名、{\tf $\_\_$DATE$\_\_$}打印编译日期、{\tf$\_\_$TIME$\_\_$}打印编译时间、{\tf $\_\_$LINE$\_\_$}打印C代码的行数。
+\end{frame}
+
+\begin{frame}[fragile]\ft{\secname}\lstinputlisting[language=c,numbers=left,frame=single]
+{ch02/code/macro10.c}
+\end{frame}
+
+\begin{frame}[fragile]\ft{\secname} 
+\begin{lstlisting}[backgroundcolor=\color{red!10}]
+Current File: macro10.c
+Current Date: Feb 27 2017
+Current Time: 21:02:36
+Line  Number: 8 
+\end{lstlisting}
+\end{frame}

@@ -1,0 +1,96 @@
+\section{数组}
+\begin{frame}[fragile]\ft{\secname}
+数组是线性存储的一系列相同类型的值。
+
+整个数组有一个单一的名字，每个元素使用一个整数索引来进行访问。
+\end{frame}
+
+\begin{frame}[fragile]\ft{\secname：声明}
+\begin{lstlisting}[language=c,backgroundcolor=\color{red!10}]
+float debts[20];
+\end{lstlisting}
+
+\begin{itemize}
+\item
+声明 \lstinline|debts| 是一个具有20个元素的数组，每个元素都是一个类型为 \lstinline|float| 的值。\\[0.1in]
+\item
+该数组的第一个元素为 \lstinline|debts[0]|，第二个元素为 \lstinline|debts[1]|，...。\\[0.1in]
+\item
+\red{数组元素的编号从零开始}。\\[0.1in]
+\item 每个元素都可以被赋予一个 \lstinline|float| 类型的值。
+\begin{lstlisting}[language=c,backgroundcolor=\color{red!10}]
+debts[3] = 2.;
+debts[7] = 1.2e+10;
+\end{lstlisting}
+\end{itemize}
+\end{frame}
+
+\begin{frame}[fragile]\ft{\secname}
+\begin{itemize}
+\item
+可以像使用相同类型的变量那样使用一个数组元素。例如，你可以把一个值读入一个特定的元素：
+\begin{lstlisting}
+scanf("%d", &debts[4]); // `为第5个元素读入一个值`
+\end{lstlisting} 
+\end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]\ft{\secname}
+\begin{itemize}
+\item
+易犯的错误：处于执行速度的考虑，C并不检查你是否使用了正确的下标。如
+\begin{lstlisting}
+debts[20] = 11.0;  // `没有这个数组元素`
+debts[31] = 22.22; // `没有这个数组元素`
+\end{lstlisting}
+但编译器不会报错。当程序运行时，这些语句把数据放在可能由其他数据使用的位置上，因而可能破坏程序的结果甚至是程序崩溃。
+\end{itemize}
+\end{frame}
+
+\begin{frame}[fragile]\ft{\secname}
+\begin{itemize}
+\item
+数组可以是任意数据类型。
+\begin{lstlisting}
+int num[10];  // `一个存放10个整数的数组`
+char ch[20];  // `一个存放20个字符的数组`
+double a[40]; // `一个存放40个double值的数组`
+\end{lstlisting}
+特别地，字符串就是一个字符数组。
+\end{itemize}
+\end{frame}
+
+\begin{frame}[fragile]\ft{\secname}
+\begin{itemize}
+\item
+用于标识数组元素的数字称为下标(subscript)、索引(index)或偏移量(offset)。
+\\[0.1in]
+\item 下标必须是整数，它从0开始。\\[0.1in]
+\item 数组中的元素在内存中是顺序存储的。
+\end{itemize}
+\end{frame}
+
+\begin{frame}[fragile]\ft{在for循环中使用数组}
+\begin{li}
+读入你5天运动的步数，然后进行处理，最后报告步数的总和、平均值和差点（平均值与标志值之间的差）。
+\end{li}
+\end{frame}
+
+
+\begin{frame}[fragile,allowframebreaks]\ft{\secname}
+\lstinputlisting[numbers=left]{ch06/code/scores.c}
+\end{frame}
+
+
+\begin{frame}[fragile]\ft{\secname}
+  \begin{lstlisting}
+Enter steps of 5 days:
+9999 9995 11000 12012 11145 95667
+The steps read in are as follows:
+   9999   9995  11000  12012  11145
+Sum of steps = 54151, average = 10830.20
+That's a handicap of 830.
+\end{lstlisting}
+\end{frame}
+ 

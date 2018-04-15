@@ -1,0 +1,109 @@
+\section{上机操作}
+
+\subsection{打印字符串}
+\begin{frame}[fragile]\ft{\subsecname}
+\begin{enumerate}\setcounter{enumi}{0} 
+\item 编写程序，输入名和姓，然后以“名, 姓”的格式打印。
+\end{enumerate}
+
+\begin{lstlisting}
+Xiaoping Zhang
+\end{lstlisting}
+\end{frame}
+
+
+\begin{frame}[fragile]\ft{\subsecname}
+\begin{enumerate}\setcounter{enumi}{1} 
+\item 编写程序，输入名字，并执行以下操作：\\[0.05in]
+\begin{itemize}
+\item 把名字括在双引号中打印出来\\[0.1in]
+\item 在宽度为20个字符的字段内打印名字，并且整个字段括在引号内\\[0.1in]
+\item 在宽度为20个字符的字段的左端打印名字，并且整个字段括在引号内\\[0.1in]
+\item 在比名字宽3个字符的字段内打印它。
+\end{itemize}
+\end{enumerate}
+
+\begin{lstlisting}[showspaces=true]
+"Xiaoping"
+"            Xiaoping"
+"Xiaoping            "
+"   Xiaoping"
+\end{lstlisting}
+\end{frame}
+
+\subsection{打印整型数和浮点数}
+\begin{frame}[fragile]\ft{\subsecname}
+\begin{enumerate}\setcounter{enumi}{2} 
+\item 编写程序，读取一点浮点数，以如下方式打印：
+\begin{lstlisting}[showspaces=true]
+a. The input is 21.3 or 2.1e+001
+b. The input is +21.290 or 2.129E+001
+\end{lstlisting}
+\end{enumerate}
+\end{frame}
+
+
+\begin{frame}[fragile]\ft{\subsecname}
+\begin{enumerate}\setcounter{enumi}{3} 
+\item 编写程序，要求输入身高(以cm为单位)和名字，然后以如下形式显示：
+\begin{lstlisting}[showspaces=true]
+Xiaoping, you are 1.70m tall.
+\end{lstlisting}
+使用float类型，使用/作为除号。
+\end{enumerate}
+\end{frame}
+
+
+\begin{frame}[fragile]\ft{\subsecname}
+\begin{enumerate}\setcounter{enumi}{4} 
+\item 编写程序，首先输入名字，然后输入姓氏。在一行打印输入的姓名，在下一行打印每个名字中字母的个数，把字母个数与相应名字的结尾对齐。以如下形式显示：
+\begin{lstlisting}[showspaces=true]
+Xiaoping Zhang
+       8     5
+\end{lstlisting}
+然后打印相同的信息，但是字母个数与相应单词的开始对齐。
+\end{enumerate}
+\end{frame}
+
+
+\begin{frame}[fragile]\ft{\subsecname}
+\begin{enumerate}\setcounter{enumi}{5} 
+\item 编写程序，设置一个值为1.0/3.0的double类型变量和一个值为1.0/3.0的float类型变量。每个变量的值显示三次：\\[0.05in]
+\begin{itemize}
+\item 一次在小数点后显示4位；\\[0.1in]
+\item 一次在小数点后显示12位；\\[0.1in]
+\item 一次在小数点后显示16位。\\[0.05in]
+\end{itemize}
+同时让程序包含float.h文件，并显示FLT\_DIG和DBL\_DIG的值。
+
+\end{enumerate}
+\end{frame}
+
+\subsection{打印表格}
+\begin{frame}\ft{\subsecname}
+\begin{enumerate}\setcounter{enumi}{6} 
+\item 编写程序，输入一些学生的姓名及数学、物理和化学成绩，并以表格的形式输出，其中需要统计他们的平均成绩。
+\end{enumerate}
+\end{frame}
+
+\begin{frame}[fragile]\ft{\subsecname}
+\begin{lstlisting}[frame=no,basicstyle=\ttfamily\footnotesize]
+Enter the info including names and scores (enter q to quit): 
+First name: San
+Last name: Zhang
+Math: 90
+Phys: 80
+Chem: 91
+
+First name: Si
+Last name: Li
+Math: 88
+Phys: 90
+Chem: 82
+
+First name: q
+       Name     Math     Phys     Chem  Average
+  San Zhang       90       80       91     87.0
+   Si Li          88       90       82     86.7
+\end{lstlisting}
+\end{frame}

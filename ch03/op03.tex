@@ -1,0 +1,117 @@
+
+\section{\lstinline|limits.h|的使用}
+\begin{frame} \ft{\secname}
+limits.h头文件中确定了char、int和long等类型的各种属性。
+\end{frame}
+
+\begin{frame}\ft{\secname}
+\begin{biancheng} 
+编制程序，显示char、int和long等类型的各种属性。
+\end{biancheng}
+\end{frame}
+
+\begin{frame}[fragile,allowframebreaks]\ft{\secname}
+\lstinputlisting{ch03/code/ex01.c}
+\end{frame}
+
+
+\section{\lstinline|float.h|的使用}
+\begin{frame}\ft{\secname}
+\begin{biancheng} 
+编写程序，查看float、double和long double数据的字节大小、表示范围以及精度。
+\end{biancheng}
+\end{frame}
+
+\begin{frame}[fragile,allowframebreaks]\ft{\secname}
+\lstinputlisting{ch03/code/ex02.c}
+\end{frame}
+
+\section{\lstinline|sizeof|运算符的使用}
+\begin{frame}\ft{\secname}
+  \begin{itemize}
+  \item \lstinline|sizeof|是运算符，不是函数。 \\[.1in]
+  \item [] 
+    虽然我们习惯写成\lstinline|sizeof()|的形式，但\lstinline|()|并不是必须的，它只是表示优先级。\\[.1in]
+  \item [] 约定\lstinline|sizeof|后面的目标叫\lstinline|sizeof|对象。
+  \end{itemize}
+\end{frame}
+
+\begin{frame}[fragile]\ft{\secname}
+  \begin{itemize}
+  \item 若\lstinline|sizeof|对象是表达式，则它求的是该表达式的值的类型大小。如
+\begin{lstlisting}
+char c = 1;
+int i = 2;
+cout << sizeof(c + i) << endl;
+cout << sizeof(c = c + i) << endl;
+\end{lstlisting}  
+\item 若\lstinline|sizeof|对象是函数，求的则是函数返回值的类型大小。  
+  \end{itemize}
+\end{frame}
+
+
+\begin{frame}[fragile]\ft{\secname}
+  \lstinputlisting{ch03/code/sizeof_a_function.c}
+\end{frame}
+
+\begin{frame}[fragile]\ft{\secname}
+\begin{itemize}
+  \item 若\lstinline|sizeof|对象是数组，则求的是数组总大小；\\[.1in]
+  \item 若\lstinline|sizeof|对象是指针，则求的是指针本身的大小，而不是所指向的内存空间的大小。\\[.1in]
+  \item 当数组名作为实参传入函数时，会自动转化为指针类型。
+  \end{itemize}
+\end{frame}
+
+\begin{frame}[fragile]\ft{\secname}
+  \lstinputlisting{ch03/code/sizeof_array_and_pointer.c}
+\end{frame}
+
+\section{上溢与下溢}
+\begin{frame}\ft{\secname}
+\begin{biancheng} 
+编写程序观察系统整型数上溢和下溢的情况。
+\end{biancheng}
+\end{frame}
+
+\begin{frame}\ft{\secname}
+\begin{biancheng} 
+编写程序观察系统浮点数上溢和浮点数下溢的情况。
+\end{biancheng}
+\end{frame}
+
+
+
+
+\section{\lstinline|char|型数据的打印}
+\begin{frame}\ft{\secname}
+\begin{biancheng} 
+编写一个程序，输入一个ASCII码值，然后输出相应的字符。
+\end{biancheng}
+\end{frame}
+
+
+\section{\lstinline|float|型数据的打印}
+\begin{frame}[fragile]\ft{\secname}
+\begin{biancheng} 
+编写一个程序，读入一个浮点数，并分别以小数形式和指数形式打印。
+输出应如同下面格式：
+\begin{lstlisting}
+The input is 21.290000 or 2.129000e+001.
+\end{lstlisting}
+\end{biancheng}
+\end{frame}
+
+
+\begin{frame}[fragile]\ft{\secname}
+\begin{biancheng} 
+一年约有$1.156\times 10^7$秒。编写一个程序，要求输入您的年龄，然后显示该年龄有多少秒。
+\end{biancheng}
+\end{frame}
+
+
+\begin{frame}[fragile]\ft{\secname}
+\begin{biancheng} 
+编写一个程序，输入圆的半径，然后显示圆的面积和周长。
+\end{biancheng}
+\end{frame}
+

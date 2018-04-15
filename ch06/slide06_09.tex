@@ -1,0 +1,62 @@
+\section{选择哪种循环}
+\begin{frame}[fragile]\ft{\secname}
+先确定是入口条件循环还是退出条件循环。通常采用入口条件循环，原因在于
+
+\begin{itemize}
+\item
+一般原则：在循环之前判断要比之后好；\\[0.1in]
+\item 
+在循环开始时进行判断，程序的可读性更强；\\[0.1in]
+\item
+很多应用中，若一开始就不满足判断条件，那么跳过整个循环是非常重要的。
+\end{itemize}
+\end{frame}
+
+\begin{frame}[fragile]\ft{\secname}
+要使for循环更像while循环，可以去掉第一个和第三个表达式：
+\begin{lstlisting}
+for (; condition; )
+\end{lstlisting}
+与
+\begin{lstlisting}
+while (condition)
+\end{lstlisting}
+等效。
+\end{frame}
+
+\begin{frame}[fragile]\ft{\secname}
+要使while循环更像for循环，可以在前面使用初始化语句并包含更新语句：
+\begin{lstlisting}
+initialization;
+while (condition) {
+  body;
+  update;
+}
+\end{lstlisting}
+与
+\begin{lstlisting}
+for (initialization; condition; update){
+  body;
+}
+\end{lstlisting}
+等效。
+\end{frame}
+
+\begin{frame}[fragile]\ft{\secname}
+\begin{itemize}
+\item 在循环中涉及到初始化和更新变量时，使用for循环较为适当，而在其他条件下使用while循环更好一些。while循环对以下条件比较自然：
+\begin{lstlisting}
+while (scanf("%ld", &num) == 1){
+  ...
+}
+\end{lstlisting}
+
+\item 对那些涉及到用索引计数的循环，使用for循环是一个更自然的选择。
+\begin{lstlisting}
+for (count = 1; count <= 100; count++){
+  ...
+}
+\end{lstlisting}
+\end{itemize}
+
+\end{frame}

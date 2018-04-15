@@ -1,0 +1,36 @@
+\documentclass{article}
+\usepackage[UTF8,noindent]{ctex}
+\input{../../asset/global_usepackage.tex}
+
+\pgfrealjobname{survey}
+\begin{document}
+\beginpgfgraphicnamed{var_def_and_init}
+    \begin{tikzpicture}
+      \def\x{1}
+      \def\d{0}
+      \draw[thick,fill=gray!20] (0,\d)rectangle(5*\x,\d+0.5*\x);
+      \draw(2*\x,\d+0)--(2*\x,\d+0.5*\x);
+      \draw(3*\x,\d+0)--(3*\x,\d+0.5*\x);
+      \node at (2.5*\x,\d) [below] {\lstinline|b|}; 
+      \node at (2.5*\x,\d+0.25*\x) [] {\lstinline|2|}; 
+      \coordinate (b) at (-4*\x,\d);
+      \node at (b)  [above]{\lstinline|int b=2;|};
+      \draw[thick,->,>=stealth] (b) -- ++(0,-\x) -- 
+      node[above]{\footnotesize{分配存储空间并赋值}}
+      ++(6.5*\x,0) -- ++(0,0.5*\x);
+
+      \def\d{2*\x}
+      \draw[thick,fill=gray!20] (0,\d)rectangle(5*\x,\d+0.5*\x);
+      \draw(2*\x,\d+0)--(2*\x,\d+0.5*\x);
+      \draw(3*\x,\d+0)--(3*\x,\d+0.5*\x);
+      \node at (2.5*\x,\d) [below] {\lstinline|a|}; 
+      \coordinate (a) at (-4*\x,\d);
+      \node at (a)  [above]{\lstinline|int a;|};
+      \draw[thick,->,>=stealth] (a) -- ++(0,-\x) -- 
+      node[above]{\footnotesize{分配存储空间}}
+      ++(6.5*\x,0) -- ++(0,0.5*\x);
+    \end{tikzpicture}
+\endpgfgraphicnamed  
+\end{document}
+
+

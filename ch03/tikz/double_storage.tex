@@ -1,0 +1,26 @@
+\begin{tikzpicture}[scale=0.95]
+\tikzstyle{bracket} = [decoration={brace,amplitude=1em},decorate,thick,black]
+\def\x{0.18}
+
+\draw[fill=blue!20] (0,0)rectangle(-64*\x,2*\x);
+\draw (-52*\x,0)--(-52*\x,2*\x);
+\draw (-63*\x,0)--(-63*\x,2*\x);
+\node at (-26*\x,\x) [] {\footnotesize{52}};
+\node at (-57.5*\x,\x) [] {\footnotesize{11}};
+\node at (-63.5*\x,\x) [] {\footnotesize{1}};
+%%%% 刻度
+\draw (-64*\x,-0.2)--(0*\x,-0.2);
+\foreach \i in {0,-1,...,-64}
+\draw (\i*\x,-0.2)--(\i*\x,-0.1);
+
+\node at (-0.5*\x,-0.2) [below] {\footnotesize{0}};
+\node at (-51.5*\x,-0.2) [below] {\footnotesize{51}};
+\node at (-62.5*\x,-0.2) [below] {\footnotesize{62}};
+
+\draw[->,red] (-63.5*\x,-1) node[below]{\footnotesize{符号位}}--(-63.5*\x,-0.2);
+\draw[->,red] (-57.5*\x,-1) node[below]{\footnotesize{指数位}}--(-57.5*\x,-0.2);
+\draw[->,red] (-26.5*\x,-1) node[below]{\footnotesize{尾数部分}}--(-26.5*\x,-0.2);
+\draw [bracket] (-64*\x,2*\x)--node[above=1em]{\footnotesize{64位}}(0*\x,2*\x);
+
+
+\end{tikzpicture}

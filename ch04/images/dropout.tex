@@ -1,0 +1,58 @@
+\documentclass{article}
+\input{../../asset/global_usepackage.tex}
+
+\pgfrealjobname{survey}
+\begin{document}
+\begin{CJK}{UTF8}{gkai} 
+  \beginpgfgraphicnamed{dropout}
+\begin{tikzpicture}
+\def\x{0.37}
+\foreach \i in {0,1,...,28}{
+	\draw[fill=gray!10] (\i*\x,0)rectangle(\i*\x+\x,\x);
+	\ifthenelse{\i=0} {\node at (\i*\x+0.5*\x,0) [above]{O};}{}
+	\ifthenelse{\i=1} {\node at (\i*\x+0.5*\x,0) [above]{n};}{}
+	\ifthenelse{\i=2} {\node at (\i*\x+0.5*\x,0) [above]{c};}{}
+	\ifthenelse{\i=3} {\node at (\i*\x+0.5*\x,0) [above]{e};}{}
+	\ifthenelse{\i=4} {
+		\node at (\i*\x+0.5*\x,0) [above]{ };
+		\draw[->,>=stealth,very thick](\i*\x+0.5*\x,-1.2*\x)--(\i*\x+0.5*\x,0);
+		\node at (\i*\x+0.5*\x,-2*\x){每个单元占1个字节};
+		
+	}{}
+	\ifthenelse{\i=5} {\node at (\i*\x+0.5*\x,0) [above]{m};}{}
+	\ifthenelse{\i=6} {\node at (\i*\x+0.5*\x,0) [above]{o};}{}
+	\ifthenelse{\i=7} {\node at (\i*\x+0.5*\x,0) [above]{r};}{}
+	\ifthenelse{\i=8} {\node at (\i*\x+0.5*\x,0) [above]{e};}{}
+	\ifthenelse{\i=9} {\node at (\i*\x+0.5*\x,0) [above]{ };}{}
+	\ifthenelse{\i=10}{\node at (\i*\x+0.5*\x,0.4*\x) []{y};}{}
+	\ifthenelse{\i=11}{\node at (\i*\x+0.5*\x,0) [above]{o};}{}
+	\ifthenelse{\i=12}{\node at (\i*\x+0.5*\x,0) [above]{u};}{}
+	\ifthenelse{\i=13}{\node at (\i*\x+0.5*\x,0) [above]{ };}{}
+	\ifthenelse{\i=14}{\node at (\i*\x+0.5*\x,0) [above]{o};}{}
+	\ifthenelse{\i=15}{\node at (\i*\x+0.5*\x,0.4*\x) []{p};}{}
+	\ifthenelse{\i=16}{\node at (\i*\x+0.5*\x,0) [above]{e};}{}
+	\ifthenelse{\i=17}{\node at (\i*\x+0.5*\x,0) [above]{n};}{}
+	\ifthenelse{\i=18}{\node at (\i*\x+0.5*\x,0) [above]{ };}{}
+	\ifthenelse{\i=19}{\node at (\i*\x+0.5*\x,0) [above]{t};}{}
+	\ifthenelse{\i=20}{\node at (\i*\x+0.5*\x,0) [above]{h};}{}
+	\ifthenelse{\i=21}{\node at (\i*\x+0.5*\x,0) [above]{e};}{}
+	\ifthenelse{\i=22}{\node at (\i*\x+0.5*\x,0) [above]{ };}{}
+	\ifthenelse{\i=23}{\node at (\i*\x+0.5*\x,0) [above]{d};}{}
+	\ifthenelse{\i=24}{\node at (\i*\x+0.5*\x,0) [above]{o};}{}
+	\ifthenelse{\i=25}{\node at (\i*\x+0.5*\x,0) [above]{o};}{}
+	\ifthenelse{\i=26}{\node at (\i*\x+0.5*\x,0) [above]{r};}{}
+	\ifthenelse{\i=27}{\node at (\i*\x+0.5*\x,0) [above]{!};}{}
+	
+	\ifthenelse{\i=28}{
+		\node at (\i*\x+0.5*\x,0) [above]{$\backslash$0};
+		\draw[->,>=stealth,very thick](\i*\x+0.5*\x,-1.2*\x)--(\i*\x+0.5*\x,0);
+		\node at (\i*\x+0.5*\x,-2*\x){空字符};
+	}{}
+\end{tikzpicture}
+
+  \endpgfgraphicnamed  
+\end{CJK}
+
+\end{document}
+
+
